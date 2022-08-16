@@ -1,4 +1,4 @@
-.class Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;
+.class public final Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;
 .super Ljava/lang/Object;
 .source "PreferenceGroupAdapter.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "PreferenceResourceDescriptor"
 .end annotation
 
 
 # instance fields
-.field mClassName:Ljava/lang/String;
+.field public mClassName:Ljava/lang/String;
 
-.field mLayoutResId:I
+.field public mLayoutResId:I
 
-.field mWidgetLayoutResId:I
+.field public mWidgetLayoutResId:I
 
 
 # direct methods
-.method constructor <init>(Landroidx/preference/Preference;)V
+.method public constructor <init>(Landroidx/preference/Preference;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,15 +38,11 @@
 
     iput-object v0, p0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mClassName:Ljava/lang/String;
 
-    invoke-virtual {p1}, Landroidx/preference/Preference;->getLayoutResource()I
-
-    move-result v0
+    iget v0, p1, Landroidx/preference/Preference;->mLayoutResId:I
 
     iput v0, p0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mLayoutResId:I
 
-    invoke-virtual {p1}, Landroidx/preference/Preference;->getWidgetLayoutResource()I
-
-    move-result p1
+    iget p1, p1, Landroidx/preference/Preference;->mWidgetLayoutResId:I
 
     iput p1, p0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mWidgetLayoutResId:I
 
@@ -55,7 +51,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 3
 
     instance-of v0, p1, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;
@@ -97,7 +93,7 @@
     return v1
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget v0, p0, Landroidx/preference/PreferenceGroupAdapter$PreferenceResourceDescriptor;->mLayoutResId:I
@@ -120,7 +116,7 @@
 
     move-result p0
 
-    add-int/2addr v1, p0
+    add-int/2addr p0, v1
 
-    return v1
+    return p0
 .end method

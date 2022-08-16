@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field myConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
+.field public myConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
 
 
 # direct methods
@@ -21,7 +21,11 @@
 
     invoke-direct {p0, p1, p2}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    invoke-direct {p0, p2}, Landroidx/constraintlayout/widget/Constraints;->init(Landroid/util/AttributeSet;)V
+    const-string p1, "Constraints"
+
+    const-string p2, " ################# init"
+
+    invoke-static {p1, p2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     const/16 p1, 0x8
 
@@ -30,31 +34,9 @@
     return-void
 .end method
 
-.method private init(Landroid/util/AttributeSet;)V
-    .locals 0
-
-    const-string p0, "Constraints"
-
-    const-string p1, " ################# init"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
 
 # virtual methods
-.method protected bridge synthetic generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .locals 0
-
-    invoke-virtual {p0}, Landroidx/constraintlayout/widget/Constraints;->generateDefaultLayoutParams()Landroidx/constraintlayout/widget/Constraints$LayoutParams;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected generateDefaultLayoutParams()Landroidx/constraintlayout/widget/Constraints$LayoutParams;
+.method public final generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
     .locals 1
 
     new-instance p0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;
@@ -66,27 +48,7 @@
     return-object p0
 .end method
 
-.method public bridge synthetic generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/constraintlayout/widget/Constraints;->generateLayoutParams(Landroid/util/AttributeSet;)Landroidx/constraintlayout/widget/Constraints$LayoutParams;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
-    .locals 0
-
-    new-instance p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
-
-    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-object p0
-.end method
-
-.method public generateLayoutParams(Landroid/util/AttributeSet;)Landroidx/constraintlayout/widget/Constraints$LayoutParams;
+.method public final generateLayoutParams(Landroid/util/AttributeSet;)Landroid/view/ViewGroup$LayoutParams;
     .locals 1
 
     new-instance v0, Landroidx/constraintlayout/widget/Constraints$LayoutParams;
@@ -100,30 +62,17 @@
     return-object v0
 .end method
 
-.method public getConstraintSet()Landroidx/constraintlayout/widget/ConstraintSet;
-    .locals 1
+.method public final generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
+    .locals 0
 
-    iget-object v0, p0, Landroidx/constraintlayout/widget/Constraints;->myConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
+    new-instance p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroidx/constraintlayout/widget/ConstraintSet;
-
-    invoke-direct {v0}, Landroidx/constraintlayout/widget/ConstraintSet;-><init>()V
-
-    iput-object v0, p0, Landroidx/constraintlayout/widget/Constraints;->myConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
-
-    :cond_0
-    iget-object v0, p0, Landroidx/constraintlayout/widget/Constraints;->myConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
-
-    invoke-virtual {v0, p0}, Landroidx/constraintlayout/widget/ConstraintSet;->clone(Landroidx/constraintlayout/widget/Constraints;)V
-
-    iget-object p0, p0, Landroidx/constraintlayout/widget/Constraints;->myConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
+    invoke-direct {p0, p1}, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-object p0
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 0
 
     return-void

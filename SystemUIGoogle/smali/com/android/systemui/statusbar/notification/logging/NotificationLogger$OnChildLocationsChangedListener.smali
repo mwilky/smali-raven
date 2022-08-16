@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnChildLocationsChangedListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onChildLocationsChanged()V
-.end method

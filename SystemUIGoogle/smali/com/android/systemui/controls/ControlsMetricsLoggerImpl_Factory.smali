@@ -32,44 +32,14 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/controls/ControlsMetricsLoggerImpl_Factory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/controls/ControlsMetricsLoggerImpl_Factory$InstanceHolder;->access$000()Lcom/android/systemui/controls/ControlsMetricsLoggerImpl_Factory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static newInstance()Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;
-
-    invoke-direct {v0}, Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;-><init>()V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/controls/ControlsMetricsLoggerImpl_Factory;->newInstance()Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;
+    new-instance p0, Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;
 
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ControlsMetricsLoggerImpl_Factory;->get()Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;
-
-    move-result-object p0
+    invoke-direct {p0}, Lcom/android/systemui/controls/ControlsMetricsLoggerImpl;-><init>()V
 
     return-object p0
 .end method

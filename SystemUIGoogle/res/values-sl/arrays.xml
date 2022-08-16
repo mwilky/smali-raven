@@ -17,6 +17,7 @@
         <item>Največ 3 postopki</item>
         <item>Največ 4 postopki</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -140,7 +141,7 @@
         <item>Standardno</item>
     </string-array>
     <string-array name="debug_hw_overdraw_entries">
-        <item>Izklop</item>
+        <item>Izklopljeno</item>
         <item>Pokaži risanje zunaj vidnega območja</item>
         <item>Pokaži območja za devteranomalijo</item>
     </string-array>
@@ -260,6 +261,11 @@
         <item>Izklopljeno</item>
         <item>Vklopljeno</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Ni na voljo</item>
+        <item>Izklopljeno</item>
+        <item>Vklopljeno</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Ni na voljo</item>
         <item>Izklopljeno</item>
@@ -306,6 +312,16 @@
         <item>Vklopljeno</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Ni na voljo</item>
+        <item>Izklopljeno</item>
+        <item>Vklopljeno</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Ni na voljo</item>
+        <item>Izklopljeno</item>
+        <item>Vklopljeno</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Ni na voljo</item>
         <item>Izklopljeno</item>
         <item>Vklopljeno</item>
@@ -374,6 +390,12 @@
         <item>Naglo</item>
         <item>Zelo naglo</item>
         <item>Najhitreje</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Premik levo</item>
+        <item>Premik navzdol</item>
+        <item>Premik desno</item>
+        <item>Premik navzgor</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Polnjenje</item>

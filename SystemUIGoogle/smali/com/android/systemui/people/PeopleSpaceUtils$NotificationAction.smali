@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
 .field public static final enum POSTED:Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
@@ -31,51 +31,46 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 5
 
     new-instance v0, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
-    const-string v1, "POSTED"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "POSTED"
 
-    invoke-direct {v0, v1, v2}, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;->POSTED:Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
-    new-instance v1, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
+    new-instance v2, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
-    const-string v3, "REMOVED"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "REMOVED"
 
-    invoke-direct {v1, v3, v4}, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;->REMOVED:Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
+    sput-object v2, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;->REMOVED:Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    new-array v3, v3, [Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
+    new-array v4, v4, [Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
-    aput-object v0, v3, v2
+    aput-object v0, v4, v1
 
-    aput-object v1, v3, v4
+    aput-object v2, v4, v3
 
-    sput-object v3, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;->$VALUES:[Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
+    sput-object v4, Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;->$VALUES:[Lcom/android/systemui/people/PeopleSpaceUtils$NotificationAction;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

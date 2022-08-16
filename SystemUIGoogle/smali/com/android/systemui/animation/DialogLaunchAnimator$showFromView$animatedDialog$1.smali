@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -28,11 +28,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/animation/DialogLaunchAnimator;
+.field public final synthetic this$0:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/animation/DialogLaunchAnimator;)V
+.method public constructor <init>(Lcom/android/systemui/animation/DialogLaunchAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/DialogLaunchAnimator$showFromView$animatedDialog$1;->this$0:Lcom/android/systemui/animation/DialogLaunchAnimator;
@@ -46,32 +46,18 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Lcom/android/systemui/animation/AnimatedDialog;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/animation/DialogLaunchAnimator$showFromView$animatedDialog$1;->invoke(Lcom/android/systemui/animation/AnimatedDialog;)V
+    iget-object p0, p0, Lcom/android/systemui/animation/DialogLaunchAnimator$showFromView$animatedDialog$1;->this$0:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    iget-object p0, p0, Lcom/android/systemui/animation/DialogLaunchAnimator;->openedDialogs:Ljava/util/HashSet;
+
+    invoke-virtual {p0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
     sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p0
-.end method
-
-.method public final invoke(Lcom/android/systemui/animation/AnimatedDialog;)V
-    .locals 1
-
-    const-string v0, "it"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/animation/DialogLaunchAnimator$showFromView$animatedDialog$1;->this$0:Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    invoke-static {p0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->access$getOpenedDialogs$p(Lcom/android/systemui/animation/DialogLaunchAnimator;)Ljava/util/HashSet;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
-
-    return-void
 .end method

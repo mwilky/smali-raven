@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final accessPointControllerProvider:Ljavax/inject/Provider;
+.field public final accessPointControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final carrierConfigTrackerProvider:Ljavax/inject/Provider;
+.field public final carrierConfigTrackerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final connectivityManagerProvider:Ljavax/inject/Provider;
+.field public final connectivityManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+.field public final dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final globalSettingsProvider:Ljavax/inject/Provider;
+.field public final globalSettingsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final handlerProvider:Ljavax/inject/Provider;
+.field public final handlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +108,7 @@
     .end annotation
 .end field
 
-.field private final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+.field public final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -118,7 +118,7 @@
     .end annotation
 .end field
 
-.field private final locationControllerProvider:Ljavax/inject/Provider;
+.field public final locationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -128,7 +128,7 @@
     .end annotation
 .end field
 
-.field private final mainExecutorProvider:Ljavax/inject/Provider;
+.field public final mainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -138,7 +138,7 @@
     .end annotation
 .end field
 
-.field private final starterProvider:Ljavax/inject/Provider;
+.field public final starterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -148,7 +148,7 @@
     .end annotation
 .end field
 
-.field private final subscriptionManagerProvider:Ljavax/inject/Provider;
+.field public final subscriptionManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -158,7 +158,7 @@
     .end annotation
 .end field
 
-.field private final telephonyManagerProvider:Ljavax/inject/Provider;
+.field public final telephonyManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -168,7 +168,7 @@
     .end annotation
 .end field
 
-.field private final toastFactoryProvider:Ljavax/inject/Provider;
+.field public final toastFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -178,7 +178,7 @@
     .end annotation
 .end field
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -188,7 +188,7 @@
     .end annotation
 .end field
 
-.field private final wifiManagerProvider:Ljavax/inject/Provider;
+.field public final wifiManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -198,7 +198,17 @@
     .end annotation
 .end field
 
-.field private final windowManagerProvider:Ljavax/inject/Provider;
+.field public final wifiStateWorkerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/dialog/WifiStateWorker;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final windowManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -208,7 +218,7 @@
     .end annotation
 .end field
 
-.field private final workerHandlerProvider:Ljavax/inject/Provider;
+.field public final workerHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -220,7 +230,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -284,6 +294,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/dialog/WifiStateWorker;",
             ">;)V"
         }
     .end annotation
@@ -372,11 +385,15 @@
 
     iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
 
+    move-object/from16 v1, p21
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->wifiStateWorkerProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
-    .locals 22
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
+    .locals 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -439,6 +456,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/dialog/WifiStateWorker;",
             ">;)",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;"
         }
@@ -484,71 +504,21 @@
 
     move-object/from16 v20, p19
 
-    new-instance v21, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
+    move-object/from16 v21, p20
 
-    move-object/from16 v0, v21
+    new-instance v22, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;
 
-    invoke-direct/range {v0 .. v20}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v22
 
-    return-object v21
-.end method
+    invoke-direct/range {v0 .. v21}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-    .locals 22
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p1
-
-    move-object/from16 v3, p2
-
-    move-object/from16 v4, p3
-
-    move-object/from16 v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    move-object/from16 v13, p12
-
-    move-object/from16 v14, p13
-
-    move-object/from16 v15, p14
-
-    move-object/from16 v16, p15
-
-    move-object/from16 v17, p16
-
-    move-object/from16 v18, p17
-
-    move-object/from16 v19, p18
-
-    move-object/from16 v20, p19
-
-    new-instance v21, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    move-object/from16 v0, v21
-
-    invoke-direct/range {v0 .. v20}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;-><init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
-
-    return-object v21
+    return-object v22
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-    .locals 22
+.method public final get()Ljava/lang/Object;
+    .locals 23
 
     move-object/from16 v0, p0
 
@@ -558,9 +528,9 @@
 
     move-result-object v1
 
-    move-object v2, v1
+    move-object v3, v1
 
-    check-cast v2, Landroid/content/Context;
+    check-cast v3, Landroid/content/Context;
 
     iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
@@ -568,9 +538,7 @@
 
     move-result-object v1
 
-    move-object v3, v1
-
-    check-cast v3, Lcom/android/internal/logging/UiEventLogger;
+    check-cast v1, Lcom/android/internal/logging/UiEventLogger;
 
     iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->starterProvider:Ljavax/inject/Provider;
 
@@ -742,29 +710,31 @@
 
     check-cast v20, Lcom/android/systemui/statusbar/policy/LocationController;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->dialogLaunchAnimatorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v21, v1
+
+    check-cast v21, Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->wifiStateWorkerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object/from16 v21, v0
+    move-object/from16 v22, v0
 
-    check-cast v21, Lcom/android/systemui/animation/DialogLaunchAnimator;
+    check-cast v22, Lcom/android/systemui/qs/tiles/dialog/WifiStateWorker;
 
-    invoke-static/range {v2 .. v21}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    move-result-object v0
+    move-object v2, v0
+
+    invoke-direct/range {v2 .. v22}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;-><init>(Landroid/content/Context;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/connectivity/AccessPointController;Landroid/telephony/SubscriptionManager;Landroid/telephony/TelephonyManager;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/WindowManager;Lcom/android/systemui/toast/ToastFactory;Landroid/os/Handler;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/policy/LocationController;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/qs/tiles/dialog/WifiStateWorker;)V
 
     return-object v0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController_Factory;->get()Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    move-result-object p0
-
-    return-object p0
 .end method

@@ -6,81 +6,23 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/settings/UserTracker;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final contextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final contextProvider:Ljavax/inject/Provider;
 
-.field private final handlerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
 
-.field private final userManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/os/UserManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final handlerProvider:Ljavax/inject/Provider;
+
+.field public final userManagerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ldagger/internal/Factory;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/UserManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p5, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->contextProvider:Ljavax/inject/Provider;
 
@@ -90,58 +32,23 @@
 
     iput-object p4, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->handlerProvider:Ljavax/inject/Provider;
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/UserManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;)",
-            "Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static provideUserTracker(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;)Lcom/android/systemui/settings/UserTracker;
-    .locals 0
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/settings/dagger/SettingsModule;->provideUserTracker(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;)Lcom/android/systemui/settings/UserTracker;
-
-    move-result-object p0
-
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/settings/UserTracker;
-
-    return-object p0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/settings/UserTracker;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 5
 
+    iget v0, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_1
+
+    :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -174,19 +81,97 @@
 
     check-cast p0, Landroid/os/Handler;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->provideUserTracker(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;)Lcom/android/systemui/settings/UserTracker;
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result-object p0
+    move-result v3
 
-    return-object p0
-.end method
+    new-instance v4, Lcom/android/systemui/settings/UserTrackerImpl;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    invoke-direct {v4, v0, v1, v2, p0}, Lcom/android/systemui/settings/UserTrackerImpl;-><init>(Landroid/content/Context;Landroid/os/UserManager;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->get()Lcom/android/systemui/settings/UserTracker;
+    iget-boolean p0, v4, Lcom/android/systemui/settings/UserTrackerImpl;->initialized:Z
 
-    move-result-object p0
+    if-eqz p0, :cond_0
 
-    return-object p0
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x1
+
+    iput-boolean p0, v4, Lcom/android/systemui/settings/UserTrackerImpl;->initialized:Z
+
+    invoke-virtual {v4, v3}, Lcom/android/systemui/settings/UserTrackerImpl;->setUserIdInternal(I)Lkotlin/Pair;
+
+    new-instance p0, Landroid/content/IntentFilter;
+
+    invoke-direct {p0}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string v0, "android.intent.action.USER_SWITCHED"
+
+    invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "android.intent.action.MANAGED_PROFILE_AVAILABLE"
+
+    invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "android.intent.action.MANAGED_PROFILE_UNAVAILABLE"
+
+    invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "android.intent.action.MANAGED_PROFILE_REMOVED"
+
+    invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "android.intent.action.MANAGED_PROFILE_UNLOCKED"
+
+    invoke-virtual {p0, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    iget-object v0, v4, Lcom/android/systemui/settings/UserTrackerImpl;->context:Landroid/content/Context;
+
+    const/4 v1, 0x0
+
+    iget-object v2, v4, Lcom/android/systemui/settings/UserTrackerImpl;->backgroundHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v4, p0, v1, v2}, Landroid/content/Context;->registerReceiverForAllUsers(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+
+    iget-object p0, v4, Lcom/android/systemui/settings/UserTrackerImpl;->dumpManager:Lcom/android/systemui/dump/DumpManager;
+
+    const-string v0, "UserTrackerImpl"
+
+    invoke-virtual {p0, v0, v4}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
+
+    :goto_0
+    return-object v4
+
+    :goto_1
+    iget-object v0, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->userManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/util/settings/SecureSettings;
+
+    iget-object v2, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    iget-object p0, p0, Lcom/android/systemui/settings/dagger/SettingsModule_ProvideUserTrackerFactory;->handlerProvider:Ljavax/inject/Provider;
+
+    new-instance v3, Lcom/google/android/systemui/communal/dock/conditions/TimeoutToUserZeroSettingCondition;
+
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/google/android/systemui/communal/dock/conditions/TimeoutToUserZeroSettingCondition;-><init>(Landroid/os/Handler;Lcom/android/systemui/util/settings/SecureSettings;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v3
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

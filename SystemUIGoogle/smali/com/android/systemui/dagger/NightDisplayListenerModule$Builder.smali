@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;
+.class public final Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;
 .super Ljava/lang/Object;
 .source "NightDisplayListenerModule.java"
 
@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field private final mBgHandler:Landroid/os/Handler;
+.field public final mBgHandler:Landroid/os/Handler;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mUserId:I
+.field public mUserId:I
 
 
 # direct methods
@@ -37,30 +37,4 @@
     iput-object p2, p0, Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;->mBgHandler:Landroid/os/Handler;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public build()Landroid/hardware/display/NightDisplayListener;
-    .locals 3
-
-    new-instance v0, Landroid/hardware/display/NightDisplayListener;
-
-    iget-object v1, p0, Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;->mContext:Landroid/content/Context;
-
-    iget v2, p0, Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;->mUserId:I
-
-    iget-object p0, p0, Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;->mBgHandler:Landroid/os/Handler;
-
-    invoke-direct {v0, v1, v2, p0}, Landroid/hardware/display/NightDisplayListener;-><init>(Landroid/content/Context;ILandroid/os/Handler;)V
-
-    return-object v0
-.end method
-
-.method public setUser(I)Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/dagger/NightDisplayListenerModule$Builder;->mUserId:I
-
-    return-object p0
 .end method

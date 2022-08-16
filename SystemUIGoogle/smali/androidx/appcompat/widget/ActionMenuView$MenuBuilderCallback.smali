@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;
+.class public final Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;
 .super Ljava/lang/Object;
 .source "ActionMenuView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "MenuBuilderCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActionMenuView;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActionMenuView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActionMenuView;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActionMenuView;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;->this$0:Landroidx/appcompat/widget/ActionMenuView;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
+.method public final onMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;->this$0:Landroidx/appcompat/widget/ActionMenuView;
@@ -43,24 +43,17 @@
 
     if-eqz p0, :cond_0
 
-    invoke-interface {p0, p2}, Landroidx/appcompat/widget/ActionMenuView$OnMenuItemClickListener;->onMenuItemClick(Landroid/view/MenuItem;)Z
+    check-cast p0, Landroidx/appcompat/widget/Toolbar$1;
 
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
+    invoke-virtual {p0}, Landroidx/appcompat/widget/Toolbar$1;->onMenuItemClick()V
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
-.method public onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
+.method public final onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuView$MenuBuilderCallback;->this$0:Landroidx/appcompat/widget/ActionMenuView;

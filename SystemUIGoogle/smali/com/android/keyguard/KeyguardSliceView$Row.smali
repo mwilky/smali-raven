@@ -15,21 +15,13 @@
 
 
 # instance fields
-.field private mDarkAmount:F
+.field public mDarkAmount:F
 
-.field private final mKeepAwakeListener:Landroid/view/animation/Animation$AnimationListener;
+.field public final mKeepAwakeListener:Lcom/android/systemui/util/wakelock/KeepAwakeAnimationListener;
 
-.field private mKeyguardSliceTextViewSet:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mKeyguardSliceTextViewSet:Ljava/util/HashSet;
 
-.field private mLayoutTransition:Landroid/animation/LayoutTransition;
+.field public mLayoutTransition:Landroid/animation/LayoutTransition;
 
 
 # direct methods
@@ -72,7 +64,7 @@
 
     invoke-direct {p1}, Ljava/util/HashSet;-><init>()V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/Set;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/HashSet;
 
     new-instance p1, Lcom/android/systemui/util/wakelock/KeepAwakeAnimationListener;
 
@@ -80,14 +72,14 @@
 
     invoke-direct {p1, p2}, Lcom/android/systemui/util/wakelock/KeepAwakeAnimationListener;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeepAwakeListener:Landroid/view/animation/Animation$AnimationListener;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeepAwakeListener:Lcom/android/systemui/util/wakelock/KeepAwakeAnimationListener;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public addView(Landroid/view/View;I)V
+.method public final addView(Landroid/view/View;I)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
@@ -96,17 +88,17 @@
 
     if-eqz p2, :cond_0
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/HashSet;
 
     check-cast p1, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
 
-    invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     :cond_0
     return-void
 .end method
 
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -114,7 +106,7 @@
     return p0
 .end method
 
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 8
 
     new-instance v0, Landroid/animation/LayoutTransition;
@@ -143,7 +135,7 @@
 
     fill-array-data v4, :array_1
 
-    const-string v5, "right"
+    const-string/jumbo v5, "right"
 
     invoke-static {v5, v4}, Landroid/animation/PropertyValuesHolder;->ofInt(Ljava/lang/String;[I)Landroid/animation/PropertyValuesHolder;
 
@@ -175,7 +167,7 @@
 
     iget-object v5, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLayoutTransition:Landroid/animation/LayoutTransition;
 
-    sget-object v7, Lcom/android/systemui/animation/Interpolators;->ACCELERATE_DECELERATE:Landroid/view/animation/Interpolator;
+    sget-object v7, Lcom/android/systemui/animation/Interpolators;->ACCELERATE_DECELERATE:Landroid/view/animation/AccelerateDecelerateInterpolator;
 
     invoke-virtual {v5, v6, v7}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
 
@@ -207,7 +199,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLayoutTransition:Landroid/animation/LayoutTransition;
 
-    sget-object v3, Lcom/android/systemui/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
+    sget-object v3, Lcom/android/systemui/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/PathInterpolator;
 
     invoke-virtual {v1, v0, v3}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
 
@@ -221,7 +213,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mLayoutTransition:Landroid/animation/LayoutTransition;
 
-    sget-object v2, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
+    sget-object v2, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/PathInterpolator;
 
     const/4 v3, 0x3
 
@@ -242,6 +234,8 @@
     invoke-virtual {p0, v6}, Landroid/animation/LayoutTransition;->setAnimateParentHierarchy(Z)V
 
     return-void
+
+    nop
 
     :array_0
     .array-data 4
@@ -268,7 +262,7 @@
     .end array-data
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 4
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -307,7 +301,7 @@
     return-void
 .end method
 
-.method public onVisibilityAggregated(Z)V
+.method public final onVisibilityAggregated(Z)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onVisibilityAggregated(Z)V
@@ -327,7 +321,7 @@
     return-void
 .end method
 
-.method public removeView(Landroid/view/View;)V
+.method public final removeView(Landroid/view/View;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
@@ -336,67 +330,12 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeyguardSliceTextViewSet:Ljava/util/HashSet;
 
     check-cast p1, Lcom/android/keyguard/KeyguardSliceView$KeyguardSliceTextView;
 
-    invoke-interface {p0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
     :cond_0
-    return-void
-.end method
-
-.method public setDarkAmount(F)V
-    .locals 5
-
-    const/4 v0, 0x0
-
-    cmpl-float v1, p1, v0
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    if-eqz v1, :cond_0
-
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_0
-    move v1, v3
-
-    :goto_0
-    iget v4, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mDarkAmount:F
-
-    cmpl-float v0, v4, v0
-
-    if-eqz v0, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v2, v3
-
-    :goto_1
-    if-ne v1, v2, :cond_2
-
-    return-void
-
-    :cond_2
-    iput p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mDarkAmount:F
-
-    if-eqz v1, :cond_3
-
-    const/4 p1, 0x0
-
-    goto :goto_2
-
-    :cond_3
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeepAwakeListener:Landroid/view/animation/Animation$AnimationListener;
-
-    :goto_2
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setLayoutAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
-
     return-void
 .end method

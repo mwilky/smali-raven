@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/shared/plugins/PluginManager$Helper;
+.class public final Lcom/android/systemui/shared/plugins/PluginManager$Helper;
 .super Ljava/lang/Object;
 .source "PluginManager.java"
 

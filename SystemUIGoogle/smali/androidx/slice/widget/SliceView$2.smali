@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/SliceView$2;
+.class public final Landroidx/slice/widget/SliceView$2;
 .super Ljava/lang/Object;
 .source "SliceView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/slice/widget/SliceView;
+.field public final synthetic this$0:Landroidx/slice/widget/SliceView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/SliceView;)V
+.method public constructor <init>(Landroidx/slice/widget/SliceView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceView$2;->this$0:Landroidx/slice/widget/SliceView;
 
@@ -42,8 +34,8 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public final run()V
+    .locals 4
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView$2;->this$0:Landroidx/slice/widget/SliceView;
 
@@ -59,19 +51,27 @@
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView$2;->this$0:Landroidx/slice/widget/SliceView;
 
-    iget-object v0, v0, Landroidx/slice/widget/SliceView;->mCurrentView:Landroidx/slice/widget/SliceChildView;
+    iget-object v0, v0, Landroidx/slice/widget/SliceView;->mCurrentView:Landroidx/slice/widget/TemplateView;
 
     const/4 v1, 0x1
 
-    invoke-virtual {v0, v1}, Landroidx/slice/widget/SliceChildView;->setShowLastUpdated(Z)V
+    invoke-virtual {v0, v1}, Landroidx/slice/widget/TemplateView;->setShowLastUpdated(Z)V
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView$2;->this$0:Landroidx/slice/widget/SliceView;
 
-    iget-object v1, v0, Landroidx/slice/widget/SliceView;->mCurrentView:Landroidx/slice/widget/SliceChildView;
+    iget-object v1, v0, Landroidx/slice/widget/SliceView;->mCurrentView:Landroidx/slice/widget/TemplateView;
 
     iget-object v0, v0, Landroidx/slice/widget/SliceView;->mListContent:Landroidx/slice/widget/ListContent;
 
-    invoke-virtual {v1, v0}, Landroidx/slice/widget/SliceChildView;->setSliceContent(Landroidx/slice/widget/ListContent;)V
+    iput-object v0, v1, Landroidx/slice/widget/TemplateView;->mListContent:Landroidx/slice/widget/ListContent;
+
+    iget-object v2, v1, Landroidx/slice/widget/SliceChildView;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
+
+    iget-object v3, v1, Landroidx/slice/widget/SliceChildView;->mViewPolicy:Landroidx/slice/widget/SliceViewPolicy;
+
+    invoke-virtual {v0, v2, v3}, Landroidx/slice/widget/ListContent;->getHeight(Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/SliceViewPolicy;)I
+
+    invoke-virtual {v1}, Landroidx/slice/widget/TemplateView;->updateDisplayedItems()V
 
     :cond_0
     iget-object v0, p0, Landroidx/slice/widget/SliceView$2;->this$0:Landroidx/slice/widget/SliceView;

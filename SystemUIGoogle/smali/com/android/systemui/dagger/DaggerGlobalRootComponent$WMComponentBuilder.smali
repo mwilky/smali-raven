@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;
+.class public final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;
 .super Ljava/lang/Object;
 .source "DaggerGlobalRootComponent.java"
 
@@ -12,17 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "WMComponentBuilder"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+.field public setShellMainThread:Landroid/os/HandlerThread;
+
+.field public final synthetic this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
+.method public constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
@@ -32,26 +34,34 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public build()Lcom/android/systemui/dagger/WMComponent;
+.method public final build()Lcom/android/systemui/dagger/WMComponent;
     .locals 2
 
     new-instance v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;
 
-    iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+    iget-object v1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
-    const/4 v1, 0x0
+    iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;->setShellMainThread:Landroid/os/HandlerThread;
 
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Landroid/os/HandlerThread;)V
 
     return-object v0
+.end method
+
+.method public final setShellMainThread(Landroid/os/HandlerThread;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;->setShellMainThread:Landroid/os/HandlerThread;
+
+    return-object p0
+.end method
+
+.method public final setShellMainThread(Landroid/os/HandlerThread;)Lcom/android/systemui/dagger/WMComponent$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentBuilder;->setShellMainThread:Landroid/os/HandlerThread;
+
+    return-object p0
 .end method

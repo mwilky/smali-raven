@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;
+.class public final Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;
 .super Ljava/lang/Object;
 .source "QuickAccessWalletTile.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "WalletCardRetriever"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
@@ -32,41 +32,29 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;-><init>(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onWalletCardRetrievalError(Landroid/service/quickaccesswallet/GetWalletCardsError;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$102(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Z)Z
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
-
-    const/4 v0, 0x0
-
-    iput-object v0, p1, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mCardViewDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {p1, v0}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$202(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Landroid/service/quickaccesswallet/WalletCard;)Landroid/service/quickaccesswallet/WalletCard;
+.method public final onWalletCardRetrievalError(Landroid/service/quickaccesswallet/GetWalletCardsError;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mIsWalletUpdating:Z
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mCardViewDrawable:Landroid/graphics/drawable/Drawable;
+
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public onWalletCardsRetrieved(Landroid/service/quickaccesswallet/GetWalletCardsResponse;)V
+.method public final onWalletCardsRetrieved(Landroid/service/quickaccesswallet/GetWalletCardsResponse;)V
     .locals 4
 
     const-string v0, "QuickAccessWalletTile"
@@ -79,7 +67,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$102(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Z)Z
+    iput-boolean v2, v1, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mIsWalletUpdating:Z
 
     invoke-virtual {p1}, Landroid/service/quickaccesswallet/GetWalletCardsResponse;->getWalletCards()Ljava/util/List;
 
@@ -97,15 +85,13 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
-
-    iput-object v3, p1, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mCardViewDrawable:Landroid/graphics/drawable/Drawable;
-
-    invoke-static {p1, v3}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$202(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Landroid/service/quickaccesswallet/WalletCard;)Landroid/service/quickaccesswallet/WalletCard;
-
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    iput-object v3, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mCardViewDrawable:Landroid/graphics/drawable/Drawable;
+
+    iput-object v3, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 
@@ -124,11 +110,9 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
-
-    invoke-static {p1, v3}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$202(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Landroid/service/quickaccesswallet/WalletCard;)Landroid/service/quickaccesswallet/WalletCard;
-
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
+
+    iput-object v3, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
 
     iput-object v3, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mCardViewDrawable:Landroid/graphics/drawable/Drawable;
 
@@ -143,13 +127,11 @@
 
     check-cast p1, Landroid/service/quickaccesswallet/WalletCard;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$202(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Landroid/service/quickaccesswallet/WalletCard;)Landroid/service/quickaccesswallet/WalletCard;
+    iput-object p1, v0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$200(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)Landroid/service/quickaccesswallet/WalletCard;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
 
     invoke-virtual {v0}, Landroid/service/quickaccesswallet/WalletCard;->getCardImage()Landroid/graphics/drawable/Icon;
 
@@ -157,9 +139,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->access$300(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)Landroid/content/Context;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
@@ -169,7 +149,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;->this$0:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    invoke-virtual {p0, v3}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method

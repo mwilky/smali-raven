@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "BouncerChecker"
 .end annotation
-
-
-# virtual methods
-.method public abstract showBouncerIfNecessary()Z
-.end method

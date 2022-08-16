@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onPreferenceDisplayDialog(Landroidx/preference/PreferenceFragment;Landroidx/preference/Preference;)Z
+.method public abstract onPreferenceDisplayDialog()Z
 .end method

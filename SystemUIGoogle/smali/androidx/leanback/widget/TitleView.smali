@@ -3,31 +3,9 @@
 .source "TitleView.java"
 
 
-# instance fields
-.field private flags:I
-
-.field private mBadgeView:Landroid/widget/ImageView;
-
-.field private mHasSearchListener:Z
-
-.field private mSearchOrbView:Landroidx/leanback/widget/SearchOrbView;
-
-.field private mTextView:Landroid/widget/TextView;
-
-.field private final mTitleViewAdapter:Landroidx/leanback/widget/TitleViewAdapter;
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -38,18 +16,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
-    sget v0, Landroidx/leanback/R$attr;->browseTitleViewStyle:I
+    const v0, 0x7f040091
 
     invoke-direct {p0, p1, p2, v0}, Landroidx/leanback/widget/TitleView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -58,78 +26,48 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    const/4 p2, 0x6
-
-    iput p2, p0, Landroidx/leanback/widget/TitleView;->flags:I
-
-    const/4 p2, 0x0
-
-    iput-boolean p2, p0, Landroidx/leanback/widget/TitleView;->mHasSearchListener:Z
-
-    new-instance p3, Landroidx/leanback/widget/TitleView$1;
-
-    invoke-direct {p3, p0}, Landroidx/leanback/widget/TitleView$1;-><init>(Landroidx/leanback/widget/TitleView;)V
-
-    iput-object p3, p0, Landroidx/leanback/widget/TitleView;->mTitleViewAdapter:Landroidx/leanback/widget/TitleViewAdapter;
 
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
 
-    sget p3, Landroidx/leanback/R$layout;->lb_title_view:I
+    const p2, 0x7f0e011d
 
-    invoke-virtual {p1, p3, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p1, p2, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p1
 
-    sget p3, Landroidx/leanback/R$id;->title_badge:I
+    const p2, 0x7f0b06c6
 
-    invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object p3
+    move-result-object p2
 
-    check-cast p3, Landroid/widget/ImageView;
+    check-cast p2, Landroid/widget/ImageView;
 
-    iput-object p3, p0, Landroidx/leanback/widget/TitleView;->mBadgeView:Landroid/widget/ImageView;
+    const p2, 0x7f0b06ca
 
-    sget p3, Landroidx/leanback/R$id;->title_text:I
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object p2
 
-    move-result-object p3
+    check-cast p2, Landroid/widget/TextView;
 
-    check-cast p3, Landroid/widget/TextView;
+    const p2, 0x7f0b06c8
 
-    iput-object p3, p0, Landroidx/leanback/widget/TitleView;->mTextView:Landroid/widget/TextView;
-
-    sget p3, Landroidx/leanback/R$id;->title_orb:I
-
-    invoke-virtual {p1, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
     check-cast p1, Landroidx/leanback/widget/SearchOrbView;
 
-    iput-object p1, p0, Landroidx/leanback/widget/TitleView;->mSearchOrbView:Landroidx/leanback/widget/SearchOrbView;
+    const/4 p1, 0x0
 
-    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->setClipToPadding(Z)V
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setClipToPadding(Z)V
 
-    invoke-virtual {p0, p2}, Landroid/widget/FrameLayout;->setClipChildren(Z)V
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setClipChildren(Z)V
 
     return-void
 .end method

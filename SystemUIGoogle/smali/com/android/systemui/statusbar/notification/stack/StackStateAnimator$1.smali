@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$1;
+.class public final Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$1;
 .super Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 .source "StackStateAnimator.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
@@ -31,38 +31,56 @@
 
 
 # virtual methods
-.method public getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.method public final getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->access$000(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;)Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
     return-object p0
 .end method
 
-.method public getAnimationFinishListener(Landroid/util/Property;)Landroid/animation/AnimatorListenerAdapter;
+.method public final getAnimationFinishListener(Landroid/util/Property;)Landroid/animation/AnimatorListenerAdapter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->access$100(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;)Landroid/animation/AnimatorListenerAdapter;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->mAnimationListenerPool:Ljava/util/Stack;
+
+    invoke-virtual {p1}, Ljava/util/Stack;->empty()Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->mAnimationListenerPool:Ljava/util/Stack;
+
+    invoke-virtual {p0}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
     move-result-object p0
 
+    check-cast p0, Landroid/animation/AnimatorListenerAdapter;
+
+    goto :goto_0
+
+    :cond_0
+    new-instance p1, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$2;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$2;-><init>(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;)V
+
+    move-object p0, p1
+
+    :goto_0
     return-object p0
 .end method
 
-.method public wasAdded(Landroid/view/View;)Z
+.method public final wasAdded(Landroid/view/View;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->access$200(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;)Ljava/util/ArrayList;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->mNewAddChildren:Ljava/util/ArrayList;
 
     invoke-virtual {p0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 

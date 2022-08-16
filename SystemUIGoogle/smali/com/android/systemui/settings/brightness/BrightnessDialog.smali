@@ -4,13 +4,13 @@
 
 
 # instance fields
-.field private final mBackgroundHandler:Landroid/os/Handler;
+.field public final mBackgroundHandler:Landroid/os/Handler;
 
-.field private mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
+.field public mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-.field private final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+.field public final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.field private final mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
+.field public final mToggleSliderFactory:Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
 
 # direct methods
@@ -30,7 +30,7 @@
 
 
 # virtual methods
-.method protected onCreate(Landroid/os/Bundle;)V
+.method public final onCreate(Landroid/os/Bundle;)V
     .locals 4
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -59,11 +59,11 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/view/Window;->setLayout(II)V
 
-    sget p1, Lcom/android/systemui/R$layout;->brightness_mirror_container:I
+    const p1, 0x7f0e0051
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->setContentView(I)V
 
-    sget p1, Lcom/android/systemui/R$id;->brightness_mirror_container:I
+    const p1, 0x7f0b0113
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->findViewById(I)Landroid/view/View;
 
@@ -83,9 +83,7 @@
 
     invoke-virtual {v2}, Lcom/android/systemui/util/ViewController;->init()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/settings/brightness/BrightnessSliderController;->getRootView()Landroid/view/View;
-
-    move-result-object v3
+    iget-object v3, v2, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     invoke-virtual {p1, v3, v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;II)V
 
@@ -95,14 +93,14 @@
 
     iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBackgroundHandler:Landroid/os/Handler;
 
-    invoke-direct {p1, p0, v2, v0, v1}, Lcom/android/systemui/settings/brightness/BrightnessController;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/ToggleSlider;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)V
+    invoke-direct {p1, p0, v2, v0, v1}, Lcom/android/systemui/settings/brightness/BrightnessController;-><init>(Landroid/content/Context;Lcom/android/systemui/settings/brightness/BrightnessSliderController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)V
 
     iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
     return-void
 .end method
 
-.method public onKeyDown(ILandroid/view/KeyEvent;)Z
+.method public final onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 1
 
     const/16 v0, 0x19
@@ -128,14 +126,32 @@
     return p0
 .end method
 
-.method protected onStart()V
-    .locals 1
+.method public final onPause()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/app/Activity;->onPause()V
+
+    const/high16 v0, 0x10a0000
+
+    const v1, 0x10a0001
+
+    invoke-virtual {p0, v0, v1}, Landroid/app/Activity;->overridePendingTransition(II)V
+
+    return-void
+.end method
+
+.method public final onStart()V
+    .locals 2
 
     invoke-super {p0}, Landroid/app/Activity;->onStart()V
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->registerCallbacks()V
+    iget-object v1, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+
+    iget-object v0, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mStartListeningRunnable:Lcom/android/systemui/settings/brightness/BrightnessController$2;
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     const/16 v0, 0xdc
 
@@ -144,8 +160,8 @@
     return-void
 .end method
 
-.method protected onStop()V
-    .locals 1
+.method public final onStop()V
+    .locals 2
 
     invoke-super {p0}, Landroid/app/Activity;->onStop()V
 
@@ -155,7 +171,15 @@
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessDialog;->mBrightnessController:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->unregisterCallbacks()V
+    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mStopListeningRunnable:Lcom/android/systemui/settings/brightness/BrightnessController$3;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControlValueInitialized:Z
 
     return-void
 .end method

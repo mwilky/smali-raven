@@ -1,4 +1,4 @@
-.class Landroidx/viewpager2/widget/ViewPager2$2;
+.class public final Landroidx/viewpager2/widget/ViewPager2$2;
 .super Landroidx/viewpager2/widget/ViewPager2$OnPageChangeCallback;
 .source "ViewPager2.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/viewpager2/widget/ViewPager2;
+.field public final synthetic this$0:Landroidx/viewpager2/widget/ViewPager2;
 
 
 # direct methods
-.method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
+.method public constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onPageScrollStateChanged(I)V
+.method public final onPageScrollStateChanged(I)V
     .locals 0
 
     if-nez p1, :cond_0
@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method public onPageSelected(I)V
+.method public final onPageSelected(I)V
     .locals 1
 
     iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2$2;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -55,9 +55,9 @@
 
     iput p1, p0, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
-    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;
+    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
 
-    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;->onSetNewCurrentItem()V
+    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->updatePageAccessibilityActions()V
 
     :cond_0
     return-void

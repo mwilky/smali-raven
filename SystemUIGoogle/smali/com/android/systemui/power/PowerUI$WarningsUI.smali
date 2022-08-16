@@ -45,7 +45,7 @@
 .method public abstract showUsbHighTemperatureAlarm()V
 .end method
 
-.method public abstract update(IIJ)V
+.method public abstract update(II)V
 .end method
 
 .method public abstract updateLowBatteryWarning()V

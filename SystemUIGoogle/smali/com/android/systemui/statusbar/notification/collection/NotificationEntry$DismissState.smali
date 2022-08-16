@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
 .field public static final enum DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
@@ -33,63 +33,58 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 7
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    const-string v1, "NOT_DISMISSED"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "NOT_DISMISSED"
 
-    invoke-direct {v0, v1, v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->NOT_DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    new-instance v1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    new-instance v2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    const-string v3, "DISMISSED"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "DISMISSED"
 
-    invoke-direct {v1, v3, v4}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    sput-object v2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    new-instance v3, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    new-instance v4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    const-string v5, "PARENT_DISMISSED"
+    const/4 v5, 0x2
 
-    const/4 v6, 0x2
+    const-string v6, "PARENT_DISMISSED"
 
-    invoke-direct {v3, v5, v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v5, v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;-><init>(ILjava/lang/String;)V
 
-    sput-object v3, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->PARENT_DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    sput-object v4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->PARENT_DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
-    new-array v5, v5, [Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    new-array v6, v6, [Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    aput-object v0, v5, v2
+    aput-object v0, v6, v1
 
-    aput-object v1, v5, v4
+    aput-object v2, v6, v3
 
-    aput-object v3, v5, v6
+    aput-object v4, v6, v5
 
-    sput-object v5, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->$VALUES:[Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    sput-object v6, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->$VALUES:[Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

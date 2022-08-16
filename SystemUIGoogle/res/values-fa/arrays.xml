@@ -17,6 +17,7 @@
         <item>حداکثر 3 پردازش</item>
         <item>حداکثر 4 پردازش</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>٪۰</item>
         <item>۵۰٪</item>
@@ -260,6 +261,11 @@
         <item>خاموش</item>
         <item>روشن</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>دردسترس نیست</item>
+        <item>خاموش</item>
+        <item>روشن</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>دردسترس نیست</item>
         <item>خاموش</item>
@@ -306,6 +312,16 @@
         <item>روشن</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>دردسترس نیست</item>
+        <item>خاموش</item>
+        <item>روشن</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>دردسترس نیست</item>
+        <item>خاموش</item>
+        <item>روشن</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>دردسترس نیست</item>
         <item>خاموش</item>
         <item>روشن</item>
@@ -374,6 +390,12 @@
         <item>تند</item>
         <item>خیلی تند</item>
         <item>سریع‌ترین</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>انتقال به‌چپ</item>
+        <item>انتقال به‌پایین</item>
+        <item>انتقال به‌راست</item>
+        <item>انتقال به‌بالا</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>در حال شارژ شدن</item>

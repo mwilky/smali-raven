@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;
+.class public final Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;
 .super Ljava/lang/Object;
 .source "ControlsControllerImpl.kt"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $callback:Ljava/util/function/Consumer;
+.field public final synthetic $callback:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -28,9 +28,9 @@
     .end annotation
 .end field
 
-.field final synthetic $componentName:Landroid/content/ComponentName;
+.field public final synthetic $componentName:Landroid/content/ComponentName;
 
-.field final synthetic $remaining:Ljava/util/List;
+.field public final synthetic $remaining:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -40,33 +40,20 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Ljava/util/function/Consumer;Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlsControllerImpl;Ljava/util/List;)V
+.method public constructor <init>(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlsControllerImpl;Ljava/util/List;Ljava/util/function/Consumer;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Lcom/android/systemui/controls/controller/SeedResponse;",
-            ">;",
-            "Landroid/content/ComponentName;",
-            "Lcom/android/systemui/controls/controller/ControlsControllerImpl;",
-            "Ljava/util/List<",
-            "Landroid/content/ComponentName;",
-            ">;)V"
-        }
-    .end annotation
 
-    iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->$callback:Ljava/util/function/Consumer;
+    iput-object p4, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->$callback:Ljava/util/function/Consumer;
 
-    iput-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->$componentName:Landroid/content/ComponentName;
+    iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->$componentName:Landroid/content/ComponentName;
 
-    iput-object p3, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
+    iput-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
-    iput-object p4, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->$remaining:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1$error$1;->$remaining:Ljava/util/List;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -88,10 +75,6 @@
 
     move-result-object v2
 
-    const-string v3, "componentName.packageName"
-
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     const/4 v3, 0x0
 
     invoke-direct {v1, v2, v3}, Lcom/android/systemui/controls/controller/SeedResponse;-><init>(Ljava/lang/String;Z)V
@@ -106,7 +89,7 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v0, v1, p0, v2}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$startSeeding(Lcom/android/systemui/controls/controller/ControlsControllerImpl;Ljava/util/List;Ljava/util/function/Consumer;Z)V
+    invoke-virtual {v0, v1, p0, v2}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->startSeeding(Ljava/util/List;Ljava/util/function/Consumer;Z)V
 
     return-void
 .end method

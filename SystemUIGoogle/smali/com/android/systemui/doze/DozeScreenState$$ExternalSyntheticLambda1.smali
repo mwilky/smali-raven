@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/doze/DozeScreenState$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,7 @@
 
     iget p0, p0, Lcom/android/systemui/doze/DozeScreenState$$ExternalSyntheticLambda1;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/systemui/doze/DozeScreenState;->$r8$lambda$3qjB_EtpkzWD-Hl-Rw1njM-F0H8(Lcom/android/systemui/doze/DozeScreenState;I)V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/doze/DozeScreenState;->applyScreenState(I)V
 
     return-void
 .end method

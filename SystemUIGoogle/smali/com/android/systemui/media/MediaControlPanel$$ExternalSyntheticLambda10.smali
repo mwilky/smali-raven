@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnLongClickListener;
+.implements Lkotlin/jvm/functions/Function0;
 
 
 # instance fields
@@ -22,14 +23,16 @@
 
 
 # virtual methods
-.method public final onLongClick(Landroid/view/View;)Z
+.method public final invoke()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/media/MediaControlPanel;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/media/MediaControlPanel;->$r8$lambda$BXCzBCrgliDH-jP5EMSdbgCZ7Kw(Lcom/android/systemui/media/MediaControlPanel;Landroid/view/View;)Z
+    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mMediaViewController:Lcom/android/systemui/media/MediaViewController;
 
-    move-result p0
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaViewController;->refreshState()V
 
-    return p0
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

@@ -12,13 +12,13 @@
 
 
 # instance fields
-.field private mFixedChildWidth:I
+.field public mFixedChildWidth:I
 
-.field private mHorizontalSpacing:I
+.field public mHorizontalSpacing:I
 
-.field private mNumColumns:I
+.field public mNumColumns:I
 
-.field private mVerticalSpacing:I
+.field public mVerticalSpacing:I
 
 
 # direct methods
@@ -56,7 +56,7 @@
 
     move-result v4
 
-    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_numColumns:I
+    const/4 v5, 0x2
 
     if-ne v4, v5, :cond_0
 
@@ -69,9 +69,7 @@
     goto :goto_1
 
     :cond_0
-    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_verticalSpacing:I
-
-    if-ne v4, v5, :cond_1
+    if-ne v4, v0, :cond_1
 
     invoke-virtual {p1, v4, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -82,7 +80,7 @@
     goto :goto_1
 
     :cond_1
-    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_horizontalSpacing:I
+    const/4 v5, 0x1
 
     if-ne v4, v5, :cond_2
 
@@ -95,9 +93,7 @@
     goto :goto_1
 
     :cond_2
-    sget v5, Lcom/android/systemui/R$styleable;->PseudoGridView_fixedChildWidth:I
-
-    if-ne v4, v5, :cond_3
+    if-nez v4, :cond_3
 
     invoke-virtual {p1, v4, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -119,7 +115,7 @@
 
 
 # virtual methods
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 10
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->isLayoutRtl()Z
@@ -214,7 +210,9 @@
 
     add-int/2addr v6, v5
 
-    add-int/2addr v1, v6
+    add-int/2addr v6, v1
+
+    move v1, v6
 
     :goto_3
     add-int/lit8 v3, v3, 0x1
@@ -236,7 +234,7 @@
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 13
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
@@ -261,21 +259,21 @@
 
     mul-int/2addr v4, v3
 
-    add-int/2addr v2, v4
+    add-int/2addr v4, v2
 
-    const/4 v4, -0x1
+    const/4 v2, -0x1
 
-    if-eq v0, v4, :cond_0
+    if-eq v0, v2, :cond_0
 
-    if-gt v2, p1, :cond_0
+    if-gt v4, p1, :cond_0
 
     mul-int p1, v0, v1
 
     add-int/lit8 v1, v1, -0x1
 
-    mul-int/2addr v3, v1
+    mul-int/2addr v1, v3
 
-    add-int/2addr p1, v3
+    add-int/2addr p1, v1
 
     goto :goto_0
 

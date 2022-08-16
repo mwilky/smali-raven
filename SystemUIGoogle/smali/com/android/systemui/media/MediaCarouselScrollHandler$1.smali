@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaCarouselScrollHandler;-><init>(Lcom/android/systemui/media/MediaScrollView;Lcom/android/systemui/qs/PageIndicator;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Lkotlin/jvm/functions/Function1;)V
+    value = Lcom/android/systemui/media/MediaCarouselScrollHandler;-><init>(Lcom/android/systemui/media/MediaScrollView;Lcom/android/systemui/qs/PageIndicator;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/media/MediaUiEventLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaCarouselScrollHandler;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaCarouselScrollHandler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$1;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
+.method public final getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 6
 
     if-nez p2, :cond_0
@@ -43,23 +43,13 @@
 
     const/4 v2, 0x0
 
-    iget-object p1, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$1;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
-
-    invoke-static {p1}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->access$getCarouselWidth$p(Lcom/android/systemui/media/MediaCarouselScrollHandler;)I
-
-    move-result v3
-
-    iget-object p1, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$1;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
-
-    invoke-static {p1}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->access$getCarouselHeight$p(Lcom/android/systemui/media/MediaCarouselScrollHandler;)I
-
-    move-result v4
-
     iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$1;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->access$getCornerRadius$p(Lcom/android/systemui/media/MediaCarouselScrollHandler;)I
+    iget v3, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler;->carouselWidth:I
 
-    move-result p0
+    iget v4, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler;->carouselHeight:I
+
+    iget p0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler;->cornerRadius:I
 
     int-to-float v5, p0
 

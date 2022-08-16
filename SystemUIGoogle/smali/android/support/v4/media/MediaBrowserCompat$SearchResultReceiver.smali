@@ -4,18 +4,8 @@
 
 
 # virtual methods
-.method protected onReceiveResult(ILandroid/os/Bundle;)V
+.method public final onReceiveResult(ILandroid/os/Bundle;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "resultCode",
-            "resultData"
-        }
-    .end annotation
 
     if-eqz p2, :cond_0
 
@@ -30,7 +20,7 @@
 
     if-eqz p2, :cond_2
 
-    const-string p1, "search_results"
+    const-string/jumbo p1, "search_results"
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -42,11 +32,13 @@
 
     move-result-object p1
 
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     new-instance p2, Ljava/util/ArrayList;
 
-    invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
+    array-length v0, p1
+
+    invoke-direct {p2, v0}, Ljava/util/ArrayList;-><init>(I)V
 
     array-length v0, p1
 
@@ -59,7 +51,7 @@
 
     check-cast v2, Landroid/support/v4/media/MediaBrowserCompat$MediaItem;
 
-    invoke-interface {p2, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v1, v1, 0x1
 

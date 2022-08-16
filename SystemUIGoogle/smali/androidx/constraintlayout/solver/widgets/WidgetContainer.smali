@@ -32,49 +32,6 @@
 
 
 # virtual methods
-.method public add(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getParent()Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getParent()Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v0
-
-    check-cast v0, Landroidx/constraintlayout/solver/widgets/WidgetContainer;
-
-    invoke-virtual {v0, p1}, Landroidx/constraintlayout/solver/widgets/WidgetContainer;->remove(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
-
-    :cond_0
-    invoke-virtual {p1, p0}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setParent(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
-
-    return-void
-.end method
-
-.method public getChildren()Ljava/util/ArrayList;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/ArrayList<",
-            "Landroidx/constraintlayout/solver/widgets/ConstraintWidget;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
 .method public layout()V
     .locals 4
 
@@ -119,30 +76,6 @@
     return-void
 .end method
 
-.method public remove(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    const/4 p0, 0x0
-
-    invoke-virtual {p1, p0}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setParent(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
-
-    return-void
-.end method
-
-.method public removeAllChildren()V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/WidgetContainer;->mChildren:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->clear()V
-
-    return-void
-.end method
-
 .method public reset()V
     .locals 1
 
@@ -155,7 +88,7 @@
     return-void
 .end method
 
-.method public resetSolverVariables(Landroidx/constraintlayout/solver/Cache;)V
+.method public final resetSolverVariables(Landroidx/constraintlayout/solver/Cache;)V
     .locals 3
 
     invoke-super {p0, p1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->resetSolverVariables(Landroidx/constraintlayout/solver/Cache;)V

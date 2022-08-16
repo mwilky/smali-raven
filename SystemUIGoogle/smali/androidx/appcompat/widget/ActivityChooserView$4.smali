@@ -1,25 +1,14 @@
-.class Landroidx/appcompat/widget/ActivityChooserView$4;
+.class public final Landroidx/appcompat/widget/ActivityChooserView$4;
 .super Landroidx/appcompat/widget/ForwardingListener;
 .source "ActivityChooserView.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/ActivityChooserView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;Landroid/view/View;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;Landroid/widget/FrameLayout;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActivityChooserView$4;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -31,7 +20,7 @@
 
 
 # virtual methods
-.method public getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
+.method public final getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView$4;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -43,24 +32,53 @@
     return-object p0
 .end method
 
-.method protected onForwardingStarted()Z
-    .locals 0
+.method public final onForwardingStarted()Z
+    .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView$4;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ActivityChooserView;->showPopup()Z
+    invoke-virtual {p0}, Landroidx/appcompat/widget/ActivityChooserView;->getListPopupWindow()Landroidx/appcompat/widget/ListPopupWindow;
 
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->isShowing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    iget-boolean v0, p0, Landroidx/appcompat/widget/ActivityChooserView;->mIsAttachedToWindow:Z
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView;->mAdapter:Landroidx/appcompat/widget/ActivityChooserView$ActivityChooserViewAdapter;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string v0, "No data model. Did you call #setDataModel?"
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    :goto_0
     const/4 p0, 0x1
 
     return p0
 .end method
 
-.method protected onForwardingStopped()Z
+.method public final onForwardingStopped()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView$4;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ActivityChooserView;->dismissPopup()Z
+    invoke-virtual {p0}, Landroidx/appcompat/widget/ActivityChooserView;->dismissPopup()V
 
     const/4 p0, 0x1
 

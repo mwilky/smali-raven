@@ -1,392 +1,193 @@
-.class public Lcom/android/systemui/biometrics/UdfpsView;
+.class public final Lcom/android/systemui/biometrics/UdfpsView;
 .super Landroid/widget/FrameLayout;
-.source "UdfpsView.java"
+.source "UdfpsView.kt"
 
 # interfaces
 .implements Lcom/android/systemui/doze/DozeReceiver;
 
 
 # instance fields
-.field private mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+.field public animationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/android/systemui/biometrics/UdfpsAnimationViewController<",
+            "*>;"
+        }
+    .end annotation
+.end field
 
-.field private mDebugMessage:Ljava/lang/String;
+.field public debugMessage:Ljava/lang/String;
 
-.field private final mDebugTextPaint:Landroid/graphics/Paint;
+.field public final debugTextPaint:Landroid/graphics/Paint;
 
-.field private mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
+.field public halControlsIllumination:Z
 
-.field private mHbmProvider:Lcom/android/systemui/biometrics/UdfpsHbmProvider;
+.field public hbmProvider:Lcom/android/systemui/biometrics/UdfpsHbmProvider;
 
-.field private final mHbmType:I
+.field public isIlluminationRequested:Z
 
-.field private mIlluminationRequested:Z
+.field public final onIlluminatedDelayMs:J
 
-.field private final mOnIlluminatedDelayMs:I
+.field public overlayParams:Lcom/android/systemui/biometrics/UdfpsOverlayParams;
 
-.field private mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+.field public final sensorRect:Landroid/graphics/RectF;
 
-.field private final mSensorRect:Landroid/graphics/RectF;
-
-.field private final mSensorTouchAreaCoefficient:F
+.field public final sensorTouchAreaCoefficient:F
 
 
 # direct methods
-.method public static synthetic $r8$lambda$E79-ZFAUCc0wRcWUYo7gxLMKPpo(Lcom/android/systemui/biometrics/UdfpsView;Ljava/lang/Runnable;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/UdfpsView;->lambda$doIlluminate$0(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$gzdric4kY7Zkp8LXS9PbLbNASyA(Lcom/android/systemui/biometrics/UdfpsView;Landroid/view/Surface;Ljava/lang/Runnable;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsView;->doIlluminate(Landroid/view/Surface;Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
+    new-instance v0, Landroid/graphics/RectF;
+
+    invoke-direct {v0}, Landroid/graphics/RectF;-><init>()V
+
+    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->sensorRect:Landroid/graphics/RectF;
+
+    new-instance v0, Landroid/graphics/Paint;
+
+    invoke-direct {v0}, Landroid/graphics/Paint;-><init>()V
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    const v2, -0xffff01
+
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setColor(I)V
+
+    const/high16 v2, 0x42000000    # 32.0f
+
+    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setTextSize(F)V
+
+    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->debugTextPaint:Landroid/graphics/Paint;
+
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object p1
+    move-result-object v0
 
-    sget-object v0, Lcom/android/systemui/R$styleable;->UdfpsView:[I
+    sget-object v2, Lcom/android/systemui/R$styleable;->UdfpsView:[I
 
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
-    invoke-virtual {p1, p2, v0, v1, v1}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {v0, p2, v2, v3, v3}, Landroid/content/res/Resources$Theme;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
-    move-result-object p1
+    move-result-object p2
 
     :try_start_0
-    sget p2, Lcom/android/systemui/R$styleable;->UdfpsView_sensorTouchAreaCoefficient:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->hasValue(I)Z
+    invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getFloat(IF)F
+    invoke-virtual {p2, v1, v0}, Landroid/content/res/TypedArray;->getFloat(IF)F
 
-    move-result p2
-
-    iput p2, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorTouchAreaCoefficient:F
+    move-result v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+    const/4 v2, 0x0
 
-    new-instance p1, Landroid/graphics/RectF;
+    invoke-static {p2, v2}, Lkotlin/jdk7/AutoCloseableKt;->closeFinally(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V
 
-    invoke-direct {p1}, Landroid/graphics/RectF;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
-
-    new-instance p1, Landroid/graphics/Paint;
-
-    invoke-direct {p1}, Landroid/graphics/Paint;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mDebugTextPaint:Landroid/graphics/Paint;
-
-    const/4 p2, 0x1
-
-    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
-
-    const v0, -0xffff01
-
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setColor(I)V
-
-    const/high16 v0, 0x42000000    # 32.0f
-
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setTextSize(F)V
-
-    iget-object p1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+    iput v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->sensorTouchAreaCoefficient:F
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    const v0, 0x10e00db
+    const p2, 0x10e00e9
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mOnIlluminatedDelayMs:I
-
-    sget-boolean p1, Landroid/os/Build;->IS_ENG:Z
-
-    if-nez p1, :cond_1
-
-    sget-boolean p1, Landroid/os/Build;->IS_USERDEBUG:Z
-
-    if-eqz p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iput p2, p0, Lcom/android/systemui/biometrics/UdfpsView;->mHbmType:I
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    iget-object p1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p1
-
-    const/4 v0, -0x2
-
-    const-string v1, "com.android.systemui.biometrics.UdfpsSurfaceView.hbmType"
-
-    invoke-static {p1, v1, p2, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result p1
 
-    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mHbmType:I
+    int-to-long p1, p1
 
-    :goto_1
+    iput-wide p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->onIlluminatedDelayMs:J
+
+    new-instance p1, Lcom/android/systemui/biometrics/UdfpsOverlayParams;
+
+    invoke-direct {p1, v3}, Lcom/android/systemui/biometrics/UdfpsOverlayParams;-><init>(I)V
+
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->overlayParams:Lcom/android/systemui/biometrics/UdfpsOverlayParams;
+
+    iput-boolean v1, p0, Lcom/android/systemui/biometrics/UdfpsView;->halControlsIllumination:Z
+
     return-void
 
-    :cond_2
+    :cond_0
     :try_start_1
-    new-instance p0, Ljava/lang/IllegalArgumentException;
+    const-string p0, "UdfpsView must contain sensorTouchAreaCoefficient"
 
-    const-string p2, "UdfpsView must contain sensorTouchAreaCoefficient"
+    new-instance p1, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {p0, p2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    throw p0
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p1
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :catchall_0
     move-exception p0
 
-    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
-
+    :try_start_2
     throw p0
-.end method
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-.method private doIlluminate(Landroid/view/Surface;Ljava/lang/Runnable;)V
-    .locals 3
+    :catchall_1
+    move-exception p1
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
+    invoke-static {p2, p0}, Lkotlin/jdk7/AutoCloseableKt;->closeFinally(Ljava/lang/AutoCloseable;Ljava/lang/Throwable;)V
 
-    if-eqz v0, :cond_0
-
-    if-nez p1, :cond_0
-
-    const-string v0, "UdfpsView"
-
-    const-string v1, "doIlluminate | surface must be non-null for GHBM"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mHbmProvider:Lcom/android/systemui/biometrics/UdfpsHbmProvider;
-
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mHbmType:I
-
-    new-instance v2, Lcom/android/systemui/biometrics/UdfpsView$$ExternalSyntheticLambda1;
-
-    invoke-direct {v2, p0, p2}, Lcom/android/systemui/biometrics/UdfpsView$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/biometrics/UdfpsView;Ljava/lang/Runnable;)V
-
-    invoke-interface {v0, v1, p1, v2}, Lcom/android/systemui/biometrics/UdfpsHbmProvider;->enableHbm(ILandroid/view/Surface;Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$doIlluminate$0(Ljava/lang/Runnable;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/UdfpsSurfaceView;->drawIlluminationDot(Landroid/graphics/RectF;)V
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mOnIlluminatedDelayMs:I
-
-    int-to-long v0, v0
-
-    invoke-virtual {p0, p1, v0, v1}, Landroid/widget/FrameLayout;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto :goto_0
-
-    :cond_1
-    const-string p0, "UdfpsView"
-
-    const-string p1, "doIlluminate | onIlluminatedRunnable is null"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return-void
+    throw p1
 .end method
 
 
 # virtual methods
-.method public dozeTimeTick()V
-    .locals 0
+.method public final dozeTimeTick()V
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->animationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dozeTimeTick()V
-
-    :cond_0
-    return-void
-.end method
-
-.method getAnimationViewController()Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
-
-    return-object p0
-.end method
-
-.method isIlluminationRequested()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mIlluminationRequested:Z
-
-    return p0
-.end method
-
-.method isWithinSensorArea(FF)Z
-    .locals 6
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/graphics/PointF;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1, v1}, Landroid/graphics/PointF;-><init>(FF)V
+    if-nez p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getTouchTranslation()Landroid/graphics/PointF;
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
     move-result-object v0
 
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->dozeTimeTick()Z
 
-    invoke-virtual {v1}, Landroid/graphics/RectF;->centerX()F
+    move-result v0
 
-    move-result v1
+    if-eqz v0, :cond_1
 
-    iget v2, v0, Landroid/graphics/PointF;->x:F
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
-    add-float/2addr v1, v2
+    move-result-object p0
 
-    iget-object v2, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
-
-    invoke-virtual {v2}, Landroid/graphics/RectF;->centerY()F
-
-    move-result v2
-
-    iget v0, v0, Landroid/graphics/PointF;->y:F
-
-    add-float/2addr v2, v0
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
-
-    iget v3, v0, Landroid/graphics/RectF;->right:F
-
-    iget v4, v0, Landroid/graphics/RectF;->left:F
-
-    sub-float/2addr v3, v4
-
-    const/high16 v4, 0x40000000    # 2.0f
-
-    div-float/2addr v3, v4
-
-    iget v5, v0, Landroid/graphics/RectF;->bottom:F
-
-    iget v0, v0, Landroid/graphics/RectF;->top:F
-
-    sub-float/2addr v5, v0
-
-    div-float/2addr v5, v4
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorTouchAreaCoefficient:F
-
-    mul-float v4, v3, v0
-
-    sub-float v4, v1, v4
-
-    cmpl-float v4, p1, v4
-
-    if-lez v4, :cond_1
-
-    mul-float/2addr v3, v0
-
-    add-float/2addr v1, v3
-
-    cmpg-float p1, p1, v1
-
-    if-gez p1, :cond_1
-
-    mul-float p1, v5, v0
-
-    sub-float p1, v2, p1
-
-    cmpl-float p1, p2, p1
-
-    if-lez p1, :cond_1
-
-    mul-float/2addr v5, v0
-
-    add-float/2addr v2, v5
-
-    cmpg-float p1, p2, v2
-
-    if-gez p1, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->shouldPauseAuth()Z
-
-    move-result p0
-
-    if-nez p0, :cond_1
-
-    const/4 p0, 0x1
-
-    goto :goto_1
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->postInvalidate()V
 
     :cond_1
-    const/4 p0, 0x0
-
-    :goto_1
-    return p0
+    :goto_0
+    return-void
 .end method
 
-.method protected onAttachedToWindow()V
+.method public final onAttachedToWindow()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
@@ -400,7 +201,7 @@
     return-void
 .end method
 
-.method protected onDetachedFromWindow()V
+.method public final onDetachedFromWindow()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
@@ -414,64 +215,63 @@
     return-void
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
+.method public final onDraw(Landroid/graphics/Canvas;)V
     .locals 3
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onDraw(Landroid/graphics/Canvas;)V
 
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mIlluminationRequested:Z
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->isIlluminationRequested:Z
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mDebugMessage:Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->debugMessage:Ljava/lang/String;
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->length()I
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mDebugMessage:Ljava/lang/String;
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->debugMessage:Ljava/lang/String;
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     const/4 v1, 0x0
 
     const/high16 v2, 0x43200000    # 160.0f
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mDebugTextPaint:Landroid/graphics/Paint;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->debugTextPaint:Landroid/graphics/Paint;
 
     invoke-virtual {p1, v0, v1, v2, p0}, Landroid/graphics/Canvas;->drawText(Ljava/lang/String;FFLandroid/graphics/Paint;)V
 
-    :cond_0
+    :cond_2
     return-void
 .end method
 
-.method protected onFinishInflate()V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mHbmType:I
-
-    if-nez v0, :cond_0
-
-    sget v0, Lcom/android/systemui/R$id;->hbm_view:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    :cond_0
-    return-void
-.end method
-
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->animationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 
     if-eqz p0, :cond_1
+
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->shouldPauseAuth()Z
 
@@ -494,12 +294,12 @@
     return p0
 .end method
 
-.method protected onLayout(ZIIII)V
-    .locals 2
+.method public final onLayout(ZIIII)V
+    .locals 1
 
     invoke-super/range {p0 .. p5}, Landroid/widget/FrameLayout;->onLayout(ZIIII)V
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->animationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 
     const/4 p2, 0x0
 
@@ -515,7 +315,7 @@
     move-result p1
 
     :goto_0
-    iget-object p3, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    iget-object p3, p0, Lcom/android/systemui/biometrics/UdfpsView;->animationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 
     if-nez p3, :cond_1
 
@@ -527,174 +327,101 @@
     move-result p2
 
     :goto_1
-    iget-object p3, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+    iget-object p3, p0, Lcom/android/systemui/biometrics/UdfpsView;->sensorRect:Landroid/graphics/RectF;
 
-    invoke-virtual {p3}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+    int-to-float p4, p1
 
-    move-result-object p3
+    int-to-float p5, p2
 
-    iget-object p4, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->overlayParams:Lcom/android/systemui/biometrics/UdfpsOverlayParams;
 
-    int-to-float p5, p1
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsOverlayParams;->sensorBounds:Landroid/graphics/Rect;
 
-    int-to-float v0, p2
+    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
 
-    iget p3, p3, Landroid/hardware/biometrics/SensorLocationInternal;->sensorRadius:I
+    move-result v0
 
-    mul-int/lit8 v1, p3, 0x2
+    add-int/2addr v0, p1
 
-    add-int/2addr v1, p1
+    int-to-float p1, v0
 
-    int-to-float p1, v1
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->overlayParams:Lcom/android/systemui/biometrics/UdfpsOverlayParams;
 
-    mul-int/lit8 p3, p3, 0x2
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsOverlayParams;->sensorBounds:Landroid/graphics/Rect;
 
-    add-int/2addr p3, p2
+    invoke-virtual {v0}, Landroid/graphics/Rect;->height()I
 
-    int-to-float p2, p3
+    move-result v0
 
-    invoke-virtual {p4, p5, v0, p1, p2}, Landroid/graphics/RectF;->set(FFFF)V
+    add-int/2addr v0, p2
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    int-to-float p2, v0
 
-    if-eqz p1, :cond_2
+    invoke-virtual {p3, p4, p5, p1, p2}, Landroid/graphics/RectF;->set(FFFF)V
 
+    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->animationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+
+    if-nez p1, :cond_2
+
+    goto :goto_2
+
+    :cond_2
     new-instance p2, Landroid/graphics/RectF;
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorRect:Landroid/graphics/RectF;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->sensorRect:Landroid/graphics/RectF;
 
     invoke-direct {p2, p0}, Landroid/graphics/RectF;-><init>(Landroid/graphics/RectF;)V
 
-    invoke-virtual {p1, p2}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->onSensorRectUpdated(Landroid/graphics/RectF;)V
+    invoke-virtual {p1}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
-    :cond_2
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->getDrawable()Lcom/android/systemui/biometrics/UdfpsDrawable;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/biometrics/UdfpsDrawable;->onSensorRectUpdated(Landroid/graphics/RectF;)V
+
+    :goto_2
     return-void
 .end method
 
-.method onTouchOutsideView()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->onTouchOutsideView()V
-
-    :cond_0
-    return-void
-.end method
-
-.method setAnimationViewController(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
-
-    return-void
-.end method
-
-.method setDebugMessage(Ljava/lang/String;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mDebugMessage:Ljava/lang/String;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->postInvalidate()V
-
-    return-void
-.end method
-
-.method public setHbmProvider(Lcom/android/systemui/biometrics/UdfpsHbmProvider;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mHbmProvider:Lcom/android/systemui/biometrics/UdfpsHbmProvider;
-
-    return-void
-.end method
-
-.method setSensorProperties(Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsView;->mSensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
-
-    return-void
-.end method
-
-.method public startIllumination(Ljava/lang/Runnable;)V
+.method public final stopIllumination()V
     .locals 2
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mIlluminationRequested:Z
+    iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->isIlluminationRequested:Z
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->animationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->onIlluminationStarting()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    if-eqz v0, :cond_1
-
-    new-instance v1, Lcom/android/systemui/biometrics/UdfpsView$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/UdfpsView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsView;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/UdfpsSurfaceView;->setGhbmIlluminationListener(Lcom/android/systemui/biometrics/UdfpsSurfaceView$GhbmIlluminationListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/SurfaceView;->setVisibility(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/UdfpsSurfaceView;->startGhbmIllumination(Ljava/lang/Runnable;)V
+    if-nez v0, :cond_0
 
     goto :goto_0
 
-    :cond_1
-    const/4 v0, 0x0
+    :cond_0
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/biometrics/UdfpsView;->doIlluminate(Landroid/view/Surface;Ljava/lang/Runnable;)V
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onIlluminationStopped()V
+
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/FrameLayout;->postInvalidate()V
 
     :goto_0
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->hbmProvider:Lcom/android/systemui/biometrics/UdfpsHbmProvider;
 
-.method public stopIllumination()V
-    .locals 3
+    if-nez p0, :cond_1
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mIlluminationRequested:Z
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mAnimationViewController:Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->onIlluminationStopped()V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/UdfpsSurfaceView;->setGhbmIlluminationListener(Lcom/android/systemui/biometrics/UdfpsSurfaceView$GhbmIlluminationListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mGhbmView:Lcom/android/systemui/biometrics/UdfpsSurfaceView;
-
-    const/4 v2, 0x4
-
-    invoke-virtual {v0, v2}, Landroid/view/SurfaceView;->setVisibility(I)V
+    goto :goto_1
 
     :cond_1
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsView;->mHbmProvider:Lcom/android/systemui/biometrics/UdfpsHbmProvider;
+    invoke-interface {p0}, Lcom/android/systemui/biometrics/UdfpsHbmProvider;->disableHbm()V
 
-    invoke-interface {p0, v1}, Lcom/android/systemui/biometrics/UdfpsHbmProvider;->disableHbm(Ljava/lang/Runnable;)V
-
+    :goto_1
     return-void
 .end method

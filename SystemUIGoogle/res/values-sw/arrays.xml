@@ -17,6 +17,7 @@
         <item>Angalau michakato 3</item>
         <item>Angalau michakato 4</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Kimezimwa</item>
         <item>Kimewashwa</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Haupatikani</item>
+        <item>Umezimwa</item>
+        <item>Umewashwa</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Hakipatikani</item>
         <item>Kimezimwa</item>
@@ -306,6 +312,16 @@
         <item>Imewashwa</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Hakipatikani</item>
+        <item>Kimezimwa</item>
+        <item>Kimewashwa</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Haipatikani</item>
+        <item>Imezimwa</item>
+        <item>Imewashwa</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Hakipatikani</item>
         <item>Kimezimwa</item>
         <item>Kimewashwa</item>
@@ -374,6 +390,12 @@
         <item>Kasi</item>
         <item>Kasi sana</item>
         <item>Kasi zaidi</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Sogeza kushoto</item>
+        <item>Sogeza chini</item>
+        <item>Sogeza kulia</item>
+        <item>Sogeza juu</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Inachaji</item>

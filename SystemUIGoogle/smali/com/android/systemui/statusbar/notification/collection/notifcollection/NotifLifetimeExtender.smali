@@ -18,8 +18,8 @@
 .method public abstract getName()Ljava/lang/String;
 .end method
 
-.method public abstract setCallback(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender$OnEndLifetimeExtensionCallback;)V
+.method public abstract maybeExtendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
 .end method
 
-.method public abstract shouldExtendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
+.method public abstract setCallback(Lcom/android/systemui/statusbar/phone/CentralSurfacesImpl$$ExternalSyntheticLambda21;)V
 .end method

@@ -17,6 +17,7 @@
         <item>Ne vairāk kā 3 procesi</item>
         <item>Ne vairāk kā 4 procesi</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Izslēgti</item>
         <item>Ieslēgti</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Nav pieejama</item>
+        <item>Izslēgta</item>
+        <item>Ieslēgta</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Nav pieejamas</item>
         <item>Izslēgtas</item>
@@ -306,6 +312,16 @@
         <item>Ieslēgts</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Nav pieejams</item>
+        <item>Izslēgts</item>
+        <item>Ieslēgts</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Nav pieejams</item>
+        <item>Izslēgts</item>
+        <item>Ieslēgts</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Nav pieejams</item>
         <item>Izslēgts</item>
         <item>Ieslēgts</item>
@@ -374,6 +390,12 @@
         <item>Raiti</item>
         <item>Ļoti raiti</item>
         <item>Visātrāk</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Pārvietojiet pirkstu pa kreisi</item>
+        <item>Pārvietojiet pirkstu lejup</item>
+        <item>Pārvietojiet pirkstu pa labi</item>
+        <item>Pārvietojiet pirkstu augšup</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Notiek uzlāde</item>

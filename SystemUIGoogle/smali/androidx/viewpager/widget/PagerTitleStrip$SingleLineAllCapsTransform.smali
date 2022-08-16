@@ -1,4 +1,4 @@
-.class Landroidx/viewpager/widget/PagerTitleStrip$SingleLineAllCapsTransform;
+.class public final Landroidx/viewpager/widget/PagerTitleStrip$SingleLineAllCapsTransform;
 .super Landroid/text/method/SingleLineTransformationMethod;
 .source "PagerTitleStrip.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SingleLineAllCapsTransform"
 .end annotation
 
 
 # instance fields
-.field private mLocale:Ljava/util/Locale;
+.field public mLocale:Ljava/util/Locale;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/text/method/SingleLineTransformationMethod;-><init>()V
@@ -41,7 +41,7 @@
 
 
 # virtual methods
-.method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
+.method public final getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/text/method/SingleLineTransformationMethod;->getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;

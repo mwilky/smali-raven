@@ -15,31 +15,16 @@
 
 
 # instance fields
-.field private isDragging:Z
+.field public isDragging:Z
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-.field private final v:Landroid/view/View;
+.field public final v:Landroid/view/View;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;Landroid/view/View;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/View;",
-            ")V"
-        }
-    .end annotation
-
-    const-string v0, "this$0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "v"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;Landroid/view/ViewGroup;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
@@ -52,32 +37,16 @@
 
 
 # virtual methods
-.method public final isDragging()Z
+.method public final onDown(Landroid/view/MotionEvent;)Z
     .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->isDragging:Z
-
-    return p0
-.end method
-
-.method public onDown(Landroid/view/MotionEvent;)Z
-    .locals 0
-
-    const-string p0, "e"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     const/4 p0, 0x1
 
     return p0
 .end method
 
-.method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 1
-
-    const-string v0, "e"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onLongPress(Landroid/view/MotionEvent;)V
+    .locals 0
 
     iget-boolean p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->isDragging:Z
 
@@ -92,9 +61,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getControlActionCoordinator()Lcom/android/systemui/controls/ui/ControlActionCoordinator;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlViewHolder;->controlActionCoordinator:Lcom/android/systemui/controls/ui/ControlActionCoordinator;
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
@@ -107,22 +74,14 @@
     return-void
 .end method
 
-.method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 0
-
-    const-string p4, "e1"
-
-    invoke-static {p1, p4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "e2"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+    .locals 1
 
     iget-boolean p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->isDragging:Z
 
     const/4 p2, 0x1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->v:Landroid/view/View;
 
@@ -134,11 +93,47 @@
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->beginUpdateRange()V
+    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getCvh()Lcom/android/systemui/controls/ui/ControlViewHolder;
+
+    move-result-object p4
+
+    iput-boolean p2, p4, Lcom/android/systemui/controls/ui/ControlViewHolder;->userInteractionInProgress:Z
+
+    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getCvh()Lcom/android/systemui/controls/ui/ControlViewHolder;
+
+    move-result-object p4
+
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->context:Landroid/content/Context;
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f070185
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    int-to-float p1, p1
+
+    iget-object p4, p4, Lcom/android/systemui/controls/ui/ControlViewHolder;->status:Landroid/widget/TextView;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p4, v0, p1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     iput-boolean p2, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->isDragging:Z
 
-    :cond_0
+    :cond_1
     neg-float p1, p3
 
     iget-object p3, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->v:Landroid/view/View;
@@ -176,35 +171,25 @@
     return p2
 .end method
 
-.method public onSingleTapUp(Landroid/view/MotionEvent;)Z
+.method public final onSingleTapUp(Landroid/view/MotionEvent;)Z
     .locals 2
-
-    const-string v0, "e"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isToggleable()Z
+    iget-boolean v0, p1, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isToggleable:Z
 
-    move-result p1
-
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
     const/4 p0, 0x0
 
     return p0
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
-
     invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getCvh()Lcom/android/systemui/controls/ui/ControlViewHolder;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getControlActionCoordinator()Lcom/android/systemui/controls/ui/ControlActionCoordinator;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlViewHolder;->controlActionCoordinator:Lcom/android/systemui/controls/ui/ControlActionCoordinator;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
@@ -212,29 +197,23 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
-
-    invoke-virtual {v1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getTemplateId()Ljava/lang/String;
-
-    move-result-object v1
-
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked()Z
+    iget-object v1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->templateId:Ljava/lang/String;
 
-    move-result p0
+    if-eqz v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    :goto_0
+    iget-boolean p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked:Z
 
     invoke-interface {p1, v0, v1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinator;->toggle(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Z)V
 
     const/4 p0, 0x1
 
     return p0
-.end method
-
-.method public final setDragging(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$ToggleRangeGestureListener;->isDragging:Z
-
-    return-void
 .end method

@@ -16,6 +16,10 @@
         <item quantity="other">%s નિયંત્રણો ઉમેર્યા.</item>
         <item quantity="one">%s નિયંત્રણ ઉમેર્યું.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s ઍપ સક્રિય છે</item>
+        <item quantity="one">%s ઍપ સક્રિય છે</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">સિમનો પિન દાખલ કરો, તમારી પાસે %d પ્રયાસો બાકી છે.</item>
         <item quantity="one">સિમનો પિન દાખલ કરો, તમારી પાસે %d પ્રયાસ બાકી છે.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">ખોટો સિમ PUK કોડ, સિમ કાયમી રૂપે અનુપયોગી બની જાય તે પહેલા તમારી પાસે %d પ્રયાસ બાકી છે.</item>
         <item quantity="one">ખોટો સિમ PUK કોડ, સિમ કાયમી રૂપે અનુપયોગી બની જાય તે પહેલા તમારી પાસે %d પ્રયાસ બાકી છે.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d સેકન્ડમાં ફરી પ્રયાસ કરો.</item>
-        <item quantity="one">%d સેકન્ડમાં ફરી પ્રયાસ કરો.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d નવા નોટિફિકેશન</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">તમે %d વપરાશકર્તાઓ સુધી ઉમેરી શકો છો.</item>
         <item quantity="one">તમે %d વપરાશકર્તા સુધી ઉમેરી શકો છો.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d ડિવાઇસ કનેક્ટ કર્યા</item>
-        <item quantity="one">%1$d ડિવાઇસ કનેક્ટ કર્યું</item>
     </plurals>
 </resources>

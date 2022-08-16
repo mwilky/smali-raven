@@ -12,17 +12,17 @@
 
 
 # instance fields
-.field mFormat:Ljava/lang/String;
+.field public mFormat:Ljava/lang/String;
 
-.field protected mHints:[Ljava/lang/String;
+.field public mHints:[Ljava/lang/String;
 
-.field mHolder:Landroidx/slice/SliceItemHolder;
+.field public mHolder:Landroidx/slice/SliceItemHolder;
 
-.field mObj:Ljava/lang/Object;
+.field public mObj:Ljava/lang/Object;
 
-.field mSanitizedText:Ljava/lang/CharSequence;
+.field public mSanitizedText:Ljava/lang/CharSequence;
 
-.field mSubType:Ljava/lang/String;
+.field public mSubType:Ljava/lang/String;
 
 
 # direct methods
@@ -35,7 +35,7 @@
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
-    const-string v0, "text"
+    const-string/jumbo v0, "text"
 
     iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
@@ -46,111 +46,22 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/app/PendingIntent;Landroidx/slice/Slice;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+.method public constructor <init>(Landroid/app/PendingIntent;Landroidx/slice/Slice;Ljava/lang/String;[Ljava/lang/String;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "intent",
-            "slice",
-            "format",
-            "subType",
-            "hints"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/core/util/Pair;
 
     invoke-direct {v0, p1, p2}, Landroidx/core/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-direct {p0, v0, p3, p4, p5}, Landroidx/slice/SliceItem;-><init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
+    const-string p1, "action"
 
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/os/Bundle;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "in"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Landroidx/versionedparcelable/CustomVersionedParcelable;-><init>()V
-
-    sget-object v0, Landroidx/slice/Slice;->NO_HINTS:[Ljava/lang/String;
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
-
-    const-string v0, "text"
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
-
-    const-string v0, "hints"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getStringArray(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
-
-    const-string v0, "format"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    const-string v0, "subtype"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
-
-    iget-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    invoke-static {v0, p1}, Landroidx/slice/SliceItem;->readObj(Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    iput-object p1, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
+    invoke-direct {p0, v0, p1, p3, p4}, Landroidx/slice/SliceItem;-><init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "format",
-            "subType",
-            "hints"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -181,35 +92,9 @@
 .end method
 
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "format",
-            "subType",
-            "hints"
-        }
-    .end annotation
+    .locals 0
 
     invoke-direct {p0}, Landroidx/versionedparcelable/CustomVersionedParcelable;-><init>()V
-
-    sget-object v0, Landroidx/slice/Slice;->NO_HINTS:[Ljava/lang/String;
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
-
-    const-string v0, "text"
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     iput-object p4, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
@@ -222,135 +107,8 @@
     return-void
 .end method
 
-.method private static checkSpan(Ljava/lang/Object;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "span"
-        }
-    .end annotation
-
-    instance-of v0, p0, Landroid/text/style/AlignmentSpan;
-
-    if-nez v0, :cond_1
-
-    instance-of v0, p0, Landroid/text/style/ForegroundColorSpan;
-
-    if-nez v0, :cond_1
-
-    instance-of v0, p0, Landroid/text/style/RelativeSizeSpan;
-
-    if-nez v0, :cond_1
-
-    instance-of p0, p0, Landroid/text/style/StyleSpan;
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method private static checkSpannedText(Landroid/text/Spanned;)Z
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "text"
-        }
-    .end annotation
-
-    invoke-interface {p0}, Landroid/text/Spanned;->length()I
-
-    move-result v0
-
-    const-class v1, Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    invoke-interface {p0, v2, v0, v1}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
-
-    move-result-object p0
-
-    array-length v0, p0
-
-    move v1, v2
-
-    :goto_0
-    if-ge v1, v0, :cond_1
-
-    aget-object v3, p0, v1
-
-    invoke-static {v3}, Landroidx/slice/SliceItem;->checkSpan(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    return v2
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method private static fixSpan(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "span"
-        }
-    .end annotation
-
-    invoke-static {p0}, Landroidx/slice/SliceItem;->checkSpan(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
-.method private static fixSpannableText(Landroid/text/Spannable;)V
-    .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "text"
-        }
-    .end annotation
+.method public static fixSpannableText(Landroid/text/Spannable;)V
+    .locals 9
 
     invoke-interface {p0}, Landroid/text/Spannable;->length()I
 
@@ -366,1046 +124,183 @@
 
     array-length v1, v0
 
+    move v3, v2
+
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v3, v1, :cond_5
 
-    aget-object v3, v0, v2
+    aget-object v4, v0, v3
 
-    invoke-static {v3}, Landroidx/slice/SliceItem;->fixSpan(Ljava/lang/Object;)Ljava/lang/Object;
+    instance-of v5, v4, Landroid/text/style/AlignmentSpan;
 
-    move-result-object v4
+    if-nez v5, :cond_1
 
-    if-ne v4, v3, :cond_0
+    instance-of v5, v4, Landroid/text/style/ForegroundColorSpan;
+
+    if-nez v5, :cond_1
+
+    instance-of v5, v4, Landroid/text/style/RelativeSizeSpan;
+
+    if-nez v5, :cond_1
+
+    instance-of v5, v4, Landroid/text/style/StyleSpan;
+
+    if-eqz v5, :cond_0
 
     goto :goto_1
 
     :cond_0
-    if-eqz v4, :cond_1
+    move v5, v2
 
-    invoke-interface {p0, v3}, Landroid/text/Spannable;->getSpanStart(Ljava/lang/Object;)I
+    goto :goto_2
 
-    move-result v5
+    :cond_1
+    :goto_1
+    const/4 v5, 0x1
 
-    invoke-interface {p0, v3}, Landroid/text/Spannable;->getSpanEnd(Ljava/lang/Object;)I
+    :goto_2
+    if-eqz v5, :cond_2
+
+    move-object v5, v4
+
+    goto :goto_3
+
+    :cond_2
+    const/4 v5, 0x0
+
+    :goto_3
+    if-ne v5, v4, :cond_3
+
+    goto :goto_4
+
+    :cond_3
+    if-eqz v5, :cond_4
+
+    invoke-interface {p0, v4}, Landroid/text/Spannable;->getSpanStart(Ljava/lang/Object;)I
 
     move-result v6
 
-    invoke-interface {p0, v3}, Landroid/text/Spannable;->getSpanFlags(Ljava/lang/Object;)I
+    invoke-interface {p0, v4}, Landroid/text/Spannable;->getSpanEnd(Ljava/lang/Object;)I
 
     move-result v7
 
-    invoke-interface {p0, v4, v5, v6, v7}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
+    invoke-interface {p0, v4}, Landroid/text/Spannable;->getSpanFlags(Ljava/lang/Object;)I
 
-    :cond_1
-    invoke-interface {p0, v3}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
+    move-result v8
 
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
+    invoke-interface {p0, v5, v6, v7, v8}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
+
+    :cond_4
+    invoke-interface {p0, v4}, Landroid/text/Spannable;->removeSpan(Ljava/lang/Object;)V
+
+    :goto_4
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_5
     return-void
-.end method
-
-.method private static layoutDirectionToString(I)Ljava/lang/String;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutDirection"
-        }
-    .end annotation
-
-    if-eqz p0, :cond_3
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_2
-
-    const/4 v0, 0x2
-
-    if-eq p0, v0, :cond_1
-
-    const/4 v0, 0x3
-
-    if-eq p0, v0, :cond_0
-
-    invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "LOCALE"
-
-    return-object p0
-
-    :cond_1
-    const-string p0, "INHERIT"
-
-    return-object p0
-
-    :cond_2
-    const-string p0, "RTL"
-
-    return-object p0
-
-    :cond_3
-    const-string p0, "LTR"
-
-    return-object p0
-.end method
-
-.method private static readObj(Ljava/lang/String;Landroid/os/Bundle;)Ljava/lang/Object;
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "type",
-            "in"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    sparse-switch v0, :sswitch_data_0
-
-    goto/16 :goto_0
-
-    :sswitch_0
-    const-string v0, "slice"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x7
-
-    goto :goto_0
-
-    :sswitch_1
-    const-string v0, "input"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x6
-
-    goto :goto_0
-
-    :sswitch_2
-    const-string v0, "image"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v1, 0x5
-
-    goto :goto_0
-
-    :sswitch_3
-    const-string v0, "text"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v1, 0x4
-
-    goto :goto_0
-
-    :sswitch_4
-    const-string v0, "long"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    const/4 v1, 0x3
-
-    goto :goto_0
-
-    :sswitch_5
-    const-string v0, "int"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v1, 0x2
-
-    goto :goto_0
-
-    :sswitch_6
-    const-string v0, "bundle"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :sswitch_7
-    const-string v0, "action"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_7
-
-    goto :goto_0
-
-    :cond_7
-    const/4 v1, 0x0
-
-    :goto_0
-    const-string v0, "obj"
-
-    packed-switch v1, :pswitch_data_0
-
-    new-instance p1, Ljava/lang/RuntimeException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Unsupported type "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-direct {p1, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-
-    :pswitch_0
-    new-instance p0, Landroidx/slice/Slice;
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Landroidx/slice/Slice;-><init>(Landroid/os/Bundle;)V
-
-    return-object p0
-
-    :pswitch_1
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_2
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object p0
-
-    invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat;->createFromBundle(Landroid/os/Bundle;)Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_3
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getCharSequence(Ljava/lang/String;)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_4
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_5
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_6
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_7
-    new-instance p0, Landroidx/core/util/Pair;
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    new-instance v1, Landroidx/slice/Slice;
-
-    const-string v2, "obj_2"
-
-    invoke-virtual {p1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object p1
-
-    invoke-direct {v1, p1}, Landroidx/slice/Slice;-><init>(Landroid/os/Bundle;)V
-
-    invoke-direct {p0, v0, v1}, Landroidx/core/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-object p0
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        -0x54d081ca -> :sswitch_7
-        -0x5220cf7e -> :sswitch_6
-        0x197ef -> :sswitch_5
-        0x32c67c -> :sswitch_4
-        0x36452d -> :sswitch_3
-        0x5faa95b -> :sswitch_2
-        0x5fb57ca -> :sswitch_1
-        0x6873d92 -> :sswitch_0
-    .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
-.method private static sanitizeText(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "text"
-        }
-    .end annotation
-
-    instance-of v0, p0, Landroid/text/Spannable;
-
-    if-eqz v0, :cond_0
-
-    move-object v0, p0
-
-    check-cast v0, Landroid/text/Spannable;
-
-    invoke-static {v0}, Landroidx/slice/SliceItem;->fixSpannableText(Landroid/text/Spannable;)V
-
-    return-object p0
-
-    :cond_0
-    instance-of v0, p0, Landroid/text/Spanned;
-
-    if-eqz v0, :cond_2
-
-    move-object v0, p0
-
-    check-cast v0, Landroid/text/Spanned;
-
-    invoke-static {v0}, Landroidx/slice/SliceItem;->checkSpannedText(Landroid/text/Spanned;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    return-object p0
-
-    :cond_1
-    new-instance v0, Landroid/text/SpannableString;
-
-    invoke-direct {v0, p0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
-
-    invoke-static {v0}, Landroidx/slice/SliceItem;->fixSpannableText(Landroid/text/Spannable;)V
-
-    return-object v0
-
-    :cond_2
-    return-object p0
-.end method
-
-.method public static typeToString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "format"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    sparse-switch v0, :sswitch_data_0
-
-    goto :goto_0
-
-    :sswitch_0
-    const-string v0, "slice"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x6
-
-    goto :goto_0
-
-    :sswitch_1
-    const-string v0, "input"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x5
-
-    goto :goto_0
-
-    :sswitch_2
-    const-string v0, "image"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v1, 0x4
-
-    goto :goto_0
-
-    :sswitch_3
-    const-string v0, "text"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v1, 0x3
-
-    goto :goto_0
-
-    :sswitch_4
-    const-string v0, "long"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    const/4 v1, 0x2
-
-    goto :goto_0
-
-    :sswitch_5
-    const-string v0, "int"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :sswitch_6
-    const-string v0, "action"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v1, 0x0
-
-    :goto_0
-    packed-switch v1, :pswitch_data_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Unrecognized format: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :pswitch_0
-    const-string p0, "Slice"
-
-    return-object p0
-
-    :pswitch_1
-    const-string p0, "RemoteInput"
-
-    return-object p0
-
-    :pswitch_2
-    const-string p0, "Image"
-
-    return-object p0
-
-    :pswitch_3
-    const-string p0, "Text"
-
-    return-object p0
-
-    :pswitch_4
-    const-string p0, "Long"
-
-    return-object p0
-
-    :pswitch_5
-    const-string p0, "Int"
-
-    return-object p0
-
-    :pswitch_6
-    const-string p0, "Action"
-
-    return-object p0
-
-    :sswitch_data_0
-    .sparse-switch
-        -0x54d081ca -> :sswitch_6
-        0x197ef -> :sswitch_5
-        0x32c67c -> :sswitch_4
-        0x36452d -> :sswitch_3
-        0x5faa95b -> :sswitch_2
-        0x5fb57ca -> :sswitch_1
-        0x6873d92 -> :sswitch_0
-    .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
-.method private writeObj(Landroid/os/Bundle;Ljava/lang/Object;Ljava/lang/String;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dest",
-            "obj",
-            "type"
-        }
-    .end annotation
-
-    invoke-virtual {p3}, Ljava/lang/String;->hashCode()I
-
-    invoke-virtual {p3}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    sparse-switch v0, :sswitch_data_0
-
-    goto/16 :goto_0
-
-    :sswitch_0
-    const-string v0, "slice"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x7
-
-    goto :goto_0
-
-    :sswitch_1
-    const-string v0, "input"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x6
-
-    goto :goto_0
-
-    :sswitch_2
-    const-string v0, "image"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v1, 0x5
-
-    goto :goto_0
-
-    :sswitch_3
-    const-string v0, "text"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_3
-
-    goto :goto_0
-
-    :cond_3
-    const/4 v1, 0x4
-
-    goto :goto_0
-
-    :sswitch_4
-    const-string v0, "long"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    const/4 v1, 0x3
-
-    goto :goto_0
-
-    :sswitch_5
-    const-string v0, "int"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_5
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v1, 0x2
-
-    goto :goto_0
-
-    :sswitch_6
-    const-string v0, "bundle"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_6
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :sswitch_7
-    const-string v0, "action"
-
-    invoke-virtual {p3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p3
-
-    if-nez p3, :cond_7
-
-    goto :goto_0
-
-    :cond_7
-    const/4 v1, 0x0
-
-    :goto_0
-    const-string p3, "obj"
-
-    packed-switch v1, :pswitch_data_0
-
-    goto :goto_1
-
-    :pswitch_0
-    check-cast p2, Landroidx/slice/Slice;
-
-    invoke-virtual {p2}, Landroidx/slice/Slice;->toBundle()Landroid/os/Bundle;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p3, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    goto :goto_1
-
-    :pswitch_1
-    check-cast p2, Landroid/os/Parcelable;
-
-    invoke-virtual {p1, p3, p2}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    goto :goto_1
-
-    :pswitch_2
-    check-cast p2, Landroidx/core/graphics/drawable/IconCompat;
-
-    invoke-virtual {p2}, Landroidx/core/graphics/drawable/IconCompat;->toBundle()Landroid/os/Bundle;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p3, p0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    goto :goto_1
-
-    :pswitch_3
-    check-cast p2, Ljava/lang/CharSequence;
-
-    invoke-virtual {p1, p3, p2}, Landroid/os/Bundle;->putCharSequence(Ljava/lang/String;Ljava/lang/CharSequence;)V
-
-    goto :goto_1
-
-    :pswitch_4
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    check-cast p0, Ljava/lang/Long;
-
-    invoke-virtual {p0}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v0
-
-    invoke-virtual {p1, p3, v0, v1}, Landroid/os/Bundle;->putLong(Ljava/lang/String;J)V
-
-    goto :goto_1
-
-    :pswitch_5
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    check-cast p0, Ljava/lang/Integer;
-
-    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
-
-    move-result p0
-
-    invoke-virtual {p1, p3, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    goto :goto_1
-
-    :pswitch_6
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    check-cast p0, Landroid/os/Bundle;
-
-    invoke-virtual {p1, p3, p0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    goto :goto_1
-
-    :pswitch_7
-    check-cast p2, Landroidx/core/util/Pair;
-
-    iget-object p0, p2, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast p0, Landroid/app/PendingIntent;
-
-    invoke-virtual {p1, p3, p0}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
-
-    iget-object p0, p2, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast p0, Landroidx/slice/Slice;
-
-    invoke-virtual {p0}, Landroidx/slice/Slice;->toBundle()Landroid/os/Bundle;
-
-    move-result-object p0
-
-    const-string p2, "obj_2"
-
-    invoke-virtual {p1, p2, p0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-
-    :goto_1
-    return-void
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        -0x54d081ca -> :sswitch_7
-        -0x5220cf7e -> :sswitch_6
-        0x197ef -> :sswitch_5
-        0x32c67c -> :sswitch_4
-        0x36452d -> :sswitch_3
-        0x5faa95b -> :sswitch_2
-        0x5fb57ca -> :sswitch_1
-        0x6873d92 -> :sswitch_0
-    .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method
 
 
 # virtual methods
-.method public addHint(Ljava/lang/String;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hint"
-        }
-    .end annotation
+.method public final addHint()V
+    .locals 5
 
     const-class v0, Ljava/lang/String;
 
     iget-object v1, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
-    invoke-static {v0, v1, p1}, Landroidx/slice/ArrayUtils;->appendElement(Ljava/lang/Class;[Ljava/lang/Object;Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, [Ljava/lang/String;
-
-    iput-object p1, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public fireAction(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "i"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/app/PendingIntent$CanceledException;
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1, p2}, Landroidx/slice/SliceItem;->fireActionInternal(Landroid/content/Context;Landroid/content/Intent;)Z
-
-    return-void
-.end method
-
-.method public fireActionInternal(Landroid/content/Context;Landroid/content/Intent;)Z
-    .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "i"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/app/PendingIntent$CanceledException;
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    check-cast v0, Landroidx/core/util/Pair;
-
-    iget-object v0, v0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
-
-    instance-of v1, v0, Landroid/app/PendingIntent;
+    const/4 v2, 0x0
 
     if-eqz v1, :cond_0
 
-    move-object v2, v0
+    array-length v3, v1
 
-    check-cast v2, Landroid/app/PendingIntent;
+    add-int/lit8 v4, v3, 0x1
 
-    const/4 v4, 0x0
+    invoke-static {v0, v4}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Ljava/lang/Object;
+
+    invoke-static {v1, v2, v0, v2, v3}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    move v2, v3
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [Ljava/lang/Object;
+
+    :goto_0
+    const-string/jumbo v1, "partial"
+
+    aput-object v1, v0, v2
+
+    check-cast v0, [Ljava/lang/String;
+
+    iput-object v0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public final fireActionInternal(Landroid/content/Context;Landroid/content/Intent;)Z
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/app/PendingIntent$CanceledException;
+        }
+    .end annotation
+
+    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
+
+    check-cast p0, Landroidx/core/util/Pair;
+
+    iget-object p0, p0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
+
+    instance-of v0, p0, Landroid/app/PendingIntent;
+
+    if-eqz v0, :cond_0
+
+    move-object v1, p0
+
+    check-cast v1, Landroid/app/PendingIntent;
+
+    const/4 v3, 0x0
+
+    const/4 v5, 0x0
 
     const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    move-object v2, p1
 
-    move-object v3, p1
+    move-object v4, p2
 
-    move-object v5, p2
-
-    invoke-virtual/range {v2 .. v7}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;)V
+    invoke-virtual/range {v1 .. v6}, Landroid/app/PendingIntent;->send(Landroid/content/Context;ILandroid/content/Intent;Landroid/app/PendingIntent$OnFinished;Landroid/os/Handler;)V
 
     const/4 p0, 0x0
 
     return p0
 
     :cond_0
-    check-cast v0, Landroidx/slice/SliceItem$ActionHandler;
+    check-cast p0, Landroidx/slice/SliceItem$ActionHandler;
 
-    invoke-interface {v0, p0, p1, p2}, Landroidx/slice/SliceItem$ActionHandler;->onAction(Landroidx/slice/SliceItem;Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-interface {p0}, Landroidx/slice/SliceItem$ActionHandler;->onAction()V
 
     const/4 p0, 0x1
 
     return p0
 .end method
 
-.method public getAction()Landroid/app/PendingIntent;
+.method public final getAction()Landroid/app/PendingIntent;
     .locals 1
 
     iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
@@ -1428,15 +323,7 @@
     return-object p0
 .end method
 
-.method public getFormat()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getHints()Ljava/util/List;
+.method public final getHints()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1456,17 +343,7 @@
     return-object p0
 .end method
 
-.method public getIcon()Landroidx/core/graphics/drawable/IconCompat;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    check-cast p0, Landroidx/core/graphics/drawable/IconCompat;
-
-    return-object p0
-.end method
-
-.method public getInt()I
+.method public final getInt()I
     .locals 0
 
     iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
@@ -1480,7 +357,7 @@
     return p0
 .end method
 
-.method public getLong()J
+.method public final getLong()J
     .locals 2
 
     iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
@@ -1494,45 +371,124 @@
     return-wide v0
 .end method
 
-.method public getRemoteInput()Landroid/app/RemoteInput;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    check-cast p0, Landroid/app/RemoteInput;
-
-    return-object p0
-.end method
-
-.method public getSanitizedText()Ljava/lang/CharSequence;
-    .locals 1
+.method public final getSanitizedText()Ljava/lang/CharSequence;
+    .locals 8
 
     iget-object v0, p0, Landroidx/slice/SliceItem;->mSanitizedText:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_7
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getText()Ljava/lang/CharSequence;
+    iget-object v0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
 
-    move-result-object v0
+    check-cast v0, Ljava/lang/CharSequence;
 
-    invoke-static {v0}, Landroidx/slice/SliceItem;->sanitizeText(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    instance-of v1, v0, Landroid/text/Spannable;
 
-    move-result-object v0
+    if-eqz v1, :cond_0
 
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mSanitizedText:Ljava/lang/CharSequence;
+    move-object v1, v0
+
+    check-cast v1, Landroid/text/Spannable;
+
+    invoke-static {v1}, Landroidx/slice/SliceItem;->fixSpannableText(Landroid/text/Spannable;)V
+
+    goto :goto_3
 
     :cond_0
+    instance-of v1, v0, Landroid/text/Spanned;
+
+    if-eqz v1, :cond_6
+
+    move-object v1, v0
+
+    check-cast v1, Landroid/text/Spanned;
+
+    invoke-interface {v1}, Landroid/text/Spanned;->length()I
+
+    move-result v2
+
+    const-class v3, Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    invoke-interface {v1, v4, v2, v3}, Landroid/text/Spanned;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
+
+    move-result-object v1
+
+    array-length v2, v1
+
+    move v3, v4
+
+    :goto_0
+    const/4 v5, 0x1
+
+    if-ge v3, v2, :cond_4
+
+    aget-object v6, v1, v3
+
+    instance-of v7, v6, Landroid/text/style/AlignmentSpan;
+
+    if-nez v7, :cond_2
+
+    instance-of v7, v6, Landroid/text/style/ForegroundColorSpan;
+
+    if-nez v7, :cond_2
+
+    instance-of v7, v6, Landroid/text/style/RelativeSizeSpan;
+
+    if-nez v7, :cond_2
+
+    instance-of v6, v6, Landroid/text/style/StyleSpan;
+
+    if-eqz v6, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v5, v4
+
+    :cond_2
+    :goto_1
+    if-nez v5, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    move v4, v5
+
+    :goto_2
+    if-eqz v4, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    new-instance v1, Landroid/text/SpannableString;
+
+    invoke-direct {v1, v0}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+
+    invoke-static {v1}, Landroidx/slice/SliceItem;->fixSpannableText(Landroid/text/Spannable;)V
+
+    move-object v0, v1
+
+    :cond_6
+    :goto_3
+    iput-object v0, p0, Landroidx/slice/SliceItem;->mSanitizedText:Ljava/lang/CharSequence;
+
+    :cond_7
     iget-object p0, p0, Landroidx/slice/SliceItem;->mSanitizedText:Ljava/lang/CharSequence;
 
     return-object p0
 .end method
 
-.method public getSlice()Landroidx/slice/Slice;
+.method public final getSlice()Landroidx/slice/Slice;
     .locals 2
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
     const-string v1, "action"
 
@@ -1560,183 +516,54 @@
     return-object p0
 .end method
 
-.method public getSubType()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getText()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    check-cast p0, Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public varargs hasAnyHints([Ljava/lang/String;)Z
+.method public final varargs hasAnyHints([Ljava/lang/String;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hints"
-        }
-    .end annotation
 
-    const/4 v0, 0x0
+    array-length v0, p1
 
-    if-nez p1, :cond_0
+    const/4 v1, 0x0
 
-    return v0
-
-    :cond_0
-    array-length v1, p1
-
-    move v2, v0
+    move v2, v1
 
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v2, v0, :cond_1
 
     aget-object v3, p1, v2
 
     iget-object v4, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
-    invoke-static {v4, v3}, Landroidx/slice/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v4, v3}, Lokio/Okio;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_0
 
     const/4 p0, 0x1
 
     return p0
 
-    :cond_1
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_2
-    return v0
+    :cond_1
+    return v1
 .end method
 
-.method public hasHint(Ljava/lang/String;)Z
+.method public final hasHint(Ljava/lang/String;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hint"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
 
-    invoke-static {p0, p1}, Landroidx/slice/ArrayUtils;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Lokio/Okio;->contains([Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public onPostParceling()V
-    .locals 3
-
-    iget-object v0, p0, Landroidx/slice/SliceItem;->mHolder:Landroidx/slice/SliceItemHolder;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    iget-object v2, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    invoke-virtual {v0, v2}, Landroidx/slice/SliceItemHolder;->getObj(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    iget-object v0, p0, Landroidx/slice/SliceItem;->mHolder:Landroidx/slice/SliceItemHolder;
-
-    invoke-virtual {v0}, Landroidx/slice/SliceItemHolder;->release()V
-
-    goto :goto_0
-
-    :cond_0
-    iput-object v1, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    :goto_0
-    iput-object v1, p0, Landroidx/slice/SliceItem;->mHolder:Landroidx/slice/SliceItemHolder;
-
-    return-void
-.end method
-
-.method public onPreParceling(Z)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "isStream"
-        }
-    .end annotation
-
-    new-instance v0, Landroidx/slice/SliceItemHolder;
-
-    iget-object v1, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    iget-object v2, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    invoke-direct {v0, v1, v2, p1}, Landroidx/slice/SliceItemHolder;-><init>(Ljava/lang/String;Ljava/lang/Object;Z)V
-
-    iput-object v0, p0, Landroidx/slice/SliceItem;->mHolder:Landroidx/slice/SliceItemHolder;
-
-    return-void
-.end method
-
-.method public toBundle()Landroid/os/Bundle;
-    .locals 3
-
-    new-instance v0, Landroid/os/Bundle;
-
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
-
-    iget-object v1, p0, Landroidx/slice/SliceItem;->mHints:[Ljava/lang/String;
-
-    const-string v2, "hints"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putStringArray(Ljava/lang/String;[Ljava/lang/String;)V
-
-    iget-object v1, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    const-string v2, "format"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
-
-    const-string v2, "subtype"
-
-    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v1, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
-
-    iget-object v2, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
-
-    invoke-direct {p0, v0, v1, v2}, Landroidx/slice/SliceItem;->writeObj(Landroid/os/Bundle;Ljava/lang/Object;Ljava/lang/String;)V
-
-    return-object v0
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 1
 
     const-string v0, ""
@@ -1748,32 +575,18 @@
     return-object p0
 .end method
 
-.method public toString(Ljava/lang/String;)Ljava/lang/String;
-    .locals 11
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "indent"
-        }
-    .end annotation
+.method public final toString(Ljava/lang/String;)Ljava/lang/String;
+    .locals 14
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v1
+    iget-object v1, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object v1
+    iget-object v1, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     if-eqz v1, :cond_0
 
@@ -1781,9 +594,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object v1
+    iget-object v1, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1807,49 +618,41 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     :cond_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "  "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "  "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p1, v1}, Landroidx/appcompat/view/SupportMenuInflater$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
+    iget-object v2, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
-
-    const/4 v3, -0x1
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
 
-    move-result v4
+    move-result v3
 
-    const/4 v5, 0x4
+    const-string/jumbo v4, "slice"
 
-    const/4 v6, 0x3
+    const-string v5, "image"
 
-    const/4 v7, 0x2
+    const-string/jumbo v6, "text"
 
-    const/4 v8, 0x1
+    const-string v7, "long"
 
-    const/4 v9, 0x0
+    const-string v8, "int"
 
-    sparse-switch v4, :sswitch_data_0
+    const-string v9, "action"
+
+    const/4 v10, 0x4
+
+    const/4 v11, 0x0
+
+    sparse-switch v3, :sswitch_data_0
 
     goto :goto_0
 
     :sswitch_0
-    const-string v4, "slice"
-
     invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
@@ -1859,14 +662,12 @@
     goto :goto_0
 
     :cond_2
-    const/4 v3, 0x5
+    const/4 v2, 0x5
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_1
-    const-string v4, "image"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -1875,14 +676,12 @@
     goto :goto_0
 
     :cond_3
-    move v3, v5
+    move v2, v10
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_2
-    const-string v4, "text"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -1891,14 +690,12 @@
     goto :goto_0
 
     :cond_4
-    move v3, v6
+    const/4 v2, 0x3
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_3
-    const-string v4, "long"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -1907,14 +704,12 @@
     goto :goto_0
 
     :cond_5
-    move v3, v7
+    const/4 v2, 0x2
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_4
-    const-string v4, "int"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -1923,14 +718,12 @@
     goto :goto_0
 
     :cond_6
-    move v3, v8
+    const/4 v2, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
     :sswitch_5
-    const-string v4, "action"
-
-    invoke-virtual {v2, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v2
 
@@ -1939,31 +732,36 @@
     goto :goto_0
 
     :cond_7
-    move v3, v9
+    move v2, v11
+
+    goto :goto_1
 
     :goto_0
-    const/16 v2, 0x7d
+    const/4 v2, -0x1
 
-    const/16 v4, 0xa
+    :goto_1
+    const/16 v3, 0x7d
 
-    const-string/jumbo v10, "{\n"
+    const/16 v12, 0xa
 
-    packed-switch v3, :pswitch_data_0
+    const-string/jumbo v13, "{\n"
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
+    packed-switch v2, :pswitch_data_0
 
-    move-result-object p0
+    iget-object p0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
-    invoke-static {p0}, Landroidx/slice/SliceItem;->typeToString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result p1
 
-    goto/16 :goto_1
+    sparse-switch p1, :sswitch_data_1
+
+    goto/16 :goto_3
 
     :pswitch_0
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSlice()Landroidx/slice/Slice;
 
@@ -1975,42 +773,40 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_6
 
     :pswitch_1
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
+    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
 
-    move-result-object p0
+    check-cast p0, Landroidx/core/graphics/drawable/IconCompat;
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_6
 
     :pswitch_2
     const/16 p1, 0x22
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getText()Ljava/lang/CharSequence;
+    iget-object p0, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
 
-    move-result-object p0
+    check-cast p0, Ljava/lang/CharSequence;
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_6
 
     :pswitch_3
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     const-string v1, "millis"
 
@@ -2034,7 +830,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_6
 
     :cond_8
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getLong()J
@@ -2059,7 +855,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_6
 
     :cond_9
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getLong()J
@@ -2072,12 +868,10 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto/16 :goto_1
+    goto/16 :goto_6
 
     :pswitch_4
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     const-string v1, "color"
 
@@ -2091,7 +885,7 @@
 
     move-result p0
 
-    new-array p1, v5, [Ljava/lang/Object;
+    new-array p1, v10, [Ljava/lang/Object;
 
     invoke-static {p0}, Landroid/graphics/Color;->alpha(I)I
 
@@ -2101,7 +895,7 @@
 
     move-result-object v1
 
-    aput-object v1, p1, v9
+    aput-object v1, p1, v11
 
     invoke-static {p0}, Landroid/graphics/Color;->red(I)I
 
@@ -2111,7 +905,9 @@
 
     move-result-object v1
 
-    aput-object v1, p1, v8
+    const/4 v2, 0x1
+
+    aput-object v1, p1, v2
 
     invoke-static {p0}, Landroid/graphics/Color;->green(I)I
 
@@ -2121,7 +917,9 @@
 
     move-result-object v1
 
-    aput-object v1, p1, v7
+    const/4 v2, 0x2
+
+    aput-object v1, p1, v2
 
     invoke-static {p0}, Landroid/graphics/Color;->blue(I)I
 
@@ -2131,7 +929,9 @@
 
     move-result-object p0
 
-    aput-object p0, p1, v6
+    const/4 v1, 0x3
+
+    aput-object p0, p1, v1
 
     const-string p0, "a=0x%02x r=0x%02x g=0x%02x b=0x%02x"
 
@@ -2141,12 +941,10 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto/16 :goto_6
 
     :cond_a
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     const-string v1, "layout_direction"
 
@@ -2154,47 +952,82 @@
 
     move-result p1
 
-    if-eqz p1, :cond_b
+    if-eqz p1, :cond_f
 
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getInt()I
 
     move-result p0
 
-    invoke-static {p0}, Landroidx/slice/SliceItem;->layoutDirectionToString(I)Ljava/lang/String;
+    if-eqz p0, :cond_e
+
+    const/4 p1, 0x1
+
+    if-eq p0, p1, :cond_d
+
+    const/4 p1, 0x2
+
+    if-eq p0, p1, :cond_c
+
+    const/4 p1, 0x3
+
+    if-eq p0, p1, :cond_b
+
+    invoke-static {p0}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_1
+    goto :goto_2
 
     :cond_b
+    const-string p0, "LOCALE"
+
+    goto :goto_2
+
+    :cond_c
+    const-string p0, "INHERIT"
+
+    goto :goto_2
+
+    :cond_d
+    const-string p0, "RTL"
+
+    goto :goto_2
+
+    :cond_e
+    const-string p0, "LTR"
+
+    :goto_2
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto/16 :goto_6
+
+    :cond_f
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getInt()I
 
     move-result p0
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    goto/16 :goto_6
 
     :pswitch_5
-    iget-object v3, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
+    iget-object v2, p0, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
 
-    check-cast v3, Landroidx/core/util/Pair;
+    check-cast v2, Landroidx/core/util/Pair;
 
-    iget-object v3, v3, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
+    iget-object v2, v2, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
-    const/16 v5, 0x5b
+    const/16 v4, 0x5b
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string v3, "] "
+    const-string v2, "] "
 
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSlice()Landroidx/slice/Slice;
 
@@ -2206,13 +1039,161 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :goto_1
+    goto/16 :goto_6
+
+    :sswitch_6
+    invoke-virtual {p0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_10
+
+    goto :goto_3
+
+    :cond_10
+    const/4 v10, 0x6
+
+    goto :goto_4
+
+    :sswitch_7
+    const-string p1, "input"
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_11
+
+    goto :goto_3
+
+    :cond_11
+    const/4 v10, 0x5
+
+    goto :goto_4
+
+    :sswitch_8
+    invoke-virtual {p0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_16
+
+    goto :goto_3
+
+    :sswitch_9
+    invoke-virtual {p0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_12
+
+    goto :goto_3
+
+    :cond_12
+    const/4 v10, 0x3
+
+    goto :goto_4
+
+    :sswitch_a
+    invoke-virtual {p0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_13
+
+    goto :goto_3
+
+    :cond_13
+    const/4 v10, 0x2
+
+    goto :goto_4
+
+    :sswitch_b
+    invoke-virtual {p0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_14
+
+    goto :goto_3
+
+    :cond_14
+    const/4 v10, 0x1
+
+    goto :goto_4
+
+    :sswitch_c
+    invoke-virtual {p0, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_15
+
+    goto :goto_3
+
+    :cond_15
+    move v10, v11
+
+    goto :goto_4
+
+    :goto_3
+    const/4 v10, -0x1
+
+    :cond_16
+    :goto_4
+    packed-switch v10, :pswitch_data_1
+
+    const-string p1, "Unrecognized format: "
+
+    invoke-static {p1, p0}, Landroidx/appcompat/view/SupportMenuInflater$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_5
+
+    :pswitch_6
+    const-string p0, "Slice"
+
+    goto :goto_5
+
+    :pswitch_7
+    const-string p0, "RemoteInput"
+
+    goto :goto_5
+
+    :pswitch_8
+    const-string p0, "Image"
+
+    goto :goto_5
+
+    :pswitch_9
+    const-string p0, "Text"
+
+    goto :goto_5
+
+    :pswitch_a
+    const-string p0, "Long"
+
+    goto :goto_5
+
+    :pswitch_b
+    const-string p0, "Int"
+
+    goto :goto_5
+
+    :pswitch_c
+    const-string p0, "Action"
+
+    :goto_5
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :goto_6
     const-string p0, "\n"
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -2243,5 +1224,27 @@
         :pswitch_2
         :pswitch_1
         :pswitch_0
+    .end packed-switch
+
+    :sswitch_data_1
+    .sparse-switch
+        -0x54d081ca -> :sswitch_c
+        0x197ef -> :sswitch_b
+        0x32c67c -> :sswitch_a
+        0x36452d -> :sswitch_9
+        0x5faa95b -> :sswitch_8
+        0x5fb57ca -> :sswitch_7
+        0x6873d92 -> :sswitch_6
+    .end sparse-switch
+
+    :pswitch_data_1
+    .packed-switch 0x0
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
     .end packed-switch
 .end method

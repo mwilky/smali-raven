@@ -12,9 +12,7 @@
 
 
 # static fields
-.field public static final Companion:Lcom/android/systemui/controls/ui/RenderInfo$Companion;
-
-.field private static final appIconMap:Landroid/util/ArrayMap;
+.field public static final appIconMap:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -25,7 +23,7 @@
     .end annotation
 .end field
 
-.field private static final iconMap:Landroid/util/SparseArray;
+.field public static final iconMap:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -37,24 +35,16 @@
 
 
 # instance fields
-.field private final enabledBackground:I
+.field public final enabledBackground:I
 
-.field private final foreground:I
+.field public final foreground:I
 
-.field private final icon:Landroid/graphics/drawable/Drawable;
+.field public final icon:Landroid/graphics/drawable/Drawable;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/controls/ui/RenderInfo$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/ui/RenderInfo$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/controls/ui/RenderInfo;->Companion:Lcom/android/systemui/controls/ui/RenderInfo$Companion;
+.method public static constructor <clinit>()V
+    .locals 1
 
     new-instance v0, Landroid/util/SparseArray;
 
@@ -72,11 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;II)V
-    .locals 1
-
-    const-string v0, "icon"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -89,25 +75,9 @@
     return-void
 .end method
 
-.method public static final synthetic access$getAppIconMap$cp()Landroid/util/ArrayMap;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/controls/ui/RenderInfo;->appIconMap:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getIconMap$cp()Landroid/util/SparseArray;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/controls/ui/RenderInfo;->iconMap:Landroid/util/SparseArray;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -162,32 +132,8 @@
     return v0
 .end method
 
-.method public final getEnabledBackground()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/controls/ui/RenderInfo;->enabledBackground:I
-
-    return p0
-.end method
-
-.method public final getForeground()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/controls/ui/RenderInfo;->foreground:I
-
-    return p0
-.end method
-
-.method public final getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/RenderInfo;->icon:Landroid/graphics/drawable/Drawable;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
-    .locals 2
+.method public final hashCode()I
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/RenderInfo;->icon:Landroid/graphics/drawable/Drawable;
 
@@ -199,13 +145,11 @@
 
     iget v1, p0, Lcom/android/systemui/controls/ui/RenderInfo;->foreground:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v2, 0x1f
 
-    move-result v1
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget p0, p0, Lcom/android/systemui/controls/ui/RenderInfo;->enabledBackground:I
 
@@ -213,21 +157,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "RenderInfo(icon="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "RenderInfo(icon="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/controls/ui/RenderInfo;->icon:Landroid/graphics/drawable/Drawable;
 
@@ -247,13 +189,9 @@
 
     iget p0, p0, Lcom/android/systemui/controls/ui/RenderInfo;->enabledBackground:I
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/core/graphics/Insets$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;IC)Ljava/lang/String;
 
     move-result-object p0
 

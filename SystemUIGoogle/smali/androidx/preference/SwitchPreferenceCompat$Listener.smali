@@ -1,4 +1,4 @@
-.class Landroidx/preference/SwitchPreferenceCompat$Listener;
+.class public final Landroidx/preference/SwitchPreferenceCompat$Listener;
 .super Ljava/lang/Object;
 .source "SwitchPreferenceCompat.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Listener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/preference/SwitchPreferenceCompat;
+.field public final synthetic this$0:Landroidx/preference/SwitchPreferenceCompat;
 
 
 # direct methods
-.method constructor <init>(Landroidx/preference/SwitchPreferenceCompat;)V
+.method public constructor <init>(Landroidx/preference/SwitchPreferenceCompat;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/preference/SwitchPreferenceCompat$Listener;->this$0:Landroidx/preference/SwitchPreferenceCompat;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
     .locals 2
 
     iget-object v0, p0, Landroidx/preference/SwitchPreferenceCompat$Listener;->this$0:Landroidx/preference/SwitchPreferenceCompat;
@@ -43,7 +43,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Landroidx/preference/Preference;->callChangeListener(Ljava/io/Serializable;)Z
 
     move-result v0
 

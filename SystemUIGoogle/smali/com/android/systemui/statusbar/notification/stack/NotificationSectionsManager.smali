@@ -10,101 +10,48 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;,
-        Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;,
-        Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$Companion;
+        Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationSectionsManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 4 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n+ 5 _Sequences.kt\nkotlin/sequences/SequencesKt___SequencesKt\n+ 6 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 7 SparseArrayUtils.kt\ncom/android/systemui/util/SparseArrayUtilsKt\n+ 8 Iterators.kt\nkotlin/collections/CollectionsKt__IteratorsKt\n*L\n1#1,450:1\n1#2:451\n11328#3:452\n11663#3,3:453\n12917#3,3:478\n37#4,2:456\n1267#5,3:458\n1256#5,2:461\n1002#5:465\n1819#6,2:463\n62#7,5:466\n67#7,4:472\n71#7:477\n32#8:471\n33#8:476\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n*L\n127#1:452\n127#1,3:453\n411#1,3:478\n128#1,2:456\n180#1,3:458\n297#1,2:461\n400#1:465\n342#1,2:463\n405#1,5:466\n405#1,4:472\n405#1:477\n405#1:471\n405#1:476\n*E\n"
+    value = "SMAP\nNotificationSectionsManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n+ 4 ArraysJVM.kt\nkotlin/collections/ArraysKt__ArraysJVMKt\n+ 5 TraceUtils.kt\ncom/android/systemui/util/TraceUtilsKt\n+ 6 _Sequences.kt\nkotlin/sequences/SequencesKt___SequencesKt\n+ 7 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 8 SparseArrayUtils.kt\ncom/android/systemui/util/SparseArrayUtilsKt\n+ 9 Iterators.kt\nkotlin/collections/CollectionsKt__IteratorsKt\n*L\n1#1,435:1\n1#2:436\n11358#3:437\n11693#3,3:438\n12947#3,3:475\n37#4:441\n36#4,3:442\n26#5,3:445\n30#5:451\n29#5:452\n26#5,3:453\n30#5:460\n29#5:461\n1301#6,3:448\n1290#6,2:456\n1036#6:462\n1849#7,2:458\n62#8,5:463\n67#8,4:469\n71#8:474\n32#9:468\n33#9:473\n*S KotlinDebug\n*F\n+ 1 NotificationSectionsManager.kt\ncom/android/systemui/statusbar/notification/stack/NotificationSectionsManager\n*L\n109#1:437\n109#1:438,3\n396#1:475,3\n110#1:441\n110#1:442,3\n161#1:445,3\n161#1:451\n161#1:452\n227#1:453,3\n227#1:460\n227#1:461\n162#1:448,3\n282#1:456,2\n385#1:462\n327#1:458,2\n390#1:463,5\n390#1:469,4\n390#1:474\n390#1:468\n390#1:473\n*E\n"
 .end annotation
 
 
-# static fields
-.field public static final Companion:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$Companion;
-
-
 # instance fields
-.field private final alertingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+.field public final alertingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
-.field private final configurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+.field public final configurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-.field private final configurationListener:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$configurationListener$1;
+.field public final configurationListener:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$configurationListener$1;
 
-.field private final incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+.field public final incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
-.field private initialized:Z
+.field public initialized:Z
 
-.field private final keyguardMediaController:Lcom/android/systemui/media/KeyguardMediaController;
+.field public final keyguardMediaController:Lcom/android/systemui/media/KeyguardMediaController;
 
-.field private final logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+.field public final logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-.field private mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
+.field public final mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
 
-.field private parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+.field public final notifPipelineFlags:Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
 
-.field private final peopleHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+.field public parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-.field private final sectionsFeatureManager:Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
+.field public final peopleHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
-.field private final silentHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+.field public final sectionsFeatureManager:Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
 
-.field private final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+.field public final silentHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+
+.field public final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->Companion:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$Companion;
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;)V
-    .locals 1
-
-    const-string v0, "statusBarStateController"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "configurationController"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "keyguardMediaController"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "sectionsFeatureManager"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "logger"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "incomingHeaderController"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "peopleHeaderController"
-
-    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "alertingHeaderController"
-
-    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "silentHeaderController"
-
-    invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/KeyguardMediaController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -118,13 +65,17 @@
 
     iput-object p5, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    iput-object p6, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+    iput-object p6, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->notifPipelineFlags:Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
 
-    iput-object p7, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->peopleHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+    iput-object p7, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
 
-    iput-object p8, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->alertingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+    iput-object p8, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
-    iput-object p9, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->silentHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+    iput-object p9, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->peopleHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+
+    iput-object p10, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->alertingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+
+    iput-object p11, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->silentHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
     new-instance p1, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$configurationListener$1;
 
@@ -135,66 +86,6 @@
     return-void
 .end method
 
-.method public static final synthetic access$getBucket(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;Landroid/view/View;)Ljava/lang/Integer;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getBucket(Landroid/view/View;)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getParent$p(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;)Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    return-object p0
-.end method
-
-.method private final decorViewHeaderState(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;",
-            ">(TT;)",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "TT;>;"
-        }
-    .end annotation
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->expandableViewHeaderState(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
-
-    move-result-object p0
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;-><init>(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)V
-
-    return-object v0
-.end method
-
-.method private final expandableViewHeaderState(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Lcom/android/systemui/statusbar/notification/row/ExpandableView;",
-            ">(TT;)",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "TT;>;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;
-
-    invoke-direct {v0, p1, p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;)V
-
-    return-object v0
-.end method
-
 .method public static synthetic getAlertingHeaderView$annotations()V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -203,7 +94,135 @@
     return-void
 .end method
 
-.method private final getBucket(Landroid/view/View;)Ljava/lang/Integer;
+.method public static synthetic getIncomingHeaderView$annotations()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    return-void
+.end method
+
+.method public static synthetic getMediaControlsView$annotations()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    return-void
+.end method
+
+.method public static synthetic getPeopleHeaderView$annotations()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    return-void
+.end method
+
+.method public static synthetic getSilentHeaderView$annotations()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final beginsSection(Landroid/view/View;Landroid/view/View;)Z
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v0
+
+    if-eq p1, v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
+
+    if-eq p1, v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v0
+
+    if-eq p1, v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v0
+
+    if-eq p1, v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v0
+
+    if-eq p1, v0, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getBucket(Landroid/view/View;)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getBucket(Landroid/view/View;)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
+    return p0
+.end method
+
+.method public final decorViewHeaderState(Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->notifPipelineFlags:Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;->checkLegacyPipelineEnabled()Z
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;
+
+    invoke-direct {v0, p1, p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;)V
+
+    new-instance p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;
+
+    invoke-direct {p0, v0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;-><init>(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;)V
+
+    return-object p0
+.end method
+
+.method public final getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->alertingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final getBucket(Landroid/view/View;)Ljava/lang/Integer;
     .locals 1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
@@ -221,7 +240,9 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getIncomingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
 
     move-result-object v0
 
@@ -236,7 +257,9 @@
     goto :goto_0
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
 
     if-ne p1, v0, :cond_2
 
@@ -285,13 +308,9 @@
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getBucket()I
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -303,626 +322,6 @@
     const/4 p0, 0x0
 
     :goto_0
-    return-object p0
-.end method
-
-.method public static synthetic getIncomingHeaderView$annotations()V
-    .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    return-void
-.end method
-
-.method public static synthetic getPeopleHeaderView$annotations()V
-    .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    return-void
-.end method
-
-.method public static synthetic getSilentHeaderView$annotations()V
-    .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    return-void
-.end method
-
-.method private final isUsingMultipleSections()Z
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->sectionsFeatureManager:Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;->getNumberOfBuckets()I
-
-    move-result p0
-
-    const/4 v0, 0x1
-
-    if-le p0, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method private final logShadeChild(ILandroid/view/View;)V
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getIncomingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-ne p2, v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logIncomingHeader(I)V
-
-    goto/16 :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-
-    if-ne p2, v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logMediaControls(I)V
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-ne p2, v0, :cond_2
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logConversationsHeader(I)V
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-ne p2, v0, :cond_3
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logAlertingHeader(I)V
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-ne p2, v0, :cond_4
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logSilentHeader(I)V
-
-    goto :goto_0
-
-    :cond_4
-    instance-of v0, p2, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-nez v0, :cond_5
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object p2
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logOther(ILjava/lang/Class;)V
-
-    goto :goto_0
-
-    :cond_5
-    check-cast p2, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isHeadsUp()Z
-
-    move-result v0
-
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getBucket()I
-
-    move-result p2
-
-    const/4 v1, 0x2
-
-    if-eq p2, v1, :cond_9
-
-    const/4 v1, 0x4
-
-    if-eq p2, v1, :cond_8
-
-    const/4 v1, 0x5
-
-    if-eq p2, v1, :cond_7
-
-    const/4 v1, 0x6
-
-    if-eq p2, v1, :cond_6
-
-    goto :goto_0
-
-    :cond_6
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logSilent(IZ)V
-
-    goto :goto_0
-
-    :cond_7
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logAlerting(IZ)V
-
-    goto :goto_0
-
-    :cond_8
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logConversation(IZ)V
-
-    goto :goto_0
-
-    :cond_9
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logHeadsUp(IZ)V
-
-    :goto_0
-    return-void
-.end method
-
-.method private final logShadeContents()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    if-eqz v0, :cond_2
-
-    invoke-static {v0}, Lcom/android/systemui/util/ConvenienceExtensionsKt;->getChildren(Landroid/view/ViewGroup;)Lkotlin/sequences/Sequence;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-interface {v0}, Lkotlin/sequences/Sequence;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    add-int/lit8 v3, v1, 0x1
-
-    if-gez v1, :cond_0
-
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->throwIndexOverflow()V
-
-    :cond_0
-    check-cast v2, Landroid/view/View;
-
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logShadeChild(ILandroid/view/View;)V
-
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-
-    :cond_2
-    const-string p0, "parent"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method private final reinflateView(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Landroid/view/LayoutInflater;I)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Lcom/android/systemui/statusbar/notification/row/ExpandableView;",
-            ">(TT;",
-            "Landroid/view/LayoutInflater;",
-            "I)TT;"
-        }
-    .end annotation
-
-    const/4 v0, -0x1
-
-    const/4 v1, 0x0
-
-    const-string v2, "parent"
-
-    if-nez p1, :cond_1
-
-    :cond_0
-    move v3, v0
-
-    goto :goto_1
-
-    :cond_1
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getTransientContainer()Landroid/view/ViewGroup;
-
-    move-result-object v3
-
-    if-nez v3, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {v3, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
-
-    :goto_0
-    invoke-virtual {p1}, Landroid/widget/FrameLayout;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    if-eqz v4, :cond_8
-
-    if-ne v3, v4, :cond_0
-
-    if-eqz v4, :cond_4
-
-    invoke-virtual {v4, p1}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    if-eqz v4, :cond_3
-
-    invoke-virtual {v4, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
-
-    goto :goto_1
-
-    :cond_3
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_4
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :goto_1
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    if-eqz p1, :cond_7
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p2, p3, p1, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object p1
-
-    const-string p2, "null cannot be cast to non-null type T of com.android.systemui.statusbar.notification.stack.NotificationSectionsManager.reinflateView"
-
-    invoke-static {p1, p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    if-eq v3, v0, :cond_6
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    if-eqz p0, :cond_5
-
-    invoke-virtual {p0, p1, v3}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
-
-    goto :goto_2
-
-    :cond_5
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_6
-    :goto_2
-    return-object p1
-
-    :cond_7
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_8
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-.end method
-
-.method private static final updateSectionBoundaries$getSectionState(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Landroid/view/View;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "+",
-            "Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;",
-            ">;",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "+",
-            "Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;",
-            ">;",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "+",
-            "Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;",
-            ">;",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "+",
-            "Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;",
-            ">;",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "+",
-            "Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;",
-            ">;",
-            "Landroid/view/View;",
-            ")",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "Lcom/android/systemui/statusbar/notification/row/ExpandableView;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-
-    if-ne p6, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getIncomingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object p1
-
-    if-ne p6, p1, :cond_1
-
-    move-object p1, p2
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object p1
-
-    if-ne p6, p1, :cond_2
-
-    move-object p1, p3
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object p1
-
-    if-ne p6, p1, :cond_3
-
-    move-object p1, p4
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object p0
-
-    if-ne p6, p0, :cond_4
-
-    move-object p1, p5
-
-    goto :goto_0
-
-    :cond_4
-    const/4 p1, 0x0
-
-    :goto_0
-    return-object p1
-.end method
-
-
-# virtual methods
-.method public beginsSection(Landroid/view/View;Landroid/view/View;)Z
-    .locals 1
-
-    const-string/jumbo v0, "view"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-eq p1, v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-
-    if-eq p1, v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-eq p1, v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-eq p1, v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getIncomingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-eq p1, v0, :cond_1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getBucket(Landroid/view/View;)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getBucket(Landroid/view/View;)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method public final createSectionsForBuckets()[Lcom/android/systemui/statusbar/notification/stack/NotificationSection;
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->sectionsFeatureManager:Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;->getNotificationBuckets()[I
-
-    move-result-object v0
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    array-length v2, v0
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
-
-    array-length v2, v0
-
-    const/4 v3, 0x0
-
-    move v4, v3
-
-    :goto_0
-    if-ge v4, v2, :cond_1
-
-    aget v5, v0, v4
-
-    new-instance v6, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;
-
-    iget-object v7, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    if-eqz v7, :cond_0
-
-    invoke-direct {v6, v7, v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;-><init>(Landroid/view/View;I)V
-
-    invoke-interface {v1, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "parent"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-
-    :cond_1
-    new-array p0, v3, [Lcom/android/systemui/statusbar/notification/stack/NotificationSection;
-
-    invoke-interface {v1, p0}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
-
-    move-result-object p0
-
-    const-string v0, "null cannot be cast to non-null type kotlin.Array<T>"
-
-    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    check-cast p0, [Lcom/android/systemui/statusbar/notification/stack/NotificationSection;
-
-    return-object p0
-.end method
-
-.method public final getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->alertingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final getIncomingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final getMediaControlsView()Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-    .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-
     return-object p0
 .end method
 
@@ -950,59 +349,261 @@
     return-object p0
 .end method
 
-.method public final initialize(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;Landroid/view/LayoutInflater;)V
-    .locals 2
+.method public final logShadeChild(Landroid/view/View;I)V
+    .locals 3
 
-    const-string v0, "parent"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
 
-    const-string v0, "layoutInflater"
+    move-result-object v0
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    if-ne p1, v0, :cond_0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->initialized:Z
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    const/4 v1, 0x1
+    const-string p1, "INCOMING HEADER"
 
-    xor-int/2addr v0, v1
+    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
 
-    if-eqz v0, :cond_0
-
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->initialized:Z
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->reinflateViews(Landroid/view/LayoutInflater;)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->configurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->configurationListener:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$configurationListener$1;
-
-    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
-
-    return-void
+    goto/16 :goto_0
 
     :cond_0
-    new-instance p0, Ljava/lang/IllegalStateException;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
 
-    const-string p1, "NotificationSectionsManager already initialized"
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
 
-    invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    if-ne p1, v0, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "MEDIA CONTROLS"
+
+    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "CONVERSATIONS HEADER"
+
+    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_3
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "ALERTING HEADER"
+
+    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v0
+
+    if-ne p1, v0, :cond_4
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "SILENT HEADER"
+
+    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_4
+    instance-of v0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-nez v0, :cond_5
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     move-result-object p1
 
-    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logBuffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v1, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger$logOther$2;->INSTANCE:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger$logOther$2;
+
+    const-string v2, "NotifSections"
+
+    invoke-virtual {p0, v2, v0, v1}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v0
+
+    iput p2, v0, Lcom/android/systemui/log/LogMessageImpl;->int1:I
+
+    invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object p1
+
+    iput-object p1, v0, Lcom/android/systemui/log/LogMessageImpl;->str1:Ljava/lang/String;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
+
+    goto :goto_0
+
+    :cond_5
+    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    iget-boolean v0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mIsHeadsUp:Z
+
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    iget p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
+
+    const/4 v1, 0x2
+
+    if-eq p1, v1, :cond_9
+
+    const/4 v1, 0x4
+
+    if-eq p1, v1, :cond_8
+
+    const/4 v1, 0x5
+
+    if-eq p1, v1, :cond_7
+
+    const/4 v1, 0x6
+
+    if-eq p1, v1, :cond_6
+
+    goto :goto_0
+
+    :cond_6
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "Silent"
+
+    invoke-virtual {p0, p2, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_7
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "Alerting"
+
+    invoke-virtual {p0, p2, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_8
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "Conversation"
+
+    invoke-virtual {p0, p2, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_9
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string p1, "Heads Up"
+
+    invoke-virtual {p0, p2, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;Z)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public final logShadeContents()V
+    .locals 5
+
+    const-string v0, "NotifSectionsManager.logShadeContents"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    move-object v0, v1
+
+    :cond_0
+    invoke-static {v0}, Lcom/android/systemui/util/ConvenienceExtensionsKt;->getChildren(Landroid/view/ViewGroup;)Lkotlin/sequences/SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1;
+
+    move-result-object v0
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0}, Lkotlin/sequences/SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    move-object v3, v0
+
+    check-cast v3, Lkotlin/sequences/SequenceBuilderIterator;
+
+    invoke-virtual {v3}, Lkotlin/sequences/SequenceBuilderIterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v3}, Lkotlin/sequences/SequenceBuilderIterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    add-int/lit8 v4, v2, 0x1
+
+    if-ltz v2, :cond_1
+
+    check-cast v3, Landroid/view/View;
+
+    invoke-virtual {p0, v3, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logShadeChild(Landroid/view/View;I)V
+
+    move v2, v4
+
+    goto :goto_0
+
+    :cond_1
+    invoke-static {}, Lkotlin/collections/CollectionsKt__CollectionsKt;->throwIndexOverflow()V
+
+    throw v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :cond_2
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     throw p0
 .end method
 
-.method public final reinflateViews(Landroid/view/LayoutInflater;)V
-    .locals 4
-
-    const-string v0, "layoutInflater"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final reinflateViews()V
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->silentHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
@@ -1010,1131 +611,1302 @@
 
     const/4 v2, 0x0
 
-    const-string v3, "parent"
+    if-nez v1, :cond_0
 
-    if-eqz v1, :cond_3
+    move-object v1, v2
 
+    :cond_0
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->reinflateView(Landroid/view/ViewGroup;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->alertingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    if-eqz v1, :cond_2
+    if-nez v1, :cond_1
 
+    move-object v1, v2
+
+    :cond_1
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->reinflateView(Landroid/view/ViewGroup;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->peopleHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    if-eqz v1, :cond_1
+    if-nez v1, :cond_2
 
+    move-object v1, v2
+
+    :cond_2
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->reinflateView(Landroid/view/ViewGroup;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_3
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->reinflateView(Landroid/view/ViewGroup;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-
-    sget v1, Lcom/android/systemui/R$layout;->keyguard_media_header:I
-
-    invoke-direct {p0, v0, p1, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->reinflateView(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Landroid/view/LayoutInflater;I)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->keyguardMediaController:Lcom/android/systemui/media/KeyguardMediaController;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/media/KeyguardMediaController;->attachSinglePaneContainer(Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;)V
-
-    return-void
-
-    :cond_0
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_1
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_2
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
+    move-object v1, v2
 
     :cond_3
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->reinflateView(Landroid/view/ViewGroup;)V
 
-    throw v2
-.end method
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
 
-.method public final setHeaderForegroundColor(I)V
-    .locals 1
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
+    if-nez v1, :cond_4
 
     goto :goto_0
 
-    :cond_0
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->setForegroundColor(I)V
+    :cond_4
+    move-object v2, v1
 
     :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
 
-    move-result-object v0
+    const/4 v3, -0x1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_5
 
     goto :goto_1
 
-    :cond_1
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->setForegroundColor(I)V
+    :cond_5
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->removeFromTransientContainer()V
 
-    :goto_1
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getParent()Landroid/view/ViewParent;
 
-    move-result-object p0
+    move-result-object v4
 
-    if-nez p0, :cond_2
+    if-ne v4, v2, :cond_6
+
+    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
+
+    move-result v4
+
+    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     goto :goto_2
 
-    :cond_2
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->setForegroundColor(I)V
+    :cond_6
+    :goto_1
+    move v4, v3
 
     :goto_2
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->layoutInflater:Landroid/view/LayoutInflater;
+
+    const v5, 0x7f0e00d5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v1, v5, v2, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_8
+
+    check-cast v1, Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
+
+    if-eq v4, v3, :cond_7
+
+    invoke-virtual {v2, v1, v4}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+
+    :cond_7
+    iput-object v1, v0, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->keyguardMediaController:Lcom/android/systemui/media/KeyguardMediaController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/media/KeyguardMediaController;->attachSinglePaneContainer(Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;)V
+
     return-void
+
+    :cond_8
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string v0, "null cannot be cast to non-null type com.android.systemui.statusbar.notification.stack.MediaContainerView"
+
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
-.method public final updateFirstAndLastViewsForAllSections([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;Ljava/util/List;)Z
-    .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "([",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSection;",
-            "Ljava/util/List<",
-            "+",
-            "Lcom/android/systemui/statusbar/notification/row/ExpandableView;",
-            ">;)Z"
-        }
-    .end annotation
+.method public final updateFirstAndLastViewsForAllSections([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;Ljava/util/ArrayList;)Z
+    .locals 6
 
-    const-string v0, "sections"
+    sget-object v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;->INSTANCE:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    array-length v1, p1
 
-    const-string v0, "children"
+    if-gez v1, :cond_0
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    new-instance v1, Landroid/util/SparseArray;
 
-    invoke-static {p2}, Lkotlin/collections/CollectionsKt;->asSequence(Ljava/lang/Iterable;)Lkotlin/sequences/Sequence;
-
-    move-result-object p2
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$updateFirstAndLastViewsForAllSections$$inlined$groupingBy$1;
-
-    invoke-direct {v0, p2, p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$updateFirstAndLastViewsForAllSections$$inlined$groupingBy$1;-><init>(Lkotlin/sequences/Sequence;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;)V
-
-    sget-object p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;->INSTANCE:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;
-
-    array-length p2, p1
-
-    if-gez p2, :cond_0
-
-    new-instance p2, Landroid/util/SparseArray;
-
-    invoke-direct {p2}, Landroid/util/SparseArray;-><init>()V
+    invoke-direct {v1}, Landroid/util/SparseArray;-><init>()V
 
     goto :goto_0
 
     :cond_0
-    new-instance v1, Landroid/util/SparseArray;
+    new-instance v2, Landroid/util/SparseArray;
 
-    invoke-direct {v1, p2}, Landroid/util/SparseArray;-><init>(I)V
+    invoke-direct {v2, v1}, Landroid/util/SparseArray;-><init>(I)V
 
-    move-object p2, v1
+    move-object v1, v2
 
     :goto_0
-    invoke-interface {v0}, Lkotlin/collections/Grouping;->sourceIterator()Ljava/util/Iterator;
+    invoke-interface {p2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object p2
 
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_6
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
-    invoke-interface {v0, v2}, Lkotlin/collections/Grouping;->keyOf(Ljava/lang/Object;)Ljava/lang/Object;
+    check-cast v2, Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getBucket(Landroid/view/View;)Ljava/lang/Integer;
 
     move-result-object v3
 
-    check-cast v3, Ljava/lang/Number;
+    if-eqz v3, :cond_5
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
 
     invoke-virtual {v3}, Ljava/lang/Number;->intValue()I
 
     move-result v3
 
-    invoke-virtual {p2, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v3}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     if-nez v4, :cond_1
 
-    move-object v4, p0
+    move-object v4, v0
 
     :cond_1
-    check-cast v2, Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
     check-cast v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;
 
-    invoke-virtual {v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;->addNotif(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;
+    instance-of v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;
 
-    move-result-object v2
+    if-eqz v5, :cond_2
 
-    invoke-virtual {p2, v3, v2}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;
+
+    invoke-direct {v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+
+    goto :goto_3
+
+    :cond_2
+    instance-of v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;
+
+    if-eqz v5, :cond_3
+
+    new-instance v5, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;
+
+    check-cast v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;->lone:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    invoke-direct {v5, v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+
+    :goto_2
+    move-object v4, v5
+
+    goto :goto_3
+
+    :cond_3
+    instance-of v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;
+
+    if-eqz v5, :cond_4
+
+    check-cast v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;->first:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    new-instance v5, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;
+
+    invoke-direct {v5, v4, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+
+    goto :goto_2
+
+    :goto_3
+    invoke-virtual {v1, v3, v4}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     goto :goto_1
 
-    :cond_2
+    :cond_4
+    new-instance p0, Lkotlin/NoWhenBranchMatchedException;
+
+    invoke-direct {p0}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
+
+    throw p0
+
+    :cond_5
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "Cannot find section bucket for view"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_6
     array-length p0, p1
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    move v1, v0
+    move v0, p2
 
-    move v2, v1
+    move v2, v0
 
-    :goto_2
-    if-ge v1, p0, :cond_6
+    :goto_4
+    if-ge v0, p0, :cond_d
 
-    aget-object v3, p1, v1
+    aget-object v3, p1, v0
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->getBucket()I
+    add-int/lit8 v0, v0, 0x1
 
-    move-result v4
+    iget v4, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->mBucket:I
 
-    invoke-virtual {p2, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v4}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_7
 
     sget-object v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;->INSTANCE:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;
 
-    :cond_3
-    invoke-virtual {v4, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;->updateSection(Lcom/android/systemui/statusbar/notification/stack/NotificationSection;)Z
+    :cond_7
+    instance-of v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$None;
+
+    if-eqz v5, :cond_8
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v4, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;->setFirstAndLastVisibleChildren(Lcom/android/systemui/statusbar/notification/stack/NotificationSection;Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
 
     move-result v3
 
-    if-nez v3, :cond_5
+    goto :goto_5
 
-    if-eqz v2, :cond_4
+    :cond_8
+    instance-of v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;
 
-    goto :goto_3
+    if-eqz v5, :cond_9
 
-    :cond_4
-    move v2, v0
+    check-cast v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$One;->lone:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    invoke-static {v3, v4, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;->setFirstAndLastVisibleChildren(Lcom/android/systemui/statusbar/notification/stack/NotificationSection;Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+
+    move-result v3
+
+    goto :goto_5
+
+    :cond_9
+    instance-of v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;
+
+    if-eqz v5, :cond_c
+
+    check-cast v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;
+
+    iget-object v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;->first:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    iget-object v4, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds$Many;->last:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    invoke-static {v3, v5, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionBounds;->setFirstAndLastVisibleChildren(Lcom/android/systemui/statusbar/notification/stack/NotificationSection;Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+
+    move-result v3
+
+    :goto_5
+    if-nez v3, :cond_b
+
+    if-eqz v2, :cond_a
+
+    goto :goto_6
+
+    :cond_a
+    move v2, p2
 
     goto :goto_4
 
-    :cond_5
-    :goto_3
+    :cond_b
+    :goto_6
     const/4 v2, 0x1
 
-    :goto_4
-    add-int/lit8 v1, v1, 0x1
+    goto :goto_4
 
-    goto :goto_2
+    :cond_c
+    new-instance p0, Lkotlin/NoWhenBranchMatchedException;
 
-    :cond_6
+    invoke-direct {p0}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
+
+    throw p0
+
+    :cond_d
     return v2
 .end method
 
-.method public final updateSectionBoundaries()V
+.method public final updateSectionBoundaries()Lkotlin/Unit;
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    const-string v0, "test"
+    const-string/jumbo v0, "test"
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->updateSectionBoundaries(Ljava/lang/String;)V
 
-    return-void
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method
 
 .method public final updateSectionBoundaries(Ljava/lang/String;)V
-    .locals 23
+    .locals 20
 
-    move-object/from16 v7, p0
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, p1
+    move-object/from16 v1, p1
 
-    const-string v1, "reason"
+    const-string v2, "NotifSectionsManager.update"
 
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v2}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->isUsingMultipleSections()Z
+    :try_start_0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->notifPipelineFlags:Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
 
-    move-result v1
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;->checkLegacyPipelineEnabled()Z
 
-    if-nez v1, :cond_0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->sectionsFeatureManager:Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
 
-    return-void
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;->getNotificationBuckets()[I
 
-    :cond_0
-    iget-object v1, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logStartSectionUpdate(Ljava/lang/String;)V
+    array-length v2, v2
 
-    iget-object v0, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    const/4 v3, 0x1
 
-    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+    const/4 v4, 0x0
 
-    move-result v0
+    if-le v2, v3, :cond_0
 
-    const/4 v8, 0x0
-
-    const/4 v9, 0x1
-
-    if-eq v0, v9, :cond_1
-
-    move v10, v9
+    move v2, v3
 
     goto :goto_0
 
-    :cond_1
-    move v10, v8
+    :cond_0
+    move v2, v4
 
     :goto_0
-    iget-object v0, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->sectionsFeatureManager:Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
+    if-nez v2, :cond_1
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;->isMediaControlsEnabled()Z
+    goto/16 :goto_2e
 
-    move-result v11
+    :cond_1
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    iget-object v0, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaControlsView:Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logBuffer:Lcom/android/systemui/log/LogBuffer;
 
-    if-nez v0, :cond_2
+    sget-object v5, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
 
-    const/4 v13, 0x0
+    new-instance v6, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger$logStartSectionUpdate$2;
+
+    invoke-direct {v6, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger$logStartSectionUpdate$2;-><init>(Ljava/lang/String;)V
+
+    const-string v7, "NotifSections"
+
+    invoke-virtual {v2, v7, v5, v6}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v5
+
+    iput-object v1, v5, Lcom/android/systemui/log/LogMessageImpl;->str1:Ljava/lang/String;
+
+    invoke-virtual {v2, v5}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+
+    move-result v1
+
+    if-eq v1, v3, :cond_2
+
+    move v1, v3
 
     goto :goto_1
 
     :cond_2
-    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->expandableViewHeaderState(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
-
-    move-result-object v0
-
-    move-object v13, v0
+    move v1, v4
 
     :goto_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getIncomingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->sectionsFeatureManager:Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
 
-    move-result-object v0
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;->context:Landroid/content/Context;
 
-    if-nez v0, :cond_3
+    invoke-static {v2}, Lcom/android/systemui/util/Utils;->useQsMediaPlayer(Landroid/content/Context;)Z
 
-    const/4 v14, 0x0
+    move-result v2
+
+    iget-object v5, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
+
+    iget-object v5, v5, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
+
+    if-nez v5, :cond_3
+
+    const/4 v7, 0x0
 
     goto :goto_2
 
     :cond_3
-    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+    new-instance v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;
 
-    move-result-object v0
-
-    move-object v14, v0
+    invoke-direct {v7, v5, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;)V
 
     :goto_2
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    iget-object v5, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
-    move-result-object v0
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
 
-    if-nez v0, :cond_4
+    move-result-object v5
 
-    const/4 v15, 0x0
+    if-nez v5, :cond_4
+
+    const/4 v5, 0x0
 
     goto :goto_3
 
     :cond_4
-    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+    invoke-virtual {v0, v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;
 
-    move-result-object v0
-
-    move-object v15, v0
+    move-result-object v5
 
     :goto_3
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
 
-    move-result-object v0
+    move-result-object v8
 
-    if-nez v0, :cond_5
+    if-nez v8, :cond_5
 
-    const/16 v16, 0x0
+    const/4 v8, 0x0
 
     goto :goto_4
 
     :cond_5
-    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+    invoke-virtual {v0, v8}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;
 
-    move-result-object v0
-
-    move-object/from16 v16, v0
+    move-result-object v8
 
     :goto_4
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
 
-    move-result-object v0
+    move-result-object v9
 
-    if-nez v0, :cond_6
+    if-nez v9, :cond_6
 
-    const/4 v6, 0x0
+    const/4 v9, 0x0
 
     goto :goto_5
 
     :cond_6
-    invoke-direct {v7, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+    invoke-virtual {v0, v9}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;
 
-    move-result-object v0
-
-    move-object v6, v0
+    move-result-object v9
 
     :goto_5
-    const/4 v0, 0x5
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
 
-    new-array v0, v0, [Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+    move-result-object v10
 
-    aput-object v13, v0, v8
+    if-nez v10, :cond_7
 
-    aput-object v14, v0, v9
+    const/4 v10, 0x0
 
-    const/4 v5, 0x2
-
-    aput-object v15, v0, v5
-
-    const/4 v1, 0x3
-
-    aput-object v16, v0, v1
-
-    const/4 v4, 0x4
-
-    aput-object v6, v0, v4
-
-    invoke-static {v0}, Lkotlin/sequences/SequencesKt;->sequenceOf([Ljava/lang/Object;)Lkotlin/sequences/Sequence;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lkotlin/sequences/SequencesKt;->filterNotNull(Lkotlin/sequences/Sequence;)Lkotlin/sequences/Sequence;
-
-    move-result-object v3
-
-    iget-object v0, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    const-string v17, "parent"
-
-    if-eqz v0, :cond_32
-
-    invoke-virtual {v0}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v0
-
-    sub-int/2addr v0, v9
-
-    const/4 v2, -0x1
-
-    if-gt v2, v0, :cond_22
-
-    move v1, v0
-
-    move/from16 v19, v8
-
-    move/from16 v20, v19
-
-    const/16 v18, 0x0
-
-    :goto_6
-    add-int/lit8 v0, v1, -0x1
-
-    iget-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
-
-    if-eqz v2, :cond_21
-
-    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v2
-
-    if-nez v2, :cond_7
-
-    move v8, v0
-
-    move/from16 v21, v1
-
-    move-object v0, v2
-
-    move-object v12, v3
-
-    move-object/from16 v22, v6
-
-    goto :goto_a
+    goto :goto_6
 
     :cond_7
-    invoke-direct {v7, v1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logShadeChild(ILandroid/view/View;)V
+    invoke-virtual {v0, v10}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;
 
-    move v8, v0
+    move-result-object v10
 
-    move-object/from16 v0, p0
+    :goto_6
+    const/4 v11, 0x5
 
-    move/from16 v21, v1
+    new-array v11, v11, [Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
 
-    move-object v1, v13
+    aput-object v7, v11, v4
 
-    move-object/from16 p1, v2
+    aput-object v5, v11, v3
 
-    const/4 v12, -0x1
+    const/4 v12, 0x2
 
-    move-object v2, v14
+    aput-object v8, v11, v12
 
-    move-object v12, v3
+    const/4 v13, 0x3
 
-    move-object v3, v15
+    aput-object v9, v11, v13
 
-    move-object/from16 v4, v16
+    const/4 v13, 0x4
 
-    move-object v5, v6
+    aput-object v10, v11, v13
 
-    move-object/from16 v22, v6
+    invoke-static {v11}, Lkotlin/sequences/SequencesKt__SequencesKt;->sequenceOf([Ljava/lang/Object;)Lkotlin/sequences/Sequence;
 
-    move-object/from16 v6, p1
+    move-result-object v11
 
-    invoke-static/range {v0 .. v6}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->updateSectionBoundaries$getSectionState(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Landroid/view/View;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+    invoke-static {v11}, Lkotlin/sequences/SequencesKt___SequencesKt;->filterNotNull(Lkotlin/sequences/Sequence;)Lkotlin/sequences/FilteringSequence;
 
-    move-result-object v0
+    move-result-object v11
 
-    if-nez v0, :cond_8
+    iget-object v14, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    goto :goto_9
+    if-nez v14, :cond_8
+
+    const/4 v14, 0x0
 
     :cond_8
-    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v14}, Landroid/view/ViewGroup;->getChildCount()I
 
-    move-result-object v1
+    move-result v14
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->setCurrentPosition(Ljava/lang/Integer;)V
+    sub-int/2addr v14, v3
 
-    new-instance v1, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$updateSectionBoundaries$1$1$1;
+    const/16 v15, 0x8
 
-    invoke-direct {v1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$updateSectionBoundaries$1$1$1;-><init>(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;)V
+    const/4 v6, -0x1
 
-    invoke-static {v12, v1}, Lcom/android/systemui/util/ConvenienceExtensionsKt;->takeUntil(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
+    if-gt v6, v14, :cond_29
 
-    move-result-object v0
+    move/from16 v17, v4
 
-    invoke-interface {v0}, Lkotlin/sequences/Sequence;->iterator()Ljava/util/Iterator;
+    move/from16 v18, v17
 
-    move-result-object v0
+    const/16 v16, 0x0
 
     :goto_7
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    add-int/lit8 v3, v14, -0x1
 
-    move-result v1
+    iget-object v4, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    if-eqz v1, :cond_a
+    if-nez v4, :cond_9
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    const/4 v4, 0x0
 
-    move-result-object v1
+    :cond_9
+    invoke-virtual {v4, v14}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    check-cast v1, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+    move-result-object v4
 
-    invoke-interface {v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->getTargetPosition()Ljava/lang/Integer;
+    if-nez v4, :cond_a
 
-    move-result-object v2
+    goto/16 :goto_b
 
-    if-nez v2, :cond_9
+    :cond_a
+    invoke-virtual {v0, v4, v14}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logShadeChild(Landroid/view/View;I)V
 
-    const/4 v2, 0x0
+    iget-object v13, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->mediaContainerController:Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;
+
+    iget-object v13, v13, Lcom/android/systemui/statusbar/notification/collection/render/MediaContainerController;->mediaContainerView:Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;
+
+    if-ne v4, v13, :cond_b
+
+    move-object v13, v7
 
     goto :goto_8
 
-    :cond_9
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    :cond_b
+    iget-object v13, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->incomingHeaderController:Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;
 
-    move-result v2
+    invoke-interface {v13}, Lcom/android/systemui/statusbar/notification/collection/render/SectionHeaderController;->getHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
 
-    sub-int/2addr v2, v9
+    move-result-object v13
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    if-ne v4, v13, :cond_c
 
-    move-result-object v2
+    move-object v13, v5
+
+    goto :goto_8
+
+    :cond_c
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getPeopleHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v13
+
+    if-ne v4, v13, :cond_d
+
+    move-object v13, v8
+
+    goto :goto_8
+
+    :cond_d
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getAlertingHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v13
+
+    if-ne v4, v13, :cond_e
+
+    move-object v13, v9
+
+    goto :goto_8
+
+    :cond_e
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v13
+
+    if-ne v4, v13, :cond_f
+
+    move-object v13, v10
+
+    goto :goto_8
+
+    :cond_f
+    const/4 v13, 0x0
 
     :goto_8
-    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->setTargetPosition(Ljava/lang/Integer;)V
-
-    goto :goto_7
-
-    :cond_a
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    :goto_9
-    move-object/from16 v0, p1
-
-    :goto_a
-    instance-of v1, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz v1, :cond_b
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    if-nez v13, :cond_10
 
     goto :goto_b
 
-    :cond_b
-    const/4 v1, 0x0
+    :cond_10
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
+    move-result-object v12
+
+    invoke-interface {v13, v12}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->setCurrentPosition(Ljava/lang/Integer;)V
+
+    new-instance v12, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$updateSectionBoundaries$1$1$1$1;
+
+    invoke-direct {v12, v13}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$updateSectionBoundaries$1$1$1$1;-><init>(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;)V
+
+    invoke-static {v11, v12}, Lcom/android/systemui/util/ConvenienceExtensionsKt;->takeUntil(Lkotlin/sequences/FilteringSequence;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lkotlin/sequences/SequencesKt__SequenceBuilderKt$sequence$$inlined$Sequence$1;->iterator()Ljava/util/Iterator;
+
+    move-result-object v12
+
+    :goto_9
+    move-object v13, v12
+
+    check-cast v13, Lkotlin/sequences/SequenceBuilderIterator;
+
+    invoke-virtual {v13}, Lkotlin/sequences/SequenceBuilderIterator;->hasNext()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_12
+
+    invoke-virtual {v13}, Lkotlin/sequences/SequenceBuilderIterator;->next()Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+
+    invoke-interface {v13}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->getTargetPosition()Ljava/lang/Integer;
+
+    move-result-object v19
+
+    if-nez v19, :cond_11
+
+    const/4 v6, 0x0
+
+    goto :goto_a
+
+    :cond_11
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/Integer;->intValue()I
+
+    move-result v19
+
+    add-int/lit8 v19, v19, -0x1
+
+    invoke-static/range {v19 .. v19}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v19
+
+    move-object/from16 v6, v19
+
+    :goto_a
+    invoke-interface {v13, v6}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->setTargetPosition(Ljava/lang/Integer;)V
+
+    const/4 v6, -0x1
+
+    goto :goto_9
+
+    :cond_12
     :goto_b
-    if-nez v1, :cond_d
+    instance-of v6, v4, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    :cond_c
-    const/4 v1, 0x0
+    if-eqz v6, :cond_13
 
-    goto :goto_d
+    move-object v6, v4
 
-    :cond_d
-    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getVisibility()I
-
-    move-result v2
-
-    const/16 v3, 0x8
-
-    if-ne v2, v3, :cond_e
-
-    move v2, v9
+    check-cast v6, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
     goto :goto_c
 
-    :cond_e
-    const/4 v2, 0x0
+    :cond_13
+    const/4 v6, 0x0
 
     :goto_c
-    if-nez v2, :cond_c
-
-    :goto_d
-    if-nez v19, :cond_14
-
-    if-nez v18, :cond_f
-
-    :goto_e
-    const/4 v2, 0x0
-
-    goto :goto_11
-
-    :cond_f
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Number;->intValue()I
-
-    move-result v2
-
-    if-nez v1, :cond_10
-
-    const/4 v3, 0x0
-
-    goto :goto_f
-
-    :cond_10
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object v3
-
-    :goto_f
-    if-nez v3, :cond_11
+    if-nez v6, :cond_14
 
     goto :goto_e
 
-    :cond_11
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getBucket()I
+    :cond_14
+    invoke-virtual {v6}, Landroid/widget/FrameLayout;->getVisibility()I
 
-    move-result v3
+    move-result v12
 
-    if-ge v2, v3, :cond_12
+    if-ne v12, v15, :cond_15
 
-    move v2, v9
+    const/4 v12, 0x1
 
-    goto :goto_10
+    goto :goto_d
 
-    :cond_12
-    const/4 v2, 0x0
+    :cond_15
+    const/4 v12, 0x0
 
-    :goto_10
-    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    :goto_d
+    if-nez v12, :cond_16
 
-    move-result-object v2
+    goto :goto_f
 
-    :goto_11
-    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    :cond_16
+    :goto_e
+    const/4 v6, 0x0
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    :goto_f
+    if-nez v17, :cond_1c
 
-    move-result v2
+    if-nez v16, :cond_17
 
-    if-eqz v2, :cond_13
-
-    goto :goto_12
-
-    :cond_13
-    const/16 v19, 0x0
+    const/4 v12, 0x0
 
     goto :goto_13
 
-    :cond_14
+    :cond_17
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Number;->intValue()I
+
+    move-result v12
+
+    if-nez v6, :cond_18
+
+    goto :goto_10
+
+    :cond_18
+    iget-object v13, v6, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    if-nez v13, :cond_19
+
+    :goto_10
+    const/4 v12, 0x0
+
+    goto :goto_12
+
+    :cond_19
+    iget v13, v13, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
+
+    if-ge v12, v13, :cond_1a
+
+    const/4 v12, 0x1
+
+    goto :goto_11
+
+    :cond_1a
+    const/4 v12, 0x0
+
+    :goto_11
+    invoke-static {v12}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v12
+
     :goto_12
-    move/from16 v19, v9
+    sget-object v13, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+
+    invoke-static {v12, v13}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v12
 
     :goto_13
-    if-eqz v19, :cond_17
-
-    if-nez v1, :cond_15
-
-    const/4 v2, 0x0
+    if-eqz v12, :cond_1b
 
     goto :goto_14
 
-    :cond_15
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object v2
-
-    :goto_14
-    if-nez v2, :cond_16
+    :cond_1b
+    const/16 v17, 0x0
 
     goto :goto_15
 
-    :cond_16
-    const/4 v3, 0x2
+    :cond_1c
+    :goto_14
+    const/16 v17, 0x1
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setBucket(I)V
+    :goto_15
+    if-eqz v17, :cond_1f
+
+    if-nez v6, :cond_1d
+
+    const/4 v12, 0x0
 
     goto :goto_16
 
-    :cond_17
-    :goto_15
-    const/4 v3, 0x2
+    :cond_1d
+    iget-object v12, v6, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     :goto_16
-    if-eqz v18, :cond_19
-
-    if-eqz v0, :cond_18
-
-    if-eqz v1, :cond_19
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getBucket()I
-
-    move-result v0
-
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    if-eq v2, v0, :cond_19
-
-    :cond_18
-    move v0, v9
+    if-nez v12, :cond_1e
 
     goto :goto_17
 
-    :cond_19
-    const/4 v0, 0x0
+    :cond_1e
+    const/4 v13, 0x2
 
+    iput v13, v12, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
+
+    :cond_1f
     :goto_17
-    if-eqz v0, :cond_1c
+    if-eqz v16, :cond_21
 
-    if-eqz v10, :cond_1c
+    if-eqz v4, :cond_20
 
-    const/4 v0, 0x6
+    if-eqz v6, :cond_21
 
-    if-nez v18, :cond_1a
+    iget-object v4, v6, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    iget v4, v4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
+
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Integer;->intValue()I
+
+    move-result v12
+
+    if-eq v12, v4, :cond_21
+
+    :cond_20
+    const/4 v4, 0x1
 
     goto :goto_18
 
-    :cond_1a
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Integer;->intValue()I
+    :cond_21
+    const/4 v4, 0x0
 
-    move-result v2
-
-    if-ne v2, v0, :cond_1c
-
-    move-object/from16 v0, v22
-
-    if-nez v0, :cond_1b
-
-    goto :goto_19
-
-    :cond_1b
-    add-int/lit8 v2, v21, 0x1
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->setTargetPosition(Ljava/lang/Integer;)V
-
-    goto :goto_19
-
-    :cond_1c
     :goto_18
-    move-object/from16 v0, v22
+    if-eqz v4, :cond_24
 
+    if-eqz v1, :cond_24
+
+    const/4 v4, 0x6
+
+    if-nez v16, :cond_22
+
+    goto :goto_19
+
+    :cond_22
+    invoke-virtual/range {v16 .. v16}, Ljava/lang/Integer;->intValue()I
+
+    move-result v12
+
+    if-ne v12, v4, :cond_24
+
+    if-nez v10, :cond_23
+
+    goto :goto_19
+
+    :cond_23
+    add-int/lit8 v14, v14, 0x1
+
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v10, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->setTargetPosition(Ljava/lang/Integer;)V
+
+    :cond_24
     :goto_19
-    if-nez v1, :cond_1d
+    if-nez v6, :cond_25
 
-    const/4 v1, -0x1
+    const/4 v4, -0x1
 
-    const/4 v4, 0x4
+    const/4 v12, 0x4
 
     goto :goto_1c
 
-    :cond_1d
-    if-nez v20, :cond_1f
+    :cond_25
+    if-nez v18, :cond_27
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v4, v6, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result-object v2
+    iget v4, v4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getBucket()I
+    const/4 v12, 0x4
 
-    move-result v2
-
-    const/4 v4, 0x4
-
-    if-ne v2, v4, :cond_1e
+    if-ne v4, v12, :cond_26
 
     goto :goto_1a
 
-    :cond_1e
-    const/16 v20, 0x0
+    :cond_26
+    const/16 v18, 0x0
 
     goto :goto_1b
 
-    :cond_1f
-    const/4 v4, 0x4
+    :cond_27
+    const/4 v12, 0x4
 
     :goto_1a
-    move/from16 v20, v9
+    const/16 v18, 0x1
 
     :goto_1b
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v4, v6, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result-object v1
+    iget v4, v4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getBucket()I
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v1
+    move-result-object v16
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v18
-
-    const/4 v1, -0x1
+    const/4 v4, -0x1
 
     :goto_1c
-    if-le v1, v8, :cond_20
+    if-le v4, v3, :cond_28
 
     goto :goto_1d
 
-    :cond_20
-    move-object v6, v0
+    :cond_28
+    move v14, v3
 
-    move v2, v1
+    move v6, v4
 
-    move v5, v3
+    move v13, v12
 
-    move v1, v8
+    const/4 v3, 0x1
 
-    move-object v3, v12
+    const/4 v4, 0x0
 
-    const/4 v8, 0x0
+    const/4 v12, 0x2
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
-    :cond_21
-    invoke-static/range {v17 .. v17}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    throw v0
-
-    :cond_22
-    move v1, v2
-
-    move-object v12, v3
-
-    move v3, v5
-
-    move-object v0, v6
+    :cond_29
+    move v4, v6
 
     :goto_1d
-    if-nez v13, :cond_23
+    if-nez v7, :cond_2a
+
+    const/4 v1, 0x0
 
     goto :goto_1f
 
-    :cond_23
-    if-eqz v11, :cond_24
+    :cond_2a
+    if-eqz v2, :cond_2b
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
     goto :goto_1e
 
-    :cond_24
+    :cond_2b
+    const/4 v1, 0x0
+
     const/4 v2, 0x0
 
     :goto_1e
-    invoke-interface {v13, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->setTargetPosition(Ljava/lang/Integer;)V
+    iput-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;->targetPosition:Ljava/lang/Integer;
 
     :goto_1f
-    iget-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    const-string v4, "New header target positions:"
+    const-string v3, "New header target positions:"
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logStr(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logStr(Ljava/lang/String;)V
 
-    iget-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    if-nez v13, :cond_25
-
-    :goto_20
-    move v4, v1
-
-    goto :goto_21
-
-    :cond_25
-    invoke-interface {v13}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->getTargetPosition()Ljava/lang/Integer;
-
-    move-result-object v4
-
-    if-nez v4, :cond_26
+    if-nez v7, :cond_2c
 
     goto :goto_20
 
-    :cond_26
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    :cond_2c
+    iget-object v3, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;->targetPosition:Ljava/lang/Integer;
 
-    move-result v4
+    if-nez v3, :cond_2d
+
+    :goto_20
+    move v3, v4
+
+    goto :goto_21
+
+    :cond_2d
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
 
     :goto_21
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logMediaControls(I)V
+    const-string v6, "MEDIA CONTROLS"
 
-    iget-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    invoke-virtual {v2, v3, v6}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
 
-    if-nez v14, :cond_27
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    :goto_22
-    move v4, v1
-
-    goto :goto_23
-
-    :cond_27
-    invoke-interface {v14}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->getTargetPosition()Ljava/lang/Integer;
-
-    move-result-object v4
-
-    if-nez v4, :cond_28
+    if-nez v5, :cond_2e
 
     goto :goto_22
 
-    :cond_28
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    :cond_2e
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->getTargetPosition()Ljava/lang/Integer;
 
-    move-result v4
+    move-result-object v3
+
+    if-nez v3, :cond_2f
+
+    :goto_22
+    move v3, v4
+
+    goto :goto_23
+
+    :cond_2f
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
 
     :goto_23
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logIncomingHeader(I)V
+    const-string v5, "INCOMING HEADER"
 
-    iget-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    invoke-virtual {v2, v3, v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
 
-    if-nez v15, :cond_29
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    :goto_24
-    move v4, v1
-
-    goto :goto_25
-
-    :cond_29
-    invoke-interface {v15}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->getTargetPosition()Ljava/lang/Integer;
-
-    move-result-object v4
-
-    if-nez v4, :cond_2a
+    if-nez v8, :cond_30
 
     goto :goto_24
 
-    :cond_2a
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    :cond_30
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->getTargetPosition()Ljava/lang/Integer;
 
-    move-result v4
+    move-result-object v3
+
+    if-nez v3, :cond_31
+
+    :goto_24
+    move v3, v4
+
+    goto :goto_25
+
+    :cond_31
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
 
     :goto_25
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logConversationsHeader(I)V
+    const-string v5, "CONVERSATIONS HEADER"
 
-    iget-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    invoke-virtual {v2, v3, v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
 
-    if-nez v16, :cond_2b
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    :goto_26
-    move v4, v1
-
-    goto :goto_27
-
-    :cond_2b
-    invoke-interface/range {v16 .. v16}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->getTargetPosition()Ljava/lang/Integer;
-
-    move-result-object v4
-
-    if-nez v4, :cond_2c
+    if-nez v9, :cond_32
 
     goto :goto_26
 
-    :cond_2c
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+    :cond_32
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->getTargetPosition()Ljava/lang/Integer;
 
-    move-result v4
+    move-result-object v3
+
+    if-nez v3, :cond_33
+
+    :goto_26
+    move v3, v4
+
+    goto :goto_27
+
+    :cond_33
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
 
     :goto_27
-    invoke-virtual {v2, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logAlertingHeader(I)V
+    const-string v5, "ALERTING HEADER"
 
-    iget-object v2, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    invoke-virtual {v2, v3, v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
 
-    if-nez v0, :cond_2d
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
 
-    goto :goto_28
-
-    :cond_2d
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->getTargetPosition()Ljava/lang/Integer;
-
-    move-result-object v0
-
-    if-nez v0, :cond_2e
+    if-nez v10, :cond_34
 
     goto :goto_28
 
-    :cond_2e
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    :cond_34
+    invoke-virtual {v10}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->getTargetPosition()Ljava/lang/Integer;
 
-    move-result v0
+    move-result-object v3
 
-    move v1, v0
+    if-nez v3, :cond_35
 
     :goto_28
-    invoke-virtual {v2, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logSilentHeader(I)V
-
-    invoke-static {v12}, Lkotlin/sequences/SequencesKt;->asIterable(Lkotlin/sequences/Sequence;)Ljava/lang/Iterable;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->reversed(Ljava/lang/Iterable;)Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_29
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2f
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
-
-    invoke-interface {v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->adjustViewPosition()V
+    move v6, v4
 
     goto :goto_29
 
-    :cond_2f
-    iget-object v0, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    :cond_35
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
-    const-string v1, "Final order:"
+    move-result v6
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logStr(Ljava/lang/String;)V
+    :goto_29
+    const-string v3, "SILENT HEADER"
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logShadeContents()V
+    invoke-virtual {v2, v6, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logPosition(ILjava/lang/String;)V
 
-    iget-object v0, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+    new-instance v2, Lkotlin/sequences/SequencesKt___SequencesKt$asIterable$$inlined$Iterable$1;
 
-    const-string v1, "Section boundary update complete"
+    invoke-direct {v2, v11}, Lkotlin/sequences/SequencesKt___SequencesKt$asIterable$$inlined$Iterable$1;-><init>(Lkotlin/sequences/Sequence;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logStr(Ljava/lang/String;)V
+    instance-of v3, v2, Ljava/util/Collection;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+    if-eqz v3, :cond_36
 
-    move-result-object v0
+    move-object v3, v2
 
-    if-nez v0, :cond_30
+    check-cast v3, Ljava/util/Collection;
+
+    invoke-interface {v3}, Ljava/util/Collection;->size()I
+
+    move-result v3
+
+    const/4 v4, 0x1
+
+    if-gt v3, v4, :cond_36
+
+    invoke-static {v2}, Lkotlin/collections/CollectionsKt___CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
+
+    move-result-object v2
 
     goto :goto_2a
 
-    :cond_30
-    iget-object v1, v7, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+    :cond_36
+    invoke-static {v2}, Lkotlin/collections/CollectionsKt___CollectionsKt;->toMutableList(Ljava/lang/Iterable;)Ljava/util/List;
 
-    if-eqz v1, :cond_31
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->hasActiveClearableNotifications(I)Z
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->setClearSectionButtonEnabled(Z)V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    invoke-static {v2}, Ljava/util/Collections;->reverse(Ljava/util/List;)V
 
     :goto_2a
+    invoke-interface {v2}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_2b
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_37
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+
+    invoke-interface {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;->adjustViewPosition()V
+
+    goto :goto_2b
+
+    :cond_37
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string v3, "Final order:"
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logStr(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logShadeContents()V
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->logger:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;
+
+    const-string v3, "Section boundary update complete"
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsLogger;->logStr(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->getSilentHeaderView()Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;
+
+    move-result-object v2
+
+    if-nez v2, :cond_38
+
+    goto :goto_2e
+
+    :cond_38
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->parent:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+
+    if-nez v0, :cond_39
+
+    const/4 v6, 0x0
+
+    goto :goto_2c
+
+    :cond_39
+    move-object v6, v0
+
+    :goto_2c
+    iget-object v0, v6, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    const/4 v3, 0x2
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, v3, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->hasNotifications(IZ)Z
+
+    move-result v0
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->mClearAllButton:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_3a
+
+    move v4, v1
+
+    goto :goto_2d
+
+    :cond_3a
+    move v4, v15
+
+    :goto_2d
+    invoke-virtual {v2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :goto_2e
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 
-    :cond_31
-    invoke-static/range {v17 .. v17}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    :catchall_0
+    move-exception v0
 
-    const/4 v0, 0x0
-
-    throw v0
-
-    :cond_32
-    const/4 v0, 0x0
-
-    invoke-static/range {v17 .. v17}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     throw v0
 .end method

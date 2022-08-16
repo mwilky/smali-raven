@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/doze/DozeUi$2;
+.class public final Lcom/android/systemui/doze/DozeUi$2;
 .super Ljava/lang/Object;
 .source "DozeUi.java"
 
@@ -6,25 +6,14 @@
 .implements Lcom/android/systemui/doze/DozeHost$PulseCallback;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/doze/DozeUi;->pulseWhileDozing(I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/doze/DozeUi;
+.field public final synthetic this$0:Lcom/android/systemui/doze/DozeUi;
 
-.field final synthetic val$reason:I
+.field public final synthetic val$reason:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/doze/DozeUi;I)V
+.method public constructor <init>(Lcom/android/systemui/doze/DozeUi;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeUi$2;->this$0:Lcom/android/systemui/doze/DozeUi;
@@ -38,14 +27,12 @@
 
 
 # virtual methods
-.method public onPulseFinished()V
+.method public final onPulseFinished()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeUi$2;->this$0:Lcom/android/systemui/doze/DozeUi;
 
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeUi;->access$000(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
 
     sget-object v0, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_PULSE_DONE:Lcom/android/systemui/doze/DozeMachine$State;
 
@@ -54,15 +41,13 @@
     return-void
 .end method
 
-.method public onPulseStarted()V
+.method public final onPulseStarted()V
     .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/doze/DozeUi$2;->this$0:Lcom/android/systemui/doze/DozeUi;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeUi;->access$000(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
 
     iget p0, p0, Lcom/android/systemui/doze/DozeUi$2;->val$reason:I
 

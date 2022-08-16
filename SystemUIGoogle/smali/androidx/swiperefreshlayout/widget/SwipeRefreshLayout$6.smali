@@ -1,4 +1,4 @@
-.class Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;
+.class public final Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;
 .super Landroid/view/animation/Animation;
 .source "SwipeRefreshLayout.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
+.field public final synthetic this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
 
 # direct methods
-.method constructor <init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;)V
+.method public constructor <init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
@@ -39,24 +31,14 @@
 
 
 # virtual methods
-.method public applyTransformation(FLandroid/view/animation/Transformation;)V
+.method public final applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "interpolatedTime",
-            "t"
-        }
-    .end annotation
 
     iget-object p2, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
-    iget-boolean v0, p2, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mUsingCustomStart:Z
+    invoke-virtual {p2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-nez v0, :cond_0
+    iget-object p2, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
     iget v0, p2, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mSpinnerOffsetEnd:I
 
@@ -68,12 +50,6 @@
 
     sub-int/2addr v0, p2
 
-    goto :goto_0
-
-    :cond_0
-    iget v0, p2, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mSpinnerOffsetEnd:I
-
-    :goto_0
     iget-object p2, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$6;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
     iget v1, p2, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->mFrom:I
@@ -108,7 +84,18 @@
 
     sub-float/2addr p2, p1
 
-    invoke-virtual {p0, p2}, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;->setArrowScale(F)V
+    iget-object p1, p0, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;->mRing:Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;
+
+    iget v0, p1, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrowScale:F
+
+    cmpl-float v0, p2, v0
+
+    if-eqz v0, :cond_0
+
+    iput p2, p1, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable$Ring;->mArrowScale:F
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     return-void
 .end method

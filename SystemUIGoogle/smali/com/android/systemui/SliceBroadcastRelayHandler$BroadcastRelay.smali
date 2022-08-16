@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/SliceBroadcastRelayHandler$BroadcastRelay;
+.class public final Lcom/android/systemui/SliceBroadcastRelayHandler$BroadcastRelay;
 .super Landroid/content/BroadcastReceiver;
 .source "SliceBroadcastRelayHandler.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "BroadcastRelay"
 .end annotation
 
 
 # instance fields
-.field private final mReceivers:Landroid/util/ArraySet;
+.field public final mReceivers:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -25,9 +25,9 @@
     .end annotation
 .end field
 
-.field private final mUri:Landroid/net/Uri;
+.field public final mUri:Landroid/net/Uri;
 
-.field private final mUserId:Landroid/os/UserHandle;
+.field public final mUserId:Landroid/os/UserHandle;
 
 
 # direct methods
@@ -59,7 +59,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
 
     const/high16 v0, 0x10000000
@@ -104,25 +104,5 @@
     goto :goto_0
 
     :cond_0
-    return-void
-.end method
-
-.method public register(Landroid/content/Context;Landroid/content/ComponentName;Landroid/content/IntentFilter;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/SliceBroadcastRelayHandler$BroadcastRelay;->mReceivers:Landroid/util/ArraySet;
-
-    invoke-virtual {v0, p2}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {p1, p0, p3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
-
-    return-void
-.end method
-
-.method public unregister(Landroid/content/Context;)V
-    .locals 0
-
-    invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-
     return-void
 .end method

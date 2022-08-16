@@ -4,28 +4,20 @@
 
 
 # instance fields
-.field private mBackgroundColor:I
+.field public mBackgroundColor:I
 
-.field private final mDisabledAlpha:F
+.field public final mDisabledAlpha:F
 
-.field private mHideThumb:Z
+.field public mHideThumb:Z
 
-.field private mProgressAndThumbColor:I
+.field public mProgressAndThumbColor:I
 
-.field private mThumb:Landroid/graphics/drawable/Drawable;
+.field public mThumb:Landroid/graphics/drawable/Drawable;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -36,18 +28,8 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
-    sget v0, Landroidx/appcompat/R$attr;->seekBarStyle:I
+    const v0, 0x7f04046c
 
     invoke-direct {p0, p1, p2, v0}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -56,18 +38,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/appcompat/widget/AppCompatSeekBar;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -82,7 +52,7 @@
 
 
 # virtual methods
-.method protected drawableStateChanged()V
+.method public final drawableStateChanged()V
     .locals 5
 
     invoke-super {p0}, Landroidx/appcompat/widget/AppCompatSeekBar;->drawableStateChanged()V
@@ -165,34 +135,8 @@
     return-void
 .end method
 
-.method public setColor(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "color"
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1, p1}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setColor(II)V
-
-    return-void
-.end method
-
-.method public setColor(II)V
+.method public final setColor(II)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "progressAndThumbColor",
-            "backgroundColor"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->mProgressAndThumbColor:I
 
@@ -208,13 +152,11 @@
 
     if-eq v0, v2, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Volume slider progress and thumb color cannot be translucent: #"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "Volume slider progress and thumb color cannot be translucent: #"
-
-    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-static {p1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
@@ -242,13 +184,11 @@
 
     if-eq p1, v2, :cond_2
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "Volume slider background color cannot be translucent: #"
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "Volume slider background color cannot be translucent: #"
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     invoke-static {p2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
@@ -269,16 +209,8 @@
     return-void
 .end method
 
-.method public setHideThumb(Z)V
+.method public final setHideThumb(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hideThumb"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->mHideThumb:Z
 
@@ -304,16 +236,8 @@
     return-void
 .end method
 
-.method public setThumb(Landroid/graphics/drawable/Drawable;)V
+.method public final setThumb(Landroid/graphics/drawable/Drawable;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "thumb"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->mThumb:Landroid/graphics/drawable/Drawable;
 

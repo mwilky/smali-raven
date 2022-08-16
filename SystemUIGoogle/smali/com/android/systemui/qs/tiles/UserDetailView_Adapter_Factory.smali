@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final controllerProvider:Ljavax/inject/Provider;
+.field public final controllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final falsingManagerProvider:Ljavax/inject/Provider;
+.field public final falsingManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -93,48 +93,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/UserDetailView_Adapter_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/UserSwitcherController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            ">;)",
-            "Lcom/android/systemui/qs/tiles/UserDetailView_Adapter_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/UserDetailView_Adapter_Factory;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/qs/tiles/UserDetailView_Adapter_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;)Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserDetailView_Adapter_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -168,19 +130,9 @@
 
     check-cast p0, Lcom/android/systemui/plugins/FalsingManager;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/qs/tiles/UserDetailView_Adapter_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;)Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
+    new-instance v3, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
 
-    move-result-object p0
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/plugins/FalsingManager;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/UserDetailView_Adapter_Factory;->get()Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v3
 .end method

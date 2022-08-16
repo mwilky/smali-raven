@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,17 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda0;->f$0:Lcom/android/keyguard/KeyguardPinViewController;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardPinViewController;->$r8$lambda$2bDHH20eFLR9VylhwTp8EepRQaQ(Lcom/android/keyguard/KeyguardPinViewController;Landroid/view/View;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->reset()V
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lcom/android/keyguard/KeyguardSecurityCallback;->onCancelClicked()V
 
     return-void
 .end method

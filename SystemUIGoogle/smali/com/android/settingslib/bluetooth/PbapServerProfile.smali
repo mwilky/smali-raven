@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/bluetooth/PbapServerProfile;
+.class public final Lcom/android/settingslib/bluetooth/PbapServerProfile;
 .super Ljava/lang/Object;
 .source "PbapServerProfile.java"
 
@@ -20,17 +20,15 @@
     .end annotation
 .end field
 
-.field static final PBAB_CLIENT_UUIDS:[Landroid/os/ParcelUuid;
+.field public static final PBAB_CLIENT_UUIDS:[Landroid/os/ParcelUuid;
 
 
 # instance fields
-.field private mIsProfileReady:Z
-
-.field private mService:Landroid/bluetooth/BluetoothPbap;
+.field public mService:Landroid/bluetooth/BluetoothPbap;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const/4 v0, 0x3
@@ -60,8 +58,8 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;)V
-    .locals 3
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -71,9 +69,7 @@
 
     new-instance v1, Lcom/android/settingslib/bluetooth/PbapServerProfile$PbapServiceListener;
 
-    const/4 v2, 0x0
-
-    invoke-direct {v1, p0, v2}, Lcom/android/settingslib/bluetooth/PbapServerProfile$PbapServiceListener;-><init>(Lcom/android/settingslib/bluetooth/PbapServerProfile;Lcom/android/settingslib/bluetooth/PbapServerProfile$1;)V
+    invoke-direct {v1, p0}, Lcom/android/settingslib/bluetooth/PbapServerProfile$PbapServiceListener;-><init>(Lcom/android/settingslib/bluetooth/PbapServerProfile;)V
 
     const/4 p0, 0x6
 
@@ -82,25 +78,9 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/settingslib/bluetooth/PbapServerProfile;Landroid/bluetooth/BluetoothPbap;)Landroid/bluetooth/BluetoothPbap;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/bluetooth/PbapServerProfile;->mService:Landroid/bluetooth/BluetoothPbap;
-
-    return-object p1
-.end method
-
-.method static synthetic access$102(Lcom/android/settingslib/bluetooth/PbapServerProfile;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/bluetooth/PbapServerProfile;->mIsProfileReady:Z
-
-    return p1
-.end method
-
 
 # virtual methods
-.method public accessProfileEnabled()Z
+.method public final accessProfileEnabled()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -108,7 +88,7 @@
     return p0
 .end method
 
-.method protected finalize()V
+.method public final finalize()V
     .locals 4
 
     const-string v0, "PbapServerProfile"
@@ -152,7 +132,7 @@
     return-void
 .end method
 
-.method public getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
+.method public final getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/PbapServerProfile;->mService:Landroid/bluetooth/BluetoothPbap;
@@ -171,15 +151,15 @@
     return p0
 .end method
 
-.method public getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
+.method public final getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
     .locals 0
 
-    const p0, 0x1080515
+    const p0, 0x1080520
 
     return p0
 .end method
 
-.method public getProfileId()I
+.method public final getProfileId()I
     .locals 0
 
     const/4 p0, 0x6
@@ -187,7 +167,7 @@
     return p0
 .end method
 
-.method public setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
+.method public final setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/PbapServerProfile;->mService:Landroid/bluetooth/BluetoothPbap;
@@ -209,7 +189,7 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     const-string p0, "PBAP Server"

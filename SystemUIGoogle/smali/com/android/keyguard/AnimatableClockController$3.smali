@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/AnimatableClockController$3;
+.class public final Lcom/android/keyguard/AnimatableClockController$3;
 .super Ljava/lang/Object;
 .source "AnimatableClockController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/AnimatableClockController;
+.field public final synthetic this$0:Lcom/android/keyguard/AnimatableClockController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/AnimatableClockController;)V
+.method public constructor <init>(Lcom/android/keyguard/AnimatableClockController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
@@ -34,101 +34,69 @@
 
 
 # virtual methods
-.method public onDozeAmountChanged(FF)V
-    .locals 4
+.method public final onDozeAmountChanged(FF)V
+    .locals 5
 
-    iget-object p2, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
+    iget-object p0, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
 
-    invoke-static {p2}, Lcom/android/keyguard/AnimatableClockController;->access$400(Lcom/android/keyguard/AnimatableClockController;)F
-
-    move-result p2
+    iget p2, p0, Lcom/android/keyguard/AnimatableClockController;->mDozeAmount:F
 
     const/4 v0, 0x0
 
-    cmpl-float p2, p2, v0
+    cmpl-float v1, p2, v0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    if-nez p2, :cond_0
+    if-nez v1, :cond_0
 
-    cmpl-float p2, p1, v2
+    cmpl-float v1, p1, v3
 
-    if-eqz p2, :cond_1
+    if-eqz v1, :cond_1
 
     :cond_0
-    iget-object p2, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
+    cmpl-float v1, p2, v3
 
-    invoke-static {p2}, Lcom/android/keyguard/AnimatableClockController;->access$400(Lcom/android/keyguard/AnimatableClockController;)F
+    if-nez v1, :cond_2
 
-    move-result p2
+    cmpl-float v0, p1, v0
 
-    cmpl-float p2, p2, v2
-
-    if-nez p2, :cond_2
-
-    cmpl-float p2, p1, v0
-
-    if-nez p2, :cond_2
+    if-nez v0, :cond_2
 
     :cond_1
-    move p2, v3
+    move v0, v4
 
     goto :goto_0
 
     :cond_2
-    move p2, v1
+    move v0, v2
 
     :goto_0
-    iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
+    cmpl-float p2, p1, p2
 
-    invoke-static {v0}, Lcom/android/keyguard/AnimatableClockController;->access$400(Lcom/android/keyguard/AnimatableClockController;)F
+    if-lez p2, :cond_3
 
-    move-result v0
-
-    cmpl-float v0, p1, v0
-
-    if-lez v0, :cond_3
-
-    move v1, v3
+    move v2, v4
 
     :cond_3
-    iget-object v0, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
+    iput p1, p0, Lcom/android/keyguard/AnimatableClockController;->mDozeAmount:F
 
-    invoke-static {v0, p1}, Lcom/android/keyguard/AnimatableClockController;->access$402(Lcom/android/keyguard/AnimatableClockController;F)F
+    iget-boolean p1, p0, Lcom/android/keyguard/AnimatableClockController;->mIsDozing:Z
 
-    iget-object p1, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
+    if-eq p1, v2, :cond_4
 
-    invoke-static {p1}, Lcom/android/keyguard/AnimatableClockController;->access$500(Lcom/android/keyguard/AnimatableClockController;)Z
+    iput-boolean v2, p0, Lcom/android/keyguard/AnimatableClockController;->mIsDozing:Z
 
-    move-result p1
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    if-eq p1, v1, :cond_4
+    check-cast p0, Lcom/android/keyguard/AnimatableClockView;
 
-    iget-object p1, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
+    xor-int/lit8 p1, v0, 0x1
 
-    invoke-static {p1, v1}, Lcom/android/keyguard/AnimatableClockController;->access$502(Lcom/android/keyguard/AnimatableClockController;Z)Z
-
-    iget-object p1, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
-
-    invoke-static {p1}, Lcom/android/keyguard/AnimatableClockController;->access$600(Lcom/android/keyguard/AnimatableClockController;)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/keyguard/AnimatableClockView;
-
-    iget-object p0, p0, Lcom/android/keyguard/AnimatableClockController$3;->this$0:Lcom/android/keyguard/AnimatableClockController;
-
-    invoke-static {p0}, Lcom/android/keyguard/AnimatableClockController;->access$500(Lcom/android/keyguard/AnimatableClockController;)Z
-
-    move-result p0
-
-    xor-int/2addr p2, v3
-
-    invoke-virtual {p1, p0, p2}, Lcom/android/keyguard/AnimatableClockView;->animateDoze(ZZ)V
+    invoke-virtual {p0, v2, p1}, Lcom/android/keyguard/AnimatableClockView;->animateDoze(ZZ)V
 
     :cond_4
     return-void

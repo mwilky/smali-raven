@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController$1;
+.class public final Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController$1;
 .super Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;
 .source "RegisteredMediaRouteProvider.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;
+.field public final synthetic this$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;)V
+.method public constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$1"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController$1;->this$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;
 
@@ -39,18 +31,8 @@
 
 
 # virtual methods
-.method public onError(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public final onError(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "error",
-            "data"
-        }
-    .end annotation
 
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -79,16 +61,8 @@
     return-void
 .end method
 
-.method public onResult(Landroid/os/Bundle;)V
+.method public final onResult(Landroid/os/Bundle;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "data"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController$1;->this$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;
 
@@ -102,7 +76,7 @@
 
     iget-object p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController$1;->this$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;
 
-    const-string v0, "transferableTitle"
+    const-string/jumbo v0, "transferableTitle"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 

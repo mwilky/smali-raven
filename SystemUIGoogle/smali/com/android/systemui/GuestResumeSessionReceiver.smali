@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/GuestResumeSessionReceiver;
+.class public final Lcom/android/systemui/GuestResumeSessionReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "GuestResumeSessionReceiver.java"
 
@@ -24,13 +24,13 @@
     .end annotation
 .end field
 
-.field private final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+.field public final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-.field private final mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+.field public final mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-.field private final mUserTracker:Lcom/android/systemui/settings/UserTracker;
+.field public final mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
 
 # direct methods
@@ -50,8 +50,22 @@
     return-void
 .end method
 
-.method private cancelDialog()V
-    .locals 1
+
+# virtual methods
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 3
+
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "android.intent.action.USER_SWITCHED"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/GuestResumeSessionReceiver;->mNewSessionDialog:Landroid/app/AlertDialog;
 
@@ -72,28 +86,6 @@
     iput-object v0, p0, Lcom/android/systemui/GuestResumeSessionReceiver;->mNewSessionDialog:Landroid/app/AlertDialog;
 
     :cond_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
-
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "android.intent.action.USER_SWITCHED"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    invoke-direct {p0}, Lcom/android/systemui/GuestResumeSessionReceiver;->cancelDialog()V
-
     const-string v0, "android.intent.extra.user_handle"
 
     const/16 v1, -0x2710
@@ -102,7 +94,7 @@
 
     move-result v0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -130,7 +122,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object p2, p0, Lcom/android/systemui/GuestResumeSessionReceiver;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
     invoke-interface {p2}, Lcom/android/systemui/settings/UserTracker;->getUserInfo()Landroid/content/pm/UserInfo;
@@ -141,22 +133,22 @@
 
     move-result p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2
 
     return-void
 
-    :cond_1
+    :cond_2
     iget-object p2, p0, Lcom/android/systemui/GuestResumeSessionReceiver;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
     const/4 v1, 0x0
 
-    const-string v2, "systemui.guest_has_logged_in"
+    const-string/jumbo v2, "systemui.guest_has_logged_in"
 
     invoke-interface {p2, v2, v1, v0}, Lcom/android/systemui/util/settings/SettingsProxy;->getIntForUser(Ljava/lang/String;II)I
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     new-instance p2, Lcom/android/systemui/GuestResumeSessionReceiver$ResetSessionDialog;
 
@@ -172,32 +164,14 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object p0, p0, Lcom/android/systemui/GuestResumeSessionReceiver;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
     const/4 p1, 0x1
 
     invoke-interface {p0, v2, p1, v0}, Lcom/android/systemui/util/settings/SettingsProxy;->putIntForUser(Ljava/lang/String;II)Z
 
-    :cond_3
+    :cond_4
     :goto_0
-    return-void
-.end method
-
-.method public register(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
-    .locals 3
-
-    new-instance v0, Landroid/content/IntentFilter;
-
-    const-string v1, "android.intent.action.USER_SWITCHED"
-
-    invoke-direct {v0, v1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
-
-    sget-object v1, Landroid/os/UserHandle;->SYSTEM:Landroid/os/UserHandle;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p1, p0, v0, v2, v1}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/util/concurrent/Executor;Landroid/os/UserHandle;)V
-
     return-void
 .end method

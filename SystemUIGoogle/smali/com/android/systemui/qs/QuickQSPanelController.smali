@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/QuickQSPanelController;
+.class public final Lcom/android/systemui/qs/QuickQSPanelController;
 .super Lcom/android/systemui/qs/QSPanelControllerBase;
 .source "QuickQSPanelController.java"
 
@@ -14,156 +14,124 @@
 
 
 # instance fields
-.field private final mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
+.field public final mOnConfigurationChangedListener:Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;
 
-.field private final mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
+.field public final mUsingCollapsedLandscapeMedia:Z
 
 
 # direct methods
-.method public static synthetic $r8$lambda$vEqOQOv7ObL-HObzDRHb8bwXQpQ(Lcom/android/systemui/qs/QuickQSPanelController;Landroid/content/res/Configuration;)V
-    .locals 0
+.method public constructor <init>(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;ZLcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;)V
+    .locals 11
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QuickQSPanelController;->lambda$new$0(Landroid/content/res/Configuration;)V
+    move-object v10, p0
 
-    return-void
-.end method
+    move-object v0, p0
 
-.method constructor <init>(Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/qs/FooterActionsController;)V
-    .locals 0
+    move-object v1, p1
 
-    invoke-direct/range {p0 .. p9}, Lcom/android/systemui/qs/QSPanelControllerBase;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;)V
+    move-object v2, p2
 
-    new-instance p1, Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;
+    move-object v3, p3
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/QuickQSPanelController;)V
+    move v4, p4
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
+    move-object/from16 v5, p5
 
-    iput-object p10, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
+    move-object/from16 v6, p7
 
-    return-void
-.end method
+    move-object/from16 v7, p8
 
-.method private synthetic lambda$new$0(Landroid/content/res/Configuration;)V
-    .locals 1
+    move-object/from16 v8, p9
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
+    move-object/from16 v9, p10
 
-    move-result-object p1
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/QSPanelControllerBase;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/dump/DumpManager;)V
 
-    sget v0, Lcom/android/systemui/R$integer;->quick_qs_panel_max_tiles:I
+    new-instance v0, Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;
 
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/QuickQSPanelController;)V
 
-    move-result p1
+    iput-object v0, v10, Lcom/android/systemui/qs/QuickQSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    move/from16 v0, p6
 
-    check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickQSPanel;->getNumQuickTiles()I
-
-    move-result v0
-
-    if-eq p1, v0, :cond_0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QuickQSPanelController;->setMaxTiles(I)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private setMaxTiles(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QuickQSPanel;->setMaxTiles(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->setTiles()V
+    iput-boolean v0, v10, Lcom/android/systemui/qs/QuickQSPanelController;->mUsingCollapsedLandscapeMedia:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getNumQuickTiles()I
+.method public getRotation()I
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
 
-    check-cast p0, Lcom/android/systemui/qs/QuickQSPanel;
+    move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->getNumQuickTiles()I
+    invoke-static {p0}, Lkotlin/jdk7/AutoCloseableKt;->getRotation(Landroid/content/Context;)I
 
     move-result p0
 
     return p0
 .end method
 
-.method public isListening()Z
+.method public final onConfigurationChanged()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/qs/QuickQSPanel;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanel;->isListening()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method protected onConfigurationChanged()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/qs/FooterActionsController;->refreshVisibility(Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateMediaExpansion()V
 
     return-void
 .end method
 
-.method protected onInit()V
-    .locals 2
+.method public final onInit()V
+    .locals 3
 
     invoke-super {p0}, Lcom/android/systemui/qs/QSPanelControllerBase;->onInit()V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost;->setExpansion(F)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->updateMediaExpansion()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
 
-    const/4 v1, 0x1
+    iget-object v0, v0, Lcom/android/systemui/media/MediaHost;->state:Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost;->setShowsOnlyActiveMedia(Z)V
+    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+    iget-boolean v2, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost;->init(I)V
+    invoke-static {v2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
+    move-result-object v2
 
-    invoke-virtual {v0}, Lcom/android/systemui/util/ViewController;->init()V
+    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
+    move-result v1
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mShouldUseSplitNotificationShade:Z
+    const/4 v2, 0x1
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/qs/FooterActionsController;->refreshVisibility(Z)V
+    if-nez v1, :cond_1
+
+    iput-boolean v2, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
+
+    iget-object v0, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {v0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    :cond_1
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/media/MediaHost;->init(I)V
 
     return-void
 .end method
 
-.method protected onViewAttached()V
+.method public final onViewAttached()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/qs/QSPanelControllerBase;->onViewAttached()V
@@ -172,14 +140,16 @@
 
     check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/qs/QSPanel;->addOnConfigurationChangedListener(Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;)V
+    iget-object v0, v0, Lcom/android/systemui/qs/QSPanel;->mOnConfigurationChangedListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method protected onViewDetached()V
+.method public final onViewDetached()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/qs/QSPanelControllerBase;->onViewDetached()V
@@ -188,44 +158,16 @@
 
     check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mOnConfigurationChangedListener:Lcom/android/systemui/qs/QuickQSPanelController$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/qs/QSPanel;->removeOnConfigurationChangedListener(Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;)V
+    iget-object v0, v0, Lcom/android/systemui/qs/QSPanel;->mOnConfigurationChangedListeners:Ljava/util/ArrayList;
 
-    return-void
-.end method
-
-.method public setContentMargins(II)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost;->getHostView()Lcom/android/systemui/util/animation/UniqueObjectHostView;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p1, p2, p0}, Lcom/android/systemui/qs/QSPanel;->setContentMargins(IILandroid/view/ViewGroup;)V
+    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method setListening(Z)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/qs/QSPanelControllerBase;->setListening(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsController;->setListening(Z)V
-
-    return-void
-.end method
-
-.method public setTiles()V
+.method public final setTiles()V
     .locals 4
 
     new-instance v0, Ljava/util/ArrayList;
@@ -234,7 +176,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/QSTileHost;->getTiles()Ljava/util/Collection;
+    iget-object v1, v1, Lcom/android/systemui/qs/QSTileHost;->mTiles:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v1}, Ljava/util/LinkedHashMap;->values()Ljava/util/Collection;
 
     move-result-object v1
 
@@ -255,9 +199,9 @@
 
     check-cast v2, Lcom/android/systemui/plugins/qs/QSTile;
 
-    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
@@ -265,16 +209,65 @@
 
     check-cast v3, Lcom/android/systemui/qs/QuickQSPanel;
 
-    invoke-virtual {v3}, Lcom/android/systemui/qs/QuickQSPanel;->getNumQuickTiles()I
-
-    move-result v3
+    iget v3, v3, Lcom/android/systemui/qs/QuickQSPanel;->mMaxTiles:I
 
     if-ne v2, v3, :cond_0
 
     :cond_1
     const/4 v1, 0x1
 
-    invoke-super {p0, v0, v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->setTiles(Ljava/util/Collection;Z)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/qs/QSPanelControllerBase;->setTiles(Ljava/util/Collection;Z)V
 
+    return-void
+.end method
+
+.method public final updateMediaExpansion()V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->getRotation()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-eq v0, v1, :cond_1
+
+    const/4 v2, 0x3
+
+    if-ne v0, v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :cond_1
+    :goto_0
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickQSPanelController;->mUsingCollapsedLandscapeMedia:Z
+
+    if-eqz v0, :cond_3
+
+    if-nez v1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/media/MediaHost;->setExpansion(F)V
+
+    goto :goto_2
+
+    :cond_3
+    :goto_1
+    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/media/MediaHost;->setExpansion(F)V
+
+    :goto_2
     return-void
 .end method

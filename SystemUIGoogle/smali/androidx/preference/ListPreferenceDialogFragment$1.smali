@@ -1,4 +1,4 @@
-.class Landroidx/preference/ListPreferenceDialogFragment$1;
+.class public final Landroidx/preference/ListPreferenceDialogFragment$1;
 .super Ljava/lang/Object;
 .source "ListPreferenceDialogFragment.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/preference/ListPreferenceDialogFragment;
+.field public final synthetic this$0:Landroidx/preference/ListPreferenceDialogFragment;
 
 
 # direct methods
-.method constructor <init>(Landroidx/preference/ListPreferenceDialogFragment;)V
+.method public constructor <init>(Landroidx/preference/ListPreferenceDialogFragment;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/preference/ListPreferenceDialogFragment$1;->this$0:Landroidx/preference/ListPreferenceDialogFragment;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
     iget-object p0, p0, Landroidx/preference/ListPreferenceDialogFragment$1;->this$0:Landroidx/preference/ListPreferenceDialogFragment;

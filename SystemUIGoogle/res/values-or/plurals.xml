@@ -16,6 +16,10 @@
         <item quantity="other">%sଟି ନିୟନ୍ତ୍ରଣ ଯୋଗ କରାଯାଇଛି।</item>
         <item quantity="one">%sଟି ନିୟନ୍ତ୍ରଣ ଯୋଗ କରାଯାଇଛି।</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%sଟି ଆପ ସକ୍ରିୟ ଅଛି</item>
+        <item quantity="one">%sଟି ଆପ ସକ୍ରିୟ ଅଛି</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">SIM PIN ପ୍ରବେଶ କରନ୍ତୁ। ଆପଣଙ୍କ ପାଇଁ %dଟି ପ୍ରୟାସ ବଳକା ଅଛି।</item>
         <item quantity="one">SIM PIN ପ୍ରବେଶ କରନ୍ତୁ। ଆପଣଙ୍କ ଡିଭାଇସ୍‍କୁ ଅନଲକ୍ କରିବା ପାଇଁ ପାଖରେ ବଳକା ଥିବା %dଟି ପ୍ରୟାସର ବ୍ୟବହାର କରିବା ପୂର୍ବରୁ ନିଜର କେରିଅର୍‍ଙ୍କୁ ସମ୍ପର୍କ କରନ୍ତୁ।</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">ଭୁଲ SIM PUK କୋଡ୍‍, SIMଟି ଆଉ %dଟି ପ୍ରୟାସ ପରେ ସ୍ଥାୟୀ ଭାବେ ବ୍ୟବହାର କରାଯାଇରିବ ନାହିଁ।</item>
         <item quantity="one">ଭୁଲ SIM PUK କୋଡ୍‍, SIMଟି ଆଉ %dଟି ପ୍ରୟାସ ପରେ ସ୍ଥାୟୀ ଭାବେ ବ୍ୟବହାର କରାଯାଇରିବ ନାହିଁ।</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d ସେକେଣ୍ଡ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</item>
-        <item quantity="one">1 ସେକେଣ୍ଡ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d new notifications</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">କେବଳ %d ଉପଯୋଗକର୍ତ୍ତା ହିଁ ତିଆରି କରିହେବ।</item>
         <item quantity="one">କେବଳ ଜଣେ ଉପଯୋଗକର୍ତ୍ତା ହିଁ ତିଆରି କରିହେବ।</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$dଟି ଡିଭାଇସ୍‌ ସଂଯୁକ୍ତ ହୋଇଛି</item>
-        <item quantity="one">%1$dଟି ଡିଭାଇସ୍ ସଂଯୁକ୍ତ ହୋଇଛି</item>
     </plurals>
 </resources>

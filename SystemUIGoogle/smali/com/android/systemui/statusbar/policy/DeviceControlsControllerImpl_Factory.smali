@@ -1,0 +1,138 @@
+.class public final Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;
+.super Ljava/lang/Object;
+.source "DeviceControlsControllerImpl_Factory.java"
+
+# interfaces
+.implements Ldagger/internal/Factory;
+
+
+# annotations
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ldagger/internal/Factory<",
+        "Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl;",
+        ">;"
+    }
+.end annotation
+
+
+# instance fields
+.field public final contextProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final controlsComponentProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/controls/dagger/ControlsComponent;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final secureSettingsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final userContextProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/settings/UserContextProvider;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljavax/inject/Provider<",
+            "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/controls/dagger/ControlsComponent;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/settings/UserContextProvider;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->controlsComponentProvider:Ljavax/inject/Provider;
+
+    iput-object p3, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->userContextProvider:Ljavax/inject/Provider;
+
+    iput-object p4, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final get()Ljava/lang/Object;
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->controlsComponentProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/controls/dagger/ControlsComponent;
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->userContextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/settings/UserContextProvider;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/util/settings/SecureSettings;
+
+    new-instance v3, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl;
+
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/statusbar/policy/DeviceControlsControllerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/settings/UserContextProvider;Lcom/android/systemui/util/settings/SecureSettings;)V
+
+    return-object v3
+.end method

@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;
+.class public final Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;
 .super Ljava/lang/Object;
 .source "DropDownListView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ResolveHoverRunnable"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/DropDownListView;
+.field public final synthetic this$0:Landroidx/appcompat/widget/DropDownListView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/DropDownListView;)V
+.method public constructor <init>(Landroidx/appcompat/widget/DropDownListView;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;
@@ -34,31 +34,7 @@
 
 
 # virtual methods
-.method public cancel()V
-    .locals 2
-
-    iget-object v0, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;
-
-    const/4 v1, 0x0
-
-    iput-object v1, v0, Landroidx/appcompat/widget/DropDownListView;->mResolveHoverRunnable:Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;
-
-    invoke-virtual {v0, p0}, Landroid/widget/ListView;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public post()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;
-
-    invoke-virtual {v0, p0}, Landroid/widget/ListView;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/widget/DropDownListView$ResolveHoverRunnable;->this$0:Landroidx/appcompat/widget/DropDownListView;

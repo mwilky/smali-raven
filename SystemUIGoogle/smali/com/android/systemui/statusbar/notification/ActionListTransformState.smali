@@ -1,10 +1,10 @@
-.class public Lcom/android/systemui/statusbar/notification/ActionListTransformState;
+.class public final Lcom/android/systemui/statusbar/notification/ActionListTransformState;
 .super Lcom/android/systemui/statusbar/notification/TransformState;
 .source "ActionListTransformState.java"
 
 
 # static fields
-.field private static sInstancePool:Landroid/util/Pools$SimplePool;
+.field public static sInstancePool:Landroid/util/Pools$SimplePool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Pools$SimplePool<",
@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Landroid/util/Pools$SimplePool;
@@ -38,32 +38,9 @@
     return-void
 .end method
 
-.method public static obtain()Lcom/android/systemui/statusbar/notification/ActionListTransformState;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/statusbar/notification/ActionListTransformState;->sInstancePool:Landroid/util/Pools$SimplePool;
-
-    invoke-virtual {v0}, Landroid/util/Pools$SimplePool;->acquire()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/ActionListTransformState;
-
-    if-eqz v0, :cond_0
-
-    return-object v0
-
-    :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/notification/ActionListTransformState;
-
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/ActionListTransformState;-><init>()V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public recycle()V
+.method public final recycle()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
@@ -75,12 +52,10 @@
     return-void
 .end method
 
-.method protected resetTransformedView()V
+.method public final resetTransformedView()V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->getTransformedView()Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
 
@@ -88,16 +63,14 @@
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->resetTransformedView()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->getTransformedView()Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setTranslationY(F)V
 
     return-void
 .end method
 
-.method protected sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
+.method public final sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
     .locals 0
 
     instance-of p0, p1, Lcom/android/systemui/statusbar/notification/ActionListTransformState;
@@ -105,13 +78,13 @@
     return p0
 .end method
 
-.method public transformViewFullyFrom(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+.method public final transformViewFullyFrom(Lcom/android/systemui/statusbar/notification/TransformState;F)V
     .locals 0
 
     return-void
 .end method
 
-.method public transformViewFullyTo(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+.method public final transformViewFullyTo(Lcom/android/systemui/statusbar/notification/TransformState;F)V
     .locals 0
 
     return-void

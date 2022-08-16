@@ -1,4 +1,4 @@
-.class synthetic Lcom/android/systemui/screenshot/ImageExporter$1;
+.class public final synthetic Lcom/android/systemui/screenshot/ImageExporter$1;
 .super Ljava/lang/Object;
 .source "ImageExporter.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x1009
     name = null
 .end annotation
 
 
 # static fields
-.field static final synthetic $SwitchMap$android$graphics$Bitmap$CompressFormat:[I
+.field public static final synthetic $SwitchMap$android$graphics$Bitmap$CompressFormat:[I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     invoke-static {}, Landroid/graphics/Bitmap$CompressFormat;->values()[Landroid/graphics/Bitmap$CompressFormat;

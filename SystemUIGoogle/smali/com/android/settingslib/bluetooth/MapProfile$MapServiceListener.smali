@@ -1,4 +1,4 @@
-.class final Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;
+.class public final Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;
 .super Ljava/lang/Object;
 .source "MapProfile.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "MapServiceListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/bluetooth/MapProfile;
+.field public final synthetic this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/settingslib/bluetooth/MapProfile;)V
+.method public constructor <init>(Lcom/android/settingslib/bluetooth/MapProfile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
@@ -32,32 +32,18 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/MapProfile;Lcom/android/settingslib/bluetooth/MapProfile$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;-><init>(Lcom/android/settingslib/bluetooth/MapProfile;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V
+.method public final onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
     check-cast p2, Landroid/bluetooth/BluetoothMap;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/MapProfile;->access$002(Lcom/android/settingslib/bluetooth/MapProfile;Landroid/bluetooth/BluetoothMap;)Landroid/bluetooth/BluetoothMap;
+    iput-object p2, p1, Lcom/android/settingslib/bluetooth/MapProfile;->mService:Landroid/bluetooth/BluetoothMap;
 
-    iget-object p1, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
-
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapProfile;->access$000(Lcom/android/settingslib/bluetooth/MapProfile;)Landroid/bluetooth/BluetoothMap;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/bluetooth/BluetoothMap;->getConnectedDevices()Ljava/util/List;
+    invoke-virtual {p2}, Landroid/bluetooth/BluetoothMap;->getConnectedDevices()Ljava/util/List;
 
     move-result-object p1
 
@@ -78,9 +64,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/MapProfile;->access$100(Lcom/android/settingslib/bluetooth/MapProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/MapProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     invoke-virtual {v0, p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->findDevice(Landroid/bluetooth/BluetoothDevice;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -108,9 +92,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/MapProfile;->access$100(Lcom/android/settingslib/bluetooth/MapProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/MapProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     invoke-virtual {v0, p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->addDevice(Landroid/bluetooth/BluetoothDevice;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -130,37 +112,29 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapProfile;->access$200(Lcom/android/settingslib/bluetooth/MapProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/settingslib/bluetooth/MapProfile;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceConnectedListeners()V
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
-    const/4 p1, 0x1
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/MapProfile;->access$302(Lcom/android/settingslib/bluetooth/MapProfile;Z)Z
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-void
 .end method
 
-.method public onServiceDisconnected(I)V
+.method public final onServiceDisconnected(I)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/MapProfile;->access$200(Lcom/android/settingslib/bluetooth/MapProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/settingslib/bluetooth/MapProfile;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
     invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->callServiceDisconnectedListeners()V
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/MapProfile$MapServiceListener;->this$0:Lcom/android/settingslib/bluetooth/MapProfile;
 
-    const/4 p1, 0x0
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/MapProfile;->access$302(Lcom/android/settingslib/bluetooth/MapProfile;Z)Z
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-void
 .end method

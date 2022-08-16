@@ -1,6 +1,9 @@
-.class Lcom/android/systemui/qs/external/TileServices$2;
-.super Landroid/content/BroadcastReceiver;
+.class public final Lcom/android/systemui/qs/external/TileServices$2;
+.super Ljava/lang/Object;
 .source "TileServices.java"
+
+# interfaces
+.implements Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
 
 # annotations
@@ -9,70 +12,42 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/external/TileServices;
+.field public final synthetic this$0:Lcom/android/systemui/qs/external/TileServices;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/external/TileServices;)V
+.method public constructor <init>(Lcom/android/systemui/qs/external/TileServices;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileServices$2;->this$0:Lcom/android/systemui/qs/external/TileServices;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
+.method public final requestTileServiceListeningState(Landroid/content/ComponentName;)V
+    .locals 3
 
-    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices$2;->this$0:Lcom/android/systemui/qs/external/TileServices;
 
-    move-result-object p1
+    iget-object v0, v0, Lcom/android/systemui/qs/external/TileServices;->mMainHandler:Landroid/os/Handler;
 
-    const-string v0, "android.service.quicksettings.action.REQUEST_LISTENING"
+    new-instance v1, Lcom/android/systemui/qs/external/TileServices$2$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/4 v2, 0x0
 
-    move-result p1
+    invoke-direct {v1, v2, p0, p1}, Lcom/android/systemui/qs/external/TileServices$2$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
-    if-eqz p1, :cond_0
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    :try_start_0
-    const-string p1, "android.intent.extra.COMPONENT_NAME"
-
-    invoke-virtual {p2, p1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/content/ComponentName;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServices$2;->this$0:Lcom/android/systemui/qs/external/TileServices;
-
-    invoke-static {p0, p1}, Lcom/android/systemui/qs/external/TileServices;->access$100(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;)V
-    :try_end_0
-    .catch Ljava/lang/ClassCastException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "TileServices"
-
-    const-string p2, "Bad component name"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :cond_0
-    :goto_0
     return-void
 .end method

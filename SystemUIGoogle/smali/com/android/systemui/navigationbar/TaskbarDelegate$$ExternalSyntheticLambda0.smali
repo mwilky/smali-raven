@@ -1,21 +1,22 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/TaskbarDelegate$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
+.field public final synthetic f$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
     return-void
 .end method
@@ -25,11 +26,13 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    check-cast p1, Lcom/android/wm/shell/pip/Pip;
+    check-cast p1, Landroid/graphics/Rect;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/TaskbarDelegate;->addPipExclusionBoundsChangeListener(Lcom/android/wm/shell/pip/Pip;)V
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mPipExcludedBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     return-void
 .end method

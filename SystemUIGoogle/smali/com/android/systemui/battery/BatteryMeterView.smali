@@ -14,59 +14,43 @@
 .end annotation
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mBatteryEstimateFetcher:Lcom/android/systemui/battery/BatteryMeterView$BatteryEstimateFetcher;
+.field public mBatteryEstimateFetcher:Lcom/android/systemui/battery/BatteryMeterView$BatteryEstimateFetcher;
 
-.field private final mBatteryIconView:Landroid/widget/ImageView;
+.field public final mBatteryIconView:Landroid/widget/ImageView;
 
-.field private mBatteryPercentView:Landroid/widget/TextView;
+.field public mBatteryPercentView:Landroid/widget/TextView;
 
-.field private mBatteryStateUnknown:Z
+.field public mBatteryStateUnknown:Z
 
-.field private mCharging:Z
+.field public mCharging:Z
 
-.field private final mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
+.field public final mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
 
-.field private mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+.field public mDualToneHandler:Lcom/android/systemui/DualToneHandler;
 
-.field private mLevel:I
+.field public mLevel:I
 
-.field private mNonAdaptedBackgroundColor:I
+.field public mNonAdaptedForegroundColor:I
 
-.field private mNonAdaptedForegroundColor:I
+.field public mNonAdaptedSingleToneColor:I
 
-.field private mNonAdaptedSingleToneColor:I
+.field public final mPercentageStyleId:I
 
-.field private final mPercentageStyleId:I
+.field public mShowPercentAvailable:Z
 
-.field private mShowPercentAvailable:Z
+.field public mShowPercentMode:I
 
-.field private mShowPercentMode:I
+.field public mTextColor:I
 
-.field private mTextColor:I
-
-.field private mUnknownStateDrawable:Landroid/graphics/drawable/Drawable;
+.field public mUnknownStateDrawable:Landroid/graphics/drawable/Drawable;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$6OR6WApuW1ekt9-a3EpDlNP55Rw(Lcom/android/systemui/battery/BatteryMeterView;)Ljava/lang/Integer;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/battery/BatteryMeterView;->lambda$updateShowPercent$1()Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static synthetic $r8$lambda$Fr7tCs3K1JnPKi_am1jB-OSiCe0(Lcom/android/systemui/battery/BatteryMeterView;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/battery/BatteryMeterView;->lambda$updatePercentText$0(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
@@ -78,7 +62,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
+    .locals 6
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -98,31 +82,29 @@
 
     move-result-object p2
 
-    sget p3, Lcom/android/systemui/R$styleable;->BatteryMeterView_frameColor:I
+    const p3, 0x7f0602e7
 
-    sget v1, Lcom/android/systemui/R$color;->meter_background_color:I
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
-
-    move-result v1
-
-    invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {p1, p3}, Landroid/content/Context;->getColor(I)I
 
     move-result p3
 
-    sget v1, Lcom/android/systemui/R$styleable;->BatteryMeterView_textAppearance:I
+    invoke-virtual {p2, v0, p3}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result p3
+
+    const/4 v1, 0x1
 
     invoke-virtual {p2, v1, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result v1
+    move-result v2
 
-    iput v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mPercentageStyleId:I
+    iput v2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mPercentageStyleId:I
 
-    new-instance v1, Lcom/android/settingslib/graph/ThemedBatteryDrawable;
+    new-instance v2, Lcom/android/settingslib/graph/ThemedBatteryDrawable;
 
-    invoke-direct {v1, p1, p3}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v2, p1, p3}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;-><init>(Landroid/content/Context;I)V
 
-    iput-object v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
+    iput-object v2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
 
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -130,7 +112,7 @@
 
     move-result-object p2
 
-    const p3, 0x1110036
+    const p3, 0x1110038
 
     invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -138,7 +120,59 @@
 
     iput-boolean p2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentAvailable:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/battery/BatteryMeterView;->setupLayoutTransition()V
+    new-instance p2, Landroid/animation/LayoutTransition;
+
+    invoke-direct {p2}, Landroid/animation/LayoutTransition;-><init>()V
+
+    const-wide/16 v3, 0xc8
+
+    invoke-virtual {p2, v3, v4}, Landroid/animation/LayoutTransition;->setDuration(J)V
+
+    const/4 p3, 0x2
+
+    new-array v3, p3, [F
+
+    fill-array-data v3, :array_0
+
+    const/4 v4, 0x0
+
+    const-string v5, "alpha"
+
+    invoke-static {v4, v5, v3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v3
+
+    invoke-virtual {p2, p3, v3}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
+
+    sget-object v3, Lcom/android/systemui/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {p2, p3, v3}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
+
+    new-array p3, p3, [F
+
+    fill-array-data p3, :array_1
+
+    invoke-static {v4, v5, p3}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object p3
+
+    sget-object v3, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/PathInterpolator;
+
+    const/4 v5, 0x3
+
+    invoke-virtual {p2, v5, v3}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
+
+    invoke-virtual {p2, v5, p3}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
+
+    invoke-virtual {p2, v0, v4}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
+
+    invoke-virtual {p2, v1, v4}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
+
+    const/4 p3, 0x4
+
+    invoke-virtual {p2, p3, v4}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
+
+    invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
 
     new-instance p2, Landroid/widget/ImageView;
 
@@ -146,7 +180,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
 
-    invoke-virtual {p2, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p2, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     new-instance p3, Landroid/view/ViewGroup$MarginLayoutParams;
 
@@ -154,7 +188,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->status_bar_battery_icon_width:I
+    const v2, 0x7f07076f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -164,7 +198,7 @@
 
     move-result-object v2
 
-    sget v3, Lcom/android/systemui/R$dimen;->status_bar_battery_icon_height:I
+    const v3, 0x7f07076e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -176,7 +210,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->battery_margin_bottom:I
+    const v2, 0x7f0700ae
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -194,33 +228,82 @@
 
     iput-object p2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
 
-    new-instance p1, Landroid/graphics/Rect;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     const/4 p2, 0x0
 
     const/4 p3, -0x1
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/battery/BatteryMeterView;->onDarkChanged(Landroid/graphics/Rect;FI)V
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/battery/BatteryMeterView;->onDarkChanged(Ljava/util/ArrayList;FI)V
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setClipToPadding(Z)V
 
     return-void
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x3f800000    # 1.0f
+        0x0
+    .end array-data
 .end method
 
-.method private getUnknownStateDrawable()Landroid/graphics/drawable/Drawable;
+
+# virtual methods
+.method public getBatteryPercentViewText()Ljava/lang/CharSequence;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final hasOverlappingRendering()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public final onBatteryUnknownStateChanged(Z)V
     .locals 2
+
+    iget-boolean v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryStateUnknown:Z
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryStateUnknown:Z
+
+    if-eqz p1, :cond_2
+
+    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
 
     iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mUnknownStateDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    sget v1, Lcom/android/systemui/R$drawable;->ic_battery_unknown:I
+    const v1, 0x7f080478
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -232,124 +315,160 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mUnknownStateDrawable:Landroid/graphics/drawable/Drawable;
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mUnknownStateDrawable:Landroid/graphics/drawable/Drawable;
 
-    return-object p0
-.end method
-
-.method private synthetic lambda$updatePercentText$0(Ljava/lang/String;)V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    iget v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentMode:I
-
-    const/4 v2, 0x3
-
-    if-ne v1, v2, :cond_1
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$string;->accessibility_battery_level_with_estimate:I
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    iget v4, p0, Lcom/android/systemui/battery/BatteryMeterView;->mLevel:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    aput-object v4, v2, v3
-
-    const/4 v3, 0x1
-
-    aput-object p1, v2, v3
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setContentDescription(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     goto :goto_0
 
-    :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentTextAtCurrentLevel()V
+    :cond_2
+    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
+
+    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
+
+    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updateShowPercent()V
+
     return-void
 .end method
 
-.method private synthetic lambda$updateShowPercent$1()Ljava/lang/Integer;
-    .locals 3
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 0
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    move-result-object p0
+    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    if-eqz p1, :cond_0
 
-    move-result-object p0
+    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
-    const-string v0, "status_bar_show_battery_percent"
+    const/4 p1, 0x0
 
-    const/4 v1, 0x0
+    iput-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    const/4 v2, -0x2
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updateShowPercent()V
 
-    invoke-static {p0, v0, v1, v2}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method private loadPercentView()Landroid/widget/TextView;
-    .locals 2
+.method public final onDarkChanged(Ljava/util/ArrayList;FI)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList<",
+            "Landroid/graphics/Rect;",
+            ">;FI)V"
+        }
+    .end annotation
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+    invoke-static {p1, p0}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInAreas(Ljava/util/ArrayList;Landroid/view/View;)Z
 
-    move-result-object p0
+    move-result p1
 
-    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    if-eqz p1, :cond_0
 
-    move-result-object p0
+    goto :goto_0
 
-    sget v0, Lcom/android/systemui/R$layout;->battery_percentage_view:I
+    :cond_0
+    const/4 p2, 0x0
 
-    const/4 v1, 0x0
+    :goto_0
+    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
 
-    invoke-virtual {p0, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {p1, p2}, Lcom/android/systemui/DualToneHandler;->getSingleColor(F)I
 
-    move-result-object p0
+    move-result p1
 
-    check-cast p0, Landroid/widget/TextView;
+    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedSingleToneColor:I
 
-    return-object p0
+    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+
+    iget-object p3, p1, Lcom/android/systemui/DualToneHandler;->lightColor:Lcom/android/systemui/DualToneHandler$Color;
+
+    const/4 v0, 0x0
+
+    if-nez p3, :cond_1
+
+    move-object p3, v0
+
+    :cond_1
+    iget p3, p3, Lcom/android/systemui/DualToneHandler$Color;->fill:I
+
+    iget-object p1, p1, Lcom/android/systemui/DualToneHandler;->darkColor:Lcom/android/systemui/DualToneHandler$Color;
+
+    if-nez p1, :cond_2
+
+    move-object p1, v0
+
+    :cond_2
+    iget p1, p1, Lcom/android/systemui/DualToneHandler$Color;->fill:I
+
+    invoke-static {p2, p3, p1}, Lcom/android/systemui/DualToneHandler;->getColorForDarkIntensity(FII)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedForegroundColor:I
+
+    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+
+    iget-object p3, p1, Lcom/android/systemui/DualToneHandler;->lightColor:Lcom/android/systemui/DualToneHandler$Color;
+
+    if-nez p3, :cond_3
+
+    move-object p3, v0
+
+    :cond_3
+    iget p3, p3, Lcom/android/systemui/DualToneHandler$Color;->background:I
+
+    iget-object p1, p1, Lcom/android/systemui/DualToneHandler;->darkColor:Lcom/android/systemui/DualToneHandler$Color;
+
+    if-nez p1, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    move-object v0, p1
+
+    :goto_1
+    iget p1, v0, Lcom/android/systemui/DualToneHandler$Color;->background:I
+
+    invoke-static {p2, p3, p1}, Lcom/android/systemui/DualToneHandler;->getColorForDarkIntensity(FII)I
+
+    move-result p1
+
+    iget p2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedForegroundColor:I
+
+    iget p3, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedSingleToneColor:I
+
+    invoke-virtual {p0, p2, p1, p3}, Lcom/android/systemui/battery/BatteryMeterView;->updateColors(III)V
+
+    return-void
 .end method
 
-.method private setPercentTextAtCurrentLevel()V
+.method public final setPercentShowMode(I)V
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentMode:I
+
+    if-ne p1, v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentMode:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updateShowPercent()V
+
+    return-void
+.end method
+
+.method public final setPercentTextAtCurrentLevel()V
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
@@ -361,38 +480,53 @@
     :cond_0
     invoke-static {}, Ljava/text/NumberFormat;->getPercentInstance()Ljava/text/NumberFormat;
 
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mLevel:I
+
+    int-to-float v1, v1
+
+    const/high16 v2, 0x42c80000    # 100.0f
+
+    div-float/2addr v1, v2
+
+    float-to-double v1, v1
+
+    invoke-virtual {v0, v1, v2}, Ljava/text/NumberFormat;->format(D)Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
     move-result-object v1
 
-    iget v2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mLevel:I
+    invoke-static {v1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    int-to-float v2, v2
+    move-result v1
 
-    const/high16 v3, 0x42c80000    # 100.0f
+    if-nez v1, :cond_1
 
-    div-float/2addr v2, v3
+    iget-object v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    float-to-double v2, v2
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v1, v2, v3}, Ljava/text/NumberFormat;->format(D)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
+    :cond_1
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
     iget-boolean v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mCharging:Z
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
-    sget v1, Lcom/android/systemui/R$string;->accessibility_battery_level_charging:I
+    const v1, 0x7f130044
 
     goto :goto_0
 
-    :cond_1
-    sget v1, Lcom/android/systemui/R$string;->accessibility_battery_level:I
+    :cond_2
+    const v1, 0x7f130043
 
     :goto_0
     const/4 v2, 0x1
@@ -418,526 +552,67 @@
     return-void
 .end method
 
-.method private setupLayoutTransition()V
-    .locals 5
-
-    new-instance v0, Landroid/animation/LayoutTransition;
-
-    invoke-direct {v0}, Landroid/animation/LayoutTransition;-><init>()V
-
-    const-wide/16 v1, 0xc8
-
-    invoke-virtual {v0, v1, v2}, Landroid/animation/LayoutTransition;->setDuration(J)V
-
-    const/4 v1, 0x2
-
-    new-array v2, v1, [F
-
-    fill-array-data v2, :array_0
-
-    const/4 v3, 0x0
-
-    const-string v4, "alpha"
-
-    invoke-static {v3, v4, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
-
-    sget-object v2, Lcom/android/systemui/animation/Interpolators;->ALPHA_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1, v2}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
-
-    new-array v1, v1, [F
-
-    fill-array-data v1, :array_1
-
-    invoke-static {v3, v4, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
-
-    const/4 v3, 0x3
-
-    invoke-virtual {v0, v3, v2}, Landroid/animation/LayoutTransition;->setInterpolator(ILandroid/animation/TimeInterpolator;)V
-
-    invoke-virtual {v0, v3, v1}, Landroid/animation/LayoutTransition;->setAnimator(ILandroid/animation/Animator;)V
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setLayoutTransition(Landroid/animation/LayoutTransition;)V
-
-    return-void
-
-    nop
-
-    :array_0
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
-
-    :array_1
-    .array-data 4
-        0x3f800000    # 1.0f
-        0x0
-    .end array-data
-.end method
-
-
-# virtual methods
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+.method public final updateColors(III)V
     .locals 2
 
-    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
+    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
 
-    const/4 p3, 0x0
+    iget-boolean v1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->dualTone:Z
 
-    if-nez p1, :cond_0
-
-    move-object p1, p3
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->getPowerSaveEnabled()Z
-
-    move-result v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v0, ""
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
+    move p1, p3
 
     :goto_0
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+    iput p1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->fillColor:I
 
-    if-nez v0, :cond_1
+    iget-object v1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->fillPaint:Landroid/graphics/Paint;
 
-    goto :goto_1
+    invoke-virtual {v1, p1}, Landroid/graphics/Paint;->setColor(I)V
 
-    :cond_1
-    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    iget-object p1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->fillColorStrokePaint:Landroid/graphics/Paint;
 
-    move-result-object p3
+    iget v1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->fillColor:I
 
-    :goto_1
-    const-string v0, "  BatteryMeterView:"
+    invoke-virtual {p1, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    iget-object p1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->dualToneBackgroundFill:Landroid/graphics/Paint;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setColor(I)V
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    iget p1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->batteryLevel:I
 
-    const-string v1, "    mDrawable.getPowerSave: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "    mBatteryPercentView.getText(): "
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "    mTextColor: #"
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget p3, p0, Lcom/android/systemui/battery/BatteryMeterView;->mTextColor:I
-
-    invoke-static {p3}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object p3
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "    mBatteryStateUnknown: "
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean p3, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryStateUnknown:Z
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "    mLevel: "
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget p3, p0, Lcom/android/systemui/battery/BatteryMeterView;->mLevel:I
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "    mMode: "
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentMode:I
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method getBatteryPercentViewText()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public hasOverlappingRendering()Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method onBatteryLevelChanged(IZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
-
-    invoke-virtual {v0, p2}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->setCharging(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
-
-    invoke-virtual {v0, p1}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->setBatteryLevel(I)V
-
-    iput-boolean p2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mCharging:Z
-
-    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mLevel:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updatePercentText()V
-
-    return-void
-.end method
-
-.method onBatteryUnknownStateChanged(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryStateUnknown:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryStateUnknown:Z
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
-
-    invoke-direct {p0}, Lcom/android/systemui/battery/BatteryMeterView;->getUnknownStateDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
-
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updateShowPercent()V
-
-    return-void
-.end method
-
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updatePercentView()V
-
-    return-void
-.end method
-
-.method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 0
-
-    invoke-static {p1, p0}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
+    invoke-virtual {v0, p1}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->batteryColorForLevel(I)I
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    iput p1, v0, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->levelColor:I
 
-    goto :goto_0
-
-    :cond_0
-    const/4 p2, 0x0
-
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/DualToneHandler;->getSingleColor(F)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedSingleToneColor:I
-
-    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/DualToneHandler;->getFillColor(F)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedForegroundColor:I
-
-    iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/DualToneHandler;->getBackgroundColor(F)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedBackgroundColor:I
-
-    iget p2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedForegroundColor:I
-
-    iget p3, p0, Lcom/android/systemui/battery/BatteryMeterView;->mNonAdaptedSingleToneColor:I
-
-    invoke-virtual {p0, p2, p1, p3}, Lcom/android/systemui/battery/BatteryMeterView;->updateColors(III)V
-
-    return-void
-.end method
-
-.method onPowerSaveChanged(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->setPowerSaveEnabled(Z)V
-
-    return-void
-.end method
-
-.method scaleBatteryMeterViews()V
-    .locals 5
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/util/TypedValue;
-
-    invoke-direct {v1}, Landroid/util/TypedValue;-><init>()V
-
-    sget v2, Lcom/android/systemui/R$dimen;->status_bar_icon_scale_factor:I
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v2, v1, v3}, Landroid/content/res/Resources;->getValue(ILandroid/util/TypedValue;Z)V
-
-    invoke-virtual {v1}, Landroid/util/TypedValue;->getFloat()F
-
-    move-result v1
-
-    sget v2, Lcom/android/systemui/R$dimen;->status_bar_battery_icon_height:I
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    sget v3, Lcom/android/systemui/R$dimen;->status_bar_battery_icon_width:I
-
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v3
-
-    sget v4, Lcom/android/systemui/R$dimen;->battery_margin_bottom:I
-
-    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
-
-    int-to-float v3, v3
-
-    mul-float/2addr v3, v1
-
-    float-to-int v3, v3
-
-    int-to-float v2, v2
-
-    mul-float/2addr v2, v1
-
-    float-to-int v1, v2
-
-    invoke-direct {v4, v3, v1}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v4, v1, v1, v1, v0}, Landroid/widget/LinearLayout$LayoutParams;->setMargins(IIII)V
-
-    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryIconView:Landroid/widget/ImageView;
-
-    invoke-virtual {p0, v4}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
-.end method
-
-.method setBatteryEstimateFetcher(Lcom/android/systemui/battery/BatteryMeterView$BatteryEstimateFetcher;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryEstimateFetcher:Lcom/android/systemui/battery/BatteryMeterView$BatteryEstimateFetcher;
-
-    return-void
-.end method
-
-.method public setColorsFromContext(Landroid/content/Context;)V
-    .locals 0
-
-    if-nez p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/DualToneHandler;->setColorsFromContext(Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method public setForceShowPercent(Z)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
-
-    return-void
-.end method
-
-.method public setPercentShowMode(I)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentMode:I
-
-    if-ne p1, v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iput p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentMode:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updateShowPercent()V
-
-    return-void
-.end method
-
-.method public updateColors(III)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mDrawable:Lcom/android/settingslib/graph/ThemedBatteryDrawable;
-
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/settingslib/graph/ThemedBatteryDrawable;->setColors(III)V
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     iput p3, p0, Lcom/android/systemui/battery/BatteryMeterView;->mTextColor:I
 
     iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1, p3}, Landroid/widget/TextView;->setTextColor(I)V
 
-    :cond_0
+    :cond_1
     iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mUnknownStateDrawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_2
 
     invoke-virtual {p0, p3}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
-    :cond_1
+    :cond_2
     return-void
 .end method
 
-.method updatePercentText()V
+.method public final updatePercentText()V
     .locals 5
 
     iget-boolean v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryStateUnknown:Z
@@ -948,7 +623,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$string;->accessibility_battery_unknown:I
+    const v1, 0x7f130046
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -980,16 +655,18 @@
 
     if-nez v1, :cond_2
 
-    new-instance v1, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/battery/BatteryMeterView;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/battery/BatteryMeterView;)V
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/battery/BatteryMeterView$BatteryEstimateFetcher;->fetchBatteryTimeRemainingEstimate(Lcom/android/systemui/statusbar/policy/BatteryController$EstimateFetchCompletion;)V
+    check-cast v0, Lcom/android/systemui/battery/BatteryMeterViewController$$ExternalSyntheticLambda0;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/battery/BatteryMeterViewController$$ExternalSyntheticLambda0;->fetchBatteryTimeRemainingEstimate(Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;)V
 
     goto :goto_1
 
     :cond_2
-    invoke-direct {p0}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentTextAtCurrentLevel()V
+    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentTextAtCurrentLevel()V
 
     goto :goto_1
 
@@ -1002,12 +679,12 @@
 
     if-eqz v1, :cond_4
 
-    sget v1, Lcom/android/systemui/R$string;->accessibility_battery_level_charging:I
+    const v1, 0x7f130044
 
     goto :goto_0
 
     :cond_4
-    sget v1, Lcom/android/systemui/R$string;->accessibility_battery_level:I
+    const v1, 0x7f130043
 
     :goto_0
     const/4 v2, 0x1
@@ -1034,26 +711,7 @@
     return-void
 .end method
 
-.method public updatePercentView()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->updateShowPercent()V
-
-    return-void
-.end method
-
-.method updateShowPercent()V
+.method public final updateShowPercent()V
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
@@ -1072,9 +730,9 @@
     move v0, v1
 
     :goto_0
-    new-instance v3, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;
+    new-instance v3, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/battery/BatteryMeterView;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/battery/BatteryMeterView;)V
 
     invoke-static {v3}, Lcom/android/systemui/DejankUtils;->whitelistIpcs(Ljava/util/function/Supplier;)Ljava/lang/Object;
 
@@ -1138,13 +796,27 @@
     move v1, v2
 
     :cond_5
+    const/4 v2, 0x0
+
     if-eqz v1, :cond_8
 
     if-nez v0, :cond_9
 
-    invoke-direct {p0}, Lcom/android/systemui/battery/BatteryMeterView;->loadPercentView()Landroid/widget/TextView;
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object v0
+
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v0
+
+    const v1, 0x7f0e0050
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
@@ -1187,9 +859,7 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+    iput-object v2, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
     :cond_9
     :goto_4

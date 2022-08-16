@@ -1,12 +1,10 @@
-.class public Lcom/android/systemui/biometrics/UdfpsFpmOtherView;
+.class public final Lcom/android/systemui/biometrics/UdfpsFpmOtherView;
 .super Lcom/android/systemui/biometrics/UdfpsAnimationView;
-.source "UdfpsFpmOtherView.java"
+.source "UdfpsFpmOtherView.kt"
 
 
 # instance fields
-.field private final mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
-
-.field private mFingerprintView:Landroid/widget/ImageView;
+.field public final fingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
 
 
 # direct methods
@@ -19,43 +17,35 @@
 
     invoke-direct {p2, p1}, Lcom/android/systemui/biometrics/UdfpsFpDrawable;-><init>(Landroid/content/Context;)V
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsFpmOtherView;->mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsFpmOtherView;->fingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
 
     return-void
 .end method
 
 
 # virtual methods
-.method getDrawable()Lcom/android/systemui/biometrics/UdfpsDrawable;
+.method public final getDrawable()Lcom/android/systemui/biometrics/UdfpsDrawable;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsFpmOtherView;->mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsFpmOtherView;->fingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
 
     return-object p0
 .end method
 
-.method public bridge synthetic onExpansionChanged(F)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onExpansionChanged(F)V
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
 
-    sget v0, Lcom/android/systemui/R$id;->udfps_fpm_other_fp_view:I
+    const v0, 0x7f0b071b
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
     check-cast v0, Landroid/widget/ImageView;
 
-    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsFpmOtherView;->mFingerprintView:Landroid/widget/ImageView;
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsFpmOtherView;->mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsFpmOtherView;->fingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsFpDrawable;
 
     invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 

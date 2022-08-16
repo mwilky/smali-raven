@@ -1,27 +1,16 @@
-.class Landroidx/transition/Transition$2;
+.class public final Landroidx/transition/Transition$2;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "Transition.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/transition/Transition;->runAnimator(Landroid/animation/Animator;Landroidx/collection/ArrayMap;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/transition/Transition;
+.field public final synthetic this$0:Landroidx/transition/Transition;
 
-.field final synthetic val$runningAnimators:Landroidx/collection/ArrayMap;
+.field public final synthetic val$runningAnimators:Landroidx/collection/ArrayMap;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/Transition;Landroidx/collection/ArrayMap;)V
+.method public constructor <init>(Landroidx/transition/Transition;Landroidx/collection/ArrayMap;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/transition/Transition$2;->this$0:Landroidx/transition/Transition;
@@ -35,7 +24,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object v0, p0, Landroidx/transition/Transition$2;->val$runningAnimators:Landroidx/collection/ArrayMap;
@@ -51,7 +40,7 @@
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/transition/Transition$2;->this$0:Landroidx/transition/Transition;

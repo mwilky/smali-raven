@@ -4,22 +4,5 @@
 
 
 # virtual methods
-.method public abstract getFacet(Ljava/lang/Class;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "facetClass"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Class<",
-            "*>;)",
-            "Ljava/lang/Object;"
-        }
-    .end annotation
+.method public abstract getFacet()Ljava/lang/Object;
 .end method

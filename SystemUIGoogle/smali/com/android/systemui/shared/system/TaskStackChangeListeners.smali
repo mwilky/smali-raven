@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/shared/system/TaskStackChangeListeners;
+.class public final Lcom/android/systemui/shared/system/TaskStackChangeListeners;
 .super Ljava/lang/Object;
 .source "TaskStackChangeListeners.java"
 
@@ -13,17 +13,15 @@
 
 
 # static fields
-.field private static final INSTANCE:Lcom/android/systemui/shared/system/TaskStackChangeListeners;
-
-.field private static final TAG:Ljava/lang/String; = "TaskStackChangeListeners"
+.field public static final INSTANCE:Lcom/android/systemui/shared/system/TaskStackChangeListeners;
 
 
 # instance fields
-.field private final mImpl:Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;
+.field public final mImpl:Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/shared/system/TaskStackChangeListeners;
@@ -35,7 +33,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -53,25 +51,9 @@
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public static getInstance()Lcom/android/systemui/shared/system/TaskStackChangeListeners;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->INSTANCE:Lcom/android/systemui/shared/system/TaskStackChangeListeners;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public registerTaskStackListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
+.method public final registerTaskStackListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->mImpl:Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;
@@ -97,7 +79,7 @@
     throw p0
 .end method
 
-.method public unregisterTaskStackListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
+.method public final unregisterTaskStackListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->mImpl:Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;

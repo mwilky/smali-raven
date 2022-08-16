@@ -6,32 +6,17 @@
 .implements Landroidx/lifecycle/LifecycleObserver;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/ControlsAnimations;->observerForAnimations(Landroid/view/ViewGroup;Landroid/view/Window;Landroid/content/Intent;)Landroidx/lifecycle/LifecycleObserver;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $intent:Landroid/content/Intent;
+.field public final synthetic $view:Landroid/view/ViewGroup;
 
-.field final synthetic $view:Landroid/view/ViewGroup;
+.field public final synthetic $window:Landroid/view/Window;
 
-.field final synthetic $window:Landroid/view/Window;
-
-.field private showAnimation:Z
+.field public showAnimation:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Intent;Landroid/view/ViewGroup;Landroid/view/Window;)V
+.method public constructor <init>(Landroid/content/Intent;Landroid/view/ViewGroup;Landroid/view/Window;)V
     .locals 1
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsAnimations$observerForAnimations$1;->$intent:Landroid/content/Intent;
 
     iput-object p2, p0, Lcom/android/systemui/controls/management/ControlsAnimations$observerForAnimations$1;->$view:Landroid/view/ViewGroup;
 
@@ -57,9 +42,7 @@
 
     invoke-virtual {p2, p1}, Landroid/view/ViewGroup;->setTransitionAlpha(F)V
 
-    invoke-static {}, Lcom/android/systemui/controls/management/ControlsAnimations;->access$getTranslationY$p()F
-
-    move-result p1
+    sget p1, Lcom/android/systemui/controls/management/ControlsAnimations;->translationY:F
 
     const/high16 p3, -0x40800000    # -1.0f
 
@@ -72,8 +55,6 @@
     :cond_0
     if-eqz v0, :cond_1
 
-    sget-object p0, Lcom/android/systemui/controls/management/ControlsAnimations;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations;
-
     invoke-virtual {p2}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object p0
@@ -82,7 +63,7 @@
 
     move-result-object p0
 
-    sget p1, Lcom/android/systemui/R$dimen;->global_actions_controls_y_translation:I
+    const p1, 0x7f070251
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -90,7 +71,7 @@
 
     int-to-float p0, p0
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsAnimations;->access$setTranslationY$p(F)V
+    sput p0, Lcom/android/systemui/controls/management/ControlsAnimations;->translationY:F
 
     :cond_1
     return-void
@@ -99,7 +80,7 @@
 
 # virtual methods
 .method public final enterAnimation()V
-    .locals 2
+    .locals 1
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -108,11 +89,9 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/systemui/controls/management/ControlsAnimations;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsAnimations$observerForAnimations$1;->$view:Landroid/view/ViewGroup;
 
-    iget-object v1, p0, Lcom/android/systemui/controls/management/ControlsAnimations$observerForAnimations$1;->$view:Landroid/view/ViewGroup;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/Animator;
+    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/AnimatorSet;
 
     move-result-object v0
 
@@ -142,7 +121,7 @@
 .end method
 
 .method public final setup()V
-    .locals 3
+    .locals 4
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
@@ -155,35 +134,45 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->setAllowEnterTransitionOverlap(Z)V
 
-    sget-object v1, Lcom/android/systemui/controls/management/ControlsAnimations;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations;
-
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getId()I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterWindowTransition(I)Lcom/android/systemui/controls/management/WindowTransition;
+    new-instance v2, Lcom/android/systemui/controls/management/WindowTransition;
 
-    move-result-object v2
+    sget-object v3, Lcom/android/systemui/controls/management/ControlsAnimations$enterWindowTransition$1;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations$enterWindowTransition$1;
+
+    invoke-direct {v2, v3}, Lcom/android/systemui/controls/management/WindowTransition;-><init>(Lkotlin/jvm/functions/Function1;)V
+
+    invoke-virtual {v2, v1}, Landroid/transition/Transition;->addTarget(I)Landroid/transition/Transition;
 
     invoke-virtual {v0, v2}, Landroid/view/Window;->setEnterTransition(Landroid/transition/Transition;)V
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getId()I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/controls/management/ControlsAnimations;->exitWindowTransition(I)Lcom/android/systemui/controls/management/WindowTransition;
+    new-instance v2, Lcom/android/systemui/controls/management/WindowTransition;
 
-    move-result-object v2
+    sget-object v3, Lcom/android/systemui/controls/management/ControlsAnimations$exitWindowTransition$1;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations$exitWindowTransition$1;
+
+    invoke-direct {v2, v3}, Lcom/android/systemui/controls/management/WindowTransition;-><init>(Lkotlin/jvm/functions/Function1;)V
+
+    invoke-virtual {v2, v1}, Landroid/transition/Transition;->addTarget(I)Landroid/transition/Transition;
 
     invoke-virtual {v0, v2}, Landroid/view/Window;->setExitTransition(Landroid/transition/Transition;)V
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getId()I
 
-    move-result v2
+    move-result v1
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterWindowTransition(I)Lcom/android/systemui/controls/management/WindowTransition;
+    new-instance v2, Lcom/android/systemui/controls/management/WindowTransition;
 
-    move-result-object v2
+    sget-object v3, Lcom/android/systemui/controls/management/ControlsAnimations$enterWindowTransition$1;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations$enterWindowTransition$1;
+
+    invoke-direct {v2, v3}, Lcom/android/systemui/controls/management/WindowTransition;-><init>(Lkotlin/jvm/functions/Function1;)V
+
+    invoke-virtual {v2, v1}, Landroid/transition/Transition;->addTarget(I)Landroid/transition/Transition;
 
     invoke-virtual {v0, v2}, Landroid/view/Window;->setReenterTransition(Landroid/transition/Transition;)V
 
@@ -191,11 +180,15 @@
 
     move-result p0
 
-    invoke-virtual {v1, p0}, Lcom/android/systemui/controls/management/ControlsAnimations;->exitWindowTransition(I)Lcom/android/systemui/controls/management/WindowTransition;
+    new-instance v1, Lcom/android/systemui/controls/management/WindowTransition;
 
-    move-result-object p0
+    sget-object v2, Lcom/android/systemui/controls/management/ControlsAnimations$exitWindowTransition$1;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations$exitWindowTransition$1;
 
-    invoke-virtual {v0, p0}, Landroid/view/Window;->setReturnTransition(Landroid/transition/Transition;)V
+    invoke-direct {v1, v2}, Lcom/android/systemui/controls/management/WindowTransition;-><init>(Lkotlin/jvm/functions/Function1;)V
+
+    invoke-virtual {v1, p0}, Landroid/transition/Transition;->addTarget(I)Landroid/transition/Transition;
+
+    invoke-virtual {v0, v1}, Landroid/view/Window;->setReturnTransition(Landroid/transition/Transition;)V
 
     return-void
 .end method

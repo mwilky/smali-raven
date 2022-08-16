@@ -1,16 +1,16 @@
-.class public Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
+.class public final Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
 .super Ljava/lang/Object;
 .source "DevicePolicyManagerWrapper.java"
 
 
 # static fields
-.field private static final sDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+.field public static final sDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
 
-.field private static final sInstance:Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
+.field public static final sInstance:Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
@@ -36,32 +36,10 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-.method public static getInstance()Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;->sInstance:Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
-
-    return-object v0
-.end method
-
-
-# virtual methods
-.method public isLockTaskPermitted(Ljava/lang/String;)Z
-    .locals 0
-
-    sget-object p0, Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;->sDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
-
-    invoke-virtual {p0, p1}, Landroid/app/admin/DevicePolicyManager;->isLockTaskPermitted(Ljava/lang/String;)Z
-
-    move-result p0
-
-    return p0
 .end method

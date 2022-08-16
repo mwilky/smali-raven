@@ -4,20 +4,8 @@
 
 
 # virtual methods
-.method public abstract onDeviceCredentialPressed()V
-.end method
-
 .method public abstract onDialogAnimatedIn()V
 .end method
 
 .method public abstract onDismissed(I[B)V
-.end method
-
-.method public abstract onStartFingerprintNow()V
-.end method
-
-.method public abstract onSystemEvent(I)V
-.end method
-
-.method public abstract onTryAgainPressed()V
 .end method

@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/ControlsEditingActivity;->animateExitAndFinish()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsEditingActivity;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsEditingActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity$animateExitAndFinish$1;->this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
@@ -34,7 +23,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity$animateExitAndFinish$1;->this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;

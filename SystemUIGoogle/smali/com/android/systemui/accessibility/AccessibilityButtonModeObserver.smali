@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;
+.class public final Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;
 .super Lcom/android/systemui/accessibility/SecureSettingsContentObserver;
 .source "AccessibilityButtonModeObserver.java"
 
@@ -30,11 +30,11 @@
     return-void
 .end method
 
-.method private parseAccessibilityButtonMode(Ljava/lang/String;)I
-    .locals 1
+.method public static parseAccessibilityButtonMode(Ljava/lang/String;)I
+    .locals 2
 
     :try_start_0
-    invoke-static {p1}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {p0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
     move-result p0
     :try_end_0
@@ -45,23 +45,23 @@
     :catch_0
     move-exception p0
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "Invalid string for  "
+    const-string v1, "Invalid string for  "
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    const-string p1, "A11yButtonModeObserver"
+    const-string v0, "A11yButtonModeObserver"
 
-    invoke-static {p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 p0, 0x0
 
@@ -71,38 +71,16 @@
 
 
 # virtual methods
-.method public getCurrentAccessibilityButtonMode()I
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->getSettingsValue()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;->parseAccessibilityButtonMode(Ljava/lang/String;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method onValueChanged(Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver$ModeChangedListener;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p2}, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;->parseAccessibilityButtonMode(Ljava/lang/String;)I
-
-    move-result p0
-
-    invoke-interface {p1, p0}, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver$ModeChangedListener;->onAccessibilityButtonModeChanged(I)V
-
-    return-void
-.end method
-
-.method bridge synthetic onValueChanged(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onValueChanged(Ljava/lang/Object;Ljava/lang/String;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver$ModeChangedListener;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;->onValueChanged(Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver$ModeChangedListener;Ljava/lang/String;)V
+    invoke-static {p2}, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;->parseAccessibilityButtonMode(Ljava/lang/String;)I
+
+    move-result p0
+
+    invoke-interface {p1, p0}, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver$ModeChangedListener;->onAccessibilityButtonModeChanged(I)V
 
     return-void
 .end method

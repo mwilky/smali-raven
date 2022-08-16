@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/applications/ServiceListing;
+.class public final Lcom/android/settingslib/applications/ServiceListing;
 .super Ljava/lang/Object;
 .source "ServiceListing.java"
 
@@ -6,30 +6,21 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/settingslib/applications/ServiceListing$Builder;,
         Lcom/android/settingslib/applications/ServiceListing$Callback;
     }
 .end annotation
 
 
 # instance fields
-.field private final mAddDeviceLockedFlags:Z
+.field public final mAddDeviceLockedFlags:Z
 
-.field private final mCallbacks:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/applications/ServiceListing$Callback;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mCallbacks:Ljava/util/ArrayList;
 
-.field private final mContentResolver:Landroid/content/ContentResolver;
+.field public final mContentResolver:Landroid/content/ContentResolver;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mEnabledServices:Ljava/util/HashSet;
+.field public final mEnabledServices:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet<",
@@ -39,35 +30,27 @@
     .end annotation
 .end field
 
-.field private final mIntentAction:Ljava/lang/String;
+.field public final mIntentAction:Ljava/lang/String;
 
-.field private mListening:Z
+.field public mListening:Z
 
-.field private final mNoun:Ljava/lang/String;
+.field public final mNoun:Ljava/lang/String;
 
-.field private final mPackageReceiver:Landroid/content/BroadcastReceiver;
+.field public final mPackageReceiver:Lcom/android/settingslib/applications/ServiceListing$2;
 
-.field private final mPermission:Ljava/lang/String;
+.field public final mPermission:Ljava/lang/String;
 
-.field private final mServices:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroid/content/pm/ServiceInfo;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mServices:Ljava/util/ArrayList;
 
-.field private final mSetting:Ljava/lang/String;
+.field public final mSetting:Ljava/lang/String;
 
-.field private final mSettingsObserver:Landroid/database/ContentObserver;
+.field public final mSettingsObserver:Lcom/android/settingslib/applications/ServiceListing$1;
 
-.field private final mTag:Ljava/lang/String;
+.field public final mTag:Ljava/lang/String;
 
 
 # direct methods
-.method private constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -82,13 +65,13 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mCallbacks:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mCallbacks:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/android/settingslib/applications/ServiceListing$1;
 
@@ -98,13 +81,13 @@
 
     invoke-direct {v0, p0, v1}, Lcom/android/settingslib/applications/ServiceListing$1;-><init>(Lcom/android/settingslib/applications/ServiceListing;Landroid/os/Handler;)V
 
-    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mSettingsObserver:Landroid/database/ContentObserver;
+    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mSettingsObserver:Lcom/android/settingslib/applications/ServiceListing$1;
 
     new-instance v0, Lcom/android/settingslib/applications/ServiceListing$2;
 
     invoke-direct {v0, p0}, Lcom/android/settingslib/applications/ServiceListing$2;-><init>(Lcom/android/settingslib/applications/ServiceListing;)V
 
-    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mPackageReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mPackageReceiver:Lcom/android/settingslib/applications/ServiceListing$2;
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -129,15 +112,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLcom/android/settingslib/applications/ServiceListing$1;)V
-    .locals 0
 
-    invoke-direct/range {p0 .. p7}, Lcom/android/settingslib/applications/ServiceListing;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    return-void
-.end method
-
-.method private loadEnabledServices()V
+# virtual methods
+.method public final reload()V
     .locals 5
 
     iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mEnabledServices:Ljava/util/HashSet;
@@ -193,46 +170,23 @@
     goto :goto_0
 
     :cond_1
-    return-void
-.end method
+    iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/ArrayList;
 
-
-# virtual methods
-.method public addCallback(Lcom/android/settingslib/applications/ServiceListing$Callback;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/applications/ServiceListing;->mCallbacks:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public reload()V
-    .locals 5
-
-    invoke-direct {p0}, Lcom/android/settingslib/applications/ServiceListing;->loadEnabledServices()V
-
-    iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v0
 
-    iget-boolean v1, p0, Lcom/android/settingslib/applications/ServiceListing;->mAddDeviceLockedFlags:Z
+    const/16 v1, 0x84
 
-    if-eqz v1, :cond_0
+    iget-boolean v2, p0, Lcom/android/settingslib/applications/ServiceListing;->mAddDeviceLockedFlags:Z
+
+    if-eqz v2, :cond_2
 
     const v1, 0xc0084
 
-    goto :goto_0
-
-    :cond_0
-    const/16 v1, 0x84
-
-    :goto_0
+    :cond_2
     iget-object v2, p0, Lcom/android/settingslib/applications/ServiceListing;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -258,7 +212,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -276,17 +230,15 @@
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_3
 
     iget-object v2, p0, Lcom/android/settingslib/applications/ServiceListing;->mTag:Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    const-string v3, "Skipping "
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v3}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "Skipping "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
     iget-object v4, p0, Lcom/android/settingslib/applications/ServiceListing;->mNoun:Ljava/lang/String;
 
@@ -324,17 +276,17 @@
 
     goto :goto_1
 
-    :cond_1
-    iget-object v2, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/List;
+    :cond_3
+    iget-object v2, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    :cond_2
-    iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mCallbacks:Ljava/util/List;
+    :cond_4
+    iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mCallbacks:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -343,7 +295,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -351,17 +303,17 @@
 
     check-cast v1, Lcom/android/settingslib/applications/ServiceListing$Callback;
 
-    iget-object v2, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/settingslib/applications/ServiceListing;->mServices:Ljava/util/ArrayList;
 
-    invoke-interface {v1, v2}, Lcom/android/settingslib/applications/ServiceListing$Callback;->onServicesReloaded(Ljava/util/List;)V
+    invoke-interface {v1, v2}, Lcom/android/settingslib/applications/ServiceListing$Callback;->onServicesReloaded(Ljava/util/ArrayList;)V
 
     goto :goto_2
 
-    :cond_3
+    :cond_5
     return-void
 .end method
 
-.method public setListening(Z)V
+.method public final setListening(Z)V
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mListening:Z
@@ -395,13 +347,13 @@
 
     invoke-virtual {p1, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string v0, "package"
+    const-string/jumbo v0, "package"
 
     invoke-virtual {p1, v0}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mContext:Landroid/content/Context;
 
-    iget-object v1, p0, Lcom/android/settingslib/applications/ServiceListing;->mPackageReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v1, p0, Lcom/android/settingslib/applications/ServiceListing;->mPackageReceiver:Lcom/android/settingslib/applications/ServiceListing$2;
 
     invoke-virtual {v0, v1, p1}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
@@ -415,7 +367,7 @@
 
     const/4 v1, 0x0
 
-    iget-object p0, p0, Lcom/android/settingslib/applications/ServiceListing;->mSettingsObserver:Landroid/database/ContentObserver;
+    iget-object p0, p0, Lcom/android/settingslib/applications/ServiceListing;->mSettingsObserver:Lcom/android/settingslib/applications/ServiceListing$1;
 
     invoke-virtual {p1, v0, v1, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
 
@@ -424,13 +376,13 @@
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/applications/ServiceListing;->mContext:Landroid/content/Context;
 
-    iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mPackageReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v0, p0, Lcom/android/settingslib/applications/ServiceListing;->mPackageReceiver:Lcom/android/settingslib/applications/ServiceListing$2;
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     iget-object p1, p0, Lcom/android/settingslib/applications/ServiceListing;->mContentResolver:Landroid/content/ContentResolver;
 
-    iget-object p0, p0, Lcom/android/settingslib/applications/ServiceListing;->mSettingsObserver:Landroid/database/ContentObserver;
+    iget-object p0, p0, Lcom/android/settingslib/applications/ServiceListing;->mSettingsObserver:Lcom/android/settingslib/applications/ServiceListing$1;
 
     invoke-virtual {p1, p0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 

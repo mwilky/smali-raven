@@ -14,7 +14,7 @@
 .method public abstract addContainerViewAt(Landroid/view/View;I)V
 .end method
 
-.method public applyExpandAnimationParams(Lcom/android/systemui/statusbar/notification/ExpandAnimationParameters;)V
+.method public applyLaunchAnimationParams(Lcom/android/systemui/statusbar/notification/LaunchAnimationParameters;)V
     .locals 0
 
     return-void
@@ -40,7 +40,7 @@
     return p0
 .end method
 
-.method public abstract generateAddAnimation(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
+.method public abstract generateAddAnimation(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Z)V
 .end method
 
 .method public abstract generateChildOrderChangedEvent()V
@@ -52,7 +52,7 @@
 .method public abstract getContainerChildCount()I
 .end method
 
-.method public abstract getSwipeActionHelper()Lcom/android/systemui/plugins/statusbar/NotificationSwipeActionHelper;
+.method public abstract getSwipeActionHelper()Lcom/android/systemui/statusbar/notification/stack/NotificationSwipeHelper;
 .end method
 
 .method public getTopClippingStartLocation()I
@@ -63,31 +63,25 @@
     return p0
 .end method
 
-.method public abstract getViewParentForNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Landroid/view/ViewGroup;
+.method public abstract getViewParentForNotification()Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 .end method
 
 .method public abstract hasPulsingNotifications()Z
 .end method
 
-.method public abstract notifyGroupChildAdded(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+.method public abstract notifyGroupChildAdded(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 .end method
 
-.method public abstract notifyGroupChildRemoved(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Landroid/view/ViewGroup;)V
-.end method
-
-.method public onNotificationViewUpdateFinished()V
-    .locals 0
-
-    return-void
+.method public abstract notifyGroupChildRemoved(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Landroid/view/ViewGroup;)V
 .end method
 
 .method public abstract removeContainerView(Landroid/view/View;)V
 .end method
 
-.method public abstract resetExposedMenuView(ZZ)V
+.method public abstract resetExposedMenuView()V
 .end method
 
-.method public abstract setChildLocationsChangedListener(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$OnChildLocationsChangedListener;)V
+.method public abstract setChildLocationsChangedListener(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;)V
 .end method
 
 .method public abstract setChildTransferInProgress(Z)V

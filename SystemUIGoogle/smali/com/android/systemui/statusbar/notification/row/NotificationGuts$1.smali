@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotificationGuts$1;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationGuts$1;
 .super Landroid/view/View$AccessibilityDelegate;
 .source "NotificationGuts.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationGuts;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationGuts;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGuts$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
+.method public final onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
+.method public final performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
     .locals 2
 
     invoke-super {p0, p1, p2, p3}, Landroid/view/View$AccessibilityDelegate;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z

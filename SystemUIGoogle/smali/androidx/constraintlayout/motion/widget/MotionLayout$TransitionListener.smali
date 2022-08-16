@@ -15,14 +15,14 @@
 
 
 # virtual methods
-.method public abstract onTransitionChange(Landroidx/constraintlayout/motion/widget/MotionLayout;IIF)V
+.method public abstract onTransitionChange()V
 .end method
 
-.method public abstract onTransitionCompleted(Landroidx/constraintlayout/motion/widget/MotionLayout;I)V
+.method public abstract onTransitionCompleted()V
 .end method
 
-.method public abstract onTransitionStarted(Landroidx/constraintlayout/motion/widget/MotionLayout;II)V
+.method public abstract onTransitionStarted()V
 .end method
 
-.method public abstract onTransitionTrigger(Landroidx/constraintlayout/motion/widget/MotionLayout;IZF)V
+.method public abstract onTransitionTrigger()V
 .end method

@@ -4,18 +4,8 @@
 
 
 # virtual methods
-.method protected onReceiveResult(ILandroid/os/Bundle;)V
+.method public final onReceiveResult(ILandroid/os/Bundle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "resultCode",
-            "resultData"
-        }
-    .end annotation
 
     return-void
 .end method

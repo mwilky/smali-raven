@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -23,13 +24,15 @@
 
 # virtual methods
 .method public final test(Ljava/lang/Object;)Z
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer$$ExternalSyntheticLambda1;->f$0:Landroid/view/MotionEvent;
 
     check-cast p1, Lcom/android/systemui/Gefingerpoken;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->$r8$lambda$GNYX5EBUIeeKPi_L3hzK-6b44Xg(Landroid/view/MotionEvent;Lcom/android/systemui/Gefingerpoken;)Z
+    sget v0, Lcom/android/keyguard/KeyguardSecurityContainer;->$r8$clinit:I
+
+    invoke-interface {p1, p0}, Lcom/android/systemui/Gefingerpoken;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
 

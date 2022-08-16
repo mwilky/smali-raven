@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/QSCustomizerController$2;
+.class public final Lcom/android/systemui/qs/customize/QSCustomizerController$2;
 .super Ljava/lang/Object;
 .source "QSCustomizerController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/customize/QSCustomizerController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/customize/QSCustomizerController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$2;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onKeyguardShowingChanged()V
+.method public final onKeyguardShowingChanged()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$2;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$200(Lcom/android/systemui/qs/customize/QSCustomizerController;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/qs/customize/QSCustomizer;
 
@@ -56,9 +54,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$2;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$300(Lcom/android/systemui/qs/customize/QSCustomizerController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/customize/QSCustomizerController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isShowing()Z
 
@@ -66,21 +62,15 @@
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$2;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
+    iget-object p0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$2;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$400(Lcom/android/systemui/qs/customize/QSCustomizerController;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->isOpening()Z
-
-    move-result v0
+    iget-boolean v0, v0, Lcom/android/systemui/qs/customize/QSCustomizer;->mOpening:Z
 
     if-nez v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$2;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->hide()V
 

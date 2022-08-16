@@ -1,34 +1,15 @@
-.class Landroidx/leanback/widget/GridLayoutManager$4;
+.class public final Landroidx/leanback/widget/GridLayoutManager$4;
 .super Landroidx/leanback/widget/GridLayoutManager$GridLinearSmoothScroller;
 .source "GridLayoutManager.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/leanback/widget/GridLayoutManager;->startPositionSmoothScroller(I)I
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/GridLayoutManager;
+.field public final synthetic this$0:Landroidx/leanback/widget/GridLayoutManager;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/GridLayoutManager;)V
+.method public constructor <init>(Landroidx/leanback/widget/GridLayoutManager;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/GridLayoutManager$4;->this$0:Landroidx/leanback/widget/GridLayoutManager;
 
@@ -39,18 +20,14 @@
 
 
 # virtual methods
-.method public computeScrollVectorForPosition(I)Landroid/graphics/PointF;
+.method public final computeScrollVectorForPosition(I)Landroid/graphics/PointF;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "targetPosition"
-        }
-    .end annotation
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;->getChildCount()I
+    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$SmoothScroller;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView;->mLayout:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+
+    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildCount()I
 
     move-result v0
 
@@ -67,9 +44,9 @@
 
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
+    invoke-static {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPosition(Landroid/view/View;)I
 
     move-result v0
 

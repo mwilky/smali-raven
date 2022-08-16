@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/TemperatureControlBehavior$bind$1;
+.class public final Lcom/android/systemui/controls/ui/TemperatureControlBehavior$bind$1;
 .super Ljava/lang/Object;
 .source "TemperatureControlBehavior.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $template:Landroid/service/controls/templates/TemperatureControlTemplate;
+.field public final synthetic $template:Landroid/service/controls/templates/TemperatureControlTemplate;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/TemperatureControlBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/TemperatureControlBehavior;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/TemperatureControlBehavior;Landroid/service/controls/templates/TemperatureControlTemplate;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/TemperatureControlBehavior;Landroid/service/controls/templates/TemperatureControlTemplate;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/TemperatureControlBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/TemperatureControlBehavior;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 3
+    .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/TemperatureControlBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/TemperatureControlBehavior;
 
@@ -47,9 +47,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getControlActionCoordinator()Lcom/android/systemui/controls/ui/ControlActionCoordinator;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlViewHolder;->controlActionCoordinator:Lcom/android/systemui/controls/ui/ControlActionCoordinator;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/TemperatureControlBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/TemperatureControlBehavior;
 
@@ -63,16 +61,18 @@
 
     move-result-object v1
 
-    const-string v2, "template.getTemplateId()"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object p0, p0, Lcom/android/systemui/controls/ui/TemperatureControlBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/TemperatureControlBehavior;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/TemperatureControlBehavior;->getControl()Landroid/service/controls/Control;
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/TemperatureControlBehavior;->control:Landroid/service/controls/Control;
 
-    move-result-object p0
+    if-eqz p0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     invoke-interface {p1, v0, v1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinator;->touch(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Landroid/service/controls/Control;)V
 
     return-void

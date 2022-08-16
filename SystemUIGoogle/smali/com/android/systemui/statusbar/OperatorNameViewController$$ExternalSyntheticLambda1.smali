@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/statusbar/OperatorNameViewController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/tuner/TunerService$Tunable;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/OperatorNameViewController$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/statusbar/OperatorNameViewController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/OperatorNameViewController;->$r8$lambda$ee4BCSdslh99vne6QGFWpFoR3s4(Lcom/android/systemui/statusbar/OperatorNameViewController;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/OperatorNameViewController;->update()V
 
     return-void
 .end method

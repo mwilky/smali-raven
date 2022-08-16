@@ -4,13 +4,13 @@
 
 
 # instance fields
-.field private final mOwner:Landroidx/savedstate/SavedStateRegistryOwner;
+.field public final mOwner:Landroidx/savedstate/SavedStateRegistryOwner;
 
-.field private final mRegistry:Landroidx/savedstate/SavedStateRegistry;
+.field public final mRegistry:Landroidx/savedstate/SavedStateRegistry;
 
 
 # direct methods
-.method private constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
+.method public constructor <init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,27 +26,9 @@
     return-void
 .end method
 
-.method public static create(Landroidx/savedstate/SavedStateRegistryOwner;)Landroidx/savedstate/SavedStateRegistryController;
-    .locals 1
-
-    new-instance v0, Landroidx/savedstate/SavedStateRegistryController;
-
-    invoke-direct {v0, p0}, Landroidx/savedstate/SavedStateRegistryController;-><init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/savedstate/SavedStateRegistryController;->mRegistry:Landroidx/savedstate/SavedStateRegistry;
-
-    return-object p0
-.end method
-
-.method public performRestore(Landroid/os/Bundle;)V
+.method public final performRestore(Landroid/os/Bundle;)V
     .locals 3
 
     iget-object v0, p0, Landroidx/savedstate/SavedStateRegistryController;->mOwner:Landroidx/savedstate/SavedStateRegistryOwner;
@@ -61,7 +43,7 @@
 
     sget-object v2, Landroidx/lifecycle/Lifecycle$State;->INITIALIZED:Landroidx/lifecycle/Lifecycle$State;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_2
 
     new-instance v1, Landroidx/savedstate/Recreator;
 
@@ -73,11 +55,43 @@
 
     iget-object p0, p0, Landroidx/savedstate/SavedStateRegistryController;->mRegistry:Landroidx/savedstate/SavedStateRegistry;
 
-    invoke-virtual {p0, v0, p1}, Landroidx/savedstate/SavedStateRegistry;->performRestore(Landroidx/lifecycle/Lifecycle;Landroid/os/Bundle;)V
+    iget-boolean v1, p0, Landroidx/savedstate/SavedStateRegistry;->mRestored:Z
+
+    if-nez v1, :cond_1
+
+    if-eqz p1, :cond_0
+
+    const-string v1, "androidx.lifecycle.BundlableSavedStateRegistry.key"
+
+    invoke-virtual {p1, v1}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
+
+    move-result-object p1
+
+    iput-object p1, p0, Landroidx/savedstate/SavedStateRegistry;->mRestoredState:Landroid/os/Bundle;
+
+    :cond_0
+    new-instance p1, Landroidx/savedstate/SavedStateRegistry$1;
+
+    invoke-direct {p1, p0}, Landroidx/savedstate/SavedStateRegistry$1;-><init>(Landroidx/savedstate/SavedStateRegistry;)V
+
+    invoke-virtual {v0, p1}, Landroidx/lifecycle/Lifecycle;->addObserver(Landroidx/lifecycle/LifecycleObserver;)V
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Landroidx/savedstate/SavedStateRegistry;->mRestored:Z
 
     return-void
 
-    :cond_0
+    :cond_1
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "SavedStateRegistry was already restored."
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_2
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Restarter must be created only during owner\'s initialization stage"
@@ -87,12 +101,75 @@
     throw p0
 .end method
 
-.method public performSave(Landroid/os/Bundle;)V
-    .locals 0
+.method public final performSave(Landroid/os/Bundle;)V
+    .locals 3
 
     iget-object p0, p0, Landroidx/savedstate/SavedStateRegistryController;->mRegistry:Landroidx/savedstate/SavedStateRegistry;
 
-    invoke-virtual {p0, p1}, Landroidx/savedstate/SavedStateRegistry;->performSave(Landroid/os/Bundle;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    iget-object v1, p0, Landroidx/savedstate/SavedStateRegistry;->mRestoredState:Landroid/os/Bundle;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->putAll(Landroid/os/Bundle;)V
+
+    :cond_0
+    iget-object p0, p0, Landroidx/savedstate/SavedStateRegistry;->mComponents:Landroidx/arch/core/internal/SafeIterableMap;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v1, Landroidx/arch/core/internal/SafeIterableMap$IteratorWithAdditions;
+
+    invoke-direct {v1, p0}, Landroidx/arch/core/internal/SafeIterableMap$IteratorWithAdditions;-><init>(Landroidx/arch/core/internal/SafeIterableMap;)V
+
+    iget-object p0, p0, Landroidx/arch/core/internal/SafeIterableMap;->mIterators:Ljava/util/WeakHashMap;
+
+    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    invoke-virtual {p0, v1, v2}, Ljava/util/WeakHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :goto_0
+    invoke-virtual {v1}, Landroidx/arch/core/internal/SafeIterableMap$IteratorWithAdditions;->hasNext()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {v1}, Landroidx/arch/core/internal/SafeIterableMap$IteratorWithAdditions;->next()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/Map$Entry;
+
+    invoke-interface {p0}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-interface {p0}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
+
+    invoke-interface {p0}, Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;->saveState()Landroid/os/Bundle;
+
+    move-result-object p0
+
+    invoke-virtual {v0, v2, p0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
+
+    goto :goto_0
+
+    :cond_1
+    const-string p0, "androidx.lifecycle.BundlableSavedStateRegistry.key"
+
+    invoke-virtual {p1, p0, v0}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method

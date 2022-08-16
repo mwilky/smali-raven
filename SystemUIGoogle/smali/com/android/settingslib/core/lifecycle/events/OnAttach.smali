@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract onAttach()V
+.method public abstract onAttach$1()V
 .end method

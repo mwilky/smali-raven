@@ -30,7 +30,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
 .field public static final enum GA_BUGREPORT_LONG_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
@@ -38,19 +38,11 @@
 
 .field public static final enum GA_CLOSE_BACK:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
-.field public static final enum GA_CLOSE_LONG_PRESS_POWER:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
-
-.field public static final enum GA_CLOSE_POWER_VOLUP:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
-
 .field public static final enum GA_CLOSE_TAP_OUTSIDE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
 .field public static final enum GA_EMERGENCY_DIALER_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
 .field public static final enum GA_LOCKDOWN_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
-
-.field public static final enum GA_OPEN_LONG_PRESS_POWER:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
-
-.field public static final enum GA_OPEN_POWER_VOLUP:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
 .field public static final enum GA_OPEN_QS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
@@ -61,8 +53,6 @@
 .field public static final enum GA_REBOOT_LONG_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
 .field public static final enum GA_REBOOT_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
-
-.field public static final enum GA_SCREENSHOT_LONG_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
 .field public static final enum GA_SCREENSHOT_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
@@ -76,7 +66,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 22
 
     new-instance v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
@@ -160,8 +150,6 @@
     const/16 v15, 0x15c
 
     invoke-direct {v11, v13, v14, v15}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;-><init>(Ljava/lang/String;II)V
-
-    sput-object v11, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->GA_SCREENSHOT_LONG_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
     new-instance v13, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
@@ -247,8 +235,6 @@
 
     invoke-direct {v2, v15, v14, v4}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->GA_OPEN_POWER_VOLUP:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
-
     new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
     const-string v15, "GA_OPEN_LONG_PRESS_POWER"
@@ -261,8 +247,6 @@
 
     invoke-direct {v4, v15, v14, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->GA_OPEN_LONG_PRESS_POWER:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
-
     new-instance v2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
     const-string v15, "GA_CLOSE_LONG_PRESS_POWER"
@@ -274,8 +258,6 @@
     const/16 v4, 0x328
 
     invoke-direct {v2, v15, v14, v4}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;-><init>(Ljava/lang/String;II)V
-
-    sput-object v2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->GA_CLOSE_LONG_PRESS_POWER:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
     new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
@@ -316,8 +298,6 @@
     const/16 v2, 0x32b
 
     invoke-direct {v4, v15, v14, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;-><init>(Ljava/lang/String;II)V
-
-    sput-object v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->GA_CLOSE_POWER_VOLUP:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
     const/16 v2, 0x13
 
@@ -402,7 +382,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -447,7 +427,7 @@
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->mId:I

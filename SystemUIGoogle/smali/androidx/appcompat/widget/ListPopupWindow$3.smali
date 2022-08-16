@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ListPopupWindow$3;
+.class public final Landroidx/appcompat/widget/ListPopupWindow$3;
 .super Ljava/lang/Object;
 .source "ListPopupWindow.java"
 
@@ -6,23 +6,12 @@
 .implements Landroid/widget/AdapterView$OnItemSelectedListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/ListPopupWindow;->buildDropDown()I
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ListPopupWindow;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ListPopupWindow$3;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -34,7 +23,7 @@
 
 
 # virtual methods
-.method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+.method public final onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,13 +47,13 @@
 
     const/4 p1, 0x0
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/DropDownListView;->setListSelectionHidden(Z)V
+    iput-boolean p1, p0, Landroidx/appcompat/widget/DropDownListView;->mListSelectionHidden:Z
 
     :cond_0
     return-void
 .end method
 
-.method public onNothingSelected(Landroid/widget/AdapterView;)V
+.method public final onNothingSelected(Landroid/widget/AdapterView;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

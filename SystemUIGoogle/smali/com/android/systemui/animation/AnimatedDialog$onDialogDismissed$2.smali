@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -28,11 +28,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/animation/AnimatedDialog;
+.field public final synthetic this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
+.method public constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$onDialogDismissed$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
@@ -46,8 +46,8 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
     check-cast p1, Ljava/lang/Boolean;
 
@@ -55,32 +55,18 @@
 
     move-result p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/animation/AnimatedDialog$onDialogDismissed$2;->invoke(Z)V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke(Z)V
-    .locals 1
-
     if-eqz p1, :cond_0
 
     iget-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$onDialogDismissed$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/AnimatedDialog;->getDialog()Landroid/app/Dialog;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/animation/AnimatedDialog;->dialog:Landroid/app/Dialog;
 
     invoke-virtual {p1}, Landroid/app/Dialog;->hide()V
 
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$onDialogDismissed$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/AnimatedDialog;->getDialog()Landroid/app/Dialog;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/animation/AnimatedDialog;->dialog:Landroid/app/Dialog;
 
     const/4 v0, 0x0
 
@@ -88,11 +74,11 @@
 
     iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog$onDialogDismissed$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/AnimatedDialog;->getDialog()Landroid/app/Dialog;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog;->dialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
-    return-void
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

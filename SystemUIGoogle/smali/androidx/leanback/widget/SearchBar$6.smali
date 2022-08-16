@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/SearchBar$6;
+.class public final Landroidx/leanback/widget/SearchBar$6;
 .super Ljava/lang/Object;
 .source "SearchBar.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/SearchBar;
+.field public final synthetic this$0:Landroidx/leanback/widget/SearchBar;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/SearchBar;)V
+.method public constructor <init>(Landroidx/leanback/widget/SearchBar;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/SearchBar$6;->this$0:Landroidx/leanback/widget/SearchBar;
 
@@ -42,20 +34,19 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/leanback/widget/SearchBar$6;->this$0:Landroidx/leanback/widget/SearchBar;
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/SearchBar;->toggleRecognition()V
+    invoke-virtual {p0}, Landroid/widget/RelativeLayout;->hasFocus()Z
 
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/RelativeLayout;->requestFocus()Z
+
+    :cond_0
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/keyguard/TextInterpolator$FontRun;
+.class public final Lcom/android/keyguard/TextInterpolator$FontRun;
 .super Ljava/lang/Object;
 .source "TextInterpolator.kt"
 
@@ -9,32 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "FontRun"
 .end annotation
 
 
 # instance fields
-.field private baseFont:Landroid/graphics/fonts/Font;
+.field public baseFont:Landroid/graphics/fonts/Font;
 
-.field private final end:I
+.field public final end:I
 
-.field private final start:I
+.field public final start:I
 
-.field private targetFont:Landroid/graphics/fonts/Font;
+.field public targetFont:Landroid/graphics/fonts/Font;
 
 
 # direct methods
 .method public constructor <init>(IILandroid/graphics/fonts/Font;Landroid/graphics/fonts/Font;)V
-    .locals 1
-
-    const-string v0, "baseFont"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "targetFont"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -51,7 +43,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -119,52 +111,8 @@
     return v0
 .end method
 
-.method public final getBaseFont()Landroid/graphics/fonts/Font;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->baseFont:Landroid/graphics/fonts/Font;
-
-    return-object p0
-.end method
-
-.method public final getEnd()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->end:I
-
-    return p0
-.end method
-
-.method public final getLength()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->end:I
-
-    iget p0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->start:I
-
-    sub-int/2addr v0, p0
-
-    return v0
-.end method
-
-.method public final getStart()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->start:I
-
-    return p0
-.end method
-
-.method public final getTargetFont()Landroid/graphics/fonts/Font;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->targetFont:Landroid/graphics/fonts/Font;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
-    .locals 2
+.method public final hashCode()I
+    .locals 3
 
     iget v0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->start:I
 
@@ -176,13 +124,11 @@
 
     iget v1, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->end:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v2, 0x1f
 
-    move-result v1
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-object v1, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->baseFont:Landroid/graphics/fonts/Font;
 
@@ -190,9 +136,9 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget-object p0, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->targetFont:Landroid/graphics/fonts/Font;
 
@@ -200,45 +146,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v1
 
-    return v0
+    return p0
 .end method
 
-.method public final setBaseFont(Landroid/graphics/fonts/Font;)V
-    .locals 1
-
-    const-string v0, "<set-?>"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->baseFont:Landroid/graphics/fonts/Font;
-
-    return-void
-.end method
-
-.method public final setTargetFont(Landroid/graphics/fonts/Font;)V
-    .locals 1
-
-    const-string v0, "<set-?>"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->targetFont:Landroid/graphics/fonts/Font;
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "FontRun(start="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "FontRun(start="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/keyguard/TextInterpolator$FontRun;->start:I
 

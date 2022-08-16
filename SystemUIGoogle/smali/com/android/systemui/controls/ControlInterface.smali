@@ -3,14 +3,6 @@
 .source "ControlStatus.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/controls/ControlInterface$DefaultImpls;
-    }
-.end annotation
-
-
 # virtual methods
 .method public abstract getComponent()Landroid/content/ComponentName;
 .end method

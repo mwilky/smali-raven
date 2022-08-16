@@ -13,52 +13,36 @@
 
 
 # static fields
-.field private static final FRICTION_ATTRS:[I
+.field public static final STATE_METERED:[I
 
-.field private static final STATE_METERED:[I
+.field public static final STATE_SECURED:[I
 
-.field private static final STATE_SECURED:[I
-
-.field private static final WIFI_CONNECTION_STRENGTH:[I
+.field public static final WIFI_CONNECTION_STRENGTH:[I
 
 
 # instance fields
-.field private mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
+.field public mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
-.field private mBadge:Landroid/graphics/drawable/Drawable;
+.field public final mBadgePadding:I
 
-.field private final mBadgePadding:I
+.field public final mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
 
-.field private mContentDescription:Ljava/lang/CharSequence;
+.field public mLevel:I
 
-.field private mDefaultIconResId:I
+.field public final mNotifyChanged:Lcom/android/settingslib/wifi/AccessPointPreference$1;
 
-.field private mForSavedNetworks:Z
-
-.field private final mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
-
-.field private final mIconInjector:Lcom/android/settingslib/wifi/AccessPointPreference$IconInjector;
-
-.field private mLevel:I
-
-.field private final mNotifyChanged:Ljava/lang/Runnable;
-
-.field private mShowDivider:Z
-
-.field private mTitleView:Landroid/widget/TextView;
-
-.field private mWifiSpeed:I
+.field public mTitleView:Landroid/widget/TextView;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     const/4 v0, 0x1
 
     new-array v1, v0, [I
 
-    sget v2, Lcom/android/settingslib/R$attr;->state_encrypted:I
+    const v2, 0x7f0404ae
 
     const/4 v3, 0x0
 
@@ -66,135 +50,90 @@
 
     sput-object v1, Lcom/android/settingslib/wifi/AccessPointPreference;->STATE_SECURED:[I
 
-    new-array v1, v0, [I
+    new-array v0, v0, [I
 
-    sget v2, Lcom/android/settingslib/R$attr;->state_metered:I
+    const v1, 0x7f0404b1
 
-    aput v2, v1, v3
+    aput v1, v0, v3
 
-    sput-object v1, Lcom/android/settingslib/wifi/AccessPointPreference;->STATE_METERED:[I
+    sput-object v0, Lcom/android/settingslib/wifi/AccessPointPreference;->STATE_METERED:[I
 
-    new-array v1, v0, [I
+    const/4 v0, 0x5
 
-    sget v2, Lcom/android/settingslib/R$attr;->wifi_friction:I
+    new-array v0, v0, [I
 
-    aput v2, v1, v3
+    fill-array-data v0, :array_0
 
-    sput-object v1, Lcom/android/settingslib/wifi/AccessPointPreference;->FRICTION_ATTRS:[I
-
-    const/4 v1, 0x5
-
-    new-array v1, v1, [I
-
-    sget v2, Lcom/android/settingslib/R$string;->accessibility_no_wifi:I
-
-    aput v2, v1, v3
-
-    sget v2, Lcom/android/settingslib/R$string;->accessibility_wifi_one_bar:I
-
-    aput v2, v1, v0
-
-    sget v0, Lcom/android/settingslib/R$string;->accessibility_wifi_two_bars:I
-
-    const/4 v2, 0x2
-
-    aput v0, v1, v2
-
-    sget v0, Lcom/android/settingslib/R$string;->accessibility_wifi_three_bars:I
-
-    const/4 v2, 0x3
-
-    aput v0, v1, v2
-
-    sget v0, Lcom/android/settingslib/R$string;->accessibility_wifi_signal_full:I
-
-    const/4 v2, 0x4
-
-    aput v0, v1, v2
-
-    sput-object v1, Lcom/android/settingslib/wifi/AccessPointPreference;->WIFI_CONNECTION_STRENGTH:[I
+    sput-object v0, Lcom/android/settingslib/wifi/AccessPointPreference;->WIFI_CONNECTION_STRENGTH:[I
 
     return-void
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x7f130089
+        0x7f1300c4
+        0x7f1300c9
+        0x7f1300c8
+        0x7f1300c7
+    .end array-data
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const/4 p2, 0x0
+    new-instance p1, Lcom/android/settingslib/wifi/AccessPointPreference$1;
 
-    iput-boolean p2, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mForSavedNetworks:Z
+    invoke-direct {p1, p0}, Lcom/android/settingslib/wifi/AccessPointPreference$1;-><init>(Lcom/android/settingslib/wifi/AccessPointPreference;)V
 
-    iput p2, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mWifiSpeed:I
+    iput-object p1, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mNotifyChanged:Lcom/android/settingslib/wifi/AccessPointPreference$1;
 
-    new-instance v0, Lcom/android/settingslib/wifi/AccessPointPreference$1;
+    const/4 p1, 0x0
 
-    invoke-direct {v0, p0}, Lcom/android/settingslib/wifi/AccessPointPreference$1;-><init>(Lcom/android/settingslib/wifi/AccessPointPreference;)V
+    iput-object p1, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
 
-    iput-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mNotifyChanged:Ljava/lang/Runnable;
+    const/4 p1, 0x0
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
-
-    iput p2, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mBadgePadding:I
-
-    new-instance p2, Lcom/android/settingslib/wifi/AccessPointPreference$IconInjector;
-
-    invoke-direct {p2, p1}, Lcom/android/settingslib/wifi/AccessPointPreference$IconInjector;-><init>(Landroid/content/Context;)V
-
-    iput-object p2, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mIconInjector:Lcom/android/settingslib/wifi/AccessPointPreference$IconInjector;
+    iput p1, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mBadgePadding:I
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/settingslib/wifi/AccessPoint;Landroid/content/Context;Lcom/android/settingslib/wifi/AccessPointPreference$UserBadgeCache;IZLandroid/graphics/drawable/StateListDrawable;ILcom/android/settingslib/wifi/AccessPointPreference$IconInjector;)V
+.method public constructor <init>(Lcom/android/settingslib/wifi/AccessPoint;Landroid/content/Context;Lcom/android/settingslib/wifi/AccessPointPreference$UserBadgeCache;IZLandroid/graphics/drawable/StateListDrawable;ILcom/android/settingslib/wifi/AccessPointPreference$IconInjector;)V
     .locals 0
 
     invoke-direct {p0, p2}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;)V
-
-    const/4 p3, 0x0
-
-    iput-boolean p3, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mForSavedNetworks:Z
-
-    iput p3, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mWifiSpeed:I
 
     new-instance p3, Lcom/android/settingslib/wifi/AccessPointPreference$1;
 
     invoke-direct {p3, p0}, Lcom/android/settingslib/wifi/AccessPointPreference$1;-><init>(Lcom/android/settingslib/wifi/AccessPointPreference;)V
 
-    iput-object p3, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mNotifyChanged:Ljava/lang/Runnable;
+    iput-object p3, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mNotifyChanged:Lcom/android/settingslib/wifi/AccessPointPreference$1;
 
-    sget p3, Lcom/android/settingslib/R$layout;->preference_access_point:I
+    const p3, 0x7f0e01b7
 
-    invoke-virtual {p0, p3}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    iput p3, p0, Landroidx/preference/Preference;->mLayoutResId:I
 
-    invoke-virtual {p0}, Lcom/android/settingslib/wifi/AccessPointPreference;->getWidgetLayoutResourceId()I
+    const p3, 0x7f0e002f
 
-    move-result p3
-
-    invoke-virtual {p0, p3}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
+    iput p3, p0, Landroidx/preference/Preference;->mWidgetLayoutResId:I
 
     iput-object p1, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
-    iput-boolean p5, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mForSavedNetworks:Z
-
-    invoke-virtual {p1, p0}, Lcom/android/settingslib/wifi/AccessPoint;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput p7, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mLevel:I
 
-    iput p4, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mDefaultIconResId:I
-
     iput-object p6, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
-
-    iput-object p8, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mIconInjector:Lcom/android/settingslib/wifi/AccessPointPreference$IconInjector;
 
     invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    sget p2, Lcom/android/settingslib/R$dimen;->wifi_preference_badge_padding:I
+    const p2, 0x7f0708b3
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -205,80 +144,10 @@
     return-void
 .end method
 
-.method private bindFrictionImage(Landroid/widget/ImageView;)V
-    .locals 2
-
-    if-eqz p1, :cond_3
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
-
-    if-nez v0, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/wifi/AccessPoint;->getSecurity()I
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/wifi/AccessPoint;->getSecurity()I
-
-    move-result v0
-
-    const/4 v1, 0x4
-
-    if-eq v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
-
-    sget-object v1, Lcom/android/settingslib/wifi/AccessPointPreference;->STATE_SECURED:[I
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/StateListDrawable;->setState([I)Z
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/wifi/AccessPoint;->isMetered()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
-
-    sget-object v1, Lcom/android/settingslib/wifi/AccessPointPreference;->STATE_METERED:[I
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/StateListDrawable;->setState([I)Z
-
-    :cond_2
-    :goto_0
-    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/StateListDrawable;->getCurrent()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    :cond_3
-    :goto_1
-    return-void
-.end method
-
-.method static buildContentDescription(Landroid/content/Context;Landroidx/preference/Preference;Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/CharSequence;
+.method public static buildContentDescription(Landroid/content/Context;Landroidx/preference/Preference;Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/CharSequence;
     .locals 8
 
-    invoke-virtual {p1}, Landroidx/preference/Preference;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object v0
+    iget-object v0, p1, Landroidx/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
     invoke-virtual {p1}, Landroidx/preference/Preference;->getSummary()Ljava/lang/CharSequence;
 
@@ -321,7 +190,7 @@
 
     sget-object v1, Lcom/android/settingslib/wifi/AccessPointPreference;->WIFI_CONNECTION_STRENGTH:[I
 
-    array-length v7, v1
+    const/4 v7, 0x5
 
     if-ge p1, v7, :cond_1
 
@@ -350,13 +219,11 @@
 
     aput-object v3, p1, v4
 
-    invoke-virtual {p2}, Lcom/android/settingslib/wifi/AccessPoint;->getSecurity()I
-
-    move-result p2
+    iget p2, p2, Lcom/android/settingslib/wifi/AccessPoint;->security:I
 
     if-nez p2, :cond_2
 
-    sget p2, Lcom/android/settingslib/R$string;->accessibility_wifi_security_type_none:I
+    const p2, 0x7f1300c5
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -365,7 +232,7 @@
     goto :goto_0
 
     :cond_2
-    sget p2, Lcom/android/settingslib/R$string;->accessibility_wifi_security_type_secured:I
+    const p2, 0x7f1300c6
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -381,22 +248,7 @@
     return-object p0
 .end method
 
-.method private postNotifyChanged()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mTitleView:Landroid/widget/TextView;
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mNotifyChanged:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->post(Ljava/lang/Runnable;)Z
-
-    :cond_0
-    return-void
-.end method
-
-.method static setTitle(Lcom/android/settingslib/wifi/AccessPointPreference;Lcom/android/settingslib/wifi/AccessPoint;)V
+.method public static setTitle(Lcom/android/settingslib/wifi/AccessPointPreference;Lcom/android/settingslib/wifi/AccessPoint;)V
     .locals 0
 
     invoke-virtual {p1}, Lcom/android/settingslib/wifi/AccessPoint;->getTitle()Ljava/lang/String;
@@ -410,15 +262,7 @@
 
 
 # virtual methods
-.method protected getWidgetLayoutResourceId()I
-    .locals 0
-
-    sget p0, Lcom/android/settingslib/R$layout;->access_point_friction_widget:I
-
-    return p0
-.end method
-
-.method protected notifyChanged()V
+.method public final notifyChanged()V
     .locals 2
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
@@ -431,19 +275,26 @@
 
     if-eq v0, v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/settingslib/wifi/AccessPointPreference;->postNotifyChanged()V
+    iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mTitleView:Landroid/widget/TextView;
+
+    if-eqz v0, :cond_1
+
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mNotifyChanged:Lcom/android/settingslib/wifi/AccessPointPreference$1;
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
     :cond_0
     invoke-super {p0}, Landroidx/preference/Preference;->notifyChanged()V
 
+    :cond_1
     :goto_0
     return-void
 .end method
 
-.method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 3
+.method public final onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+    .locals 5
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
@@ -475,28 +326,24 @@
 
     iput-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mTitleView:Landroid/widget/TextView;
 
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_2
 
-    iget-object v1, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mBadge:Landroid/graphics/drawable/Drawable;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v2, v2, v1, v2}, Landroid/widget/TextView;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1, v1, v1, v1}, Landroid/widget/TextView;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mTitleView:Landroid/widget/TextView;
 
-    iget v1, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mBadgePadding:I
+    iget v2, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mBadgePadding:I
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setCompoundDrawablePadding(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setCompoundDrawablePadding(I)V
 
     :cond_2
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mContentDescription:Ljava/lang/CharSequence;
-
     invoke-virtual {v0, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    sget v0, Lcom/android/settingslib/R$id;->friction_icon:I
+    const v0, 0x7f0b02ac
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -504,37 +351,85 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    invoke-direct {p0, v0}, Lcom/android/settingslib/wifi/AccessPointPreference;->bindFrictionImage(Landroid/widget/ImageView;)V
+    const/4 v1, 0x4
 
-    sget v0, Lcom/android/settingslib/R$id;->two_target_divider:I
+    if-eqz v0, :cond_8
 
-    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
+    iget-object v2, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
 
-    move-result-object p1
+    if-nez v2, :cond_3
 
-    invoke-virtual {p0}, Lcom/android/settingslib/wifi/AccessPointPreference;->shouldShowDivider()Z
+    goto :goto_3
 
-    move-result p0
+    :cond_3
+    iget-object v3, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mAccessPoint:Lcom/android/settingslib/wifi/AccessPoint;
 
-    if-eqz p0, :cond_3
+    iget v4, v3, Lcom/android/settingslib/wifi/AccessPoint;->security:I
 
-    const/4 p0, 0x0
+    if-eqz v4, :cond_4
+
+    if-eq v4, v1, :cond_4
+
+    sget-object v3, Lcom/android/settingslib/wifi/AccessPointPreference;->STATE_SECURED:[I
+
+    invoke-virtual {v2, v3}, Landroid/graphics/drawable/StateListDrawable;->setState([I)Z
+
+    goto :goto_2
+
+    :cond_4
+    iget-boolean v2, v3, Lcom/android/settingslib/wifi/AccessPoint;->mIsScoredNetworkMetered:Z
+
+    if-nez v2, :cond_6
+
+    iget-object v2, v3, Lcom/android/settingslib/wifi/AccessPoint;->mConfig:Landroid/net/wifi/WifiConfiguration;
+
+    iget-object v3, v3, Lcom/android/settingslib/wifi/AccessPoint;->mInfo:Landroid/net/wifi/WifiInfo;
+
+    invoke-static {v2, v3}, Landroid/net/wifi/WifiConfiguration;->isMetered(Landroid/net/wifi/WifiConfiguration;Landroid/net/wifi/WifiInfo;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
 
     goto :goto_0
 
-    :cond_3
-    const/4 p0, 0x4
+    :cond_5
+    const/4 v2, 0x0
 
+    goto :goto_1
+
+    :cond_6
     :goto_0
-    invoke-virtual {p1, p0}, Landroid/view/View;->setVisibility(I)V
+    const/4 v2, 0x1
+
+    :goto_1
+    if-eqz v2, :cond_7
+
+    iget-object v2, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
+
+    sget-object v3, Lcom/android/settingslib/wifi/AccessPointPreference;->STATE_METERED:[I
+
+    invoke-virtual {v2, v3}, Landroid/graphics/drawable/StateListDrawable;->setState([I)Z
+
+    :cond_7
+    :goto_2
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mFrictionSld:Landroid/graphics/drawable/StateListDrawable;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/StateListDrawable;->getCurrent()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_8
+    :goto_3
+    const p0, 0x7f0b0714
+
+    invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
 
     return-void
-.end method
-
-.method public shouldShowDivider()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/settingslib/wifi/AccessPointPreference;->mShowDivider:Z
-
-    return p0
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaCarouselController$inflateSettingsButton$2;
+.class public final Lcom/android/systemui/media/MediaCarouselController$inflateSettingsButton$2;
 .super Ljava/lang/Object;
 .source "MediaCarouselController.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaCarouselController;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaCarouselController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaCarouselController;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaCarouselController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaCarouselController$inflateSettingsButton$2;->this$0:Lcom/android/systemui/media/MediaCarouselController;
@@ -37,15 +37,21 @@
 .method public final onClick(Landroid/view/View;)V
     .locals 1
 
+    iget-object p1, p0, Lcom/android/systemui/media/MediaCarouselController$inflateSettingsButton$2;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+
+    iget-object p1, p1, Lcom/android/systemui/media/MediaCarouselController;->logger:Lcom/android/systemui/media/MediaUiEventLogger;
+
+    iget-object p1, p1, Lcom/android/systemui/media/MediaUiEventLogger;->logger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v0, Lcom/android/systemui/media/MediaUiEvent;->OPEN_SETTINGS_CAROUSEL:Lcom/android/systemui/media/MediaUiEvent;
+
+    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
     iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselController$inflateSettingsButton$2;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaCarouselController;->access$getActivityStarter$p(Lcom/android/systemui/media/MediaCarouselController;)Lcom/android/systemui/plugins/ActivityStarter;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselController;->activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    move-result-object p0
-
-    invoke-static {}, Lcom/android/systemui/media/MediaCarouselControllerKt;->access$getSettingsIntent$p()Landroid/content/Intent;
-
-    move-result-object p1
+    sget-object p1, Lcom/android/systemui/media/MediaCarouselControllerKt;->settingsIntent:Landroid/content/Intent;
 
     const/4 v0, 0x1
 

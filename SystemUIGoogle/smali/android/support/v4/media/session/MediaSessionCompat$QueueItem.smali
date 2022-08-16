@@ -36,15 +36,13 @@
 
 
 # instance fields
-.field private final mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
+.field public final mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
 
-.field private final mId:J
-
-.field private mItemFwk:Landroid/media/session/MediaSession$QueueItem;
+.field public final mId:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem$1;
@@ -56,68 +54,8 @@
     return-void
 .end method
 
-.method private constructor <init>(Landroid/media/session/MediaSession$QueueItem;Landroid/support/v4/media/MediaDescriptionCompat;J)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "queueItem",
-            "description",
-            "id"
-        }
-    .end annotation
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    if-eqz p2, :cond_1
-
-    const-wide/16 v0, -0x1
-
-    cmp-long v0, p3, v0
-
-    if-eqz v0, :cond_0
-
-    iput-object p2, p0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
-
-    iput-wide p3, p0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->mId:J
-
-    iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->mItemFwk:Landroid/media/session/MediaSession$QueueItem;
-
-    return-void
-
-    :cond_0
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "Id cannot be QueueItem.UNKNOWN_ID"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :cond_1
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "Description cannot be null"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
-.method constructor <init>(Landroid/os/Parcel;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "in"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -140,128 +78,47 @@
     return-void
 .end method
 
-.method public static fromQueueItem(Ljava/lang/Object;)Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "queueItem"
-        }
-    .end annotation
-
-    if-eqz p0, :cond_1
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x15
-
-    if-ge v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    check-cast p0, Landroid/media/session/MediaSession$QueueItem;
-
-    invoke-virtual {p0}, Landroid/media/session/MediaSession$QueueItem;->getDescription()Landroid/media/MediaDescription;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/support/v4/media/MediaDescriptionCompat;->fromMediaDescription(Ljava/lang/Object;)Landroid/support/v4/media/MediaDescriptionCompat;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Landroid/media/session/MediaSession$QueueItem;->getQueueId()J
-
-    move-result-wide v1
-
-    new-instance v3, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
-
-    invoke-direct {v3, p0, v0, v1, v2}, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;-><init>(Landroid/media/session/MediaSession$QueueItem;Landroid/support/v4/media/MediaDescriptionCompat;J)V
-
-    return-object v3
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-.method public static fromQueueItemList(Ljava/util/List;)Ljava/util/List;
+.method public constructor <init>(Landroid/support/v4/media/MediaDescriptionCompat;J)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "itemList"
-        }
-    .end annotation
 
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "*>;)",
-            "Ljava/util/List<",
-            "Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;",
-            ">;"
-        }
-    .end annotation
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    if-eqz p0, :cond_2
+    if-eqz p1, :cond_1
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    const-wide/16 v0, -0x1
 
-    const/16 v1, 0x15
+    cmp-long v0, p2, v0
 
-    if-ge v0, v1, :cond_0
+    if-eqz v0, :cond_0
 
-    goto :goto_1
+    iput-object p1, p0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
+
+    iput-wide p2, p0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->mId:J
+
+    return-void
 
     :cond_0
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    const-string p1, "Id cannot be QueueItem.UNKNOWN_ID"
 
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->fromQueueItem(Ljava/lang/Object;)Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
+    throw p0
 
     :cond_1
-    return-object v0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    :cond_2
-    :goto_1
-    const/4 p0, 0x0
+    const-string p1, "Description cannot be null"
 
-    return-object p0
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -269,16 +126,14 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "MediaSession.QueueItem {Description="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "MediaSession.QueueItem {Description="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
 
@@ -303,18 +158,8 @@
     return-object p0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dest",
-            "flags"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;->mDescription:Landroid/support/v4/media/MediaDescriptionCompat;
 

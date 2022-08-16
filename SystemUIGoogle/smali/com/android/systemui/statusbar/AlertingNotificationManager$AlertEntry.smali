@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
+    accessFlags = 0x1
     name = "AlertEntry"
 .end annotation
 
@@ -33,21 +33,13 @@
 
 .field public mPostTime:J
 
-.field protected mRemoveAlertRunnable:Ljava/lang/Runnable;
+.field public mRemoveAlertRunnable:Ljava/lang/Runnable;
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$fZ21nWQi22YOfd5Sut_ra0nax5o(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->lambda$setEntry$0(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    return-void
-.end method
-
-.method protected constructor <init>(Lcom/android/systemui/statusbar/AlertingNotificationManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/AlertingNotificationManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
@@ -57,23 +49,9 @@
     return-void
 .end method
 
-.method private synthetic lambda$setEntry$0(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->removeAlertEntry(Ljava/lang/String;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method protected calculateFinishTime()J
+.method public calculateFinishTime()J
     .locals 4
 
     iget-wide v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mPostTime:J
@@ -89,14 +67,16 @@
     return-wide v0
 .end method
 
-.method protected calculatePostTime()J
+.method public calculatePostTime()J
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mClock:Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;->currentTimeMillis()J
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
@@ -125,15 +105,11 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
     iget-object p1, p1, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Ljava/lang/String;->compareTo(Ljava/lang/String;)I
 
@@ -168,7 +144,7 @@
     return p0
 .end method
 
-.method public removeAsSoonAsPossible()V
+.method public final removeAsSoonAsPossible()V
     .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mRemoveAlertRunnable:Ljava/lang/Runnable;
@@ -187,7 +163,9 @@
 
     iget-object p0, v0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mClock:Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;->currentTimeMillis()J
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v5
 
@@ -199,7 +177,7 @@
     return-void
 .end method
 
-.method public removeAutoRemovalCallbacks()V
+.method public final removeAutoRemovalCallbacks()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mRemoveAlertRunnable:Ljava/lang/Runnable;
@@ -231,29 +209,23 @@
 .end method
 
 .method public setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 1
+    .locals 2
 
-    new-instance v0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    const/4 v1, 0x3
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/Runnable;)V
-    .locals 0
+    invoke-direct {v0, v1, p0, p1}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mRemoveAlertRunnable:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mRemoveAlertRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->calculatePostTime()J
 
-    move-result-wide p1
+    move-result-wide v0
 
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mPostTime:J
+    iput-wide v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mPostTime:J
 
     const/4 p1, 0x1
 
@@ -265,26 +237,23 @@
 .method public updateEntry(Z)V
     .locals 4
 
-    const-string v0, "AlertNotifManager"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
 
-    const/4 v1, 0x2
+    iget-object v0, v0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mLogger:Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    iget-object v1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result v1
+    iget-object v1, v1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;->logUpdateEntry(Ljava/lang/String;Z)V
 
-    const-string/jumbo v1, "updateEntry"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mClock:Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;->currentTimeMillis()J
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
 
     move-result-wide v0
 
@@ -298,7 +267,7 @@
 
     iput-wide v2, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEarliestRemovaltime:J
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     iget-wide v2, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mPostTime:J
 
@@ -308,14 +277,14 @@
 
     iput-wide v2, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mPostTime:J
 
-    :cond_1
+    :cond_0
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->removeAutoRemovalCallbacks()V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->isSticky()Z
 
     move-result p1
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->calculateFinishTime()J
 
@@ -341,34 +310,6 @@
 
     invoke-virtual {p1, p0, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    :cond_2
+    :cond_1
     return-void
-.end method
-
-.method public wasShownLongEnough()Z
-    .locals 4
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEarliestRemovaltime:J
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mClock:Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;->currentTimeMillis()J
-
-    move-result-wide v2
-
-    cmp-long p0, v0, v2
-
-    if-gez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
 .end method

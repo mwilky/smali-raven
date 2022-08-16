@@ -1,87 +1,49 @@
-.class public Lcom/android/systemui/qs/external/TileServiceManager;
+.class public final Lcom/android/systemui/qs/external/TileServiceManager;
 .super Ljava/lang/Object;
 .source "TileServiceManager.java"
 
 
 # static fields
-.field static final PREFS_FILE:Ljava/lang/String; = "CustomTileModes"
+.field public static final PREFS_FILE:Ljava/lang/String; = "CustomTileModes"
 
 
 # instance fields
-.field private mBindAllowed:Z
+.field public mBindAllowed:Z
 
-.field private mBindRequested:Z
+.field public mBindRequested:Z
 
-.field private mBound:Z
+.field public mBound:Z
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private mJustBound:Z
+.field public mJustBound:Z
 
-.field final mJustBoundOver:Ljava/lang/Runnable;
+.field public final mJustBoundOver:Ljava/lang/Runnable;
 
-.field private mLastUpdate:J
+.field public mLastUpdate:J
 
-.field private mPendingBind:Z
+.field public mPendingBind:Z
 
-.field private mPriority:I
+.field public mPriority:I
 
-.field private final mServices:Lcom/android/systemui/qs/external/TileServices;
+.field public final mServices:Lcom/android/systemui/qs/external/TileServices;
 
-.field private mShowingDialog:Z
+.field public mShowingDialog:Z
 
-.field private mStarted:Z
+.field public mStarted:Z
 
-.field private final mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
+.field public final mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
 
-.field private final mUnbind:Ljava/lang/Runnable;
+.field public final mUnbind:Lcom/android/systemui/qs/external/TileServiceManager$1;
 
-.field private final mUninstallReceiver:Landroid/content/BroadcastReceiver;
+.field public final mUninstallReceiver:Lcom/android/systemui/qs/external/TileServiceManager$3;
 
-.field private final mUserTracker:Lcom/android/systemui/settings/UserTracker;
+.field public final mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/external/TileServices;Landroid/os/Handler;Landroid/content/ComponentName;Landroid/service/quicksettings/Tile;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/settings/UserTracker;)V
-    .locals 9
-
-    new-instance v8, Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/external/TileServices;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    invoke-virtual {v0, p3}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    move-result-object v5
-
-    invoke-interface {p6}, Lcom/android/systemui/settings/UserTracker;->getUserHandle()Landroid/os/UserHandle;
-
-    move-result-object v6
-
-    move-object v0, v8
-
-    move-object v1, p2
-
-    move-object v3, p1
-
-    move-object v4, p4
-
-    move-object v7, p5
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/qs/external/TileLifecycleManager;-><init>(Landroid/os/Handler;Landroid/content/Context;Landroid/service/quicksettings/IQSService;Landroid/service/quicksettings/Tile;Landroid/content/Intent;Landroid/os/UserHandle;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
-
-    invoke-direct {p0, p1, p2, p6, v8}, Lcom/android/systemui/qs/external/TileServiceManager;-><init>(Lcom/android/systemui/qs/external/TileServices;Landroid/os/Handler;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/qs/external/TileLifecycleManager;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/qs/external/TileServices;Landroid/os/Handler;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/qs/external/TileLifecycleManager;)V
-    .locals 7
+.method public constructor <init>(Lcom/android/systemui/qs/external/TileServices;Landroid/os/Handler;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/qs/external/TileLifecycleManager;)V
+    .locals 8
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -97,7 +59,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/qs/external/TileServiceManager$1;-><init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Lcom/android/systemui/qs/external/TileServiceManager$1;
 
     new-instance v0, Lcom/android/systemui/qs/external/TileServiceManager$2;
 
@@ -109,7 +71,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/systemui/qs/external/TileServiceManager$3;-><init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
 
-    iput-object v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUninstallReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUninstallReceiver:Lcom/android/systemui/qs/external/TileServiceManager$3;
 
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
 
@@ -127,13 +89,11 @@
 
     invoke-virtual {v4, p0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const-string p0, "package"
+    const-string/jumbo p0, "package"
 
     invoke-virtual {v4, p0}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/external/TileServices;->getContext()Landroid/content/Context;
-
-    move-result-object v1
+    iget-object v1, p1, Lcom/android/systemui/qs/external/TileServices;->mContext:Landroid/content/Context;
 
     invoke-interface {p3}, Lcom/android/systemui/settings/UserTracker;->getUserHandle()Landroid/os/UserHandle;
 
@@ -141,70 +101,18 @@
 
     const/4 v5, 0x0
 
+    const/4 v7, 0x2
+
     move-object v6, p2
 
-    invoke-virtual/range {v1 .. v6}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual/range {v1 .. v7}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/qs/external/TileServiceManager;)Z
-    .locals 0
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/qs/external/TileServiceManager;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/qs/external/TileServiceManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->unbindService()V
-
-    return-void
-.end method
-
-.method static synthetic access$302(Lcom/android/systemui/qs/external/TileServiceManager;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBound:Z
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileServices;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileLifecycleManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/settings/UserTracker;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
-
-    return-object p0
-.end method
-
-.method private bindService()V
+# virtual methods
+.method public final bindService()V
     .locals 5
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
@@ -243,216 +151,101 @@
     return-void
 .end method
 
-.method private unbindService()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
-
-    if-nez v0, :cond_0
-
-    const-string p0, "TileServiceManager"
-
-    const-string v0, "Service not bound"
-
-    invoke-static {p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBound:Z
+.method public final isActiveTile()Z
+    .locals 3
 
     iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->setBindService(Z)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public calculateBindPriority(J)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->hasPendingClick()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const p1, 0x7fffffff
-
-    iput p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
-
-    goto :goto_0
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mShowingDialog:Z
-
-    if-eqz v0, :cond_1
-
-    const p1, 0x7ffffffe
-
-    iput p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
-
-    goto :goto_0
-
-    :cond_1
-    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBound:Z
-
-    if-eqz v0, :cond_2
-
-    const p1, 0x7ffffffd
-
-    iput p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
-
-    goto :goto_0
-
-    :cond_2
-    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
-
-    if-nez v0, :cond_3
-
-    const/high16 p1, -0x80000000
-
-    iput p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
-
-    goto :goto_0
-
-    :cond_3
-    iget-wide v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mLastUpdate:J
-
-    sub-long/2addr p1, v0
-
-    const-wide/32 v0, 0x7ffffffc
-
-    cmp-long v0, p1, v0
-
-    if-lez v0, :cond_4
-
-    const p1, 0x7ffffffc
-
-    iput p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
-
-    goto :goto_0
-
-    :cond_4
-    long-to-int p1, p1
-
-    iput p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
-
-    :goto_0
-    return-void
-.end method
-
-.method public clearPendingBind()V
-    .locals 1
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPendingBind:Z
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mPackageManagerAdapter:Lcom/android/systemui/qs/external/PackageManagerAdapter;
 
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mIntent:Landroid/content/Intent;
 
-.method public getBindPriority()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPriority:I
-
-    return p0
-.end method
-
-.method public getTileService()Landroid/service/quicksettings/IQSTileService;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    return-object p0
-.end method
-
-.method public getToken()Landroid/os/IBinder;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->getToken()Landroid/os/IBinder;
+    invoke-virtual {p0}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object p0
 
-    return-object p0
+    iget-object v1, v1, Lcom/android/systemui/qs/external/PackageManagerAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
+
+    const v2, 0xc2080
+
+    invoke-virtual {v1, p0, v2}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
+
+    move-result-object p0
+
+    iget-object p0, p0, Landroid/content/pm/ServiceInfo;->metaData:Landroid/os/Bundle;
+
+    if-eqz p0, :cond_0
+
+    const-string v1, "android.service.quicksettings.ACTIVE_TILE"
+
+    invoke-virtual {p0, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result p0
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x1
+
+    :catch_0
+    :cond_0
+    return v0
 .end method
 
-.method public handleDestroy()V
-    .locals 2
+.method public final isToggleableTile()Z
+    .locals 3
+
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindAllowed(Z)V
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mPackageManagerAdapter:Lcom/android/systemui/qs/external/PackageManagerAdapter;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mIntent:Landroid/content/Intent;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileServices;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v0
+    move-result-object p0
 
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUninstallReceiver:Landroid/content/BroadcastReceiver;
+    iget-object v1, v1, Lcom/android/systemui/qs/external/PackageManagerAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    invoke-virtual {v0, v1}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+    const v2, 0xc2080
 
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
+    invoke-virtual {v1, p0, v2}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->handleDestroy()V
+    move-result-object p0
 
-    return-void
-.end method
+    iget-object p0, p0, Landroid/content/pm/ServiceInfo;->metaData:Landroid/os/Bundle;
 
-.method public hasPendingBind()Z
-    .locals 0
+    if-eqz p0, :cond_0
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mPendingBind:Z
+    const-string v1, "android.service.quicksettings.TOGGLEABLE_TILE"
 
-    return p0
-.end method
-
-.method public isActiveTile()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->isActiveTile()Z
+    invoke-virtual {p0, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result p0
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    return p0
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x1
+
+    :catch_0
+    :cond_0
+    return v0
 .end method
 
-.method isLifecycleStarted()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStarted:Z
-
-    return p0
-.end method
-
-.method public isToggleableTile()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->isToggleableTile()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public setBindAllowed(Z)V
+.method public final setBindAllowed(Z)V
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindAllowed:Z
@@ -464,35 +257,54 @@
     :cond_0
     iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindAllowed:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->unbindService()V
+    if-nez v0, :cond_1
+
+    const-string p0, "TileServiceManager"
+
+    const-string p1, "Service not bound"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_1
-    if-eqz p1, :cond_2
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
+
+    iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBound:Z
+
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/external/TileLifecycleManager;->setBindService(Z)V
+
+    goto :goto_0
+
+    :cond_2
+    if-eqz p1, :cond_3
 
     iget-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     iget-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->bindService()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->bindService()V
 
-    :cond_2
+    :cond_3
     :goto_0
     return-void
 .end method
 
-.method public setBindRequested(Z)V
+.method public final setBindRequested(Z)V
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBindRequested:Z
@@ -516,11 +328,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Lcom/android/systemui/qs/external/TileServiceManager$1;
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->bindService()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->bindService()V
 
     goto :goto_0
 
@@ -540,100 +352,12 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mHandler:Landroid/os/Handler;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mUnbind:Lcom/android/systemui/qs/external/TileServiceManager$1;
 
     const-wide/16 v0, 0x7530
 
     invoke-virtual {p1, p0, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_2
-    return-void
-.end method
-
-.method public setLastUpdate(J)V
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mLastUpdate:J
-
-    iget-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mBound:Z
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->isActiveTile()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/external/TileLifecycleManager;->onStopListening()V
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/external/TileServiceManager;->setBindRequested(Z)V
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileServices;->recalculateBindAllowance()V
-
-    return-void
-.end method
-
-.method public setShowingDialog(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mShowingDialog:Z
-
-    return-void
-.end method
-
-.method public setTileChangeListener(Lcom/android/systemui/qs/external/TileLifecycleManager$TileChangeListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/external/TileLifecycleManager;->setTileChangeListener(Lcom/android/systemui/qs/external/TileLifecycleManager$TileChangeListener;)V
-
-    return-void
-.end method
-
-.method startLifecycleManagerAndAddTile()V
-    .locals 4
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStarted:Z
-
-    iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/external/TileLifecycleManager;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/external/TileServices;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v2, v1}, Lcom/android/systemui/qs/external/TileLifecycleManager;->isTileAdded(Landroid/content/Context;Landroid/content/ComponentName;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-static {v2, v1, v0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->setTileAdded(Landroid/content/Context;Landroid/content/ComponentName;Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->onTileAdded()V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->flushMessagesAndUnbind()V
-
-    :cond_0
     return-void
 .end method

@@ -1,75 +1,67 @@
 .class public final synthetic Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/statusbar/SmartReplyController$Callback;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
-.field public final synthetic f$1:Landroid/view/View;
-
-.field public final synthetic f$2:[Landroid/app/RemoteInput;
-
-.field public final synthetic f$3:Landroid/app/RemoteInput;
-
-.field public final synthetic f$4:Landroid/app/PendingIntent;
-
-.field public final synthetic f$5:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;
-
-.field public final synthetic f$6:Ljava/lang/String;
-
-.field public final synthetic f$7:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$AuthBypassPredicate;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Landroid/view/View;[Landroid/app/RemoteInput;Landroid/app/RemoteInput;Landroid/app/PendingIntent;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;Ljava/lang/String;Lcom/android/systemui/statusbar/NotificationRemoteInputManager$AuthBypassPredicate;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$1:Landroid/view/View;
-
-    iput-object p3, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$2:[Landroid/app/RemoteInput;
-
-    iput-object p4, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$3:Landroid/app/RemoteInput;
-
-    iput-object p5, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$4:Landroid/app/PendingIntent;
-
-    iput-object p6, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$5:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;
-
-    iput-object p7, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$6:Ljava/lang/String;
-
-    iput-object p8, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$7:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$AuthBypassPredicate;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 8
+.method public final onSmartReplySent(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/CharSequence;)V
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$1:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mRebuilder:Lcom/android/systemui/statusbar/RemoteInputNotificationRebuilder;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$2:[Landroid/app/RemoteInput;
+    const/4 v3, 0x1
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$3:Landroid/app/RemoteInput;
+    const/4 v4, 0x0
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$4:Landroid/app/PendingIntent;
+    const/4 v5, 0x0
 
-    iget-object v5, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$5:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;
+    move-object v1, p1
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$6:Ljava/lang/String;
+    move-object v2, p2
 
-    iget-object v7, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda2;->f$7:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$AuthBypassPredicate;
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/RemoteInputNotificationRebuilder;->rebuildWithRemoteInputInserted(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/CharSequence;ZLjava/lang/String;Landroid/net/Uri;)Landroid/service/notification/StatusBarNotification;
 
-    invoke-static/range {v0 .. v7}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->$r8$lambda$HZQUztBFacAKHfEi-NhnLsurOy8(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Landroid/view/View;[Landroid/app/RemoteInput;Landroid/app/RemoteInput;Landroid/app/PendingIntent;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;Ljava/lang/String;Lcom/android/systemui/statusbar/NotificationRemoteInputManager$AuthBypassPredicate;)V
+    move-result-object p1
 
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    :try_start_0
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->updateNotificationInternal(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$RankingMap;)V
+    :try_end_0
+    .catch Lcom/android/systemui/statusbar/notification/InflationException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p2
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->handleInflationException(Landroid/service/notification/StatusBarNotification;Ljava/lang/Exception;)V
+
+    :goto_0
     return-void
 .end method

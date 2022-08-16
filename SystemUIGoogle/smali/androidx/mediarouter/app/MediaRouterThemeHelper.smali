@@ -1,130 +1,56 @@
-.class final Landroidx/mediarouter/app/MediaRouterThemeHelper;
+.class public final Landroidx/mediarouter/app/MediaRouterThemeHelper;
 .super Ljava/lang/Object;
 .source "MediaRouterThemeHelper.java"
 
 
-# static fields
-.field private static final COLOR_DARK_ON_LIGHT_BACKGROUND_RES_ID:I
-
-
 # direct methods
-.method static constructor <clinit>()V
+.method public static createThemedDialogContext(Landroid/content/Context;Z)Landroid/view/ContextThemeWrapper;
     .locals 1
 
-    sget v0, Landroidx/mediarouter/R$color;->mr_dynamic_dialog_icon_light:I
+    if-nez p1, :cond_0
 
-    sput v0, Landroidx/mediarouter/app/MediaRouterThemeHelper;->COLOR_DARK_ON_LIGHT_BACKGROUND_RES_ID:I
-
-    return-void
-.end method
-
-.method static createThemedButtonContext(Landroid/content/Context;)Landroid/content/Context;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    new-instance v0, Landroid/view/ContextThemeWrapper;
-
-    invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getRouterThemeId(Landroid/content/Context;)I
-
-    move-result v1
-
-    invoke-direct {v0, p0, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    sget p0, Landroidx/mediarouter/R$attr;->mediaRouteTheme:I
-
-    invoke-static {v0, p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeResource(Landroid/content/Context;I)I
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    new-instance v1, Landroid/view/ContextThemeWrapper;
-
-    invoke-direct {v1, v0, p0}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
-
-    move-object v0, v1
-
-    :cond_0
-    return-object v0
-.end method
-
-.method static createThemedDialogContext(Landroid/content/Context;IZ)Landroid/content/Context;
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "theme",
-            "alertDialog"
-        }
-    .end annotation
-
-    if-nez p1, :cond_1
-
-    if-nez p2, :cond_0
-
-    sget p1, Landroidx/appcompat/R$attr;->dialogTheme:I
+    const p1, 0x7f040176
 
     goto :goto_0
 
     :cond_0
-    sget p1, Landroidx/appcompat/R$attr;->alertDialogTheme:I
+    const p1, 0x7f04002d
 
     :goto_0
     invoke-static {p0, p1}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeResource(Landroid/content/Context;I)I
 
     move-result p1
 
-    :cond_1
-    new-instance p2, Landroid/view/ContextThemeWrapper;
+    new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    invoke-direct {p2, p0, p1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v0, p0, p1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    sget p0, Landroidx/mediarouter/R$attr;->mediaRouteTheme:I
+    const p0, 0x7f040386
 
-    invoke-static {p2, p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeResource(Landroid/content/Context;I)I
+    invoke-static {v0, p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeResource(Landroid/content/Context;I)I
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_1
 
     new-instance p0, Landroid/view/ContextThemeWrapper;
 
-    invoke-static {p2}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getRouterThemeId(Landroid/content/Context;)I
+    invoke-static {v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getRouterThemeId(Landroid/content/Context;)I
 
     move-result p1
 
-    invoke-direct {p0, p2, p1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p0, v0, p1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    move-object p2, p0
+    move-object v0, p0
 
-    :cond_2
-    return-object p2
+    :cond_1
+    return-object v0
 .end method
 
-.method static createThemedDialogStyle(Landroid/content/Context;)I
+.method public static createThemedDialogStyle(Landroid/view/ContextThemeWrapper;)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
-    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteTheme:I
+    const v0, 0x7f040386
 
     invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeResource(Landroid/content/Context;I)I
 
@@ -140,87 +66,10 @@
     return v0
 .end method
 
-.method static getButtonTextColor(Landroid/content/Context;)I
-    .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    sget v0, Landroidx/appcompat/R$attr;->colorPrimary:I
-
-    const/4 v1, 0x0
-
-    invoke-static {p0, v1, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeColor(Landroid/content/Context;II)I
-
-    move-result v0
-
-    const v2, 0x1010031
-
-    invoke-static {p0, v1, v2}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeColor(Landroid/content/Context;II)I
-
-    move-result v2
-
-    invoke-static {v0, v2}, Landroidx/core/graphics/ColorUtils;->calculateContrast(II)D
-
-    move-result-wide v2
-
-    const-wide/high16 v4, 0x4008000000000000L    # 3.0
-
-    cmpg-double v2, v2, v4
-
-    if-gez v2, :cond_0
-
-    sget v0, Landroidx/appcompat/R$attr;->colorAccent:I
-
-    invoke-static {p0, v1, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeColor(Landroid/content/Context;II)I
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    return v0
-.end method
-
-.method static getCheckBoxDrawableIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    sget v0, Landroidx/mediarouter/R$drawable;->mr_cast_checkbox:I
-
-    invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getIconByDrawableId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static getControllerColor(Landroid/content/Context;I)I
+.method public static getControllerColor(Landroid/content/Context;I)I
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "style"
-        }
-    .end annotation
 
-    sget v0, Landroidx/appcompat/R$attr;->colorPrimary:I
+    const v0, 0x7f040108
 
     invoke-static {p0, p1, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeColor(Landroid/content/Context;II)I
 
@@ -246,36 +95,8 @@
     return p0
 .end method
 
-.method static getDefaultDrawableIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteDefaultIconDrawable:I
-
-    invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getIconByAttrId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static getDisabledAlpha(Landroid/content/Context;)F
+.method public static getDisabledAlpha(Landroid/content/Context;)F
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     new-instance v0, Landroid/util/TypedValue;
 
@@ -308,18 +129,8 @@
     return p0
 .end method
 
-.method private static getIconByAttrId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrId"
-        }
-    .end annotation
+.method public static getIconByAttrId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    .locals 3
 
     const/4 v0, 0x1
 
@@ -341,23 +152,21 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
     invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->isLightTheme(Landroid/content/Context;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    sget v1, Landroidx/mediarouter/app/MediaRouterThemeHelper;->COLOR_DARK_ON_LIGHT_BACKGROUND_RES_ID:I
+    const v1, 0x7f0602fa
 
-    invoke-static {p0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    sget-object v2, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getColor(I)I
 
     move-result p0
 
-    invoke-static {v0, p0}, Landroidx/core/graphics/drawable/DrawableCompat;->setTint(Landroid/graphics/drawable/Drawable;I)V
+    invoke-virtual {v0, p0}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
     :cond_0
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -365,75 +174,8 @@
     return-object v0
 .end method
 
-.method private static getIconByDrawableId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "drawableId"
-        }
-    .end annotation
-
-    invoke-static {p0, p1}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    invoke-static {p1}, Landroidx/core/graphics/drawable/DrawableCompat;->wrap(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->isLightTheme(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget v0, Landroidx/mediarouter/app/MediaRouterThemeHelper;->COLOR_DARK_ON_LIGHT_BACKGROUND_RES_ID:I
-
-    invoke-static {p0, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    invoke-static {p1, p0}, Landroidx/core/graphics/drawable/DrawableCompat;->setTint(Landroid/graphics/drawable/Drawable;I)V
-
-    :cond_0
-    return-object p1
-.end method
-
-.method static getMuteButtonDrawableIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    sget v0, Landroidx/mediarouter/R$drawable;->mr_cast_mute_button:I
-
-    invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getIconByDrawableId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static getRouterThemeId(Landroid/content/Context;)I
+.method public static getRouterThemeId(Landroid/content/Context;)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->isLightTheme(Landroid/content/Context;)Z
 
@@ -451,12 +193,12 @@
 
     if-ne p0, v1, :cond_0
 
-    sget p0, Landroidx/mediarouter/R$style;->Theme_MediaRouter_Light:I
+    const p0, 0x7f140442
 
     goto :goto_0
 
     :cond_0
-    sget p0, Landroidx/mediarouter/R$style;->Theme_MediaRouter_Light_DarkControlPanel:I
+    const p0, 0x7f140443
 
     goto :goto_0
 
@@ -467,71 +209,19 @@
 
     if-ne p0, v1, :cond_2
 
-    sget p0, Landroidx/mediarouter/R$style;->Theme_MediaRouter_LightControlPanel:I
+    const p0, 0x7f140444
 
     goto :goto_0
 
     :cond_2
-    sget p0, Landroidx/mediarouter/R$style;->Theme_MediaRouter:I
+    const p0, 0x7f140441
 
     :goto_0
     return p0
 .end method
 
-.method static getSpeakerDrawableIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteSpeakerIconDrawable:I
-
-    invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getIconByAttrId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static getSpeakerGroupDrawableIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteSpeakerGroupIconDrawable:I
-
-    invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getIconByAttrId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static getThemeColor(Landroid/content/Context;II)I
+.method public static getThemeColor(Landroid/content/Context;II)I
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "style",
-            "attr"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -590,18 +280,8 @@
     return p0
 .end method
 
-.method static getThemeResource(Landroid/content/Context;I)I
+.method public static getThemeResource(Landroid/content/Context;I)I
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attr"
-        }
-    .end annotation
 
     new-instance v0, Landroid/util/TypedValue;
 
@@ -630,36 +310,8 @@
     return p0
 .end method
 
-.method static getTvDrawableIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    sget v0, Landroidx/mediarouter/R$attr;->mediaRouteTvIconDrawable:I
-
-    invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getIconByAttrId(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static isLightTheme(Landroid/content/Context;)Z
+.method public static isLightTheme(Landroid/content/Context;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     new-instance v0, Landroid/util/TypedValue;
 
@@ -669,7 +321,7 @@
 
     move-result-object p0
 
-    sget v1, Landroidx/appcompat/R$attr;->isLightTheme:I
+    const v1, 0x7f0402a0
 
     const/4 v2, 0x1
 
@@ -692,18 +344,8 @@
     return v2
 .end method
 
-.method static setDialogBackgroundColor(Landroid/content/Context;Landroid/app/Dialog;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "dialog"
-        }
-    .end annotation
+.method public static setDialogBackgroundColor(Landroid/content/Context;Landroid/app/Dialog;)V
+    .locals 2
 
     invoke-virtual {p1}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
@@ -719,15 +361,17 @@
 
     if-eqz v0, :cond_0
 
-    sget v0, Landroidx/mediarouter/R$color;->mr_dynamic_dialog_background_light:I
+    const v0, 0x7f0602f6
 
     goto :goto_0
 
     :cond_0
-    sget v0, Landroidx/mediarouter/R$color;->mr_dynamic_dialog_background_dark:I
+    const v0, 0x7f0602f5
 
     :goto_0
-    invoke-static {p0, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    sget-object v1, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result p0
 
@@ -736,18 +380,8 @@
     return-void
 .end method
 
-.method static setIndeterminateProgressBarColor(Landroid/content/Context;Landroid/widget/ProgressBar;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "progressBar"
-        }
-    .end annotation
+.method public static setIndeterminateProgressBarColor(Landroid/content/Context;Landroid/widget/ProgressBar;)V
+    .locals 2
 
     invoke-virtual {p1}, Landroid/widget/ProgressBar;->isIndeterminate()Z
 
@@ -764,15 +398,17 @@
 
     if-eqz v0, :cond_1
 
-    sget v0, Landroidx/mediarouter/R$color;->mr_cast_progressbar_progress_and_thumb_light:I
+    const v0, 0x7f0602f2
 
     goto :goto_0
 
     :cond_1
-    sget v0, Landroidx/mediarouter/R$color;->mr_cast_progressbar_progress_and_thumb_dark:I
+    const v0, 0x7f0602f1
 
     :goto_0
-    invoke-static {p0, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
+    sget-object v1, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getColor(I)I
 
     move-result p0
 
@@ -787,139 +423,8 @@
     return-void
 .end method
 
-.method static setMediaControlsBackgroundColor(Landroid/content/Context;Landroid/view/View;Landroid/view/View;Z)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "mainControls",
-            "groupControls",
-            "hasGroup"
-        }
-    .end annotation
-
-    sget v0, Landroidx/appcompat/R$attr;->colorPrimary:I
-
-    const/4 v1, 0x0
-
-    invoke-static {p0, v1, v0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeColor(Landroid/content/Context;II)I
-
-    move-result v0
-
-    sget v2, Landroidx/appcompat/R$attr;->colorPrimaryDark:I
-
-    invoke-static {p0, v1, v2}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getThemeColor(Landroid/content/Context;II)I
-
-    move-result v2
-
-    if-eqz p3, :cond_0
-
-    invoke-static {p0, v1}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getControllerColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    const/high16 p3, -0x22000000
-
-    if-ne p0, p3, :cond_0
-
-    const/4 p0, -0x1
-
-    move v2, v0
-
-    move v0, p0
-
-    :cond_0
-    invoke-virtual {p1, v0}, Landroid/view/View;->setBackgroundColor(I)V
-
-    invoke-virtual {p2, v2}, Landroid/view/View;->setBackgroundColor(I)V
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    invoke-virtual {p2, p0}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method static setVolumeSliderColor(Landroid/content/Context;Landroidx/mediarouter/app/MediaRouteVolumeSlider;)V
+.method public static setVolumeSliderColor(Landroid/content/Context;Landroidx/mediarouter/app/MediaRouteVolumeSlider;Landroid/view/ViewGroup;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "volumeSlider"
-        }
-    .end annotation
-
-    invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->isLightTheme(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    sget v0, Landroidx/mediarouter/R$color;->mr_cast_progressbar_progress_and_thumb_light:I
-
-    invoke-static {p0, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
-
-    move-result v0
-
-    sget v1, Landroidx/mediarouter/R$color;->mr_cast_progressbar_background_light:I
-
-    invoke-static {p0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    goto :goto_0
-
-    :cond_0
-    sget v0, Landroidx/mediarouter/R$color;->mr_cast_progressbar_progress_and_thumb_dark:I
-
-    invoke-static {p0, v0}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
-
-    move-result v0
-
-    sget v1, Landroidx/mediarouter/R$color;->mr_cast_progressbar_background_dark:I
-
-    invoke-static {p0, v1}, Landroidx/core/content/ContextCompat;->getColor(Landroid/content/Context;I)I
-
-    move-result p0
-
-    :goto_0
-    invoke-virtual {p1, v0, p0}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setColor(II)V
-
-    return-void
-.end method
-
-.method static setVolumeSliderColor(Landroid/content/Context;Landroidx/mediarouter/app/MediaRouteVolumeSlider;Landroid/view/View;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "volumeSlider",
-            "backgroundView"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -950,7 +455,7 @@
     move-result p0
 
     :cond_0
-    invoke-virtual {p1, p0}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setColor(I)V
+    invoke-virtual {p1, p0, p0}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setColor(II)V
 
     return-void
 .end method

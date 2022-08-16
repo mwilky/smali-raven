@@ -33,20 +33,24 @@
 
 
 # instance fields
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-.field private final mUserId:I
+.field public final mUserId:I
 
-.field private final mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+.field public final mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/internal/logging/UiEventLogger;I)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/internal/logging/UiEventLogger;I)V
     .locals 2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
+    const v0, 0x7f14044b
 
-    sget v0, Lcom/android/systemui/R$string;->guest_wipe_session_title:I
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, p1, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(ILandroid/content/Context;Z)V
+
+    const v0, 0x7f130326
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -54,7 +58,7 @@
 
     invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->setTitle(Ljava/lang/CharSequence;)V
 
-    sget v0, Lcom/android/systemui/R$string;->guest_wipe_session_message:I
+    const v0, 0x7f130325
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -62,27 +66,25 @@
 
     invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const/4 v0, 0x0
+    invoke-virtual {p0, v1}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
-    invoke-virtual {p0, v0}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
+    const/4 v0, -0x2
 
-    sget v0, Lcom/android/systemui/R$string;->guest_wipe_session_wipe:I
+    const v1, 0x7f130327
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, -0x2
-
-    invoke-virtual {p0, v1, v0, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
-
-    sget v0, Lcom/android/systemui/R$string;->guest_wipe_session_dontwipe:I
-
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
+    invoke-virtual {p0, v0, v1, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
     const/4 v0, -0x1
+
+    const v1, 0x7f130324
+
+    invoke-virtual {p1, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
 
     invoke-virtual {p0, v0, p1, p0}, Landroid/app/AlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
@@ -97,7 +99,7 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 1
 
     const/4 p1, -0x2

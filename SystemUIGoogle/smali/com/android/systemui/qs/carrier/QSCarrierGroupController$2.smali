@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/carrier/QSCarrierGroupController$2;
+.class public final Lcom/android/systemui/qs/carrier/QSCarrierGroupController$2;
 .super Ljava/lang/Object;
 .source "QSCarrierGroupController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/carrier/QSCarrierGroupController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/carrier/QSCarrierGroupController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$2;->this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;
@@ -34,13 +34,13 @@
 
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
+.method public final onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
+.method public final onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$2;->this$0:Lcom/android/systemui/qs/carrier/QSCarrierGroupController;

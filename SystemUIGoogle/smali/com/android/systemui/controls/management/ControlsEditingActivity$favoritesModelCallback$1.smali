@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsEditingActivity;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsEditingActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity$favoritesModelCallback$1;->this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
@@ -34,83 +34,71 @@
 
 
 # virtual methods
-.method public onFirstChange()V
+.method public final onFirstChange()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity$favoritesModelCallback$1;->this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsEditingActivity;->access$getSaveButton$p(Lcom/android/systemui/controls/management/ControlsEditingActivity;)Landroid/view/View;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity;->saveButton:Landroid/view/View;
 
-    move-result-object p0
+    if-nez p0, :cond_0
 
-    if-eqz p0, :cond_0
+    const/4 p0, 0x0
 
+    :cond_0
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setEnabled(Z)V
 
     return-void
-
-    :cond_0
-    const-string p0, "saveButton"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
 .end method
 
-.method public onNoneChanged(Z)V
-    .locals 2
+.method public final onNoneChanged(Z)V
+    .locals 1
 
     const/4 v0, 0x0
-
-    const-string v1, "subtitle"
 
     if-eqz p1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity$favoritesModelCallback$1;->this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsEditingActivity;->access$getSubtitle$p(Lcom/android/systemui/controls/management/ControlsEditingActivity;)Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity;->subtitle:Landroid/widget/TextView;
 
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    invoke-static {}, Lcom/android/systemui/controls/management/ControlsEditingActivity;->access$getEMPTY_TEXT_ID$cp()I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
+    if-nez p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    move-object v0, p0
 
-    throw v0
+    :goto_0
+    sget p0, Lcom/android/systemui/controls/management/ControlsEditingActivity;->$r8$clinit:I
+
+    const p0, 0x7f130238
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_2
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity$favoritesModelCallback$1;->this$0:Lcom/android/systemui/controls/management/ControlsEditingActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsEditingActivity;->access$getSubtitle$p(Lcom/android/systemui/controls/management/ControlsEditingActivity;)Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsEditingActivity;->subtitle:Landroid/widget/TextView;
 
-    move-result-object p0
+    if-nez p0, :cond_2
 
-    if-eqz p0, :cond_2
-
-    invoke-static {}, Lcom/android/systemui/controls/management/ControlsEditingActivity;->access$getSUBTITLE_ID$cp()I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(I)V
-
-    :goto_0
-    return-void
+    goto :goto_1
 
     :cond_2
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    move-object v0, p0
 
-    throw v0
+    :goto_1
+    sget p0, Lcom/android/systemui/controls/management/ControlsEditingActivity;->$r8$clinit:I
+
+    const p0, 0x7f130237
+
+    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(I)V
+
+    :goto_2
+    return-void
 .end method

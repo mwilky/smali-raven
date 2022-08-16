@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/keyboard/KeyboardUI$BluetoothCallbackHandler;
+.class public final Lcom/android/systemui/keyboard/KeyboardUI$BluetoothCallbackHandler;
 .super Ljava/lang/Object;
 .source "KeyboardUI.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "BluetoothCallbackHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
+.field public final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
+.method public constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothCallbackHandler;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
@@ -32,24 +32,14 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;Lcom/android/systemui/keyboard/KeyboardUI$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothCallbackHandler;-><init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onBluetoothStateChanged(I)V
+.method public final onBluetoothStateChanged(I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothCallbackHandler;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
-    invoke-static {p0}, Lcom/android/systemui/keyboard/KeyboardUI;->access$1700(Lcom/android/systemui/keyboard/KeyboardUI;)Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mHandler:Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
 
     const/4 v0, 0x4
 
@@ -64,14 +54,12 @@
     return-void
 .end method
 
-.method public onDeviceBondStateChanged(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;I)V
+.method public final onDeviceBondStateChanged(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothCallbackHandler;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
-    invoke-static {p0}, Lcom/android/systemui/keyboard/KeyboardUI;->access$1700(Lcom/android/systemui/keyboard/KeyboardUI;)Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mHandler:Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
 
     const/4 v0, 0x5
 

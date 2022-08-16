@@ -18,7 +18,17 @@
 
 
 # instance fields
-.field private final activityStarterProvider:Ljavax/inject/Provider;
+.field public final activityIntentHelperProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/ActivityIntentHelper;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final activityStarterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final backgroundExecutorProvider:Ljavax/inject/Provider;
+.field public final backgroundExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +48,17 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final broadcastSenderProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/broadcast/BroadcastSender;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final falsingManagerProvider:Ljavax/inject/Provider;
+.field public final falsingManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,17 +78,47 @@
     .end annotation
 .end field
 
-.field private final keyguardDismissUtilProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final mediaCarouselControllerProvider:Ljavax/inject/Provider;
+.field public final lockscreenUserManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final loggerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/media/MediaUiEventLogger;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mainExecutorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mediaCarouselControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +128,7 @@
     .end annotation
 .end field
 
-.field private final mediaDataManagerProvider:Ljavax/inject/Provider;
+.field public final mediaDataManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +138,7 @@
     .end annotation
 .end field
 
-.field private final mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+.field public final mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +148,7 @@
     .end annotation
 .end field
 
-.field private final mediaViewControllerProvider:Ljavax/inject/Provider;
+.field public final mediaViewControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +158,7 @@
     .end annotation
 .end field
 
-.field private final seekBarViewModelProvider:Ljavax/inject/Provider;
+.field public final seekBarViewModelProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -118,7 +168,7 @@
     .end annotation
 .end field
 
-.field private final systemClockProvider:Ljavax/inject/Provider;
+.field public final systemClockProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -130,8 +180,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -142,7 +192,13 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/ActivityStarter;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/broadcast/BroadcastSender;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/MediaViewController;",
@@ -152,9 +208,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/MediaDataManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;",
@@ -167,39 +220,95 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/time/SystemClock;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/media/MediaUiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/ActivityIntentHelper;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
             ">;)V"
         }
     .end annotation
 
+    move-object v0, p0
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-object v1, p1
 
-    iput-object p2, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->backgroundExecutorProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->activityStarterProvider:Ljavax/inject/Provider;
+    move-object v1, p2
 
-    iput-object p4, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaViewControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->backgroundExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->seekBarViewModelProvider:Ljavax/inject/Provider;
+    move-object v1, p3
 
-    iput-object p6, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaDataManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->keyguardDismissUtilProvider:Ljavax/inject/Provider;
+    move-object v1, p4
 
-    iput-object p8, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->activityStarterProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaCarouselControllerProvider:Ljavax/inject/Provider;
+    move-object v1, p5
 
-    iput-object p10, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->broadcastSenderProvider:Ljavax/inject/Provider;
 
-    iput-object p11, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->systemClockProvider:Ljavax/inject/Provider;
+    move-object v1, p6
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaViewControllerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p7
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->seekBarViewModelProvider:Ljavax/inject/Provider;
+
+    move-object v1, p8
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaDataManagerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p9
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+
+    move-object v1, p10
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaCarouselControllerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p11
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+
+    move-object v1, p12
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->systemClockProvider:Ljavax/inject/Provider;
+
+    move-object v1, p13
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p14
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p15
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->activityIntentHelperProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->lockscreenUserManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/MediaControlPanel_Factory;
-    .locals 13
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/MediaControlPanel_Factory;
+    .locals 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -210,7 +319,13 @@
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Ljava/util/concurrent/Executor;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/ActivityStarter;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/broadcast/BroadcastSender;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/MediaViewController;",
@@ -220,9 +335,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/MediaDataManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;",
@@ -235,20 +347,28 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/util/time/SystemClock;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/media/MediaUiEventLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/ActivityIntentHelper;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
             ">;)",
             "Lcom/android/systemui/media/MediaControlPanel_Factory;"
         }
     .end annotation
 
-    new-instance v12, Lcom/android/systemui/media/MediaControlPanel_Factory;
+    move-object/from16 v1, p0
 
-    move-object v0, v12
+    move-object/from16 v2, p1
 
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
+    move-object/from16 v3, p2
 
     move-object/from16 v4, p3
 
@@ -266,189 +386,193 @@
 
     move-object/from16 v11, p10
 
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/media/MediaControlPanel_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v12, p11
 
-    return-object v12
-.end method
+    move-object/from16 v13, p12
 
-.method public static newInstance(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/media/MediaViewController;Lcom/android/systemui/media/SeekBarViewModel;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/time/SystemClock;)Lcom/android/systemui/media/MediaControlPanel;
-    .locals 13
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Ljava/util/concurrent/Executor;",
-            "Lcom/android/systemui/plugins/ActivityStarter;",
-            "Lcom/android/systemui/media/MediaViewController;",
-            "Lcom/android/systemui/media/SeekBarViewModel;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/media/MediaDataManager;",
-            ">;",
-            "Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;",
-            "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;",
-            "Lcom/android/systemui/media/MediaCarouselController;",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            "Lcom/android/systemui/util/time/SystemClock;",
-            ")",
-            "Lcom/android/systemui/media/MediaControlPanel;"
-        }
-    .end annotation
+    move-object/from16 v14, p13
 
-    new-instance v12, Lcom/android/systemui/media/MediaControlPanel;
+    move-object/from16 v15, p14
 
-    move-object v0, v12
+    move-object/from16 v16, p15
 
-    move-object v1, p0
+    new-instance v17, Lcom/android/systemui/media/MediaControlPanel_Factory;
 
-    move-object v2, p1
+    move-object/from16 v0, v17
 
-    move-object v3, p2
+    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/media/MediaControlPanel_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    move-object/from16 v4, p3
-
-    move-object/from16 v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/media/MediaControlPanel;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/media/MediaViewController;Lcom/android/systemui/media/SeekBarViewModel;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/time/SystemClock;)V
-
-    return-object v12
+    return-object v17
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/media/MediaControlPanel;
-    .locals 12
+.method public final get()Ljava/lang/Object;
+    .locals 19
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->contextProvider:Ljavax/inject/Provider;
+    move-object/from16 v0, p0
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v3, v1
+
+    check-cast v3, Landroid/content/Context;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->backgroundExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v4, v1
+
+    check-cast v4, Ljava/util/concurrent/Executor;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v5, v1
+
+    check-cast v5, Ljava/util/concurrent/Executor;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->activityStarterProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v6, v1
+
+    check-cast v6, Lcom/android/systemui/plugins/ActivityStarter;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->broadcastSenderProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v7, v1
+
+    check-cast v7, Lcom/android/systemui/broadcast/BroadcastSender;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaViewControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v8, v1
+
+    check-cast v8, Lcom/android/systemui/media/MediaViewController;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->seekBarViewModelProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v9, v1
+
+    check-cast v9, Lcom/android/systemui/media/SeekBarViewModel;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaDataManagerProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v10
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v11, v1
+
+    check-cast v11, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaCarouselControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v12, v1
+
+    check-cast v12, Lcom/android/systemui/media/MediaCarouselController;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v13, v1
+
+    check-cast v13, Lcom/android/systemui/plugins/FalsingManager;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->systemClockProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v14, v1
+
+    check-cast v14, Lcom/android/systemui/util/time/SystemClock;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v15, v1
+
+    check-cast v15, Lcom/android/systemui/media/MediaUiEventLogger;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v16, v1
+
+    check-cast v16, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->activityIntentHelperProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object/from16 v17, v1
+
+    check-cast v17, Lcom/android/systemui/ActivityIntentHelper;
+
+    iget-object v0, v0, Lcom/android/systemui/media/MediaControlPanel_Factory;->lockscreenUserManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object/from16 v18, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v18, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->backgroundExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
+    new-instance v0, Lcom/android/systemui/media/MediaControlPanel;
 
     move-object v2, v0
 
-    check-cast v2, Ljava/util/concurrent/Executor;
+    invoke-direct/range {v2 .. v18}, Lcom/android/systemui/media/MediaControlPanel;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastSender;Lcom/android/systemui/media/MediaViewController;Lcom/android/systemui/media/SeekBarViewModel;Ldagger/Lazy;Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/media/MediaUiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/ActivityIntentHelper;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;)V
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->activityStarterProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v3, v0
-
-    check-cast v3, Lcom/android/systemui/plugins/ActivityStarter;
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaViewControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v4, v0
-
-    check-cast v4, Lcom/android/systemui/media/MediaViewController;
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->seekBarViewModelProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v5, v0
-
-    check-cast v5, Lcom/android/systemui/media/SeekBarViewModel;
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaDataManagerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
-
-    move-result-object v6
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->keyguardDismissUtilProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v7, v0
-
-    check-cast v7, Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->mediaCarouselControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v9, v0
-
-    check-cast v9, Lcom/android/systemui/media/MediaCarouselController;
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v10, v0
-
-    check-cast v10, Lcom/android/systemui/plugins/FalsingManager;
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel_Factory;->systemClockProvider:Ljavax/inject/Provider;
-
-    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    move-object v11, p0
-
-    check-cast v11, Lcom/android/systemui/util/time/SystemClock;
-
-    invoke-static/range {v1 .. v11}, Lcom/android/systemui/media/MediaControlPanel_Factory;->newInstance(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/media/MediaViewController;Lcom/android/systemui/media/SeekBarViewModel;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/util/time/SystemClock;)Lcom/android/systemui/media/MediaControlPanel;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaControlPanel_Factory;->get()Lcom/android/systemui/media/MediaControlPanel;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v0
 .end method

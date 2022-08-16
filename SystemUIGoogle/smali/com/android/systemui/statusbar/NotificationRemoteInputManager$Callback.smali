@@ -15,17 +15,17 @@
 
 
 # virtual methods
-.method public abstract handleRemoteViewClick(Landroid/view/View;Landroid/app/PendingIntent;ZLcom/android/systemui/statusbar/NotificationRemoteInputManager$ClickHandler;)Z
+.method public abstract handleRemoteViewClick(Landroid/app/PendingIntent;ZLcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda0;)Z
 .end method
 
-.method public abstract onLockedRemoteInput(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Landroid/view/View;)V
+.method public abstract onLockedRemoteInput(Landroid/view/View;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 .end method
 
-.method public abstract onLockedWorkRemoteInput(ILcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Landroid/view/View;)V
+.method public abstract onLockedWorkRemoteInput(ILandroid/view/View;)V
 .end method
 
-.method public abstract onMakeExpandedVisibleForRemoteInput(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Landroid/view/View;ZLjava/lang/Runnable;)V
+.method public abstract onMakeExpandedVisibleForRemoteInput(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Landroid/view/View;ZLcom/android/systemui/statusbar/NotificationRemoteInputManager$$ExternalSyntheticLambda0;)V
 .end method
 
-.method public abstract shouldHandleRemoteInput(Landroid/view/View;Landroid/app/PendingIntent;)Z
+.method public abstract shouldHandleRemoteInput()Z
 .end method

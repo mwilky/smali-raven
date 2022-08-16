@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;
+.class public final Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "AccessibilityFloatingMenuView.java"
 
@@ -9,25 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
+.field public final synthetic this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$xNQ8zgOB4WDG41JvpdxV8UCp7ho(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$OnDragEndListener;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->lambda$onAnimationEnd$0(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$OnDragEndListener;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)V
+.method public constructor <init>(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
@@ -37,68 +29,96 @@
     return-void
 .end method
 
-.method private synthetic lambda$onAnimationEnd$0(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$OnDragEndListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
-
-    invoke-static {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$200(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)Lcom/android/systemui/accessibility/floatingmenu/Position;
-
-    move-result-object p0
-
-    invoke-interface {p1, p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$OnDragEndListener;->onDragEnd(Lcom/android/systemui/accessibility/floatingmenu/Position;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 5
 
     iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
-    invoke-static {p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$200(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)Lcom/android/systemui/accessibility/floatingmenu/Position;
+    iget-object v0, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mPosition:Lcom/android/systemui/accessibility/floatingmenu/Position;
 
-    move-result-object p1
+    iget-object v1, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mCurrentLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
-    iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
+    iget v1, v1, Landroid/view/WindowManager$LayoutParams;->x:I
 
-    invoke-static {v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$000(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)F
+    int-to-float v1, v1
 
-    move-result v0
+    invoke-virtual {p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getMaxWindowX()I
 
+    move-result p1
+
+    int-to-float p1, p1
+
+    div-float/2addr v1, p1
+
+    float-to-double v1, v1
+
+    const-wide/high16 v3, 0x3fe0000000000000L    # 0.5
+
+    cmpg-double p1, v1, v3
+
+    if-gez p1, :cond_0
+
+    const/4 p1, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    const/high16 p1, 0x3f800000    # 1.0f
+
+    :goto_0
     iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
-    invoke-static {v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$100(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)F
+    iget-object v2, v1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mCurrentLayoutParams:Landroid/view/WindowManager$LayoutParams;
+
+    iget v2, v2, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    int-to-float v2, v2
+
+    iget v3, v1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mDisplayHeight:I
+
+    invoke-virtual {v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->getWindowHeight()I
 
     move-result v1
 
-    invoke-virtual {p1, v0, v1}, Lcom/android/systemui/accessibility/floatingmenu/Position;->update(FF)V
+    sub-int/2addr v3, v1
+
+    int-to-float v1, v3
+
+    div-float/2addr v2, v1
+
+    iput p1, v0, Lcom/android/systemui/accessibility/floatingmenu/Position;->mPercentageX:F
+
+    iput v2, v0, Lcom/android/systemui/accessibility/floatingmenu/Position;->mPercentageY:F
 
     iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
-    invoke-static {p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$200(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)Lcom/android/systemui/accessibility/floatingmenu/Position;
+    iget-object v0, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mPosition:Lcom/android/systemui/accessibility/floatingmenu/Position;
 
-    move-result-object v0
+    iget v1, v0, Lcom/android/systemui/accessibility/floatingmenu/Position;->mPercentageX:F
 
-    invoke-virtual {v0}, Lcom/android/systemui/accessibility/floatingmenu/Position;->getPercentageX()F
+    const/high16 v2, 0x3f000000    # 0.5f
 
-    move-result v0
+    cmpg-float v1, v1, v2
 
-    invoke-static {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$400(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;F)I
+    const/4 v2, 0x0
 
-    move-result v0
+    const/4 v3, 0x1
 
-    invoke-static {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$302(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;I)I
+    if-gez v1, :cond_1
 
-    iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
+    move v1, v2
 
-    invoke-static {p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$200(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)Lcom/android/systemui/accessibility/floatingmenu/Position;
+    goto :goto_1
 
-    move-result-object v0
+    :cond_1
+    move v1, v3
 
-    invoke-static {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$500(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;Lcom/android/systemui/accessibility/floatingmenu/Position;)V
+    :goto_1
+    iput v1, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mAlignment:I
+
+    invoke-virtual {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateLocationWith(Lcom/android/systemui/accessibility/floatingmenu/Position;)V
 
     iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
@@ -114,55 +134,33 @@
 
     iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
-    invoke-static {v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$300(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)I
+    iget v1, v1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mAlignment:I
 
-    move-result v1
-
-    invoke-static {p1, v0, v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$600(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;II)V
+    invoke-virtual {p1, v0, v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateInsetWith(II)V
 
     iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
-    invoke-static {p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$300(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)I
+    iget v0, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mAlignment:I
 
-    move-result v0
+    if-ne v0, v3, :cond_2
 
-    const/4 v1, 0x1
+    goto :goto_2
 
-    if-ne v0, v1, :cond_0
+    :cond_2
+    const/4 v2, 0x2
 
-    const/4 v0, 0x0
+    :goto_2
+    iput v2, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mRadiusType:I
 
-    goto :goto_0
+    iget v0, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mSizeType:I
 
-    :cond_0
-    const/4 v0, 0x2
+    iget-object v1, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mTargets:Ljava/util/ArrayList;
 
-    :goto_0
-    invoke-static {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$702(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;I)I
-
-    iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
-
-    invoke-static {p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$800(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
-
-    invoke-static {v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$700(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
-
-    invoke-static {v2}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$900(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    invoke-static {p1, v0, v1, v2}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$1000(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;III)V
+    invoke-virtual {p1, v0, v2, v1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->updateRadiusWith(III)V
 
     iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
@@ -170,13 +168,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
-    invoke-static {p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->access$1100(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)Ljava/util/Optional;
+    iget-object p1, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mOnDragEndListener:Ljava/util/Optional;
 
-    move-result-object p1
+    new-instance v0, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda3;
 
-    new-instance v0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$1;)V
+    invoke-direct {v0, v3, p0}, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p1, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
 

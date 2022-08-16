@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;
+.class public final Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;
 .super Ljava/lang/Object;
 .source "ControlsUiControllerImpl.kt"
 
@@ -12,30 +12,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
+        "<T:",
         "Ljava/lang/Object;",
-        "Ljava/util/function/Consumer<",
-        "Ljava/lang/Boolean;",
-        ">;"
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Consumer;"
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nControlsUiControllerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ControlsUiControllerImpl.kt\ncom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,588:1\n1865#2,14:589\n*E\n*S KotlinDebug\n*F\n+ 1 ControlsUiControllerImpl.kt\ncom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1\n*L\n123#1,14:589\n*E\n"
+    value = "SMAP\nControlsUiControllerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ControlsUiControllerImpl.kt\ncom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,561:1\n1895#2,14:562\n*S KotlinDebug\n*F\n+ 1 ControlsUiControllerImpl.kt\ncom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1\n*L\n122#1:562,14\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
@@ -47,12 +48,10 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Boolean;)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 6
 
-    const-string v0, "accepted"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p1, Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -64,9 +63,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->getControlsController()Ldagger/Lazy;
-
-    move-result-object v1
+    iget-object v1, p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->controlsController:Ldagger/Lazy;
 
     invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
@@ -74,7 +71,7 @@
 
     check-cast v1, Lcom/android/systemui/controls/controller/ControlsController;
 
-    invoke-interface {v1}, Lcom/android/systemui/controls/controller/ControlsController;->getFavorites()Ljava/util/List;
+    invoke-interface {v1}, Lcom/android/systemui/controls/controller/ControlsController;->getFavorites()Ljava/util/ArrayList;
 
     move-result-object v1
 
@@ -110,9 +107,7 @@
 
     check-cast v3, Lcom/android/systemui/controls/controller/StructureInfo;
 
-    invoke-virtual {v3}, Lcom/android/systemui/controls/controller/StructureInfo;->getControls()Ljava/util/List;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/controls/controller/StructureInfo;->controls:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
 
@@ -127,9 +122,7 @@
 
     check-cast v5, Lcom/android/systemui/controls/controller/StructureInfo;
 
-    invoke-virtual {v5}, Lcom/android/systemui/controls/controller/StructureInfo;->getControls()Ljava/util/List;
-
-    move-result-object v5
+    iget-object v5, v5, Lcom/android/systemui/controls/controller/StructureInfo;->controls:Ljava/util/List;
 
     invoke-interface {v5}, Ljava/util/List;->size()I
 
@@ -153,48 +146,31 @@
 
     if-nez v2, :cond_4
 
-    invoke-static {}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getEMPTY_STRUCTURE$cp()Lcom/android/systemui/controls/controller/StructureInfo;
-
-    move-result-object v2
+    sget-object v2, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->EMPTY_STRUCTURE:Lcom/android/systemui/controls/controller/StructureInfo;
 
     :cond_4
-    invoke-static {p1, v2}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$setSelectedStructure$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Lcom/android/systemui/controls/controller/StructureInfo;)V
+    iput-object v2, p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->selectedStructure:Lcom/android/systemui/controls/controller/StructureInfo;
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    invoke-static {p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getSelectedStructure$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)Lcom/android/systemui/controls/controller/StructureInfo;
+    iget-object v1, p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->selectedStructure:Lcom/android/systemui/controls/controller/StructureInfo;
 
-    move-result-object v1
-
-    invoke-static {p1, v1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$updatePreferences(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Lcom/android/systemui/controls/controller/StructureInfo;)V
+    invoke-virtual {p1, v1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->updatePreferences(Lcom/android/systemui/controls/controller/StructureInfo;)V
 
     :cond_5
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getParent$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)Landroid/view/ViewGroup;
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->parent:Landroid/view/ViewGroup;
 
-    move-result-object p1
+    if-nez p1, :cond_6
 
-    if-eqz p1, :cond_6
-
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$reload(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Landroid/view/ViewGroup;)V
-
-    return-void
+    goto :goto_1
 
     :cond_6
-    const-string p0, "parent"
+    move-object v0, p1
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Ljava/lang/Boolean;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;->accept(Ljava/lang/Boolean;)V
+    :goto_1
+    invoke-virtual {p0, v0}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->reload(Landroid/view/ViewGroup;)V
 
     return-void
 .end method

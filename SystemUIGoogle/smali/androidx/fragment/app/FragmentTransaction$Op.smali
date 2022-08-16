@@ -1,4 +1,4 @@
-.class final Landroidx/fragment/app/FragmentTransaction$Op;
+.class public final Landroidx/fragment/app/FragmentTransaction$Op;
 .super Ljava/lang/Object;
 .source "FragmentTransaction.java"
 
@@ -9,33 +9,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "Op"
 .end annotation
 
 
 # instance fields
-.field mCmd:I
+.field public mCmd:I
 
-.field mCurrentMaxState:Landroidx/lifecycle/Lifecycle$State;
+.field public mCurrentMaxState:Landroidx/lifecycle/Lifecycle$State;
 
-.field mEnterAnim:I
+.field public mEnterAnim:I
 
-.field mExitAnim:I
+.field public mExitAnim:I
 
-.field mFragment:Landroidx/fragment/app/Fragment;
+.field public mFragment:Landroidx/fragment/app/Fragment;
 
-.field mOldMaxState:Landroidx/lifecycle/Lifecycle$State;
+.field public mFromExpandedOp:Z
 
-.field mPopEnterAnim:I
+.field public mOldMaxState:Landroidx/lifecycle/Lifecycle$State;
 
-.field mPopExitAnim:I
+.field public mPopEnterAnim:I
 
-.field mTopmostFragment:Z
+.field public mPopExitAnim:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method constructor <init>(ILandroidx/fragment/app/Fragment;)V
+.method public constructor <init>(ILandroidx/fragment/app/Fragment;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -54,7 +54,7 @@
 
     const/4 p1, 0x0
 
-    iput-boolean p1, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mTopmostFragment:Z
+    iput-boolean p1, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mFromExpandedOp:Z
 
     sget-object p1, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
 
@@ -65,7 +65,7 @@
     return-void
 .end method
 
-.method constructor <init>(ILandroidx/fragment/app/Fragment;Z)V
+.method public constructor <init>(ILandroidx/fragment/app/Fragment;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,7 +74,9 @@
 
     iput-object p2, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mFragment:Landroidx/fragment/app/Fragment;
 
-    iput-boolean p3, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mTopmostFragment:Z
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Landroidx/fragment/app/FragmentTransaction$Op;->mFromExpandedOp:Z
 
     sget-object p1, Landroidx/lifecycle/Lifecycle$State;->RESUMED:Landroidx/lifecycle/Lifecycle$State;
 

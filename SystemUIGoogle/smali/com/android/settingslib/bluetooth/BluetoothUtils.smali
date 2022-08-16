@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/bluetooth/BluetoothUtils;
+.class public final Lcom/android/settingslib/bluetooth/BluetoothUtils;
 .super Ljava/lang/Object;
 .source "BluetoothUtils.java"
 
@@ -12,217 +12,10 @@
 
 
 # static fields
-.field private static sErrorListener:Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
+.field public static sErrorListener:Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
 
 
 # direct methods
-.method public static buildAdvancedDrawable(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
-    .locals 4
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/settingslib/R$dimen;->advanced_icon_size:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    instance-of v1, p1, Landroid/graphics/drawable/BitmapDrawable;
-
-    const/4 v2, 0x1
-
-    if-eqz v1, :cond_0
-
-    move-object v1, p1
-
-    check-cast v1, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual {v1}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    goto :goto_2
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v3
-
-    if-lez v1, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    move v1, v2
-
-    :goto_0
-    if-lez v3, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    move v3, v2
-
-    :goto_1
-    invoke-static {p1, v1, v3}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->createBitmap(Landroid/graphics/drawable/Drawable;II)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    :goto_2
-    if-eqz v1, :cond_3
-
-    const/4 p1, 0x0
-
-    invoke-static {v1, v0, v0, p1}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
-
-    move-result-object p1
-
-    invoke-virtual {v1}, Landroid/graphics/Bitmap;->recycle()V
-
-    new-instance v0, Lcom/android/settingslib/widget/AdaptiveOutlineDrawable;
-
-    invoke-direct {v0, p0, p1, v2}, Lcom/android/settingslib/widget/AdaptiveOutlineDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;I)V
-
-    return-object v0
-
-    :cond_3
-    return-object p1
-.end method
-
-.method public static createBitmap(Landroid/graphics/drawable/Drawable;II)Landroid/graphics/Bitmap;
-    .locals 3
-
-    sget-object v0, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {p1, p2, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object p1
-
-    new-instance p2, Landroid/graphics/Canvas;
-
-    invoke-direct {p2, p1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    invoke-virtual {p2}, Landroid/graphics/Canvas;->getWidth()I
-
-    move-result v0
-
-    invoke-virtual {p2}, Landroid/graphics/Canvas;->getHeight()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v2, v2, v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    invoke-virtual {p0, p2}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    return-object p1
-.end method
-
-.method public static createIconWithDrawable(Landroid/graphics/drawable/Drawable;)Landroidx/core/graphics/drawable/IconCompat;
-    .locals 3
-
-    instance-of v0, p0, Landroid/graphics/drawable/BitmapDrawable;
-
-    if-eqz v0, :cond_0
-
-    check-cast p0, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/BitmapDrawable;->getBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object p0
-
-    goto :goto_2
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    if-lez v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    :goto_0
-    if-lez v1, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    move v1, v2
-
-    :goto_1
-    invoke-static {p0, v0, v1}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->createBitmap(Landroid/graphics/drawable/Drawable;II)Landroid/graphics/Bitmap;
-
-    move-result-object p0
-
-    :goto_2
-    invoke-static {p0}, Landroidx/core/graphics/drawable/IconCompat;->createWithBitmap(Landroid/graphics/Bitmap;)Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static getBooleanMetaData(Landroid/bluetooth/BluetoothDevice;I)Z
-    .locals 1
-
-    const/4 v0, 0x0
-
-    if-nez p0, :cond_0
-
-    return v0
-
-    :cond_0
-    invoke-virtual {p0, p1}, Landroid/bluetooth/BluetoothDevice;->getMetadata(I)[B
-
-    move-result-object p0
-
-    if-nez p0, :cond_1
-
-    return v0
-
-    :cond_1
-    new-instance p1, Ljava/lang/String;
-
-    invoke-direct {p1, p0}, Ljava/lang/String;-><init>([B)V
-
-    invoke-static {p1}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public static getBtClassDrawableWithDescription(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Landroid/util/Pair;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
@@ -238,11 +31,13 @@
         }
     .end annotation
 
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getBtClass()Landroid/bluetooth/BluetoothClass;
+    iget-object v0, p1, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mDevice:Landroid/bluetooth/BluetoothDevice;
+
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothDevice;->getBluetoothClass()Landroid/bluetooth/BluetoothClass;
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6
 
     invoke-virtual {v0}, Landroid/bluetooth/BluetoothClass;->getMajorDeviceClass()I
 
@@ -250,11 +45,11 @@
 
     const/16 v2, 0x100
 
-    if-eq v1, v2, :cond_3
+    if-eq v1, v2, :cond_5
 
     const/16 v2, 0x200
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4
 
     const/16 v2, 0x500
 
@@ -264,18 +59,18 @@
 
     if-eq v1, v2, :cond_0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
     new-instance p1, Landroid/util/Pair;
 
-    const v0, 0x1080535
+    const v0, 0x1080541
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    sget v1, Lcom/android/settingslib/R$string;->bluetooth_talkback_imaging:I
+    const v1, 0x7f1301ac
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -288,53 +83,40 @@
     :cond_1
     new-instance p1, Landroid/util/Pair;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HidProfile;->getHidClassDrawable(Landroid/bluetooth/BluetoothClass;)I
+    invoke-virtual {v0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
 
     move-result v0
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    const/16 v1, 0x540
 
-    move-result-object v0
+    if-eq v0, v1, :cond_3
 
-    sget v1, Lcom/android/settingslib/R$string;->bluetooth_talkback_input_peripheral:I
+    const/16 v1, 0x580
 
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    if-eq v0, v1, :cond_2
 
-    move-result-object p0
+    const/16 v1, 0x5c0
 
-    invoke-direct {p1, v0, p0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    if-eq v0, v1, :cond_3
 
-    return-object p1
+    const v0, 0x1080343
+
+    goto :goto_0
 
     :cond_2
-    new-instance p1, Landroid/util/Pair;
+    const v0, 0x1080345
 
-    const v0, 0x1080515
-
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/settingslib/R$string;->bluetooth_talkback_phone:I
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-direct {p1, v0, p0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-object p1
+    goto :goto_0
 
     :cond_3
-    new-instance p1, Landroid/util/Pair;
+    const v0, 0x1080401
 
-    const v0, 0x1080339
-
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    :goto_0
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    sget v1, Lcom/android/settingslib/R$string;->bluetooth_talkback_computer:I
+    const v1, 0x7f1301ad
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -345,21 +127,61 @@
     return-object p1
 
     :cond_4
-    :goto_0
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getProfiles()Ljava/util/List;
+    new-instance p1, Landroid/util/Pair;
 
-    move-result-object p1
+    const v0, 0x1080520
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object p1
+    move-result-object v0
+
+    const v1, 0x7f1301ae
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, v0, p0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object p1
 
     :cond_5
+    new-instance p1, Landroid/util/Pair;
+
+    const v0, 0x1080342
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    const v1, 0x7f1301a9
+
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, v0, p0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    return-object p1
+
+    :cond_6
+    :goto_1
+    new-instance v1, Ljava/util/ArrayList;
+
+    iget-object p1, p1, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mProfiles:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {v1, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_7
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -371,11 +193,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_7
 
     new-instance p1, Landroid/util/Pair;
 
-    invoke-static {p0, v1}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
@@ -385,8 +207,8 @@
 
     return-object p1
 
-    :cond_6
-    if-eqz v0, :cond_8
+    :cond_8
+    if-eqz v0, :cond_a
 
     const/4 p1, 0x0
 
@@ -394,17 +216,17 @@
 
     move-result p1
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_9
 
     new-instance p1, Landroid/util/Pair;
 
-    const v0, 0x1080337
+    const v0, 0x1080340
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    sget v1, Lcom/android/settingslib/R$string;->bluetooth_talkback_headset:I
+    const v1, 0x7f1301ab
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -414,24 +236,24 @@
 
     return-object p1
 
-    :cond_7
+    :cond_9
     const/4 p1, 0x1
 
     invoke-virtual {v0, p1}, Landroid/bluetooth/BluetoothClass;->doesClassMatch(I)Z
 
     move-result p1
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_a
 
     new-instance p1, Landroid/util/Pair;
 
-    const v0, 0x1080336
+    const v0, 0x108033f
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    sget v1, Lcom/android/settingslib/R$string;->bluetooth_talkback_headphone:I
+    const v1, 0x7f1301aa
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -441,12 +263,12 @@
 
     return-object p1
 
-    :cond_8
+    :cond_a
     new-instance p1, Landroid/util/Pair;
 
-    const v0, 0x1080533
+    const v0, 0x108053f
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBluetoothDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -454,7 +276,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/settingslib/R$string;->bluetooth_talkback_bluetooth:I
+    const v1, 0x7f1301a8
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -465,236 +287,10 @@
     return-object p1
 .end method
 
-.method public static getBtDrawableWithDescription(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Landroid/util/Pair;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;",
-            ")",
-            "Landroid/util/Pair<",
-            "Landroid/graphics/drawable/Drawable;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    const-string v0, "BluetoothUtils"
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBtClassDrawableWithDescription(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Landroid/util/Pair;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object p1
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/settingslib/R$dimen;->bt_nearby_icon_size:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->isAdvancedDetailsHeader(Landroid/bluetooth/BluetoothDevice;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    const/4 v4, 0x5
-
-    invoke-static {p1, v4}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getUriMetaData(Landroid/bluetooth/BluetoothDevice;I)Landroid/net/Uri;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_0
-
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v4
-
-    const/4 v5, 0x1
-
-    invoke-virtual {v4, p1, v5}, Landroid/content/ContentResolver;->takePersistableUriPermission(Landroid/net/Uri;I)V
-    :try_end_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v4
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Failed to take persistable permission for: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v0, v5, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    :try_start_1
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    invoke-static {p0, p1}, Landroid/provider/MediaStore$Images$Media;->getBitmap(Landroid/content/ContentResolver;Landroid/net/Uri;)Landroid/graphics/Bitmap;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    const/4 v4, 0x0
-
-    invoke-static {p0, v2, v2, v4}, Landroid/graphics/Bitmap;->createScaledBitmap(Landroid/graphics/Bitmap;IIZ)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Landroid/graphics/Bitmap;->recycle()V
-
-    new-instance p0, Landroid/util/Pair;
-
-    new-instance v4, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-direct {v4, v3, v2}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    iget-object v2, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/String;
-
-    invoke-direct {p0, v4, v2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
-
-    return-object p0
-
-    :catch_1
-    move-exception p0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Failed to get permission for: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    goto :goto_1
-
-    :catch_2
-    move-exception p0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "Failed to get drawable for: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :cond_0
-    :goto_1
-    new-instance p0, Landroid/util/Pair;
-
-    iget-object p1, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast p1, Landroid/graphics/drawable/Drawable;
-
-    iget-object v0, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-direct {p0, p1, v0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-object p0
-.end method
-
-.method public static getStringMetaData(Landroid/bluetooth/BluetoothDevice;I)Ljava/lang/String;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    if-nez p0, :cond_0
-
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p0, p1}, Landroid/bluetooth/BluetoothDevice;->getMetadata(I)[B
-
-    move-result-object p0
-
-    if-nez p0, :cond_1
-
-    return-object v0
-
-    :cond_1
-    new-instance p1, Ljava/lang/String;
-
-    invoke-direct {p1, p0}, Ljava/lang/String;-><init>([B)V
-
-    return-object p1
-.end method
-
-.method public static getUriMetaData(Landroid/bluetooth/BluetoothDevice;I)Landroid/net/Uri;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getStringMetaData(Landroid/bluetooth/BluetoothDevice;I)Ljava/lang/String;
-
-    move-result-object p0
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    invoke-static {p0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method public static isAdvancedDetailsHeader(Landroid/bluetooth/BluetoothDevice;)Z
-    .locals 4
+    .locals 5
 
-    const-string v0, "settings_ui"
+    const-string/jumbo v0, "settings_ui"
 
     const-string v1, "bt_advanced_header_enabled"
 
@@ -717,13 +313,35 @@
     return v1
 
     :cond_0
+    if-nez p0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
     const/4 v0, 0x6
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getBooleanMetaData(Landroid/bluetooth/BluetoothDevice;I)Z
+    invoke-virtual {p0, v0}, Landroid/bluetooth/BluetoothDevice;->getMetadata(I)[B
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
+
+    :goto_0
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_2
+    new-instance v4, Ljava/lang/String;
+
+    invoke-direct {v4, v0}, Ljava/lang/String;-><init>([B)V
+
+    invoke-static {v4}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    :goto_1
+    if-eqz v0, :cond_3
 
     const-string p0, "isAdvancedDetailsHeader: untetheredHeadset is true"
 
@@ -731,80 +349,64 @@
 
     return v2
 
-    :cond_1
+    :cond_3
     const/16 v0, 0x11
 
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->getStringMetaData(Landroid/bluetooth/BluetoothDevice;I)Ljava/lang/String;
+    const/4 v4, 0x0
+
+    if-nez p0, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    invoke-virtual {p0, v0}, Landroid/bluetooth/BluetoothDevice;->getMetadata(I)[B
 
     move-result-object p0
 
-    const-string v0, "Untethered Headset"
+    if-nez p0, :cond_5
 
-    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    goto :goto_2
 
-    move-result v0
+    :cond_5
+    new-instance v4, Ljava/lang/String;
 
-    if-nez v0, :cond_3
+    invoke-direct {v4, p0}, Ljava/lang/String;-><init>([B)V
 
-    const-string v0, "Watch"
+    :goto_2
+    const-string p0, "Untethered Headset"
 
-    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v4, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_3
+    if-nez p0, :cond_7
 
-    const-string v0, "Default"
+    const-string p0, "Watch"
 
-    invoke-static {p0, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v4, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result p0
 
-    if-eqz v0, :cond_2
+    if-nez p0, :cond_7
 
-    goto :goto_0
+    const-string p0, "Default"
 
-    :cond_2
+    invoke-static {v4, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_6
+
+    goto :goto_3
+
+    :cond_6
     return v1
 
-    :cond_3
-    :goto_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    :cond_7
+    :goto_3
+    const-string p0, "isAdvancedDetailsHeader: deviceType is "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "isAdvancedDetailsHeader: deviceType is "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {v3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, v4, v3}, Landroidx/fragment/app/DialogFragment$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return v2
-.end method
-
-.method public static setErrorListener(Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;)V
-    .locals 0
-
-    sput-object p0, Lcom/android/settingslib/bluetooth/BluetoothUtils;->sErrorListener:Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
-
-    return-void
-.end method
-
-.method static showError(Landroid/content/Context;Ljava/lang/String;I)V
-    .locals 1
-
-    sget-object v0, Lcom/android/settingslib/bluetooth/BluetoothUtils;->sErrorListener:Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p0, p1, p2}, Lcom/android/settingslib/bluetooth/BluetoothUtils$ErrorListener;->onShowError(Landroid/content/Context;Ljava/lang/String;I)V
-
-    :cond_0
-    return-void
 .end method

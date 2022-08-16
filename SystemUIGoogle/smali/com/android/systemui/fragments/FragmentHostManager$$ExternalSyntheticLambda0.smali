@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/fragments/FragmentHostManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -27,15 +28,13 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/fragments/FragmentHostManager$$ExternalSyntheticLambda0;->f$0:Ljava/lang/String;
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/fragments/FragmentHostManager$$ExternalSyntheticLambda0;->f$1:Landroid/app/Fragment;
 
     check-cast p1, Lcom/android/systemui/fragments/FragmentHostManager$FragmentListener;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/fragments/FragmentHostManager;->$r8$lambda$QlJMKD9uPd8hZrV2scpLIysb7yc(Ljava/lang/String;Landroid/app/Fragment;Lcom/android/systemui/fragments/FragmentHostManager$FragmentListener;)V
+    invoke-interface {p1, p0}, Lcom/android/systemui/fragments/FragmentHostManager$FragmentListener;->onFragmentViewCreated(Landroid/app/Fragment;)V
 
     return-void
 .end method

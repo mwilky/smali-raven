@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1;
+.class public final Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1;
 .super Ljava/lang/Object;
 .source "MediaSessionBasedFilter.kt"
 
@@ -7,28 +7,19 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaSessionBasedFilter;->dispatchMediaDataRemoved(Ljava/lang/String;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaSessionBasedFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,212:1\n1819#2,2:213\n*E\n*S KotlinDebug\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1\n*L\n181#1,2:213\n*E\n"
+    value = "SMAP\nMediaSessionBasedFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,212:1\n1849#2,2:213\n*S KotlinDebug\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1\n*L\n181#1:213,2\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic $key:Ljava/lang/String;
+.field public final synthetic $key:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
@@ -47,11 +38,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getListeners$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Set;
+    iget-object v0, v0, Lcom/android/systemui/media/MediaSessionBasedFilter;->listeners:Ljava/util/LinkedHashSet;
 
-    move-result-object v0
-
-    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
+    invoke-static {v0}, Lkotlin/collections/CollectionsKt___CollectionsKt;->toSet(Ljava/lang/Iterable;)Ljava/util/Set;
 
     move-result-object v0
 

@@ -17,6 +17,7 @@
         <item>არა უმეტეს 3 პროცესისა</item>
         <item>არაუმეტეს 4 პროცესისა</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>გამორთულია</item>
         <item>ჩართულია</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>მიუწვდომელია</item>
+        <item>გამორთვა</item>
+        <item>ჩართვა</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>მიუწვდომელია</item>
         <item>გამორთულია</item>
@@ -309,6 +315,16 @@
         <item>მიუწვდომელია</item>
         <item>გამორთულია</item>
         <item>ჩართულია</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>მიუწვდომელია</item>
+        <item>გამორთვა</item>
+        <item>ჩართვა</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>მიუწვდომელია</item>
+        <item>გამორთვა</item>
+        <item>ჩართვა</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>მიუწვდომელია</item>
@@ -374,6 +390,12 @@
         <item>ჩქარი</item>
         <item>ძალიან ჩქარი</item>
         <item>უსწრაფესი</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>მარცხნივ გადატანა</item>
+        <item>ქვემოთ გადატანა</item>
+        <item>მარჯვნივ გადატანა</item>
+        <item>ზემოთ გადატანა</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>იტენება</item>

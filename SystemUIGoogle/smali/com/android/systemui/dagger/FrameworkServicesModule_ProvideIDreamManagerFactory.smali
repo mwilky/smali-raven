@@ -32,50 +32,22 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIDreamManagerFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIDreamManagerFactory$InstanceHolder;->access$000()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIDreamManagerFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static provideIDreamManager()Landroid/service/dreams/IDreamManager;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule;->provideIDreamManager()Landroid/service/dreams/IDreamManager;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/service/dreams/IDreamManager;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Landroid/service/dreams/IDreamManager;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIDreamManagerFactory;->provideIDreamManager()Landroid/service/dreams/IDreamManager;
+    const-string p0, "dreams"
+
+    invoke-static {p0}, Landroid/os/ServiceManager;->checkService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIDreamManagerFactory;->get()Landroid/service/dreams/IDreamManager;
+    invoke-static {p0}, Landroid/service/dreams/IDreamManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/service/dreams/IDreamManager;
 
     move-result-object p0
+
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Landroidx/slice/core/SliceQuery$5;
+.class public final Landroidx/slice/core/SliceQuery$5;
 .super Ljava/lang/Object;
 .source "SliceQuery.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,24 +27,14 @@
 
 
 # instance fields
-.field final synthetic val$format:Ljava/lang/String;
+.field public final synthetic val$format:Ljava/lang/String;
 
-.field final synthetic val$subtype:Ljava/lang/String;
+.field public final synthetic val$subtype:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x1010
-        }
-        names = {
-            "val$format",
-            "val$subtype"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/core/SliceQuery$5;->val$format:Ljava/lang/String;
 
@@ -57,16 +47,8 @@
 
 
 # virtual methods
-.method public filter(Landroidx/slice/SliceItem;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "item"
-        }
-    .end annotation
+.method public final filter(Landroidx/slice/SliceItem;)Z
+    .locals 3
 
     iget-object v0, p0, Landroidx/slice/core/SliceQuery$5;->val$format:Ljava/lang/String;
 
@@ -74,43 +56,43 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_2
 
     iget-object p0, p0, Landroidx/slice/core/SliceQuery$5;->val$subtype:Ljava/lang/String;
 
-    invoke-static {p1, p0}, Landroidx/slice/core/SliceQuery;->checkSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;)Z
+    if-eqz p0, :cond_1
+
+    iget-object p1, p1, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
+
+    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
     if-eqz p0, :cond_0
 
-    const/4 p0, 0x1
-
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    move p0, v2
 
+    goto :goto_1
+
+    :cond_1
     :goto_0
-    return p0
-.end method
+    move p0, v1
 
-.method public bridge synthetic filter(Ljava/lang/Object;)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "item"
-        }
-    .end annotation
+    :goto_1
+    if-eqz p0, :cond_2
 
-    check-cast p1, Landroidx/slice/SliceItem;
+    goto :goto_2
 
-    invoke-virtual {p0, p1}, Landroidx/slice/core/SliceQuery$5;->filter(Landroidx/slice/SliceItem;)Z
+    :cond_2
+    move v1, v2
 
-    move-result p0
-
-    return p0
+    :goto_2
+    return v1
 .end method

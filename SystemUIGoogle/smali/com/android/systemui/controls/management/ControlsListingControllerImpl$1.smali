@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/ControlsListingControllerImpl;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/settings/UserTracker;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/FunctionReferenceImpl;",
@@ -32,7 +23,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$1;
@@ -44,10 +35,10 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 6
 
-    const-class v2, Lcom/android/systemui/controls/management/ControlsListingControllerImplKt;
+    const-class v2, Lcom/android/settingslib/collapsingtoolbar/R$styleable;
 
     const/4 v1, 0x1
 
@@ -66,28 +57,30 @@
 
 
 # virtual methods
-.method public final invoke(Landroid/content/Context;)Lcom/android/settingslib/applications/ServiceListing;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 8
 
-    const-string p0, "p0"
+    move-object v1, p1
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast v1, Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/android/systemui/controls/management/ControlsListingControllerImplKt;->access$createServiceListing(Landroid/content/Context;)Lcom/android/settingslib/applications/ServiceListing;
+    new-instance p0, Lcom/android/settingslib/applications/ServiceListing;
 
-    move-result-object p0
+    const-string v2, "controls_providers"
 
-    return-object p0
-.end method
+    const-string v3, "controls_providers"
 
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    const-string v4, "android.service.controls.ControlsProviderService"
 
-    check-cast p1, Landroid/content/Context;
+    const-string v5, "android.permission.BIND_CONTROLS"
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$1;->invoke(Landroid/content/Context;)Lcom/android/settingslib/applications/ServiceListing;
+    const-string v6, "Controls Provider"
 
-    move-result-object p0
+    const/4 v7, 0x1
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/settingslib/applications/ServiceListing;-><init>(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
 
     return-object p0
 .end method

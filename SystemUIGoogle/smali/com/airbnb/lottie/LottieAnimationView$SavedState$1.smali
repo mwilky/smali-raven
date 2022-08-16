@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieAnimationView$SavedState$1;
+.class public final Lcom/airbnb/lottie/LottieAnimationView$SavedState$1;
 .super Ljava/lang/Object;
 .source "LottieAnimationView.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,42 +37,20 @@
 
 
 # virtual methods
-.method public createFromParcel(Landroid/os/Parcel;)Lcom/airbnb/lottie/LottieAnimationView$SavedState;
-    .locals 1
+.method public final createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 0
 
     new-instance p0, Lcom/airbnb/lottie/LottieAnimationView$SavedState;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/airbnb/lottie/LottieAnimationView$SavedState;-><init>(Landroid/os/Parcel;Lcom/airbnb/lottie/LottieAnimationView$1;)V
+    invoke-direct {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView$SavedState;-><init>(Landroid/os/Parcel;)V
 
     return-object p0
 .end method
 
-.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView$SavedState$1;->createFromParcel(Landroid/os/Parcel;)Lcom/airbnb/lottie/LottieAnimationView$SavedState;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public newArray(I)[Lcom/airbnb/lottie/LottieAnimationView$SavedState;
+.method public final newArray(I)[Ljava/lang/Object;
     .locals 0
 
     new-array p0, p1, [Lcom/airbnb/lottie/LottieAnimationView$SavedState;
-
-    return-object p0
-.end method
-
-.method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView$SavedState$1;->newArray(I)[Lcom/airbnb/lottie/LottieAnimationView$SavedState;
-
-    move-result-object p0
 
     return-object p0
 .end method

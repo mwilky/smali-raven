@@ -4,46 +4,34 @@
 
 
 # instance fields
-.field mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
+.field public mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-.field mColAmPmIndex:I
+.field public mColAmPmIndex:I
 
-.field mColHourIndex:I
+.field public mColHourIndex:I
 
-.field mColMinuteIndex:I
+.field public mColMinuteIndex:I
 
-.field private final mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
+.field public final mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
 
-.field private mCurrentAmPmIndex:I
+.field public mCurrentAmPmIndex:I
 
-.field private mCurrentHour:I
+.field public mCurrentHour:I
 
-.field private mCurrentMinute:I
+.field public mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-.field mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
+.field public mIs24hFormat:Z
 
-.field private mIs24hFormat:Z
+.field public mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-.field mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-.field private mTimePickerFormat:Ljava/lang/String;
+.field public mTimePickerFormat:Ljava/lang/String;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
-    sget v0, Landroidx/leanback/R$attr;->timePickerStyle:I
+    const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Landroidx/leanback/widget/picker/TimePicker;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -51,25 +39,14 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .locals 12
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "CustomViewStyleable"
         }
     .end annotation
 
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
+    const p3, 0x7f0405bc
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/leanback/widget/picker/Picker;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -79,716 +56,696 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
+    new-instance v0, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
+
+    invoke-direct {v0, p3}, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;-><init>(Ljava/util/Locale;)V
+
+    iput-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
+
+    sget-object v3, Landroidx/leanback/R$styleable;->lbTimePicker:[I
+
+    invoke-virtual {p1, p2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+
     move-result-object v0
 
-    invoke-static {p3, v0}, Landroidx/leanback/widget/picker/PickerUtility;->getTimeConstantInstance(Ljava/util/Locale;Landroid/content/res/Resources;)Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
-
-    move-result-object p3
-
-    iput-object p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
-
-    sget-object v2, Landroidx/leanback/R$styleable;->lbTimePicker:[I
-
-    invoke-virtual {p1, p2, v2}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
-
-    move-result-object v7
-
-    const/4 v5, 0x0
+    sget-object v1, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
 
     const/4 v6, 0x0
 
-    move-object v0, p0
+    const/4 v7, 0x0
 
-    move-object v1, p1
+    move-object v1, p0
 
-    move-object v3, p2
+    move-object v2, p1
 
-    move-object v4, v7
+    move-object v4, p2
 
-    invoke-static/range {v0 .. v6}, Landroidx/core/view/ViewCompat;->saveAttributeDataForStyleable(Landroid/view/View;Landroid/content/Context;[ILandroid/util/AttributeSet;Landroid/content/res/TypedArray;II)V
+    move-object v5, v0
+
+    invoke-static/range {v1 .. v7}, Landroidx/core/view/ViewCompat$Api29Impl;->saveAttributeDataForStyleable(Landroid/view/View;Landroid/content/Context;[ILandroid/util/AttributeSet;Landroid/content/res/TypedArray;II)V
 
     :try_start_0
-    sget p2, Landroidx/leanback/R$styleable;->lbTimePicker_is24HourFormat:I
-
     invoke-static {p1}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;)Z
 
     move-result p1
 
-    invoke-virtual {v7, p2, p1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    const/4 p2, 0x0
+
+    invoke-virtual {v0, p2, p1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result p1
 
     iput-boolean p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
 
-    sget p1, Landroidx/leanback/R$styleable;->lbTimePicker_useCurrentTime:I
+    const/4 p1, 0x3
 
-    const/4 p2, 0x1
+    const/4 v1, 0x1
 
-    invoke-virtual {v7, p1, p2}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {v0, p1, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result p1
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v7}, Landroid/content/res/TypedArray;->recycle()V
-
-    invoke-direct {p0}, Landroidx/leanback/widget/picker/TimePicker;->updateColumns()V
-
-    invoke-direct {p0}, Landroidx/leanback/widget/picker/TimePicker;->updateColumnsRange()V
-
-    if-eqz p1, :cond_0
-
-    const/4 p1, 0x0
-
-    iget-object p2, p3, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->locale:Ljava/util/Locale;
-
-    invoke-static {p1, p2}, Landroidx/leanback/widget/picker/PickerUtility;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
-
-    move-result-object p1
-
-    const/16 p2, 0xb
-
-    invoke-virtual {p1, p2}, Ljava/util/Calendar;->get(I)I
-
-    move-result p2
-
-    invoke-virtual {p0, p2}, Landroidx/leanback/widget/picker/TimePicker;->setHour(I)V
-
-    const/16 p2, 0xc
-
-    invoke-virtual {p1, p2}, Ljava/util/Calendar;->get(I)I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/picker/TimePicker;->setMinute(I)V
-
-    invoke-direct {p0}, Landroidx/leanback/widget/picker/TimePicker;->setAmPmValue()V
-
-    :cond_0
-    return-void
-
-    :catchall_0
-    move-exception p0
-
-    invoke-virtual {v7}, Landroid/content/res/TypedArray;->recycle()V
-
-    throw p0
-.end method
-
-.method private extractTimeFields()Ljava/lang/String;
-    .locals 7
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->getBestHourMinutePattern()Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
+    iget-object v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mTimePickerFormat:Ljava/lang/String;
 
-    iget-object v1, v1, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->locale:Ljava/util/Locale;
+    invoke-static {v0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    invoke-static {v1}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
+    move-result v2
 
-    move-result v1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    if-eqz v2, :cond_0
 
-    const/4 v3, 0x1
-
-    if-ne v1, v3, :cond_0
-
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_0
-    move v1, v2
-
-    :goto_0
-    const/16 v4, 0x61
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->indexOf(I)I
-
-    move-result v4
-
-    const-string v5, "a"
-
-    if-ltz v4, :cond_1
-
-    invoke-virtual {v0, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v4
-
-    const-string v6, "m"
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
-
-    move-result v0
-
-    if-le v4, v0, :cond_2
-
-    :cond_1
-    move v2, v3
-
-    :cond_2
-    if-eqz v1, :cond_3
-
-    const-string v0, "mh"
-
-    goto :goto_1
-
-    :cond_3
-    const-string v0, "hm"
-
-    :goto_1
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->is24Hour()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_4
-
-    return-object v0
-
-    :cond_4
-    new-instance p0, Ljava/lang/StringBuilder;
-
-    if-eqz v2, :cond_5
-
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_2
-
-    :cond_5
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :goto_2
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static isAnyOf(C[C)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "any"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    move v1, v0
-
-    :goto_0
-    array-length v2, p1
-
-    if-ge v1, v2, :cond_1
-
-    aget-char v2, p1, v1
-
-    if-ne p0, v2, :cond_0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return v0
-.end method
-
-.method private setAmPmValue()V
-    .locals 3
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->is24Hour()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mColAmPmIndex:I
-
-    iget v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentAmPmIndex:I
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v0, v1, v2}, Landroidx/leanback/widget/picker/Picker;->setColumnValue(IIZ)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private updateColumns()V
-    .locals 7
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->getBestHourMinutePattern()Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mTimePickerFormat:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    return-void
+    goto/16 :goto_d
 
     :cond_0
     iput-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mTimePickerFormat:Ljava/lang/String;
 
-    invoke-direct {p0}, Landroidx/leanback/widget/picker/TimePicker;->extractTimeFields()Ljava/lang/String;
+    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->getBestHourMinutePattern()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->extractSeparators()Ljava/util/List;
+    invoke-static {p3}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
 
-    move-result-object v1
+    move-result p3
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    if-ne p3, v1, :cond_1
 
-    move-result v2
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    add-int/2addr v3, v4
-
-    if-ne v2, v3, :cond_5
-
-    invoke-virtual {p0, v1}, Landroidx/leanback/widget/picker/Picker;->setSeparators(Ljava/util/List;)V
-
-    iget-object v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
-
-    iget-object v1, v1, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->locale:Ljava/util/Locale;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    iput-object v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    iput-object v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    const/4 v1, -0x1
-
-    iput v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mColAmPmIndex:I
-
-    iput v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mColMinuteIndex:I
-
-    iput v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mColHourIndex:I
-
-    new-instance v1, Ljava/util/ArrayList;
-
-    const/4 v2, 0x3
-
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
-
-    const/4 v2, 0x0
-
-    move v3, v2
-
-    :goto_0
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    if-ge v3, v5, :cond_4
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->charAt(I)C
-
-    move-result v5
-
-    const/16 v6, 0x41
-
-    if-eq v5, v6, :cond_3
-
-    const/16 v6, 0x48
-
-    if-eq v5, v6, :cond_2
-
-    const/16 v6, 0x4d
-
-    if-ne v5, v6, :cond_1
-
-    new-instance v5, Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-direct {v5}, Landroidx/leanback/widget/picker/PickerColumn;-><init>()V
-
-    iput-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    iget-object v6, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
-
-    iget-object v6, v6, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->minutes:[Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Landroidx/leanback/widget/picker/PickerColumn;->setStaticLabels([Ljava/lang/CharSequence;)V
-
-    iput v3, p0, Landroidx/leanback/widget/picker/TimePicker;->mColMinuteIndex:I
-
-    goto :goto_1
-
-    :cond_1
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string v0, "Invalid time picker format."
-
-    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :cond_2
-    new-instance v5, Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-direct {v5}, Landroidx/leanback/widget/picker/PickerColumn;-><init>()V
-
-    iput-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    iget-object v6, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
-
-    iget-object v6, v6, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->hours24:[Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Landroidx/leanback/widget/picker/PickerColumn;->setStaticLabels([Ljava/lang/CharSequence;)V
-
-    iput v3, p0, Landroidx/leanback/widget/picker/TimePicker;->mColHourIndex:I
-
-    goto :goto_1
-
-    :cond_3
-    new-instance v5, Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-direct {v5}, Landroidx/leanback/widget/picker/PickerColumn;-><init>()V
-
-    iput-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    iget-object v6, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
-
-    iget-object v6, v6, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->ampm:[Ljava/lang/String;
-
-    invoke-virtual {v5, v6}, Landroidx/leanback/widget/picker/PickerColumn;->setStaticLabels([Ljava/lang/CharSequence;)V
-
-    iput v3, p0, Landroidx/leanback/widget/picker/TimePicker;->mColAmPmIndex:I
-
-    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-static {v5, v2}, Landroidx/leanback/widget/picker/TimePicker;->updateMin(Landroidx/leanback/widget/picker/PickerColumn;I)V
-
-    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
-
-    invoke-static {v5, v4}, Landroidx/leanback/widget/picker/TimePicker;->updateMax(Landroidx/leanback/widget/picker/PickerColumn;I)V
-
-    :goto_1
-    add-int/lit8 v3, v3, 0x1
+    move p3, v1
 
     goto :goto_0
 
-    :cond_4
-    invoke-virtual {p0, v1}, Landroidx/leanback/widget/picker/Picker;->setColumns(Ljava/util/List;)V
+    :cond_1
+    move p3, p2
 
-    return-void
+    :goto_0
+    const/16 v2, 0x61
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->indexOf(I)I
+
+    move-result v2
+
+    const-string v4, "a"
+
+    if-ltz v2, :cond_3
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    const-string v5, "m"
+
+    invoke-virtual {v0, v5}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-le v2, v0, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    move v0, p2
+
+    goto :goto_2
+
+    :cond_3
+    :goto_1
+    move v0, v1
+
+    :goto_2
+    if-eqz p3, :cond_4
+
+    const-string p3, "mh"
+
+    goto :goto_3
+
+    :cond_4
+    const-string p3, "hm"
+
+    :goto_3
+    iget-boolean v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
+
+    if-eqz v2, :cond_5
+
+    goto :goto_5
 
     :cond_5
-    new-instance p0, Ljava/lang/IllegalStateException;
-
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Separators size: "
+    if-eqz v0, :cond_6
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v1
+    goto :goto_4
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    :cond_6
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " must equal the size of timeFieldsPattern: "
+    invoke-virtual {v2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/String;->length()I
-
-    move-result v0
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v0, " + 1"
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
+    :goto_4
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p3
+
+    :goto_5
+    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->getBestHourMinutePattern()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    new-instance v2, Ljava/util/ArrayList;
 
-    throw p0
-.end method
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-.method private updateColumnsRange()V
-    .locals 4
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-boolean v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
+    const/4 v5, 0x7
 
-    const/4 v2, 0x1
+    new-array v6, v5, [C
 
-    xor-int/2addr v1, v2
+    fill-array-data v6, :array_0
 
-    invoke-static {v0, v1}, Landroidx/leanback/widget/picker/TimePicker;->updateMin(Landroidx/leanback/widget/picker/PickerColumn;I)V
+    move v7, p2
 
-    iget-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
+    move v8, v7
 
-    iget-boolean v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
+    move v9, v8
 
-    if-eqz v1, :cond_0
+    :goto_6
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
 
-    const/16 v1, 0x17
+    move-result v10
 
-    goto :goto_0
+    if-ge v7, v10, :cond_f
 
-    :cond_0
-    const/16 v1, 0xc
+    invoke-virtual {v0, v7}, Ljava/lang/String;->charAt(I)C
 
-    :goto_0
-    invoke-static {v0, v1}, Landroidx/leanback/widget/picker/TimePicker;->updateMax(Landroidx/leanback/widget/picker/PickerColumn;I)V
+    move-result v10
 
-    iget-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
+    const/16 v11, 0x20
 
-    const/4 v1, 0x0
+    if-ne v10, v11, :cond_7
 
-    invoke-static {v0, v1}, Landroidx/leanback/widget/picker/TimePicker;->updateMin(Landroidx/leanback/widget/picker/PickerColumn;I)V
+    goto :goto_a
 
-    iget-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
+    :cond_7
+    const/16 v11, 0x27
 
-    const/16 v3, 0x3b
+    if-ne v10, v11, :cond_9
 
-    invoke-static {v0, v3}, Landroidx/leanback/widget/picker/TimePicker;->updateMax(Landroidx/leanback/widget/picker/PickerColumn;I)V
+    if-nez v8, :cond_8
 
-    iget-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->setLength(I)V
 
-    if-eqz v0, :cond_1
+    move v8, v1
 
-    invoke-static {v0, v1}, Landroidx/leanback/widget/picker/TimePicker;->updateMin(Landroidx/leanback/widget/picker/PickerColumn;I)V
+    goto :goto_a
 
-    iget-object p0, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
+    :cond_8
+    move v8, p2
 
-    invoke-static {p0, v2}, Landroidx/leanback/widget/picker/TimePicker;->updateMax(Landroidx/leanback/widget/picker/PickerColumn;I)V
+    goto :goto_a
 
-    :cond_1
-    return-void
-.end method
+    :cond_9
+    if-eqz v8, :cond_a
 
-.method private static updateMax(Landroidx/leanback/widget/picker/PickerColumn;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "column",
-            "value"
-        }
-    .end annotation
+    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/PickerColumn;->getMaxValue()I
+    goto :goto_9
+
+    :cond_a
+    move v11, p2
+
+    :goto_7
+    if-ge v11, v5, :cond_c
+
+    aget-char v5, v6, v11
+
+    if-ne v10, v5, :cond_b
+
+    move v5, v1
+
+    goto :goto_8
+
+    :cond_b
+    add-int/lit8 v11, v11, 0x1
+
+    const/4 v5, 0x7
+
+    goto :goto_7
+
+    :cond_c
+    move v5, p2
+
+    :goto_8
+    if-eqz v5, :cond_d
+
+    if-eq v10, v9, :cond_e
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->setLength(I)V
+
+    goto :goto_9
+
+    :cond_d
+    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :cond_e
+    :goto_9
+    move v9, v10
+
+    :goto_a
+    add-int/lit8 v7, v7, 0x1
+
+    const/4 v5, 0x7
+
+    goto :goto_6
+
+    :cond_f
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-eq p1, v0, :cond_0
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
 
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/picker/PickerColumn;->setMaxValue(I)V
+    move-result v4
 
-    :cond_0
-    return-void
-.end method
+    add-int/2addr v4, v1
 
-.method private static updateMin(Landroidx/leanback/widget/picker/PickerColumn;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "column",
-            "value"
-        }
-    .end annotation
+    if-ne v0, v4, :cond_23
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/PickerColumn;->getMinValue()I
+    iget-object v0, p0, Landroidx/leanback/widget/picker/Picker;->mSeparators:Ljava/util/ArrayList;
 
-    move-result v0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    if-eq p1, v0, :cond_0
+    iget-object v0, p0, Landroidx/leanback/widget/picker/Picker;->mSeparators:Ljava/util/ArrayList;
 
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/picker/PickerColumn;->setMinValue(I)V
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
-    :cond_0
-    return-void
-.end method
+    iget-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
 
+    iget-object v0, v0, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->locale:Ljava/util/Locale;
 
-# virtual methods
-.method extractSeparators()Ljava/util/List;
-    .locals 9
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/CharSequence;",
-            ">;"
-        }
-    .end annotation
+    invoke-virtual {p3, v0}, Ljava/lang/String;->toUpperCase(Ljava/util/Locale;)Ljava/lang/String;
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->getBestHourMinutePattern()Ljava/lang/String;
+    move-result-object p3
 
-    move-result-object p0
+    iput-object v3, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
+
+    iput-object v3, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
+
+    iput-object v3, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mColAmPmIndex:I
+
+    iput v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mColMinuteIndex:I
+
+    iput v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mColHourIndex:I
 
     new-instance v0, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    const/4 v2, 0x3
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v0, v2}, Ljava/util/ArrayList;-><init>(I)V
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move v2, p2
 
-    const/4 v2, 0x7
+    :goto_b
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
 
-    new-array v2, v2, [C
+    move-result v4
 
-    fill-array-data v2, :array_0
+    if-ge v2, v4, :cond_15
 
-    const/4 v3, 0x0
+    invoke-virtual {p3, v2}, Ljava/lang/String;->charAt(I)C
 
-    move v4, v3
+    move-result v4
 
-    move v5, v4
+    const/16 v5, 0x41
 
-    move v6, v5
+    if-eq v4, v5, :cond_12
 
-    :goto_0
-    invoke-virtual {p0}, Ljava/lang/String;->length()I
+    const/16 v5, 0x48
 
-    move-result v7
+    if-eq v4, v5, :cond_11
 
-    if-ge v4, v7, :cond_6
+    const/16 v5, 0x4d
 
-    invoke-virtual {p0, v4}, Ljava/lang/String;->charAt(I)C
+    if-ne v4, v5, :cond_10
 
-    move-result v7
+    new-instance v4, Landroidx/leanback/widget/picker/PickerColumn;
 
-    const/16 v8, 0x20
+    invoke-direct {v4}, Landroidx/leanback/widget/picker/PickerColumn;-><init>()V
 
-    if-ne v7, v8, :cond_0
+    iput-object v4, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-    goto :goto_2
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_0
-    const/16 v8, 0x27
+    iget-object v4, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-    if-ne v7, v8, :cond_2
+    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
 
-    if-nez v5, :cond_1
+    iget-object v5, v5, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->minutes:[Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->setLength(I)V
+    iput-object v5, v4, Landroidx/leanback/widget/picker/PickerColumn;->mStaticLabels:[Ljava/lang/CharSequence;
 
-    const/4 v5, 0x1
+    iput v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mColMinuteIndex:I
 
-    goto :goto_2
+    goto :goto_c
 
-    :cond_1
-    move v5, v3
+    :cond_10
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    goto :goto_2
+    const-string p1, "Invalid time picker format."
 
-    :cond_2
-    if-eqz v5, :cond_3
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    throw p0
 
-    goto :goto_1
+    :cond_11
+    new-instance v4, Landroidx/leanback/widget/picker/PickerColumn;
 
-    :cond_3
-    invoke-static {v7, v2}, Landroidx/leanback/widget/picker/TimePicker;->isAnyOf(C[C)Z
+    invoke-direct {v4}, Landroidx/leanback/widget/picker/PickerColumn;-><init>()V
 
-    move-result v8
+    iput-object v4, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-    if-eqz v8, :cond_4
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    if-eq v7, v6, :cond_5
+    iget-object v4, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
 
-    move-result-object v6
+    iget-object v5, v5, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->hours24:[Ljava/lang/String;
 
-    invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    iput-object v5, v4, Landroidx/leanback/widget/picker/PickerColumn;->mStaticLabels:[Ljava/lang/CharSequence;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->setLength(I)V
+    iput v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mColHourIndex:I
 
-    goto :goto_1
+    goto :goto_c
 
-    :cond_4
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    :cond_12
+    new-instance v4, Landroidx/leanback/widget/picker/PickerColumn;
 
-    :cond_5
-    :goto_1
-    move v6, v7
+    invoke-direct {v4}, Landroidx/leanback/widget/picker/PickerColumn;-><init>()V
 
-    :goto_2
-    add-int/lit8 v4, v4, 0x1
+    iput-object v4, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-    goto :goto_0
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_6
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v4, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
 
-    move-result-object p0
+    iget-object v5, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
 
-    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    iget-object v5, v5, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->ampm:[Ljava/lang/String;
 
-    return-object v0
+    iput-object v5, v4, Landroidx/leanback/widget/picker/PickerColumn;->mStaticLabels:[Ljava/lang/CharSequence;
+
+    iput v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mColAmPmIndex:I
+
+    iget v5, v4, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    if-eqz v5, :cond_13
+
+    iput p2, v4, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    :cond_13
+    iget v5, v4, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    if-eq v1, v5, :cond_14
+
+    iput v1, v4, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    :cond_14
+    :goto_c
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_b
+
+    :cond_15
+    invoke-virtual {p0, v0}, Landroidx/leanback/widget/picker/Picker;->setColumns(Ljava/util/ArrayList;)V
+
+    :goto_d
+    iget-object p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mHourColumn:Landroidx/leanback/widget/picker/PickerColumn;
+
+    iget-boolean v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
+
+    xor-int/lit8 v2, v0, 0x1
+
+    iget v4, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    if-eq v2, v4, :cond_16
+
+    iput v2, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    :cond_16
+    const/16 v2, 0x17
+
+    const/16 v4, 0xc
+
+    if-eqz v0, :cond_17
+
+    move v0, v2
+
+    goto :goto_e
+
+    :cond_17
+    move v0, v4
+
+    :goto_e
+    iget v5, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    if-eq v0, v5, :cond_18
+
+    iput v0, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    :cond_18
+    iget-object p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mMinuteColumn:Landroidx/leanback/widget/picker/PickerColumn;
+
+    iget v0, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    if-eqz v0, :cond_19
+
+    iput p2, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    :cond_19
+    const/16 v0, 0x3b
+
+    iget v5, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    if-eq v0, v5, :cond_1a
+
+    iput v0, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    :cond_1a
+    iget-object p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mAmPmColumn:Landroidx/leanback/widget/picker/PickerColumn;
+
+    if-eqz p3, :cond_1c
+
+    iget v5, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    if-eqz v5, :cond_1b
+
+    iput p2, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    :cond_1b
+    iget v5, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    if-eq v1, v5, :cond_1c
+
+    iput v1, p3, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
+
+    :cond_1c
+    if-eqz p1, :cond_22
+
+    iget-object p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
+
+    iget-object p1, p1, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->locale:Ljava/util/Locale;
+
+    invoke-static {v3, p1}, Landroidx/leanback/widget/picker/PickerUtility;->getCalendarForLocale(Ljava/util/Calendar;Ljava/util/Locale;)Ljava/util/Calendar;
+
+    move-result-object p1
+
+    const/16 p3, 0xb
+
+    invoke-virtual {p1, p3}, Ljava/util/Calendar;->get(I)I
+
+    move-result p3
+
+    if-ltz p3, :cond_21
+
+    if-gt p3, v2, :cond_21
+
+    iput p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
+
+    iget-boolean v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
+
+    if-nez v2, :cond_1f
+
+    if-lt p3, v4, :cond_1d
+
+    iput v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentAmPmIndex:I
+
+    if-le p3, v4, :cond_1e
+
+    sub-int/2addr p3, v4
+
+    iput p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
+
+    goto :goto_f
+
+    :cond_1d
+    iput p2, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentAmPmIndex:I
+
+    if-nez p3, :cond_1e
+
+    iput v4, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
+
+    :cond_1e
+    :goto_f
+    if-nez v2, :cond_1f
+
+    iget p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mColAmPmIndex:I
+
+    iget v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentAmPmIndex:I
+
+    invoke-virtual {p0, p3, v1, p2}, Landroidx/leanback/widget/picker/Picker;->setColumnValue(IIZ)V
+
+    :cond_1f
+    iget p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mColHourIndex:I
+
+    iget v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
+
+    invoke-virtual {p0, p3, v1, p2}, Landroidx/leanback/widget/picker/Picker;->setColumnValue(IIZ)V
+
+    invoke-virtual {p1, v4}, Ljava/util/Calendar;->get(I)I
+
+    move-result p1
+
+    if-ltz p1, :cond_20
+
+    if-gt p1, v0, :cond_20
+
+    iget p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mColMinuteIndex:I
+
+    invoke-virtual {p0, p3, p1, p2}, Landroidx/leanback/widget/picker/Picker;->setColumnValue(IIZ)V
+
+    iget-boolean p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
+
+    if-nez p1, :cond_22
+
+    iget p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mColAmPmIndex:I
+
+    iget p3, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentAmPmIndex:I
+
+    invoke-virtual {p0, p1, p3, p2}, Landroidx/leanback/widget/picker/Picker;->setColumnValue(IIZ)V
+
+    goto :goto_10
+
+    :cond_20
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p2, "minute: "
+
+    const-string p3, " is not in [0-59] range."
+
+    invoke-static {p2, p1, p3}, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream$$ExternalSyntheticOutline0;->m(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_21
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "hour: "
+
+    const-string p2, " is not in [0-23] range in"
+
+    invoke-static {p1, p3, p2}, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataInputStream$$ExternalSyntheticOutline0;->m(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_22
+    :goto_10
+    return-void
+
+    :cond_23
+    new-instance p0, Ljava/lang/IllegalStateException;
+
+    const-string p1, "Separators size: "
+
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result p2
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p2, " must equal the size of timeFieldsPattern: "
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
+
+    move-result p2
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p2, " + 1"
+
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :catchall_0
+    move-exception p0
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    throw p0
+
+    nop
 
     :array_0
     .array-data 2
@@ -802,14 +759,10 @@
     .end array-data
 .end method
 
-.method getBestHourMinutePattern()Ljava/lang/String;
-    .locals 4
 
-    sget-boolean v0, Landroidx/leanback/widget/picker/PickerUtility;->SUPPORTS_BEST_DATE_TIME_PATTERN:Z
-
-    const-string v1, "h:mma"
-
-    if-eqz v0, :cond_1
+# virtual methods
+.method public final getBestHourMinutePattern()Ljava/lang/String;
+    .locals 1
 
     iget-object v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
 
@@ -831,110 +784,20 @@
 
     move-result-object p0
 
-    goto :goto_1
-
-    :cond_1
-    const/4 v0, 0x3
-
-    iget-object v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mConstant:Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;
-
-    iget-object v2, v2, Landroidx/leanback/widget/picker/PickerUtility$TimeConstant;->locale:Ljava/util/Locale;
-
-    invoke-static {v0, v2}, Ljava/text/SimpleDateFormat;->getTimeInstance(ILjava/util/Locale;)Ljava/text/DateFormat;
-
-    move-result-object v0
-
-    instance-of v2, v0, Ljava/text/SimpleDateFormat;
-
-    if-eqz v2, :cond_3
-
-    check-cast v0, Ljava/text/SimpleDateFormat;
-
-    invoke-virtual {v0}, Ljava/text/SimpleDateFormat;->toPattern()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v2, "s"
-
-    const-string v3, ""
-
-    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-boolean p0, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
-
-    if-eqz p0, :cond_2
-
-    const/16 p0, 0x68
-
-    const/16 v2, 0x48
-
-    invoke-virtual {v0, p0, v2}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string v0, "a"
-
-    invoke-virtual {p0, v0, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object p0
-
-    goto :goto_1
-
-    :cond_2
-    move-object p0, v0
-
-    goto :goto_1
-
-    :cond_3
-    iget-boolean p0, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
-
-    if-eqz p0, :cond_4
-
-    const-string p0, "H:mma"
-
-    goto :goto_1
-
-    :cond_4
-    move-object p0, v1
-
-    :goto_1
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_1
 
-    goto :goto_2
+    const-string p0, "h:mma"
 
-    :cond_5
-    move-object v1, p0
-
-    :goto_2
-    return-object v1
+    :cond_1
+    return-object p0
 .end method
 
-.method public is24Hour()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/leanback/widget/picker/TimePicker;->mIs24hFormat:Z
-
-    return p0
-.end method
-
-.method public onColumnValueChanged(II)V
+.method public final onColumnValueChanged(II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "columnIndex",
-            "newValue"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mColHourIndex:I
 
@@ -948,8 +811,6 @@
     iget v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mColMinuteIndex:I
 
     if-ne p1, v0, :cond_1
-
-    iput p2, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentMinute:I
 
     goto :goto_0
 
@@ -967,150 +828,6 @@
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "Invalid column index."
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
-.method public setHour(I)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hour"
-        }
-    .end annotation
-
-    if-ltz p1, :cond_3
-
-    const/16 v0, 0x17
-
-    if-gt p1, v0, :cond_3
-
-    iput p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/TimePicker;->is24Hour()Z
-
-    move-result p1
-
-    const/4 v0, 0x0
-
-    if-nez p1, :cond_2
-
-    iget p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
-
-    const/16 v1, 0xc
-
-    if-lt p1, v1, :cond_0
-
-    const/4 v2, 0x1
-
-    iput v2, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentAmPmIndex:I
-
-    if-le p1, v1, :cond_1
-
-    sub-int/2addr p1, v1
-
-    iput p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
-
-    goto :goto_0
-
-    :cond_0
-    iput v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentAmPmIndex:I
-
-    if-nez p1, :cond_1
-
-    iput v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
-
-    :cond_1
-    :goto_0
-    invoke-direct {p0}, Landroidx/leanback/widget/picker/TimePicker;->setAmPmValue()V
-
-    :cond_2
-    iget p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mColHourIndex:I
-
-    iget v1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentHour:I
-
-    invoke-virtual {p0, p1, v1, v0}, Landroidx/leanback/widget/picker/Picker;->setColumnValue(IIZ)V
-
-    return-void
-
-    :cond_3
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "hour: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, " is not in [0-23] range in"
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
-.method public setMinute(I)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "minute"
-        }
-    .end annotation
-
-    if-ltz p1, :cond_0
-
-    const/16 v0, 0x3b
-
-    if-gt p1, v0, :cond_0
-
-    iput p1, p0, Landroidx/leanback/widget/picker/TimePicker;->mCurrentMinute:I
-
-    iget v0, p0, Landroidx/leanback/widget/picker/TimePicker;->mColMinuteIndex:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, p1, v1}, Landroidx/leanback/widget/picker/Picker;->setColumnValue(IIZ)V
-
-    return-void
-
-    :cond_0
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "minute: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, " is not in [0-59] range."
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 

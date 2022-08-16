@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/wifi/AccessPointPreference$UserBadgeCache;
+.class public final Lcom/android/settingslib/wifi/AccessPointPreference$UserBadgeCache;
 .super Ljava/lang/Object;
 .source "AccessPointPreference.java"
 

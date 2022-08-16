@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -39,7 +40,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda0;->f$2:Landroid/app/people/PeopleSpaceTile;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->$r8$lambda$CCGw0jdHEovnm-ZaxTLB3JRuAWQ(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;ILandroid/app/people/PeopleSpaceTile;)V
+    invoke-virtual {v0, v1, p0}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->updateAppWidgetOptionsAndView(ILandroid/app/people/PeopleSpaceTile;)V
 
     return-void
 .end method

@@ -3,71 +3,33 @@
 .source "GlobalActionsLayoutLite.java"
 
 
-# instance fields
-.field private final mMaxColumns:I
-
-.field private final mMaxRows:I
+# static fields
+.field public static final synthetic $r8$clinit:I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$vpSx5EMkYSSZADcTyloyjRsUc8E(Landroid/view/View;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite;->lambda$new$0(Landroid/view/View;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+    new-instance p1, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite$$ExternalSyntheticLambda0;
 
-    move-result-object p1
-
-    sget p2, Lcom/android/systemui/R$integer;->power_menu_lite_max_columns:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite;->mMaxColumns:I
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    sget p2, Lcom/android/systemui/R$integer;->power_menu_lite_max_rows:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite;->mMaxRows:I
-
-    sget-object p1, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsLayoutLite$$ExternalSyntheticLambda0;
+    invoke-direct {p1}, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     return-void
 .end method
 
-.method private static synthetic lambda$new$0(Landroid/view/View;)V
-    .locals 0
-
-    return-void
-.end method
-
 
 # virtual methods
-.method protected addToListView(Landroid/view/View;Z)V
+.method public final addToListView(Landroid/view/View;Z)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->addToListView(Landroid/view/View;Z)V
 
-    sget p2, Lcom/android/systemui/R$id;->list_flow:I
+    const p2, 0x7f0b039e
 
     invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -80,7 +42,7 @@
     return-void
 .end method
 
-.method protected getAnimationDistance()F
+.method public getAnimationDistance()F
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -96,7 +58,7 @@
     return p0
 .end method
 
-.method protected getBackgroundDrawable(I)Lcom/android/systemui/HardwareBgDrawable;
+.method public final getBackgroundDrawable(I)Lcom/android/systemui/HardwareBgDrawable;
     .locals 0
 
     const/4 p0, 0x0
@@ -104,7 +66,7 @@
     return-object p0
 .end method
 
-.method protected getGridItemSize()F
+.method public getGridItemSize()F
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -117,7 +79,7 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$dimen;->global_actions_grid_item_height:I
+    const v0, 0x7f070257
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -126,7 +88,7 @@
     return p0
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 1
 
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
@@ -205,7 +167,19 @@
 
     check-cast p2, Lcom/android/systemui/globalactions/GlobalActionsItem;
 
-    invoke-virtual {p2, p5}, Lcom/android/systemui/globalactions/GlobalActionsItem;->setMarquee(Z)V
+    const p3, 0x102000b
+
+    invoke-virtual {p2, p3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/TextView;
+
+    invoke-virtual {p2, p5}, Landroid/widget/TextView;->setSingleLine(Z)V
+
+    sget-object p3, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
+
+    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     :cond_4
     add-int/lit8 p1, p1, 0x1
@@ -216,25 +190,21 @@
     return-void
 .end method
 
-.method public onUpdateList()V
+.method public final onUpdateList()V
     .locals 3
 
     invoke-super {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->onUpdateList()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getCurrentRotation()I
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0c00bb
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite;->mMaxColumns:I
-
-    goto :goto_0
-
-    :cond_0
-    iget v0, p0, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite;->mMaxRows:I
-
-    :goto_0
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getListView()Landroid/view/ViewGroup;
 
     move-result-object v1
@@ -245,20 +215,18 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getCurrentRotation()I
+    add-int/lit8 v2, v0, 0x1
 
-    move-result v2
+    if-ne v1, v2, :cond_0
 
-    if-eqz v2, :cond_1
+    const/4 v1, 0x2
 
-    iget v2, p0, Lcom/android/systemui/globalactions/GlobalActionsLayoutLite;->mMaxRows:I
-
-    if-le v1, v2, :cond_1
+    if-le v0, v1, :cond_0
 
     add-int/lit8 v0, v0, -0x1
 
-    :cond_1
-    sget v1, Lcom/android/systemui/R$id;->list_flow:I
+    :cond_0
+    const v1, 0x7f0b039e
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -266,15 +234,19 @@
 
     check-cast p0, Landroidx/constraintlayout/helper/widget/Flow;
 
-    invoke-virtual {p0, v0}, Landroidx/constraintlayout/helper/widget/Flow;->setMaxElementsWrap(I)V
+    iget-object v1, p0, Landroidx/constraintlayout/helper/widget/Flow;->mFlow:Landroidx/constraintlayout/solver/widgets/Flow;
+
+    iput v0, v1, Landroidx/constraintlayout/solver/widgets/Flow;->mMaxElementsWrap:I
+
+    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 
     return-void
 .end method
 
-.method protected removeAllListViews()V
+.method public final removeAllListViews()V
     .locals 2
 
-    sget v0, Lcom/android/systemui/R$id;->list_flow:I
+    const v0, 0x7f0b039e
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -289,7 +261,7 @@
     return-void
 .end method
 
-.method protected shouldReverseListItems()Z
+.method public shouldReverseListItems()Z
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation

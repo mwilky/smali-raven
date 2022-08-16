@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final executorProvider:Ljavax/inject/Provider;
+.field public final executorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final handlerProvider:Ljavax/inject/Provider;
+.field public final handlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final qsHostProvider:Ljavax/inject/Provider;
+.field public final qsHostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final secureSettingsProvider:Ljavax/inject/Provider;
+.field public final secureSettingsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -171,34 +171,10 @@
     return-object v7
 .end method
 
-.method public static newInstance(Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/qs/QSHost;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;)Lcom/android/systemui/qs/AutoAddTracker$Builder;
-    .locals 8
-
-    new-instance v7, Lcom/android/systemui/qs/AutoAddTracker$Builder;
-
-    move-object v0, v7
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/AutoAddTracker$Builder;-><init>(Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/qs/QSHost;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;)V
-
-    return-object v7
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/AutoAddTracker$Builder;
-    .locals 7
+.method public final get()Ljava/lang/Object;
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
@@ -206,9 +182,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/util/settings/SecureSettings;
+    check-cast v2, Lcom/android/systemui/util/settings/SecureSettings;
 
     iget-object v0, p0, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
@@ -216,9 +192,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v3, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object v0, p0, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->qsHostProvider:Ljavax/inject/Provider;
 
@@ -226,9 +202,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/qs/QSHost;
+    check-cast v4, Lcom/android/systemui/qs/QSHost;
 
     iget-object v0, p0, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -236,9 +212,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/dump/DumpManager;
+    check-cast v5, Lcom/android/systemui/dump/DumpManager;
 
     iget-object v0, p0, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->handlerProvider:Ljavax/inject/Provider;
 
@@ -246,9 +222,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Landroid/os/Handler;
+    check-cast v6, Landroid/os/Handler;
 
     iget-object p0, p0, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->executorProvider:Ljavax/inject/Provider;
 
@@ -256,23 +232,15 @@
 
     move-result-object p0
 
-    move-object v6, p0
+    move-object v7, p0
 
-    check-cast v6, Ljava/util/concurrent/Executor;
+    check-cast v7, Ljava/util/concurrent/Executor;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->newInstance(Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/qs/QSHost;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;)Lcom/android/systemui/qs/AutoAddTracker$Builder;
+    new-instance p0, Lcom/android/systemui/qs/AutoAddTracker$Builder;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/AutoAddTracker_Builder_Factory;->get()Lcom/android/systemui/qs/AutoAddTracker$Builder;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/qs/AutoAddTracker$Builder;-><init>(Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/qs/QSHost;Lcom/android/systemui/dump/DumpManager;Landroid/os/Handler;Ljava/util/concurrent/Executor;)V
 
     return-object p0
 .end method

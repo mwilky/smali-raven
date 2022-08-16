@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final activityStarterProvider:Ljavax/inject/Provider;
+.field public final activityStarterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final bgExecutorProvider:Ljavax/inject/Provider;
+.field public final bgExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final controlActionCoordinatorProvider:Ljavax/inject/Provider;
+.field public final controlActionCoordinatorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final controlsControllerProvider:Ljavax/inject/Provider;
+.field public final controlsControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final controlsListingControllerProvider:Ljavax/inject/Provider;
+.field public final controlsListingControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final controlsMetricsLoggerProvider:Ljavax/inject/Provider;
+.field public final controlsMetricsLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final iconCacheProvider:Ljavax/inject/Provider;
+.field public final iconCacheProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +108,7 @@
     .end annotation
 .end field
 
-.field private final shadeControllerProvider:Ljavax/inject/Provider;
+.field public final shadeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -118,7 +118,7 @@
     .end annotation
 .end field
 
-.field private final sharedPreferencesProvider:Ljavax/inject/Provider;
+.field public final sharedPreferencesProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -128,7 +128,7 @@
     .end annotation
 .end field
 
-.field private final uiExecutorProvider:Ljavax/inject/Provider;
+.field public final uiExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -291,75 +291,16 @@
     return-object v13
 .end method
 
-.method public static newInstance(Ldagger/Lazy;Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/DelayableExecutor;Ldagger/Lazy;Landroid/content/SharedPreferences;Lcom/android/systemui/controls/ui/ControlActionCoordinator;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/controls/CustomIconCache;Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
-    .locals 14
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/controls/controller/ControlsController;",
-            ">;",
-            "Landroid/content/Context;",
-            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
-            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/controls/management/ControlsListingController;",
-            ">;",
-            "Landroid/content/SharedPreferences;",
-            "Lcom/android/systemui/controls/ui/ControlActionCoordinator;",
-            "Lcom/android/systemui/plugins/ActivityStarter;",
-            "Lcom/android/systemui/statusbar/phone/ShadeController;",
-            "Lcom/android/systemui/controls/CustomIconCache;",
-            "Lcom/android/systemui/controls/ControlsMetricsLogger;",
-            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
-            ")",
-            "Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;"
-        }
-    .end annotation
-
-    new-instance v13, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
-
-    move-object v0, v13
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object/from16 v3, p2
-
-    move-object/from16 v4, p3
-
-    move-object/from16 v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;-><init>(Ldagger/Lazy;Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/DelayableExecutor;Ldagger/Lazy;Landroid/content/SharedPreferences;Lcom/android/systemui/controls/ui/ControlActionCoordinator;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/controls/CustomIconCache;Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
-
-    return-object v13
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
-    .locals 13
+.method public final get()Ljava/lang/Object;
+    .locals 14
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->controlsControllerProvider:Ljavax/inject/Provider;
 
     invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v1
+    move-result-object v2
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -367,21 +308,11 @@
 
     move-result-object v0
 
-    move-object v2, v0
-
-    check-cast v2, Landroid/content/Context;
-
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
     move-object v3, v0
 
-    check-cast v3, Lcom/android/systemui/util/concurrency/DelayableExecutor;
+    check-cast v3, Landroid/content/Context;
 
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->uiExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -391,11 +322,21 @@
 
     check-cast v4, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
+    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->controlsListingControllerProvider:Ljavax/inject/Provider;
 
     invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v5
+    move-result-object v6
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->sharedPreferencesProvider:Ljavax/inject/Provider;
 
@@ -403,9 +344,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Landroid/content/SharedPreferences;
+    check-cast v7, Landroid/content/SharedPreferences;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->controlActionCoordinatorProvider:Ljavax/inject/Provider;
 
@@ -413,9 +354,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Lcom/android/systemui/controls/ui/ControlActionCoordinator;
+    check-cast v8, Lcom/android/systemui/controls/ui/ControlActionCoordinator;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->activityStarterProvider:Ljavax/inject/Provider;
 
@@ -423,9 +364,9 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Lcom/android/systemui/plugins/ActivityStarter;
+    check-cast v9, Lcom/android/systemui/plugins/ActivityStarter;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->shadeControllerProvider:Ljavax/inject/Provider;
 
@@ -433,9 +374,9 @@
 
     move-result-object v0
 
-    move-object v9, v0
+    move-object v10, v0
 
-    check-cast v9, Lcom/android/systemui/statusbar/phone/ShadeController;
+    check-cast v10, Lcom/android/systemui/statusbar/phone/ShadeController;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->iconCacheProvider:Ljavax/inject/Provider;
 
@@ -443,9 +384,9 @@
 
     move-result-object v0
 
-    move-object v10, v0
+    move-object v11, v0
 
-    check-cast v10, Lcom/android/systemui/controls/CustomIconCache;
+    check-cast v11, Lcom/android/systemui/controls/CustomIconCache;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->controlsMetricsLoggerProvider:Ljavax/inject/Provider;
 
@@ -453,9 +394,9 @@
 
     move-result-object v0
 
-    move-object v11, v0
+    move-object v12, v0
 
-    check-cast v11, Lcom/android/systemui/controls/ControlsMetricsLogger;
+    check-cast v12, Lcom/android/systemui/controls/ControlsMetricsLogger;
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
@@ -463,23 +404,15 @@
 
     move-result-object p0
 
-    move-object v12, p0
+    move-object v13, p0
 
-    check-cast v12, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v13, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    invoke-static/range {v1 .. v12}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->newInstance(Ldagger/Lazy;Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/DelayableExecutor;Ldagger/Lazy;Landroid/content/SharedPreferences;Lcom/android/systemui/controls/ui/ControlActionCoordinator;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/controls/CustomIconCache;Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
+    new-instance p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl_Factory;->get()Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v13}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;-><init>(Ldagger/Lazy;Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/DelayableExecutor;Ldagger/Lazy;Landroid/content/SharedPreferences;Lcom/android/systemui/controls/ui/ControlActionCoordinator;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/controls/CustomIconCache;Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
 
     return-object p0
 .end method

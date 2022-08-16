@@ -18,7 +18,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/qs/QSUserSwitcherEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/qs/QSUserSwitcherEvent;
 
 .field public static final enum QS_USER_DETAIL_CLOSE:Lcom/android/systemui/qs/QSUserSwitcherEvent;
 
@@ -42,7 +42,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 16
 
     new-instance v0, Lcom/android/systemui/qs/QSUserSwitcherEvent;
@@ -170,7 +170,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -188,10 +188,6 @@
 .method public static valueOf(Ljava/lang/String;)Lcom/android/systemui/qs/QSUserSwitcherEvent;
     .locals 1
 
-    const-string/jumbo v0, "value"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const-class v0, Lcom/android/systemui/qs/QSUserSwitcherEvent;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -204,26 +200,22 @@
 .end method
 
 .method public static values()[Lcom/android/systemui/qs/QSUserSwitcherEvent;
-    .locals 4
+    .locals 1
 
     sget-object v0, Lcom/android/systemui/qs/QSUserSwitcherEvent;->$VALUES:[Lcom/android/systemui/qs/QSUserSwitcherEvent;
 
-    array-length v1, v0
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    new-array v1, v1, [Lcom/android/systemui/qs/QSUserSwitcherEvent;
+    move-result-object v0
 
-    array-length v2, v0
+    check-cast v0, [Lcom/android/systemui/qs/QSUserSwitcherEvent;
 
-    const/4 v3, 0x0
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    return-object v1
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/qs/QSUserSwitcherEvent;->_id:I

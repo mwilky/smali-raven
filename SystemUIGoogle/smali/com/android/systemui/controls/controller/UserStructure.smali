@@ -4,24 +4,16 @@
 
 
 # instance fields
-.field private final auxiliaryFile:Ljava/io/File;
+.field public final auxiliaryFile:Ljava/io/File;
 
-.field private final file:Ljava/io/File;
+.field public final file:Ljava/io/File;
 
-.field private final userContext:Landroid/content/Context;
+.field public final userContext:Landroid/content/Context;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/os/UserHandle;)V
     .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "user"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -66,30 +58,4 @@
     iput-object p1, p0, Lcom/android/systemui/controls/controller/UserStructure;->auxiliaryFile:Ljava/io/File;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public final getAuxiliaryFile()Ljava/io/File;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/UserStructure;->auxiliaryFile:Ljava/io/File;
-
-    return-object p0
-.end method
-
-.method public final getFile()Ljava/io/File;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/UserStructure;->file:Ljava/io/File;
-
-    return-object p0
-.end method
-
-.method public final getUserContext()Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/UserStructure;->userContext:Landroid/content/Context;
-
-    return-object p0
 .end method

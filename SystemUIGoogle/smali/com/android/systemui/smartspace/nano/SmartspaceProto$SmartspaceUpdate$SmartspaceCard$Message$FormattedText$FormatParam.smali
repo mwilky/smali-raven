@@ -106,7 +106,7 @@
     return-object p0
 .end method
 
-.method protected computeSerializedSize()I
+.method public computeSerializedSize()I
     .locals 3
 
     invoke-super {p0}, Lcom/google/protobuf/nano/MessageNano;->computeSerializedSize()I
@@ -164,9 +164,9 @@
 
     if-eqz p0, :cond_3
 
-    const/4 v1, 0x4
+    const/4 p0, 0x4
 
-    invoke-static {v1, p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(IZ)I
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(I)I
 
     move-result p0
 
@@ -214,7 +214,7 @@
 
     if-eq v0, v1, :cond_1
 
-    invoke-static {p1, v0}, Lcom/google/protobuf/nano/WireFormatNano;->parseUnknownField(Lcom/google/protobuf/nano/CodedInputByteBufferNano;I)Z
+    invoke-virtual {p1, v0}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->skipField(I)Z
 
     move-result v0
 
@@ -232,7 +232,7 @@
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -252,7 +252,7 @@
     goto :goto_0
 
     :cond_4
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -321,7 +321,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/smartspace/nano/SmartspaceProto$SmartspaceUpdate$SmartspaceCard$Message$FormattedText$FormatParam;->text:Ljava/lang/String;
 
-    invoke-virtual {p1, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeString(ILjava/lang/String;)V
+    invoke-virtual {p1, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeString$1(ILjava/lang/String;)V
 
     :cond_0
     iget v0, p0, Lcom/android/systemui/smartspace/nano/SmartspaceProto$SmartspaceUpdate$SmartspaceCard$Message$FormattedText$FormatParam;->truncateLocation:I

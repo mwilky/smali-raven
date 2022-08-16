@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ItemAdapter;
+.class public final Lcom/android/systemui/controls/ui/ItemAdapter;
 .super Landroid/widget/ArrayAdapter;
 .source "ControlsUiControllerImpl.kt"
 
@@ -14,26 +14,20 @@
 
 
 # instance fields
-.field private final layoutInflater:Landroid/view/LayoutInflater;
+.field public final layoutInflater:Landroid/view/LayoutInflater;
 
-.field private final parentContext:Landroid/content/Context;
-
-.field private final resource:I
+.field public final resource:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;I)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    const-string v0, "parentContext"
+    const v0, 0x7f0e007b
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-direct {p0, p1, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 
-    invoke-direct {p0, p1, p2}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
-
-    iput-object p1, p0, Lcom/android/systemui/controls/ui/ItemAdapter;->parentContext:Landroid/content/Context;
-
-    iput p2, p0, Lcom/android/systemui/controls/ui/ItemAdapter;->resource:I
+    iput v0, p0, Lcom/android/systemui/controls/ui/ItemAdapter;->resource:I
 
     invoke-virtual {p0}, Landroid/widget/ArrayAdapter;->getContext()Landroid/content/Context;
 
@@ -50,12 +44,8 @@
 
 
 # virtual methods
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+.method public final getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
-
-    const-string v0, "parent"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p0, p1}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -76,7 +66,7 @@
     move-result-object p2
 
     :cond_0
-    sget p0, Lcom/android/systemui/R$id;->controls_spinner_item:I
+    const p0, 0x7f0b01c8
 
     invoke-virtual {p2, p0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -90,7 +80,7 @@
 
     invoke-virtual {p0, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    sget p0, Lcom/android/systemui/R$id;->app_icon:I
+    const p0, 0x7f0b00ab
 
     invoke-virtual {p2, p0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -98,15 +88,9 @@
 
     check-cast p0, Landroid/widget/ImageView;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/SelectionItem;->getIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/SelectionItem;->icon:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    const-string/jumbo p0, "view"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-object p2
 .end method

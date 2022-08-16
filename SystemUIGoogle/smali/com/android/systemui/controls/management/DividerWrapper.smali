@@ -4,67 +4,37 @@
 
 
 # instance fields
-.field private showDivider:Z
+.field public showDivider:Z
 
-.field private showNone:Z
+.field public showNone:Z
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    const/4 v1, 0x3
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v0, v0, v1, v2}, Lcom/android/systemui/controls/management/DividerWrapper;-><init>(ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    return-void
+    throw p0
 .end method
 
-.method public constructor <init>(ZZ)V
-    .locals 1
+.method public constructor <init>(I)V
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/controls/management/ElementWrapper;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/controls/management/ElementWrapper;-><init>(I)V
 
     iput-boolean p1, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
 
-    iput-boolean p2, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
-
-    and-int/lit8 p4, p3, 0x1
-
-    const/4 v0, 0x0
-
-    if-eqz p4, :cond_0
-
-    move p1, v0
-
-    :cond_0
-    and-int/lit8 p3, p3, 0x2
-
-    if-eqz p3, :cond_1
-
-    move p2, v0
-
-    :cond_1
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/controls/management/DividerWrapper;-><init>(ZZ)V
+    iput-boolean p1, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -106,23 +76,7 @@
     return v0
 .end method
 
-.method public final getShowDivider()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
-
-    return p0
-.end method
-
-.method public final getShowNone()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
@@ -151,32 +105,14 @@
     return v0
 .end method
 
-.method public final setShowDivider(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
-
-    return-void
-.end method
-
-.method public final setShowNone(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "DividerWrapper(showNone="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "DividerWrapper(showNone="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-boolean v1, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
 
@@ -188,13 +124,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

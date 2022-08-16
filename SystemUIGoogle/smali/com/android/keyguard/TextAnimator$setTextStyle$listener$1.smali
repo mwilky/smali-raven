@@ -3,25 +3,14 @@
 .source "TextAnimator.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/TextAnimator;->setTextStyle(IFLjava/lang/Integer;ZJLandroid/animation/TimeInterpolator;JLjava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $onAnimationEnd:Ljava/lang/Runnable;
+.field public final synthetic $onAnimationEnd:Ljava/lang/Runnable;
 
-.field final synthetic this$0:Lcom/android/keyguard/TextAnimator;
+.field public final synthetic this$0:Lcom/android/keyguard/TextAnimator;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Runnable;Lcom/android/keyguard/TextAnimator;)V
+.method public constructor <init>(Ljava/lang/Runnable;Lcom/android/keyguard/TextAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$listener$1;->$onAnimationEnd:Ljava/lang/Runnable;
@@ -35,21 +24,19 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$listener$1;->this$0:Lcom/android/keyguard/TextAnimator;
 
-    invoke-virtual {p1}, Lcom/android/keyguard/TextAnimator;->getAnimator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Landroid/animation/ValueAnimator;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/keyguard/TextAnimator;->animator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {p1, p0}, Landroid/animation/ValueAnimator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
 
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$listener$1;->$onAnimationEnd:Ljava/lang/Runnable;
@@ -58,9 +45,7 @@
 
     iget-object p1, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$listener$1;->this$0:Lcom/android/keyguard/TextAnimator;
 
-    invoke-virtual {p1}, Lcom/android/keyguard/TextAnimator;->getAnimator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Landroid/animation/ValueAnimator;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/keyguard/TextAnimator;->animator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {p1, p0}, Landroid/animation/ValueAnimator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
 

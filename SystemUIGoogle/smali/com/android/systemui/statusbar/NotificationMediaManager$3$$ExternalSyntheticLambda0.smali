@@ -1,35 +1,73 @@
 .class public final synthetic Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/statusbar/NotificationMediaManager$3;
+.field public final synthetic $r8$classId:I
+
+.field public final synthetic f$0:Ljava/lang/Object;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/NotificationMediaManager$3;)V
+.method public synthetic constructor <init>(ILjava/lang/Object;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;->$r8$classId:I
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/NotificationMediaManager$3;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Object;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
-    .locals 0
+.method public final test(Ljava/lang/Object;)Z
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/NotificationMediaManager$3;
+    iget v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Ljava/lang/String;
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/NotificationMediaManager$3;->$r8$lambda$YSfXcSHkLNmdFc4b_sSU4lg2w9g(Lcom/android/systemui/statusbar/NotificationMediaManager$3;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
-    return-void
+    invoke-static {p1, p0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$3$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Ljava/util/Set;
+
+    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    invoke-interface {p0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

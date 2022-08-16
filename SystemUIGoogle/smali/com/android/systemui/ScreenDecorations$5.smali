@@ -1,62 +1,54 @@
-.class Lcom/android/systemui/ScreenDecorations$5;
-.super Landroid/content/BroadcastReceiver;
+.class public final Lcom/android/systemui/ScreenDecorations$5;
+.super Ljava/lang/Object;
 .source "ScreenDecorations.java"
 
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/ScreenDecorations;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
+# interfaces
+.implements Landroid/view/View$OnLayoutChangeListener;
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
+.field public final synthetic val$overlayView:Landroid/view/ViewGroup;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/ScreenDecorations;)V
+.method public constructor <init>(Lcom/android/systemui/RegionInterceptingFrameLayout;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/ScreenDecorations$5;->this$0:Lcom/android/systemui/ScreenDecorations;
+    iput-object p1, p0, Lcom/android/systemui/ScreenDecorations$5;->val$overlayView:Landroid/view/ViewGroup;
 
-    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
     .locals 0
 
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$5;->val$overlayView:Landroid/view/ViewGroup;
 
-    move-result p1
+    invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
 
-    iget-object p2, p0, Lcom/android/systemui/ScreenDecorations$5;->this$0:Lcom/android/systemui/ScreenDecorations;
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$5;->val$overlayView:Landroid/view/ViewGroup;
 
-    invoke-static {p2}, Lcom/android/systemui/ScreenDecorations;->access$1000(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->animate()Landroid/view/ViewPropertyAnimator;
 
-    move-result-object p2
+    move-result-object p0
 
-    invoke-virtual {p2, p1}, Lcom/android/systemui/qs/SecureSetting;->setUserId(I)V
+    const/high16 p1, 0x3f800000    # 1.0f
 
-    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$5;->this$0:Lcom/android/systemui/ScreenDecorations;
+    invoke-virtual {p0, p1}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
 
-    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$1000(Lcom/android/systemui/ScreenDecorations;)Lcom/android/systemui/qs/SecureSetting;
+    move-result-object p0
 
-    move-result-object p1
+    const-wide/16 p1, 0x3e8
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/SecureSetting;->getValue()I
+    invoke-virtual {p0, p1, p2}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
-    move-result p1
+    move-result-object p0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/ScreenDecorations;->access$900(Lcom/android/systemui/ScreenDecorations;I)V
+    invoke-virtual {p0}, Landroid/view/ViewPropertyAnimator;->start()V
 
     return-void
 .end method

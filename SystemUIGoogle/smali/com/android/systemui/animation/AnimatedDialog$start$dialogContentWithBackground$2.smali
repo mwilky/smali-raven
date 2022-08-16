@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/animation/AnimatedDialog$start$dialogContentWithBackground$2;
+.class public final Lcom/android/systemui/animation/AnimatedDialog$start$dialogContentWithBackground$2;
 .super Ljava/lang/Object;
 .source "DialogLaunchAnimator.kt"
 
@@ -6,25 +6,14 @@
 .implements Landroid/view/View$OnLayoutChangeListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/animation/AnimatedDialog;->start()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $dialogContentWithBackground:Landroid/widget/FrameLayout;
+.field public final synthetic $dialogContentWithBackground:Landroid/widget/FrameLayout;
 
-.field final synthetic $window:Landroid/view/Window;
+.field public final synthetic $window:Landroid/view/Window;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/Window;Landroid/widget/FrameLayout;)V
+.method public constructor <init>(Landroid/view/Window;Landroid/widget/FrameLayout;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$start$dialogContentWithBackground$2;->$window:Landroid/view/Window;

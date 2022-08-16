@@ -7,27 +7,19 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/broadcast/ActionReceiver$Companion;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nActionReceiver.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ActionReceiver.kt\ncom/android/systemui/broadcast/ActionReceiver\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 ConvenienceExtensions.kt\ncom/android/systemui/util/ConvenienceExtensionsKt\n*L\n1#1,133:1\n1711#2,3:134\n1819#2,2:137\n1819#2,2:143\n45#3,2:139\n45#3,2:141\n47#3,2:145\n47#3,2:147\n*E\n*S KotlinDebug\n*F\n+ 1 ActionReceiver.kt\ncom/android/systemui/broadcast/ActionReceiver\n*L\n81#1,3:134\n86#1,2:137\n126#1,2:143\n122#1,2:139\n125#1,2:141\n125#1,2:145\n122#1,2:147\n*E\n"
+    value = "SMAP\nActionReceiver.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ActionReceiver.kt\ncom/android/systemui/broadcast/ActionReceiver\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 ConvenienceExtensions.kt\ncom/android/systemui/util/ConvenienceExtensionsKt\n*L\n1#1,141:1\n1741#2,3:142\n1849#2,2:145\n1849#2,2:151\n45#3,2:147\n45#3,2:149\n47#3,2:153\n47#3,2:155\n*S KotlinDebug\n*F\n+ 1 ActionReceiver.kt\ncom/android/systemui/broadcast/ActionReceiver\n*L\n88#1:142,3\n93#1:145,2\n134#1:151,2\n130#1:147,2\n133#1:149,2\n133#1:153,2\n130#1:155,2\n*E\n"
 .end annotation
 
 
 # static fields
-.field public static final Companion:Lcom/android/systemui/broadcast/ActionReceiver$Companion;
-
-.field private static final index:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public static final index:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # instance fields
-.field private final action:Ljava/lang/String;
+.field public final action:Ljava/lang/String;
 
-.field private final activeCategories:Landroid/util/ArraySet;
+.field public final activeCategories:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -37,11 +29,11 @@
     .end annotation
 .end field
 
-.field private final bgExecutor:Ljava/util/concurrent/Executor;
+.field public final bgExecutor:Ljava/util/concurrent/Executor;
 
-.field private final logger:Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
+.field public final logger:Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
 
-.field private final receiverDatas:Landroid/util/ArraySet;
+.field public final receiverDatas:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -51,7 +43,7 @@
     .end annotation
 .end field
 
-.field private final registerAction:Lkotlin/jvm/functions/Function2;
+.field public final registerAction:Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function2<",
@@ -63,9 +55,21 @@
     .end annotation
 .end field
 
-.field private registered:Z
+.field public registered:Z
 
-.field private final unregisterAction:Lkotlin/jvm/functions/Function1;
+.field public final testPendingRemovalAction:Lkotlin/jvm/functions/Function2;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/jvm/functions/Function2<",
+            "Landroid/content/BroadcastReceiver;",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final unregisterAction:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function1<",
@@ -76,20 +80,12 @@
     .end annotation
 .end field
 
-.field private final userId:I
+.field public final userId:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
-
-    new-instance v0, Lcom/android/systemui/broadcast/ActionReceiver$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/broadcast/ActionReceiver$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/broadcast/ActionReceiver;->Companion:Lcom/android/systemui/broadcast/ActionReceiver$Companion;
 
     new-instance v0, Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -102,8 +98,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;ILkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;)V
-    .locals 1
+.method public constructor <init>(Ljava/lang/String;ILkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function1;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;Lkotlin/jvm/functions/Function2;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -123,29 +119,15 @@
             ">;",
             "Ljava/util/concurrent/Executor;",
             "Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;",
-            ")V"
+            "Lkotlin/jvm/functions/Function2<",
+            "-",
+            "Landroid/content/BroadcastReceiver;",
+            "-",
+            "Ljava/lang/Integer;",
+            "Ljava/lang/Boolean;",
+            ">;)V"
         }
     .end annotation
-
-    const-string v0, "action"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "registerAction"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "unregisterAction"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "bgExecutor"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "logger"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
@@ -160,6 +142,8 @@
     iput-object p5, p0, Lcom/android/systemui/broadcast/ActionReceiver;->bgExecutor:Ljava/util/concurrent/Executor;
 
     iput-object p6, p0, Lcom/android/systemui/broadcast/ActionReceiver;->logger:Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
+
+    iput-object p7, p0, Lcom/android/systemui/broadcast/ActionReceiver;->testPendingRemovalAction:Lkotlin/jvm/functions/Function2;
 
     new-instance p1, Landroid/util/ArraySet;
 
@@ -176,39 +160,9 @@
     return-void
 .end method
 
-.method public static final synthetic access$getAction$p(Lcom/android/systemui/broadcast/ActionReceiver;)Ljava/lang/String;
-    .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->action:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getIndex$cp()Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/broadcast/ActionReceiver;->index:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getLogger$p(Lcom/android/systemui/broadcast/ActionReceiver;)Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->logger:Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getReceiverDatas$p(Lcom/android/systemui/broadcast/ActionReceiver;)Landroid/util/ArraySet;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
-
-    return-object p0
-.end method
-
-.method private final createFilter()Landroid/content/IntentFilter;
+# virtual methods
+.method public final createFilter()Landroid/content/IntentFilter;
     .locals 2
 
     new-instance v0, Landroid/content/IntentFilter;
@@ -244,245 +198,83 @@
     return-object v0
 .end method
 
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 7
 
-# virtual methods
-.method public final addReceiverData(Lcom/android/systemui/broadcast/ReceiverData;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/IllegalArgumentException;
-        }
-    .end annotation
+    instance-of p2, p1, Landroid/util/IndentingPrintWriter;
 
-    const-string v0, "receiverData"
+    if-eqz p2, :cond_0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object v0, p1
 
-    invoke-virtual {p1}, Lcom/android/systemui/broadcast/ReceiverData;->getFilter()Landroid/content/IntentFilter;
+    check-cast v0, Landroid/util/IndentingPrintWriter;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->action:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Landroid/content/IntentFilter;->hasAction(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->activeCategories:Landroid/util/ArraySet;
-
-    invoke-virtual {p1}, Lcom/android/systemui/broadcast/ReceiverData;->getFilter()Landroid/content/IntentFilter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/IntentFilter;->categoriesIterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x0
-
-    goto :goto_0
+    invoke-virtual {v0}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
     :cond_0
-    invoke-static {v1}, Lkotlin/sequences/SequencesKt;->asSequence(Ljava/util/Iterator;)Lkotlin/sequences/Sequence;
+    iget-boolean v0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->registered:Z
+
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    const-string v1, "Registered: "
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "Receivers:"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    if-eqz p2, :cond_1
+
+    move-object v0, p1
+
+    check-cast v0, Landroid/util/IndentingPrintWriter;
+
+    invoke-virtual {v0}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
+
+    invoke-virtual {v0}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
-    :goto_0
-    if-nez v1, :cond_1
+    check-cast v1, Lcom/android/systemui/broadcast/ReceiverData;
 
-    invoke-static {}, Lkotlin/sequences/SequencesKt;->emptySequence()Lkotlin/sequences/Sequence;
+    iget-object v1, v1, Lcom/android/systemui/broadcast/ReceiverData;->receiver:Landroid/content/BroadcastReceiver;
 
-    move-result-object v1
-
-    :cond_1
-    invoke-static {v0, v1}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
-
-    invoke-virtual {v1, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    iget-object p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->size()I
-
-    move-result p1
-
-    const/4 v1, 0x1
-
-    if-ne p1, v1, :cond_2
-
-    iget-object p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->registerAction:Lkotlin/jvm/functions/Function2;
-
-    invoke-direct {p0}, Lcom/android/systemui/broadcast/ActionReceiver;->createFilter()Landroid/content/IntentFilter;
-
-    move-result-object v0
-
-    invoke-interface {p1, p0, v0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iput-boolean v1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->registered:Z
-
-    goto :goto_1
-
-    :cond_2
-    if-eqz v0, :cond_3
-
-    iget-object p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->unregisterAction:Lkotlin/jvm/functions/Function1;
-
-    invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->registerAction:Lkotlin/jvm/functions/Function2;
-
-    invoke-direct {p0}, Lcom/android/systemui/broadcast/ActionReceiver;->createFilter()Landroid/content/IntentFilter;
-
-    move-result-object v0
-
-    invoke-interface {p1, p0, v0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_3
-    :goto_1
-    return-void
-
-    :cond_4
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Trying to attach to "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->action:Ljava/lang/String;
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p0, " without correct action,receiver: "
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Lcom/android/systemui/broadcast/ReceiverData;->getReceiver()Landroid/content/BroadcastReceiver;
-
-    move-result-object p0
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 9
-
-    const-string v0, "fd"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "pw"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "args"
-
-    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    instance-of p1, p2, Landroid/util/IndentingPrintWriter;
-
-    if-eqz p1, :cond_0
-
-    move-object p1, p2
-
-    check-cast p1, Landroid/util/IndentingPrintWriter;
-
-    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/broadcast/ActionReceiver;->getRegistered()Z
-
-    move-result p1
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    const-string p3, "Registered: "
-
-    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string p1, "Receivers:"
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    instance-of p1, p2, Landroid/util/IndentingPrintWriter;
-
-    if-eqz p1, :cond_1
-
-    move-object p3, p2
-
-    check-cast p3, Landroid/util/IndentingPrintWriter;
-
-    invoke-virtual {p3}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
-
-    :cond_1
-    iget-object p3, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
-
-    invoke-interface {p3}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object p3
-
-    :goto_0
-    invoke-interface {p3}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {p3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/broadcast/ReceiverData;
-
-    invoke-virtual {v0}, Lcom/android/systemui/broadcast/ReceiverData;->getReceiver()Landroid/content/BroadcastReceiver;
-
-    move-result-object v0
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
 
     goto :goto_0
 
     :cond_2
-    if-eqz p1, :cond_3
+    if-eqz p2, :cond_3
 
-    move-object p3, p2
+    move-object v0, p1
 
-    check-cast p3, Landroid/util/IndentingPrintWriter;
+    check-cast v0, Landroid/util/IndentingPrintWriter;
 
-    invoke-virtual {p3}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
+    invoke-virtual {v0}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
     :cond_3
-    iget-object v0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->activeCategories:Landroid/util/ArraySet;
-
-    const/4 v2, 0x0
+    iget-object v1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->activeCategories:Landroid/util/ArraySet;
 
     const/4 v3, 0x0
 
@@ -490,117 +282,39 @@
 
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    const/16 v6, 0x3e
 
-    const/16 v7, 0x3e
+    const-string v2, ", "
 
-    const/4 v8, 0x0
-
-    const-string v1, ", "
-
-    invoke-static/range {v0 .. v8}, Lkotlin/collections/CollectionsKt;->joinToString$default(Ljava/lang/Iterable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v1 .. v6}, Lkotlin/collections/CollectionsKt___CollectionsKt;->joinToString$default(Ljava/lang/Iterable;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;I)Ljava/lang/String;
 
     move-result-object p0
 
-    const-string p3, "Categories: "
+    const-string v0, "Categories: "
 
-    invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_4
+    if-eqz p2, :cond_4
 
-    check-cast p2, Landroid/util/IndentingPrintWriter;
+    check-cast p1, Landroid/util/IndentingPrintWriter;
 
-    invoke-virtual {p2}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
+    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->decreaseIndent()Landroid/util/IndentingPrintWriter;
 
     :cond_4
     return-void
 .end method
 
-.method public final getRegistered()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->registered:Z
-
-    return p0
-.end method
-
-.method public final hasReceiver(Landroid/content/BroadcastReceiver;)Z
-    .locals 2
-
-    const-string v0, "receiver"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
-
-    instance-of v0, p0, Ljava/util/Collection;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_1
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/broadcast/ReceiverData;
-
-    invoke-virtual {v0}, Lcom/android/systemui/broadcast/ReceiverData;->getReceiver()Landroid/content/BroadcastReceiver;
-
-    move-result-object v0
-
-    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_2
-    :goto_0
-    return v1
-.end method
-
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalStateException;
         }
     .end annotation
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "intent"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -614,11 +328,7 @@
 
     if-eqz v0, :cond_0
 
-    sget-object v0, Lcom/android/systemui/broadcast/ActionReceiver;->Companion:Lcom/android/systemui/broadcast/ActionReceiver$Companion;
-
-    invoke-virtual {v0}, Lcom/android/systemui/broadcast/ActionReceiver$Companion;->getIndex()Ljava/util/concurrent/atomic/AtomicInteger;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/systemui/broadcast/ActionReceiver;->index:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->getAndIncrement()I
 
@@ -643,13 +353,11 @@
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Received intent for "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Received intent for "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -676,51 +384,4 @@
     invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw p1
-.end method
-
-.method public final removeReceiver(Landroid/content/BroadcastReceiver;)V
-    .locals 2
-
-    const-string v0, "receiver"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
-
-    new-instance v1, Lcom/android/systemui/broadcast/ActionReceiver$removeReceiver$1;
-
-    invoke-direct {v1, p1}, Lcom/android/systemui/broadcast/ActionReceiver$removeReceiver$1;-><init>(Landroid/content/BroadcastReceiver;)V
-
-    invoke-static {v0, v1}, Lkotlin/collections/CollectionsKt;->removeAll(Ljava/lang/Iterable;Lkotlin/jvm/functions/Function1;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->receiverDatas:Landroid/util/ArraySet;
-
-    invoke-virtual {p1}, Landroid/util/ArraySet;->isEmpty()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-boolean p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->registered:Z
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->unregisterAction:Lkotlin/jvm/functions/Function1;
-
-    invoke-interface {p1, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/android/systemui/broadcast/ActionReceiver;->registered:Z
-
-    iget-object p0, p0, Lcom/android/systemui/broadcast/ActionReceiver;->activeCategories:Landroid/util/ArraySet;
-
-    invoke-virtual {p0}, Landroid/util/ArraySet;->clear()V
-
-    :cond_0
-    return-void
 .end method

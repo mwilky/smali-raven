@@ -1,4 +1,4 @@
-.class public Lcom/android/launcher3/icons/ClockDrawableWrapper;
+.class public final Lcom/android/launcher3/icons/ClockDrawableWrapper;
 .super Landroid/graphics/drawable/AdaptiveIconDrawable;
 .source "ClockDrawableWrapper.java"
 
@@ -13,6 +13,7 @@
 
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockIconDrawable;,
         Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;,
         Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
     }
@@ -20,29 +21,19 @@
 
 
 # static fields
+.field public static final synthetic $r8$clinit:I
+
 .field public static final TICK_MS:J
 
 
 # instance fields
-.field private final mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
+.field public final mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
-.field private mTargetSdkVersion:I
-
-.field protected mThemeData:Lcom/android/launcher3/icons/ThemedIconDrawable$ThemeData;
+.field public mThemeInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Q1HtLR1f9w0IJqRnies4gHFROvo(Landroid/content/res/Resources;II)Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/launcher3/icons/ClockDrawableWrapper;->lambda$forPackage$0(Landroid/content/res/Resources;II)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MINUTES:Ljava/util/concurrent/TimeUnit;
@@ -75,19 +66,26 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p1, v0}, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;-><init>(Lcom/android/launcher3/icons/ClockDrawableWrapper$1;)V
+    invoke-direct {p1, v0}, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;-><init>(I)V
 
     iput-object p1, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mThemeInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
     return-void
 .end method
 
-.method private static forExtras(Landroid/content/pm/ApplicationInfo;Landroid/os/Bundle;Ljava/util/function/IntFunction;)Lcom/android/launcher3/icons/ClockDrawableWrapper;
-    .locals 4
+.method public static forExtras(Landroid/os/Bundle;Ljava/util/function/IntFunction;)Lcom/android/launcher3/icons/ClockDrawableWrapper;
+    .locals 6
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x21
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Landroid/content/pm/ApplicationInfo;",
             "Landroid/os/Bundle;",
             "Ljava/util/function/IntFunction<",
             "Landroid/graphics/drawable/Drawable;",
@@ -98,249 +96,205 @@
 
     const/4 v0, 0x0
 
-    if-nez p1, :cond_0
+    if-nez p0, :cond_0
 
     return-object v0
 
     :cond_0
-    const-string v1, "com.android.launcher3.LEVEL_PER_TICK_ICON_ROUND"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "com.android.launcher3.LEVEL_PER_TICK_ICON_ROUND"
 
-    invoke-virtual {p1, v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p0, v2, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     return-object v0
 
     :cond_1
-    invoke-interface {p2, v1}, Ljava/util/function/IntFunction;->apply(I)Ljava/lang/Object;
+    invoke-interface {p1, v2}, Ljava/util/function/IntFunction;->apply(I)Ljava/lang/Object;
 
-    move-result-object p2
+    move-result-object p1
 
-    check-cast p2, Landroid/graphics/drawable/Drawable;
+    check-cast p1, Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    move-result-object p2
+    move-result-object p1
 
-    instance-of v1, p2, Landroid/graphics/drawable/AdaptiveIconDrawable;
+    instance-of v2, p1, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
     return-object v0
 
     :cond_2
-    new-instance v1, Lcom/android/launcher3/icons/ClockDrawableWrapper;
+    move-object v2, p1
 
-    move-object v3, p2
+    check-cast v2, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
-    check-cast v3, Landroid/graphics/drawable/AdaptiveIconDrawable;
+    new-instance v3, Lcom/android/launcher3/icons/ClockDrawableWrapper;
 
-    invoke-direct {v1, v3}, Lcom/android/launcher3/icons/ClockDrawableWrapper;-><init>(Landroid/graphics/drawable/AdaptiveIconDrawable;)V
+    invoke-direct {v3, v2}, Lcom/android/launcher3/icons/ClockDrawableWrapper;-><init>(Landroid/graphics/drawable/AdaptiveIconDrawable;)V
 
-    iget p0, p0, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
+    iget-object v4, v3, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
-    iput p0, v1, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mTargetSdkVersion:I
-
-    iget-object p0, v1, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
-
-    invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
-
-    move-result-object p2
-
-    iput-object p2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->baseDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
-
-    const-string p2, "com.android.launcher3.HOUR_LAYER_INDEX"
-
-    const/4 v3, -0x1
-
-    invoke-virtual {p1, p2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->hourLayerIndex:I
-
-    const-string p2, "com.android.launcher3.MINUTE_LAYER_INDEX"
-
-    invoke-virtual {p1, p2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->minuteLayerIndex:I
-
-    const-string p2, "com.android.launcher3.SECOND_LAYER_INDEX"
-
-    invoke-virtual {p1, p2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
-
-    const-string p2, "com.android.launcher3.DEFAULT_HOUR"
-
-    invoke-virtual {p1, p2, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->defaultHour:I
-
-    const-string p2, "com.android.launcher3.DEFAULT_MINUTE"
-
-    invoke-virtual {p1, p2, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p2
-
-    iput p2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->defaultMinute:I
-
-    const-string p2, "com.android.launcher3.DEFAULT_SECOND"
-
-    invoke-virtual {p1, p2, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->defaultSecond:I
-
-    invoke-virtual {v1}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getForeground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
     move-result-object p1
 
-    check-cast p1, Landroid/graphics/drawable/LayerDrawable;
+    iput-object p1, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->baseDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
-    invoke-virtual {p1}, Landroid/graphics/drawable/LayerDrawable;->getNumberOfLayers()I
+    const/4 p1, -0x1
 
-    move-result p2
+    const-string v5, "com.android.launcher3.HOUR_LAYER_INDEX"
 
-    iget v2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->hourLayerIndex:I
+    invoke-virtual {p0, v5, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    if-ltz v2, :cond_3
+    move-result v5
 
-    if-lt v2, p2, :cond_4
+    iput v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->hourLayerIndex:I
+
+    const-string v5, "com.android.launcher3.MINUTE_LAYER_INDEX"
+
+    invoke-virtual {p0, v5, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    iput v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->minuteLayerIndex:I
+
+    const-string v5, "com.android.launcher3.SECOND_LAYER_INDEX"
+
+    invoke-virtual {p0, v5, p1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    iput v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
+
+    const-string v5, "com.android.launcher3.DEFAULT_HOUR"
+
+    invoke-virtual {p0, v5, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    iput v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->defaultHour:I
+
+    const-string v5, "com.android.launcher3.DEFAULT_MINUTE"
+
+    invoke-virtual {p0, v5, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    iput v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->defaultMinute:I
+
+    const-string v5, "com.android.launcher3.DEFAULT_SECOND"
+
+    invoke-virtual {p0, v5, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result p0
+
+    iput p0, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->defaultSecond:I
+
+    invoke-virtual {v3}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getForeground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/graphics/drawable/LayerDrawable;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/LayerDrawable;->getNumberOfLayers()I
+
+    move-result v1
+
+    iget v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->hourLayerIndex:I
+
+    if-ltz v5, :cond_3
+
+    if-lt v5, v1, :cond_4
 
     :cond_3
-    iput v3, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->hourLayerIndex:I
+    iput p1, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->hourLayerIndex:I
 
     :cond_4
-    iget v2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->minuteLayerIndex:I
+    iget v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->minuteLayerIndex:I
 
-    if-ltz v2, :cond_5
+    if-ltz v5, :cond_5
 
-    if-lt v2, p2, :cond_6
+    if-lt v5, v1, :cond_6
 
     :cond_5
-    iput v3, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->minuteLayerIndex:I
+    iput p1, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->minuteLayerIndex:I
 
     :cond_6
-    iget v2, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
+    iget v5, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
 
-    if-ltz v2, :cond_8
+    if-ltz v5, :cond_8
 
-    if-lt v2, p2, :cond_7
+    if-lt v5, v1, :cond_7
 
     goto :goto_0
 
     :cond_7
-    invoke-virtual {p1, v2, v0}, Landroid/graphics/drawable/LayerDrawable;->setDrawable(ILandroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, v5, v0}, Landroid/graphics/drawable/LayerDrawable;->setDrawable(ILandroid/graphics/drawable/Drawable;)V
 
-    iput v3, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
+    iput p1, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
 
     goto :goto_1
 
     :cond_8
     :goto_0
-    iput v3, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
+    iput p1, v4, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
 
     :goto_1
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+    sget-boolean v0, Lcom/android/launcher3/icons/IconProvider;->ATLEAST_T:Z
 
-    move-result-object p2
+    if-eqz v0, :cond_9
 
-    invoke-virtual {p0, p2, p1}, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->applyTime(Ljava/util/Calendar;Landroid/graphics/drawable/LayerDrawable;)Z
+    invoke-virtual {v2}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getMonochrome()Landroid/graphics/drawable/Drawable;
 
-    return-object v1
-.end method
+    move-result-object v0
 
-.method public static forPackage(Landroid/content/Context;Ljava/lang/String;I)Lcom/android/launcher3/icons/ClockDrawableWrapper;
-    .locals 2
+    instance-of v0, v0, Landroid/graphics/drawable/LayerDrawable;
 
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    if-eqz v0, :cond_9
 
-    move-result-object p0
+    new-instance v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
-    const/16 v0, 0x2080
+    new-instance v1, Landroid/graphics/drawable/ColorDrawable;
 
-    invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-direct {v1, p1}, Landroid/graphics/drawable/ColorDrawable;-><init>(I)V
+
+    invoke-virtual {v2}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getMonochrome()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    move-result-object p0
+    move-result-object p1
 
-    iget-object v0, p1, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    invoke-direct {v0, v1, p1}, Landroid/graphics/drawable/AdaptiveIconDrawable;-><init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    new-instance v1, Lcom/android/launcher3/icons/ClockDrawableWrapper$$ExternalSyntheticLambda0;
+    invoke-virtual {v4, v0}, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->copyForIcon(Landroid/graphics/drawable/Drawable;)Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
-    invoke-direct {v1, p0, p2}, Lcom/android/launcher3/icons/ClockDrawableWrapper$$ExternalSyntheticLambda0;-><init>(Landroid/content/res/Resources;I)V
+    move-result-object p1
 
-    invoke-static {p1, v0, v1}, Lcom/android/launcher3/icons/ClockDrawableWrapper;->forExtras(Landroid/content/pm/ApplicationInfo;Landroid/os/Bundle;Ljava/util/function/IntFunction;)Lcom/android/launcher3/icons/ClockDrawableWrapper;
+    iput-object p1, v3, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mThemeInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
-    move-result-object p0
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    :cond_9
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    return-object p0
+    move-result-object p1
 
-    :catch_0
-    move-exception p0
+    invoke-virtual {v4, p1, p0}, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->applyTime(Ljava/util/Calendar;Landroid/graphics/drawable/LayerDrawable;)Z
 
-    const-string p1, "ClockDrawableWrapper"
-
-    const-string p2, "Unable to load clock drawable info"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-.method private static synthetic lambda$forPackage$0(Landroid/content/res/Resources;II)Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    invoke-virtual {p0, p2, p1}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private resetLevel(Landroid/graphics/drawable/LayerDrawable;I)V
-    .locals 0
-
-    const/4 p0, -0x1
-
-    if-eq p2, p0, :cond_0
-
-    invoke-virtual {p1, p2}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
-
-    :cond_0
-    return-void
+    return-object v3
 .end method
 
 
 # virtual methods
-.method public drawForPersistence(Landroid/graphics/Canvas;)V
-    .locals 2
+.method public final drawForPersistence(Landroid/graphics/Canvas;)V
+    .locals 4
 
     invoke-virtual {p0}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getForeground()Landroid/graphics/drawable/Drawable;
 
@@ -352,20 +306,45 @@
 
     iget v1, v1, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->hourLayerIndex:I
 
-    invoke-direct {p0, v0, v1}, Lcom/android/launcher3/icons/ClockDrawableWrapper;->resetLevel(Landroid/graphics/drawable/LayerDrawable;I)V
+    const/4 v2, 0x0
 
+    const/4 v3, -0x1
+
+    if-eq v1, v3, :cond_0
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
+
+    :cond_0
     iget-object v1, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
     iget v1, v1, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->minuteLayerIndex:I
 
-    invoke-direct {p0, v0, v1}, Lcom/android/launcher3/icons/ClockDrawableWrapper;->resetLevel(Landroid/graphics/drawable/LayerDrawable;I)V
+    if-eq v1, v3, :cond_1
 
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
+
+    :cond_1
     iget-object v1, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
     iget v1, v1, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->secondLayerIndex:I
 
-    invoke-direct {p0, v0, v1}, Lcom/android/launcher3/icons/ClockDrawableWrapper;->resetLevel(Landroid/graphics/drawable/LayerDrawable;I)V
+    if-eq v1, v3, :cond_2
 
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setLevel(I)Z
+
+    :cond_2
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/AdaptiveIconDrawable;->draw(Landroid/graphics/Canvas;)V
 
     iget-object p1, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
@@ -385,68 +364,98 @@
     return-void
 .end method
 
-.method public bridge synthetic getExtendedInfo(Landroid/graphics/Bitmap;ILcom/android/launcher3/icons/BaseIconFactory;FLandroid/os/UserHandle;)Lcom/android/launcher3/icons/BitmapInfo;
-    .locals 0
+.method public final getExtendedInfo(Landroid/graphics/Bitmap;ILcom/android/launcher3/icons/BaseIconFactory;F)Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;
+    .locals 11
 
-    invoke-virtual/range {p0 .. p5}, Lcom/android/launcher3/icons/ClockDrawableWrapper;->getExtendedInfo(Landroid/graphics/Bitmap;ILcom/android/launcher3/icons/BaseIconFactory;FLandroid/os/UserHandle;)Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getExtendedInfo(Landroid/graphics/Bitmap;ILcom/android/launcher3/icons/BaseIconFactory;FLandroid/os/UserHandle;)Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;
-    .locals 7
-
-    invoke-virtual {p3}, Lcom/android/launcher3/icons/BaseIconFactory;->disableColorExtraction()V
-
-    new-instance p5, Landroid/graphics/drawable/AdaptiveIconDrawable;
+    new-instance v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
     invoke-virtual {p0}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
 
-    move-result-object v0
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-direct {v0, v1, v2}, Landroid/graphics/drawable/AdaptiveIconDrawable;-><init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {p3, v0}, Lcom/android/launcher3/icons/BaseIconFactory;->createScaledBitmapWithShadow(Landroid/graphics/drawable/AdaptiveIconDrawable;)Landroid/graphics/Bitmap;
+
+    move-result-object v8
+
+    new-instance p3, Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;
+
+    iget-object v7, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    move-object v3, p3
+
+    move-object v4, p1
+
+    move v5, p2
+
+    move v6, p4
+
+    invoke-direct/range {v3 .. v10}, Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;-><init>(Landroid/graphics/Bitmap;IFLcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;Landroid/graphics/Bitmap;Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;Landroid/graphics/Bitmap;)V
+
+    return-object p3
+.end method
+
+.method public final getMonochrome()Landroid/graphics/drawable/Drawable;
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mThemeInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return-object v1
+
+    :cond_0
+    iget-object v0, v0, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->baseDrawableState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    const/4 v1, 0x0
-
-    invoke-direct {p5, v0, v1}, Landroid/graphics/drawable/AdaptiveIconDrawable;-><init>(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-
-    invoke-static {}, Landroid/os/Process;->myUserHandle()Landroid/os/UserHandle;
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mTargetSdkVersion:I
+    instance-of v2, v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
-    const/4 v2, 0x0
+    if-eqz v2, :cond_1
 
-    invoke-virtual {p3, p5, v0, v1, v2}, Lcom/android/launcher3/icons/BaseIconFactory;->createBadgedIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/os/UserHandle;IZ)Lcom/android/launcher3/icons/BitmapInfo;
+    check-cast v0, Landroid/graphics/drawable/AdaptiveIconDrawable;
 
-    move-result-object p3
+    invoke-virtual {v0}, Landroid/graphics/drawable/AdaptiveIconDrawable;->getForeground()Landroid/graphics/drawable/Drawable;
 
-    new-instance p5, Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;
+    move-result-object v0
 
-    iget-object v4, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mAnimationInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
+    iget-object p0, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mThemeInfo:Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;
 
-    iget-object v5, p3, Lcom/android/launcher3/icons/BitmapInfo;->icon:Landroid/graphics/Bitmap;
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    iget-object v6, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper;->mThemeData:Lcom/android/launcher3/icons/ThemedIconDrawable$ThemeData;
+    move-result-object v1
 
-    move-object v0, p5
+    move-object v2, v0
 
-    move-object v1, p1
+    check-cast v2, Landroid/graphics/drawable/LayerDrawable;
 
-    move v2, p2
+    invoke-virtual {p0, v1, v2}, Lcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;->applyTime(Ljava/util/Calendar;Landroid/graphics/drawable/LayerDrawable;)Z
 
-    move v3, p4
+    return-object v0
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/launcher3/icons/ClockDrawableWrapper$ClockBitmapInfo;-><init>(Landroid/graphics/Bitmap;IFLcom/android/launcher3/icons/ClockDrawableWrapper$AnimationInfo;Landroid/graphics/Bitmap;Lcom/android/launcher3/icons/ThemedIconDrawable$ThemeData;)V
-
-    return-object p5
+    :cond_1
+    return-object v1
 .end method

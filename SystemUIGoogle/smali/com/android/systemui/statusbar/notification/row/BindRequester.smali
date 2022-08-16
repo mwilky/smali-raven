@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private mBindRequestListener:Lcom/android/systemui/statusbar/notification/row/BindRequester$BindRequestListener;
+.field public mBindRequestListener:Lcom/android/systemui/statusbar/notification/row/BindRequester$BindRequestListener;
 
 
 # direct methods
@@ -41,12 +41,4 @@
 
     :cond_0
     return-object v0
-.end method
-
-.method final setBindRequestListener(Lcom/android/systemui/statusbar/notification/row/BindRequester$BindRequestListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/BindRequester;->mBindRequestListener:Lcom/android/systemui/statusbar/notification/row/BindRequester$BindRequestListener;
-
-    return-void
 .end method

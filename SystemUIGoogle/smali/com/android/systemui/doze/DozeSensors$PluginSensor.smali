@@ -12,66 +12,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "PluginSensor"
 .end annotation
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mDebounce:J
+.field public mDebounce:J
 
-.field final mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
+.field public final mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
-.field final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
+.field public final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Jf-mpgeLP4DiPTgosDukVPI0ViI(Lcom/android/systemui/doze/DozeSensors$PluginSensor;Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)V
-    .locals 0
+.method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIJ)V
+    .locals 8
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->lambda$onSensorChanged$0(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZ)V
-    .locals 10
-
-    const-wide/16 v8, 0x0
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJ)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Ljava/lang/String;ZIZZJ)V
-    .locals 9
-
-    move-object v8, p0
-
-    move-object v1, p1
-
-    iput-object v1, v8, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
+    iput-object p1, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
     const/4 v2, 0x0
 
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
     move-object v0, p0
+
+    move-object v1, p1
 
     move-object v3, p3
 
@@ -79,184 +51,84 @@
 
     move v5, p5
 
-    move v6, p6
-
-    move/from16 v7, p7
-
     invoke-direct/range {v0 .. v7}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;-><init>(Lcom/android/systemui/doze/DozeSensors;Landroid/hardware/Sensor;Ljava/lang/String;ZIZZ)V
 
-    move-object v0, p2
+    iput-object p2, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
-    iput-object v0, v8, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
-
-    move-wide/from16 v0, p8
-
-    iput-wide v0, v8, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mDebounce:J
+    iput-wide p6, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mDebounce:J
 
     return-void
 .end method
 
-.method private synthetic lambda$onSensorChanged$0(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)V
-    .locals 6
+.method public static triggerEventToString(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)Ljava/lang/String;
+    .locals 4
 
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    iget-object v2, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
-
-    invoke-static {v2}, Lcom/android/systemui/doze/DozeSensors;->access$1300(Lcom/android/systemui/doze/DozeSensors;)J
-
-    move-result-wide v2
-
-    iget-wide v4, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mDebounce:J
-
-    add-long/2addr v2, v4
-
-    cmp-long v0, v0, v2
-
-    const-string v1, "DozeSensors"
-
-    if-gez v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onSensorEvent dropped: "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->triggerEventToString(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$300()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onSensorEvent: "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->triggerEventToString(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
-
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$1200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeSensors$Callback;
-
-    move-result-object v0
-
-    iget p0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mPulseReason:I
-
-    invoke-virtual {p1}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getValues()[F
-
-    move-result-object p1
-
-    const/high16 v1, -0x40800000    # -1.0f
-
-    invoke-interface {v0, p0, v1, v1, p1}, Lcom/android/systemui/doze/DozeSensors$Callback;->onSensorPulse(IFF[F)V
-
-    return-void
-.end method
-
-.method private triggerEventToString(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)Ljava/lang/String;
-    .locals 3
-
-    if-nez p1, :cond_0
+    if-nez p0, :cond_0
 
     const/4 p0, 0x0
 
     return-object p0
 
     :cond_0
-    new-instance p0, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v0, "PluginTriggerEvent["
+    const-string v1, "PluginTriggerEvent["
 
-    invoke-direct {p0, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getSensor()Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const/16 v0, 0x2c
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getVendorType()I
-
-    move-result v1
-
-    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getValues()[F
+    invoke-virtual {p0}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getSensor()Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
     move-result-object v1
 
-    if-eqz v1, :cond_1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const/4 v1, 0x0
+    const/16 v1, 0x2c
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getVendorType()I
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getValues()[F
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, 0x0
 
     :goto_0
-    invoke-virtual {p1}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getValues()[F
+    invoke-virtual {p0}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getValues()[F
 
-    move-result-object v2
+    move-result-object v3
 
-    array-length v2, v2
+    array-length v3, v3
 
-    if-ge v1, v2, :cond_1
+    if-ge v2, v3, :cond_1
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getValues()[F
+    invoke-virtual {p0}, Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;->getValues()[F
 
-    move-result-object v2
+    move-result-object v3
 
-    aget v2, v2, v1
+    aget v3, v3, v2
 
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_1
-    const/16 p1, 0x5d
+    const/16 p0, 0x5d
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -265,45 +137,53 @@
 
 
 # virtual methods
-.method public onSensorChanged(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)V
-    .locals 3
+.method public final onSensorChanged(Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)V
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$400(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/doze/DozeLog;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeSensors;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
     iget v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mPulseReason:I
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/doze/DozeLog;->traceSensor(I)V
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
+
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v2, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v3, Lcom/android/systemui/doze/DozeLogger$logSensorTriggered$2;->INSTANCE:Lcom/android/systemui/doze/DozeLogger$logSensorTriggered$2;
+
+    const-string v4, "DozeLog"
+
+    invoke-virtual {v0, v4, v2, v3}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v2
+
+    iput v1, v2, Lcom/android/systemui/log/LogMessageImpl;->int1:I
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$900(Lcom/android/systemui/doze/DozeSensors;)Landroid/os/Handler;
+    iget-object v1, v0, Lcom/android/systemui/doze/DozeSensors;->mHandler:Landroid/os/Handler;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
-
-    invoke-static {v1}, Lcom/android/systemui/doze/DozeSensors;->access$800(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/wakelock/WakeLock;
-
-    move-result-object v1
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeSensors;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
     new-instance v2, Lcom/android/systemui/doze/DozeSensors$PluginSensor$$ExternalSyntheticLambda0;
 
     invoke-direct {v2, p0, p1}, Lcom/android/systemui/doze/DozeSensors$PluginSensor$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/doze/DozeSensors$PluginSensor;Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEvent;)V
 
-    invoke-interface {v1, v2}, Lcom/android/systemui/util/wakelock/WakeLock;->wrap(Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    invoke-interface {v0, v2}, Lcom/android/systemui/util/wakelock/WakeLock;->wrap(Ljava/lang/Runnable;)Lcom/android/systemui/util/wakelock/WakeLock$$ExternalSyntheticLambda0;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -328,7 +208,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mDisabled:Z
+    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -367,8 +247,8 @@
     return-object p0
 .end method
 
-.method public updateListening()V
-    .locals 3
+.method public final updateListening()V
+    .locals 6
 
     iget-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mConfigured:Z
 
@@ -379,19 +259,13 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$200(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/util/sensors/AsyncSensorManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeSensors;->mSensorManager:Lcom/android/systemui/util/sensors/AsyncSensorManager;
 
     iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRequested:Z
 
     const-string v2, "DozeSensors"
 
-    if-eqz v1, :cond_2
-
-    iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mDisabled:Z
-
-    if-nez v1, :cond_2
+    if-eqz v1, :cond_3
 
     invoke-virtual {p0}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->enabledBySetting()Z
 
@@ -401,57 +275,85 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mIgnoresSetting:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     :cond_1
     iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
-    invoke-virtual {v0, v1, p0}, Lcom/android/systemui/util/sensors/AsyncSensorManager;->registerPluginListener(Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEventListener;)Z
+    iget-object v3, v0, Lcom/android/systemui/util/sensors/AsyncSensorManager;->mPlugins:Ljava/util/ArrayList;
 
-    const/4 v0, 0x1
+    invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
+    move-result v3
 
-    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$300()Z
+    if-eqz v3, :cond_2
 
-    move-result p0
+    const-string v0, "AsyncSensorManager"
 
-    if-eqz p0, :cond_3
+    const-string v1, "No plugins registered"
 
-    const-string p0, "registerPluginListener"
-
-    invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_2
+    iget-object v3, v0, Lcom/android/systemui/util/sensors/AsyncSensorManager;->mExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v4, Lcom/android/systemui/util/sensors/AsyncSensorManager$$ExternalSyntheticLambda4;
+
+    invoke-direct {v4, v0, v1, p0}, Lcom/android/systemui/util/sensors/AsyncSensorManager$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/util/sensors/AsyncSensorManager;Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEventListener;)V
+
+    invoke-interface {v3, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    :goto_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
+
+    sget-boolean p0, Lcom/android/systemui/doze/DozeSensors;->DEBUG:Z
+
+    if-eqz p0, :cond_4
+
+    const-string/jumbo p0, "registerPluginListener"
+
+    invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
+    :cond_3
     iget-boolean v1, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Lcom/android/systemui/doze/DozeSensors$PluginSensor;->mPluginSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
-    invoke-virtual {v0, v1, p0}, Lcom/android/systemui/util/sensors/AsyncSensorManager;->unregisterPluginListener(Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;Lcom/android/systemui/plugins/SensorManagerPlugin$SensorEventListener;)V
+    iget-object v3, v0, Lcom/android/systemui/util/sensors/AsyncSensorManager;->mExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v4, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda2;
+
+    const/4 v5, 0x2
+
+    invoke-direct {v4, v0, v1, v5, p0}, Lcom/android/wm/shell/pip/PipTaskOrganizer$$ExternalSyntheticLambda2;-><init>(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)V
+
+    invoke-interface {v3, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRegistered:Z
 
-    invoke-static {}, Lcom/android/systemui/doze/DozeSensors;->access$300()Z
+    sget-boolean p0, Lcom/android/systemui/doze/DozeSensors;->DEBUG:Z
 
-    move-result p0
+    if-eqz p0, :cond_4
 
-    if-eqz p0, :cond_3
-
-    const-string p0, "unregisterPluginListener"
+    const-string/jumbo p0, "unregisterPluginListener"
 
     invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_3
-    :goto_0
+    :cond_4
+    :goto_1
     return-void
 .end method

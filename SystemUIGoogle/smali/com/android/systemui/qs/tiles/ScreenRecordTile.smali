@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/ScreenRecordTile;
+.class public final Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 .super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "ScreenRecordTile.java"
 
@@ -24,46 +24,18 @@
 
 
 # instance fields
-.field private final mCallback:Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;
+.field public final mController:Lcom/android/systemui/screenrecord/RecordingController;
 
-.field private final mController:Lcom/android/systemui/screenrecord/RecordingController;
+.field public final mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-.field private final mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+.field public final mKeyguardDismissUtil:Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
 
-.field private final mKeyguardDismissUtil:Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
+.field public final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-.field private mMillisUntilFinished:J
+.field public mMillisUntilFinished:J
 
 
 # direct methods
-.method public static synthetic $r8$lambda$8RRx37kCHuaityQc8XJx-HsCeM0(Lcom/android/systemui/qs/tiles/ScreenRecordTile;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->lambda$handleClick$0(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$YQta6JmBzcBXUibziegVimDtjfw(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->lambda$showPrompt$1()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$cBOd4kSfrS6zRX8dgLmV_3MxE8w(Lcom/android/systemui/qs/tiles/ScreenRecordTile;ZLcom/android/systemui/screenrecord/ScreenRecordDialog;Landroid/view/View;)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->lambda$showPrompt$2(ZLcom/android/systemui/screenrecord/ScreenRecordDialog;Landroid/view/View;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/screenrecord/RecordingController;Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
     .locals 0
 
@@ -71,11 +43,7 @@
 
     new-instance p1, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;
 
-    const/4 p2, 0x0
-
-    invoke-direct {p1, p0, p2}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;-><init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;Lcom/android/systemui/qs/tiles/ScreenRecordTile$1;)V
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mCallback:Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;
+    invoke-direct {p1, p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;-><init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
 
     const-wide/16 p2, 0x0
 
@@ -83,7 +51,11 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
 
-    invoke-interface {p9, p0, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p9}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object p2, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mLifecycle:Landroidx/lifecycle/LifecycleRegistry;
+
+    invoke-interface {p9, p2, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/Lifecycle;Ljava/lang/Object;)Ljava/lang/Object;
 
     iput-object p10, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mKeyguardDismissUtil:Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
 
@@ -94,135 +66,9 @@
     return-void
 .end method
 
-.method static synthetic access$102(Lcom/android/systemui/qs/tiles/ScreenRecordTile;J)J
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mMillisUntilFinished:J
-
-    return-wide p1
-.end method
-
-.method private cancelCountdown()V
-    .locals 2
-
-    const-string v0, "ScreenRecordTile"
-
-    const-string v1, "Cancelling countdown"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/screenrecord/RecordingController;->cancelCountdown()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$handleClick$0(Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->showPrompt(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$showPrompt$1()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    invoke-virtual {v0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getHost()Lcom/android/systemui/qs/QSHost;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Lcom/android/systemui/qs/QSHost;->collapsePanels()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$showPrompt$2(ZLcom/android/systemui/screenrecord/ScreenRecordDialog;Landroid/view/View;)Z
-    .locals 0
-
-    if-eqz p1, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    invoke-virtual {p0, p2, p3}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p2}, Landroid/app/AlertDialog;->show()V
-
-    :goto_0
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method private showPrompt(Landroid/view/View;)V
-    .locals 6
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isShowing()Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    move v2, v0
-
-    goto :goto_0
-
-    :cond_0
-    move v2, v1
-
-    :goto_0
-    new-instance v3, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda1;
-
-    invoke-direct {v3, p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
-
-    iget-object v4, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
-
-    iget-object v5, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4, v5, v3}, Lcom/android/systemui/screenrecord/RecordingController;->createScreenRecordDialog(Landroid/content/Context;Ljava/lang/Runnable;)Lcom/android/systemui/screenrecord/ScreenRecordDialog;
-
-    move-result-object v3
-
-    new-instance v4, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;
-
-    invoke-direct {v4, p0, v2, v3, p1}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;ZLcom/android/systemui/screenrecord/ScreenRecordDialog;Landroid/view/View;)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mKeyguardDismissUtil:Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
-
-    invoke-virtual {p0, v4, v1, v0}, Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;->executeWhenUnlocked(Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;ZZ)V
-
-    return-void
-.end method
-
-.method private stopRecording()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/screenrecord/RecordingController;->stopRecording()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 0
 
     const/4 p0, 0x0
@@ -230,7 +76,7 @@
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/4 p0, 0x0
@@ -238,12 +84,12 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
+.method public final getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->quick_settings_screen_record_label:I
+    const v0, 0x7f1305fa
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -252,76 +98,139 @@
     return-object p0
 .end method
 
-.method protected handleClick(Landroid/view/View;)V
-    .locals 2
+.method public final handleClick(Landroid/view/View;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/screenrecord/RecordingController;->isStarting()Z
+    iget-boolean v1, v0, Lcom/android/systemui/screenrecord/RecordingController;->mIsStarting:Z
 
-    move-result v0
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_1
+
+    const-string p1, "ScreenRecordTile"
+
+    const-string v0, "Cancelling countdown"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
+
+    iget-object v0, p1, Lcom/android/systemui/screenrecord/RecordingController;->mCountDownTimer:Lcom/android/systemui/screenrecord/RecordingController$3;
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->cancelCountdown()V
+    invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
+    const-string v0, "RecordingController"
 
-    invoke-virtual {v0}, Lcom/android/systemui/screenrecord/RecordingController;->isRecording()Z
+    const-string v1, "Timer was null"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    iput-boolean v2, p1, Lcom/android/systemui/screenrecord/RecordingController;->mIsStarting:Z
+
+    iget-object p1, p1, Lcom/android/systemui/screenrecord/RecordingController;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :goto_1
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->stopRecording()V
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    goto :goto_0
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;
+
+    invoke-interface {v0}, Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;->onCountdownEnd()V
+
+    goto :goto_1
 
     :cond_1
+    monitor-enter v0
+
+    :try_start_0
+    iget-boolean v1, v0, Lcom/android/systemui/screenrecord/RecordingController;->mIsRecording:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v0
+
+    if-eqz v1, :cond_2
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/screenrecord/RecordingController;->stopRecording()V
+
+    goto :goto_2
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mUiHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda2;
+    new-instance v1, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;Landroid/view/View;)V
+    invoke-direct {v1, v2, p0, p1}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    :cond_3
+    :goto_2
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v0
+
+    throw p0
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-    .locals 8
+.method public final handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
+    .locals 6
+
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     iget-object p2, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
 
-    invoke-virtual {p2}, Lcom/android/systemui/screenrecord/RecordingController;->isStarting()Z
+    iget-boolean v0, p2, Lcom/android/systemui/screenrecord/RecordingController;->mIsStarting:Z
 
-    move-result p2
+    monitor-enter p2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mController:Lcom/android/systemui/screenrecord/RecordingController;
+    :try_start_0
+    iget-boolean v1, p2, Lcom/android/systemui/screenrecord/RecordingController;->mIsRecording:Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-virtual {v0}, Lcom/android/systemui/screenrecord/RecordingController;->isRecording()Z
+    monitor-exit p2
 
-    move-result v0
-
-    const/4 v1, 0x0
+    const/4 p2, 0x0
 
     const/4 v2, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    if-eqz p2, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move v3, v1
+    move v3, p2
 
     goto :goto_1
 
@@ -334,9 +243,9 @@
 
     const/4 v3, 0x2
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
-    if-eqz p2, :cond_2
+    if-eqz v0, :cond_2
 
     goto :goto_2
 
@@ -354,7 +263,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v5, Lcom/android/systemui/R$string;->quick_settings_screen_record_label:I
+    const v5, 0x7f1305fa
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -362,7 +271,7 @@
 
     iput-object v4, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
-    sget v4, Lcom/android/systemui/R$drawable;->ic_screenrecord:I
+    const v4, 0x7f08065c
 
     invoke-static {v4}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -379,18 +288,18 @@
     goto :goto_4
 
     :cond_4
-    move v4, v1
+    move v4, p2
 
     :goto_4
     iput-boolean v4, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->forceExpandIcon:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v1, :cond_5
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget p2, Lcom/android/systemui/R$string;->quick_settings_screen_record_stop:I
+    const v0, 0x7f1305fc
 
-    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -399,33 +308,33 @@
     goto :goto_5
 
     :cond_5
-    if-eqz p2, :cond_6
+    if-eqz v0, :cond_6
 
-    iget-wide v4, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mMillisUntilFinished:J
+    iget-wide v0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mMillisUntilFinished:J
 
-    const-wide/16 v6, 0x1f4
+    const-wide/16 v4, 0x1f4
 
-    add-long/2addr v4, v6
+    add-long/2addr v0, v4
 
     const/16 p0, 0x3e8
 
-    invoke-static {v4, v5, p0}, Ljava/lang/Math;->floorDiv(JI)J
+    invoke-static {v0, v1, p0}, Ljava/lang/Math;->floorDiv(JI)J
 
-    move-result-wide v4
+    move-result-wide v0
 
-    long-to-int p0, v4
+    long-to-int p0, v0
 
-    new-array p2, v2, [Ljava/lang/Object;
+    new-array v0, v2, [Ljava/lang/Object;
 
     invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p0
 
-    aput-object p0, p2, v1
+    aput-object p0, v0, p2
 
     const-string p0, "%d..."
 
-    invoke-static {p0, p2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -436,9 +345,9 @@
     :cond_6
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget p2, Lcom/android/systemui/R$string;->quick_settings_screen_record_start:I
+    const v0, 0x7f1305fb
 
-    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
@@ -462,9 +371,9 @@
 
     new-array p0, p0, [Ljava/lang/CharSequence;
 
-    iget-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+    iget-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
 
-    aput-object p2, p0, v1
+    aput-object v0, p0, p2
 
     const-string p2, ", "
 
@@ -490,19 +399,16 @@
     iput-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->expandedAccessibilityClassName:Ljava/lang/String;
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p2
+
+    throw p0
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 2
 
     new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
@@ -511,7 +417,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v1, Lcom/android/systemui/R$string;->quick_settings_screen_record_label:I
+    const v1, 0x7f1305fa
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -524,14 +430,4 @@
     iput-boolean p0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->handlesLongClick:Z
 
     return-object v0
-.end method
-
-.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    move-result-object p0
-
-    return-object p0
 .end method

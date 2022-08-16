@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private mClass:Ljava/lang/Class;
+.field public mClass:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private mPluginView:Landroid/view/View;
+.field public mPluginView:Landroid/view/View;
 
 
 # direct methods
@@ -43,25 +43,27 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/systemui/R$styleable;->PluginInflateContainer_viewType:I
+    const/4 p2, 0x0
 
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
-
-    :try_start_0
-    invoke-static {p1}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
     move-result-object p2
 
-    iput-object p2, p0, Lcom/android/systemui/PluginInflateContainer;->mClass:Ljava/lang/Class;
+    invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
+
+    :try_start_0
+    invoke-static {p2}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/PluginInflateContainer;->mClass:Ljava/lang/Class;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
     :catch_0
-    move-exception p2
+    move-exception p1
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -71,15 +73,15 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p2
 
     const-string v0, "PluginInflateContainer"
 
-    invoke-static {v0, p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, p2, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     const/4 p1, 0x0
 
@@ -91,7 +93,7 @@
 
 
 # virtual methods
-.method protected inflateLayoutImpl()V
+.method public final inflateLayoutImpl()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/PluginInflateContainer;->mPluginView:Landroid/view/View;
@@ -109,7 +111,7 @@
     return-void
 .end method
 
-.method protected onAttachedToWindow()V
+.method public final onAttachedToWindow()V
     .locals 2
 
     invoke-super {p0}, Lcom/android/systemui/AutoReinflateContainer;->onAttachedToWindow()V
@@ -134,7 +136,7 @@
     return-void
 .end method
 
-.method protected onDetachedFromWindow()V
+.method public final onDetachedFromWindow()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/AutoReinflateContainer;->onDetachedFromWindow()V
@@ -157,18 +159,10 @@
     return-void
 .end method
 
-.method public bridge synthetic onPluginConnected(Lcom/android/systemui/plugins/Plugin;Landroid/content/Context;)V
+.method public final onPluginConnected(Lcom/android/systemui/plugins/Plugin;Landroid/content/Context;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/plugins/ViewProvider;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/PluginInflateContainer;->onPluginConnected(Lcom/android/systemui/plugins/ViewProvider;Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method public onPluginConnected(Lcom/android/systemui/plugins/ViewProvider;Landroid/content/Context;)V
-    .locals 0
 
     invoke-interface {p1}, Lcom/android/systemui/plugins/ViewProvider;->getView()Landroid/view/View;
 
@@ -181,18 +175,10 @@
     return-void
 .end method
 
-.method public bridge synthetic onPluginDisconnected(Lcom/android/systemui/plugins/Plugin;)V
+.method public final onPluginDisconnected(Lcom/android/systemui/plugins/Plugin;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/plugins/ViewProvider;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/PluginInflateContainer;->onPluginDisconnected(Lcom/android/systemui/plugins/ViewProvider;)V
-
-    return-void
-.end method
-
-.method public onPluginDisconnected(Lcom/android/systemui/plugins/ViewProvider;)V
-    .locals 0
 
     const/4 p1, 0x0
 

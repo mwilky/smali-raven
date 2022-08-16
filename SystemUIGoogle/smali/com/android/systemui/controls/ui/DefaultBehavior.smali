@@ -21,104 +21,60 @@
 
 
 # virtual methods
-.method public bind(Lcom/android/systemui/controls/ui/ControlWithState;I)V
-    .locals 10
+.method public final bind(Lcom/android/systemui/controls/ui/ControlWithState;I)V
+    .locals 3
 
-    const-string v0, "cws"
+    iget-object v0, p0, Lcom/android/systemui/controls/ui/DefaultBehavior;->cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v1, 0x0
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/DefaultBehavior;->getCvh()Lcom/android/systemui/controls/ui/ControlViewHolder;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlWithState;->getControl()Landroid/service/controls/Control;
-
-    move-result-object p1
-
-    const-string v1, ""
-
-    if-nez p1, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
+    move-object v0, v1
+
+    :goto_0
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
+
+    if-nez p1, :cond_1
+
+    goto :goto_1
+
+    :cond_1
     invoke-virtual {p1}, Landroid/service/controls/Control;->getStatusText()Ljava/lang/CharSequence;
 
     move-result-object p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2
 
-    goto :goto_0
+    :goto_1
+    const-string p1, ""
 
-    :cond_1
-    move-object v1, p1
+    :cond_2
+    sget-object v2, Lcom/android/systemui/controls/ui/ControlViewHolder;->FORCE_PANEL_DEVICES:Ljava/util/Set;
 
-    :goto_0
-    const/4 p1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v2, 0x2
-
-    const/4 v3, 0x0
-
-    invoke-static {v0, v1, p1, v2, v3}, Lcom/android/systemui/controls/ui/ControlViewHolder;->setStatusText$default(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/CharSequence;ZILjava/lang/Object;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/DefaultBehavior;->getCvh()Lcom/android/systemui/controls/ui/ControlViewHolder;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x4
-
-    const/4 v9, 0x0
-
-    move v6, p2
-
-    invoke-static/range {v4 .. v9}, Lcom/android/systemui/controls/ui/ControlViewHolder;->applyRenderInfo$frameworks__base__packages__SystemUI__android_common__SystemUI_core$default(Lcom/android/systemui/controls/ui/ControlViewHolder;ZIZILjava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public final getCvh()Lcom/android/systemui/controls/ui/ControlViewHolder;
-    .locals 0
+    invoke-virtual {v0, p1, v2}, Lcom/android/systemui/controls/ui/ControlViewHolder;->setStatusText(Ljava/lang/CharSequence;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/DefaultBehavior;->cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
-    return-object p0
+    move-object v1, p0
 
-    :cond_0
-    const-string p0, "cvh"
+    :cond_3
+    const/4 p0, 0x1
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method public initialize(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
-    .locals 1
-
-    const-string v0, "cvh"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/ui/DefaultBehavior;->setCvh(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+    invoke-virtual {v1, p2, v2, p0}, Lcom/android/systemui/controls/ui/ControlViewHolder;->applyRenderInfo$frameworks__base__packages__SystemUI__android_common__SystemUI_core(IZZ)V
 
     return-void
 .end method
 
-.method public final setCvh(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
-    .locals 1
-
-    const-string v0, "<set-?>"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final initialize(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/DefaultBehavior;->cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 

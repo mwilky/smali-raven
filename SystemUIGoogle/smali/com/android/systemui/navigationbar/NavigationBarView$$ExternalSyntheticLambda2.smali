@@ -1,39 +1,73 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/navigationbar/NavigationBarView;
+.field public final synthetic $r8$classId:I
 
-.field public final synthetic f$1:Landroid/graphics/Rect;
+.field public final synthetic f$0:Ljava/lang/Object;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/navigationbar/NavigationBarView;Landroid/graphics/Rect;)V
+.method public synthetic constructor <init>(ILjava/lang/Object;)V
     .locals 0
 
+    iput p1, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->$r8$classId:I
+
+    iput-object p2, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->f$0:Ljava/lang/Object;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    iput-object p2, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->f$1:Landroid/graphics/Rect;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
+.method public final get()Ljava/lang/Object;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/navigationbar/NavigationBarView;
+    iget v0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->$r8$classId:I
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->f$1:Landroid/graphics/Rect;
+    packed-switch v0, :pswitch_data_0
 
-    invoke-static {v0, p0}, Lcom/android/systemui/navigationbar/NavigationBarView;->$r8$lambda$zfOnbvXLFhVssQb0tn8WBj1isFA(Lcom/android/systemui/navigationbar/NavigationBarView;Landroid/graphics/Rect;)V
+    goto :goto_0
 
-    return-void
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/navigationbar/NavigationBarView;
+
+    iget p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView;->mCurrentRotation:I
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    return-object p0
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda2;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitchController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/MultiUserSwitchController;->mUserManager:Landroid/os/UserManager;
+
+    invoke-virtual {p0}, Landroid/os/UserManager;->isUserSwitcherEnabled()Z
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

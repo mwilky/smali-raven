@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/accessibility/MagnificationGestureDetector;
+.class public final Lcom/android/systemui/accessibility/MagnificationGestureDetector;
 .super Ljava/lang/Object;
 .source "MagnificationGestureDetector.java"
 
@@ -12,33 +12,25 @@
 
 
 # instance fields
-.field private final mCancelTapGestureRunnable:Ljava/lang/Runnable;
+.field public final mCancelTapGestureRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
 
-.field private mDetectSingleTap:Z
+.field public mDetectSingleTap:Z
 
-.field private mDraggingDetected:Z
+.field public mDraggingDetected:Z
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
+.field public final mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
 
-.field private final mPointerDown:Landroid/graphics/PointF;
+.field public final mPointerDown:Landroid/graphics/PointF;
 
-.field private final mPointerLocation:Landroid/graphics/PointF;
+.field public final mPointerLocation:Landroid/graphics/PointF;
 
-.field private mTouchSlopSquare:I
+.field public mTouchSlopSquare:I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$n_mA_UDT16RVhcWFTy619SiIj8I(Lcom/android/systemui/accessibility/MagnificationGestureDetector;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->lambda$new$0()V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/os/Handler;Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -81,161 +73,223 @@
 
     iput-object p3, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
 
-    new-instance p1, Lcom/android/systemui/accessibility/MagnificationGestureDetector$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/accessibility/MagnificationGestureDetector;)V
+    const/4 p2, 0x2
 
-    iput-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Ljava/lang/Runnable;
+    invoke-direct {p1, p2, p0}, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;-><init>(ILjava/lang/Object;)V
+
+    iput-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
 
     return-void
 .end method
 
-.method private static isLocationValid(Landroid/graphics/PointF;)Z
-    .locals 1
 
-    iget v0, p0, Landroid/graphics/PointF;->x:F
+# virtual methods
+.method public final onTouch(Landroid/view/MotionEvent;)Z
+    .locals 9
 
-    invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
 
     move-result v0
 
-    if-nez v0, :cond_0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
 
-    iget p0, p0, Landroid/graphics/PointF;->y:F
+    move-result v1
 
-    invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result p0
+    move-result v2
 
-    if-nez p0, :cond_0
+    const/4 v3, 0x0
 
-    const/4 p0, 0x1
+    const/4 v4, 0x1
+
+    if-eqz v2, :cond_7
+
+    if-eq v2, v4, :cond_5
+
+    const/4 p1, 0x2
+
+    if-eq v2, p1, :cond_1
+
+    const/4 p1, 0x3
+
+    if-eq v2, p1, :cond_6
+
+    const/4 p1, 0x5
+
+    if-eq v2, p1, :cond_0
+
+    goto/16 :goto_3
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mHandler:Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
+
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iput-boolean v3, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
+
+    goto/16 :goto_3
+
+    :cond_1
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->stopSingleTapDetectionIfNeeded(FF)V
+
+    iget-boolean p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDraggingDetected:Z
+
+    if-nez p1, :cond_2
+
+    move v4, v3
+
+    goto/16 :goto_2
+
+    :cond_2
+    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerLocation:Landroid/graphics/PointF;
+
+    iget v2, p1, Landroid/graphics/PointF;->x:F
+
+    invoke-static {v2}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    iget p1, p1, Landroid/graphics/PointF;->y:F
+
+    invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result p1
+
+    if-nez p1, :cond_3
+
+    move p1, v4
 
     goto :goto_0
 
-    :cond_0
-    const/4 p0, 0x0
+    :cond_3
+    move p1, v3
 
     :goto_0
-    return p0
-.end method
+    if-nez p1, :cond_4
 
-.method private synthetic lambda$new$0()V
-    .locals 1
+    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerLocation:Landroid/graphics/PointF;
 
-    const/4 v0, 0x0
+    iget-object v2, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerDown:Landroid/graphics/PointF;
 
-    iput-boolean v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
+    invoke-virtual {p1, v2}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
 
-    return-void
-.end method
+    :cond_4
+    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerLocation:Landroid/graphics/PointF;
 
-.method private notifyDraggingGestureIfNeeded(FF)Z
-    .locals 3
+    iget v2, p1, Landroid/graphics/PointF;->x:F
 
-    iget-boolean v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDraggingDetected:Z
+    sub-float v2, v0, v2
 
-    if-nez v0, :cond_0
+    iget v5, p1, Landroid/graphics/PointF;->y:F
 
-    const/4 p0, 0x0
+    sub-float v5, v1, v5
 
-    return p0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerLocation:Landroid/graphics/PointF;
-
-    invoke-static {v0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->isLocationValid(Landroid/graphics/PointF;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerLocation:Landroid/graphics/PointF;
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerDown:Landroid/graphics/PointF;
-
-    invoke-virtual {v0, v1}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerLocation:Landroid/graphics/PointF;
-
-    iget v1, v0, Landroid/graphics/PointF;->x:F
-
-    sub-float v1, p1, v1
-
-    iget v2, v0, Landroid/graphics/PointF;->y:F
-
-    sub-float v2, p2, v2
-
-    invoke-virtual {v0, p1, p2}, Landroid/graphics/PointF;->set(FF)V
+    invoke-virtual {p1, v0, v1}, Landroid/graphics/PointF;->set(FF)V
 
     iget-object p0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
 
-    invoke-interface {p0, v1, v2}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onDrag(FF)Z
+    invoke-interface {p0, v2, v5}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onDrag(FF)V
 
-    move-result p0
+    goto :goto_2
 
-    return p0
-.end method
+    :cond_5
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->stopSingleTapDetectionIfNeeded(FF)V
 
-.method private reset()V
-    .locals 2
+    iget-boolean p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
+
+    if-eqz p1, :cond_6
+
+    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
+
+    invoke-interface {p1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onSingleTap()V
+
+    move p1, v4
+
+    goto :goto_1
+
+    :cond_6
+    move p1, v3
+
+    :goto_1
+    iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
+
+    invoke-interface {v0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onFinish()Z
+
+    move-result v0
+
+    or-int/2addr p1, v0
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerDown:Landroid/graphics/PointF;
 
-    invoke-static {v0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->resetPointF(Landroid/graphics/PointF;)V
+    const/high16 v1, 0x7fc00000    # Float.NaN
+
+    iput v1, v0, Landroid/graphics/PointF;->x:F
+
+    iput v1, v0, Landroid/graphics/PointF;->y:F
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerLocation:Landroid/graphics/PointF;
 
-    invoke-static {v0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->resetPointF(Landroid/graphics/PointF;)V
+    iput v1, v0, Landroid/graphics/PointF;->x:F
+
+    iput v1, v0, Landroid/graphics/PointF;->y:F
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    const/4 v0, 0x1
+    iput-boolean v4, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
+    iput-boolean v3, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDraggingDetected:Z
 
-    const/4 v0, 0x0
+    move v3, p1
 
-    iput-boolean v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDraggingDetected:Z
+    goto :goto_3
 
-    return-void
-.end method
+    :cond_7
+    iget-object v2, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerDown:Landroid/graphics/PointF;
 
-.method private static resetPointF(Landroid/graphics/PointF;)V
-    .locals 1
-
-    const/high16 v0, 0x7fc00000    # Float.NaN
-
-    iput v0, p0, Landroid/graphics/PointF;->x:F
-
-    iput v0, p0, Landroid/graphics/PointF;->y:F
-
-    return-void
-.end method
-
-.method private stopSingleTapDetection()V
-    .locals 2
+    invoke-virtual {v2, v0, v1}, Landroid/graphics/PointF;->set(FF)V
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getDownTime()J
 
-    const/4 v0, 0x0
+    move-result-wide v5
 
-    iput-boolean v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
+    invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
 
-    return-void
+    move-result p1
+
+    int-to-long v7, p1
+
+    add-long/2addr v5, v7
+
+    invoke-virtual {v0, v1, v5, v6}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;J)Z
+
+    iget-object p0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
+
+    invoke-interface {p0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onStart()V
+
+    :goto_2
+    or-int/2addr v3, v4
+
+    :goto_3
+    return v3
 .end method
 
-.method private stopSingleTapDetectionIfNeeded(FF)V
-    .locals 2
+.method public final stopSingleTapDetectionIfNeeded(FF)V
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDraggingDetected:Z
 
@@ -246,15 +300,39 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerDown:Landroid/graphics/PointF;
 
-    invoke-static {v0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->isLocationValid(Landroid/graphics/PointF;)Z
+    iget v1, v0, Landroid/graphics/PointF;->x:F
+
+    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    if-nez v1, :cond_1
+
+    iget v0, v0, Landroid/graphics/PointF;->y:F
+
+    invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
     if-nez v0, :cond_1
 
-    return-void
+    move v0, v2
+
+    goto :goto_0
 
     :cond_1
+    move v0, v3
+
+    :goto_0
+    if-nez v0, :cond_2
+
+    return-void
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerDown:Landroid/graphics/PointF;
 
     iget v1, v0, Landroid/graphics/PointF;->x:F
@@ -273,135 +351,22 @@
 
     mul-int/2addr p2, p2
 
-    add-int/2addr p1, p2
+    add-int/2addr p2, p1
 
-    iget p2, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mTouchSlopSquare:I
+    iget p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mTouchSlopSquare:I
 
-    if-le p1, p2, :cond_2
+    if-le p2, p1, :cond_3
 
-    const/4 p1, 0x1
+    iput-boolean v2, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDraggingDetected:Z
 
-    iput-boolean p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDraggingDetected:Z
+    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mHandler:Landroid/os/Handler;
 
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->stopSingleTapDetection()V
+    iget-object p2, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
 
-    :cond_2
-    return-void
-.end method
+    invoke-virtual {p1, p2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-
-# virtual methods
-.method onTouch(Landroid/view/MotionEvent;)Z
-    .locals 9
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
-
-    move-result v0
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
-
-    move-result v1
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    if-eqz v2, :cond_4
-
-    const/4 p1, 0x1
-
-    if-eq v2, p1, :cond_2
-
-    const/4 p1, 0x2
-
-    if-eq v2, p1, :cond_1
-
-    const/4 p1, 0x3
-
-    if-eq v2, p1, :cond_3
-
-    const/4 p1, 0x5
-
-    if-eq v2, p1, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->stopSingleTapDetection()V
-
-    goto :goto_1
-
-    :cond_1
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->stopSingleTapDetectionIfNeeded(FF)V
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->notifyDraggingGestureIfNeeded(FF)Z
-
-    move-result p0
-
-    goto :goto_0
-
-    :cond_2
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->stopSingleTapDetectionIfNeeded(FF)V
-
-    iget-boolean p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
-
-    if-eqz p1, :cond_3
-
-    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
-
-    invoke-interface {p1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onSingleTap()Z
-
-    move-result p1
-
-    or-int/2addr v3, p1
+    iput-boolean v3, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mDetectSingleTap:Z
 
     :cond_3
-    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
-
-    invoke-interface {p1, v0, v1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onFinish(FF)Z
-
-    move-result p1
-
-    or-int/2addr v3, p1
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->reset()V
-
-    goto :goto_1
-
-    :cond_4
-    iget-object v2, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mPointerDown:Landroid/graphics/PointF;
-
-    invoke-virtual {v2, v0, v1}, Landroid/graphics/PointF;->set(FF)V
-
-    iget-object v2, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mHandler:Landroid/os/Handler;
-
-    iget-object v4, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mCancelTapGestureRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getDownTime()J
-
-    move-result-wide v5
-
-    invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
-
-    move-result p1
-
-    int-to-long v7, p1
-
-    add-long/2addr v5, v7
-
-    invoke-virtual {v2, v4, v5, v6}, Landroid/os/Handler;->postAtTime(Ljava/lang/Runnable;J)Z
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->mOnGestureListener:Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
-
-    invoke-interface {p0, v0, v1}, Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;->onStart(FF)Z
-
-    move-result p0
-
-    :goto_0
-    or-int/2addr v3, p0
-
-    :goto_1
-    return v3
+    return-void
 .end method

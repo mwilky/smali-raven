@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/carrier/QSCarrierGroupController$H;
+.class public final Lcom/android/systemui/qs/carrier/QSCarrierGroupController$H;
 .super Landroid/os/Handler;
 .source "QSCarrierGroupController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "H"
 .end annotation
 
 
 # instance fields
-.field private mUpdateCarrierInfo:Ljava/util/function/Consumer;
+.field public mUpdateCarrierInfo:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -25,23 +25,12 @@
     .end annotation
 .end field
 
-.field private mUpdateState:Ljava/lang/Runnable;
+.field public mUpdateState:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/Looper;Ljava/util/function/Consumer;Ljava/lang/Runnable;)V
+.method public constructor <init>(Landroid/os/Looper;Lcom/android/wm/shell/ShellTaskOrganizer$$ExternalSyntheticLambda1;Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda0;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/os/Looper;",
-            "Ljava/util/function/Consumer<",
-            "Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;",
-            ">;",
-            "Ljava/lang/Runnable;",
-            ")V"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
@@ -54,7 +43,7 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public final handleMessage(Landroid/os/Message;)V
     .locals 2
 
     iget v0, p1, Landroid/os/Message;->what:I

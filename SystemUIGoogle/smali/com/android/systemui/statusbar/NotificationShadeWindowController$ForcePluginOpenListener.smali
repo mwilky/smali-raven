@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "ForcePluginOpenListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onChange(Z)V
-.end method

@@ -1,4 +1,4 @@
-.class Landroidx/dynamicanimation/animation/DynamicAnimation$3;
+.class public final Landroidx/dynamicanimation/animation/DynamicAnimation$3;
 .super Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;
 .source "DynamicAnimation.java"
 
@@ -9,104 +9,44 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "name"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 0
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;-><init>(Ljava/lang/String;Landroidx/dynamicanimation/animation/DynamicAnimation$1;)V
+    invoke-direct {p0}, Landroidx/dynamicanimation/animation/DynamicAnimation$ViewProperty;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getValue(Landroid/view/View;)F
+.method public final getValue(Ljava/lang/Object;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
-    invoke-static {p1}, Landroidx/core/view/ViewCompat;->getTranslationZ(Landroid/view/View;)F
+    check-cast p1, Landroid/view/View;
+
+    sget-object p0, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {p1}, Landroidx/core/view/ViewCompat$Api21Impl;->getTranslationZ(Landroid/view/View;)F
 
     move-result p0
 
     return p0
 .end method
 
-.method public bridge synthetic getValue(Ljava/lang/Object;)F
+.method public final setValue(Ljava/lang/Object;F)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     check-cast p1, Landroid/view/View;
 
-    invoke-virtual {p0, p1}, Landroidx/dynamicanimation/animation/DynamicAnimation$3;->getValue(Landroid/view/View;)F
+    sget-object p0, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
 
-    move-result p0
-
-    return p0
-.end method
-
-.method public setValue(Landroid/view/View;F)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
-
-    invoke-static {p1, p2}, Landroidx/core/view/ViewCompat;->setTranslationZ(Landroid/view/View;F)V
-
-    return-void
-.end method
-
-.method public bridge synthetic setValue(Ljava/lang/Object;F)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
-
-    check-cast p1, Landroid/view/View;
-
-    invoke-virtual {p0, p1, p2}, Landroidx/dynamicanimation/animation/DynamicAnimation$3;->setValue(Landroid/view/View;F)V
+    invoke-static {p1, p2}, Landroidx/core/view/ViewCompat$Api21Impl;->setTranslationZ(Landroid/view/View;F)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Landroidx/transition/FragmentTransitionSupport$6;
+.class public final Landroidx/transition/FragmentTransitionSupport$6;
 .super Landroidx/transition/Transition$EpicenterCallback;
 .source "FragmentTransitionSupport.java"
 
@@ -9,24 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/transition/FragmentTransitionSupport;
-
-.field final synthetic val$epicenter:Landroid/graphics/Rect;
+.field public final synthetic val$epicenter:Landroid/graphics/Rect;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/FragmentTransitionSupport;Landroid/graphics/Rect;)V
+.method public constructor <init>(Landroid/graphics/Rect;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/transition/FragmentTransitionSupport$6;->this$0:Landroidx/transition/FragmentTransitionSupport;
-
-    iput-object p2, p0, Landroidx/transition/FragmentTransitionSupport$6;->val$epicenter:Landroid/graphics/Rect;
+    iput-object p1, p0, Landroidx/transition/FragmentTransitionSupport$6;->val$epicenter:Landroid/graphics/Rect;
 
     invoke-direct {p0}, Landroidx/transition/Transition$EpicenterCallback;-><init>()V
 
@@ -35,18 +31,18 @@
 
 
 # virtual methods
-.method public onGetEpicenter(Landroidx/transition/Transition;)Landroid/graphics/Rect;
-    .locals 0
+.method public final onGetEpicenter()Landroid/graphics/Rect;
+    .locals 1
 
-    iget-object p1, p0, Landroidx/transition/FragmentTransitionSupport$6;->val$epicenter:Landroid/graphics/Rect;
+    iget-object v0, p0, Landroidx/transition/FragmentTransitionSupport$6;->val$epicenter:Landroid/graphics/Rect;
 
-    if-eqz p1, :cond_1
+    if-eqz v0, :cond_1
 
-    invoke-virtual {p1}, Landroid/graphics/Rect;->isEmpty()Z
+    invoke-virtual {v0}, Landroid/graphics/Rect;->isEmpty()Z
 
-    move-result p1
+    move-result v0
 
-    if-eqz p1, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 

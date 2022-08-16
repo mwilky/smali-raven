@@ -2,14 +2,13 @@
 .super Landroid/widget/ToggleButton;
 .source "AppCompatToggleButton.java"
 
-# interfaces
-.implements Landroidx/core/view/TintableBackgroundView;
-
 
 # instance fields
-.field private final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+.field public mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-.field private final mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
+.field public final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+
+.field public final mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
 
 # direct methods
@@ -18,21 +17,13 @@
 
     const v0, 0x101004b
 
-    invoke-direct {p0, p1, p2, v0}, Landroidx/appcompat/widget/AppCompatToggleButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Landroid/widget/ToggleButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {p0, p1, p2, v0}, Landroid/widget/ToggleButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     invoke-virtual {p0}, Landroid/widget/ToggleButton;->getContext()Landroid/content/Context;
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/view/View;Landroid/content/Context;)V
+    invoke-static {p1, p0}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/content/Context;Landroid/view/View;)V
 
     new-instance p1, Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
@@ -40,7 +31,7 @@
 
     iput-object p1, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
+    invoke-virtual {p1, p2, v0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     new-instance p1, Landroidx/appcompat/widget/AppCompatTextHelper;
 
@@ -48,14 +39,29 @@
 
     iput-object p1, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
-    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
+    invoke-virtual {p1, p2, v0}, Landroidx/appcompat/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
+
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    if-nez p1, :cond_0
+
+    new-instance p1, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    invoke-direct {p1, p0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;-><init>(Landroid/widget/TextView;)V
+
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    :cond_0
+    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    invoke-virtual {p0, p2, v0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected drawableStateChanged()V
+.method public final drawableStateChanged()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/ToggleButton;->drawableStateChanged()V
@@ -77,47 +83,30 @@
     return-void
 .end method
 
-.method public getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
-    .locals 0
+.method public final setAllCaps(Z)V
+    .locals 1
 
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+    invoke-super {p0, p1}, Landroid/widget/ToggleButton;->setAllCaps(Z)V
 
-    if-eqz p0, :cond_0
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
+    if-nez v0, :cond_0
 
-    move-result-object p0
+    new-instance v0, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    goto :goto_0
+    invoke-direct {v0, p0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;-><init>(Landroid/widget/TextView;)V
 
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
-.method public getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-
-    move-result-object p0
-
-    goto :goto_0
+    iput-object v0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     :cond_0
-    const/4 p0, 0x0
+    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    :goto_0
-    return-object p0
+    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->setAllCaps(Z)V
+
+    return-void
 .end method
 
-.method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+.method public final setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/ToggleButton;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -126,13 +115,13 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable()V
 
     :cond_0
     return-void
 .end method
 
-.method public setBackgroundResource(I)V
+.method public final setBackgroundResource(I)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/ToggleButton;->setBackgroundResource(I)V
@@ -147,28 +136,27 @@
     return-void
 .end method
 
-.method public setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+.method public final setFilters([Landroid/text/InputFilter;)V
+    .locals 1
 
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    if-eqz p0, :cond_0
+    if-nez v0, :cond_0
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
+    new-instance v0, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    :cond_0
-    return-void
-.end method
+    invoke-direct {v0, p0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;-><init>(Landroid/widget/TextView;)V
 
-.method public setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+    iput-object v0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     :cond_0
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatToggleButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->getFilters([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
+
+    move-result-object p1
+
+    invoke-super {p0, p1}, Landroid/widget/ToggleButton;->setFilters([Landroid/text/InputFilter;)V
+
     return-void
 .end method

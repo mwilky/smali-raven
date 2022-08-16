@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaViewController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/MediaHostStatesManager;)V
+    value = Lcom/android/systemui/media/MediaViewController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/MediaHostStatesManager;Lcom/android/systemui/media/MediaViewLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaViewController;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaViewController;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaViewController$configurationListener$1;->this$0:Lcom/android/systemui/media/MediaViewController;
@@ -34,23 +34,21 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 2
+.method public final onConfigChanged(Landroid/content/res/Configuration;)V
+    .locals 3
 
     if-nez p1, :cond_0
 
-    goto :goto_3
+    goto :goto_2
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/media/MediaViewController$configurationListener$1;->this$0:Lcom/android/systemui/media/MediaViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaViewController;->access$getTransitionLayout$p(Lcom/android/systemui/media/MediaViewController;)Lcom/android/systemui/util/animation/TransitionLayout;
+    iget-object v0, p0, Lcom/android/systemui/media/MediaViewController;->transitionLayout:Lcom/android/systemui/util/animation/TransitionLayout;
 
-    move-result-object v0
+    const/4 v1, 0x0
 
     if-nez v0, :cond_1
-
-    const/4 v0, 0x0
 
     goto :goto_0
 
@@ -59,34 +57,23 @@
 
     move-result v0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    :goto_0
     invoke-virtual {p1}, Landroid/content/res/Configuration;->getLayoutDirection()I
 
-    move-result v1
+    move-result v2
 
-    if-nez v0, :cond_2
+    if-ne v0, v2, :cond_2
 
-    goto :goto_1
+    const/4 v1, 0x1
 
     :cond_2
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    :goto_0
+    if-nez v1, :cond_4
 
-    move-result v0
-
-    if-eq v0, v1, :cond_4
-
-    :goto_1
-    invoke-static {p0}, Lcom/android/systemui/media/MediaViewController;->access$getTransitionLayout$p(Lcom/android/systemui/media/MediaViewController;)Lcom/android/systemui/util/animation/TransitionLayout;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/media/MediaViewController;->transitionLayout:Lcom/android/systemui/util/animation/TransitionLayout;
 
     if-nez v0, :cond_3
 
-    goto :goto_2
+    goto :goto_1
 
     :cond_3
     invoke-virtual {p1}, Landroid/content/res/Configuration;->getLayoutDirection()I
@@ -95,10 +82,10 @@
 
     invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->setLayoutDirection(I)V
 
-    :goto_2
+    :goto_1
     invoke-virtual {p0}, Lcom/android/systemui/media/MediaViewController;->refreshState()V
 
     :cond_4
-    :goto_3
+    :goto_2
     return-void
 .end method

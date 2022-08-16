@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set android:ordering="together"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:aapt="http://schemas.android.com/aapt">
+    <objectAnimator android:interpolator="@drawable/$$fingerprint_dialog_error_to_unlock__8__0" android:duration="233" android:startOffset="0" android:valueFrom="M13.12 20.04 C13.12,20.04 13.11,14.15 13.11,14.15 C13.11,10.77 15.91,8.04 19.36,8.04 C22.81,8.04 25.61,10.77 25.61,14.15 C25.61,14.15 25.62,20.04 25.62,20.04 " android:valueTo="M13.12 20.04 C13.12,20.04 13.11,14.15 13.11,14.15 C13.11,10.77 15.91,8.04 19.36,8.04 C22.81,8.04 25.61,10.77 25.61,14.15 C25.61,14.15 25.62,20.04 25.62,20.04 " android:valueType="pathType" android:propertyName="pathData" />
+    <objectAnimator android:interpolator="@drawable/$$fingerprint_dialog_error_to_unlock__8__1" android:duration="267" android:startOffset="233" android:valueFrom="M13.12 20.04 C13.12,20.04 13.11,14.15 13.11,14.15 C13.11,10.77 15.91,8.04 19.36,8.04 C22.81,8.04 25.61,10.77 25.61,14.15 C25.61,14.15 25.62,20.04 25.62,20.04 " android:valueTo="M37.91 20.05 C37.91,20.05 37.89,14.16 37.89,14.16 C37.89,10.79 35.15,8.05 31.86,8.03 C28.46,8.01 25.61,10.77 25.61,14.15 C25.61,14.15 25.62,20.04 25.62,20.04 " android:valueType="pathType" android:propertyName="pathData" />
+</set>

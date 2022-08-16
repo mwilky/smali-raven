@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;
 .super Ljava/lang/Object;
 .source "NotificationInlineImageCache.java"
 
@@ -14,12 +14,8 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "NotificationInlineImageCache"
-
-
 # instance fields
-.field private final mCache:Ljava/util/concurrent/ConcurrentHashMap;
+.field public final mCache:Ljava/util/concurrent/ConcurrentHashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/ConcurrentHashMap<",
@@ -30,26 +26,10 @@
     .end annotation
 .end field
 
-.field private mResolver:Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageResolver;
+.field public mResolver:Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageResolver;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Jtco93PWQ30qwENKDX-0yjXS2PA(Ljava/util/Set;Ljava/util/Map$Entry;)Z
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->lambda$purge$0(Ljava/util/Set;Ljava/util/Map$Entry;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -64,34 +44,10 @@
     return-void
 .end method
 
-.method static synthetic access$000()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method private static synthetic lambda$purge$0(Ljava/util/Set;Ljava/util/Map$Entry;)Z
-    .locals 0
-
-    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
-
-    move-result-object p1
-
-    invoke-interface {p0, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
-    return p0
-.end method
-
 
 # virtual methods
-.method public get(Landroid/net/Uri;)Landroid/graphics/drawable/Drawable;
-    .locals 2
+.method public final get(Landroid/net/Uri;)Landroid/graphics/drawable/Drawable;
+    .locals 1
 
     :try_start_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->mCache:Ljava/util/concurrent/ConcurrentHashMap;
@@ -114,23 +70,23 @@
     goto :goto_0
 
     :catch_0
-    sget-object p0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->TAG:Ljava/lang/String;
+    new-instance p0, Ljava/lang/StringBuilder;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "get: Failed get image from "
 
-    const-string v1, "get: Failed get image from "
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
 
-    move-result-object p1
+    const-string p1, "NotificationInlineImageCache"
 
-    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 p0, 0x0
 
@@ -138,7 +94,7 @@
     return-object p0
 .end method
 
-.method public hasEntry(Landroid/net/Uri;)Z
+.method public final hasEntry(Landroid/net/Uri;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->mCache:Ljava/util/concurrent/ConcurrentHashMap;
@@ -150,7 +106,7 @@
     return p0
 .end method
 
-.method public preload(Landroid/net/Uri;)V
+.method public final preload(Landroid/net/Uri;)V
     .locals 4
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache$PreloadImageTask;
@@ -178,14 +134,12 @@
     return-void
 .end method
 
-.method public purge()V
-    .locals 2
+.method public final purge()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->mResolver:Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageResolver;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageResolver;->getWantedUriSet()Ljava/util/Set;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageResolver;->mWantedUriSet:Ljava/util/HashSet;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->mCache:Ljava/util/concurrent/ConcurrentHashMap;
 
@@ -193,19 +147,13 @@
 
     move-result-object p0
 
-    new-instance v1, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, v0}, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache$$ExternalSyntheticLambda0;-><init>(Ljava/util/Set;)V
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2, v0}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
     invoke-interface {p0, v1}, Ljava/util/Set;->removeIf(Ljava/util/function/Predicate;)Z
-
-    return-void
-.end method
-
-.method public setImageResolver(Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageResolver;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageCache;->mResolver:Lcom/android/systemui/statusbar/notification/row/NotificationInlineImageResolver;
 
     return-void
 .end method

@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public add(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
+.method public final add(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
     .locals 3
 
     iget v0, p0, Landroidx/constraintlayout/solver/widgets/HelperWidget;->mWidgetsCount:I
@@ -122,7 +122,7 @@
     return-void
 .end method
 
-.method public removeAllIds()V
+.method public final removeAllIds()V
     .locals 1
 
     const/4 v0, 0x0
@@ -138,7 +138,7 @@
     return-void
 .end method
 
-.method public updateConstraints(Landroidx/constraintlayout/solver/widgets/ConstraintWidgetContainer;)V
+.method public updateConstraints()V
     .locals 0
 
     return-void

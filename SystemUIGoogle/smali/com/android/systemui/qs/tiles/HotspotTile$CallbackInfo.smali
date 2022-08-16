@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1c
+    accessFlags = 0x19
     name = "CallbackInfo"
 .end annotation
 
 
 # instance fields
-.field isDataSaverEnabled:Z
+.field public isDataSaverEnabled:Z
 
-.field isHotspotEnabled:Z
+.field public isHotspotEnabled:Z
 
-.field numConnectedDevices:I
+.field public numConnectedDevices:I
 
 
 # direct methods
-.method protected constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -64,13 +64,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;->isDataSaverEnabled:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x5d
 
-    const/16 p0, 0x5d
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

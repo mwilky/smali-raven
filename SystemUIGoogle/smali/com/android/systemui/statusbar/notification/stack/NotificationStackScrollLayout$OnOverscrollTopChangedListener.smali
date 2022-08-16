@@ -15,8 +15,5 @@
 
 
 # virtual methods
-.method public abstract flingTopOverscroll(FZ)V
-.end method
-
 .method public abstract onOverscrollTopChanged(FZ)V
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;
+.class public final Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ActivatableNotificationView.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private mWasCancelled:Z
+.field public mWasCancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
-.field final synthetic val$isAppearing:Z
+.field public final synthetic val$isAppearing:Z
 
-.field final synthetic val$onFinishedRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$onFinishedRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Ljava/lang/Runnable;Z)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Ljava/lang/Runnable;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
@@ -41,7 +41,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -51,8 +51,8 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;->val$onFinishedRunnable:Ljava/lang/Runnable;
 
@@ -69,7 +69,9 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->access$100(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)V
+    sget v1, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->$r8$clinit:I
+
+    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->enableAppearDrawing(Z)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
@@ -85,7 +87,7 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;->val$isAppearing:Z
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->access$200(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->-$$Nest$mgetCujType(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
 
     move-result p0
 
@@ -102,7 +104,7 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;->val$isAppearing:Z
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->access$200(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
+    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->-$$Nest$mgetCujType(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
 
     move-result p0
 
@@ -112,7 +114,7 @@
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 1
 
     const/4 p1, 0x0
@@ -123,7 +125,7 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView$2;->val$isAppearing:Z
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->access$200(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
+    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->-$$Nest$mgetCujType(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;Z)I
 
     move-result p1
 

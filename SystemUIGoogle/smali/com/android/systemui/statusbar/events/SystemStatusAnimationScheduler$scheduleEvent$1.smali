@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;
+.class public final Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;
 .super Ljava/lang/Object;
 .source "SystemStatusAnimationScheduler.kt"
 
@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->scheduleEvent(Lcom/android/systemui/statusbar/events/StatusEvent;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
@@ -35,139 +24,123 @@
 
 # virtual methods
 .method public final run()V
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$setCancelExecutionRunnable$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$setAnimationState$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$getStatusBarWindowController$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)Lcom/android/systemui/statusbar/window/StatusBarWindowController;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/window/StatusBarWindowController;->setForceStatusBarVisible(Z)V
-
-    const/4 v0, 0x2
-
-    new-array v2, v0, [F
-
-    fill-array-data v2, :array_0
-
-    invoke-static {v2}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
-
-    move-result-object v2
-
-    const-wide/16 v3, 0xfa
-
-    invoke-virtual {v2, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    invoke-static {v5}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$getSystemAnimatorAdapter$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$systemAnimatorAdapter$1;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v5}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    iget-object v5, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    invoke-static {v5}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$getSystemUpdateListener$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-
-    move-result-object v5
-
-    invoke-virtual {v2, v5}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    new-array v5, v0, [F
-
-    fill-array-data v5, :array_1
-
-    invoke-static {v5}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    new-instance v3, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$ChipAnimatorAdapter;
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    invoke-static {v4}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$getScheduledEvent$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)Lcom/android/systemui/statusbar/events/StatusEvent;
-
-    move-result-object v6
-
-    invoke-static {v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-interface {v6}, Lcom/android/systemui/statusbar/events/StatusEvent;->getViewCreator()Lkotlin/jvm/functions/Function1;
-
-    move-result-object v6
-
-    invoke-direct {v3, v4, v0, v6}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$ChipAnimatorAdapter;-><init>(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;ILkotlin/jvm/functions/Function1;)V
-
-    invoke-virtual {v5, v3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    invoke-static {v3}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$getChipUpdateListener$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-
-    move-result-object v3
-
-    invoke-virtual {v5, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    new-instance v3, Landroid/animation/AnimatorSet;
-
-    invoke-direct {v3}, Landroid/animation/AnimatorSet;-><init>()V
-
-    new-array v0, v0, [Landroid/animation/Animator;
-
-    const/4 v4, 0x0
-
-    aput-object v2, v0, v4
-
-    aput-object v5, v0, v1
-
-    invoke-virtual {v3, v0}, Landroid/animation/AnimatorSet;->playSequentially([Landroid/animation/Animator;)V
-
-    invoke-virtual {v3}, Landroid/animation/AnimatorSet;->start()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->access$getExecutor$p(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)Lcom/android/systemui/util/concurrency/DelayableExecutor;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1$1;
+    .locals 6
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1;->this$0:Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$scheduleEvent$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
 
-    const-wide/16 v2, 0x5dc
+    iget-object v1, v0, Lcom/android/systemui/statusbar/window/StatusBarWindowController;->mCurrentState:Lcom/android/systemui/statusbar/window/StatusBarWindowController$State;
+
+    const/4 v2, 0x1
+
+    iput-boolean v2, v1, Lcom/android/systemui/statusbar/window/StatusBarWindowController$State;->mForceStatusBarVisible:Z
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/window/StatusBarWindowController;->apply(Lcom/android/systemui/statusbar/window/StatusBarWindowController$State;)V
+
+    const/4 v0, 0x2
+
+    iput v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->animationState:I
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->listeners:Ljava/util/LinkedHashSet;
+
+    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/events/SystemStatusAnimationCallback;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationCallback;->onSystemEventAnimationBegin()Landroid/animation/Animator;
+
+    move-result-object v2
+
+    if-nez v2, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->chipAnimationController:Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->onSystemEventAnimationBegin()Landroid/animation/Animator;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Landroid/animation/AnimatorSet;
+
+    invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
+
+    invoke-virtual {v1, v0}, Landroid/animation/AnimatorSet;->playTogether(Ljava/util/Collection;)V
+
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->getTotalDuration()J
+
+    move-result-wide v2
+
+    const-wide/16 v4, 0x1f4
+
+    cmp-long v0, v2, v4
+
+    if-gtz v0, :cond_2
+
+    new-instance v0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$runChipAnimation$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$runChipAnimation$1;-><init>(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)V
+
+    invoke-virtual {v1, v0}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;->executor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
+    new-instance v1, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$runChipAnimation$2;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler$runChipAnimation$2;-><init>(Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;)V
+
+    const-wide/16 v2, 0x3e8
 
     invoke-interface {v0, v1, v2, v3}, Lcom/android/systemui/util/concurrency/DelayableExecutor;->executeDelayed(Ljava/lang/Runnable;J)Ljava/lang/Runnable;
 
     return-void
 
-    nop
+    :cond_2
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    :array_0
-    .array-data 4
-        0x3f800000    # 1.0f
-        0x0
-    .end array-data
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->getTotalDuration()J
 
-    :array_1
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
+    move-result-wide v0
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    const-string v1, "System animation total length exceeds budget. Expected: 500, actual: "
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

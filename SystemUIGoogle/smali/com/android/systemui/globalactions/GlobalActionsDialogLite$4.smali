@@ -1,49 +1,36 @@
-.class Lcom/android/systemui/globalactions/GlobalActionsDialogLite$4;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsDialogLite$4;
 .super Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SinglePressAction;
 .source "GlobalActionsDialogLite.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->addUserActions(Ljava/util/List;Landroid/content/pm/UserInfo;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+.field public final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-.field final synthetic val$user:Landroid/content/pm/UserInfo;
+.field public final synthetic val$user:Landroid/content/pm/UserInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;Landroid/content/pm/UserInfo;)V
+.method public constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Landroid/graphics/drawable/Drawable;Ljava/lang/String;Landroid/content/pm/UserInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$4;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    iput-object p5, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$4;->val$user:Landroid/content/pm/UserInfo;
+    iput-object p4, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$4;->val$user:Landroid/content/pm/UserInfo;
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SinglePressAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;ILandroid/graphics/drawable/Drawable;Ljava/lang/CharSequence;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SinglePressAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Landroid/graphics/drawable/Drawable;Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onPress()V
+.method public final onPress()V
     .locals 2
 
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$4;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1500(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Landroid/app/IActivityManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mIActivityManager:Landroid/app/IActivityManager;
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$4;->val$user:Landroid/content/pm/UserInfo;
 
@@ -80,7 +67,7 @@
     return-void
 .end method
 
-.method public showBeforeProvisioning()Z
+.method public final showBeforeProvisioning()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -88,10 +75,8 @@
     return p0
 .end method
 
-.method public showDuringKeyguard()Z
+.method public final showDuringKeyguard()V
     .locals 0
 
-    const/4 p0, 0x1
-
-    return p0
+    return-void
 .end method

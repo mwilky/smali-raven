@@ -1,4 +1,4 @@
-.class Landroidx/preference/SeekBarPreference$1;
+.class public final Landroidx/preference/SeekBarPreference$1;
 .super Ljava/lang/Object;
 .source "SeekBarPreference.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/preference/SeekBarPreference;
+.field public final synthetic this$0:Landroidx/preference/SeekBarPreference;
 
 
 # direct methods
-.method constructor <init>(Landroidx/preference/SeekBarPreference;)V
+.method public constructor <init>(Landroidx/preference/SeekBarPreference;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
+.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
     .locals 1
 
     if-eqz p3, :cond_1
@@ -61,13 +61,22 @@
 
     add-int/2addr p2, p1
 
-    invoke-virtual {p0, p2}, Landroidx/preference/SeekBarPreference;->updateLabelValue(I)V
+    iget-object p0, p0, Landroidx/preference/SeekBarPreference;->mSeekBarValueTextView:Landroid/widget/TextView;
 
+    if-eqz p0, :cond_2
+
+    invoke-static {p2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_2
     :goto_0
     return-void
 .end method
 
-.method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;
@@ -79,7 +88,7 @@
     return-void
 .end method
 
-.method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStopTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 2
 
     iget-object v0, p0, Landroidx/preference/SeekBarPreference$1;->this$0:Landroidx/preference/SeekBarPreference;

@@ -1,41 +1,34 @@
-.class Lcom/android/systemui/media/MediaControlPanel$1;
+.class public final Lcom/android/systemui/media/MediaControlPanel$1;
 .super Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;
 .source "MediaControlPanel.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaControlPanel;->buildLaunchAnimatorController(Lcom/android/systemui/util/animation/TransitionLayout;)Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaControlPanel;
-
-.field final synthetic val$player:Lcom/android/systemui/util/animation/TransitionLayout;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaControlPanel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaControlPanel;Landroid/view/View;Ljava/lang/Integer;Lcom/android/systemui/util/animation/TransitionLayout;)V
-    .locals 0
+.method public constructor <init>(Lcom/android/systemui/media/MediaControlPanel;Landroid/view/View;)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaControlPanel$1;->this$0:Lcom/android/systemui/media/MediaControlPanel;
 
-    iput-object p4, p0, Lcom/android/systemui/media/MediaControlPanel$1;->val$player:Lcom/android/systemui/util/animation/TransitionLayout;
+    const/16 p1, 0x1f
 
-    invoke-direct {p0, p2, p3}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;-><init>(Landroid/view/View;Ljava/lang/Integer;)V
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, p2, p1, v0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;-><init>(Landroid/view/View;Ljava/lang/Integer;Lcom/android/internal/jank/InteractionJankMonitor;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected getCurrentBottomCornerRadius()F
+.method public final getCurrentBottomCornerRadius()F
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/media/MediaControlPanel$1;->getCurrentTopCornerRadius()F
@@ -45,58 +38,22 @@
     return p0
 .end method
 
-.method protected getCurrentTopCornerRadius()F
-    .locals 0
+.method public final getCurrentTopCornerRadius()F
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$1;->val$player:Lcom/android/systemui/util/animation/TransitionLayout;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$1;->this$0:Lcom/android/systemui/media/MediaControlPanel;
 
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getBackground()Landroid/graphics/drawable/Drawable;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/media/IlluminationDrawable;
+    const v0, 0x7f0705b7
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/IlluminationDrawable;->getCornerRadius()F
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result p0
 
     return p0
-.end method
-
-.method public onLaunchAnimationEnd(Z)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->onLaunchAnimationEnd(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaControlPanel$1;->val$player:Lcom/android/systemui/util/animation/TransitionLayout;
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/media/IlluminationDrawable;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/media/IlluminationDrawable;->setCornerRadiusOverride(Ljava/lang/Float;)V
-
-    return-void
-.end method
-
-.method protected setBackgroundCornerRadius(Landroid/graphics/drawable/Drawable;FF)V
-    .locals 0
-
-    invoke-static {p2, p3}, Ljava/lang/Math;->min(FF)F
-
-    move-result p0
-
-    check-cast p1, Lcom/android/systemui/media/IlluminationDrawable;
-
-    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/media/IlluminationDrawable;->setCornerRadiusOverride(Ljava/lang/Float;)V
-
-    return-void
 .end method

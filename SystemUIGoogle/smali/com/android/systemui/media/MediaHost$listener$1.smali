@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaHost;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaHost;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaHost;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaHost;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaHost$listener$1;->this$0:Lcom/android/systemui/media/MediaHost;
@@ -34,71 +34,47 @@
 
 
 # virtual methods
-.method public onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZ)V
+.method public final onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZ)V
     .locals 0
-
-    const-string p2, "key"
-
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "data"
-
-    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     if-eqz p4, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaHost$listener$1;->this$0:Lcom/android/systemui/media/MediaHost;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHost;->access$updateViewVisibility(Lcom/android/systemui/media/MediaHost;)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost;->updateViewVisibility()V
 
     :cond_0
     return-void
 .end method
 
-.method public onMediaDataRemoved(Ljava/lang/String;)V
-    .locals 1
-
-    const-string v0, "key"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$listener$1;->this$0:Lcom/android/systemui/media/MediaHost;
-
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHost;->access$updateViewVisibility(Lcom/android/systemui/media/MediaHost;)V
-
-    return-void
-.end method
-
-.method public onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
+.method public final onMediaDataRemoved(Ljava/lang/String;)V
     .locals 0
 
-    const-string p3, "key"
-
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "data"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object p0, p0, Lcom/android/systemui/media/MediaHost$listener$1;->this$0:Lcom/android/systemui/media/MediaHost;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHost;->access$updateViewVisibility(Lcom/android/systemui/media/MediaHost;)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost;->updateViewVisibility()V
 
     return-void
 .end method
 
-.method public onSmartspaceMediaDataRemoved(Ljava/lang/String;Z)V
-    .locals 1
+.method public final onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
+    .locals 0
 
-    const-string v0, "key"
+    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$listener$1;->this$0:Lcom/android/systemui/media/MediaHost;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost;->updateViewVisibility()V
+
+    return-void
+.end method
+
+.method public final onSmartspaceMediaDataRemoved(Ljava/lang/String;Z)V
+    .locals 0
 
     if-eqz p2, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaHost$listener$1;->this$0:Lcom/android/systemui/media/MediaHost;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHost;->access$updateViewVisibility(Lcom/android/systemui/media/MediaHost;)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost;->updateViewVisibility()V
 
     :cond_0
     return-void

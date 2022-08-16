@@ -1,4 +1,4 @@
-.class interface abstract Landroidx/slice/core/SliceQuery$Filter;
+.class public interface abstract Landroidx/slice/core/SliceQuery$Filter;
 .super Ljava/lang/Object;
 .source "SliceQuery.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "Filter"
 .end annotation
 
@@ -24,19 +24,5 @@
 
 
 # virtual methods
-.method public abstract filter(Ljava/lang/Object;)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "input"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)Z"
-        }
-    .end annotation
+.method public abstract filter(Landroidx/slice/SliceItem;)Z
 .end method

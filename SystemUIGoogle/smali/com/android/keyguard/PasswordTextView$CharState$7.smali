@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/PasswordTextView$CharState$7;
+.class public final Lcom/android/keyguard/PasswordTextView$CharState$7;
 .super Ljava/lang/Object;
 .source "PasswordTextView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/keyguard/PasswordTextView$CharState;
+.field public final synthetic this$1:Lcom/android/keyguard/PasswordTextView$CharState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/PasswordTextView$CharState;)V
+.method public constructor <init>(Lcom/android/keyguard/PasswordTextView$CharState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/PasswordTextView$CharState$7;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/PasswordTextView$CharState$7;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;
@@ -73,7 +73,9 @@
 
     iget-object v0, v0, Lcom/android/keyguard/PasswordTextView$CharState;->this$0:Lcom/android/keyguard/PasswordTextView;
 
-    invoke-static {v0}, Lcom/android/keyguard/PasswordTextView;->access$500(Lcom/android/keyguard/PasswordTextView;)Ljava/lang/CharSequence;
+    sget v1, Lcom/android/keyguard/PasswordTextView;->$r8$clinit:I
+
+    invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->getTransformedText()Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -93,15 +95,11 @@
 
     iget-object p1, p0, Lcom/android/keyguard/PasswordTextView$CharState$7;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;
 
-    iget-object p1, p1, Lcom/android/keyguard/PasswordTextView$CharState;->this$0:Lcom/android/keyguard/PasswordTextView;
+    iget-object v1, p1, Lcom/android/keyguard/PasswordTextView$CharState;->this$0:Lcom/android/keyguard/PasswordTextView;
 
-    invoke-static {p1}, Lcom/android/keyguard/PasswordTextView;->access$200(Lcom/android/keyguard/PasswordTextView;)Ljava/util/ArrayList;
+    iget-object v1, v1, Lcom/android/keyguard/PasswordTextView;->mTextChars:Ljava/util/ArrayList;
 
-    move-result-object p1
-
-    iget-object v1, p0, Lcom/android/keyguard/PasswordTextView$CharState$7;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;
-
-    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result p1
 
@@ -113,7 +111,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {v1, v0, p1, v2, v2}, Lcom/android/keyguard/PasswordTextView;->sendAccessibilityEventTypeViewTextChanged(Ljava/lang/CharSequence;III)V
+    invoke-virtual {v1, p1, v2, v2, v0}, Lcom/android/keyguard/PasswordTextView;->sendAccessibilityEventTypeViewTextChanged(IIILjava/lang/StringBuilder;)V
 
     :cond_0
     iget-object p0, p0, Lcom/android/keyguard/PasswordTextView$CharState$7;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;

@@ -18,13 +18,5 @@
 
 
 # virtual methods
-.method public abstract onServicesUpdated(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlsServiceInfo;",
-            ">;)V"
-        }
-    .end annotation
+.method public abstract onServicesUpdated(Ljava/util/ArrayList;)V
 .end method

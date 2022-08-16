@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlHolder;)V
+.method public constructor <init>(Ljava/lang/Object;)V
     .locals 7
 
     const-class v3, Lcom/android/systemui/controls/management/ControlHolder;
@@ -51,7 +51,7 @@
 
 
 # virtual methods
-.method public final invoke()I
+.method public final invoke()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
@@ -59,16 +59,6 @@
     check-cast p0, Lcom/android/systemui/controls/management/ControlHolder;
 
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getLayoutPosition()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$2;->invoke()I
 
     move-result p0
 

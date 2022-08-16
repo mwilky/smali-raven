@@ -17,6 +17,7 @@
         <item>बढीमा ३ प्रक्रियाहरू</item>
         <item>बढीमा ४ प्रक्रियाहरू</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>०%</item>
         <item>५०%</item>
@@ -260,6 +261,11 @@
         <item>अफ छ</item>
         <item>अन छ</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>उपलब्ध छैन</item>
+        <item>अफ छ</item>
+        <item>अन छ</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>उपलब्ध छैन</item>
         <item>अफ छ</item>
@@ -306,6 +312,16 @@
         <item>अन छ</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>उपलब्ध छैन</item>
+        <item>अफ छ</item>
+        <item>अन छ</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>उपलब्ध छैन</item>
+        <item>अफ छ</item>
+        <item>अन छ</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>उपलब्ध छैन</item>
         <item>अफ छ</item>
         <item>अन छ</item>
@@ -374,6 +390,12 @@
         <item>तीव्र</item>
         <item>धेरै तीव्र</item>
         <item>सबभन्दा छिटो</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>बायाँ सार्नुहोस्</item>
+        <item>तल सार्नुहोस्</item>
+        <item>दायाँ सार्नुहोस्</item>
+        <item>माथि सार्नुहोस्</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>चार्ज हुँदै छ</item>

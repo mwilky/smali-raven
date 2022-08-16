@@ -14,7 +14,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/airbnb/lottie/model/content/GradientType;
+.field public static final synthetic $VALUES:[Lcom/airbnb/lottie/model/content/GradientType;
 
 .field public static final enum LINEAR:Lcom/airbnb/lottie/model/content/GradientType;
 
@@ -22,51 +22,46 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 5
 
     new-instance v0, Lcom/airbnb/lottie/model/content/GradientType;
 
-    const-string v1, "LINEAR"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "LINEAR"
 
-    invoke-direct {v0, v1, v2}, Lcom/airbnb/lottie/model/content/GradientType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lcom/airbnb/lottie/model/content/GradientType;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Lcom/airbnb/lottie/model/content/GradientType;->LINEAR:Lcom/airbnb/lottie/model/content/GradientType;
 
-    new-instance v1, Lcom/airbnb/lottie/model/content/GradientType;
+    new-instance v2, Lcom/airbnb/lottie/model/content/GradientType;
 
-    const-string v3, "RADIAL"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "RADIAL"
 
-    invoke-direct {v1, v3, v4}, Lcom/airbnb/lottie/model/content/GradientType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Lcom/airbnb/lottie/model/content/GradientType;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Lcom/airbnb/lottie/model/content/GradientType;->RADIAL:Lcom/airbnb/lottie/model/content/GradientType;
+    sput-object v2, Lcom/airbnb/lottie/model/content/GradientType;->RADIAL:Lcom/airbnb/lottie/model/content/GradientType;
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
-    new-array v3, v3, [Lcom/airbnb/lottie/model/content/GradientType;
+    new-array v4, v4, [Lcom/airbnb/lottie/model/content/GradientType;
 
-    aput-object v0, v3, v2
+    aput-object v0, v4, v1
 
-    aput-object v1, v3, v4
+    aput-object v2, v4, v3
 
-    sput-object v3, Lcom/airbnb/lottie/model/content/GradientType;->$VALUES:[Lcom/airbnb/lottie/model/content/GradientType;
+    sput-object v4, Lcom/airbnb/lottie/model/content/GradientType;->$VALUES:[Lcom/airbnb/lottie/model/content/GradientType;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

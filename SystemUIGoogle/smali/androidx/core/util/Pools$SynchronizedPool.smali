@@ -1,4 +1,4 @@
-.class public Landroidx/core/util/Pools$SynchronizedPool;
+.class public final Landroidx/core/util/Pools$SynchronizedPool;
 .super Landroidx/core/util/Pools$SimplePool;
 .source "Pools.java"
 
@@ -16,20 +16,12 @@
 
 
 # instance fields
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
 
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "maxPoolSize"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/core/util/Pools$SimplePool;-><init>(I)V
 
@@ -44,7 +36,7 @@
 
 
 # virtual methods
-.method public acquire()Ljava/lang/Object;
+.method public final acquire()Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -75,17 +67,8 @@
     throw p0
 .end method
 
-.method public release(Ljava/lang/Object;)Z
+.method public final release(Ljava/lang/Object;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "element"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"

@@ -1,4 +1,4 @@
-.class Landroidx/viewpager/widget/PagerTabStrip$2;
+.class public final Landroidx/viewpager/widget/PagerTabStrip$2;
 .super Ljava/lang/Object;
 .source "PagerTabStrip.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/viewpager/widget/PagerTabStrip;
+.field public final synthetic this$0:Landroidx/viewpager/widget/PagerTabStrip;
 
 
 # direct methods
-.method constructor <init>(Landroidx/viewpager/widget/PagerTabStrip;)V
+.method public constructor <init>(Landroidx/viewpager/widget/PagerTabStrip;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/viewpager/widget/PagerTabStrip$2;->this$0:Landroidx/viewpager/widget/PagerTabStrip;
@@ -34,16 +34,14 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/viewpager/widget/PagerTabStrip$2;->this$0:Landroidx/viewpager/widget/PagerTabStrip;
 
     iget-object p0, p0, Landroidx/viewpager/widget/PagerTitleStrip;->mPager:Landroidx/viewpager/widget/ViewPager;
 
-    invoke-virtual {p0}, Landroidx/viewpager/widget/ViewPager;->getCurrentItem()I
-
-    move-result p1
+    iget p1, p0, Landroidx/viewpager/widget/ViewPager;->mCurItem:I
 
     add-int/lit8 p1, p1, 0x1
 

@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/AdminSecondaryLockScreenController$1;
+.class public final Lcom/android/keyguard/AdminSecondaryLockScreenController$1;
 .super Ljava/lang/Object;
 .source "AdminSecondaryLockScreenController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+.field public final synthetic this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/AdminSecondaryLockScreenController;)V
+.method public constructor <init>(Lcom/android/keyguard/AdminSecondaryLockScreenController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$1;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
+.method public final onServiceConnected(Landroid/content/ComponentName;Landroid/os/IBinder;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$1;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
@@ -43,13 +43,11 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$002(Lcom/android/keyguard/AdminSecondaryLockScreenController;Landroid/app/admin/IKeyguardClient;)Landroid/app/admin/IKeyguardClient;
+    iput-object v0, p1, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mClient:Landroid/app/admin/IKeyguardClient;
 
     iget-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$1;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$100(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mView:Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;
 
     invoke-virtual {p1}, Landroid/view/SurfaceView;->isAttachedToWindow()Z
 
@@ -59,22 +57,16 @@
 
     iget-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$1;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$000(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Landroid/app/admin/IKeyguardClient;
+    iget-object v0, p1, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mClient:Landroid/app/admin/IKeyguardClient;
 
-    move-result-object p1
+    if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$1;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
-
-    invoke-static {p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$200(Lcom/android/keyguard/AdminSecondaryLockScreenController;)V
+    invoke-static {p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->-$$Nest$monSurfaceReady(Lcom/android/keyguard/AdminSecondaryLockScreenController;)V
 
     :try_start_0
     iget-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$1;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$300(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Landroid/os/IBinder$DeathRecipient;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mKeyguardClientDeathRecipient:Lcom/android/keyguard/AdminSecondaryLockScreenController$$ExternalSyntheticLambda0;
 
     const/4 v0, 0x0
 
@@ -99,21 +91,21 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$400(Lcom/android/keyguard/AdminSecondaryLockScreenController;I)V
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->dismiss(I)V
 
     :cond_0
     :goto_0
     return-void
 .end method
 
-.method public onServiceDisconnected(Landroid/content/ComponentName;)V
+.method public final onServiceDisconnected(Landroid/content/ComponentName;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$1;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$002(Lcom/android/keyguard/AdminSecondaryLockScreenController;Landroid/app/admin/IKeyguardClient;)Landroid/app/admin/IKeyguardClient;
+    iput-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mClient:Landroid/app/admin/IKeyguardClient;
 
     return-void
 .end method

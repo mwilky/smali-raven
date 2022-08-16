@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;
+.class public final Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;
 .super Landroid/util/FloatProperty;
 .source "KeyButtonDrawable.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,22 +23,26 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    invoke-direct {p0, p1}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
+    const-string v0, "KeyButtonTranslateY"
+
+    invoke-direct {p0, v0}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public get(Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;)Ljava/lang/Float;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    invoke-virtual {p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getTranslationY()F
+    check-cast p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
 
-    move-result p0
+    iget-object p0, p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationY:F
 
     invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
@@ -47,32 +51,32 @@
     return-object p0
 .end method
 
-.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final setValue(Ljava/lang/Object;F)V
+    .locals 2
 
     check-cast p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;->get(Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;)Ljava/lang/Float;
+    iget-object p0, p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    move-result-object p0
+    iget v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
 
-    return-object p0
-.end method
+    cmpl-float v1, v0, v0
 
-.method public setValue(Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;F)V
-    .locals 0
+    if-nez v1, :cond_0
 
-    invoke-virtual {p1, p2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setTranslationY(F)V
+    iget v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationY:F
 
-    return-void
-.end method
+    cmpl-float v1, v1, p2
 
-.method public bridge synthetic setValue(Ljava/lang/Object;F)V
-    .locals 0
+    if-eqz v1, :cond_1
 
-    check-cast p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
+    :cond_0
+    iput v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;->setValue(Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;F)V
+    iput p2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationY:F
 
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+
+    :cond_1
     return-void
 .end method

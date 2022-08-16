@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/AppCompatTextHelper$2;
+.class public final Landroidx/appcompat/widget/AppCompatTextHelper$2;
 .super Ljava/lang/Object;
 .source "AppCompatTextHelper.java"
 
@@ -6,38 +6,23 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/AppCompatTextHelper;->onAsyncTypefaceReceived(Ljava/lang/ref/WeakReference;Landroid/graphics/Typeface;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/AppCompatTextHelper;
+.field public final synthetic val$style:I
 
-.field final synthetic val$style:I
+.field public final synthetic val$textView:Landroid/widget/TextView;
 
-.field final synthetic val$textView:Landroid/widget/TextView;
-
-.field final synthetic val$typeface:Landroid/graphics/Typeface;
+.field public final synthetic val$typeface:Landroid/graphics/Typeface;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/AppCompatTextHelper;Landroid/widget/TextView;Landroid/graphics/Typeface;I)V
+.method public constructor <init>(Landroid/widget/TextView;Landroid/graphics/Typeface;I)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->this$0:Landroidx/appcompat/widget/AppCompatTextHelper;
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$textView:Landroid/widget/TextView;
 
-    iput-object p2, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$textView:Landroid/widget/TextView;
+    iput-object p2, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$typeface:Landroid/graphics/Typeface;
 
-    iput-object p3, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$typeface:Landroid/graphics/Typeface;
-
-    iput p4, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$style:I
+    iput p3, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$style:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,7 +31,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 2
 
     iget-object v0, p0, Landroidx/appcompat/widget/AppCompatTextHelper$2;->val$textView:Landroid/widget/TextView;

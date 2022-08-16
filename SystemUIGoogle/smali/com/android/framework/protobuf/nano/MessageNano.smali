@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field protected volatile cachedSize:I
+.field public volatile cachedSize:I
 
 
 # direct methods
@@ -98,7 +98,7 @@
     return-object p0
 .end method
 
-.method protected computeSerializedSize()I
+.method public computeSerializedSize()I
     .locals 0
 
     const/4 p0, 0x0

@@ -3,9 +3,21 @@
 .source "R.java"
 
 
-# static fields
-.field public static final fragment_container_view_tag:I = 0x7f0b025a
+# direct methods
+.method public static getDefaultDisplay(Landroid/content/Context;)Landroid/view/Display;
+    .locals 1
 
-.field public static final special_effects_controller_view_tag:I = 0x7f0b05bd
+    const-string/jumbo v0, "window"
 
-.field public static final visible_removing_fragment_view_tag:I = 0x7f0b06b6
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/view/WindowManager;
+
+    invoke-interface {p0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
+
+    move-result-object p0
+
+    return-object p0
+.end method

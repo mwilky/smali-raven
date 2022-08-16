@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -8,18 +9,14 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-.field public final synthetic f$1:F
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;F)V
+.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/screenshot/ScreenshotView;
-
-    iput p2, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$1:F
 
     return-void
 .end method
@@ -29,11 +26,19 @@
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/screenshot/ScreenshotView;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    iget p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda8;->f$1:F
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScrollablePreview:Landroid/widget/ImageView;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/screenshot/ScreenshotView;->$r8$lambda$bFGt7JfeKc1X1LtCDt-7B9LKx_M(Lcom/android/systemui/screenshot/ScreenshotView;FLandroid/animation/ValueAnimator;)V
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p1
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    sub-float/2addr v0, p1
+
+    invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setAlpha(F)V
 
     return-void
 .end method

@@ -7,41 +7,45 @@
 
 
 # static fields
-.field private static final VERBOSE:Z
+.field public static final VERBOSE:Z
 
 
 # instance fields
-.field protected final mAssistLogger:Lcom/android/systemui/assist/AssistLogger;
+.field public final mAssistLogger:Lcom/android/systemui/assist/AssistLogger;
 
-.field private mAttached:Z
+.field public final mAssistManagerLazy:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/assist/AssistManager;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field private mInvocationAnimator:Landroid/animation/ValueAnimator;
+.field public mAttached:Z
 
-.field private mInvocationInProgress:Z
+.field public mInvocationAnimator:Landroid/animation/ValueAnimator;
 
-.field protected mInvocationLightsView:Lcom/android/systemui/assist/ui/InvocationLightsView;
+.field public mInvocationInProgress:Z
 
-.field private mLastInvocationProgress:F
+.field public mInvocationLightsView:Lcom/android/systemui/assist/ui/InvocationLightsView;
 
-.field private final mLayoutParams:Landroid/view/WindowManager$LayoutParams;
+.field public mLastInvocationProgress:F
 
-.field private final mProgressInterpolator:Landroid/view/animation/PathInterpolator;
+.field public final mLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
-.field protected final mRoot:Landroid/widget/FrameLayout;
+.field public final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-.field private final mWindowManager:Landroid/view/WindowManager;
+.field public final mProgressInterpolator:Landroid/view/animation/PathInterpolator;
+
+.field public final mRoot:Landroid/widget/FrameLayout;
+
+.field public final mWindowManager:Landroid/view/WindowManager;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$sk0ku4pQsD5FH9JgWmx0chQFSxc(Lcom/android/systemui/assist/ui/DefaultUiController;ILandroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/assist/ui/DefaultUiController;->lambda$animateInvocationCompletion$0(ILandroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     sget-object v0, Landroid/os/Build;->TYPE:Ljava/lang/String;
@@ -89,8 +93,20 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/assist/AssistLogger;)V
-    .locals 10
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/assist/AssistLogger;Landroid/view/WindowManager;Lcom/android/internal/logging/MetricsLogger;Ldagger/Lazy;)V
+    .locals 9
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/content/Context;",
+            "Lcom/android/systemui/assist/AssistLogger;",
+            "Landroid/view/WindowManager;",
+            "Lcom/android/internal/logging/MetricsLogger;",
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/assist/AssistManager;",
+            ">;)V"
+        }
+    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -130,59 +146,55 @@
 
     iput-object p2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mRoot:Landroid/widget/FrameLayout;
 
-    const-string/jumbo v1, "window"
+    iput-object p3, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mWindowManager:Landroid/view/WindowManager;
 
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    iput-object p4, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-    move-result-object v1
+    iput-object p5, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAssistManagerLazy:Ldagger/Lazy;
 
-    check-cast v1, Landroid/view/WindowManager;
+    new-instance p3, Landroid/view/WindowManager$LayoutParams;
 
-    iput-object v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mWindowManager:Landroid/view/WindowManager;
+    const/4 v2, -0x1
 
-    new-instance v1, Landroid/view/WindowManager$LayoutParams;
+    const/4 v3, -0x2
 
-    const/4 v3, -0x1
-
-    const/4 v4, -0x2
+    const/4 v4, 0x0
 
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
+    const/16 v6, 0x7e8
 
-    const/16 v7, 0x7e8
+    const/16 v7, 0x328
 
-    const/16 v8, 0x328
+    const/4 v8, -0x3
 
-    const/4 v9, -0x3
+    move-object v1, p3
 
-    move-object v2, v1
+    invoke-direct/range {v1 .. v8}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIIIII)V
 
-    invoke-direct/range {v2 .. v9}, Landroid/view/WindowManager$LayoutParams;-><init>(IIIIIII)V
+    iput-object p3, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
 
-    iput-object v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
+    const/16 p4, 0x40
 
-    const/16 v2, 0x40
+    iput p4, p3, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
+    const/16 p4, 0x50
 
-    const/16 v2, 0x50
+    iput p4, p3, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
-    iput v2, v1, Landroid/view/WindowManager$LayoutParams;->gravity:I
+    invoke-virtual {p3, v0}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsTypes(I)V
 
-    invoke-virtual {v1, v0}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsTypes(I)V
+    const-string p4, "Assist"
 
-    const-string v2, "Assist"
-
-    invoke-virtual {v1, v2}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
+    invoke-virtual {p3, p4}, Landroid/view/WindowManager$LayoutParams;->setTitle(Ljava/lang/CharSequence;)V
 
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
 
-    sget v1, Lcom/android/systemui/R$layout;->invocation_lights:I
+    const p3, 0x7f0e00c3
 
-    invoke-virtual {p1, v1, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p1, p3, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p1
 
@@ -195,72 +207,58 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/systemui/assist/ui/DefaultUiController;Z)Z
-    .locals 0
 
-    iput-boolean p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
+# virtual methods
+.method public final animateInvocationCompletion(I)V
+    .locals 3
 
-    return p1
-.end method
+    const/4 v0, 0x2
 
-.method static synthetic access$102(Lcom/android/systemui/assist/ui/DefaultUiController;F)F
-    .locals 0
+    new-array v0, v0, [F
 
-    iput p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLastInvocationProgress:F
+    iget v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLastInvocationProgress:F
 
-    return p1
-.end method
+    const/4 v2, 0x0
 
-.method private animateInvocationCompletion(IF)V
-    .locals 2
+    aput v1, v0, v2
 
-    const/4 p2, 0x2
+    const/4 v1, 0x1
 
-    new-array p2, p2, [F
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    iget v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLastInvocationProgress:F
+    aput v2, v0, v1
 
-    const/4 v1, 0x0
+    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
-    aput v0, p2, v1
+    move-result-object v0
 
-    const/4 v0, 0x1
+    iput-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const-wide/16 v1, 0x1
 
-    aput v1, p2, v0
+    invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
-    invoke-static {p2}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
 
-    move-result-object p2
+    const-wide/16 v1, 0xc8
 
-    iput-object p2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
+    invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    const-wide/16 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {p2, v0, v1}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+    new-instance v1, Lcom/android/systemui/assist/ui/DefaultUiController$$ExternalSyntheticLambda0;
 
-    iget-object p2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/assist/ui/DefaultUiController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/assist/ui/DefaultUiController;I)V
 
-    const-wide/16 v0, 0xc8
-
-    invoke-virtual {p2, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    iget-object p2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
-
-    new-instance v0, Lcom/android/systemui/assist/ui/DefaultUiController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/assist/ui/DefaultUiController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/assist/ui/DefaultUiController;I)V
-
-    invoke-virtual {p2, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     iget-object p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
 
-    new-instance p2, Lcom/android/systemui/assist/ui/DefaultUiController$1;
+    new-instance v0, Lcom/android/systemui/assist/ui/DefaultUiController$1;
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/assist/ui/DefaultUiController$1;-><init>(Lcom/android/systemui/assist/ui/DefaultUiController;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/assist/ui/DefaultUiController$1;-><init>(Lcom/android/systemui/assist/ui/DefaultUiController;)V
 
-    invoke-virtual {p1, p2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     iget-object p0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
 
@@ -269,121 +267,52 @@
     return-void
 .end method
 
-.method private attach()V
+.method public final hide()V
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAttached:Z
 
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mWindowManager:Landroid/view/WindowManager;
-
-    iget-object v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mRoot:Landroid/widget/FrameLayout;
-
-    iget-object v2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
-
-    invoke-interface {v0, v1, v2}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAttached:Z
-
-    :cond_0
-    return-void
-.end method
-
-.method private detach()V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAttached:Z
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mWindowManager:Landroid/view/WindowManager;
 
-    iget-object v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mRoot:Landroid/widget/FrameLayout;
+    iget-object v2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mRoot:Landroid/widget/FrameLayout;
 
-    invoke-interface {v0, v1}, Landroid/view/WindowManager;->removeViewImmediate(Landroid/view/View;)V
+    invoke-interface {v0, v2}, Landroid/view/WindowManager;->removeViewImmediate(Landroid/view/View;)V
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAttached:Z
+    iput-boolean v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAttached:Z
 
     :cond_0
-    return-void
-.end method
-
-.method private synthetic lambda$animateInvocationCompletion$0(ILandroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p2}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Ljava/lang/Float;
-
-    invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
-
-    move-result p2
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/assist/ui/DefaultUiController;->setProgressInternal(IF)V
-
-    return-void
-.end method
-
-.method private setProgressInternal(IF)V
-    .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationLightsView:Lcom/android/systemui/assist/ui/InvocationLightsView;
-
-    iget-object p0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mProgressInterpolator:Landroid/view/animation/PathInterpolator;
-
-    invoke-virtual {p0, p2}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
-
-    move-result p0
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->onInvocationProgress(F)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public hide()V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/systemui/assist/ui/DefaultUiController;->detach()V
-
     iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationLightsView:Lcom/android/systemui/assist/ui/InvocationLightsView;
 
     invoke-virtual {v0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->hide()V
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
+    iput-boolean v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
 
     return-void
 .end method
 
-.method protected logInvocationProgressMetrics(IFZ)V
-    .locals 6
+.method public final logInvocationProgressMetrics(FIZ)V
+    .locals 9
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    cmpl-float v0, p2, v0
+    cmpl-float v0, p1, v0
 
     const-string v1, "DefaultUiController"
 
@@ -401,7 +330,7 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -416,7 +345,7 @@
 
     if-nez p3, :cond_2
 
-    cmpl-float v3, p2, v2
+    cmpl-float v3, p1, v2
 
     if-lez v3, :cond_2
 
@@ -432,7 +361,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -447,35 +376,47 @@
 
     const/4 v5, 0x0
 
-    invoke-virtual {v3, p1, v4, v5, v5}, Lcom/android/systemui/assist/AssistLogger;->reportAssistantInvocationEventFromLegacy(IZLandroid/content/ComponentName;Ljava/lang/Integer;)V
+    invoke-virtual {v3, p2, v5, v4, v4}, Lcom/android/systemui/assist/AssistLogger;->reportAssistantInvocationEventFromLegacy(IZLandroid/content/ComponentName;Ljava/lang/Integer;)V
 
-    new-instance v3, Landroid/metrics/LogMaker;
+    iget-object v3, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-    invoke-direct {v3, v0}, Landroid/metrics/LogMaker;-><init>(I)V
+    new-instance v4, Landroid/metrics/LogMaker;
 
-    const/4 v4, 0x4
+    invoke-direct {v4, v0}, Landroid/metrics/LogMaker;-><init>(I)V
 
-    invoke-virtual {v3, v4}, Landroid/metrics/LogMaker;->setType(I)Landroid/metrics/LogMaker;
+    const/4 v6, 0x4
 
-    move-result-object v3
-
-    const-class v4, Lcom/android/systemui/assist/AssistManager;
-
-    invoke-static {v4}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {v4, v6}, Landroid/metrics/LogMaker;->setType(I)Landroid/metrics/LogMaker;
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/systemui/assist/AssistManager;
+    iget-object v7, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAssistManagerLazy:Ldagger/Lazy;
 
-    invoke-virtual {v4, p1}, Lcom/android/systemui/assist/AssistManager;->toLoggingSubType(I)I
+    invoke-interface {v7}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
-    move-result v4
+    move-result-object v7
 
-    invoke-virtual {v3, v4}, Landroid/metrics/LogMaker;->setSubtype(I)Landroid/metrics/LogMaker;
+    check-cast v7, Lcom/android/systemui/assist/AssistManager;
 
-    move-result-object v3
+    iget-object v7, v7, Lcom/android/systemui/assist/AssistManager;->mPhoneStateMonitor:Lcom/android/systemui/assist/PhoneStateMonitor;
 
-    invoke-static {v3}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/metrics/LogMaker;)V
+    invoke-virtual {v7}, Lcom/android/systemui/assist/PhoneStateMonitor;->getPhoneState()I
+
+    move-result v7
+
+    shl-int/lit8 v8, p2, 0x1
+
+    or-int/2addr v5, v8
+
+    shl-int/lit8 v6, v7, 0x4
+
+    or-int/2addr v5, v6
+
+    invoke-virtual {v4, v5}, Landroid/metrics/LogMaker;->setSubtype(I)Landroid/metrics/LogMaker;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/internal/logging/MetricsLogger;->write(Landroid/metrics/LogMaker;)V
 
     :cond_2
     iget-object v3, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationAnimator:Landroid/animation/ValueAnimator;
@@ -491,25 +432,25 @@
     :cond_3
     if-eqz p3, :cond_5
 
-    cmpl-float p2, p2, v2
+    cmpl-float p1, p1, v2
 
-    if-nez p2, :cond_5
+    if-nez p1, :cond_5
 
-    sget-boolean p2, Lcom/android/systemui/assist/ui/DefaultUiController;->VERBOSE:Z
+    sget-boolean p1, Lcom/android/systemui/assist/ui/DefaultUiController;->VERBOSE:Z
 
-    if-eqz p2, :cond_4
+    if-eqz p1, :cond_4
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string p3, "Invocation cancelled: type="
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -544,24 +485,24 @@
     return-void
 .end method
 
-.method public onGestureCompletion(F)V
+.method public final onGestureCompletion(F)V
     .locals 2
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/assist/ui/DefaultUiController;->animateInvocationCompletion(IF)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/assist/ui/DefaultUiController;->animateInvocationCompletion(I)V
 
-    iget-boolean p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
+    iget-boolean v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {p0, v0, v1, p1}, Lcom/android/systemui/assist/ui/DefaultUiController;->logInvocationProgressMetrics(IFZ)V
+    invoke-virtual {p0, v1, p1, v0}, Lcom/android/systemui/assist/ui/DefaultUiController;->logInvocationProgressMetrics(FIZ)V
 
     return-void
 .end method
 
-.method public onInvocationProgress(IF)V
-    .locals 3
+.method public final onInvocationProgress(IF)V
+    .locals 5
 
     iget-boolean v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
 
@@ -569,16 +510,16 @@
 
     cmpl-float v1, p2, v1
 
-    const/4 v2, 0x0
-
     if-nez v1, :cond_0
 
-    invoke-direct {p0, p1, v2}, Lcom/android/systemui/assist/ui/DefaultUiController;->animateInvocationCompletion(IF)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/assist/ui/DefaultUiController;->animateInvocationCompletion(I)V
 
     goto :goto_0
 
     :cond_0
-    cmpl-float v1, p2, v2
+    const/4 v1, 0x0
+
+    cmpl-float v1, p2, v1
 
     if-nez v1, :cond_1
 
@@ -587,21 +528,42 @@
     goto :goto_0
 
     :cond_1
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
-    invoke-direct {p0}, Lcom/android/systemui/assist/ui/DefaultUiController;->attach()V
+    iget-boolean v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAttached:Z
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    iput-boolean v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mWindowManager:Landroid/view/WindowManager;
+
+    iget-object v3, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mRoot:Landroid/widget/FrameLayout;
+
+    iget-object v4, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLayoutParams:Landroid/view/WindowManager$LayoutParams;
+
+    invoke-interface {v1, v3, v4}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    iput-boolean v2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mAttached:Z
 
     :cond_2
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/assist/ui/DefaultUiController;->setProgressInternal(IF)V
+    iput-boolean v2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationLightsView:Lcom/android/systemui/assist/ui/InvocationLightsView;
+
+    iget-object v2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mProgressInterpolator:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {v2, p2}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/assist/ui/InvocationLightsView;->onInvocationProgress(F)V
 
     :goto_0
     iput p2, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLastInvocationProgress:F
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/assist/ui/DefaultUiController;->logInvocationProgressMetrics(IFZ)V
+    invoke-virtual {p0, p2, p1, v0}, Lcom/android/systemui/assist/ui/DefaultUiController;->logInvocationProgressMetrics(FIZ)V
 
     return-void
 .end method

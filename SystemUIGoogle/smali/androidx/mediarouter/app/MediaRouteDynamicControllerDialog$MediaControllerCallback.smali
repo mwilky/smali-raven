@@ -1,4 +1,4 @@
-.class final Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaControllerCallback;
+.class public final Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaControllerCallback;
 .super Landroid/support/v4/media/session/MediaControllerCompat$Callback;
 .source "MediaRouteDynamicControllerDialog.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "MediaControllerCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaControllerCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
@@ -39,16 +31,8 @@
 
 
 # virtual methods
-.method public onMetadataChanged(Landroid/support/v4/media/MediaMetadataCompat;)V
+.method public final onMetadataChanged(Landroid/support/v4/media/MediaMetadataCompat;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "metadata"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaControllerCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
@@ -77,7 +61,7 @@
     return-void
 .end method
 
-.method public onSessionDestroyed()V
+.method public final onSessionDestroyed()V
     .locals 2
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaControllerCallback;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;

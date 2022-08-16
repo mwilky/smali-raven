@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$deviceProvisionedListener$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
@@ -34,22 +34,22 @@
 
 
 # virtual methods
-.method public onDeviceProvisionedChanged()V
+.method public final onDeviceProvisionedChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$deviceProvisionedListener$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->access$connectSession(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->connectSession()V
 
     return-void
 .end method
 
-.method public onUserSetupChanged()V
+.method public final onUserSetupChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$deviceProvisionedListener$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->access$connectSession(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->connectSession()V
 
     return-void
 .end method

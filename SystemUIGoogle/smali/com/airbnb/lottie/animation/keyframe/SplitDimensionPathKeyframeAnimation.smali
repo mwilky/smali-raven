@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;
 .super Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 .source "SplitDimensionPathKeyframeAnimation.java"
 
@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field private final point:Landroid/graphics/PointF;
+.field public final point:Landroid/graphics/PointF;
 
-.field private final xAnimation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public final xAnimation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final yAnimation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public final yAnimation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -41,21 +41,8 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;)V
+.method public constructor <init>(Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;)V
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "Ljava/lang/Float;",
-            "Ljava/lang/Float;",
-            ">;",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "Ljava/lang/Float;",
-            "Ljava/lang/Float;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
@@ -73,9 +60,7 @@
 
     iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->yAnimation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getProgress()F
-
-    move-result p1
+    iget p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->progress:F
 
     invoke-virtual {p0, p1}, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->setProgress(F)V
 
@@ -84,58 +69,23 @@
 
 
 # virtual methods
-.method public getValue()Landroid/graphics/PointF;
-    .locals 2
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->getValue(Lcom/airbnb/lottie/value/Keyframe;F)Landroid/graphics/PointF;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method getValue(Lcom/airbnb/lottie/value/Keyframe;F)Landroid/graphics/PointF;
+.method public final getValue()Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/value/Keyframe<",
-            "Landroid/graphics/PointF;",
-            ">;F)",
-            "Landroid/graphics/PointF;"
-        }
-    .end annotation
 
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->point:Landroid/graphics/PointF;
 
     return-object p0
 .end method
 
-.method public bridge synthetic getValue()Ljava/lang/Object;
+.method public final getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->getValue()Landroid/graphics/PointF;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->point:Landroid/graphics/PointF;
 
     return-object p0
 .end method
 
-.method bridge synthetic getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2}, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->getValue(Lcom/airbnb/lottie/value/Keyframe;F)Landroid/graphics/PointF;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public setProgress(F)V
+.method public final setProgress(F)V
     .locals 2
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;->xAnimation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
@@ -177,17 +127,17 @@
     const/4 p1, 0x0
 
     :goto_0
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
     if-ge p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/ArrayList;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 

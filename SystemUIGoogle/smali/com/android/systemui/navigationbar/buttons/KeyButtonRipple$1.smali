@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;
+.class public final Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "KeyButtonRipple.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
@@ -31,22 +31,18 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->access$100(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;)Ljava/util/HashSet;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mRunningAnimations:Ljava/util/HashSet;
 
     invoke-virtual {v0, p1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
     iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-    invoke-static {p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->access$100(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;)Ljava/util/HashSet;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mRunningAnimations:Ljava/util/HashSet;
 
     invoke-virtual {p1}, Ljava/util/HashSet;->isEmpty()Z
 
@@ -54,25 +50,17 @@
 
     if-eqz p1, :cond_0
 
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-    invoke-static {p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->access$200(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;)Z
-
-    move-result p1
+    iget-boolean p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mPressed:Z
 
     if-nez p1, :cond_0
 
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
+    const/4 p1, 0x0
 
-    const/4 v0, 0x0
+    iput-boolean p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mVisible:Z
 
-    invoke-static {p1, v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->access$302(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;Z)Z
-
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
-
-    invoke-static {p1, v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->access$402(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;Z)Z
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
+    iput-boolean p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mDrawingHardwareGlow:Z
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 

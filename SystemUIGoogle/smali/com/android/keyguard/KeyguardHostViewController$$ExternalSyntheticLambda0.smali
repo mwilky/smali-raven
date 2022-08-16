@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardHostViewController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnKeyListener;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardHostViewController$$ExternalSyntheticLambda0;->f$0:Lcom/android/keyguard/KeyguardHostViewController;
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardHostViewController;->$r8$lambda$JrjRYhNBUiyIPkhGa_AFPX2_-a8(Lcom/android/keyguard/KeyguardHostViewController;Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    invoke-virtual {p0, p3}, Lcom/android/keyguard/KeyguardHostViewController;->interceptMediaKey(Landroid/view/KeyEvent;)Z
 
     move-result p0
 

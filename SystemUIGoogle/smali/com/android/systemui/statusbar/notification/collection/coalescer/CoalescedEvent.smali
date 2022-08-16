@@ -4,32 +4,20 @@
 
 
 # instance fields
-.field private batch:Lcom/android/systemui/statusbar/notification/collection/coalescer/EventBatch;
+.field public batch:Lcom/android/systemui/statusbar/notification/collection/coalescer/EventBatch;
 
-.field private final key:Ljava/lang/String;
+.field public final key:Ljava/lang/String;
 
-.field private position:I
+.field public position:I
 
-.field private ranking:Landroid/service/notification/NotificationListenerService$Ranking;
+.field public ranking:Landroid/service/notification/NotificationListenerService$Ranking;
 
-.field private sbn:Landroid/service/notification/StatusBarNotification;
+.field public sbn:Landroid/service/notification/StatusBarNotification;
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/String;ILandroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$Ranking;Lcom/android/systemui/statusbar/notification/collection/coalescer/EventBatch;)V
-    .locals 1
-
-    const-string v0, "key"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "sbn"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "ranking"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,7 +36,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -133,48 +121,8 @@
     return v0
 .end method
 
-.method public final getBatch()Lcom/android/systemui/statusbar/notification/collection/coalescer/EventBatch;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->batch:Lcom/android/systemui/statusbar/notification/collection/coalescer/EventBatch;
-
-    return-object p0
-.end method
-
-.method public final getKey()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->key:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public final getPosition()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->position:I
-
-    return p0
-.end method
-
-.method public final getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->ranking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    return-object p0
-.end method
-
-.method public final getSbn()Landroid/service/notification/StatusBarNotification;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->sbn:Landroid/service/notification/StatusBarNotification;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
-    .locals 2
+.method public final hashCode()I
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->key:Ljava/lang/String;
 
@@ -186,13 +134,11 @@
 
     iget v1, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->position:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v2, 0x1f
 
-    move-result v1
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->sbn:Landroid/service/notification/StatusBarNotification;
 
@@ -200,15 +146,15 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->ranking:Landroid/service/notification/NotificationListenerService$Ranking;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->ranking:Landroid/service/notification/NotificationListenerService$Ranking;
 
-    invoke-virtual {v1}, Landroid/service/notification/NotificationListenerService$Ranking;->hashCode()I
+    invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->hashCode()I
 
-    move-result v1
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -233,36 +179,14 @@
     return v0
 .end method
 
-.method public final setBatch(Lcom/android/systemui/statusbar/notification/collection/coalescer/EventBatch;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->batch:Lcom/android/systemui/statusbar/notification/collection/coalescer/EventBatch;
-
-    return-void
-.end method
-
-.method public final setRanking(Landroid/service/notification/NotificationListenerService$Ranking;)V
+.method public final toString()Ljava/lang/String;
     .locals 1
 
-    const-string v0, "<set-?>"
+    const-string v0, "CoalescedEvent(key="
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->ranking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "CoalescedEvent(key="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;->key:Ljava/lang/String;
 

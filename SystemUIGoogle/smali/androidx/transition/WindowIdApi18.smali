@@ -1,4 +1,4 @@
-.class Landroidx/transition/WindowIdApi18;
+.class public final Landroidx/transition/WindowIdApi18;
 .super Ljava/lang/Object;
 .source "WindowIdApi18.java"
 
@@ -7,11 +7,11 @@
 
 
 # instance fields
-.field private final mWindowId:Landroid/view/WindowId;
+.field public final mWindowId:Landroid/view/WindowId;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/View;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +27,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
 
     instance-of v0, p1, Landroidx/transition/WindowIdApi18;
@@ -57,7 +57,7 @@
     return p0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 0
 
     iget-object p0, p0, Landroidx/transition/WindowIdApi18;->mWindowId:Landroid/view/WindowId;

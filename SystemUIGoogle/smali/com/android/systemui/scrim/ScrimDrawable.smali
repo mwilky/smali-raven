@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/scrim/ScrimDrawable;
+.class public final Lcom/android/systemui/scrim/ScrimDrawable;
 .super Landroid/graphics/drawable/Drawable;
 .source "ScrimDrawable.java"
 
@@ -12,34 +12,26 @@
 
 
 # instance fields
-.field private mAlpha:I
+.field public mAlpha:I
 
-.field private mBottomEdgePosition:I
+.field public mBottomEdgePosition:I
 
-.field private mColorAnimation:Landroid/animation/ValueAnimator;
+.field public mColorAnimation:Landroid/animation/ValueAnimator;
 
-.field private mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
+.field public mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
 
-.field private mCornerRadius:F
+.field public mCornerRadius:F
 
-.field private mCornerRadiusEnabled:Z
+.field public mCornerRadiusEnabled:Z
 
-.field private mMainColor:I
+.field public mMainColor:I
 
-.field private mMainColorTo:I
+.field public mMainColorTo:I
 
-.field private final mPaint:Landroid/graphics/Paint;
+.field public final mPaint:Landroid/graphics/Paint;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$jXuXmmKAkZ5VU4gxG8V26xT-gU4(Lcom/android/systemui/scrim/ScrimDrawable;IILandroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/scrim/ScrimDrawable;->lambda$setColor$0(IILandroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -62,30 +54,28 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/scrim/ScrimDrawable;)Landroid/animation/ValueAnimator;
-    .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mColorAnimation:Landroid/animation/ValueAnimator;
+# virtual methods
+.method public final draw(Landroid/graphics/Canvas;)V
+    .locals 9
 
-    return-object p0
-.end method
+    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
 
-.method static synthetic access$002(Lcom/android/systemui/scrim/ScrimDrawable;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
+    iget v1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mMainColor:I
 
-    iput-object p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mColorAnimation:Landroid/animation/ValueAnimator;
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
-    return-object p1
-.end method
+    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
 
-.method private drawConcave(Landroid/graphics/Canvas;)V
-    .locals 7
+    iget v1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mAlpha:I
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
 
     iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
 
-    invoke-static {v0}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->access$100(Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;)Landroid/graphics/Path;
+    if-eqz v0, :cond_0
 
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->mPath:Landroid/graphics/Path;
 
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->clipOutPath(Landroid/graphics/Path;)Z
 
@@ -119,9 +109,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
 
-    invoke-static {v1}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->access$200(Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;)F
-
-    move-result v1
+    iget v1, v1, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->mPathOverlap:F
 
     add-float v5, v0, v1
 
@@ -130,121 +118,6 @@
     move-object v1, p1
 
     invoke-virtual/range {v1 .. v6}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setColor$0(IILandroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p3}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p3
-
-    check-cast p3, Ljava/lang/Float;
-
-    invoke-virtual {p3}, Ljava/lang/Float;->floatValue()F
-
-    move-result p3
-
-    invoke-static {p1, p2, p3}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mMainColor:I
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    return-void
-.end method
-
-.method private updatePath()V
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-static {v0}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->access$100(Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;)Landroid/graphics/Path;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
-
-    iget v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mBottomEdgePosition:I
-
-    int-to-float v3, v0
-
-    int-to-float v0, v0
-
-    iget-object v1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    invoke-static {v1}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->access$200(Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;)F
-
-    move-result v1
-
-    add-float v5, v0, v1
-
-    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    invoke-static {v0}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->access$100(Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;)Landroid/graphics/Path;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    int-to-float v2, v0
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/Rect;->right:I
-
-    int-to-float v4, v0
-
-    iget-object p0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    invoke-static {p0}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->access$300(Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;)[F
-
-    move-result-object v6
-
-    sget-object v7, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
-
-    invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->addRoundRect(FFFF[FLandroid/graphics/Path$Direction;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
-    .locals 9
-
-    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
-
-    iget v1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mMainColor:I
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
-
-    iget v1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mAlpha:I
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/scrim/ScrimDrawable;->drawConcave(Landroid/graphics/Canvas;)V
 
     goto :goto_0
 
@@ -291,11 +164,9 @@
 
     iget v0, v0, Landroid/graphics/Rect;->bottom:I
 
-    int-to-float v0, v0
+    int-to-float v5, v0
 
     iget v7, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mCornerRadius:F
-
-    add-float v5, v0, v7
 
     iget-object v8, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
 
@@ -350,7 +221,7 @@
     return-void
 .end method
 
-.method public getAlpha()I
+.method public final getAlpha()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mAlpha:I
@@ -358,7 +229,7 @@
     return p0
 .end method
 
-.method public getColorFilter()Landroid/graphics/ColorFilter;
+.method public final getColorFilter()Landroid/graphics/ColorFilter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
@@ -380,7 +251,7 @@
     return p0
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, -0x3
@@ -388,15 +259,15 @@
     return p0
 .end method
 
-.method protected onBoundsChange(Landroid/graphics/Rect;)V
+.method public final onBoundsChange(Landroid/graphics/Rect;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/scrim/ScrimDrawable;->updatePath()V
+    invoke-virtual {p0}, Lcom/android/systemui/scrim/ScrimDrawable;->updatePath()V
 
     return-void
 .end method
 
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mAlpha:I
@@ -411,70 +282,7 @@
     return-void
 .end method
 
-.method public setBottomEdgeConcave(Z)V
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    if-nez p1, :cond_1
-
-    const/4 p1, 0x0
-
-    iput-object p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    goto :goto_0
-
-    :cond_1
-    new-instance p1, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    invoke-direct {p1}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    iget v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mCornerRadius:F
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->setCornerRadius(F)V
-
-    :goto_0
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    return-void
-.end method
-
-.method public setBottomEdgePosition(I)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mBottomEdgePosition:I
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mBottomEdgePosition:I
-
-    iget-object p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    if-nez p1, :cond_1
-
-    return-void
-
-    :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/scrim/ScrimDrawable;->updatePath()V
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    return-void
-.end method
-
-.method public setColor(IZ)V
+.method public final setColor(IZ)V
     .locals 3
 
     iget v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mMainColorTo:I
@@ -560,7 +368,7 @@
     .end array-data
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
@@ -570,52 +378,7 @@
     return-void
 .end method
 
-.method public setRoundedCorners(F)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mCornerRadius:F
-
-    cmpl-float v0, p1, v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iput p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mCornerRadius:F
-
-    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->setCornerRadius(F)V
-
-    invoke-direct {p0}, Lcom/android/systemui/scrim/ScrimDrawable;->updatePath()V
-
-    :cond_1
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    return-void
-.end method
-
-.method public setRoundedCornersEnabled(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mCornerRadiusEnabled:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mCornerRadiusEnabled:Z
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    return-void
-.end method
-
-.method public setXfermode(Landroid/graphics/Xfermode;)V
+.method public final setXfermode(Landroid/graphics/Xfermode;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mPaint:Landroid/graphics/Paint;
@@ -623,6 +386,61 @@
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+
+    return-void
+.end method
+
+.method public final updatePath()V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, v0, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->mPath:Landroid/graphics/Path;
+
+    invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
+
+    iget v0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mBottomEdgePosition:I
+
+    int-to-float v3, v0
+
+    int-to-float v0, v0
+
+    iget-object v1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
+
+    iget v2, v1, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->mPathOverlap:F
+
+    add-float v5, v0, v2
+
+    iget-object v1, v1, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->mPath:Landroid/graphics/Path;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/graphics/Rect;->left:I
+
+    int-to-float v2, v0
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/graphics/Rect;->right:I
+
+    int-to-float v4, v0
+
+    iget-object p0, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mConcaveInfo:Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;
+
+    iget-object v6, p0, Lcom/android/systemui/scrim/ScrimDrawable$ConcaveInfo;->mCornerRadii:[F
+
+    sget-object v7, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+
+    invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->addRoundRect(FFFF[FLandroid/graphics/Path$Direction;)V
 
     return-void
 .end method

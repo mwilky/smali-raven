@@ -13,36 +13,16 @@
     name = "DeletionJobService"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService$Companion;
-    }
-.end annotation
-
 
 # static fields
-.field public static final Companion:Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService$Companion;
+.field public static final synthetic $r8$clinit:I
 
-.field private static final DELETE_FILE_JOB_ID:I
-
-.field private static final WEEK_IN_MILLIS:J
+.field public static final WEEK_IN_MILLIS:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
-
-    new-instance v0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService;->Companion:Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService$Companion;
-
-    const/16 v0, 0x3e8
-
-    sput v0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService;->DELETE_FILE_JOB_ID:I
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
 
@@ -65,50 +45,24 @@
     return-void
 .end method
 
-.method public static final synthetic access$getDELETE_FILE_JOB_ID$cp()I
-    .locals 1
-
-    sget v0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService;->DELETE_FILE_JOB_ID:I
-
-    return v0
-.end method
-
-.method public static final synthetic access$getWEEK_IN_MILLIS$cp()J
-    .locals 2
-
-    sget-wide v0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService;->WEEK_IN_MILLIS:J
-
-    return-wide v0
-.end method
-
 
 # virtual methods
 .method public final attachContext(Landroid/content/Context;)V
-    .locals 1
+    .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p0, p1}, Landroid/app/job/JobService;->attachBaseContext(Landroid/content/Context;)V
 
     return-void
 .end method
 
-.method public onStartJob(Landroid/app/job/JobParameters;)Z
+.method public final onStartJob(Landroid/app/job/JobParameters;)Z
     .locals 1
 
-    const-string v0, "params"
+    sget-object p1, Lcom/android/systemui/backup/BackupHelper;->controlsDataLock:Ljava/lang/Object;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sget-object p1, Lcom/android/systemui/backup/BackupHelper;->Companion:Lcom/android/systemui/backup/BackupHelper$Companion;
-
-    invoke-virtual {p1}, Lcom/android/systemui/backup/BackupHelper$Companion;->getControlsDataLock()Ljava/lang/Object;
-
-    move-result-object p1
+    sget-object p1, Lcom/android/systemui/backup/BackupHelper;->controlsDataLock:Ljava/lang/Object;
 
     monitor-enter p1
 
@@ -137,7 +91,7 @@
     throw p0
 .end method
 
-.method public onStopJob(Landroid/app/job/JobParameters;)Z
+.method public final onStopJob(Landroid/app/job/JobParameters;)Z
     .locals 0
 
     const/4 p0, 0x1

@@ -11,71 +11,61 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String;
-
-
 # instance fields
-.field private mBgAlpha:I
+.field public mBgAlpha:I
 
-.field private final mBgHeight:I
+.field public final mBgHeight:I
 
-.field private final mBgPaint:Landroid/graphics/Paint;
+.field public final mBgPaint:Landroid/graphics/Paint;
 
-.field private final mBgRadius:I
+.field public final mBgRadius:I
 
-.field private final mBgWidth:I
+.field public final mBgWidth:I
 
-.field private final mChipPaint:Landroid/graphics/Paint;
+.field public final mChipPaint:Landroid/graphics/Paint;
 
-.field private final mCollapse:Landroid/animation/AnimatorSet;
+.field public final mCollapse:Landroid/animation/AnimatorSet;
 
-.field private mDotAlpha:I
+.field public mDotAlpha:I
 
-.field private final mDotSize:I
+.field public final mDotSize:I
 
-.field private final mExpand:Landroid/animation/AnimatorSet;
+.field public final mExpand:Landroid/animation/AnimatorSet;
 
-.field private final mFadeIn:Landroid/animation/AnimatorSet;
+.field public final mFadeIn:Landroid/animation/AnimatorSet;
 
-.field private final mFadeOut:Landroid/animation/AnimatorSet;
+.field public final mFadeOut:Landroid/animation/AnimatorSet;
 
-.field private mHeight:F
+.field public mHeight:F
 
-.field private final mIconPadding:I
+.field public final mIconPadding:I
 
-.field private final mIconWidth:I
+.field public final mIconWidth:I
 
-.field private mIsExpanded:Z
+.field public mIsExpanded:Z
 
-.field private mIsRtl:Z
+.field public mIsRtl:Z
 
-.field private mListener:Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
+.field public mListener:Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
 
-.field private mMarginEnd:F
+.field public mMarginEnd:F
 
-.field private final mMinWidth:I
+.field public final mMinWidth:I
 
-.field private mRadius:F
+.field public mRadius:F
 
-.field private mTargetWidth:F
+.field public mTargetWidth:F
 
-.field private mWidth:F
+.field public mWidth:F
 
-.field private mWidthAnimator:Landroid/animation/Animator;
+.field public mWidthAnimator:Landroid/animation/ObjectAnimator;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-class v0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->TAG:Ljava/lang/String;
 
     return-void
 .end method
@@ -99,7 +89,7 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    sget v2, Lcom/android/systemui/R$color;->privacy_circle:I
+    const v2, 0x7f06035c
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -123,7 +113,7 @@
 
     invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    sget v2, Lcom/android/systemui/R$color;->privacy_chip_dot_bg_tint:I
+    const v2, 0x7f06035b
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -141,7 +131,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->privacy_chip_dot_bg_width:I
+    const v1, 0x7f070680
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -153,7 +143,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->privacy_chip_dot_bg_height:I
+    const v1, 0x7f07067e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -165,7 +155,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->privacy_chip_dot_bg_radius:I
+    const v1, 0x7f07067f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -177,7 +167,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->privacy_chip_min_width:I
+    const v1, 0x7f070689
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -189,7 +179,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->privacy_chip_icon_size:I
+    const v2, 0x7f070686
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -201,7 +191,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->privacy_chip_icon_margin_in_between:I
+    const v2, 0x7f070685
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -213,7 +203,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->privacy_chip_dot_size:I
+    const v2, 0x7f070683
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -229,7 +219,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->privacy_chip_height:I
+    const v1, 0x7f070684
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -243,7 +233,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->privacy_chip_radius:I
+    const v1, 0x7f07068b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -253,7 +243,7 @@
 
     iput v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mRadius:F
 
-    sget v0, Lcom/android/systemui/R$anim;->tv_privacy_chip_expand:I
+    const v0, 0x7f010259
 
     invoke-static {p1, v0}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -265,7 +255,7 @@
 
     invoke-virtual {v0, p0}, Landroid/animation/AnimatorSet;->setTarget(Ljava/lang/Object;)V
 
-    sget v0, Lcom/android/systemui/R$anim;->tv_privacy_chip_collapse:I
+    const v0, 0x7f010258
 
     invoke-static {p1, v0}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -277,7 +267,7 @@
 
     invoke-virtual {v0, p0}, Landroid/animation/AnimatorSet;->setTarget(Ljava/lang/Object;)V
 
-    sget v0, Lcom/android/systemui/R$anim;->tv_privacy_chip_fade_in:I
+    const v0, 0x7f01025a
 
     invoke-static {p1, v0}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -289,7 +279,7 @@
 
     invoke-virtual {v0, p0}, Landroid/animation/AnimatorSet;->setTarget(Ljava/lang/Object;)V
 
-    sget v0, Lcom/android/systemui/R$anim;->tv_privacy_chip_fade_out:I
+    const v0, 0x7f01025b
 
     invoke-static {p1, v0}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -310,15 +300,9 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/privacy/television/PrivacyChipDrawable;)Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
-    .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mListener:Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
-
-    return-object p0
-.end method
-
-.method private animateToNewTargetWidth(F)V
+# virtual methods
+.method public final animateToNewTargetWidth(F)V
     .locals 2
 
     iget v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mTargetWidth:F
@@ -345,78 +329,20 @@
 
     invoke-virtual {p1}, Landroid/animation/Animator;->start()V
 
-    iget-object v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mWidthAnimator:Landroid/animation/Animator;
+    iget-object v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mWidthAnimator:Landroid/animation/ObjectAnimator;
 
     if-eqz v0, :cond_0
 
     invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
 
     :cond_0
-    iput-object p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mWidthAnimator:Landroid/animation/Animator;
+    iput-object p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mWidthAnimator:Landroid/animation/ObjectAnimator;
 
     :cond_1
     return-void
 .end method
 
-.method private expand()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIsExpanded:Z
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIsExpanded:Z
-
-    iget-object v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mExpand:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mCollapse:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {p0}, Landroid/animation/AnimatorSet;->cancel()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public collapse()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIsExpanded:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIsExpanded:Z
-
-    iget v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mDotSize:I
-
-    int-to-float v0, v0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->animateToNewTargetWidth(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mCollapse:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mExpand:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {p0}, Landroid/animation/AnimatorSet;->cancel()V
-
-    return-void
-.end method
-
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 9
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -561,9 +487,9 @@
     :goto_3
     div-float/2addr v5, v7
 
-    add-float/2addr v1, v5
+    add-float/2addr v5, v1
 
-    invoke-direct {v2, v4, v6, v0, v1}, Landroid/graphics/RectF;-><init>(FFFF)V
+    invoke-direct {v2, v4, v6, v0, v5}, Landroid/graphics/RectF;-><init>(FFFF)V
 
     iget v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mRadius:F
 
@@ -574,7 +500,7 @@
     return-void
 .end method
 
-.method public getAlpha()I
+.method public final getAlpha()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mDotAlpha:I
@@ -622,7 +548,7 @@
     return p0
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, -0x3
@@ -650,7 +576,7 @@
     return p0
 .end method
 
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->setDotAlpha(I)V
@@ -674,7 +600,7 @@
     return-void
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
 
     return-void
@@ -706,14 +632,6 @@
     return-void
 .end method
 
-.method public setListener(Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mListener:Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
-
-    return-void
-.end method
-
 .method public setMarginEnd(F)V
     .locals 0
     .annotation build Landroidx/annotation/Keep;
@@ -738,14 +656,6 @@
     return-void
 .end method
 
-.method public setRtl(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIsRtl:Z
-
-    return-void
-.end method
-
 .method public setWidth(F)V
     .locals 0
     .annotation build Landroidx/annotation/Keep;
@@ -758,17 +668,7 @@
     return-void
 .end method
 
-.method public startInitialFadeIn()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mFadeIn:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {p0}, Landroid/animation/AnimatorSet;->start()V
-
-    return-void
-.end method
-
-.method public updateIcons(I)V
+.method public final updateIcons(I)V
     .locals 3
 
     if-nez p1, :cond_0
@@ -777,7 +677,7 @@
 
     invoke-virtual {p1}, Landroid/animation/AnimatorSet;->start()V
 
-    iget-object p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mWidthAnimator:Landroid/animation/Animator;
+    iget-object p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mWidthAnimator:Landroid/animation/ObjectAnimator;
 
     invoke-virtual {p1}, Landroid/animation/Animator;->cancel()V
 
@@ -800,11 +700,29 @@
 
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
 
-    invoke-direct {p0}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->expand()V
+    iget-boolean v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIsExpanded:Z
 
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iput-boolean v1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIsExpanded:Z
+
+    iget-object v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mExpand:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
+
+    iget-object v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mCollapse:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->cancel()V
+
+    :goto_0
     iget v0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mMinWidth:I
 
-    add-int/lit8 p1, p1, -0x1
+    sub-int/2addr p1, v1
 
     iget v1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mIconWidth:I
 
@@ -812,13 +730,13 @@
 
     add-int/2addr v1, v2
 
-    mul-int/2addr p1, v1
+    mul-int/2addr v1, p1
 
-    add-int/2addr v0, p1
+    add-int/2addr v1, v0
 
-    int-to-float p1, v0
+    int-to-float p1, v1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->animateToNewTargetWidth(F)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->animateToNewTargetWidth(F)V
 
     return-void
 .end method

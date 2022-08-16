@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/classifier/FalsingClassifier$Result;
+.class public final Lcom/android/systemui/classifier/FalsingClassifier$Result;
 .super Ljava/lang/Object;
 .source "FalsingClassifier.java"
 
@@ -15,17 +15,17 @@
 
 
 # instance fields
-.field private final mConfidence:D
+.field public final mConfidence:D
 
-.field private final mContext:Ljava/lang/String;
+.field public final mContext:Ljava/lang/String;
 
-.field private final mFalsed:Z
+.field public final mFalsed:Z
 
-.field private final mReason:Ljava/lang/String;
+.field public final mReason:Ljava/lang/String;
 
 
 # direct methods
-.method private constructor <init>(ZDLjava/lang/String;Ljava/lang/String;)V
+.method public constructor <init>(ZDLjava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,26 +39,6 @@
     iput-object p5, p0, Lcom/android/systemui/classifier/FalsingClassifier$Result;->mReason:Ljava/lang/String;
 
     return-void
-.end method
-
-.method public static falsed(DLjava/lang/String;Ljava/lang/String;)Lcom/android/systemui/classifier/FalsingClassifier$Result;
-    .locals 7
-
-    new-instance v6, Lcom/android/systemui/classifier/FalsingClassifier$Result;
-
-    const/4 v1, 0x1
-
-    move-object v0, v6
-
-    move-wide v2, p0
-
-    move-object v4, p2
-
-    move-object v5, p3
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/classifier/FalsingClassifier$Result;-><init>(ZDLjava/lang/String;Ljava/lang/String;)V
-
-    return-object v6
 .end method
 
 .method public static passed(D)Lcom/android/systemui/classifier/FalsingClassifier$Result;
@@ -83,15 +63,7 @@
 
 
 # virtual methods
-.method public getConfidence()D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/classifier/FalsingClassifier$Result;->mConfidence:D
-
-    return-wide v0
-.end method
-
-.method public getReason()Ljava/lang/String;
+.method public final getReason()Ljava/lang/String;
     .locals 3
 
     const/4 v0, 0x2
@@ -117,12 +89,4 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method public isFalse()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/classifier/FalsingClassifier$Result;->mFalsed:Z
-
-    return p0
 .end method

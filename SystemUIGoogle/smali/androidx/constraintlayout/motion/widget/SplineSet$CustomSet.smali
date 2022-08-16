@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/SplineSet$CustomSet;
+.class public final Landroidx/constraintlayout/motion/widget/SplineSet$CustomSet;
 .super Landroidx/constraintlayout/motion/widget/SplineSet;
 .source "SplineSet.java"
 
@@ -9,15 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "CustomSet"
 .end annotation
 
 
 # instance fields
-.field mAttributeName:Ljava/lang/String;
-
-.field mConstraintAttributeList:Landroid/util/SparseArray;
+.field public mConstraintAttributeList:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -27,7 +25,7 @@
     .end annotation
 .end field
 
-.field mTempValues:[F
+.field public mTempValues:[F
 
 
 # direct methods
@@ -55,8 +53,6 @@
 
     aget-object p1, p1, v0
 
-    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/SplineSet$CustomSet;->mAttributeName:Ljava/lang/String;
-
     iput-object p2, p0, Landroidx/constraintlayout/motion/widget/SplineSet$CustomSet;->mConstraintAttributeList:Landroid/util/SparseArray;
 
     return-void
@@ -64,7 +60,7 @@
 
 
 # virtual methods
-.method public setPoint(IF)V
+.method public final setPoint(IF)V
     .locals 0
 
     new-instance p0, Ljava/lang/RuntimeException;
@@ -76,17 +72,7 @@
     throw p0
 .end method
 
-.method public setPoint(ILandroidx/constraintlayout/widget/ConstraintAttribute;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/constraintlayout/motion/widget/SplineSet$CustomSet;->mConstraintAttributeList:Landroid/util/SparseArray;
-
-    invoke-virtual {p0, p1, p2}, Landroid/util/SparseArray;->append(ILjava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public setProperty(Landroid/view/View;F)V
+.method public final setProperty(Landroid/view/View;F)V
     .locals 3
 
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/SplineSet;->mCurveFit:Landroidx/constraintlayout/motion/utils/CurveFit;
@@ -114,7 +100,7 @@
     return-void
 .end method
 
-.method public setup(I)V
+.method public final setup(I)V
     .locals 11
 
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/SplineSet$CustomSet;->mConstraintAttributeList:Landroid/util/SparseArray;

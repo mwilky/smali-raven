@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;
+.class public final Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;
 .super Ljava/lang/Object;
 .source "MediaTimeoutListener.kt"
 
@@ -12,24 +12,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
-
-.field final synthetic this$1:Lcom/android/systemui/media/MediaTimeoutListener;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;Lcom/android/systemui/media/MediaTimeoutListener;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
-
-    iput-object p2, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$1:Lcom/android/systemui/media/MediaTimeoutListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,59 +35,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;->access$setCancellation$p(Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
-
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "Execute timeout for "
-
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "MediaTimeout"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;->setTimedOut(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$1:Lcom/android/systemui/media/MediaTimeoutListener;
-
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaTimeoutListener;->getTimeoutCallback()Lkotlin/jvm/functions/Function2;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
-
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;->getKey()Ljava/lang/String;
-
-    move-result-object v1
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener$processState$1;->this$0:Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;->getTimedOut()Z
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    invoke-interface {v0, v1, p0}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaTimeoutListener$PlaybackStateListener;->doTimeout()V
 
     return-void
 .end method

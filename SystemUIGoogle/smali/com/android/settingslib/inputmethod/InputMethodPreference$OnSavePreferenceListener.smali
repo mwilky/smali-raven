@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnSavePreferenceListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onSaveInputMethodPreference(Lcom/android/settingslib/inputmethod/InputMethodPreference;)V
-.end method

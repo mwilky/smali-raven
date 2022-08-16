@@ -1,4 +1,4 @@
-.class Landroidx/leanback/transition/SlideKitkat$4;
+.class public final Landroidx/leanback/transition/SlideKitkat$4;
 .super Landroidx/leanback/transition/SlideKitkat$CalculateSlideVertical;
 .source "SlideKitkat.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/leanback/transition/SlideKitkat$CalculateSlideVertical;-><init>()V
@@ -25,16 +25,8 @@
 
 
 # virtual methods
-.method public getGone(Landroid/view/View;)F
+.method public final getGone(Landroid/view/View;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getTranslationY()F
 

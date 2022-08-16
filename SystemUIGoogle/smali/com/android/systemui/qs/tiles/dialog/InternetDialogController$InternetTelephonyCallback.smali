@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;
 .super Landroid/telephony/TelephonyCallback;
 .source "InternetDialogController.java"
 
@@ -16,17 +16,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "InternetTelephonyCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
@@ -36,86 +36,76 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onDataConnectionStateChanged(II)V
+.method public final onDataConnectionStateChanged(II)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
-    move-result-object p0
+    check-cast p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onDataConnectionStateChanged(II)V
-
-    return-void
-.end method
-
-.method public onDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$402(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/telephony/TelephonyDisplayInfo;)Landroid/telephony/TelephonyDisplayInfo;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
-
-    move-result-object p0
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onDataConnectionStateChanged()V
 
     return-void
 .end method
 
-.method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
+.method public final onDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onServiceStateChanged(Landroid/telephony/ServiceState;)V
+    check-cast p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    return-void
-.end method
-
-.method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
-
-    move-result-object p0
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onDisplayInfoChanged()V
 
     return-void
 .end method
 
-.method public onUserMobileDataStateChanged(Z)V
+.method public final onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
-    move-result-object p0
+    check-cast p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onUserMobileDataStateChanged(Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onServiceStateChanged()V
+
+    return-void
+.end method
+
+.method public final onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+
+    check-cast p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onSignalStrengthsChanged()V
+
+    return-void
+.end method
+
+.method public final onUserMobileDataStateChanged(Z)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+
+    check-cast p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onUserMobileDataStateChanged()V
 
     return-void
 .end method

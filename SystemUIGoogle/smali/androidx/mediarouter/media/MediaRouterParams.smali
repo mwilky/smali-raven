@@ -1,3 +1,3 @@
-.class public Landroidx/mediarouter/media/MediaRouterParams;
+.class public final Landroidx/mediarouter/media/MediaRouterParams;
 .super Ljava/lang/Object;
 .source "MediaRouterParams.java"

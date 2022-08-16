@@ -1,21 +1,11 @@
-.class Landroidx/core/graphics/drawable/RoundedBitmapDrawable21;
+.class public final Landroidx/core/graphics/drawable/RoundedBitmapDrawable21;
 .super Landroidx/core/graphics/drawable/RoundedBitmapDrawable;
 .source "RoundedBitmapDrawable21.java"
 
 
 # direct methods
-.method protected constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+.method public constructor <init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "res",
-            "bitmap"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
@@ -24,48 +14,22 @@
 
 
 # virtual methods
-.method public getOutline(Landroid/graphics/Outline;)V
+.method public final getOutline(Landroid/graphics/Outline;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "outline"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->updateDstRect()V
 
     iget-object v0, p0, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mDstRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p0}, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->getCornerRadius()F
-
-    move-result p0
+    iget p0, p0, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
 
     invoke-virtual {p1, v0, p0}, Landroid/graphics/Outline;->setRoundRect(Landroid/graphics/Rect;F)V
 
     return-void
 .end method
 
-.method gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
+.method public final gravityCompatApply(IIILandroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "gravity",
-            "bitmapWidth",
-            "bitmapHeight",
-            "bounds",
-            "outRect"
-        }
-    .end annotation
 
     const/4 v5, 0x0
 

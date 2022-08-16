@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/doze/DozeWallpaperState;
+.class public final Lcom/android/systemui/doze/DozeWallpaperState;
 .super Ljava/lang/Object;
 .source "DozeWallpaperState.java"
 
@@ -7,21 +7,21 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mBiometricUnlockController:Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
+.field public final mBiometricUnlockController:Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
 
-.field private final mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
+.field public final mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-.field private mIsAmbientMode:Z
+.field public mIsAmbientMode:Z
 
-.field private final mWallpaperManagerService:Landroid/app/IWallpaperManager;
+.field public final mWallpaperManagerService:Landroid/app/IWallpaperManager;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "DozeWallpaperState"
@@ -53,38 +53,24 @@
 
 
 # virtual methods
-.method public dump(Ljava/io/PrintWriter;)V
-    .locals 2
+.method public final dump(Ljava/io/PrintWriter;)V
+    .locals 3
 
     const-string v0, "DozeWallpaperState:"
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, " isAmbientMode: "
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-boolean v1, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mIsAmbientMode:Z
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {p1, v0, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline0;->m(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    iget-boolean v1, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mIsAmbientMode:Z
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v2, " hasWallpaperService: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0, v1, p1, v2}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " hasWallpaperService: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mWallpaperManagerService:Landroid/app/IWallpaperManager;
 
@@ -109,18 +95,14 @@
     return-void
 .end method
 
-.method public transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
+.method public final transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
     .locals 5
 
     const-string v0, "DozeWallpaperState"
 
-    sget-object v1, Lcom/android/systemui/doze/DozeWallpaperState$1;->$SwitchMap$com$android$systemui$doze$DozeMachine$State:[I
-
     invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
-    move-result v2
-
-    aget v1, v1, v2
+    move-result v1
 
     const/4 v2, 0x0
 
@@ -128,11 +110,12 @@
 
     packed-switch v1, :pswitch_data_0
 
+    :pswitch_0
     move v1, v2
 
     goto :goto_0
 
-    :pswitch_0
+    :pswitch_1
     move v1, v3
 
     :goto_0
@@ -140,11 +123,9 @@
 
     iget-object p1, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/DozeParameters;->shouldControlScreenOff()Z
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/phone/DozeParameters;->mControlScreenOffAnimation:Z
 
-    move-result p1
-
-    goto :goto_2
+    goto :goto_4
 
     :cond_0
     sget-object v4, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_PULSING:Lcom/android/systemui/doze/DozeMachine$State;
@@ -171,50 +152,68 @@
 
     xor-int/2addr p2, v3
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_4
 
     iget-object p2, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mBiometricUnlockController:Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->unlockedByWakeAndUnlock()Z
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->isWakeAndUnlock()Z
 
-    move-result p2
+    move-result v4
 
-    if-eqz p2, :cond_3
+    if-nez v4, :cond_3
+
+    iget-boolean p2, p2, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;->mFadedAwayAfterWakeAndUnlock:Z
+
+    if-eqz p2, :cond_2
+
+    goto :goto_2
 
     :cond_2
-    if-eqz p1, :cond_4
+    move p2, v2
+
+    goto :goto_3
 
     :cond_3
-    move v2, v3
+    :goto_2
+    move p2, v3
+
+    :goto_3
+    if-eqz p2, :cond_5
 
     :cond_4
+    if-eqz p1, :cond_6
+
+    :cond_5
+    move v2, v3
+
+    :cond_6
     move p1, v2
 
-    :goto_2
+    :goto_4
     iget-boolean p2, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mIsAmbientMode:Z
 
-    if-eq v1, p2, :cond_7
+    if-eq v1, p2, :cond_9
 
     iput-boolean v1, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mIsAmbientMode:Z
 
     iget-object p2, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mWallpaperManagerService:Landroid/app/IWallpaperManager;
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_9
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_7
 
     const-wide/16 p1, 0x1f4
 
-    goto :goto_3
+    goto :goto_5
 
-    :cond_5
+    :cond_7
     const-wide/16 p1, 0x0
 
-    :goto_3
+    :goto_5
     :try_start_0
     sget-boolean v1, Lcom/android/systemui/doze/DozeWallpaperState;->DEBUG:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -240,7 +239,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_6
+    :cond_8
     iget-object v1, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mWallpaperManagerService:Landroid/app/IWallpaperManager;
 
     iget-boolean v2, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mIsAmbientMode:Z
@@ -249,16 +248,14 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_4
+    goto :goto_6
 
     :catch_0
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "Cannot notify state to WallpaperManagerService: "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "Cannot notify state to WallpaperManagerService: "
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget-boolean p0, p0, Lcom/android/systemui/doze/DozeWallpaperState;->mIsAmbientMode:Z
 
@@ -270,21 +267,23 @@
 
     invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_7
-    :goto_4
+    :cond_9
+    :goto_6
     return-void
 
     nop
 
     :pswitch_data_0
-    .packed-switch 0x1
+    .packed-switch 0x2
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
         :pswitch_0
+        :pswitch_1
         :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
     .end packed-switch
 .end method

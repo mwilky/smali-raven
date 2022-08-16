@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QSDetailClipper$3;
+.class public final Lcom/android/systemui/qs/QSDetailClipper$3;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "QSDetailClipper.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/QSDetailClipper;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QSDetailClipper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSDetailClipper;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSDetailClipper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSDetailClipper$3;->this$0:Lcom/android/systemui/qs/QSDetailClipper;
@@ -31,14 +31,12 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSDetailClipper$3;->this$0:Lcom/android/systemui/qs/QSDetailClipper;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSDetailClipper;->access$200(Lcom/android/systemui/qs/QSDetailClipper;)Landroid/view/View;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/QSDetailClipper;->mDetail:Landroid/view/View;
 
     const/16 v0, 0x8
 
@@ -46,9 +44,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSDetailClipper$3;->this$0:Lcom/android/systemui/qs/QSDetailClipper;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSDetailClipper;->access$100(Lcom/android/systemui/qs/QSDetailClipper;)Landroid/graphics/drawable/TransitionDrawable;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/QSDetailClipper;->mBackground:Landroid/graphics/drawable/TransitionDrawable;
 
     invoke-virtual {p1}, Landroid/graphics/drawable/TransitionDrawable;->resetTransition()V
 
@@ -56,7 +52,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/qs/QSDetailClipper;->access$002(Lcom/android/systemui/qs/QSDetailClipper;Landroid/animation/Animator;)Landroid/animation/Animator;
+    iput-object p1, p0, Lcom/android/systemui/qs/QSDetailClipper;->mAnimator:Landroid/animation/Animator;
 
     return-void
 .end method

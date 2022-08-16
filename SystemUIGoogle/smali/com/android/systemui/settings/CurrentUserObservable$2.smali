@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/settings/CurrentUserObservable$2;
+.class public final Lcom/android/systemui/settings/CurrentUserObservable$2;
 .super Lcom/android/systemui/settings/CurrentUserTracker;
 .source "CurrentUserObservable.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/settings/CurrentUserObservable;
+.field public final synthetic this$0:Lcom/android/systemui/settings/CurrentUserObservable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/settings/CurrentUserObservable;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/systemui/settings/CurrentUserObservable;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/settings/CurrentUserObservable$2;->this$0:Lcom/android/systemui/settings/CurrentUserObservable;
@@ -31,14 +31,12 @@
 
 
 # virtual methods
-.method public onUserSwitched(I)V
+.method public final onUserSwitched(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/settings/CurrentUserObservable$2;->this$0:Lcom/android/systemui/settings/CurrentUserObservable;
 
-    invoke-static {p0}, Lcom/android/systemui/settings/CurrentUserObservable;->access$100(Lcom/android/systemui/settings/CurrentUserObservable;)Landroidx/lifecycle/MutableLiveData;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Lcom/android/systemui/settings/CurrentUserObservable$1;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

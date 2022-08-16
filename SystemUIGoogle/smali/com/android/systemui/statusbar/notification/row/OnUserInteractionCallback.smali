@@ -4,15 +4,8 @@
 
 
 # virtual methods
-.method public abstract getGroupSummaryToDismiss(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-.end method
-
-.method public abstract onDismiss(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;ILcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .param p2    # I
-        .annotation build Landroid/service/notification/NotificationListenerService$NotificationCancelReason;
-        .end annotation
-    .end param
-.end method
-
 .method public abstract onImportanceChanged(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.end method
+
+.method public abstract registerFutureDismissal(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Ljava/lang/Runnable;
 .end method

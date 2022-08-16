@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;
+.class public final Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;
 .super Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;
 .source "SensitiveContentCoordinator.kt"
 
@@ -9,44 +9,22 @@
 
 
 # instance fields
-.field private final dynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
+.field public final dynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
-.field private final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.field public final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private final keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-.field private final lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+.field public final lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-.field private final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+.field public final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
-    .locals 1
+    .locals 0
 
-    const-string v0, "dynamicPrivacyController"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "lockscreenUserManager"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "keyguardUpdateMonitor"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "statusBarStateController"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "keyguardStateController"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "SensitiveContentInvalidator"
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->dynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
@@ -63,25 +41,37 @@
 
 
 # virtual methods
-.method public attach(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;)V
+.method public final attach(Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;)V
     .locals 1
-
-    const-string v0, "pipeline"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->dynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->addListener(Lcom/android/systemui/statusbar/notification/DynamicPrivacyController$Listener;)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->mListeners:Landroid/util/ArraySet;
+
+    invoke-virtual {v0, p0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;->addOnBeforeRenderListListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/OnBeforeRenderListListener;)V
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;->addPreRenderInvalidator(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Invalidator;)V
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;->mShadeListBuilder:Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder;->mPipelineState:Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/PipelineState;->requireState()V
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda3;
+
+    invoke-direct {v0, p1}, Lcom/android/systemui/statusbar/notification/collection/ShadeListBuilder$$ExternalSyntheticLambda3;-><init>(Ljava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->mListener:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;
 
     return-void
 .end method
 
-.method public onBeforeRenderList(Ljava/util/List;)V
+.method public final onBeforeRenderList(Ljava/util/List;)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -92,10 +82,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "entries"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
@@ -168,36 +154,40 @@
 
     move-result v5
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorKt;->access$extractAllRepresentativeEntries(Ljava/util/List;)Lkotlin/sequences/Sequence;
+    new-instance v6, Lkotlin/collections/CollectionsKt___CollectionsKt$asSequence$$inlined$Sequence$1;
+
+    invoke-direct {v6, p1}, Lkotlin/collections/CollectionsKt___CollectionsKt$asSequence$$inlined$Sequence$1;-><init>(Ljava/lang/Iterable;)V
+
+    sget-object p1, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorKt$extractAllRepresentativeEntries$1;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorKt$extractAllRepresentativeEntries$1;
+
+    invoke-static {v6, p1}, Lkotlin/sequences/SequencesKt___SequencesKt;->flatMap(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/FlatteningSequence;
 
     move-result-object p1
 
     sget-object v6, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl$onBeforeRenderList$1;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl$onBeforeRenderList$1;
 
-    invoke-static {p1, v6}, Lkotlin/sequences/SequencesKt;->filter(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
+    invoke-static {p1, v6}, Lkotlin/sequences/SequencesKt___SequencesKt;->filter(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/FilteringSequence;
 
     move-result-object p1
 
-    invoke-interface {p1}, Lkotlin/sequences/Sequence;->iterator()Ljava/util/Iterator;
+    new-instance v6, Lkotlin/sequences/FilteringSequence$iterator$1;
 
-    move-result-object p1
+    invoke-direct {v6, p1}, Lkotlin/sequences/FilteringSequence$iterator$1;-><init>(Lkotlin/sequences/FilteringSequence;)V
 
     :goto_1
-    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v6}, Lkotlin/sequences/FilteringSequence$iterator$1;->hasNext()Z
 
-    move-result v6
+    move-result p1
 
-    if-eqz v6, :cond_9
+    if-eqz p1, :cond_9
 
-    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v6}, Lkotlin/sequences/FilteringSequence$iterator$1;->next()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object p1
 
-    check-cast v6, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v7
+    iget-object v7, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v7}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
 
@@ -231,10 +221,7 @@
     :goto_3
     if-nez v8, :cond_4
 
-    :goto_4
-    move v7, v3
-
-    goto :goto_5
+    goto :goto_4
 
     :cond_4
     if-nez v5, :cond_5
@@ -253,7 +240,10 @@
 
     if-ne v7, v8, :cond_7
 
-    goto :goto_4
+    :goto_4
+    move v7, v3
+
+    goto :goto_5
 
     :cond_7
     iget-object v8, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
@@ -265,7 +255,7 @@
     :goto_5
     iget-object v8, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SensitiveContentCoordinatorImpl;->lockscreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    invoke-interface {v8, v6}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->needsRedaction(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+    invoke-interface {v8, p1}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->needsRedaction(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 
     move-result v8
 
@@ -281,7 +271,7 @@
     move v7, v3
 
     :goto_6
-    invoke-virtual {v6, v7, v4}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setSensitive(ZZ)V
+    invoke-virtual {p1, v7, v4}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setSensitive(ZZ)V
 
     goto :goto_1
 
@@ -290,7 +280,7 @@
     return-void
 .end method
 
-.method public onDynamicPrivacyChanged()V
+.method public final onDynamicPrivacyChanged()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->invalidateList()V

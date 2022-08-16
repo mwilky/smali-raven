@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardListenQueue;->print(Ljava/io/PrintWriter;Ljava/text/DateFormat;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/Lambda;",
@@ -28,11 +19,11 @@
 
 
 # instance fields
-.field final synthetic $dateFormat:Ljava/text/DateFormat;
+.field public final synthetic $dateFormat:Ljava/text/DateFormat;
 
 
 # direct methods
-.method constructor <init>(Ljava/text/DateFormat;)V
+.method public constructor <init>(Ljava/text/DateFormat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardListenQueue$print$stringify$1;->$dateFormat:Ljava/text/DateFormat;
@@ -46,32 +37,16 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 4
 
     check-cast p1, Lcom/android/keyguard/KeyguardListenModel;
 
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardListenQueue$print$stringify$1;->invoke(Lcom/android/keyguard/KeyguardListenModel;)Ljava/lang/String;
+    const-string v0, "    "
 
-    move-result-object p0
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object p0
-.end method
-
-.method public final invoke(Lcom/android/keyguard/KeyguardListenModel;)Ljava/lang/String;
-    .locals 4
-
-    const-string v0, "model"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "    "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardListenQueue$print$stringify$1;->$dateFormat:Ljava/text/DateFormat;
 

@@ -1,4 +1,4 @@
-.class final Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;
+.class public final Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;
 .super Ljava/lang/Object;
 .source "HfpClientProfile.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "HfpClientServiceListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
+.field public final synthetic this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/settingslib/bluetooth/HfpClientProfile;)V
+.method public constructor <init>(Lcom/android/settingslib/bluetooth/HfpClientProfile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
@@ -32,32 +32,18 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/HfpClientProfile;Lcom/android/settingslib/bluetooth/HfpClientProfile$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HfpClientProfile;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V
+.method public final onServiceConnected(ILandroid/bluetooth/BluetoothProfile;)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
 
     check-cast p2, Landroid/bluetooth/BluetoothHeadsetClient;
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/bluetooth/HfpClientProfile;->access$002(Lcom/android/settingslib/bluetooth/HfpClientProfile;Landroid/bluetooth/BluetoothHeadsetClient;)Landroid/bluetooth/BluetoothHeadsetClient;
+    iput-object p2, p1, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mService:Landroid/bluetooth/BluetoothHeadsetClient;
 
-    iget-object p1, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
-
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HfpClientProfile;->access$000(Lcom/android/settingslib/bluetooth/HfpClientProfile;)Landroid/bluetooth/BluetoothHeadsetClient;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/bluetooth/BluetoothHeadsetClient;->getConnectedDevices()Ljava/util/List;
+    invoke-virtual {p2}, Landroid/bluetooth/BluetoothHeadsetClient;->getConnectedDevices()Ljava/util/List;
 
     move-result-object p1
 
@@ -78,9 +64,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HfpClientProfile;->access$100(Lcom/android/settingslib/bluetooth/HfpClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     invoke-virtual {v0, p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->findDevice(Landroid/bluetooth/BluetoothDevice;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -108,9 +92,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/HfpClientProfile;->access$100(Lcom/android/settingslib/bluetooth/HfpClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     invoke-virtual {v0, p2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->addDevice(Landroid/bluetooth/BluetoothDevice;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -130,21 +112,17 @@
     :cond_1
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
 
-    const/4 p1, 0x1
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HfpClientProfile;->access$202(Lcom/android/settingslib/bluetooth/HfpClientProfile;Z)Z
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-void
 .end method
 
-.method public onServiceDisconnected(I)V
+.method public final onServiceDisconnected(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;->this$0:Lcom/android/settingslib/bluetooth/HfpClientProfile;
 
-    const/4 p1, 0x0
-
-    invoke-static {p0, p1}, Lcom/android/settingslib/bluetooth/HfpClientProfile;->access$202(Lcom/android/settingslib/bluetooth/HfpClientProfile;Z)Z
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-void
 .end method

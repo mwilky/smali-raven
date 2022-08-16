@@ -1,10 +1,10 @@
-.class public Landroidx/lifecycle/ViewModelStore;
+.class public final Landroidx/lifecycle/ViewModelStore;
 .super Ljava/lang/Object;
 .source "ViewModelStore.java"
 
 
 # instance fields
-.field private final mMap:Ljava/util/HashMap;
+.field public final mMap:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashMap<",
@@ -34,7 +34,7 @@
 
 # virtual methods
 .method public final clear()V
-    .locals 2
+    .locals 6
 
     iget-object v0, p0, Landroidx/lifecycle/ViewModelStore;->mMap:Ljava/util/HashMap;
 
@@ -51,7 +51,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_3
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -59,71 +59,85 @@
 
     check-cast v1, Landroidx/lifecycle/ViewModel;
 
-    invoke-virtual {v1}, Landroidx/lifecycle/ViewModel;->clear()V
+    iget-object v2, v1, Landroidx/lifecycle/ViewModel;->mBagOfTags:Ljava/util/HashMap;
+
+    if-eqz v2, :cond_2
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v3, v1, Landroidx/lifecycle/ViewModel;->mBagOfTags:Ljava/util/HashMap;
+
+    invoke-virtual {v3}, Ljava/util/HashMap;->values()Ljava/util/Collection;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_0
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    instance-of v5, v4, Ljava/io/Closeable;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v5, :cond_0
+
+    :try_start_1
+    check-cast v4, Ljava/io/Closeable;
+
+    invoke-interface {v4}, Ljava/io/Closeable;->close()V
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p0
+
+    :try_start_2
+    new-instance v0, Ljava/lang/RuntimeException;
+
+    invoke-direct {v0, p0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/Throwable;)V
+
+    throw v0
+
+    :cond_1
+    monitor-exit v2
+
+    goto :goto_2
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v2
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw p0
+
+    :cond_2
+    :goto_2
+    invoke-virtual {v1}, Landroidx/lifecycle/ViewModel;->onCleared()V
 
     goto :goto_0
 
-    :cond_0
+    :cond_3
     iget-object p0, p0, Landroidx/lifecycle/ViewModelStore;->mMap:Ljava/util/HashMap;
 
     invoke-virtual {p0}, Ljava/util/HashMap;->clear()V
 
-    return-void
-.end method
-
-.method final get(Ljava/lang/String;)Landroidx/lifecycle/ViewModel;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/lifecycle/ViewModelStore;->mMap:Ljava/util/HashMap;
-
-    invoke-virtual {p0, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/lifecycle/ViewModel;
-
-    return-object p0
-.end method
-
-.method keys()Ljava/util/Set;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Set<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/util/HashSet;
-
-    iget-object p0, p0, Landroidx/lifecycle/ViewModelStore;->mMap:Ljava/util/HashMap;
-
-    invoke-virtual {p0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object p0
-
-    invoke-direct {v0, p0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
-
-    return-object v0
-.end method
-
-.method final put(Ljava/lang/String;Landroidx/lifecycle/ViewModel;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/lifecycle/ViewModelStore;->mMap:Ljava/util/HashMap;
-
-    invoke-virtual {p0, p1, p2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/lifecycle/ViewModel;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/lifecycle/ViewModel;->onCleared()V
-
-    :cond_0
     return-void
 .end method

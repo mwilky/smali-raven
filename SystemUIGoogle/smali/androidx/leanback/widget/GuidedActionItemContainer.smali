@@ -4,20 +4,12 @@
 
 
 # instance fields
-.field private mFocusOutAllowed:Z
+.field public mFocusOutAllowed:Z
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -28,16 +20,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -48,18 +30,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyle"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/leanback/widget/NonOverlappingLinearLayoutWithForeground;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -72,24 +42,14 @@
 
 
 # virtual methods
-.method public focusSearch(Landroid/view/View;I)Landroid/view/View;
+.method public final focusSearch(Landroid/view/View;I)Landroid/view/View;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "focused",
-            "direction"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/leanback/widget/GuidedActionItemContainer;->mFocusOutAllowed:Z
 
     if-nez v0, :cond_2
 
-    invoke-static {p0, p1}, Landroidx/leanback/widget/Util;->isDescendant(Landroid/view/ViewGroup;Landroid/view/View;)Z
+    invoke-static {p1, p0}, Landroidx/transition/R$id;->isDescendant(Landroid/view/View;Landroid/view/ViewGroup;)Z
 
     move-result v0
 
@@ -102,7 +62,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/leanback/widget/Util;->isDescendant(Landroid/view/ViewGroup;Landroid/view/View;)Z
+    invoke-static {p1, p0}, Landroidx/transition/R$id;->isDescendant(Landroid/view/View;Landroid/view/ViewGroup;)Z
 
     move-result p0
 

@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "TileChangeListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onTileChanged(Landroid/content/ComponentName;)V
-.end method

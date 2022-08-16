@@ -14,14 +14,6 @@
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/slice/SliceSpec;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parcel"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/slice/SliceSpec;
 
@@ -31,7 +23,7 @@
 
     const/4 v2, 0x1
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readString(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-virtual {p0, v2, v1}, Landroidx/versionedparcelable/VersionedParcel;->readString(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -52,30 +44,18 @@
 
 .method public static write(Landroidx/slice/SliceSpec;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "parcel"
-        }
-    .end annotation
 
-    const/4 v0, 0x1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    const/4 v1, 0x0
+    iget-object v0, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
+    const/4 v1, 0x1
 
-    iget-object v1, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
-
-    invoke-virtual {p1, v1, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeString(Ljava/lang/String;I)V
+    invoke-virtual {p1, v1, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeString(ILjava/lang/String;)V
 
     iget p0, p0, Landroidx/slice/SliceSpec;->mRevision:I
 
-    if-eq v0, p0, :cond_0
+    if-eq v1, p0, :cond_0
 
     const/4 v0, 0x2
 

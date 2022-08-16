@@ -18,102 +18,75 @@
 
 
 # instance fields
-.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+.field public final centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
             ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public final overviewProxyServiceProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/recents/OverviewProxyService;",
+            ">;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)V"
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/recents/OverviewProxyService;",
+            ">;)V"
         }
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+
+    iput-object p2, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)",
-            "Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;-><init>(Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Ldagger/Lazy;)Lcom/android/systemui/recents/OverviewProxyRecentsImpl;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ldagger/Lazy<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)",
-            "Lcom/android/systemui/recents/OverviewProxyRecentsImpl;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;-><init>(Ldagger/Lazy;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/recents/OverviewProxyRecentsImpl;
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
 
-    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->newInstance(Ldagger/Lazy;)Lcom/android/systemui/recents/OverviewProxyRecentsImpl;
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
 
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyRecentsImpl_Factory;->get()Lcom/android/systemui/recents/OverviewProxyRecentsImpl;
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
+    check-cast p0, Lcom/android/systemui/recents/OverviewProxyService;
+
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;
+
+    invoke-direct {v1, v0, p0}, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;-><init>(Ldagger/Lazy;Lcom/android/systemui/recents/OverviewProxyService;)V
+
+    return-object v1
 .end method

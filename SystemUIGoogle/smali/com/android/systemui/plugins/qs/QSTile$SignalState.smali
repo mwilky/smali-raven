@@ -131,7 +131,7 @@
     return v3
 .end method
 
-.method protected toStringBuilder()Ljava/lang/StringBuilder;
+.method public toStringBuilder()Ljava/lang/StringBuilder;
     .locals 4
 
     invoke-super {p0}, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->toStringBuilder()Ljava/lang/StringBuilder;
@@ -144,13 +144,11 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, ",activityIn="
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ",activityIn="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     iget-boolean v3, p0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityIn:Z
 
@@ -168,13 +166,11 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, ",activityOut="
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ",activityOut="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     iget-boolean p0, p0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityOut:Z
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;
+.class public final Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;
 .super Landroid/app/SynchronousUserSwitchObserver;
 .source "InstantAppNotifier.java"
 
@@ -9,25 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/InstantAppNotifier;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/InstantAppNotifier;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$HiTqRdP_o_LXBaf_YG8jbNHRV18(Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;->lambda$onUserSwitchComplete$0()V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/InstantAppNotifier;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/InstantAppNotifier;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;->this$0:Lcom/android/systemui/statusbar/notification/InstantAppNotifier;
@@ -37,20 +29,10 @@
     return-void
 .end method
 
-.method private synthetic lambda$onUserSwitchComplete$0()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;->this$0:Lcom/android/systemui/statusbar/notification/InstantAppNotifier;
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/InstantAppNotifier;->access$100(Lcom/android/systemui/statusbar/notification/InstantAppNotifier;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onUserSwitchComplete(I)V
-    .locals 1
+.method public final onUserSwitchComplete(I)V
+    .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -59,20 +41,20 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;->this$0:Lcom/android/systemui/statusbar/notification/InstantAppNotifier;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/InstantAppNotifier;->access$000(Lcom/android/systemui/statusbar/notification/InstantAppNotifier;)Landroid/os/Handler;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/InstantAppNotifier;->mHandler:Landroid/os/Handler;
 
-    move-result-object p1
+    new-instance v0, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda13;
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1$$ExternalSyntheticLambda0;
+    const/4 v1, 0x3
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/InstantAppNotifier$1;)V
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda13;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public onUserSwitching(I)V
+.method public final onUserSwitching(I)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {

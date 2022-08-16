@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationGroupingUtil$AppNameApplicator;
+.class public final Lcom/android/systemui/statusbar/NotificationGroupingUtil$AppNameApplicator;
 .super Lcom/android/systemui/statusbar/NotificationGroupingUtil$VisibilityApplicator;
 .source "NotificationGroupingUtil.java"
 
@@ -9,33 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AppNameApplicator"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$VisibilityApplicator;-><init>(Lcom/android/systemui/statusbar/NotificationGroupingUtil$1;)V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/statusbar/NotificationGroupingUtil$1;)V
+.method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$AppNameApplicator;-><init>()V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$VisibilityApplicator;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public apply(Landroid/view/View;Landroid/view/View;ZZ)V
+.method public final apply(Landroid/view/View;Landroid/view/View;ZZ)V
     .locals 1
 
     if-eqz p4, :cond_0

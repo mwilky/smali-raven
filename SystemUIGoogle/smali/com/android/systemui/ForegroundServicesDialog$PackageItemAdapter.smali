@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;
+.class public final Lcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;
 .super Landroid/widget/ArrayAdapter;
 .source "ForegroundServicesDialog.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "PackageItemAdapter"
 .end annotation
 
@@ -23,18 +23,18 @@
 
 
 # instance fields
-.field final mIconDrawableFactory:Landroid/util/IconDrawableFactory;
+.field public final mIconDrawableFactory:Landroid/util/IconDrawableFactory;
 
-.field final mInflater:Landroid/view/LayoutInflater;
+.field public final mInflater:Landroid/view/LayoutInflater;
 
-.field final mPm:Landroid/content/pm/PackageManager;
+.field public final mPm:Landroid/content/pm/PackageManager;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
-    sget v0, Lcom/android/systemui/R$layout;->foreground_service_item:I
+    const v0, 0x7f0e00a7
 
     invoke-direct {p0, p1, v0}, Landroid/widget/ArrayAdapter;-><init>(Landroid/content/Context;I)V
 
@@ -63,14 +63,14 @@
 
 
 # virtual methods
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+.method public final getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 2
 
     if-nez p2, :cond_0
 
     iget-object p2, p0, Lcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    sget v0, Lcom/android/systemui/R$layout;->foreground_service_item:I
+    const v0, 0x7f0e00a7
 
     const/4 v1, 0x0
 
@@ -79,7 +79,7 @@
     move-result-object p2
 
     :cond_0
-    sget p3, Lcom/android/systemui/R$id;->app_icon:I
+    const p3, 0x7f0b00ab
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
 
     invoke-virtual {p3, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    sget p3, Lcom/android/systemui/R$id;->app_name:I
+    const p3, 0x7f0b00b0
 
     invoke-virtual {p2, p3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -124,54 +124,4 @@
     invoke-virtual {p3, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     return-object p2
-.end method
-
-.method public setPackages([Ljava/lang/String;)V
-    .locals 5
-
-    invoke-virtual {p0}, Landroid/widget/ArrayAdapter;->clear()V
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    const/4 v1, 0x0
-
-    :goto_0
-    array-length v2, p1
-
-    if-ge v1, v2, :cond_0
-
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;->mPm:Landroid/content/pm/PackageManager;
-
-    aget-object v3, p1, v1
-
-    const v4, 0x402000
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :catch_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    new-instance p1, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;
-
-    iget-object v1, p0, Lcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;->mPm:Landroid/content/pm/PackageManager;
-
-    invoke-direct {p1, v1}, Landroid/content/pm/ApplicationInfo$DisplayNameComparator;-><init>(Landroid/content/pm/PackageManager;)V
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->sort(Ljava/util/Comparator;)V
-
-    invoke-virtual {p0, v0}, Landroid/widget/ArrayAdapter;->addAll(Ljava/util/Collection;)V
-
-    return-void
 .end method

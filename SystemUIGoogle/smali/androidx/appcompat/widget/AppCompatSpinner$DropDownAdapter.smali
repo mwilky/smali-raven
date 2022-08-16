@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;
+.class public final Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;
 .super Ljava/lang/Object;
 .source "AppCompatSpinner.java"
 
@@ -13,15 +13,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "DropDownAdapter"
 .end annotation
 
 
 # instance fields
-.field private mAdapter:Landroid/widget/SpinnerAdapter;
+.field public mAdapter:Landroid/widget/SpinnerAdapter;
 
-.field private mListAdapter:Landroid/widget/ListAdapter;
+.field public mListAdapter:Landroid/widget/ListAdapter;
 
 
 # direct methods
@@ -44,12 +44,6 @@
 
     :cond_0
     if-eqz p2, :cond_2
-
-    sget p0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v0, 0x17
-
-    if-lt p0, v0, :cond_1
 
     instance-of p0, p1, Landroid/widget/ThemedSpinnerAdapter;
 
@@ -80,7 +74,7 @@
 
     if-nez p0, :cond_2
 
-    invoke-interface {p1, p2}, Landroidx/appcompat/widget/ThemedSpinnerAdapter;->setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
+    invoke-interface {p1}, Landroidx/appcompat/widget/ThemedSpinnerAdapter;->setDropDownViewTheme()V
 
     :cond_2
     :goto_0
@@ -89,7 +83,7 @@
 
 
 # virtual methods
-.method public areAllItemsEnabled()Z
+.method public final areAllItemsEnabled()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mListAdapter:Landroid/widget/ListAdapter;
@@ -108,7 +102,7 @@
     return p0
 .end method
 
-.method public getCount()I
+.method public final getCount()I
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
@@ -128,7 +122,7 @@
     return p0
 .end method
 
-.method public getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+.method public final getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
@@ -148,7 +142,7 @@
     return-object p0
 .end method
 
-.method public getItem(I)Ljava/lang/Object;
+.method public final getItem(I)Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
@@ -168,7 +162,7 @@
     return-object p0
 .end method
 
-.method public getItemId(I)J
+.method public final getItemId(I)J
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
@@ -188,7 +182,7 @@
     return-wide p0
 .end method
 
-.method public getItemViewType(I)I
+.method public final getItemViewType(I)I
     .locals 0
 
     const/4 p0, 0x0
@@ -196,7 +190,7 @@
     return p0
 .end method
 
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+.method public final getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 0
 
     invoke-virtual {p0, p1, p2, p3}, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->getDropDownView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
@@ -206,7 +200,7 @@
     return-object p0
 .end method
 
-.method public getViewTypeCount()I
+.method public final getViewTypeCount()I
     .locals 0
 
     const/4 p0, 0x1
@@ -214,7 +208,7 @@
     return p0
 .end method
 
-.method public hasStableIds()Z
+.method public final hasStableIds()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
@@ -238,7 +232,7 @@
     return p0
 .end method
 
-.method public isEmpty()Z
+.method public final isEmpty()Z
     .locals 0
 
     invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->getCount()I
@@ -258,7 +252,7 @@
     return p0
 .end method
 
-.method public isEnabled(I)Z
+.method public final isEnabled(I)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mListAdapter:Landroid/widget/ListAdapter;
@@ -277,7 +271,7 @@
     return p0
 .end method
 
-.method public registerDataSetObserver(Landroid/database/DataSetObserver;)V
+.method public final registerDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;
@@ -290,7 +284,7 @@
     return-void
 .end method
 
-.method public unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
+.method public final unregisterDataSetObserver(Landroid/database/DataSetObserver;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropDownAdapter;->mAdapter:Landroid/widget/SpinnerAdapter;

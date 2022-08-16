@@ -17,6 +17,7 @@
         <item>"ቢበዛ 3  ሂደቶች"</item>
         <item>"ቢበዛ 4  ሂደቶች"</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>ጠፍቷል</item>
         <item>በርቷል</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>አይገኝም</item>
+        <item>አጥፋ</item>
+        <item>አብራ</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>አይገኝም</item>
         <item>ጠፍቷል</item>
@@ -309,6 +315,16 @@
         <item>አይገኝም</item>
         <item>ጠፍቷል</item>
         <item>በርቷል</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>አይገኝም</item>
+        <item>አጥፋ</item>
+        <item>አብራ</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>አይገኝም</item>
+        <item>አጥፋ</item>
+        <item>አብራ</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>አይገኝም</item>
@@ -374,6 +390,12 @@
         <item>ቀልጣፋ</item>
         <item>በጣም ቀልጣፋ</item>
         <item>እጅግ በጣም ቀልጣፋ</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>ወደ ግራ ውሰድ</item>
+        <item>ወደ ታች ውሰድ</item>
+        <item>ወደ ቀኝ ውሰድ</item>
+        <item>ወደ ላይ ውሰድ</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>ኃይል በመሙላት ላይ</item>

@@ -15,6 +15,3 @@
 
 .method public abstract resolveService(Ljava/lang/String;)Landroid/app/Service;
 .end method
-
-.method public abstract resolveSystemUI(Ljava/lang/String;)Lcom/android/systemui/SystemUI;
-.end method

@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field protected final mAssistInvocationLights:Ljava/util/ArrayList;
+.field public final mAssistInvocationLights:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -17,25 +17,23 @@
     .end annotation
 .end field
 
-.field private final mDarkColor:I
+.field public final mDarkColor:I
 
-.field protected final mGuide:Lcom/android/systemui/assist/ui/PerimeterPathGuide;
+.field public final mGuide:Lcom/android/systemui/assist/ui/PerimeterPathGuide;
 
-.field private final mLightColor:I
+.field public final mLightColor:I
 
-.field private final mPaint:Landroid/graphics/Paint;
+.field public final mPaint:Landroid/graphics/Paint;
 
-.field private final mPath:Landroid/graphics/Path;
+.field public final mPath:Landroid/graphics/Path;
 
-.field private mRegistered:Z
+.field public mRegistered:Z
 
-.field private mScreenLocation:[I
+.field public mScreenLocation:[I
 
-.field private final mStrokeWidth:I
+.field public mUseNavBarColor:Z
 
-.field private mUseNavBarColor:Z
-
-.field private final mViewHeight:I
+.field public final mViewHeight:I
 
 
 # direct methods
@@ -106,15 +104,31 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mUseNavBarColor:Z
 
-    const/high16 v1, 0x40400000    # 3.0f
+    invoke-virtual {p1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
 
-    invoke-static {v1, p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->convertDpToPx(FLandroid/content/Context;)I
+    move-result-object v1
 
-    move-result v2
+    new-instance v2, Landroid/util/DisplayMetrics;
 
-    iput v2, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mStrokeWidth:I
+    invoke-direct {v2}, Landroid/util/DisplayMetrics;-><init>()V
 
-    int-to-float v3, v2
+    invoke-virtual {v1, v2}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
+
+    iget v1, v2, Landroid/util/DisplayMetrics;->density:F
+
+    const/high16 v2, 0x40400000    # 3.0f
+
+    mul-float/2addr v1, v2
+
+    float-to-double v3, v1
+
+    invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v3
+
+    double-to-int v1, v3
+
+    int-to-float v3, v1
 
     invoke-virtual {p2, v3}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
@@ -128,11 +142,11 @@
 
     invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getWidth(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getWidth(Landroid/content/Context;)I
 
     move-result v8
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getHeight(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getHeight(Landroid/content/Context;)I
 
     move-result v9
 
@@ -142,7 +156,7 @@
 
     move-result-object v6
 
-    div-int/lit8 v7, v2, 0x2
+    div-int/lit8 v7, v1, 0x2
 
     move-object v4, p2
 
@@ -152,11 +166,11 @@
 
     iput-object p2, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mGuide:Lcom/android/systemui/assist/ui/PerimeterPathGuide;
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getCornerRadiusBottom(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getCornerRadiusBottom(Landroid/content/Context;)I
 
     move-result p2
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getCornerRadiusTop(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getCornerRadiusTop(Landroid/content/Context;)I
 
     move-result p3
 
@@ -164,9 +178,27 @@
 
     move-result p2
 
-    invoke-static {v1, p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->convertDpToPx(FLandroid/content/Context;)I
+    invoke-virtual {p1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
 
-    move-result p1
+    move-result-object p1
+
+    new-instance p3, Landroid/util/DisplayMetrics;
+
+    invoke-direct {p3}, Landroid/util/DisplayMetrics;-><init>()V
+
+    invoke-virtual {p1, p3}, Landroid/view/Display;->getRealMetrics(Landroid/util/DisplayMetrics;)V
+
+    iget p1, p3, Landroid/util/DisplayMetrics;->density:F
+
+    mul-float/2addr p1, v2
+
+    float-to-double v0, p1
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v0
+
+    double-to-int p1, v0
 
     invoke-static {p2, p1}, Ljava/lang/Math;->max(II)I
 
@@ -176,7 +208,7 @@
 
     iget-object p1, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    sget p2, Lcom/android/systemui/R$attr;->darkIconTheme:I
+    const p2, 0x7f040153
 
     invoke-static {p1, p2}, Lcom/android/settingslib/Utils;->getThemeAttr(Landroid/content/Context;I)I
 
@@ -184,7 +216,7 @@
 
     iget-object p2, p0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    sget p3, Lcom/android/systemui/R$attr;->lightIconTheme:I
+    const p3, 0x7f040318
 
     invoke-static {p2, p3}, Lcom/android/settingslib/Utils;->getThemeAttr(Landroid/content/Context;I)I
 
@@ -202,7 +234,7 @@
 
     invoke-direct {p2, v0, p1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    sget p1, Lcom/android/systemui/R$attr;->singleToneColor:I
+    const p1, 0x7f040493
 
     invoke-static {p3, p1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
@@ -227,9 +259,7 @@
 
     new-instance p3, Lcom/android/systemui/assist/ui/EdgeLight;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p3, p4, v0, v0}, Lcom/android/systemui/assist/ui/EdgeLight;-><init>(IFF)V
+    invoke-direct {p3, p4}, Lcom/android/systemui/assist/ui/EdgeLight;-><init>(I)V
 
     invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -241,8 +271,10 @@
     return-void
 .end method
 
-.method private attemptRegisterNavBarListener()V
-    .locals 1
+
+# virtual methods
+.method public final attemptRegisterNavBarListener()V
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mRegistered:Z
 
@@ -261,22 +293,30 @@
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBarController;->getDefaultNavigationBar()Lcom/android/systemui/navigationbar/NavigationBar;
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationBarController;->mNavigationBars:Landroid/util/SparseArray;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/navigationbar/NavigationBar;
 
     if-nez v0, :cond_1
 
     return-void
 
     :cond_1
-    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBar;->getBarTransitions()Lcom/android/systemui/navigationbar/NavigationBarTransitions;
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationBar;->mNavigationBarTransitions:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
 
-    move-result-object v0
+    iget-object v1, v0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mDarkIntensityListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->addDarkIntensityListener(Lcom/android/systemui/navigationbar/NavigationBarTransitions$DarkIntensityListener;)F
+    invoke-virtual {v1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result v0
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mLightTransitionsController:Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+
+    iget v0, v0, Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;->mDarkIntensity:F
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->updateDarkness(F)V
 
@@ -288,8 +328,8 @@
     return-void
 .end method
 
-.method private attemptUnregisterNavBarListener()V
-    .locals 1
+.method public final attemptUnregisterNavBarListener()V
+    .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mRegistered:Z
 
@@ -308,83 +348,34 @@
     return-void
 
     :cond_0
-    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBarController;->getDefaultNavigationBar()Lcom/android/systemui/navigationbar/NavigationBar;
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationBarController;->mNavigationBars:Landroid/util/SparseArray;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/navigationbar/NavigationBar;
 
     if-nez v0, :cond_1
 
     return-void
 
     :cond_1
-    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBar;->getBarTransitions()Lcom/android/systemui/navigationbar/NavigationBarTransitions;
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationBar;->mNavigationBarTransitions:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
 
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mDarkIntensityListeners:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->removeDarkIntensityListener(Lcom/android/systemui/navigationbar/NavigationBarTransitions$DarkIntensityListener;)V
+    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mRegistered:Z
+    iput-boolean v1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mRegistered:Z
 
     :cond_2
     return-void
 .end method
 
-.method private renderLight(Lcom/android/systemui/assist/ui/EdgeLight;Landroid/graphics/Canvas;)V
-    .locals 5
-
-    invoke-virtual {p1}, Lcom/android/systemui/assist/ui/EdgeLight;->getLength()F
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    cmpl-float v0, v0, v1
-
-    if-lez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mGuide:Lcom/android/systemui/assist/ui/PerimeterPathGuide;
-
-    iget-object v1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPath:Landroid/graphics/Path;
-
-    invoke-virtual {p1}, Lcom/android/systemui/assist/ui/EdgeLight;->getStart()F
-
-    move-result v2
-
-    invoke-virtual {p1}, Lcom/android/systemui/assist/ui/EdgeLight;->getStart()F
-
-    move-result v3
-
-    invoke-virtual {p1}, Lcom/android/systemui/assist/ui/EdgeLight;->getLength()F
-
-    move-result v4
-
-    add-float/2addr v3, v4
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/assist/ui/PerimeterPathGuide;->strokeSegment(Landroid/graphics/Path;FF)V
-
-    iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1}, Lcom/android/systemui/assist/ui/EdgeLight;->getColor()I
-
-    move-result p1
-
-    invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setColor(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPath:Landroid/graphics/Path;
-
-    iget-object p0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p2, p1, p0}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
-
-    :cond_0
-    return-void
-.end method
-
-
-# virtual methods
-.method protected createCornerPathRenderer(Landroid/content/Context;)Lcom/android/systemui/assist/ui/CornerPathRenderer;
+.method public createCornerPathRenderer(Landroid/content/Context;)Lcom/android/systemui/assist/ui/CornerPathRenderer;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/assist/ui/CircularCornerPathRenderer;
@@ -394,7 +385,7 @@
     return-object p0
 .end method
 
-.method public hide()V
+.method public final hide()V
     .locals 3
 
     const/16 v0, 0x8
@@ -427,12 +418,12 @@
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->attemptUnregisterNavBarListener()V
+    invoke-virtual {p0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->attemptUnregisterNavBarListener()V
 
     return-void
 .end method
 
-.method public onDarkIntensity(F)V
+.method public final onDarkIntensity(F)V
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->updateDarkness(F)V
@@ -440,7 +431,7 @@
     return-void
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
+.method public final onDraw(Landroid/graphics/Canvas;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mScreenLocation:[I
@@ -490,7 +481,7 @@
 
     check-cast v1, Lcom/android/systemui/assist/ui/EdgeLight;
 
-    invoke-direct {p0, v1, p1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Lcom/android/systemui/assist/ui/EdgeLight;Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1, v1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Landroid/graphics/Canvas;Lcom/android/systemui/assist/ui/EdgeLight;)V
 
     goto :goto_0
 
@@ -509,7 +500,7 @@
 
     check-cast v0, Lcom/android/systemui/assist/ui/EdgeLight;
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Lcom/android/systemui/assist/ui/EdgeLight;Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Landroid/graphics/Canvas;Lcom/android/systemui/assist/ui/EdgeLight;)V
 
     iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
 
@@ -521,7 +512,7 @@
 
     check-cast v0, Lcom/android/systemui/assist/ui/EdgeLight;
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Lcom/android/systemui/assist/ui/EdgeLight;Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Landroid/graphics/Canvas;Lcom/android/systemui/assist/ui/EdgeLight;)V
 
     iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPaint:Landroid/graphics/Paint;
 
@@ -537,7 +528,7 @@
 
     check-cast v0, Lcom/android/systemui/assist/ui/EdgeLight;
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Lcom/android/systemui/assist/ui/EdgeLight;Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Landroid/graphics/Canvas;Lcom/android/systemui/assist/ui/EdgeLight;)V
 
     iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
 
@@ -549,13 +540,13 @@
 
     check-cast v0, Lcom/android/systemui/assist/ui/EdgeLight;
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Lcom/android/systemui/assist/ui/EdgeLight;Landroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->renderLight(Landroid/graphics/Canvas;Lcom/android/systemui/assist/ui/EdgeLight;)V
 
     :cond_1
     return-void
 .end method
 
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 2
 
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -587,7 +578,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->attemptRegisterNavBarListener()V
+    invoke-virtual {p0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->attemptRegisterNavBarListener()V
 
     iget-object v1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mGuide:Lcom/android/systemui/assist/ui/PerimeterPathGuide;
 
@@ -639,11 +630,9 @@
 
     move-result p1
 
-    sub-float/2addr v1, v2
+    invoke-static {v1, v2, v6, p1}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
 
-    mul-float/2addr v1, v6
-
-    add-float/2addr p1, v1
+    move-result p1
 
     add-float v1, v4, v0
 
@@ -679,7 +668,7 @@
     return-void
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Landroid/view/View;->onLayout(ZIIII)V
@@ -703,107 +692,84 @@
     return-void
 .end method
 
-.method public setColors(IIII)V
-    .locals 2
+.method public final renderLight(Landroid/graphics/Canvas;Lcom/android/systemui/assist/ui/EdgeLight;)V
+    .locals 7
 
-    const/4 v0, 0x0
+    iget v0, p2, Lcom/android/systemui/assist/ui/EdgeLight;->mLength:F
 
-    iput-boolean v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mUseNavBarColor:Z
+    const/4 v1, 0x0
 
-    invoke-direct {p0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->attemptUnregisterNavBarListener()V
+    cmpl-float v2, v0, v1
 
-    iget-object v1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
+    if-lez v2, :cond_2
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    iget-object v2, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mGuide:Lcom/android/systemui/assist/ui/PerimeterPathGuide;
 
-    move-result-object v0
+    iget-object v3, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPath:Landroid/graphics/Path;
 
-    check-cast v0, Lcom/android/systemui/assist/ui/EdgeLight;
+    iget v4, p2, Lcom/android/systemui/assist/ui/EdgeLight;->mStart:F
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/assist/ui/EdgeLight;->setColor(I)Z
+    add-float/2addr v0, v4
 
-    iget-object p1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    const/4 v0, 0x1
+    invoke-virtual {v3}, Landroid/graphics/Path;->reset()V
 
-    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    move-result-object p1
+    rem-float/2addr v4, v5
 
-    check-cast p1, Lcom/android/systemui/assist/ui/EdgeLight;
+    add-float/2addr v4, v5
 
-    invoke-virtual {p1, p2}, Lcom/android/systemui/assist/ui/EdgeLight;->setColor(I)Z
+    rem-float/2addr v4, v5
 
-    iget-object p1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
+    rem-float/2addr v0, v5
 
-    const/4 p2, 0x2
+    add-float/2addr v0, v5
 
-    invoke-virtual {p1, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    rem-float/2addr v0, v5
 
-    move-result-object p1
+    cmpl-float v6, v4, v0
 
-    check-cast p1, Lcom/android/systemui/assist/ui/EdgeLight;
+    if-lez v6, :cond_0
 
-    invoke-virtual {p1, p3}, Lcom/android/systemui/assist/ui/EdgeLight;->setColor(I)Z
-
-    iget-object p0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
-
-    const/4 p1, 0x3
-
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/assist/ui/EdgeLight;
-
-    invoke-virtual {p0, p4}, Lcom/android/systemui/assist/ui/EdgeLight;->setColor(I)Z
-
-    return-void
-.end method
-
-.method public setColors(Ljava/lang/Integer;)V
-    .locals 3
-
-    if-nez p1, :cond_0
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mUseNavBarColor:Z
-
-    iget-object p1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPaint:Landroid/graphics/Paint;
-
-    sget-object v0, Landroid/graphics/Paint$Cap;->BUTT:Landroid/graphics/Paint$Cap;
-
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/assist/ui/InvocationLightsView;->attemptRegisterNavBarListener()V
+    const/4 v6, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result p1
-
-    invoke-virtual {p0, v0, v1, v2, p1}, Lcom/android/systemui/assist/ui/InvocationLightsView;->setColors(IIII)V
+    const/4 v6, 0x0
 
     :goto_0
+    if-eqz v6, :cond_1
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/android/systemui/assist/ui/PerimeterPathGuide;->strokeSegmentInternal(Landroid/graphics/Path;FF)V
+
+    goto :goto_1
+
+    :cond_1
+    move v1, v4
+
+    :goto_1
+    invoke-virtual {v2, v3, v1, v0}, Lcom/android/systemui/assist/ui/PerimeterPathGuide;->strokeSegmentInternal(Landroid/graphics/Path;FF)V
+
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPaint:Landroid/graphics/Paint;
+
+    iget p2, p2, Lcom/android/systemui/assist/ui/EdgeLight;->mColor:I
+
+    invoke-virtual {v0, p2}, Landroid/graphics/Paint;->setColor(I)V
+
+    iget-object p2, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPath:Landroid/graphics/Path;
+
+    iget-object p0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p1, p2, p0}, Landroid/graphics/Canvas;->drawPath(Landroid/graphics/Path;Landroid/graphics/Paint;)V
+
+    :cond_2
     return-void
 .end method
 
-.method protected setLight(IFF)V
+.method public final setLight(IFF)V
     .locals 2
 
     if-ltz p1, :cond_0
@@ -813,23 +779,11 @@
     if-lt p1, v0, :cond_1
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "invalid invocation light index: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
+    const-string v0, "invalid invocation light index: "
 
     const-string v1, "InvocationLightsView"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1, v1}, Landroidx/recyclerview/widget/GridLayoutManager$$ExternalSyntheticOutline0;->m(Ljava/lang/String;ILjava/lang/String;)V
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
@@ -845,12 +799,12 @@
     return-void
 .end method
 
-.method protected updateDarkness(F)V
-    .locals 3
+.method public final updateDarkness(F)V
+    .locals 5
 
     iget-boolean v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mUseNavBarColor:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-static {}, Landroid/animation/ArgbEvaluator;->getInstance()Landroid/animation/ArgbEvaluator;
 
@@ -878,40 +832,52 @@
 
     move-result p1
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/android/systemui/assist/ui/InvocationLightsView;->mAssistInvocationLights:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    move-result-object v0
 
-    move-result-object v1
+    const/4 v1, 0x1
+
+    move v2, v1
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/assist/ui/EdgeLight;
+    check-cast v3, Lcom/android/systemui/assist/ui/EdgeLight;
 
-    invoke-virtual {v2, p1}, Lcom/android/systemui/assist/ui/EdgeLight;->setColor(I)Z
+    iget v4, v3, Lcom/android/systemui/assist/ui/EdgeLight;->mColor:I
 
-    move-result v2
+    if-eq v4, p1, :cond_0
 
-    and-int/2addr v0, v2
+    move v4, v1
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v4, 0x0
+
+    :goto_1
+    iput p1, v3, Lcom/android/systemui/assist/ui/EdgeLight;->mColor:I
+
+    and-int/2addr v2, v4
 
     goto :goto_0
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_1
+    if-eqz v2, :cond_2
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
-    :cond_1
+    :cond_2
     return-void
 .end method

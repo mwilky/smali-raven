@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;
+.class public final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;
 .super Ljava/lang/Object;
 .source "DaggerGlobalRootComponent.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "KeyguardStatusViewComponentImpl"
 .end annotation
 
 
 # instance fields
-.field private getKeyguardClockSwitchProvider:Ljavax/inject/Provider;
+.field public getKeyguardClockSwitchProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private getKeyguardSliceViewProvider:Ljavax/inject/Provider;
+.field public getKeyguardSliceViewProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private keyguardSliceViewControllerProvider:Ljavax/inject/Provider;
+.field public keyguardSliceViewControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,9 +48,9 @@
     .end annotation
 .end field
 
-.field private final presentation:Lcom/android/keyguard/KeyguardStatusView;
+.field public final presentation:Lcom/android/keyguard/KeyguardStatusView;
 
-.field private presentationProvider:Ljavax/inject/Provider;
+.field public presentationProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -60,11 +60,11 @@
     .end annotation
 .end field
 
-.field final synthetic this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
+.field public final synthetic this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;Lcom/android/keyguard/KeyguardStatusView;)V
+.method public constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;Lcom/android/keyguard/KeyguardStatusView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
@@ -73,291 +73,175 @@
 
     iput-object p2, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->presentation:Lcom/android/keyguard/KeyguardStatusView;
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->initialize(Lcom/android/keyguard/KeyguardStatusView;)V
+    invoke-virtual {p0, p2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->initialize(Lcom/android/keyguard/KeyguardStatusView;)V
 
     return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;Lcom/android/keyguard/KeyguardStatusView;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;Lcom/android/keyguard/KeyguardStatusView;)V
-
-    return-void
-.end method
-
-.method private initialize(Lcom/android/keyguard/KeyguardStatusView;)V
-    .locals 4
-
-    invoke-static {p1}, Ldagger/internal/InstanceFactory;->create(Ljava/lang/Object;)Ldagger/internal/Factory;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->presentationProvider:Ljavax/inject/Provider;
-
-    invoke-static {p1}, Lcom/android/keyguard/dagger/KeyguardStatusViewModule_GetKeyguardClockSwitchFactory;->create(Ljavax/inject/Provider;)Lcom/android/keyguard/dagger/KeyguardStatusViewModule_GetKeyguardClockSwitchFactory;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->getKeyguardClockSwitchProvider:Ljavax/inject/Provider;
-
-    invoke-static {p1}, Lcom/android/keyguard/dagger/KeyguardStatusViewModule_GetKeyguardSliceViewFactory;->create(Ljavax/inject/Provider;)Lcom/android/keyguard/dagger/KeyguardStatusViewModule_GetKeyguardSliceViewFactory;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->getKeyguardSliceViewProvider:Ljavax/inject/Provider;
-
-    iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$15300(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$13400(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$15700(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    iget-object v3, v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v3}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$1800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v3
-
-    invoke-static {p1, v0, v1, v2, v3}, Lcom/android/keyguard/KeyguardSliceViewController_Factory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/KeyguardSliceViewController_Factory;
-
-    move-result-object p1
-
-    invoke-static {p1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->keyguardSliceViewControllerProvider:Ljavax/inject/Provider;
-
-    return-void
-.end method
-
-.method private keyguardClockSwitch()Lcom/android/keyguard/KeyguardClockSwitch;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->presentation:Lcom/android/keyguard/KeyguardStatusView;
-
-    invoke-static {p0}, Lcom/android/keyguard/dagger/KeyguardStatusViewModule_GetKeyguardClockSwitchFactory;->getKeyguardClockSwitch(Lcom/android/keyguard/KeyguardStatusView;)Lcom/android/keyguard/KeyguardClockSwitch;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 
 # virtual methods
-.method public getKeyguardClockSwitchController()Lcom/android/keyguard/KeyguardClockSwitchController;
-    .locals 20
+.method public final getKeyguardClockSwitchController()Lcom/android/keyguard/KeyguardClockSwitchController;
+    .locals 17
 
     move-object/from16 v0, p0
 
-    new-instance v18, Lcom/android/keyguard/KeyguardClockSwitchController;
+    new-instance v16, Lcom/android/keyguard/KeyguardClockSwitchController;
 
-    move-object/from16 v1, v18
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->keyguardClockSwitch()Lcom/android/keyguard/KeyguardClockSwitch;
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->keyguardClockSwitch()Lcom/android/keyguard/KeyguardClockSwitch;
+    move-result-object v1
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->statusBarStateControllerImplProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v2
 
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
     iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v3}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$10100(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->sysuiColorExtractorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v3
 
-    check-cast v3, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v3, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
     iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v4}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$16000(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->clockManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v4}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    check-cast v4, Lcom/android/keyguard/clock/ClockManager;
 
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    invoke-static {v5}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$23800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v5
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->keyguardSliceViewControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v5}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v5
 
-    check-cast v5, Lcom/android/keyguard/clock/ClockManager;
+    check-cast v5, Lcom/android/keyguard/KeyguardSliceViewController;
 
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->keyguardSliceViewControllerProvider:Ljavax/inject/Provider;
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
+
+    iget-object v6, v6, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->notificationIconAreaControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v6}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v6
 
-    check-cast v6, Lcom/android/keyguard/KeyguardSliceViewController;
+    check-cast v6, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
 
     iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v7}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$20200(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v7
+    iget-object v7, v7, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
     invoke-interface {v7}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v7
 
-    check-cast v7, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;
+    check-cast v7, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v8}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$11200(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v8
+    iget-object v8, v8, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->provideBatteryControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v8}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v8
 
-    check-cast v8, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v8, Lcom/android/systemui/statusbar/policy/BatteryController;
 
     iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v9}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$18800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v9
+    iget-object v9, v9, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v9}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v9
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/BatteryController;
+    check-cast v9, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v10}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$11300(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v10
+    iget-object v10, v10, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->lockscreenSmartspaceControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v10}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v10
 
-    check-cast v10, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    check-cast v10, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
     iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v11}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$9600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v11
+    iget-object v11, v11, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->keyguardUnlockAnimationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v11}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v11
 
-    check-cast v11, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    check-cast v11, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
 
     iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v12}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$13100(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
+    invoke-virtual {v12}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->secureSettingsImpl()Ljava/lang/Object;
 
     move-result-object v12
 
-    invoke-interface {v12}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+    check-cast v12, Lcom/android/systemui/util/settings/SecureSettings;
 
     iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v13}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$23900(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
+    iget-object v13, v13, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
-    move-result-object v13
+    iget-object v13, v13, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideMainExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v13}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v13
 
-    check-cast v13, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+    check-cast v13, Ljava/util/concurrent/Executor;
 
     iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v14}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$24000(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
+    iget-object v14, v14, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    invoke-virtual {v14}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->mainResources()Landroid/content/res/Resources;
 
     move-result-object v14
-
-    invoke-interface {v14}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
-
-    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    invoke-static {v15}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$23200(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljava/lang/Object;
-
-    move-result-object v15
-
-    check-cast v15, Lcom/android/systemui/util/settings/SecureSettings;
-
-    move-object/from16 v19, v1
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$2600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object/from16 v16, v1
-
-    check-cast v16, Ljava/util/concurrent/Executor;
 
     iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
     iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$24100(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Landroid/content/res/Resources;
+    iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->dumpManagerProvider:Ljavax/inject/Provider;
 
-    move-result-object v17
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-object/from16 v1, v19
+    move-result-object v0
 
-    invoke-direct/range {v1 .. v17}, Lcom/android/keyguard/KeyguardClockSwitchController;-><init>(Lcom/android/keyguard/KeyguardClockSwitch;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/keyguard/clock/ClockManager;Lcom/android/keyguard/KeyguardSliceViewController;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;Landroid/content/res/Resources;)V
+    move-object v15, v0
 
-    return-object v18
+    check-cast v15, Lcom/android/systemui/dump/DumpManager;
+
+    move-object/from16 v0, v16
+
+    invoke-direct/range {v0 .. v15}, Lcom/android/keyguard/KeyguardClockSwitchController;-><init>(Lcom/android/keyguard/KeyguardClockSwitch;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/keyguard/clock/ClockManager;Lcom/android/keyguard/KeyguardSliceViewController;Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/systemui/util/settings/SecureSettings;Ljava/util/concurrent/Executor;Landroid/content/res/Resources;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v16
 .end method
 
-.method public getKeyguardStatusViewController()Lcom/android/keyguard/KeyguardStatusViewController;
-    .locals 12
+.method public final getKeyguardStatusViewController()Lcom/android/keyguard/KeyguardStatusViewController;
+    .locals 9
 
-    new-instance v11, Lcom/android/keyguard/KeyguardStatusViewController;
+    new-instance v8, Lcom/android/keyguard/KeyguardStatusViewController;
 
     iget-object v1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->presentation:Lcom/android/keyguard/KeyguardStatusView;
 
@@ -377,9 +261,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$11100(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->keyguardStateControllerImplProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -391,9 +273,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$11300(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -405,9 +285,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$13400(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->configurationControllerImplProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -419,63 +297,91 @@
 
     iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$19300(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->dozeParametersProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v7, v0
-
-    check-cast v7, Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$23900(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-
-    iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
-
-    invoke-static {v0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$24000(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v9, v0
-
-    check-cast v9, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+    check-cast v0, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
     iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->access$21100(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;)Ljavax/inject/Provider;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->screenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v10, p0
+    move-object v7, p0
 
-    check-cast v10, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    check-cast v7, Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;
 
-    move-object v0, v11
+    move-object v0, v8
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/keyguard/KeyguardStatusViewController;-><init>(Lcom/android/keyguard/KeyguardStatusView;Lcom/android/keyguard/KeyguardSliceViewController;Lcom/android/keyguard/KeyguardClockSwitchController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/keyguard/KeyguardStatusViewController;-><init>(Lcom/android/keyguard/KeyguardStatusView;Lcom/android/keyguard/KeyguardSliceViewController;Lcom/android/keyguard/KeyguardClockSwitchController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;)V
 
-    return-object v11
+    return-object v8
+.end method
+
+.method public final initialize(Lcom/android/keyguard/KeyguardStatusView;)V
+    .locals 8
+
+    invoke-static {p1}, Ldagger/internal/InstanceFactory;->create(Ljava/lang/Object;)Ldagger/internal/InstanceFactory;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->presentationProvider:Ljavax/inject/Provider;
+
+    new-instance v0, Lcom/android/systemui/screenshot/ImageExporter_Factory;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1, p1}, Lcom/android/systemui/screenshot/ImageExporter_Factory;-><init>(ILjava/lang/Object;)V
+
+    iput-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->getKeyguardClockSwitchProvider:Ljavax/inject/Provider;
+
+    new-instance v3, Lcom/android/systemui/doze/DozeFalsingManagerAdapter_Factory;
+
+    invoke-direct {v3, v0, v1}, Lcom/android/systemui/doze/DozeFalsingManagerAdapter_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    iput-object v3, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->getKeyguardSliceViewProvider:Ljavax/inject/Provider;
+
+    iget-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->this$1:Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
+
+    iget-object v4, p1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->provideActivityStarterProvider:Ljavax/inject/Provider;
+
+    iget-object v5, p1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->configurationControllerImplProvider:Ljavax/inject/Provider;
+
+    iget-object v6, p1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->tunerServiceImplProvider:Ljavax/inject/Provider;
+
+    iget-object p1, p1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v7, p1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    new-instance p1, Lcom/android/keyguard/KeyguardSliceViewController_Factory;
+
+    move-object v2, p1
+
+    invoke-direct/range {v2 .. v7}, Lcom/android/keyguard/KeyguardSliceViewController_Factory;-><init>(Lcom/android/systemui/doze/DozeFalsingManagerAdapter_Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    invoke-static {p1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->keyguardSliceViewControllerProvider:Ljavax/inject/Provider;
+
+    return-void
+.end method
+
+.method public final keyguardClockSwitch()Lcom/android/keyguard/KeyguardClockSwitch;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$KeyguardStatusViewComponentImpl;->presentation:Lcom/android/keyguard/KeyguardStatusView;
+
+    invoke-static {p0}, Lcom/android/systemui/screenshot/ImageExporter_Factory;->getKeyguardClockSwitch(Lcom/android/keyguard/KeyguardStatusView;)Lcom/android/keyguard/KeyguardClockSwitch;
+
+    move-result-object p0
+
+    return-object p0
 .end method

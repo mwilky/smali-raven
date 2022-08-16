@@ -7,35 +7,33 @@
 
 
 # instance fields
-.field private mClippingEnabled:Z
+.field public mClippingEnabled:Z
 
-.field private mContentPadding:I
+.field public mContentHorizontalPadding:I
 
-.field private mFancyClippingBottom:I
+.field public mFancyClippingBottom:I
 
-.field private final mFancyClippingPath:Landroid/graphics/Path;
+.field public final mFancyClippingPath:Landroid/graphics/Path;
 
-.field private final mFancyClippingRadii:[F
+.field public final mFancyClippingRadii:[F
 
-.field private mFancyClippingTop:I
+.field public mFancyClippingTop:I
 
-.field private mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+.field public mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-.field private mHeightOverride:I
+.field public mHeightOverride:I
 
-.field private mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
+.field public mHorizontalMargins:I
 
-.field private mQSDetail:Landroid/view/View;
+.field public mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
 
-.field private mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
+.field public mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-.field private mQsDisabled:Z
+.field public mQsDisabled:Z
 
-.field private mQsExpansion:F
+.field public mQsExpansion:F
 
-.field private mSideMargins:I
-
-.field private final mSizePoint:Landroid/graphics/Point;
+.field public mTilesPageMargin:I
 
 
 # direct methods
@@ -43,12 +41,6 @@
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    new-instance p1, Landroid/graphics/Point;
-
-    invoke-direct {p1}, Landroid/graphics/Point;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSizePoint:Landroid/graphics/Point;
 
     const/16 p1, 0x8
 
@@ -68,9 +60,11 @@
 
     iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeightOverride:I
 
-    iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
+    iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentHorizontalPadding:I
 
     return-void
+
+    nop
 
     :array_0
     .array-data 4
@@ -85,309 +79,9 @@
     .end array-data
 .end method
 
-.method private updateClippingPath()V
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingPath:Landroid/graphics/Path;
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mClippingEnabled:Z
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
-
-    return-void
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingPath:Landroid/graphics/Path;
-
-    const/4 v2, 0x0
-
-    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingTop:I
-
-    int-to-float v3, v0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
-
-    move-result v0
-
-    int-to-float v4, v0
-
-    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingBottom:I
-
-    int-to-float v5, v0
-
-    iget-object v6, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingRadii:[F
-
-    sget-object v7, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
-
-    invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->addRoundRect(FFFF[FLandroid/graphics/Path$Direction;)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
-
-    return-void
-.end method
-
-.method private updatePaddingsAndMargins(Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
-    .locals 6
-
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_3
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    if-ne v1, v2, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/FrameLayout$LayoutParams;
-
-    iget v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSideMargins:I
-
-    iput v3, v2, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
-
-    iput v3, v2, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    if-ne v1, v2, :cond_1
-
-    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
-
-    invoke-virtual {p1, v1, v1}, Lcom/android/systemui/qs/QSPanelController;->setContentMargins(II)V
-
-    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSideMargins:I
-
-    invoke-virtual {p1, v1}, Lcom/android/systemui/qs/QSPanelController;->setPageMargin(I)V
-
-    goto :goto_1
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    if-ne v1, v2, :cond_2
-
-    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
-
-    invoke-virtual {p2, v1, v1}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->setContentMargins(II)V
-
-    goto :goto_1
-
-    :cond_2
-    iget v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
-
-    invoke-virtual {v1}, Landroid/view/View;->getPaddingTop()I
-
-    move-result v3
-
-    iget v4, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
-
-    invoke-virtual {v1}, Landroid/view/View;->getPaddingBottom()I
-
-    move-result v5
-
-    invoke-virtual {v1, v2, v3, v4, v5}, Landroid/view/View;->setPaddingRelative(IIII)V
-
-    :goto_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_3
-    return-void
-.end method
-
 
 # virtual methods
-.method calculateContainerBottom()I
-    .locals 3
-
-    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeightOverride:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
-
-    move-result v0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->isCustomizing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getHeight()I
-
-    move-result p0
-
-    goto :goto_1
-
-    :cond_1
-    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQsExpansion:F
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/NonInterceptingScrollView;->getScrollRange()I
-
-    move-result v2
-
-    add-int/2addr v0, v2
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
-
-    invoke-virtual {v2}, Landroid/widget/ScrollView;->getScrollY()I
-
-    move-result v2
-
-    sub-int/2addr v0, v2
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-virtual {v2}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result v2
-
-    sub-int/2addr v0, v2
-
-    int-to-float v0, v0
-
-    mul-float/2addr v1, v0
-
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
-
-    move-result v0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result p0
-
-    add-int/2addr p0, v0
-
-    :goto_1
-    return p0
-.end method
-
-.method protected calculateContainerHeight()I
-    .locals 3
-
-    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeightOverride:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
-
-    move-result v0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->isCustomizing()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getHeight()I
-
-    move-result p0
-
-    goto :goto_1
-
-    :cond_1
-    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQsExpansion:F
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-virtual {v2}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result v2
-
-    sub-int/2addr v0, v2
-
-    int-to-float v0, v0
-
-    mul-float/2addr v1, v0
-
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
-
-    move-result v0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result p0
-
-    add-int/2addr p0, v0
-
-    :goto_1
-    return p0
-.end method
-
-.method public disable(IIZ)V
-    .locals 0
-
-    const/4 p1, 0x1
-
-    and-int/2addr p2, p1
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    :goto_0
-    iget-boolean p2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQsDisabled:Z
-
-    if-ne p1, p2, :cond_1
-
-    return-void
-
-    :cond_1
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQsDisabled:Z
-
-    return-void
-.end method
-
-.method public dispatchDraw(Landroid/graphics/Canvas;)V
+.method public final dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingPath:Landroid/graphics/Path;
@@ -424,61 +118,61 @@
     return-void
 .end method
 
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 1
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-virtual {p3}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p3, " updateClippingPath: top("
+    const-string v0, " updateClippingPath: top("
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget p3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingTop:I
+    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingTop:I
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p3, ") bottom("
+    const-string v0, ") bottom("
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget p3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingBottom:I
+    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingBottom:I
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p3, ") mClippingEnabled("
+    const-string v0, ") mClippingEnabled("
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mClippingEnabled:Z
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     const-string p0, ")"
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -486,7 +180,7 @@
     return p0
 .end method
 
-.method protected isTransformedTouchPointInView(FFLandroid/view/View;Landroid/graphics/PointF;)Z
+.method public final isTransformedTouchPointInView(FFLandroid/view/View;Landroid/graphics/PointF;)Z
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mClippingEnabled:Z
@@ -519,7 +213,7 @@
     return p0
 .end method
 
-.method protected measureChildWithMargins(Landroid/view/View;IIII)V
+.method public final measureChildWithMargins(Landroid/view/View;IIII)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
@@ -532,26 +226,12 @@
     return-void
 .end method
 
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSizePoint:Landroid/graphics/Point;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1, p1}, Landroid/graphics/Point;->set(II)V
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/systemui/R$id;->expanded_qs_scroll_view:I
+    const v0, 0x7f0b027d
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -561,15 +241,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    sget v0, Lcom/android/systemui/R$id;->qs_detail:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSDetail:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->header:I
+    const v0, 0x7f0b02e8
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -579,7 +251,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    sget v0, Lcom/android/systemui/R$id;->qs_customize:I
+    const v0, 0x7f0b0527
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -596,19 +268,19 @@
     return-void
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Landroid/widget/FrameLayout;->onLayout(ZIIII)V
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QSContainerImpl;->updateExpansion()V
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSContainerImpl;->updateClippingPath()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QSContainerImpl;->updateClippingPath()V
 
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
@@ -698,7 +370,7 @@
     return-void
 .end method
 
-.method public performClick()Z
+.method public final performClick()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -706,198 +378,191 @@
     return p0
 .end method
 
-.method public setExpansion(F)V
-    .locals 2
+.method public final updateClippingPath()V
+    .locals 8
 
-    iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQsExpansion:F
+    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingPath:Landroid/graphics/Path;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
+    invoke-virtual {v0}, Landroid/graphics/Path;->reset()V
 
-    const/4 v1, 0x0
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mClippingEnabled:Z
 
-    cmpl-float p1, p1, v1
+    if-nez v0, :cond_0
 
-    if-lez p1, :cond_0
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
 
-    const/4 p1, 0x1
-
-    goto :goto_0
+    return-void
 
     :cond_0
-    const/4 p1, 0x0
+    iget-object v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingPath:Landroid/graphics/Path;
 
-    :goto_0
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/NonInterceptingScrollView;->setScrollingEnabled(Z)V
+    const/4 v2, 0x0
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSContainerImpl;->updateExpansion()V
+    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingTop:I
 
-    return-void
-.end method
+    int-to-float v3, v0
 
-.method public setFancyClipping(IIIZ)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingRadii:[F
-
-    const/4 v1, 0x0
-
-    aget v2, v0, v1
-
-    int-to-float p3, p3
-
-    cmpl-float v2, v2, p3
-
-    const/4 v3, 0x1
-
-    if-eqz v2, :cond_0
-
-    aput p3, v0, v1
-
-    aput p3, v0, v3
-
-    const/4 v1, 0x2
-
-    aput p3, v0, v1
-
-    const/4 v1, 0x3
-
-    aput p3, v0, v1
-
-    move v1, v3
-
-    :cond_0
-    iget p3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingTop:I
-
-    if-eq p3, p1, :cond_1
-
-    iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingTop:I
-
-    move v1, v3
-
-    :cond_1
-    iget p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingBottom:I
-
-    if-eq p1, p2, :cond_2
-
-    iput p2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingBottom:I
-
-    move v1, v3
-
-    :cond_2
-    iget-boolean p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mClippingEnabled:Z
-
-    if-eq p1, p4, :cond_3
-
-    iput-boolean p4, p0, Lcom/android/systemui/qs/QSContainerImpl;->mClippingEnabled:Z
-
-    goto :goto_0
-
-    :cond_3
-    move v3, v1
-
-    :goto_0
-    if-eqz v3, :cond_4
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSContainerImpl;->updateClippingPath()V
-
-    :cond_4
-    return-void
-.end method
-
-.method public setHeightOverride(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeightOverride:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSContainerImpl;->updateExpansion()V
-
-    return-void
-.end method
-
-.method public updateExpansion()V
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSContainerImpl;->calculateContainerHeight()I
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
     move-result v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSContainerImpl;->calculateContainerBottom()I
+    int-to-float v4, v0
 
-    move-result v1
+    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingBottom:I
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getTop()I
+    int-to-float v5, v0
 
-    move-result v2
+    iget-object v6, p0, Lcom/android/systemui/qs/QSContainerImpl;->mFancyClippingRadii:[F
 
-    add-int/2addr v2, v0
+    sget-object v7, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
 
-    invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->setBottom(I)V
+    invoke-virtual/range {v1 .. v7}, Landroid/graphics/Path;->addRoundRect(FFFF[FLandroid/graphics/Path$Direction;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSDetail:Landroid/view/View;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getTop()I
-
-    move-result v2
-
-    add-int/2addr v2, v1
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBottom(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSDetail:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/ViewGroup$MarginLayoutParams;
-
-    iget v0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->bottomMargin:I
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSDetail:Landroid/view/View;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getTop()I
-
-    move-result p0
-
-    add-int/2addr p0, v1
-
-    sub-int/2addr p0, v0
-
-    invoke-virtual {v2, p0}, Landroid/view/View;->setBottom(I)V
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
 
     return-void
 .end method
 
-.method updateResources(Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
-    .locals 5
+.method public final updateExpansion()V
+    .locals 3
+
+    iget v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeightOverride:I
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
+
+    move-result v0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
+
+    iget-boolean v2, v1, Lcom/android/systemui/qs/customize/QSCustomizer;->mCustomizing:Z
+
+    if-nez v2, :cond_2
+
+    iget-boolean v2, v1, Lcom/android/systemui/qs/customize/QSCustomizer;->mOpening:Z
+
+    if-eqz v2, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_2
+
+    :cond_2
+    :goto_1
+    const/4 v2, 0x1
+
+    :goto_2
+    if-eqz v2, :cond_3
+
+    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getHeight()I
+
+    move-result v0
+
+    goto :goto_3
+
+    :cond_3
+    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQsExpansion:F
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    invoke-virtual {v2}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v2
+
+    sub-int/2addr v0, v2
+
+    int-to-float v0, v0
+
+    mul-float/2addr v1, v0
+
+    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    :goto_3
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getTop()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->setBottom(I)V
+
+    return-void
+.end method
+
+.method public final updateResources(Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingStart()I
+    invoke-virtual {v0}, Landroid/widget/ScrollView;->getPaddingStart()I
 
     move-result v1
 
     iget-object v2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    invoke-static {v2}, Lcom/android/systemui/util/Utils;->getQsHeaderSystemIconsAreaHeight(Landroid/content/Context;)I
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result v2
+    move-result-object v3
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingEnd()I
+    const v4, 0x7f050043
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v3
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getPaddingBottom()I
+    const/4 v4, 0x0
 
-    move-result v4
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/widget/ScrollView;->setPaddingRelative(IIII)V
+    move v2, v4
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {v2}, Lcom/android/internal/policy/SystemBarUtils;->getQuickQsOffsetHeight(Landroid/content/Context;)I
+
+    move-result v2
+
+    :goto_0
+    iget-object v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
+
+    invoke-virtual {v3}, Landroid/widget/ScrollView;->getPaddingEnd()I
+
+    move-result v3
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
+
+    invoke-virtual {v5}, Landroid/widget/ScrollView;->getPaddingBottom()I
+
+    move-result v5
+
+    invoke-virtual {v0, v1, v2, v3, v5}, Landroid/widget/ScrollView;->setPaddingRelative(IIII)V
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->notification_side_paddings:I
+    const v1, 0x7f0706b5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -907,40 +572,218 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->notification_shade_content_margin_horizontal:I
+    const v2, 0x7f07069a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    iget v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
-    if-ne v1, v2, :cond_1
+    move-result-object v2
 
-    iget v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSideMargins:I
+    const v3, 0x7f0706e8
 
-    if-eq v0, v2, :cond_0
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    goto :goto_0
+    move-result v2
 
-    :cond_0
-    const/4 v2, 0x0
+    iget v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentHorizontalPadding:I
+
+    if-ne v1, v3, :cond_2
+
+    iget v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHorizontalMargins:I
+
+    if-ne v0, v3, :cond_2
+
+    iget v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mTilesPageMargin:I
+
+    if-eq v2, v3, :cond_1
 
     goto :goto_1
 
     :cond_1
-    :goto_0
-    const/4 v2, 0x1
+    move v3, v4
 
-    :goto_1
-    iput v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentPadding:I
-
-    iput v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mSideMargins:I
-
-    if-eqz v2, :cond_2
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/QSContainerImpl;->updatePaddingsAndMargins(Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
+    goto :goto_2
 
     :cond_2
+    :goto_1
+    const/4 v3, 0x1
+
+    :goto_2
+    iput v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentHorizontalPadding:I
+
+    iput v0, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHorizontalMargins:I
+
+    iput v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mTilesPageMargin:I
+
+    if-eqz v3, :cond_8
+
+    move v0, v4
+
+    :goto_3
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getChildCount()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_8
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSCustomizer:Lcom/android/systemui/qs/customize/QSCustomizer;
+
+    if-ne v1, v2, :cond_3
+
+    goto/16 :goto_5
+
+    :cond_3
+    instance-of v2, v1, Lcom/android/systemui/qs/FooterActionsView;
+
+    if-nez v2, :cond_4
+
+    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/FrameLayout$LayoutParams;
+
+    iget v3, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHorizontalMargins:I
+
+    iput v3, v2, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
+
+    iput v3, v2, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mQSPanelContainer:Lcom/android/systemui/qs/NonInterceptingScrollView;
+
+    if-ne v1, v2, :cond_5
+
+    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentHorizontalPadding:I
+
+    iget-object v2, p1, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v2, Lcom/android/systemui/qs/QSPanel;
+
+    iget-object v3, p1, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+
+    invoke-virtual {v3}, Lcom/android/systemui/media/MediaHost;->getHostView()Lcom/android/systemui/util/animation/UniqueObjectHostView;
+
+    move-result-object v3
+
+    iput v1, v2, Lcom/android/systemui/qs/QSPanel;->mContentMarginEnd:I
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/QSPanel;->updateMediaHostContentMargins(Lcom/android/systemui/util/animation/UniqueObjectHostView;)V
+
+    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mTilesPageMargin:I
+
+    iget-object v2, p1, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v2, Lcom/android/systemui/qs/QSPanel;
+
+    iget-object v2, v2, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    instance-of v3, v2, Lcom/android/systemui/qs/PagedTileLayout;
+
+    if-eqz v3, :cond_7
+
+    check-cast v2, Lcom/android/systemui/qs/PagedTileLayout;
+
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    neg-int v5, v1
+
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
+
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
+
+    invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v3, v2, Lcom/android/systemui/qs/PagedTileLayout;->mPages:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    move v5, v4
+
+    :goto_4
+    if-ge v5, v3, :cond_7
+
+    iget-object v6, v2, Lcom/android/systemui/qs/PagedTileLayout;->mPages:Ljava/util/ArrayList;
+
+    invoke-virtual {v6, v5}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/view/View;
+
+    invoke-virtual {v6}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v7
+
+    invoke-virtual {v6}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v8
+
+    invoke-virtual {v6, v1, v7, v1, v8}, Landroid/view/View;->setPadding(IIII)V
+
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_4
+
+    :cond_5
+    iget-object v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
+
+    if-ne v1, v2, :cond_6
+
+    iget v1, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentHorizontalPadding:I
+
+    iget-object v2, p2, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+
+    iget-object v3, v2, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v3, Lcom/android/systemui/qs/QuickQSPanel;
+
+    iget-object v2, v2, Lcom/android/systemui/qs/QSPanelControllerBase;->mMediaHost:Lcom/android/systemui/media/MediaHost;
+
+    invoke-virtual {v2}, Lcom/android/systemui/media/MediaHost;->getHostView()Lcom/android/systemui/util/animation/UniqueObjectHostView;
+
+    move-result-object v2
+
+    iput v1, v3, Lcom/android/systemui/qs/QSPanel;->mContentMarginEnd:I
+
+    invoke-virtual {v3, v2}, Lcom/android/systemui/qs/QSPanel;->updateMediaHostContentMargins(Lcom/android/systemui/util/animation/UniqueObjectHostView;)V
+
+    goto :goto_5
+
+    :cond_6
+    iget v2, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentHorizontalPadding:I
+
+    invoke-virtual {v1}, Landroid/view/View;->getPaddingTop()I
+
+    move-result v3
+
+    iget v5, p0, Lcom/android/systemui/qs/QSContainerImpl;->mContentHorizontalPadding:I
+
+    invoke-virtual {v1}, Landroid/view/View;->getPaddingBottom()I
+
+    move-result v6
+
+    invoke-virtual {v1, v2, v3, v5, v6}, Landroid/view/View;->setPaddingRelative(IIII)V
+
+    :cond_7
+    :goto_5
+    add-int/lit8 v0, v0, 0x1
+
+    goto/16 :goto_3
+
+    :cond_8
     return-void
 .end method

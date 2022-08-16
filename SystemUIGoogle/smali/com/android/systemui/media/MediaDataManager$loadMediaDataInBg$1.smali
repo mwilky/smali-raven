@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;
+.class public final Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;
 .super Ljava/lang/Object;
 .source "MediaDataManager.kt"
 
@@ -6,29 +6,19 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaDataManager;->loadMediaDataInBg(Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $actionIcons:Ljava/util/List;
+.field public final synthetic $actionIcons:Lkotlin/jvm/internal/Ref$ObjectRef;
     .annotation system Ldalvik/annotation/Signature;
         value = {
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
             "Ljava/util/List<",
             "Lcom/android/systemui/media/MediaAction;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
 
-.field final synthetic $actionsToShowCollapsed:Lkotlin/jvm/internal/Ref$ObjectRef;
+.field public final synthetic $actionsToShowCollapsed:Lkotlin/jvm/internal/Ref$ObjectRef;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/internal/Ref$ObjectRef<",
@@ -39,11 +29,13 @@
     .end annotation
 .end field
 
-.field final synthetic $app:Ljava/lang/String;
+.field public final synthetic $app:Ljava/lang/String;
 
-.field final synthetic $artWorkIcon:Landroid/graphics/drawable/Icon;
+.field public final synthetic $appUid:I
 
-.field final synthetic $artist:Lkotlin/jvm/internal/Ref$ObjectRef;
+.field public final synthetic $artWorkIcon:Landroid/graphics/drawable/Icon;
+
+.field public final synthetic $artist:Lkotlin/jvm/internal/Ref$ObjectRef;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/internal/Ref$ObjectRef<",
@@ -53,23 +45,37 @@
     .end annotation
 .end field
 
-.field final synthetic $isPlaying:Ljava/lang/Boolean;
+.field public final synthetic $device:Lkotlin/jvm/internal/Ref$ObjectRef;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
+            "Lcom/android/systemui/media/MediaDeviceData;",
+            ">;"
+        }
+    .end annotation
+.end field
 
-.field final synthetic $key:Ljava/lang/String;
+.field public final synthetic $instanceId:Lcom/android/internal/logging/InstanceId;
 
-.field final synthetic $lastActive:J
+.field public final synthetic $isPlaying:Ljava/lang/Boolean;
 
-.field final synthetic $notif:Landroid/app/Notification;
+.field public final synthetic $key:Ljava/lang/String;
 
-.field final synthetic $oldKey:Ljava/lang/String;
+.field public final synthetic $lastActive:J
 
-.field final synthetic $playbackLocation:I
+.field public final synthetic $notif:Landroid/app/Notification;
 
-.field final synthetic $sbn:Landroid/service/notification/StatusBarNotification;
+.field public final synthetic $oldKey:Ljava/lang/String;
 
-.field final synthetic $smallIcon:Landroid/graphics/drawable/Icon;
+.field public final synthetic $playbackLocation:I
 
-.field final synthetic $song:Lkotlin/jvm/internal/Ref$ObjectRef;
+.field public final synthetic $sbn:Landroid/service/notification/StatusBarNotification;
+
+.field public final synthetic $semanticActions:Lcom/android/systemui/media/MediaButton;
+
+.field public final synthetic $smallIcon:Landroid/graphics/drawable/Icon;
+
+.field public final synthetic $song:Lkotlin/jvm/internal/Ref$ObjectRef;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/internal/Ref$ObjectRef<",
@@ -79,13 +85,13 @@
     .end annotation
 .end field
 
-.field final synthetic $token:Landroid/media/session/MediaSession$Token;
+.field public final synthetic $token:Landroid/media/session/MediaSession$Token;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDataManager;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDataManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Landroid/graphics/drawable/Icon;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;Landroid/graphics/drawable/Icon;Ljava/util/List;Lkotlin/jvm/internal/Ref$ObjectRef;Landroid/media/session/MediaSession$Token;Landroid/app/Notification;ILjava/lang/Boolean;J)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Landroid/graphics/drawable/Icon;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;Landroid/graphics/drawable/Icon;Lkotlin/jvm/internal/Ref$ObjectRef;Lkotlin/jvm/internal/Ref$ObjectRef;Lcom/android/systemui/media/MediaButton;Landroid/media/session/MediaSession$Token;Landroid/app/Notification;Lkotlin/jvm/internal/Ref$ObjectRef;ILjava/lang/Boolean;JLcom/android/internal/logging/InstanceId;I)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -103,18 +109,24 @@
             "Ljava/lang/CharSequence;",
             ">;",
             "Landroid/graphics/drawable/Icon;",
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
             "Ljava/util/List<",
             "Lcom/android/systemui/media/MediaAction;",
-            ">;",
+            ">;>;",
             "Lkotlin/jvm/internal/Ref$ObjectRef<",
             "Ljava/util/List<",
             "Ljava/lang/Integer;",
             ">;>;",
+            "Lcom/android/systemui/media/MediaButton;",
             "Landroid/media/session/MediaSession$Token;",
             "Landroid/app/Notification;",
-            "I",
+            "Lkotlin/jvm/internal/Ref$ObjectRef<",
+            "Lcom/android/systemui/media/MediaDeviceData;",
+            ">;I",
             "Ljava/lang/Boolean;",
-            "J)V"
+            "J",
+            "Lcom/android/internal/logging/InstanceId;",
+            "I)V"
         }
     .end annotation
 
@@ -158,7 +170,7 @@
 
     move-object v1, p10
 
-    iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$actionIcons:Ljava/util/List;
+    iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$actionIcons:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     move-object v1, p11
 
@@ -166,23 +178,39 @@
 
     move-object v1, p12
 
-    iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$token:Landroid/media/session/MediaSession$Token;
+    iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$semanticActions:Lcom/android/systemui/media/MediaButton;
 
     move-object/from16 v1, p13
 
+    iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$token:Landroid/media/session/MediaSession$Token;
+
+    move-object/from16 v1, p14
+
     iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$notif:Landroid/app/Notification;
-
-    move/from16 v1, p14
-
-    iput v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$playbackLocation:I
 
     move-object/from16 v1, p15
 
+    iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$device:Lkotlin/jvm/internal/Ref$ObjectRef;
+
+    move/from16 v1, p16
+
+    iput v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$playbackLocation:I
+
+    move-object/from16 v1, p17
+
     iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$isPlaying:Ljava/lang/Boolean;
 
-    move-wide/from16 v1, p16
+    move-wide/from16 v1, p18
 
     iput-wide v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$lastActive:J
+
+    move-object/from16 v1, p20
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$instanceId:Lcom/android/internal/logging/InstanceId;
+
+    move/from16 v1, p21
+
+    iput v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$appUid:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -192,15 +220,37 @@
 
 # virtual methods
 .method public final run()V
-    .locals 33
+    .locals 35
 
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-static {v1}, Lcom/android/systemui/media/MediaDataManager;->access$getMediaEntries$p(Lcom/android/systemui/media/MediaDataManager;)Ljava/util/LinkedHashMap;
+    iget-object v1, v1, Lcom/android/systemui/media/MediaDataManager;->mediaEntries:Ljava/util/LinkedHashMap;
+
+    iget-object v2, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/media/MediaData;
+
+    if-nez v1, :cond_0
+
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v1, v1, Lcom/android/systemui/media/MediaData;->resumeAction:Ljava/lang/Runnable;
+
+    :goto_0
+    move-object/from16 v18, v1
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
+
+    iget-object v1, v1, Lcom/android/systemui/media/MediaDataManager;->mediaEntries:Ljava/util/LinkedHashMap;
 
     iget-object v2, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
 
@@ -212,59 +262,29 @@
 
     const/4 v2, 0x0
 
-    if-nez v1, :cond_0
-
-    move-object/from16 v19, v2
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaData;->getResumeAction()Ljava/lang/Runnable;
-
-    move-result-object v1
-
-    move-object/from16 v19, v1
-
-    :goto_0
-    iget-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
-
-    invoke-static {v1}, Lcom/android/systemui/media/MediaDataManager;->access$getMediaEntries$p(Lcom/android/systemui/media/MediaDataManager;)Ljava/util/LinkedHashMap;
-
-    move-result-object v1
-
-    iget-object v3, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
-
-    invoke-virtual {v1, v3}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/media/MediaData;
+    const/4 v3, 0x1
 
     if-nez v1, :cond_1
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaData;->getHasCheckedForResume()Z
+    iget-boolean v1, v1, Lcom/android/systemui/media/MediaData;->hasCheckedForResume:Z
 
-    move-result v1
+    if-ne v1, v3, :cond_2
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move/from16 v22, v3
 
-    move-result-object v2
+    goto :goto_2
 
+    :cond_2
     :goto_1
-    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
+    move/from16 v22, v2
 
-    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v23
-
+    :goto_2
     iget-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-static {v1}, Lcom/android/systemui/media/MediaDataManager;->access$getMediaEntries$p(Lcom/android/systemui/media/MediaDataManager;)Ljava/util/LinkedHashMap;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/MediaDataManager;->mediaEntries:Ljava/util/LinkedHashMap;
 
     iget-object v2, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
 
@@ -274,143 +294,149 @@
 
     check-cast v1, Lcom/android/systemui/media/MediaData;
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_3
 
-    const/4 v1, 0x1
+    move/from16 v17, v3
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_2
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaData;->getActive()Z
+    :cond_3
+    iget-boolean v1, v1, Lcom/android/systemui/media/MediaData;->active:Z
 
-    move-result v1
+    move/from16 v17, v1
 
-    :goto_2
-    move/from16 v18, v1
-
+    :goto_3
     iget-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
 
-    iget-object v2, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
 
     iget-object v15, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$oldKey:Ljava/lang/String;
 
     new-instance v14, Lcom/android/systemui/media/MediaData;
 
-    move-object v3, v14
+    move-object v2, v14
 
-    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$sbn:Landroid/service/notification/StatusBarNotification;
+    iget-object v3, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$sbn:Landroid/service/notification/StatusBarNotification;
 
-    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getNormalizedUserId()I
+    invoke-virtual {v3}, Landroid/service/notification/StatusBarNotification;->getNormalizedUserId()I
 
-    move-result v4
+    move-result v3
 
-    const/4 v5, 0x1
+    iget-object v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$app:Ljava/lang/String;
 
-    iget-object v6, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
+    iget-object v6, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$smallIcon:Landroid/graphics/drawable/Icon;
 
-    invoke-static {v6}, Lcom/android/systemui/media/MediaDataManager;->access$getBgColor$p(Lcom/android/systemui/media/MediaDataManager;)I
+    iget-object v7, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$artist:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    move-result v6
+    iget-object v7, v7, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    iget-object v7, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$app:Ljava/lang/String;
+    check-cast v7, Ljava/lang/CharSequence;
 
-    iget-object v8, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$smallIcon:Landroid/graphics/drawable/Icon;
+    iget-object v8, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$song:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    iget-object v9, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$artist:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v8, v8, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    iget-object v9, v9, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+    check-cast v8, Ljava/lang/CharSequence;
 
-    check-cast v9, Ljava/lang/CharSequence;
+    iget-object v9, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$artWorkIcon:Landroid/graphics/drawable/Icon;
 
-    iget-object v10, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$song:Lkotlin/jvm/internal/Ref$ObjectRef;
+    iget-object v10, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$actionIcons:Lkotlin/jvm/internal/Ref$ObjectRef;
 
     iget-object v10, v10, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    check-cast v10, Ljava/lang/CharSequence;
+    check-cast v10, Ljava/util/List;
 
-    iget-object v11, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$artWorkIcon:Landroid/graphics/drawable/Icon;
+    iget-object v11, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$actionsToShowCollapsed:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    iget-object v12, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$actionIcons:Ljava/util/List;
+    iget-object v11, v11, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    iget-object v13, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$actionsToShowCollapsed:Lkotlin/jvm/internal/Ref$ObjectRef;
+    check-cast v11, Ljava/util/List;
 
-    iget-object v13, v13, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
+    iget-object v12, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$semanticActions:Lcom/android/systemui/media/MediaButton;
 
-    check-cast v13, Ljava/util/List;
+    iget-object v13, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$sbn:Landroid/service/notification/StatusBarNotification;
 
-    iget-object v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$sbn:Landroid/service/notification/StatusBarNotification;
+    invoke-virtual {v13}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
-    invoke-virtual {v5}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
+    move-result-object v13
 
-    move-result-object v5
+    move-object/from16 v30, v4
 
-    move-object/from16 v30, v1
+    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$token:Landroid/media/session/MediaSession$Token;
 
-    move-object v1, v14
+    move-object/from16 v31, v14
 
-    move-object v14, v5
+    move-object v14, v4
 
-    move-object/from16 v16, v15
+    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$notif:Landroid/app/Notification;
 
-    const-string v15, "sbn.packageName"
+    iget-object v4, v4, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
 
-    invoke-static {v5, v15}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v32, v15
 
-    iget-object v15, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$token:Landroid/media/session/MediaSession$Token;
+    move-object v15, v4
 
-    move-object/from16 v5, v16
+    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$device:Lkotlin/jvm/internal/Ref$ObjectRef;
 
-    move-object/from16 v31, v5
+    iget-object v4, v4, Lkotlin/jvm/internal/Ref$ObjectRef;->element:Ljava/lang/Object;
 
-    iget-object v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$notif:Landroid/app/Notification;
+    move-object/from16 v16, v4
 
-    iget-object v5, v5, Landroid/app/Notification;->contentIntent:Landroid/app/PendingIntent;
+    check-cast v16, Lcom/android/systemui/media/MediaDeviceData;
 
-    move-object/from16 v16, v5
+    iget v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$playbackLocation:I
 
-    const/16 v17, 0x0
+    move/from16 v19, v4
 
-    iget v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$playbackLocation:I
+    const/16 v20, 0x0
 
-    move/from16 v20, v5
+    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
 
-    const/16 v21, 0x0
+    move-object/from16 v21, v4
 
-    iget-object v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$key:Ljava/lang/String;
+    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$isPlaying:Ljava/lang/Boolean;
 
-    move-object/from16 v22, v5
+    move-object/from16 v23, v4
 
-    iget-object v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$isPlaying:Ljava/lang/Boolean;
+    iget-object v4, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$sbn:Landroid/service/notification/StatusBarNotification;
 
-    move-object/from16 v24, v5
+    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->isClearable()Z
 
-    iget-object v5, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$sbn:Landroid/service/notification/StatusBarNotification;
+    move-result v24
 
-    invoke-virtual {v5}, Landroid/service/notification/StatusBarNotification;->isClearable()Z
+    move-object/from16 v33, v1
 
-    move-result v25
+    move-object/from16 v34, v2
 
-    move-object/from16 v32, v1
+    iget-wide v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$lastActive:J
 
-    iget-wide v0, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$lastActive:J
+    move-wide/from16 v25, v1
 
-    move-wide/from16 v26, v0
+    iget-object v1, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$instanceId:Lcom/android/internal/logging/InstanceId;
 
-    const/high16 v28, 0x20000
+    move-object/from16 v27, v1
 
-    const/16 v29, 0x0
+    iget v0, v0, Lcom/android/systemui/media/MediaDataManager$loadMediaDataInBg$1;->$appUid:I
 
-    move-object/from16 v0, v31
+    move/from16 v28, v0
 
-    const/4 v5, 0x1
+    const/high16 v29, 0x20000
 
-    invoke-direct/range {v3 .. v29}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    const/4 v4, 0x1
 
-    move-object/from16 v1, v30
+    move-object/from16 v0, v30
 
-    move-object/from16 v3, v32
+    move-object/from16 v2, v34
 
-    invoke-virtual {v1, v2, v0, v3}, Lcom/android/systemui/media/MediaDataManager;->onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;)V
+    invoke-direct/range {v2 .. v29}, Lcom/android/systemui/media/MediaData;-><init>(IZLjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Lcom/android/systemui/media/MediaButton;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJLcom/android/internal/logging/InstanceId;II)V
+
+    move-object/from16 v3, v31
+
+    move-object/from16 v2, v32
+
+    move-object/from16 v1, v33
+
+    invoke-virtual {v1, v0, v2, v3}, Lcom/android/systemui/media/MediaDataManager;->onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;)V
 
     return-void
 .end method

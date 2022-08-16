@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "ErrorListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onShowError(Landroid/content/Context;Ljava/lang/String;I)V
-.end method

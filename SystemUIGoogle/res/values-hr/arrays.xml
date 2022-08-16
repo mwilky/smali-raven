@@ -17,6 +17,7 @@
         <item>Najviše 3 procesa</item>
         <item>Najviše 4 procesa</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Isključeno</item>
         <item>Uključeno</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Nedostupno</item>
+        <item>Isključeno</item>
+        <item>Uključeno</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Nedostupno</item>
         <item>Isključeno</item>
@@ -306,6 +312,16 @@
         <item>Uključeno</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Nedostupno</item>
+        <item>Isključeno</item>
+        <item>Uključeno</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Nedostupno</item>
+        <item>Isključeno</item>
+        <item>Uključeno</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Nedostupno</item>
         <item>Isključeno</item>
         <item>Uključeno</item>
@@ -374,6 +390,12 @@
         <item>Ubrzano</item>
         <item>Vrlo ubrzano</item>
         <item>Najbrže</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Pomicanje ulijevo</item>
+        <item>Pomicanje prema dolje</item>
+        <item>Pomicanje udesno</item>
+        <item>Pomicanje prema gore</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Punjenje</item>

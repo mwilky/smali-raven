@@ -1,4 +1,4 @@
-.class Landroidx/transition/Slide$2;
+.class public final Landroidx/transition/Slide$2;
 .super Landroidx/transition/Slide$CalculateSlideHorizontal;
 .source "Slide.java"
 
@@ -9,28 +9,28 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Landroidx/transition/Slide$CalculateSlideHorizontal;-><init>(Landroidx/transition/Slide$1;)V
+    invoke-direct {p0}, Landroidx/transition/Slide$CalculateSlideHorizontal;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
+.method public final getGoneX(Landroid/view/View;Landroid/view/ViewGroup;)F
     .locals 1
 
-    invoke-static {p1}, Landroidx/core/view/ViewCompat;->getLayoutDirection(Landroid/view/View;)I
+    sget-object p0, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {p2}, Landroidx/core/view/ViewCompat$Api17Impl;->getLayoutDirection(Landroid/view/View;)I
 
     move-result p0
 
@@ -46,11 +46,11 @@
     :goto_0
     if-eqz v0, :cond_1
 
-    invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
+    invoke-virtual {p1}, Landroid/view/View;->getTranslationX()F
 
     move-result p0
 
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getWidth()I
+    invoke-virtual {p2}, Landroid/view/ViewGroup;->getWidth()I
 
     move-result p1
 
@@ -61,11 +61,11 @@
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p2}, Landroid/view/View;->getTranslationX()F
+    invoke-virtual {p1}, Landroid/view/View;->getTranslationX()F
 
     move-result p0
 
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getWidth()I
+    invoke-virtual {p2}, Landroid/view/ViewGroup;->getWidth()I
 
     move-result p1
 

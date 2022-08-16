@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/value/LottieFrameInfo;
+.class public final Lcom/airbnb/lottie/value/LottieFrameInfo;
 .super Ljava/lang/Object;
 .source "LottieFrameInfo.java"
 
@@ -15,9 +15,7 @@
 
 
 # instance fields
-.field private endFrame:F
-
-.field private endValue:Ljava/lang/Object;
+.field public endValue:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -25,15 +23,7 @@
     .end annotation
 .end field
 
-.field private interpolatedKeyframeProgress:F
-
-.field private linearKeyframeProgress:F
-
-.field private overallProgress:F
-
-.field private startFrame:F
-
-.field private startValue:Ljava/lang/Object;
+.field public startValue:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -49,33 +39,4 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-
-# virtual methods
-.method public set(FFLjava/lang/Object;Ljava/lang/Object;FFF)Lcom/airbnb/lottie/value/LottieFrameInfo;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(FFTT;TT;FFF)",
-            "Lcom/airbnb/lottie/value/LottieFrameInfo<",
-            "TT;>;"
-        }
-    .end annotation
-
-    iput p1, p0, Lcom/airbnb/lottie/value/LottieFrameInfo;->startFrame:F
-
-    iput p2, p0, Lcom/airbnb/lottie/value/LottieFrameInfo;->endFrame:F
-
-    iput-object p3, p0, Lcom/airbnb/lottie/value/LottieFrameInfo;->startValue:Ljava/lang/Object;
-
-    iput-object p4, p0, Lcom/airbnb/lottie/value/LottieFrameInfo;->endValue:Ljava/lang/Object;
-
-    iput p5, p0, Lcom/airbnb/lottie/value/LottieFrameInfo;->linearKeyframeProgress:F
-
-    iput p6, p0, Lcom/airbnb/lottie/value/LottieFrameInfo;->interpolatedKeyframeProgress:F
-
-    iput p7, p0, Lcom/airbnb/lottie/value/LottieFrameInfo;->overallProgress:F
-
-    return-object p0
 .end method

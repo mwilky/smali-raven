@@ -17,6 +17,7 @@
         <item>最多 3 個處理程序</item>
         <item>最多 4 個處理程序</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>已關閉</item>
         <item>已開啟</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>無法使用</item>
+        <item>關閉</item>
+        <item>開啟</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>無法使用</item>
         <item>已關閉</item>
@@ -306,6 +312,16 @@
         <item>已開啟</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>無法使用</item>
+        <item>已關閉</item>
+        <item>已開啟</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>未有提供</item>
+        <item>關閉</item>
+        <item>開啟</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>無法使用</item>
         <item>已關閉</item>
         <item>已開啟</item>
@@ -374,6 +390,12 @@
         <item>急速</item>
         <item>極快</item>
         <item>最快</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>向左移</item>
+        <item>向下移</item>
+        <item>向右移</item>
+        <item>向上移</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>充電</item>

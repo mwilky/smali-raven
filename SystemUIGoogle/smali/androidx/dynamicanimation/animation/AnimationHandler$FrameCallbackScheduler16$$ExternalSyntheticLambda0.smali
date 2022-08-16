@@ -1,5 +1,6 @@
 .class public final synthetic Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler16$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/Choreographer$FrameCallback;
@@ -10,7 +11,7 @@
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/lang/Runnable;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda1;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler16$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Runnable;
 
-    invoke-static {p0, p1, p2}, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler16;->$r8$lambda$K1fsod5wSogyfAjedC12ENrpgmA(Ljava/lang/Runnable;J)V
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
     return-void
 .end method

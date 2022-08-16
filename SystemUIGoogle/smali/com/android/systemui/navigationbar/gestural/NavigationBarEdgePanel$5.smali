@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$5;
+.class public final Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$5;
 .super Ljava/lang/Object;
 .source "NavigationBarEdgePanel.java"
 
@@ -8,23 +8,23 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;-><init>(Landroid/content/Context;)V
+    value = Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;-><init>(Landroid/content/Context;Lcom/android/wm/shell/back/BackAnimation;Lcom/android/internal/util/LatencyTracker;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
 
-.field final synthetic val$isPrimaryDisplay:Z
+.field public final synthetic val$isPrimaryDisplay:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;Z)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$5;->this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
@@ -38,19 +38,17 @@
 
 
 # virtual methods
-.method public getSampledRegion(Landroid/view/View;)Landroid/graphics/Rect;
+.method public final getSampledRegion()Landroid/graphics/Rect;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$5;->this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;->access$700(Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;)Landroid/graphics/Rect;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;->mSamplingRect:Landroid/graphics/Rect;
 
     return-object p0
 .end method
 
-.method public isSamplingEnabled()Z
+.method public final isSamplingEnabled()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$5;->val$isPrimaryDisplay:Z
@@ -58,7 +56,7 @@
     return p0
 .end method
 
-.method public onRegionDarknessChanged(Z)V
+.method public final onRegionDarknessChanged(Z)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$5;->this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
@@ -67,7 +65,9 @@
 
     xor-int/2addr p1, v0
 
-    invoke-static {p0, p1, v0}, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;->access$600(Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;ZZ)V
+    iput-boolean p1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;->mIsDark:Z
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;->updateIsDark(Z)V
 
     return-void
 .end method

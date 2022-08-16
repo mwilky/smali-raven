@@ -1,4 +1,4 @@
-.class final Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;
+.class public final Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;
 .super Ljava/lang/Object;
 .source "AppCompatDelegateImpl.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "ActionMenuPresenterCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
+.field public final synthetic this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
+.method public constructor <init>(Landroidx/appcompat/app/AppCompatDelegateImpl;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
+.method public final onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;
@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method public onOpenSubMenu(Landroidx/appcompat/view/menu/MenuBuilder;)Z
+.method public final onOpenSubMenu(Landroidx/appcompat/view/menu/MenuBuilder;)Z
     .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;->this$0:Landroidx/appcompat/app/AppCompatDelegateImpl;

@@ -1,24 +1,16 @@
-.class public Lcom/android/launcher3/icons/ShadowGenerator;
+.class public final Lcom/android/launcher3/icons/ShadowGenerator;
 .super Ljava/lang/Object;
 .source "ShadowGenerator.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/launcher3/icons/ShadowGenerator$Builder;
-    }
-.end annotation
-
-
 # instance fields
-.field private final mBlurPaint:Landroid/graphics/Paint;
+.field public final mBlurPaint:Landroid/graphics/Paint;
 
-.field private final mDefaultBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
+.field public final mDefaultBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
 
-.field private final mDrawPaint:Landroid/graphics/Paint;
+.field public final mDrawPaint:Landroid/graphics/Paint;
 
-.field private final mIconSize:I
+.field public final mIconSize:I
 
 
 # direct methods
@@ -60,69 +52,10 @@
     return-void
 .end method
 
-.method public static getScaleForBounds(Landroid/graphics/RectF;)F
-    .locals 3
-
-    iget v0, p0, Landroid/graphics/RectF;->left:F
-
-    iget v1, p0, Landroid/graphics/RectF;->right:F
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
-
-    move-result v0
-
-    iget v1, p0, Landroid/graphics/RectF;->top:F
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
-
-    move-result v0
-
-    const v1, 0x3d0f5c29    # 0.035f
-
-    cmpg-float v1, v0, v1
-
-    const/high16 v2, 0x3f000000    # 0.5f
-
-    if-gez v1, :cond_0
-
-    const v1, 0x3eee147b    # 0.465f
-
-    sub-float v0, v2, v0
-
-    div-float/2addr v1, v0
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    :goto_0
-    const v0, 0x3d64b17e
-
-    iget p0, p0, Landroid/graphics/RectF;->bottom:F
-
-    cmpg-float v0, p0, v0
-
-    if-gez v0, :cond_1
-
-    const v0, 0x3ee369d0
-
-    sub-float/2addr v2, p0
-
-    div-float/2addr v0, v2
-
-    invoke-static {v1, v0}, Ljava/lang/Math;->min(FF)F
-
-    move-result v1
-
-    :cond_1
-    return v1
-.end method
-
 
 # virtual methods
-.method public declared-synchronized recreateIcon(Landroid/graphics/Bitmap;Landroid/graphics/BlurMaskFilter;IILandroid/graphics/Canvas;)V
-    .locals 5
+.method public final declared-synchronized recreateIcon(Landroid/graphics/Bitmap;Landroid/graphics/BlurMaskFilter;Landroid/graphics/Canvas;)V
+    .locals 6
 
     monitor-enter p0
 
@@ -143,61 +76,65 @@
 
     iget-object v1, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {v1, p3}, Landroid/graphics/Paint;->setAlpha(I)V
+    const/16 v2, 0x19
 
-    const/4 p3, 0x0
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    aget v1, v0, p3
+    const/4 v1, 0x0
+
+    aget v2, v0, v1
+
+    int-to-float v2, v2
+
+    const/4 v3, 0x1
+
+    aget v4, v0, v3
+
+    int-to-float v4, v4
+
+    iget-object v5, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {p3, p2, v2, v4, v5}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    iget-object v2, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
+
+    const/4 v4, 0x7
+
+    invoke-virtual {v2, v4}, Landroid/graphics/Paint;->setAlpha(I)V
+
+    aget v1, v0, v1
 
     int-to-float v1, v1
 
-    const/4 v2, 0x1
+    aget v0, v0, v3
 
-    aget v3, v0, v2
+    int-to-float v0, v0
+
+    const v2, 0x3caaaaab
+
+    iget v3, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mIconSize:I
 
     int-to-float v3, v3
 
-    iget-object v4, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
+    mul-float/2addr v3, v2
 
-    invoke-virtual {p5, p2, v1, v3, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {v1, p4}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    aget p3, v0, p3
-
-    int-to-float p3, p3
-
-    aget p4, v0, v2
-
-    int-to-float p4, p4
-
-    const v0, 0x3caaaaab
-
-    iget v1, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mIconSize:I
-
-    int-to-float v1, v1
-
-    mul-float/2addr v1, v0
-
-    add-float/2addr p4, v1
+    add-float/2addr v3, v0
 
     iget-object v0, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p5, p2, p3, p4, v0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p3, p2, v1, v3, v0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     iget-object p2, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
 
-    const/16 p3, 0xff
+    const/16 v0, 0xff
 
-    invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setAlpha(I)V
+    invoke-virtual {p2, v0}, Landroid/graphics/Paint;->setAlpha(I)V
 
     iget-object p2, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDrawPaint:Landroid/graphics/Paint;
 
-    const/4 p3, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p5, p1, p3, p3, p2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {p3, p1, v0, v0, p2}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -213,25 +150,15 @@
     throw p1
 .end method
 
-.method public declared-synchronized recreateIcon(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;)V
-    .locals 6
+.method public final declared-synchronized recreateIcon(Landroid/graphics/Bitmap;Landroid/graphics/Canvas;)V
+    .locals 1
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v2, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDefaultBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
+    iget-object v0, p0, Lcom/android/launcher3/icons/ShadowGenerator;->mDefaultBlurMaskFilter:Landroid/graphics/BlurMaskFilter;
 
-    const/16 v3, 0x19
-
-    const/4 v4, 0x7
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v5, p2
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/icons/ShadowGenerator;->recreateIcon(Landroid/graphics/Bitmap;Landroid/graphics/BlurMaskFilter;IILandroid/graphics/Canvas;)V
+    invoke-virtual {p0, p1, v0, p2}, Lcom/android/launcher3/icons/ShadowGenerator;->recreateIcon(Landroid/graphics/Bitmap;Landroid/graphics/BlurMaskFilter;Landroid/graphics/Canvas;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

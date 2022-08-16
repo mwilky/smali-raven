@@ -1,4 +1,4 @@
-.class Landroidx/lifecycle/LiveData$AlwaysActiveObserver;
+.class public final Landroidx/lifecycle/LiveData$AlwaysActiveObserver;
 .super Landroidx/lifecycle/LiveData$ObserverWrapper;
 .source "LiveData.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AlwaysActiveObserver"
 .end annotation
 
@@ -21,12 +21,8 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Landroidx/lifecycle/LiveData;
-
-
 # direct methods
-.method constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
+.method public constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -36,8 +32,6 @@
         }
     .end annotation
 
-    iput-object p1, p0, Landroidx/lifecycle/LiveData$AlwaysActiveObserver;->this$0:Landroidx/lifecycle/LiveData;
-
     invoke-direct {p0, p1, p2}, Landroidx/lifecycle/LiveData$ObserverWrapper;-><init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/Observer;)V
 
     return-void
@@ -45,7 +39,7 @@
 
 
 # virtual methods
-.method shouldBeActive()Z
+.method public final shouldBeActive()Z
     .locals 0
 
     const/4 p0, 0x1

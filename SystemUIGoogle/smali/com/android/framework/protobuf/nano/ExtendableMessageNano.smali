@@ -14,10 +14,6 @@
 .end annotation
 
 
-# instance fields
-.field protected unknownFieldData:Lcom/android/framework/protobuf/nano/FieldArray;
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
@@ -84,7 +80,7 @@
     return-object p0
 .end method
 
-.method protected computeSerializedSize()I
+.method public computeSerializedSize()I
     .locals 0
 
     const/4 p0, 0x0

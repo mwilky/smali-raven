@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x401a
+    accessFlags = 0x4019
     name = "ToggleState"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
 .field public static final enum Off:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
@@ -39,75 +39,70 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 9
 
     new-instance v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    const-string v1, "Off"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "Off"
 
-    invoke-direct {v0, v1, v2, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v0, v1, v2, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(ILjava/lang/String;Z)V
 
     sput-object v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->Off:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    new-instance v2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    const-string v3, "TurningOn"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "TurningOn"
 
-    invoke-direct {v1, v3, v4, v4}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v2, v3, v4, v3}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(ILjava/lang/String;Z)V
 
-    sput-object v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->TurningOn:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    sput-object v2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->TurningOn:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    new-instance v3, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    new-instance v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    const-string v5, "TurningOff"
+    const/4 v5, 0x2
 
-    const/4 v6, 0x2
+    const-string v6, "TurningOff"
 
-    invoke-direct {v3, v5, v6, v4}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v4, v5, v6, v3}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(ILjava/lang/String;Z)V
 
-    sput-object v3, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->TurningOff:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    sput-object v4, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->TurningOff:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    new-instance v5, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    new-instance v6, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    const-string v7, "On"
+    const/4 v7, 0x3
 
-    const/4 v8, 0x3
+    const-string v8, "On"
 
-    invoke-direct {v5, v7, v8, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(Ljava/lang/String;IZ)V
+    invoke-direct {v6, v7, v8, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;-><init>(ILjava/lang/String;Z)V
 
-    sput-object v5, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->On:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    sput-object v6, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->On:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    const/4 v7, 0x4
+    const/4 v8, 0x4
 
-    new-array v7, v7, [Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    new-array v8, v8, [Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
-    aput-object v0, v7, v2
+    aput-object v0, v8, v1
 
-    aput-object v1, v7, v4
+    aput-object v2, v8, v3
 
-    aput-object v3, v7, v6
+    aput-object v4, v8, v5
 
-    aput-object v5, v7, v8
+    aput-object v6, v8, v7
 
-    sput-object v7, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->$VALUES:[Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    sput-object v8, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->$VALUES:[Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;IZ)V
+.method public constructor <init>(ILjava/lang/String;Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(Z)V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     iput-boolean p3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->mInTransition:Z
 
@@ -144,7 +139,7 @@
 
 
 # virtual methods
-.method public inTransition()Z
+.method public final inTransition()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;->mInTransition:Z

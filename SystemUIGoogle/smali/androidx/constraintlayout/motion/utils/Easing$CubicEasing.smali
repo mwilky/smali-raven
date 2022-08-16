@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;
+.class public final Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;
 .super Landroidx/constraintlayout/motion/utils/Easing;
 .source "Easing.java"
 
@@ -9,35 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "CubicEasing"
 .end annotation
 
 
-# static fields
-.field private static d_error:D = 1.0E-4
-
-.field private static error:D = 0.01
-
-
 # instance fields
-.field x1:D
+.field public x1:D
 
-.field x2:D
+.field public x2:D
 
-.field y1:D
+.field public y1:D
 
-.field y2:D
+.field public y2:D
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 5
 
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/Easing;-><init>()V
@@ -137,7 +125,163 @@
     return-void
 .end method
 
-.method private getX(D)D
+
+# virtual methods
+.method public final get(D)D
+    .locals 8
+
+    const-wide/16 v0, 0x0
+
+    cmpg-double v2, p1, v0
+
+    if-gtz v2, :cond_0
+
+    return-wide v0
+
+    :cond_0
+    const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
+
+    cmpl-double v2, p1, v0
+
+    if-ltz v2, :cond_1
+
+    return-wide v0
+
+    :cond_1
+    const-wide/high16 v0, 0x3fe0000000000000L    # 0.5
+
+    move-wide v2, v0
+
+    move-wide v4, v2
+
+    :goto_0
+    const-wide v6, 0x3f847ae147ae147bL    # 0.01
+
+    cmpl-double v6, v2, v6
+
+    if-lez v6, :cond_3
+
+    invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
+
+    move-result-wide v6
+
+    mul-double/2addr v2, v0
+
+    cmpg-double v6, v6, p1
+
+    if-gez v6, :cond_2
+
+    add-double/2addr v4, v2
+
+    goto :goto_0
+
+    :cond_2
+    sub-double/2addr v4, v2
+
+    goto :goto_0
+
+    :cond_3
+    sub-double v0, v4, v2
+
+    invoke-virtual {p0, v0, v1}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
+
+    move-result-wide v6
+
+    add-double/2addr v4, v2
+
+    invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
+
+    move-result-wide v2
+
+    invoke-virtual {p0, v0, v1}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
+
+    move-result-wide v0
+
+    invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
+
+    move-result-wide v4
+
+    sub-double/2addr v4, v0
+
+    sub-double/2addr p1, v6
+
+    mul-double/2addr p1, v4
+
+    sub-double/2addr v2, v6
+
+    div-double/2addr p1, v2
+
+    add-double/2addr p1, v0
+
+    return-wide p1
+.end method
+
+.method public final getDiff(D)D
+    .locals 8
+
+    const-wide/high16 v0, 0x3fe0000000000000L    # 0.5
+
+    move-wide v2, v0
+
+    move-wide v4, v2
+
+    :goto_0
+    const-wide v6, 0x3f1a36e2eb1c432dL    # 1.0E-4
+
+    cmpl-double v6, v2, v6
+
+    if-lez v6, :cond_1
+
+    invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
+
+    move-result-wide v6
+
+    mul-double/2addr v2, v0
+
+    cmpg-double v6, v6, p1
+
+    if-gez v6, :cond_0
+
+    add-double/2addr v4, v2
+
+    goto :goto_0
+
+    :cond_0
+    sub-double/2addr v4, v2
+
+    goto :goto_0
+
+    :cond_1
+    sub-double p1, v4, v2
+
+    invoke-virtual {p0, p1, p2}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
+
+    move-result-wide v0
+
+    add-double/2addr v4, v2
+
+    invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
+
+    move-result-wide v2
+
+    invoke-virtual {p0, p1, p2}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
+
+    move-result-wide p1
+
+    invoke-virtual {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
+
+    move-result-wide v4
+
+    sub-double/2addr v4, p1
+
+    sub-double/2addr v2, v0
+
+    div-double/2addr v4, v2
+
+    return-wide v4
+.end method
+
+.method public final getX(D)D
     .locals 6
 
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
@@ -168,14 +312,14 @@
 
     mul-double/2addr v0, v2
 
-    add-double/2addr p1, v0
+    add-double/2addr v0, p1
 
-    add-double/2addr p1, v4
+    add-double/2addr v0, v4
 
-    return-wide p1
+    return-wide v0
 .end method
 
-.method private getY(D)D
+.method public final getY(D)D
     .locals 6
 
     const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
@@ -206,165 +350,9 @@
 
     mul-double/2addr v0, v2
 
-    add-double/2addr p1, v0
+    add-double/2addr v0, p1
 
-    add-double/2addr p1, v4
-
-    return-wide p1
-.end method
-
-
-# virtual methods
-.method public get(D)D
-    .locals 8
-
-    const-wide/16 v0, 0x0
-
-    cmpg-double v2, p1, v0
-
-    if-gtz v2, :cond_0
+    add-double/2addr v0, v4
 
     return-wide v0
-
-    :cond_0
-    const-wide/high16 v0, 0x3ff0000000000000L    # 1.0
-
-    cmpl-double v2, p1, v0
-
-    if-ltz v2, :cond_1
-
-    return-wide v0
-
-    :cond_1
-    const-wide/high16 v0, 0x3fe0000000000000L    # 0.5
-
-    move-wide v2, v0
-
-    move-wide v4, v2
-
-    :goto_0
-    sget-wide v6, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->error:D
-
-    cmpl-double v6, v2, v6
-
-    if-lez v6, :cond_3
-
-    invoke-direct {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
-
-    move-result-wide v6
-
-    mul-double/2addr v2, v0
-
-    cmpg-double v6, v6, p1
-
-    if-gez v6, :cond_2
-
-    add-double/2addr v4, v2
-
-    goto :goto_0
-
-    :cond_2
-    sub-double/2addr v4, v2
-
-    goto :goto_0
-
-    :cond_3
-    sub-double v0, v4, v2
-
-    invoke-direct {p0, v0, v1}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
-
-    move-result-wide v6
-
-    add-double/2addr v4, v2
-
-    invoke-direct {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
-
-    move-result-wide v2
-
-    invoke-direct {p0, v0, v1}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
-
-    move-result-wide v0
-
-    invoke-direct {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
-
-    move-result-wide v4
-
-    sub-double/2addr v4, v0
-
-    sub-double/2addr p1, v6
-
-    mul-double/2addr v4, p1
-
-    sub-double/2addr v2, v6
-
-    div-double/2addr v4, v2
-
-    add-double/2addr v4, v0
-
-    return-wide v4
-.end method
-
-.method public getDiff(D)D
-    .locals 8
-
-    const-wide/high16 v0, 0x3fe0000000000000L    # 0.5
-
-    move-wide v2, v0
-
-    move-wide v4, v2
-
-    :goto_0
-    sget-wide v6, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->d_error:D
-
-    cmpl-double v6, v2, v6
-
-    if-lez v6, :cond_1
-
-    invoke-direct {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
-
-    move-result-wide v6
-
-    mul-double/2addr v2, v0
-
-    cmpg-double v6, v6, p1
-
-    if-gez v6, :cond_0
-
-    add-double/2addr v4, v2
-
-    goto :goto_0
-
-    :cond_0
-    sub-double/2addr v4, v2
-
-    goto :goto_0
-
-    :cond_1
-    sub-double p1, v4, v2
-
-    invoke-direct {p0, p1, p2}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
-
-    move-result-wide v0
-
-    add-double/2addr v4, v2
-
-    invoke-direct {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getX(D)D
-
-    move-result-wide v2
-
-    invoke-direct {p0, p1, p2}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
-
-    move-result-wide p1
-
-    invoke-direct {p0, v4, v5}, Landroidx/constraintlayout/motion/utils/Easing$CubicEasing;->getY(D)D
-
-    move-result-wide v4
-
-    sub-double/2addr v4, p1
-
-    sub-double/2addr v2, v0
-
-    div-double/2addr v4, v2
-
-    return-wide v4
 .end method

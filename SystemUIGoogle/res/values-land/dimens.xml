@@ -5,6 +5,7 @@
     <dimen name="abc_text_size_title_material_toolbar">14.0dip</dimen>
     <dimen name="biometric_dialog_button_negative_max_width">140.0dip</dimen>
     <dimen name="biometric_dialog_button_positive_max_width">116.0dip</dimen>
+    <item type="dimen" name="bouncer_user_switcher_y_trans">@dimen/status_bar_height</item>
     <dimen name="bubble_padding_top">4.0dip</dimen>
     <dimen name="controls_management_favorites_top_margin">8.0dip</dimen>
     <dimen name="controls_management_footer_height">56.0dip</dimen>
@@ -16,13 +17,13 @@
     <dimen name="controls_management_zone_top_margin">24.0dip</dimen>
     <dimen name="docked_divider_handle_height">16.0dip</dimen>
     <dimen name="docked_divider_handle_width">2.0dip</dimen>
-    <dimen name="game_toast_margin">28.0dip</dimen>
     <dimen name="global_actions_info_margin">24.0dip</dimen>
     <dimen name="global_actions_power_dialog_item_bottom_margin">35.0dip</dimen>
     <dimen name="global_actions_power_dialog_item_height">130.0dip</dimen>
     <dimen name="keyguard_eca_bottom_margin">2.0dip</dimen>
-    <dimen name="keyguard_eca_top_margin">2.0dip</dimen>
+    <dimen name="keyguard_eca_top_margin">0.0dip</dimen>
     <dimen name="keyguard_password_height">26.0dip</dimen>
+    <dimen name="large_dialog_width">348.0dip</dimen>
     <dimen name="material_time_picker_minimum_screen_height">450.0dip</dimen>
     <dimen name="material_time_picker_minimum_screen_width">600.0dip</dimen>
     <dimen name="mr_controller_volume_group_list_item_height">61.0dip</dimen>
@@ -48,19 +49,47 @@
     <dimen name="qqs_layout_margin_top">8.0dip</dimen>
     <dimen name="qs_brightness_margin_bottom">12.0dip</dimen>
     <dimen name="qs_brightness_margin_top">0.0dip</dimen>
-    <dimen name="qs_customize_header_min_height">48.0dip</dimen>
-    <dimen name="qs_detail_header_margin_top">14.0dip</dimen>
     <dimen name="qs_footer_padding">14.0dip</dimen>
+    <item type="dimen" name="qs_panel_padding_top">@dimen/qqs_layout_margin_top</item>
     <dimen name="qs_security_footer_background_inset">12.0dip</dimen>
     <item type="dimen" name="qs_security_footer_single_line_height">@android:dimen/quick_qs_offset_height</item>
     <dimen name="split_divider_handle_height">72.0dip</dimen>
     <dimen name="split_divider_handle_width">3.0dip</dimen>
+    <dimen name="sud_card_title_padding_bottom">0.0dip</dimen>
+    <dimen name="sud_card_title_padding_end">32.0dip</dimen>
+    <dimen name="sud_card_title_padding_start">56.0dip</dimen>
+    <dimen name="sud_card_title_padding_top">24.0dip</dimen>
+    <dimen name="sud_content_loading_frame_padding_bottom">24.0dip</dimen>
+    <dimen name="sud_content_loading_frame_padding_end">0.0dip</dimen>
+    <dimen name="sud_content_loading_frame_padding_start">0.0dip</dimen>
+    <dimen name="sud_decor_padding_top">0.0dip</dimen>
+    <dimen name="sud_glif_button_min_height">36.0dip</dimen>
+    <dimen name="sud_glif_card_height">560.0dip</dimen>
+    <dimen name="sud_glif_card_width">672.0dip</dimen>
+    <dimen name="sud_glif_content_padding_top">32.0dip</dimen>
+    <dimen name="sud_glif_content_padding_top_material_you">32.0dip</dimen>
+    <dimen name="sud_glif_description_margin_top">8.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_min_height">52.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_min_height_material_you">52.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_padding_end_material_you">28.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_padding_start_material_you">16.0dip</dimen>
+    <dimen name="sud_glif_footer_bar_padding_vertical_material_you">0.0dip</dimen>
+    <dimen name="sud_glif_footer_padding_end">28.0dip</dimen>
+    <dimen name="sud_glif_footer_padding_start">16.0dip</dimen>
+    <dimen name="sud_glif_footer_padding_vertical">0.0dip</dimen>
+    <dimen name="sud_glif_header_title_margin_bottom">0.0dip</dimen>
+    <dimen name="sud_glif_header_title_margin_top">24.0dip</dimen>
+    <dimen name="sud_glif_icon_margin_top">32.0dip</dimen>
+    <dimen name="sud_glif_margin_end">32.0dip</dimen>
+    <dimen name="sud_glif_margin_end_material_you">32.0dip</dimen>
+    <dimen name="sud_glif_margin_start">32.0dip</dimen>
+    <dimen name="sud_glif_margin_start_material_you">32.0dip</dimen>
+    <item type="dimen" name="sud_illustration_aspect_ratio">0.0</item>
     <dimen name="volume_row_slider_height">128.0dip</dimen>
     <dimen name="wallet_card_carousel_container_top_margin">24.0dip</dimen>
-    <dimen name="battery_detail_graph_space_bottom">9.0dip</dimen>
-    <dimen name="battery_detail_graph_space_top">9.0dip</dimen>
     <dimen name="controls_activity_view_top_offset">25.0dip</dimen>
     <dimen name="game_menu_contents_width">604.0dip</dimen>
     <dimen name="game_mode_max_width">572.0dip</dimen>
+    <dimen name="game_toast_margin">28.0dip</dimen>
     <dimen name="volume_tool_tip_top_margin">12.0dip</dimen>
 </resources>

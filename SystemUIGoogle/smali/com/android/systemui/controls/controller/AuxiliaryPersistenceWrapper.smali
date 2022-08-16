@@ -6,22 +6,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$Companion;,
         Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$DeletionJobService;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nAuxiliaryPersistenceWrapper.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AuxiliaryPersistenceWrapper.kt\ncom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,140:1\n3024#2,10:141\n*E\n*S KotlinDebug\n*F\n+ 1 AuxiliaryPersistenceWrapper.kt\ncom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper\n*L\n95#1,10:141\n*E\n"
+    value = "SMAP\nAuxiliaryPersistenceWrapper.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AuxiliaryPersistenceWrapper.kt\ncom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,140:1\n3047#2,10:141\n*S KotlinDebug\n*F\n+ 1 AuxiliaryPersistenceWrapper.kt\ncom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper\n*L\n95#1:141,10\n*E\n"
 .end annotation
 
 
-# static fields
-.field public static final Companion:Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$Companion;
-
-
 # instance fields
-.field private favorites:Ljava/util/List;
+.field public favorites:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -31,40 +26,20 @@
     .end annotation
 .end field
 
-.field private persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
+.field public persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->Companion:Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper$Companion;
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;)V
-    .locals 1
+    .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
-
-    const-string/jumbo v0, "wrapper"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object p1
+    sget-object p1, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->favorites:Ljava/util/List;
 
@@ -73,58 +48,8 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/io/File;Ljava/util/concurrent/Executor;)V
-    .locals 7
-
-    const-string v0, "file"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "executor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x4
-
-    const/4 v6, 0x0
-
-    move-object v1, v0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;-><init>(Ljava/io/File;Ljava/util/concurrent/Executor;Landroid/app/backup/BackupManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;-><init>(Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public final changeFile(Ljava/io/File;)V
-    .locals 2
-
-    const-string v0, "file"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->changeFileAndBackupManager(Ljava/io/File;Landroid/app/backup/BackupManager;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->initialize()V
-
-    return-void
-.end method
-
 .method public final getCachedFavoritesAndRemoveFor(Landroid/content/ComponentName;)Ljava/util/List;
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
@@ -138,21 +63,17 @@
         }
     .end annotation
 
-    const-string v0, "componentName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object v0, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->getFileExists()Z
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object p0
+    sget-object p0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
     return-object p0
 
@@ -186,9 +107,7 @@
 
     check-cast v4, Lcom/android/systemui/controls/controller/StructureInfo;
 
-    invoke-virtual {v4}, Lcom/android/systemui/controls/controller/StructureInfo;->getComponentName()Landroid/content/ComponentName;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/controls/controller/StructureInfo;->componentName:Landroid/content/ComponentName;
 
     invoke-static {v4, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -224,11 +143,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->favorites:Ljava/util/List;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->getFavorites()Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/Collection;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
 
     move-result v1
 
@@ -245,26 +160,12 @@
     :cond_3
     iget-object p0, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->deleteFile()V
+    iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
+
+    invoke-virtual {p0}, Ljava/io/File;->delete()Z
 
     :goto_1
     return-object v0
-.end method
-
-.method public final getFavorites()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/StructureInfo;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->favorites:Ljava/util/List;
-
-    return-object p0
 .end method
 
 .method public final initialize()V
@@ -272,7 +173,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->getFileExists()Z
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
+
+    invoke-virtual {v0}, Ljava/io/File;->exists()Z
 
     move-result v0
 
@@ -287,9 +190,7 @@
     goto :goto_0
 
     :cond_0
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object v0
+    sget-object v0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
     :goto_0
     iput-object v0, p0, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->favorites:Ljava/util/List;

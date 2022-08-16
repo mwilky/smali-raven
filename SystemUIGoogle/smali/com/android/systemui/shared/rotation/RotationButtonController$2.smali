@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/shared/rotation/RotationButtonController$2;
+.class public final Lcom/android/systemui/shared/rotation/RotationButtonController$2;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "RotationButtonController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/shared/rotation/RotationButtonController;
+.field public final synthetic this$0:Lcom/android/systemui/shared/rotation/RotationButtonController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/shared/rotation/RotationButtonController;)V
+.method public constructor <init>(Lcom/android/systemui/shared/rotation/RotationButtonController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/shared/rotation/RotationButtonController$2;->this$0:Lcom/android/systemui/shared/rotation/RotationButtonController;
@@ -31,16 +31,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/shared/rotation/RotationButtonController$2;->this$0:Lcom/android/systemui/shared/rotation/RotationButtonController;
 
-    invoke-static {p0}, Lcom/android/systemui/shared/rotation/RotationButtonController;->access$400(Lcom/android/systemui/shared/rotation/RotationButtonController;)Lcom/android/systemui/shared/rotation/RotationButton;
+    iget-object p0, p0, Lcom/android/systemui/shared/rotation/RotationButtonController;->mRotationButton:Lcom/android/systemui/shared/rotation/RotationButton;
 
-    move-result-object p0
-
-    invoke-interface {p0}, Lcom/android/systemui/shared/rotation/RotationButton;->hide()Z
+    invoke-interface {p0}, Lcom/android/systemui/shared/rotation/RotationButton;->hide()V
 
     return-void
 .end method

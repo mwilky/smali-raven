@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;
+.class public final Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;
 .super Ljava/lang/Object;
 .source "ControlsFavoritingActivity.kt"
 
@@ -6,27 +6,16 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1;->accept(Lcom/android/systemui/controls/controller/ControlsController$LoadData;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $error:Z
+.field public final synthetic $error:Z
 
-.field final synthetic $structureIndex:I
+.field public final synthetic $structureIndex:I
 
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;IZ)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;IZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
@@ -43,325 +32,273 @@
 
 # virtual methods
 .method public final run()V
-    .locals 9
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getStructurePager$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroidx/viewpager2/widget/ViewPager2;
-
-    move-result-object v0
-
-    const-string v1, "structurePager"
+    iget-object v1, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->structurePager:Landroidx/viewpager2/widget/ViewPager2;
 
     const/4 v2, 0x0
 
-    if-eqz v0, :cond_f
+    if-nez v1, :cond_0
 
+    move-object v1, v2
+
+    :cond_0
     new-instance v3, Lcom/android/systemui/controls/management/StructureAdapter;
 
-    iget-object v4, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->listOfStructures:Ljava/util/List;
 
-    invoke-static {v4}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getListOfStructures$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Ljava/util/List;
+    invoke-direct {v3, v0}, Lcom/android/systemui/controls/management/StructureAdapter;-><init>(Ljava/util/List;)V
 
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Lcom/android/systemui/controls/management/StructureAdapter;-><init>(Ljava/util/List;)V
-
-    invoke-virtual {v0, v3}, Landroidx/viewpager2/widget/ViewPager2;->setAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
+    invoke-virtual {v1, v3}, Landroidx/viewpager2/widget/ViewPager2;->setAdapter(Lcom/android/systemui/controls/management/StructureAdapter;)V
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getStructurePager$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroidx/viewpager2/widget/ViewPager2;
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->structurePager:Landroidx/viewpager2/widget/ViewPager2;
 
-    move-result-object v0
+    if-nez v0, :cond_1
 
-    if-eqz v0, :cond_e
+    move-object v0, v2
 
-    iget v3, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->$structureIndex:I
+    :cond_1
+    iget v1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->$structureIndex:I
 
-    invoke-virtual {v0, v3}, Landroidx/viewpager2/widget/ViewPager2;->setCurrentItem(I)V
+    iget-object v3, v0, Landroidx/viewpager2/widget/ViewPager2;->mFakeDragger:Landroidx/viewpager2/widget/FakeDrag;
+
+    iget-object v3, v3, Landroidx/viewpager2/widget/FakeDrag;->mScrollEventAdapter:Landroidx/viewpager2/widget/ScrollEventAdapter;
+
+    iget-boolean v3, v3, Landroidx/viewpager2/widget/ScrollEventAdapter;->mFakeDragging:Z
+
+    if-nez v3, :cond_10
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v1}, Landroidx/viewpager2/widget/ViewPager2;->setCurrentItemInternal(I)V
 
     iget-boolean v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->$error:Z
 
-    const-string v3, "subtitleView"
+    const/4 v1, 0x0
 
-    const/4 v4, 0x0
+    const/16 v4, 0x8
 
-    const/4 v5, 0x1
-
-    const/16 v6, 0x8
-
-    const-string v7, "statusText"
-
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getStatusText$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroid/widget/TextView;
+    iget-object v5, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->statusText:Landroid/widget/TextView;
+
+    if-nez v5, :cond_2
+
+    move-object v5, v2
+
+    :cond_2
+    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    const v6, 0x7f130234
 
-    iget-object v1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+    new-array v3, v3, [Ljava/lang/Object;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    iget-object v7, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    move-result-object v1
+    iget-object v7, v7, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->appName:Ljava/lang/CharSequence;
 
-    sget v7, Lcom/android/systemui/R$string;->controls_favorite_load_error:I
+    if-nez v7, :cond_3
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const-string v7, ""
 
-    iget-object v8, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+    :cond_3
+    aput-object v7, v3, v1
 
-    invoke-static {v8}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getAppName$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v6, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v8
+    move-result-object v0
 
-    if-nez v8, :cond_0
-
-    const-string v8, ""
-
-    :cond_0
-    aput-object v8, v5, v4
-
-    invoke-virtual {v1, v7, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v5, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getSubtitleView$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->subtitleView:Landroid/widget/TextView;
 
-    move-result-object p0
+    if-nez p0, :cond_4
 
-    if-eqz p0, :cond_1
+    goto :goto_0
 
-    invoke-virtual {p0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    :cond_4
+    move-object v2, p0
 
-    goto/16 :goto_1
+    :goto_0
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_1
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    goto/16 :goto_4
 
-    throw v2
-
-    :cond_2
-    invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_3
+    :cond_5
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getListOfStructures$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Ljava/util/List;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->listOfStructures:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getStatusText$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroid/widget/TextView;
+    iget-object v1, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->statusText:Landroid/widget/TextView;
+
+    if-nez v1, :cond_6
+
+    move-object v1, v2
+
+    :cond_6
+    invoke-virtual {v0}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    const v3, 0x7f130235
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->subtitleView:Landroid/widget/TextView;
+
+    if-nez p0, :cond_7
+
+    goto :goto_1
+
+    :cond_7
+    move-object v2, p0
+
+    :goto_1
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_4
+
+    :cond_8
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->statusText:Landroid/widget/TextView;
+
+    if-nez v0, :cond_9
+
+    move-object v0, v2
+
+    :cond_9
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+
+    iget-object v4, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->pageIndicator:Lcom/android/systemui/controls/management/ManagementPageIndicator;
+
+    if-nez v4, :cond_a
+
+    move-object v4, v2
+
+    :cond_a
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->listOfStructures:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    invoke-virtual {v4, v0}, Lcom/android/systemui/qs/PageIndicator;->setNumPages(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->pageIndicator:Lcom/android/systemui/controls/management/ManagementPageIndicator;
+
+    if-nez v0, :cond_b
+
+    move-object v0, v2
+
+    :cond_b
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v4}, Lcom/android/systemui/controls/management/ManagementPageIndicator;->setLocation(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+
+    iget-object v4, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->pageIndicator:Lcom/android/systemui/controls/management/ManagementPageIndicator;
+
+    if-nez v4, :cond_c
+
+    move-object v4, v2
+
+    :cond_c
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->listOfStructures:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-le v0, v3, :cond_d
+
+    goto :goto_2
+
+    :cond_d
+    const/4 v1, 0x4
+
+    :goto_2
+    invoke-virtual {v4, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->pageIndicator:Lcom/android/systemui/controls/management/ManagementPageIndicator;
+
+    if-nez v0, :cond_e
+
+    move-object v0, v2
+
+    :cond_e
+    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/AnimatorSet;
+
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-virtual {v1}, Landroid/app/Activity;->getResources()Landroid/content/res/Resources;
+    new-instance v3, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2$1$1;
 
-    move-result-object v1
+    invoke-direct {v3, v1}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2$1$1;-><init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)V
 
-    sget v4, Lcom/android/systemui/R$string;->controls_favorite_load_none:I
+    invoke-virtual {v0, v3}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getSubtitleView$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroid/widget/TextView;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->structurePager:Landroidx/viewpager2/widget/ViewPager2;
 
-    move-result-object p0
+    if-nez p0, :cond_f
 
-    if-eqz p0, :cond_4
+    goto :goto_3
 
-    invoke-virtual {p0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+    :cond_f
+    move-object v2, p0
 
-    goto/16 :goto_1
-
-    :cond_4
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_5
-    invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_6
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getStatusText$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroid/widget/TextView;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_d
-
-    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getPageIndicator$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Lcom/android/systemui/controls/management/ManagementPageIndicator;
-
-    move-result-object v0
-
-    const-string v3, "pageIndicator"
-
-    if-eqz v0, :cond_c
-
-    iget-object v6, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {v6}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getListOfStructures$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Ljava/util/List;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    invoke-virtual {v0, v6}, Lcom/android/systemui/qs/PageIndicator;->setNumPages(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getPageIndicator$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Lcom/android/systemui/controls/management/ManagementPageIndicator;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_b
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v0, v6}, Lcom/android/systemui/controls/management/ManagementPageIndicator;->setLocation(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getPageIndicator$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Lcom/android/systemui/controls/management/ManagementPageIndicator;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_a
-
-    iget-object v6, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {v6}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getListOfStructures$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Ljava/util/List;
-
-    move-result-object v6
-
-    invoke-interface {v6}, Ljava/util/List;->size()I
-
-    move-result v6
-
-    if-le v6, v5, :cond_7
-
-    goto :goto_0
-
-    :cond_7
-    const/4 v4, 0x4
-
-    :goto_0
-    invoke-virtual {v0, v4}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    sget-object v0, Lcom/android/systemui/controls/management/ControlsAnimations;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations;
-
-    iget-object v4, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {v4}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getPageIndicator$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Lcom/android/systemui/controls/management/ManagementPageIndicator;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_9
-
-    invoke-virtual {v0, v4}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/Animator;
-
-    move-result-object v3
-
-    iget-object v4, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    new-instance v5, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2$1$1;
-
-    invoke-direct {v5, v4}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2$1$1;-><init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)V
-
-    invoke-virtual {v3, v5}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    invoke-virtual {v3}, Landroid/animation/Animator;->start()V
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$loadControls$1$1$2;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getStructurePager$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroidx/viewpager2/widget/ViewPager2;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_8
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/Animator;
+    :goto_3
+    invoke-static {v2}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/AnimatorSet;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/animation/Animator;->start()V
 
-    :goto_1
+    :goto_4
     return-void
 
-    :cond_8
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    :cond_10
+    new-instance p0, Ljava/lang/IllegalStateException;
 
-    throw v2
+    const-string v0, "Cannot change current item when ViewPager2 is fake dragging"
 
-    :cond_9
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-direct {p0, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    throw v2
-
-    :cond_a
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_b
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_c
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_d
-    invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_e
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_f
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
+    throw p0
 .end method

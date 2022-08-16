@@ -17,3 +17,6 @@
 # virtual methods
 .method public abstract build()Lcom/android/systemui/dagger/WMComponent;
 .end method
+
+.method public abstract setShellMainThread(Landroid/os/HandlerThread;)Lcom/android/systemui/dagger/WMComponent$Builder;
+.end method

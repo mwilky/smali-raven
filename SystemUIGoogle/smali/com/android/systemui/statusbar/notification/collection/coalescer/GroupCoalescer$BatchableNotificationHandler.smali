@@ -15,16 +15,3 @@
     accessFlags = 0x609
     name = "BatchableNotificationHandler"
 .end annotation
-
-
-# virtual methods
-.method public abstract onNotificationBatchPosted(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/collection/coalescer/CoalescedEvent;",
-            ">;)V"
-        }
-    .end annotation
-.end method

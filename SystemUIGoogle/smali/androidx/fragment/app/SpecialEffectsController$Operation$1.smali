@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/SpecialEffectsController$Operation$1;
+.class public final Landroidx/fragment/app/SpecialEffectsController$Operation$1;
 .super Ljava/lang/Object;
 .source "SpecialEffectsController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/SpecialEffectsController$Operation;
+.field public final synthetic this$0:Landroidx/fragment/app/SpecialEffectsController$Operation;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation;)V
+.method public constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/SpecialEffectsController$Operation$1;->this$0:Landroidx/fragment/app/SpecialEffectsController$Operation;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onCancel()V
+.method public final onCancel()V
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/SpecialEffectsController$Operation$1;->this$0:Landroidx/fragment/app/SpecialEffectsController$Operation;

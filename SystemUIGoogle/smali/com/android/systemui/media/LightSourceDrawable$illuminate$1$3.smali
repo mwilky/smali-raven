@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/LightSourceDrawable;
+.field public final synthetic this$0:Lcom/android/systemui/media/LightSourceDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/LightSourceDrawable;)V
+.method public constructor <init>(Lcom/android/systemui/media/LightSourceDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable$illuminate$1$3;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable$illuminate$1$3;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
@@ -42,7 +42,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/media/RippleData;->setProgress(F)V
+    iput v0, p1, Lcom/android/systemui/media/RippleData;->progress:F
 
     iget-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable$illuminate$1$3;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
 

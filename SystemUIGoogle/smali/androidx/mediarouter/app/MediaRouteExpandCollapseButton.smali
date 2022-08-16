@@ -4,30 +4,22 @@
 
 
 # instance fields
-.field final mCollapseAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
+.field public final mCollapseAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
-.field final mCollapseGroupDescription:Ljava/lang/String;
+.field public final mCollapseGroupDescription:Ljava/lang/String;
 
-.field final mExpandAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
+.field public final mExpandAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
-.field final mExpandGroupDescription:Ljava/lang/String;
+.field public final mExpandGroupDescription:Ljava/lang/String;
 
-.field mIsGroupExpanded:Z
+.field public mIsGroupExpanded:Z
 
-.field mListener:Landroid/view/View$OnClickListener;
+.field public mListener:Landroid/view/View$OnClickListener;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -38,16 +30,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -58,24 +40,14 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/appcompat/widget/AppCompatImageButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    sget p2, Landroidx/mediarouter/R$drawable;->mr_group_expand:I
+    sget-object p2, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
 
-    invoke-static {p1, p2}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    const p2, 0x7f08074f
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object p2
 
@@ -83,9 +55,9 @@
 
     iput-object p2, p0, Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;->mExpandAnimationDrawable:Landroid/graphics/drawable/AnimationDrawable;
 
-    sget v0, Landroidx/mediarouter/R$drawable;->mr_group_collapse:I
+    const v0, 0x7f08074e
 
-    invoke-static {p1, v0}, Landroidx/core/content/ContextCompat;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -107,7 +79,7 @@
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/AnimationDrawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    sget p3, Landroidx/mediarouter/R$string;->mr_controller_expand_group:I
+    const p3, 0x7f1304b4
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -115,7 +87,7 @@
 
     iput-object p3, p0, Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;->mExpandGroupDescription:Ljava/lang/String;
 
-    sget v0, Landroidx/mediarouter/R$string;->mr_controller_collapse_group:I
+    const v0, 0x7f1304b2
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -144,16 +116,8 @@
 
 
 # virtual methods
-.method public setOnClickListener(Landroid/view/View$OnClickListener;)V
+.method public final setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;->mListener:Landroid/view/View$OnClickListener;
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Callback;
+.class public final Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Callback;
 .super Ljava/lang/Object;
 .source "QSCarrierGroupController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Callback"
 .end annotation
 
 
 # instance fields
-.field private mHandler:Lcom/android/systemui/qs/carrier/QSCarrierGroupController$H;
+.field public mHandler:Lcom/android/systemui/qs/carrier/QSCarrierGroupController$H;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/carrier/QSCarrierGroupController$H;)V
+.method public constructor <init>(Lcom/android/systemui/qs/carrier/QSCarrierGroupController$H;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public updateCarrierInfo(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;)V
+.method public final updateCarrierInfo(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/carrier/QSCarrierGroupController$Callback;->mHandler:Lcom/android/systemui/qs/carrier/QSCarrierGroupController$H;

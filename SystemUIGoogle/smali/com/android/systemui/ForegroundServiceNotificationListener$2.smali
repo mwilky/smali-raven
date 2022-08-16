@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/ForegroundServiceNotificationListener$2;
+.class public final Lcom/android/systemui/ForegroundServiceNotificationListener$2;
 .super Ljava/lang/Object;
 .source "ForegroundServiceNotificationListener.java"
 
@@ -6,23 +6,12 @@
 .implements Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/ForegroundServiceNotificationListener;-><init>(Landroid/content/Context;Lcom/android/systemui/ForegroundServiceController;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/util/time/SystemClock;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/ForegroundServiceNotificationListener;
+.field public final synthetic this$0:Lcom/android/systemui/ForegroundServiceNotificationListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/ForegroundServiceNotificationListener;)V
+.method public constructor <init>(Lcom/android/systemui/ForegroundServiceNotificationListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ForegroundServiceNotificationListener$2;->this$0:Lcom/android/systemui/ForegroundServiceNotificationListener;
@@ -34,7 +23,7 @@
 
 
 # virtual methods
-.method public onEntryAdded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final onEntryAdded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/ForegroundServiceNotificationListener$2;->this$0:Lcom/android/systemui/ForegroundServiceNotificationListener;
@@ -43,26 +32,36 @@
 
     move-result v0
 
-    invoke-static {p0, p1, v0}, Lcom/android/systemui/ForegroundServiceNotificationListener;->access$000(Lcom/android/systemui/ForegroundServiceNotificationListener;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/ForegroundServiceNotificationListener;->updateNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
 
     return-void
 .end method
 
-.method public onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
-    .locals 0
+.method public final onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/ForegroundServiceNotificationListener$2;->this$0:Lcom/android/systemui/ForegroundServiceNotificationListener;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
-    move-result-object p1
+    iget-object p2, p0, Lcom/android/systemui/ForegroundServiceNotificationListener;->mForegroundServiceController:Lcom/android/systemui/ForegroundServiceController;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/ForegroundServiceNotificationListener;->access$200(Lcom/android/systemui/ForegroundServiceNotificationListener;Landroid/service/notification/StatusBarNotification;)V
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getUserId()I
+
+    move-result v0
+
+    new-instance v1, Lcom/android/systemui/ForegroundServiceNotificationListener$3;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/ForegroundServiceNotificationListener$3;-><init>(Lcom/android/systemui/ForegroundServiceNotificationListener;Landroid/service/notification/StatusBarNotification;)V
+
+    const/4 p0, 0x0
+
+    invoke-virtual {p2, v0, v1, p0}, Lcom/android/systemui/ForegroundServiceController;->updateUserState(ILcom/android/systemui/ForegroundServiceController$UserStateUpdateCallback;Z)V
 
     return-void
 .end method
 
-.method public onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final onEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/ForegroundServiceNotificationListener$2;->this$0:Lcom/android/systemui/ForegroundServiceNotificationListener;
@@ -71,7 +70,7 @@
 
     move-result v0
 
-    invoke-static {p0, p1, v0}, Lcom/android/systemui/ForegroundServiceNotificationListener;->access$100(Lcom/android/systemui/ForegroundServiceNotificationListener;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/ForegroundServiceNotificationListener;->updateNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)V
 
     return-void
 .end method

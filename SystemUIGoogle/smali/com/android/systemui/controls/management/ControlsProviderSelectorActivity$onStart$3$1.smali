@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field private hasAnimated:Z
+.field public hasAnimated:Z
 
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity$onStart$3$1;->this$0:Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public onChanged()V
+.method public final onChanged()V
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity$onStart$3$1;->hasAnimated:Z
@@ -44,34 +44,21 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity$onStart$3$1;->hasAnimated:Z
 
-    sget-object v0, Lcom/android/systemui/controls/management/ControlsAnimations;->INSTANCE:Lcom/android/systemui/controls/management/ControlsAnimations;
-
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity$onStart$3$1;->this$0:Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;->access$getRecyclerView$p(Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;)Landroidx/recyclerview/widget/RecyclerView;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;->recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    move-result-object p0
+    if-nez p0, :cond_0
 
-    if-eqz p0, :cond_0
+    const/4 p0, 0x0
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/Animator;
+    :cond_0
+    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsAnimations;->enterAnimation(Landroid/view/View;)Landroid/animation/AnimatorSet;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/animation/Animator;->start()V
 
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "recyclerView"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-
     :cond_1
-    :goto_0
     return-void
 .end method

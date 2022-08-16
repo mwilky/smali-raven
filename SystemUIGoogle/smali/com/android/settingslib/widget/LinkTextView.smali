@@ -24,7 +24,7 @@
 
 
 # virtual methods
-.method public setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
+.method public final setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
     .locals 2
 
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V

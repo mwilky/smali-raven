@@ -4,5 +4,8 @@
 
 
 # virtual methods
+.method public abstract createCurrentUserContext(Landroid/content/Context;)Landroid/content/Context;
+.end method
+
 .method public abstract getUserContext()Landroid/content/Context;
 .end method

@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/FavoritesModel;-><init>(Lcom/android/systemui/controls/CustomIconCache;Landroid/content/ComponentName;Ljava/util/List;Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/FunctionReferenceImpl;",
@@ -29,16 +20,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/CustomIconCache;)V
+.method public constructor <init>(Lcom/android/systemui/controls/CustomIconCache;)V
     .locals 7
 
     const-class v3, Lcom/android/systemui/controls/CustomIconCache;
 
     const/4 v1, 0x2
 
-    const-string v4, "retrieve"
+    const-string/jumbo v4, "retrieve"
 
-    const-string v5, "retrieve(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;"
+    const-string/jumbo v5, "retrieve(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;"
 
     const/4 v6, 0x0
 
@@ -53,38 +44,54 @@
 
 
 # virtual methods
-.method public final invoke(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
-
-    const-string v0, "p0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "p1"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
-
-    check-cast p0, Lcom/android/systemui/controls/CustomIconCache;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/controls/CustomIconCache;->retrieve(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
 
     check-cast p1, Landroid/content/ComponentName;
 
     check-cast p2, Ljava/lang/String;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/controls/management/FavoritesModel$elements$1$1;->invoke(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;
+    iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/controls/CustomIconCache;
+
+    iget-object v0, p0, Lcom/android/systemui/controls/CustomIconCache;->currentComponent:Landroid/content/ComponentName;
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/controls/CustomIconCache;->cache:Ljava/util/LinkedHashMap;
+
+    monitor-enter p1
+
+    :try_start_0
+    iget-object p0, p0, Lcom/android/systemui/controls/CustomIconCache;->cache:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {p0, p2}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
+    check-cast p0, Landroid/graphics/drawable/Icon;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p1
+
+    :goto_0
     return-object p0
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit p1
+
+    throw p0
 .end method

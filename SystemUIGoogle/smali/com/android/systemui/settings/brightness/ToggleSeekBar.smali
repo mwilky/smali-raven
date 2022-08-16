@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mAccessibilityLabel:Ljava/lang/String;
+.field public mAccessibilityLabel:Ljava/lang/String;
 
-.field private mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+.field public mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
 
 # direct methods
@@ -48,7 +48,7 @@
 
 
 # virtual methods
-.method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
+.method public final onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/SeekBar;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
@@ -63,7 +63,7 @@
     return-void
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/ToggleSeekBar;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
@@ -72,9 +72,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Landroid/widget/SeekBar;->mContext:Landroid/content/Context;
-
-    invoke-static {p0, v0}, Lcom/android/settingslib/RestrictedLockUtils;->getShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
+    invoke-static {v0}, Lcom/android/settingslib/RestrictedLockUtils;->getShowAdminSupportDetailsIntent(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
 
     move-result-object p0
 
@@ -107,20 +105,4 @@
     move-result p0
 
     return p0
-.end method
-
-.method public setAccessibilityLabel(Ljava/lang/String;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/settings/brightness/ToggleSeekBar;->mAccessibilityLabel:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public setEnforcedAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/settings/brightness/ToggleSeekBar;->mEnforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-    return-void
 .end method

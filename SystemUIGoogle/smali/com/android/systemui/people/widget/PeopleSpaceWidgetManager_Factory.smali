@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final bgExecutorProvider:Ljavax/inject/Provider;
+.field public final bgExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final bubblesOptionalProvider:Ljavax/inject/Provider;
+.field public final bubblesOptionalProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -49,7 +49,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -59,7 +59,7 @@
     .end annotation
 .end field
 
-.field private final launcherAppsProvider:Ljavax/inject/Provider;
+.field public final launcherAppsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -69,17 +69,17 @@
     .end annotation
 .end field
 
-.field private final notificationEntryManagerProvider:Ljavax/inject/Provider;
+.field public final notifCollectionProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
+            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final notificationManagerProvider:Ljavax/inject/Provider;
+.field public final notificationManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -89,7 +89,7 @@
     .end annotation
 .end field
 
-.field private final packageManagerProvider:Ljavax/inject/Provider;
+.field public final packageManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -99,7 +99,7 @@
     .end annotation
 .end field
 
-.field private final userManagerProvider:Ljavax/inject/Provider;
+.field public final userManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -123,7 +123,7 @@
             "Landroid/content/pm/LauncherApps;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
+            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/content/pm/PackageManager;",
@@ -153,7 +153,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->launcherAppsProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->notifCollectionProvider:Ljavax/inject/Provider;
 
     iput-object p4, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->packageManagerProvider:Ljavax/inject/Provider;
 
@@ -182,7 +182,7 @@
             "Landroid/content/pm/LauncherApps;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
+            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/content/pm/PackageManager;",
@@ -234,58 +234,10 @@
     return-object v10
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/content/pm/LauncherApps;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/content/pm/PackageManager;Ljava/util/Optional;Landroid/os/UserManager;Landroid/app/NotificationManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;)Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Landroid/content/pm/LauncherApps;",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
-            "Landroid/content/pm/PackageManager;",
-            "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/bubbles/Bubbles;",
-            ">;",
-            "Landroid/os/UserManager;",
-            "Landroid/app/NotificationManager;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Ljava/util/concurrent/Executor;",
-            ")",
-            "Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;"
-        }
-    .end annotation
-
-    new-instance v10, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;-><init>(Landroid/content/Context;Landroid/content/pm/LauncherApps;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/content/pm/PackageManager;Ljava/util/Optional;Landroid/os/UserManager;Landroid/app/NotificationManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;)V
-
-    return-object v10
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -293,9 +245,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->launcherAppsProvider:Ljavax/inject/Provider;
 
@@ -303,21 +255,11 @@
 
     move-result-object v0
 
-    move-object v2, v0
-
-    check-cast v2, Landroid/content/pm/LauncherApps;
-
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->notificationEntryManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
     move-object v3, v0
 
-    check-cast v3, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    check-cast v3, Landroid/content/pm/LauncherApps;
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->packageManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->notifCollectionProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -325,9 +267,9 @@
 
     move-object v4, v0
 
-    check-cast v4, Landroid/content/pm/PackageManager;
+    check-cast v4, Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->bubblesOptionalProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->packageManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -335,9 +277,9 @@
 
     move-object v5, v0
 
-    check-cast v5, Ljava/util/Optional;
+    check-cast v5, Landroid/content/pm/PackageManager;
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->bubblesOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -345,9 +287,9 @@
 
     move-object v6, v0
 
-    check-cast v6, Landroid/os/UserManager;
+    check-cast v6, Ljava/util/Optional;
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->notificationManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->userManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -355,9 +297,9 @@
 
     move-object v7, v0
 
-    check-cast v7, Landroid/app/NotificationManager;
+    check-cast v7, Landroid/os/UserManager;
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->notificationManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -365,7 +307,17 @@
 
     move-object v8, v0
 
-    check-cast v8, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v8, Landroid/app/NotificationManager;
+
+    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object p0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
 
@@ -373,23 +325,15 @@
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Ljava/util/concurrent/Executor;
+    check-cast v10, Ljava/util/concurrent/Executor;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->newInstance(Landroid/content/Context;Landroid/content/pm/LauncherApps;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/content/pm/PackageManager;Ljava/util/Optional;Landroid/os/UserManager;Landroid/app/NotificationManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;)Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
+    new-instance p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager_Factory;->get()Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;-><init>(Landroid/content/Context;Landroid/content/pm/LauncherApps;Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Landroid/content/pm/PackageManager;Ljava/util/Optional;Landroid/os/UserManager;Landroid/app/NotificationManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/concurrent/Executor;)V
 
     return-object p0
 .end method

@@ -11,9 +11,13 @@
 
     const-string p1, ""
 
-    invoke-virtual {p0, p1}, Landroidx/preference/SwitchPreference;->setSwitchTextOn(Ljava/lang/CharSequence;)V
+    iput-object p1, p0, Landroidx/preference/SwitchPreference;->mSwitchOn:Ljava/lang/CharSequence;
 
-    invoke-virtual {p0, p1}, Landroidx/preference/SwitchPreference;->setSwitchTextOff(Ljava/lang/CharSequence;)V
+    invoke-virtual {p0}, Landroidx/preference/Preference;->notifyChanged()V
+
+    iput-object p1, p0, Landroidx/preference/SwitchPreference;->mSwitchOff:Ljava/lang/CharSequence;
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->notifyChanged()V
 
     return-void
 .end method

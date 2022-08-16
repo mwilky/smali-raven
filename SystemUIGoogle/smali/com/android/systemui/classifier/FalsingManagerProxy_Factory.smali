@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final brightLineFalsingManagerProvider:Ljavax/inject/Provider;
+.field public final brightLineFalsingManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final deviceConfigProvider:Ljavax/inject/Provider;
+.field public final deviceConfigProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final executorProvider:Ljavax/inject/Provider;
+.field public final executorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final pluginManagerProvider:Ljavax/inject/Provider;
+.field public final pluginManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,88 +108,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/plugins/PluginManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/BrightLineFalsingManager;",
-            ">;)",
-            "Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;"
-        }
-    .end annotation
-
-    new-instance v6, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;
-
-    move-object v0, v6
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v6
-.end method
-
-.method public static newInstance(Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/dump/DumpManager;Ljavax/inject/Provider;)Lcom/android/systemui/classifier/FalsingManagerProxy;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/shared/plugins/PluginManager;",
-            "Ljava/util/concurrent/Executor;",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
-            "Lcom/android/systemui/dump/DumpManager;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/BrightLineFalsingManager;",
-            ">;)",
-            "Lcom/android/systemui/classifier/FalsingManagerProxy;"
-        }
-    .end annotation
-
-    new-instance v6, Lcom/android/systemui/classifier/FalsingManagerProxy;
-
-    move-object v0, v6
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/classifier/FalsingManagerProxy;-><init>(Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/dump/DumpManager;Ljavax/inject/Provider;)V
-
-    return-object v6
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/classifier/FalsingManagerProxy;
-    .locals 4
+.method public final get()Ljava/lang/Object;
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->pluginManagerProvider:Ljavax/inject/Provider;
 
@@ -197,47 +119,47 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/shared/plugins/PluginManager;
+    move-object v2, v0
 
-    iget-object v1, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->executorProvider:Ljavax/inject/Provider;
+    check-cast v2, Lcom/android/systemui/shared/plugins/PluginManager;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->executorProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Ljava/util/concurrent/Executor;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->deviceConfigProvider:Ljavax/inject/Provider;
+    move-object v3, v0
 
-    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    check-cast v3, Ljava/util/concurrent/Executor;
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->deviceConfigProvider:Ljavax/inject/Provider;
 
-    check-cast v2, Lcom/android/systemui/util/DeviceConfigProxy;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    move-result-object v0
 
-    invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-object v4, v0
 
-    move-result-object v3
+    check-cast v4, Lcom/android/systemui/util/DeviceConfigProxy;
 
-    check-cast v3, Lcom/android/systemui/dump/DumpManager;
+    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->brightLineFalsingManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->newInstance(Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/dump/DumpManager;Ljavax/inject/Provider;)Lcom/android/systemui/classifier/FalsingManagerProxy;
+    move-result-object v0
 
-    move-result-object p0
+    move-object v5, v0
 
-    return-object p0
-.end method
+    check-cast v5, Lcom/android/systemui/dump/DumpManager;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    iget-object v6, p0, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->brightLineFalsingManagerProvider:Ljavax/inject/Provider;
 
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingManagerProxy_Factory;->get()Lcom/android/systemui/classifier/FalsingManagerProxy;
+    new-instance p0, Lcom/android/systemui/classifier/FalsingManagerProxy;
 
-    move-result-object p0
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/classifier/FalsingManagerProxy;-><init>(Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/dump/DumpManager;Ljavax/inject/Provider;)V
 
     return-object p0
 .end method

@@ -48,6 +48,12 @@
     return-void
 .end method
 
+.method public onNotificationChannelModified(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onRankingApplied()V
     .locals 0
 

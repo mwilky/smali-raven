@@ -14,6 +14,3 @@
 # virtual methods
 .method public abstract getKeyguardHostViewController()Lcom/android/keyguard/KeyguardHostViewController;
 .end method
-
-.method public abstract getKeyguardRootViewController()Lcom/android/keyguard/KeyguardRootViewController;
-.end method

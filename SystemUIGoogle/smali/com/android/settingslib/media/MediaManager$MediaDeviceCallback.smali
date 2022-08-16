@@ -21,15 +21,7 @@
 .method public abstract onDeviceAttributesChanged()V
 .end method
 
-.method public abstract onDeviceListAdded(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;)V"
-        }
-    .end annotation
+.method public abstract onDeviceListAdded(Ljava/util/ArrayList;)V
 .end method
 
 .method public abstract onRequestFailed(I)V

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.class public final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
 .super Ljava/lang/Object;
 .source "DaggerGlobalRootComponent.java"
 
@@ -12,23 +12,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SysUIComponentBuilder"
 .end annotation
 
 
 # instance fields
-.field private setAppPairs:Ljava/util/Optional;
+.field public setAppPairs:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/apppairs/AppPairs;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private setBubbles:Ljava/util/Optional;
+.field public setBackAnimation:Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimation;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public setBubbles:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -38,7 +48,7 @@
     .end annotation
 .end field
 
-.field private setCompatUI:Ljava/util/Optional;
+.field public setCompatUI:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -48,7 +58,7 @@
     .end annotation
 .end field
 
-.field private setDisplayAreaHelper:Ljava/util/Optional;
+.field public setDisplayAreaHelper:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -58,7 +68,7 @@
     .end annotation
 .end field
 
-.field private setDragAndDrop:Ljava/util/Optional;
+.field public setDragAndDrop:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -68,7 +78,7 @@
     .end annotation
 .end field
 
-.field private setHideDisplayCutout:Ljava/util/Optional;
+.field public setHideDisplayCutout:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -78,17 +88,17 @@
     .end annotation
 .end field
 
-.field private setLegacySplitScreen:Ljava/util/Optional;
+.field public setLegacySplitScreen:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private setOneHanded:Ljava/util/Optional;
+.field public setOneHanded:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -98,7 +108,7 @@
     .end annotation
 .end field
 
-.field private setPip:Ljava/util/Optional;
+.field public setPip:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -108,7 +118,7 @@
     .end annotation
 .end field
 
-.field private setRecentTasks:Ljava/util/Optional;
+.field public setRecentTasks:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -118,7 +128,7 @@
     .end annotation
 .end field
 
-.field private setShellCommandHandler:Ljava/util/Optional;
+.field public setShellCommandHandler:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -128,7 +138,7 @@
     .end annotation
 .end field
 
-.field private setSplitScreen:Ljava/util/Optional;
+.field public setSplitScreen:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -138,7 +148,7 @@
     .end annotation
 .end field
 
-.field private setStartingSurface:Ljava/util/Optional;
+.field public setStartingSurface:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -148,17 +158,17 @@
     .end annotation
 .end field
 
-.field private setTaskSurfaceHelper:Ljava/util/Optional;
+.field public setTaskSurfaceHelper:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private setTaskViewFactory:Ljava/util/Optional;
+.field public setTaskViewFactory:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -168,13 +178,13 @@
     .end annotation
 .end field
 
-.field private setTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
+.field public setTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-.field final synthetic this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+.field public final synthetic this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
+.method public constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
@@ -184,18 +194,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public build()Lcom/android/systemui/dagger/SysUIComponent;
-    .locals 26
+.method public final build()Lcom/android/systemui/dagger/SysUIComponent;
+    .locals 27
 
     move-object/from16 v0, p0
 
@@ -203,219 +205,250 @@
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setLegacySplitScreen:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setSplitScreen:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setAppPairs:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setOneHanded:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBubbles:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskViewFactory:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setHideDisplayCutout:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setShellCommandHandler:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
     const-class v2, Lcom/android/wm/shell/transition/ShellTransitions;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setStartingSurface:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDisplayAreaHelper:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskSurfaceHelper:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setRecentTasks:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setCompatUI:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDragAndDrop:Ljava/util/Optional;
 
     const-class v2, Ljava/util/Optional;
 
-    invoke-static {v1, v2}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBackAnimation:Ljava/util/Optional;
+
+    const-class v2, Ljava/util/Optional;
+
+    invoke-static {v2, v1}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     new-instance v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;
 
-    move-object v3, v1
-
     iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
-    new-instance v2, Lcom/android/systemui/dagger/DependencyProvider;
+    new-instance v5, Lcom/android/systemui/util/leak/LeakModule;
 
-    move-object v5, v2
+    invoke-direct {v5}, Lcom/android/systemui/util/leak/LeakModule;-><init>()V
 
-    invoke-direct {v2}, Lcom/android/systemui/dagger/DependencyProvider;-><init>()V
+    new-instance v6, Lcom/android/systemui/dagger/NightDisplayListenerModule;
 
-    new-instance v2, Lcom/android/systemui/dagger/NightDisplayListenerModule;
+    invoke-direct {v6}, Lcom/android/systemui/dagger/NightDisplayListenerModule;-><init>()V
 
-    move-object v6, v2
+    new-instance v7, Lcom/android/systemui/dagger/SharedLibraryModule;
 
-    invoke-direct {v2}, Lcom/android/systemui/dagger/NightDisplayListenerModule;-><init>()V
+    invoke-direct {v7}, Lcom/android/systemui/dagger/SharedLibraryModule;-><init>()V
 
-    new-instance v2, Lcom/android/systemui/unfold/SysUIUnfoldModule;
+    new-instance v8, Lcom/android/systemui/keyguard/dagger/KeyguardModule;
 
-    move-object v7, v2
+    invoke-direct {v8}, Lcom/android/systemui/keyguard/dagger/KeyguardModule;-><init>()V
 
-    invoke-direct {v2}, Lcom/android/systemui/unfold/SysUIUnfoldModule;-><init>()V
+    new-instance v9, Lcom/android/systemui/unfold/SysUIUnfoldModule;
 
-    new-instance v2, Lcom/android/systemui/user/UserModule;
+    invoke-direct {v9}, Lcom/android/systemui/unfold/SysUIUnfoldModule;-><init>()V
 
-    move-object v8, v2
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setPip:Ljava/util/Optional;
 
-    invoke-direct {v2}, Lcom/android/systemui/user/UserModule;-><init>()V
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setLegacySplitScreen:Ljava/util/Optional;
 
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setPip:Ljava/util/Optional;
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setSplitScreen:Ljava/util/Optional;
 
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setLegacySplitScreen:Ljava/util/Optional;
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setAppPairs:Ljava/util/Optional;
 
-    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setSplitScreen:Ljava/util/Optional;
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setOneHanded:Ljava/util/Optional;
 
-    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setAppPairs:Ljava/util/Optional;
+    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBubbles:Ljava/util/Optional;
 
-    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setOneHanded:Ljava/util/Optional;
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskViewFactory:Ljava/util/Optional;
 
-    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBubbles:Ljava/util/Optional;
-
-    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskViewFactory:Ljava/util/Optional;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setHideDisplayCutout:Ljava/util/Optional;
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setHideDisplayCutout:Ljava/util/Optional;
 
     move-object/from16 v16, v2
 
     iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setShellCommandHandler:Ljava/util/Optional;
 
-    move-object/from16 v17, v2
+    move-object/from16 v18, v2
 
     iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-    move-object/from16 v18, v2
+    move-object/from16 v19, v2
 
     iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setStartingSurface:Ljava/util/Optional;
 
-    move-object/from16 v19, v2
+    move-object/from16 v20, v2
 
     iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDisplayAreaHelper:Ljava/util/Optional;
 
-    move-object/from16 v20, v2
+    move-object/from16 v21, v2
 
     iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskSurfaceHelper:Ljava/util/Optional;
 
-    move-object/from16 v21, v2
+    move-object/from16 v22, v2
 
     iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setRecentTasks:Ljava/util/Optional;
 
-    move-object/from16 v22, v2
+    move-object/from16 v23, v2
 
     iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setCompatUI:Ljava/util/Optional;
 
-    move-object/from16 v23, v2
+    move-object/from16 v24, v2
 
-    iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDragAndDrop:Ljava/util/Optional;
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDragAndDrop:Ljava/util/Optional;
 
-    move-object/from16 v24, v0
+    iget-object v0, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBackAnimation:Ljava/util/Optional;
 
-    const/16 v25, 0x0
+    move-object/from16 v17, v3
 
-    invoke-direct/range {v3 .. v25}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Lcom/android/systemui/dagger/DependencyProvider;Lcom/android/systemui/dagger/NightDisplayListenerModule;Lcom/android/systemui/unfold/SysUIUnfoldModule;Lcom/android/systemui/user/UserModule;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/wm/shell/transition/ShellTransitions;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
+    move-object v3, v1
+
+    move-object/from16 v25, v2
+
+    move-object/from16 v26, v0
+
+    invoke-direct/range {v3 .. v26}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Lcom/android/systemui/util/leak/LeakModule;Lcom/android/systemui/dagger/NightDisplayListenerModule;Lcom/android/systemui/dagger/SharedLibraryModule;Lcom/android/systemui/keyguard/dagger/KeyguardModule;Lcom/android/systemui/unfold/SysUIUnfoldModule;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/wm/shell/transition/ShellTransitions;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;)V
 
     return-object v1
 .end method
 
-.method public setAppPairs(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setAppPairs(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/apppairs/AppPairs;",
+            "Ljava/lang/Object;",
             ">;)",
             "Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;"
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setAppPairs:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setAppPairs(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setAppPairs(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setAppPairs(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setAppPairs:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setBubbles(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setBackAnimation(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimation;",
+            ">;)",
+            "Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBackAnimation:Ljava/util/Optional;
+
+    return-object p0
+.end method
+
+.method public final setBackAnimation(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    .locals 0
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBackAnimation:Ljava/util/Optional;
+
+    return-object p0
+.end method
+
+.method public final setBubbles(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -427,28 +460,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBubbles:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setBubbles(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setBubbles(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBubbles(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setBubbles:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -460,28 +489,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setCompatUI:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setCompatUI(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setCompatUI:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -493,28 +518,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDisplayAreaHelper:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDisplayAreaHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDisplayAreaHelper:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -526,28 +547,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDragAndDrop:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDragAndDrop(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setDragAndDrop:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setHideDisplayCutout(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setHideDisplayCutout(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -559,61 +576,53 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setHideDisplayCutout:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setHideDisplayCutout(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setHideDisplayCutout(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setHideDisplayCutout(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setHideDisplayCutout:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setLegacySplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setLegacySplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Ljava/lang/Object;",
             ">;)",
             "Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;"
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setLegacySplitScreen:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setLegacySplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setLegacySplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setLegacySplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setLegacySplitScreen:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setOneHanded(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setOneHanded(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -625,28 +634,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setOneHanded:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setOneHanded(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setOneHanded(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setOneHanded(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setOneHanded:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setPip(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setPip(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -658,28 +663,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setPip:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setPip(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setPip(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setPip(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setPip:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -691,28 +692,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setRecentTasks:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setRecentTasks(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setRecentTasks:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setShellCommandHandler(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setShellCommandHandler(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -724,28 +721,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setShellCommandHandler:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setShellCommandHandler(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setShellCommandHandler(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setShellCommandHandler(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setShellCommandHandler:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setSplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setSplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -757,28 +750,24 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setSplitScreen:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setSplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setSplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setSplitScreen(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setSplitScreen:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setStartingSurface(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setStartingSurface(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -790,61 +779,53 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setStartingSurface:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setStartingSurface(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setStartingSurface(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setStartingSurface(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setStartingSurface:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setTaskSurfaceHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setTaskSurfaceHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;",
+            "Ljava/lang/Object;",
             ">;)",
             "Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;"
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskSurfaceHelper:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setTaskSurfaceHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setTaskSurfaceHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskSurfaceHelper(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskSurfaceHelper:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setTaskViewFactory(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setTaskViewFactory(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -856,33 +837,27 @@
         }
     .end annotation
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/util/Optional;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskViewFactory:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public bridge synthetic setTaskViewFactory(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final setTaskViewFactory(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskViewFactory(Ljava/util/Optional;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTaskViewFactory:Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public setTransitions(Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
+.method public final setTransitions(Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;
     .locals 0
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     check-cast p1, Lcom/android/wm/shell/transition/ShellTransitions;
 
@@ -891,7 +866,7 @@
     return-object p0
 .end method
 
-.method public bridge synthetic setTransitions(Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+.method public final bridge synthetic setTransitions(Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
     .locals 0
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;->setTransitions(Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentBuilder;

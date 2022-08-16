@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final dataProvider:Ljavax/inject/Provider;
+.field public final dataProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,39 +48,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/classifier/TypeClassifier_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/FalsingDataProvider;",
-            ">;)",
-            "Lcom/android/systemui/classifier/TypeClassifier_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/classifier/TypeClassifier_Factory;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/classifier/TypeClassifier_Factory;-><init>(Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/systemui/classifier/FalsingDataProvider;)Lcom/android/systemui/classifier/TypeClassifier;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/classifier/TypeClassifier;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/classifier/TypeClassifier;-><init>(Lcom/android/systemui/classifier/FalsingDataProvider;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/classifier/TypeClassifier;
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TypeClassifier_Factory;->dataProvider:Ljavax/inject/Provider;
 
@@ -90,19 +61,9 @@
 
     check-cast p0, Lcom/android/systemui/classifier/FalsingDataProvider;
 
-    invoke-static {p0}, Lcom/android/systemui/classifier/TypeClassifier_Factory;->newInstance(Lcom/android/systemui/classifier/FalsingDataProvider;)Lcom/android/systemui/classifier/TypeClassifier;
+    new-instance v0, Lcom/android/systemui/classifier/TypeClassifier;
 
-    move-result-object p0
+    invoke-direct {v0, p0}, Lcom/android/systemui/classifier/TypeClassifier;-><init>(Lcom/android/systemui/classifier/FalsingDataProvider;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/TypeClassifier_Factory;->get()Lcom/android/systemui/classifier/TypeClassifier;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v0
 .end method

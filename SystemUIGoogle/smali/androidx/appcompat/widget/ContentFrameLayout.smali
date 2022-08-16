@@ -12,21 +12,21 @@
 
 
 # instance fields
-.field private mAttachListener:Landroidx/appcompat/widget/ContentFrameLayout$OnAttachListener;
+.field public mAttachListener:Landroidx/appcompat/widget/ContentFrameLayout$OnAttachListener;
 
-.field private final mDecorPadding:Landroid/graphics/Rect;
+.field public final mDecorPadding:Landroid/graphics/Rect;
 
-.field private mFixedHeightMajor:Landroid/util/TypedValue;
+.field public mFixedHeightMajor:Landroid/util/TypedValue;
 
-.field private mFixedHeightMinor:Landroid/util/TypedValue;
+.field public mFixedHeightMinor:Landroid/util/TypedValue;
 
-.field private mFixedWidthMajor:Landroid/util/TypedValue;
+.field public mFixedWidthMajor:Landroid/util/TypedValue;
 
-.field private mFixedWidthMinor:Landroid/util/TypedValue;
+.field public mFixedWidthMinor:Landroid/util/TypedValue;
 
-.field private mMinWidthMajor:Landroid/util/TypedValue;
+.field public mMinWidthMajor:Landroid/util/TypedValue;
 
-.field private mMinWidthMinor:Landroid/util/TypedValue;
+.field public mMinWidthMinor:Landroid/util/TypedValue;
 
 
 # direct methods
@@ -66,129 +66,7 @@
 
 
 # virtual methods
-.method public dispatchFitSystemWindows(Landroid/graphics/Rect;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->fitSystemWindows(Landroid/graphics/Rect;)Z
-
-    return-void
-.end method
-
-.method public getFixedHeightMajor()Landroid/util/TypedValue;
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedHeightMajor:Landroid/util/TypedValue;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    iput-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedHeightMajor:Landroid/util/TypedValue;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedHeightMajor:Landroid/util/TypedValue;
-
-    return-object p0
-.end method
-
-.method public getFixedHeightMinor()Landroid/util/TypedValue;
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedHeightMinor:Landroid/util/TypedValue;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    iput-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedHeightMinor:Landroid/util/TypedValue;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedHeightMinor:Landroid/util/TypedValue;
-
-    return-object p0
-.end method
-
-.method public getFixedWidthMajor()Landroid/util/TypedValue;
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedWidthMajor:Landroid/util/TypedValue;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    iput-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedWidthMajor:Landroid/util/TypedValue;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedWidthMajor:Landroid/util/TypedValue;
-
-    return-object p0
-.end method
-
-.method public getFixedWidthMinor()Landroid/util/TypedValue;
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedWidthMinor:Landroid/util/TypedValue;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    iput-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedWidthMinor:Landroid/util/TypedValue;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mFixedWidthMinor:Landroid/util/TypedValue;
-
-    return-object p0
-.end method
-
-.method public getMinWidthMajor()Landroid/util/TypedValue;
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mMinWidthMajor:Landroid/util/TypedValue;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    iput-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mMinWidthMajor:Landroid/util/TypedValue;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mMinWidthMajor:Landroid/util/TypedValue;
-
-    return-object p0
-.end method
-
-.method public getMinWidthMinor()Landroid/util/TypedValue;
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mMinWidthMinor:Landroid/util/TypedValue;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/TypedValue;
-
-    invoke-direct {v0}, Landroid/util/TypedValue;-><init>()V
-
-    iput-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mMinWidthMinor:Landroid/util/TypedValue;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mMinWidthMinor:Landroid/util/TypedValue;
-
-    return-object p0
-.end method
-
-.method protected onAttachedToWindow()V
+.method public final onAttachedToWindow()V
     .locals 0
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
@@ -203,7 +81,7 @@
     return-void
 .end method
 
-.method protected onDetachedFromWindow()V
+.method public final onDetachedFromWindow()V
     .locals 0
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
@@ -218,7 +96,7 @@
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 13
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
@@ -510,32 +388,5 @@
     invoke-super {p0, v5, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
     :cond_e
-    return-void
-.end method
-
-.method public setAttachListener(Landroidx/appcompat/widget/ContentFrameLayout$OnAttachListener;)V
-    .locals 0
-
-    iput-object p1, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mAttachListener:Landroidx/appcompat/widget/ContentFrameLayout$OnAttachListener;
-
-    return-void
-.end method
-
-.method public setDecorPadding(IIII)V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/widget/ContentFrameLayout;->mDecorPadding:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, p1, p2, p3, p4}, Landroid/graphics/Rect;->set(IIII)V
-
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->isLaidOut(Landroid/view/View;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->requestLayout()V
-
-    :cond_0
     return-void
 .end method

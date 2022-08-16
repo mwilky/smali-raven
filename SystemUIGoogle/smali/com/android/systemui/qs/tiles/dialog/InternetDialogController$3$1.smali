@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3$1;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "InternetDialogController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;
+.field public final synthetic this$1:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3$1;->this$1:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;
@@ -31,18 +31,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3$1;->this$1:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;
-
-    iget-object p1, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$800(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Landroid/view/WindowManager;
-
-    move-result-object p1
-
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3$1;->this$1:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object p1, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mWindowManager:Landroid/view/WindowManager;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;->val$toastView:Landroid/view/View;
 

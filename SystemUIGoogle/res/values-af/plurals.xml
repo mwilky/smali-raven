@@ -5,8 +5,8 @@
         <item quantity="one">%d dag gelede</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d m. gelede</item>
-        <item quantity="one">%d m. gelede</item>
+        <item quantity="other">%d min. gelede</item>
+        <item quantity="one">%d min. gelede</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d jaar gelede</item>
@@ -15,6 +15,10 @@
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s kontroles bygevoeg.</item>
         <item quantity="one">%s kontrole bygevoeg.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s programme is aktief</item>
+        <item quantity="one">%s program is aktief</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Voer SIM-PIN in. Jy het %d pogings oor.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Verkeerde SIM-PUK-kode. Jy het %d pogings oor voordat SIM permanent onbruikbaar word.</item>
         <item quantity="one">Verkeerde SIM-PUK-kode. Jy het %d poging oor voordat SIM permanent onbruikbaar word.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Probeer oor %d sekondes weer.</item>
-        <item quantity="one">Probeer oor 1 sekonde weer.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d nuwe kennisgewings</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Jy kan tot %d gebruikers byvoeg.</item>
         <item quantity="one">Net een gebruiker kan geskep word.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d toestelle is gekoppel</item>
-        <item quantity="one">%1$d toestel is gekoppel</item>
     </plurals>
 </resources>

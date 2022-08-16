@@ -1,4 +1,4 @@
-.class final Landroidx/core/provider/FontRequestWorker$TypefaceResult;
+.class public final Landroidx/core/provider/FontRequestWorker$TypefaceResult;
 .super Ljava/lang/Object;
 .source "FontRequestWorker.java"
 
@@ -9,28 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "TypefaceResult"
 .end annotation
 
 
 # instance fields
-.field final mResult:I
+.field public final mResult:I
 
-.field final mTypeface:Landroid/graphics/Typeface;
+.field public final mTypeface:Landroid/graphics/Typeface;
 
 
 # direct methods
-.method constructor <init>(I)V
+.method public constructor <init>(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "result"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,20 +35,11 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/graphics/Typeface;)V
+.method public constructor <init>(Landroid/graphics/Typeface;)V
     .locals 0
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "WrongConstant"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "typeface"
         }
     .end annotation
 
@@ -69,29 +52,4 @@
     iput p1, p0, Landroidx/core/provider/FontRequestWorker$TypefaceResult;->mResult:I
 
     return-void
-.end method
-
-
-# virtual methods
-.method isSuccess()Z
-    .locals 0
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "WrongConstant"
-        }
-    .end annotation
-
-    iget p0, p0, Landroidx/core/provider/FontRequestWorker$TypefaceResult;->mResult:I
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
 .end method

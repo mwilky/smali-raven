@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/content/MergePaths;
+.class public final Lcom/airbnb/lottie/model/content/MergePaths;
 .super Ljava/lang/Object;
 .source "MergePaths.java"
 
@@ -15,11 +15,9 @@
 
 
 # instance fields
-.field private final hidden:Z
+.field public final hidden:Z
 
-.field private final mode:Lcom/airbnb/lottie/model/content/MergePaths$MergePathsMode;
-
-.field private final name:Ljava/lang/String;
+.field public final mode:Lcom/airbnb/lottie/model/content/MergePaths$MergePathsMode;
 
 
 # direct methods
@@ -27,8 +25,6 @@
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/airbnb/lottie/model/content/MergePaths;->name:Ljava/lang/String;
 
     iput-object p2, p0, Lcom/airbnb/lottie/model/content/MergePaths;->mode:Lcom/airbnb/lottie/model/content/MergePaths$MergePathsMode;
 
@@ -39,36 +35,10 @@
 
 
 # virtual methods
-.method public getMode()Lcom/airbnb/lottie/model/content/MergePaths$MergePathsMode;
+.method public final toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
     .locals 0
 
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/MergePaths;->mode:Lcom/airbnb/lottie/model/content/MergePaths$MergePathsMode;
-
-    return-object p0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/MergePaths;->name:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public isHidden()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/MergePaths;->hidden:Z
-
-    return p0
-.end method
-
-.method public toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
-    .locals 0
-
-    invoke-virtual {p1}, Lcom/airbnb/lottie/LottieDrawable;->enableMergePathsForKitKatAndAbove()Z
-
-    move-result p1
+    iget-boolean p1, p1, Lcom/airbnb/lottie/LottieDrawable;->enableMergePaths:Z
 
     if-nez p1, :cond_0
 
@@ -88,16 +58,14 @@
     return-object p1
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 2
+.method public final toString()Ljava/lang/String;
+    .locals 1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "MergePaths{mode="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "MergePaths{mode="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Lcom/airbnb/lottie/model/content/MergePaths;->mode:Lcom/airbnb/lottie/model/content/MergePaths$MergePathsMode;
 

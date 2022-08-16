@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setPulseHeight$1;
+.class public final Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setPulseHeight$1;
 .super Ljava/lang/Object;
 .source "LockscreenShadeTransitionController.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setPulseHeight$1;->this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
@@ -35,11 +35,7 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 3
-
-    const-string v0, "animation"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setPulseHeight$1;->this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
@@ -47,9 +43,7 @@
 
     move-result-object p1
 
-    const-string v0, "null cannot be cast to non-null type kotlin.Float"
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     check-cast p1, Ljava/lang/Float;
 
@@ -59,11 +53,16 @@
 
     const/4 v0, 0x0
 
-    const/4 v1, 0x2
-
-    const/4 v2, 0x0
-
-    invoke-static {p0, p1, v0, v1, v2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight$default(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;FZILjava/lang/Object;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Float"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

@@ -12,11 +12,3 @@
     accessFlags = 0x609
     name = "Measurer"
 .end annotation
-
-
-# virtual methods
-.method public abstract didMeasures()V
-.end method
-
-.method public abstract measure(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/analyzer/BasicMeasure$Measure;)V
-.end method

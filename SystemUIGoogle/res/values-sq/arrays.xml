@@ -17,6 +17,7 @@
         <item>Maksimumi 3 procese</item>
         <item>Maksimumi 4 procese</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Joaktiv</item>
         <item>Aktiv</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Nuk ofrohet</item>
+        <item>Joaktiv</item>
+        <item>Aktiv</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Nuk ofrohet</item>
         <item>Joaktiv</item>
@@ -309,6 +315,16 @@
         <item>Nuk ofrohet</item>
         <item>Joaktive</item>
         <item>Aktive</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Nuk ofrohet</item>
+        <item>Joaktiv</item>
+        <item>Aktiv</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Nuk ofrohet</item>
+        <item>Joaktiv</item>
+        <item>Aktiv</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>Nuk ofrohet</item>
@@ -374,6 +390,12 @@
         <item>E shpejtë</item>
         <item>Shumë e shpejtë</item>
         <item>Më e shpejta</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Lëvize majtas</item>
+        <item>Lëvize poshtë</item>
+        <item>Lëvize djathtas</item>
+        <item>Lëvize lart</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Po karikohet</item>

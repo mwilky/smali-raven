@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field final mWrapped:Landroid/view/Window$Callback;
+.field public final mWrapped:Landroid/view/Window$Callback;
 
 
 # direct methods
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
+.method public final dispatchGenericMotionEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -70,7 +70,7 @@
     return p0
 .end method
 
-.method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
+.method public final dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -82,7 +82,7 @@
     return p0
 .end method
 
-.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -94,7 +94,7 @@
     return p0
 .end method
 
-.method public dispatchTrackballEvent(Landroid/view/MotionEvent;)Z
+.method public final dispatchTrackballEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -106,15 +106,7 @@
     return p0
 .end method
 
-.method public final getWrapped()Landroid/view/Window$Callback;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
-
-    return-object p0
-.end method
-
-.method public onActionModeFinished(Landroid/view/ActionMode;)V
+.method public final onActionModeFinished(Landroid/view/ActionMode;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -124,7 +116,7 @@
     return-void
 .end method
 
-.method public onActionModeStarted(Landroid/view/ActionMode;)V
+.method public final onActionModeStarted(Landroid/view/ActionMode;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -134,7 +126,7 @@
     return-void
 .end method
 
-.method public onAttachedToWindow()V
+.method public final onAttachedToWindow()V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -168,7 +160,7 @@
     return-object p0
 .end method
 
-.method public onDetachedFromWindow()V
+.method public final onDetachedFromWindow()V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -178,7 +170,7 @@
     return-void
 .end method
 
-.method public onMenuItemSelected(ILandroid/view/MenuItem;)Z
+.method public final onMenuItemSelected(ILandroid/view/MenuItem;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -212,7 +204,7 @@
     return-void
 .end method
 
-.method public onPointerCaptureChanged(Z)V
+.method public final onPointerCaptureChanged(Z)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -254,7 +246,7 @@
     return-void
 .end method
 
-.method public onSearchRequested()Z
+.method public final onSearchRequested()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -266,7 +258,7 @@
     return p0
 .end method
 
-.method public onSearchRequested(Landroid/view/SearchEvent;)Z
+.method public final onSearchRequested(Landroid/view/SearchEvent;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -278,7 +270,7 @@
     return p0
 .end method
 
-.method public onWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
+.method public final onWindowAttributesChanged(Landroid/view/WindowManager$LayoutParams;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -288,7 +280,7 @@
     return-void
 .end method
 
-.method public onWindowFocusChanged(Z)V
+.method public final onWindowFocusChanged(Z)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
@@ -296,18 +288,6 @@
     invoke-interface {p0, p1}, Landroid/view/Window$Callback;->onWindowFocusChanged(Z)V
 
     return-void
-.end method
-
-.method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/view/WindowCallbackWrapper;->mWrapped:Landroid/view/Window$Callback;
-
-    invoke-interface {p0, p1}, Landroid/view/Window$Callback;->onWindowStartingActionMode(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 .method public onWindowStartingActionMode(Landroid/view/ActionMode$Callback;I)Landroid/view/ActionMode;

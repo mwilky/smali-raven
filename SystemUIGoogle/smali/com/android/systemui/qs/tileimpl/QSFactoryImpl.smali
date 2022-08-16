@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private final mAirplaneModeTileProvider:Ljavax/inject/Provider;
+.field public final mAirplaneModeTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -17,7 +17,7 @@
     .end annotation
 .end field
 
-.field private final mAlarmTileProvider:Ljavax/inject/Provider;
+.field public final mAlarmTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -27,7 +27,7 @@
     .end annotation
 .end field
 
-.field private final mBatterySaverTileProvider:Ljavax/inject/Provider;
+.field public final mBatterySaverTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -37,7 +37,7 @@
     .end annotation
 .end field
 
-.field private final mBluetoothTileProvider:Ljavax/inject/Provider;
+.field public final mBluetoothTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -47,7 +47,7 @@
     .end annotation
 .end field
 
-.field private final mCameraToggleTileProvider:Ljavax/inject/Provider;
+.field public final mCameraToggleTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -57,7 +57,7 @@
     .end annotation
 .end field
 
-.field private final mCastTileProvider:Ljavax/inject/Provider;
+.field public final mCastTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -67,7 +67,7 @@
     .end annotation
 .end field
 
-.field private final mCellularTileProvider:Ljavax/inject/Provider;
+.field public final mCellularTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -77,7 +77,17 @@
     .end annotation
 .end field
 
-.field private final mColorInversionTileProvider:Ljavax/inject/Provider;
+.field public final mColorCorrectionTileProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/ColorCorrectionTile;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mColorInversionTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -87,7 +97,7 @@
     .end annotation
 .end field
 
-.field private final mCustomTileBuilderProvider:Ljavax/inject/Provider;
+.field public final mCustomTileBuilderProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -97,7 +107,7 @@
     .end annotation
 .end field
 
-.field private final mDataSaverTileProvider:Ljavax/inject/Provider;
+.field public final mDataSaverTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -107,7 +117,7 @@
     .end annotation
 .end field
 
-.field private final mDeviceControlsTileProvider:Ljavax/inject/Provider;
+.field public final mDeviceControlsTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -117,7 +127,7 @@
     .end annotation
 .end field
 
-.field private final mDndTileProvider:Ljavax/inject/Provider;
+.field public final mDndTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -127,7 +137,7 @@
     .end annotation
 .end field
 
-.field private final mFlashlightTileProvider:Ljavax/inject/Provider;
+.field public final mFlashlightTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -137,7 +147,7 @@
     .end annotation
 .end field
 
-.field private final mHotspotTileProvider:Ljavax/inject/Provider;
+.field public final mHotspotTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -147,7 +157,7 @@
     .end annotation
 .end field
 
-.field private final mInternetTileProvider:Ljavax/inject/Provider;
+.field public final mInternetTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -157,7 +167,7 @@
     .end annotation
 .end field
 
-.field private final mLocationTileProvider:Ljavax/inject/Provider;
+.field public final mLocationTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -167,7 +177,7 @@
     .end annotation
 .end field
 
-.field private final mMemoryTileProvider:Ljavax/inject/Provider;
+.field public final mMemoryTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -177,7 +187,7 @@
     .end annotation
 .end field
 
-.field private final mMicrophoneToggleTileProvider:Ljavax/inject/Provider;
+.field public final mMicrophoneToggleTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -187,7 +197,7 @@
     .end annotation
 .end field
 
-.field private final mNfcTileProvider:Ljavax/inject/Provider;
+.field public final mNfcTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -197,7 +207,7 @@
     .end annotation
 .end field
 
-.field private final mNightDisplayTileProvider:Ljavax/inject/Provider;
+.field public final mNightDisplayTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -207,7 +217,27 @@
     .end annotation
 .end field
 
-.field private final mQsHostLazy:Ldagger/Lazy;
+.field public final mOneHandedModeTileProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/OneHandedModeTile;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mQRCodeScannerTileProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/QRCodeScannerTile;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mQsHostLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -217,7 +247,7 @@
     .end annotation
 .end field
 
-.field private final mQuickAccessWalletTileProvider:Ljavax/inject/Provider;
+.field public final mQuickAccessWalletTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -227,7 +257,7 @@
     .end annotation
 .end field
 
-.field private final mReduceBrightColorsTileProvider:Ljavax/inject/Provider;
+.field public final mReduceBrightColorsTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -237,7 +267,7 @@
     .end annotation
 .end field
 
-.field private final mRotationLockTileProvider:Ljavax/inject/Provider;
+.field public final mRotationLockTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -247,7 +277,7 @@
     .end annotation
 .end field
 
-.field private final mScreenRecordTileProvider:Ljavax/inject/Provider;
+.field public final mScreenRecordTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -257,7 +287,7 @@
     .end annotation
 .end field
 
-.field private final mUiModeNightTileProvider:Ljavax/inject/Provider;
+.field public final mUiModeNightTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -267,17 +297,7 @@
     .end annotation
 .end field
 
-.field private final mUserTileProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/UserTile;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mWifiTileProvider:Ljavax/inject/Provider;
+.field public final mWifiTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -287,7 +307,7 @@
     .end annotation
 .end field
 
-.field private final mWorkModeTileProvider:Ljavax/inject/Provider;
+.field public final mWorkModeTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -299,7 +319,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ldagger/Lazy;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ldagger/Lazy;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -350,9 +370,6 @@
             "Lcom/android/systemui/qs/tiles/HotspotTile;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/UserTile;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/BatterySaverTile;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -390,6 +407,15 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/QRCodeScannerTile;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/OneHandedModeTile;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/ColorCorrectionTile;",
             ">;)V"
         }
     .end annotation
@@ -460,494 +486,563 @@
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mUserTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mBatterySaverTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mBatterySaverTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDataSaverTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDataSaverTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNightDisplayTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p19
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNightDisplayTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNfcTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p20
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNfcTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mMemoryTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p21
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mMemoryTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mUiModeNightTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p22
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mUiModeNightTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mScreenRecordTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p23
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mScreenRecordTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mReduceBrightColorsTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p24
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mReduceBrightColorsTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCameraToggleTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p25
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCameraToggleTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mMicrophoneToggleTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p26
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mMicrophoneToggleTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDeviceControlsTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p27
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDeviceControlsTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mAlarmTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p28
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mAlarmTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mQuickAccessWalletTileProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p29
 
-    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mQuickAccessWalletTileProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mQRCodeScannerTileProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p30
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mOneHandedModeTileProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p31
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mColorCorrectionTileProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method private createTileInternal(Ljava/lang/String;)Lcom/android/systemui/qs/tileimpl/QSTileImpl;
+
+# virtual methods
+.method public final createTile(Ljava/lang/String;)Lcom/android/systemui/plugins/qs/QSTile;
+    .locals 1
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->createTileInternal(Ljava/lang/String;)Lcom/android/systemui/qs/tileimpl/QSTileImpl;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
+
+    const/16 v0, 0xc
+
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
+
+    const/16 v0, 0xb
+
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+
+    :cond_0
+    return-object p0
+.end method
+
+.method public createTileInternal(Ljava/lang/String;)Lcom/android/systemui/qs/tileimpl/QSTileImpl;
     .locals 2
 
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v0
+    const/4 v0, -0x1
 
-    const/4 v1, -0x1
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    sparse-switch v0, :sswitch_data_0
+    move-result v1
+
+    sparse-switch v1, :sswitch_data_0
 
     goto/16 :goto_0
 
     :sswitch_0
-    const-string v0, "location"
+    const-string v1, "location"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     goto/16 :goto_0
 
     :cond_0
-    const/16 v1, 0x19
+    const/16 v0, 0x1b
 
     goto/16 :goto_0
 
     :sswitch_1
-    const-string v0, "hotspot"
+    const-string v1, "hotspot"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
     goto/16 :goto_0
 
     :cond_1
-    const/16 v1, 0x18
+    const/16 v0, 0x1a
 
     goto/16 :goto_0
 
     :sswitch_2
-    const-string v0, "internet"
+    const-string/jumbo v1, "qr_code_scanner"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_2
+    if-nez v1, :cond_2
 
     goto/16 :goto_0
 
     :cond_2
-    const/16 v1, 0x17
+    const/16 v0, 0x19
 
     goto/16 :goto_0
 
     :sswitch_3
-    const-string v0, "saver"
+    const-string v1, "internet"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_3
 
     goto/16 :goto_0
 
     :cond_3
-    const/16 v1, 0x16
+    const/16 v0, 0x18
 
     goto/16 :goto_0
 
     :sswitch_4
-    const-string v0, "night"
+    const-string/jumbo v1, "saver"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_4
+    if-nez v1, :cond_4
 
     goto/16 :goto_0
 
     :cond_4
-    const/16 v1, 0x15
+    const/16 v0, 0x17
 
     goto/16 :goto_0
 
     :sswitch_5
-    const-string v0, "alarm"
+    const-string v1, "night"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_5
+    if-nez v1, :cond_5
 
     goto/16 :goto_0
 
     :cond_5
-    const/16 v1, 0x14
+    const/16 v0, 0x16
 
     goto/16 :goto_0
 
     :sswitch_6
-    const-string v0, "cameratoggle"
+    const-string v1, "alarm"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_6
+    if-nez v1, :cond_6
 
     goto/16 :goto_0
 
     :cond_6
-    const/16 v1, 0x13
+    const/16 v0, 0x15
 
     goto/16 :goto_0
 
     :sswitch_7
-    const-string/jumbo v0, "work"
+    const-string v1, "cameratoggle"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_7
+    if-nez v1, :cond_7
 
     goto/16 :goto_0
 
     :cond_7
-    const/16 v1, 0x12
+    const/16 v0, 0x14
 
     goto/16 :goto_0
 
     :sswitch_8
-    const-string/jumbo v0, "wifi"
+    const-string/jumbo v1, "work"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_8
+    if-nez v1, :cond_8
 
     goto/16 :goto_0
 
     :cond_8
-    const/16 v1, 0x11
+    const/16 v0, 0x13
 
     goto/16 :goto_0
 
     :sswitch_9
-    const-string/jumbo v0, "user"
+    const-string/jumbo v1, "wifi"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_9
+    if-nez v1, :cond_9
 
     goto/16 :goto_0
 
     :cond_9
-    const/16 v1, 0x10
+    const/16 v0, 0x12
 
     goto/16 :goto_0
 
     :sswitch_a
-    const-string v0, "dark"
+    const-string v1, "dark"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_a
+    if-nez v1, :cond_a
 
     goto/16 :goto_0
 
     :cond_a
-    const/16 v1, 0xf
+    const/16 v0, 0x11
 
     goto/16 :goto_0
 
     :sswitch_b
-    const-string v0, "cell"
+    const-string v1, "cell"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_b
+    if-nez v1, :cond_b
 
     goto/16 :goto_0
 
     :cond_b
-    const/16 v1, 0xe
+    const/16 v0, 0x10
 
     goto/16 :goto_0
 
     :sswitch_c
-    const-string v0, "cast"
+    const-string v1, "cast"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_c
+    if-nez v1, :cond_c
 
     goto/16 :goto_0
 
     :cond_c
-    const/16 v1, 0xd
+    const/16 v0, 0xf
 
     goto/16 :goto_0
 
     :sswitch_d
-    const-string v0, "nfc"
+    const-string v1, "nfc"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_d
+    if-nez v1, :cond_d
 
     goto/16 :goto_0
 
     :cond_d
-    const/16 v1, 0xc
+    const/16 v0, 0xe
 
     goto/16 :goto_0
 
     :sswitch_e
-    const-string v0, "dnd"
+    const-string v1, "dnd"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_e
+    if-nez v1, :cond_e
 
     goto/16 :goto_0
 
     :cond_e
-    const/16 v1, 0xb
+    const/16 v0, 0xd
 
     goto/16 :goto_0
 
     :sswitch_f
-    const-string v0, "bt"
+    const-string v1, "bt"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_f
+    if-nez v1, :cond_f
 
     goto/16 :goto_0
 
     :cond_f
-    const/16 v1, 0xa
+    const/16 v0, 0xc
 
     goto/16 :goto_0
 
     :sswitch_10
-    const-string v0, "mictoggle"
+    const-string v1, "mictoggle"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_10
+    if-nez v1, :cond_10
 
     goto/16 :goto_0
 
     :cond_10
-    const/16 v1, 0x9
+    const/16 v0, 0xb
 
     goto/16 :goto_0
 
     :sswitch_11
-    const-string v0, "rotation"
+    const-string/jumbo v1, "rotation"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_11
+    if-nez v1, :cond_11
 
     goto/16 :goto_0
 
     :cond_11
-    const/16 v1, 0x8
+    const/16 v0, 0xa
 
     goto/16 :goto_0
 
     :sswitch_12
-    const-string v0, "battery"
+    const-string v1, "battery"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_12
+    if-nez v1, :cond_12
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_12
-    const/4 v1, 0x7
+    const/16 v0, 0x9
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_13
-    const-string v0, "reduce_brightness"
+    const-string/jumbo v1, "reduce_brightness"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_13
+    if-nez v1, :cond_13
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_13
-    const/4 v1, 0x6
+    const/16 v0, 0x8
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :sswitch_14
-    const-string v0, "controls"
+    const-string v1, "controls"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_14
+    if-nez v1, :cond_14
 
     goto :goto_0
 
     :cond_14
-    const/4 v1, 0x5
+    const/4 v0, 0x7
 
     goto :goto_0
 
     :sswitch_15
-    const-string v0, "airplane"
+    const-string v1, "color_correction"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_15
+    if-nez v1, :cond_15
 
     goto :goto_0
 
     :cond_15
-    const/4 v1, 0x4
+    const/4 v0, 0x6
 
     goto :goto_0
 
     :sswitch_16
-    const-string/jumbo v0, "wallet"
+    const-string v1, "airplane"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_16
+    if-nez v1, :cond_16
 
     goto :goto_0
 
     :cond_16
-    const/4 v1, 0x3
+    const/4 v0, 0x5
 
     goto :goto_0
 
     :sswitch_17
-    const-string v0, "screenrecord"
+    const-string/jumbo v1, "wallet"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_17
+    if-nez v1, :cond_17
 
     goto :goto_0
 
     :cond_17
-    const/4 v1, 0x2
+    const/4 v0, 0x4
 
     goto :goto_0
 
     :sswitch_18
-    const-string v0, "flashlight"
+    const-string/jumbo v1, "screenrecord"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_18
+    if-nez v1, :cond_18
 
     goto :goto_0
 
     :cond_18
-    const/4 v1, 0x1
+    const/4 v0, 0x3
 
     goto :goto_0
 
     :sswitch_19
-    const-string v0, "inversion"
+    const-string v1, "flashlight"
 
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_19
+    if-nez v1, :cond_19
 
     goto :goto_0
 
     :cond_19
-    const/4 v1, 0x0
+    const/4 v0, 0x2
+
+    goto :goto_0
+
+    :sswitch_1a
+    const-string v1, "inversion"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1a
+
+    goto :goto_0
+
+    :cond_1a
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :sswitch_1b
+    const-string/jumbo v1, "onehanded"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1b
+
+    goto :goto_0
+
+    :cond_1b
+    const/4 v0, 0x0
 
     :goto_0
-    packed-switch v1, :pswitch_data_0
+    packed-switch v0, :pswitch_data_0
 
     const-string v0, "custom("
 
@@ -955,7 +1050,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_1c
 
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCustomTileBuilderProvider:Ljavax/inject/Provider;
 
@@ -977,16 +1072,22 @@
 
     move-result-object p0
 
-    invoke-static {v0, p1, p0}, Lcom/android/systemui/qs/external/CustomTile;->create(Lcom/android/systemui/qs/external/CustomTile$Builder;Ljava/lang/String;Landroid/content/Context;)Lcom/android/systemui/qs/external/CustomTile;
+    sget v1, Lcom/android/systemui/qs/external/CustomTile;->$r8$clinit:I
+
+    iput-object p1, v0, Lcom/android/systemui/qs/external/CustomTile$Builder;->mSpec:Ljava/lang/String;
+
+    iput-object p0, v0, Lcom/android/systemui/qs/external/CustomTile$Builder;->mUserContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/external/CustomTile$Builder;->build()Lcom/android/systemui/qs/external/CustomTile;
 
     move-result-object p0
 
     return-object p0
 
-    :cond_1a
+    :cond_1c
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1d
 
     const-string v0, "dbg:mem"
 
@@ -994,7 +1095,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1b
+    if-eqz v0, :cond_1d
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mMemoryTileProvider:Ljavax/inject/Provider;
 
@@ -1006,24 +1107,12 @@
 
     return-object p0
 
-    :cond_1b
-    new-instance p0, Ljava/lang/StringBuilder;
+    :cond_1d
+    const-string p0, "No stock tile spec: "
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, "QSFactory"
 
-    const-string v0, "No stock tile spec: "
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "QSFactory"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1, v0}, Landroidx/constraintlayout/motion/widget/MotionLayout$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     const/4 p0, 0x0
 
@@ -1052,7 +1141,7 @@
     return-object p0
 
     :pswitch_2
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mInternetTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mQRCodeScannerTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1063,7 +1152,7 @@
     return-object p0
 
     :pswitch_3
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDataSaverTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mInternetTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1074,7 +1163,7 @@
     return-object p0
 
     :pswitch_4
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNightDisplayTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDataSaverTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1085,7 +1174,7 @@
     return-object p0
 
     :pswitch_5
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mAlarmTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNightDisplayTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1096,7 +1185,7 @@
     return-object p0
 
     :pswitch_6
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCameraToggleTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mAlarmTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1107,7 +1196,7 @@
     return-object p0
 
     :pswitch_7
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mWorkModeTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCameraToggleTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1118,7 +1207,7 @@
     return-object p0
 
     :pswitch_8
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mWifiTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mWorkModeTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1129,7 +1218,7 @@
     return-object p0
 
     :pswitch_9
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mUserTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mWifiTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1261,7 +1350,7 @@
     return-object p0
 
     :pswitch_15
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mAirplaneModeTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mColorCorrectionTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1272,7 +1361,7 @@
     return-object p0
 
     :pswitch_16
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mQuickAccessWalletTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mAirplaneModeTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1283,7 +1372,7 @@
     return-object p0
 
     :pswitch_17
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mScreenRecordTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mQuickAccessWalletTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1294,7 +1383,7 @@
     return-object p0
 
     :pswitch_18
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mFlashlightTileProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mScreenRecordTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -1305,6 +1394,17 @@
     return-object p0
 
     :pswitch_19
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mFlashlightTileProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;
+
+    return-object p0
+
+    :pswitch_1a
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mColorInversionTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1315,15 +1415,26 @@
 
     return-object p0
 
-    nop
+    :pswitch_1b
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mOneHandedModeTileProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;
+
+    return-object p0
 
     :sswitch_data_0
     .sparse-switch
-        -0x783813ed -> :sswitch_19
-        -0x468444da -> :sswitch_18
-        -0x3002d443 -> :sswitch_17
-        -0x2f65ac07 -> :sswitch_16
-        -0x285a60ae -> :sswitch_15
+        -0x7dbac8cc -> :sswitch_1b
+        -0x783813ed -> :sswitch_1a
+        -0x468444da -> :sswitch_19
+        -0x3002d443 -> :sswitch_18
+        -0x2f65ac07 -> :sswitch_17
+        -0x285a60ae -> :sswitch_16
+        -0x27372646 -> :sswitch_15
         -0x21cab94a -> :sswitch_14
         -0x1479af36 -> :sswitch_13
         -0x13be51f3 -> :sswitch_12
@@ -1335,20 +1446,22 @@
         0x2e7b3f -> :sswitch_c
         0x2e8962 -> :sswitch_b
         0x2eef76 -> :sswitch_a
-        0x36ebcb -> :sswitch_9
-        0x37af15 -> :sswitch_8
-        0x37c711 -> :sswitch_7
-        0x60ceb9 -> :sswitch_6
-        0x5897a51 -> :sswitch_5
-        0x63f6418 -> :sswitch_4
-        0x6826e95 -> :sswitch_3
-        0x21ffc741 -> :sswitch_2
+        0x37af15 -> :sswitch_9
+        0x37c711 -> :sswitch_8
+        0x60ceb9 -> :sswitch_7
+        0x5897a51 -> :sswitch_6
+        0x63f6418 -> :sswitch_5
+        0x6826e95 -> :sswitch_4
+        0x21ffc741 -> :sswitch_3
+        0x3440270a -> :sswitch_2
         0x418a9ecf -> :sswitch_1
         0x714f9fb5 -> :sswitch_0
     .end sparse-switch
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_1b
+        :pswitch_1a
         :pswitch_19
         :pswitch_18
         :pswitch_17
@@ -1378,26 +1491,7 @@
     .end packed-switch
 .end method
 
-
-# virtual methods
-.method public createTile(Ljava/lang/String;)Lcom/android/systemui/plugins/qs/QSTile;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->createTileInternal(Ljava/lang/String;)Lcom/android/systemui/qs/tileimpl/QSTileImpl;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->initialize()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->postStale()V
-
-    :cond_0
-    return-object p0
-.end method
-
-.method public createTileView(Landroid/content/Context;Lcom/android/systemui/plugins/qs/QSTile;Z)Lcom/android/systemui/plugins/qs/QSTileView;
+.method public final createTileView(Landroid/content/Context;Lcom/android/systemui/plugins/qs/QSTile;Z)Lcom/android/systemui/plugins/qs/QSTileView;
     .locals 0
 
     invoke-interface {p2, p1}, Lcom/android/systemui/plugins/qs/QSTile;->createTileView(Landroid/content/Context;)Lcom/android/systemui/plugins/qs/QSIconView;

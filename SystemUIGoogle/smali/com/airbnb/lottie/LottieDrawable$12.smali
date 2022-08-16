@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieDrawable$12;
+.class public final Lcom/airbnb/lottie/LottieDrawable$12;
 .super Ljava/lang/Object;
 .source "LottieDrawable.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
+.field public final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
 
-.field final synthetic val$maxFrame:I
+.field public final synthetic val$maxFrame:I
 
-.field final synthetic val$minFrame:I
+.field public final synthetic val$minFrame:I
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieDrawable;II)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieDrawable;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$12;->this$0:Lcom/airbnb/lottie/LottieDrawable;
@@ -42,16 +42,16 @@
 
 
 # virtual methods
-.method public run(Lcom/airbnb/lottie/LottieComposition;)V
-    .locals 1
+.method public final run()V
+    .locals 2
 
-    iget-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$12;->this$0:Lcom/airbnb/lottie/LottieDrawable;
+    iget-object v0, p0, Lcom/airbnb/lottie/LottieDrawable$12;->this$0:Lcom/airbnb/lottie/LottieDrawable;
 
-    iget v0, p0, Lcom/airbnb/lottie/LottieDrawable$12;->val$minFrame:I
+    iget v1, p0, Lcom/airbnb/lottie/LottieDrawable$12;->val$minFrame:I
 
     iget p0, p0, Lcom/airbnb/lottie/LottieDrawable$12;->val$maxFrame:I
 
-    invoke-virtual {p1, v0, p0}, Lcom/airbnb/lottie/LottieDrawable;->setMinAndMaxFrame(II)V
+    invoke-virtual {v0, v1, p0}, Lcom/airbnb/lottie/LottieDrawable;->setMinAndMaxFrame(II)V
 
     return-void
 .end method

@@ -26,7 +26,7 @@
 
 
 # virtual methods
-.method public postValue(Ljava/lang/Object;)V
+.method public final postValue(Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

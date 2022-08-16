@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "Callbacks"
 .end annotation
-
-
-# virtual methods
-.method public abstract onShortcutKeyPressed(J)V
-.end method

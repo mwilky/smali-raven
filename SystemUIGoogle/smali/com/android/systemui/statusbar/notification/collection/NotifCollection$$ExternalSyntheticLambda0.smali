@@ -1,39 +1,38 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/notification/collection/notifcollection/InternalNotifUpdater;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
-
-.field public final synthetic f$1:Ljava/lang/String;
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Ljava/lang/String;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onInternalNotificationUpdate(Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda0;->f$1:Ljava/lang/String;
+    iget-object p0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
-    invoke-static {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->$r8$lambda$JbEB6Ms055NMVN-VAaCr_esZCG4(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Ljava/lang/String;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;)V
+    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    return-void
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/Notification;->isGroupSummary()Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
 .end method

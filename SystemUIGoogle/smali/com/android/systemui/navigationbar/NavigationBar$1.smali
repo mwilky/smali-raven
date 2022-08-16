@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationBar$1;
+.class public final Lcom/android/systemui/navigationbar/NavigationBar$1;
 .super Ljava/lang/Object;
 .source "NavigationBar.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBar$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
@@ -34,36 +34,43 @@
 
 
 # virtual methods
-.method public hide()V
-    .locals 0
+.method public final hide()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$200(Lcom/android/systemui/navigationbar/NavigationBar;)V
+    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mTransientShown:Z
 
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mTransientShown:Z
+
+    iput-boolean v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mTransientShownFromGestureOnSystemBar:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->handleTransientChanged()V
+
+    :cond_0
     return-void
 .end method
 
-.method public isVisible()Z
+.method public final isVisible()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$100(Lcom/android/systemui/navigationbar/NavigationBar;)Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mTransientShown:Z
 
     return p0
 .end method
 
-.method public shouldHideOnTouch()Z
+.method public final shouldHideOnTouch()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$000(Lcom/android/systemui/navigationbar/NavigationBar;)Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mNotificationRemoteInputManager:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->isRemoteInputActive()Z
 
@@ -74,7 +81,7 @@
     return p0
 .end method
 
-.method public synchronizeState()V
+.method public final synchronizeState()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;

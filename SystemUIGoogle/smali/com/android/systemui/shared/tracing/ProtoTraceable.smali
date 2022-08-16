@@ -15,10 +15,5 @@
 
 
 # virtual methods
-.method public abstract writeToProto(Ljava/lang/Object;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
+.method public abstract writeToProto(Lcom/android/systemui/tracing/nano/SystemUiTraceProto;)V
 .end method

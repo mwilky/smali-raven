@@ -15,13 +15,5 @@
 
 
 # virtual methods
-.method public abstract onLayoutCompleted(Landroidx/recyclerview/widget/RecyclerView$State;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "state"
-        }
-    .end annotation
+.method public abstract onLayoutCompleted()V
 .end method

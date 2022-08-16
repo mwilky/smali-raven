@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge
   xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:gravity="@integer/biometric_dialog_text_gravity" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextAppearance.AuthCredential.Title" />
-    <TextView android:gravity="@integer/biometric_dialog_text_gravity" android:id="@id/subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextAppearance.AuthCredential.Subtitle" />
-    <TextView android:gravity="@integer/biometric_dialog_text_gravity" android:id="@id/description" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextAppearance.AuthCredential.Description" />
+    <TextView android:ellipsize="marquee" android:gravity="@integer/biometric_dialog_text_gravity" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="1" style="@style/TextAppearance.AuthCredential.Title" />
+    <TextView android:ellipsize="marquee" android:gravity="@integer/biometric_dialog_text_gravity" android:id="@id/subtitle" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="true" android:marqueeRepeatLimit="1" style="@style/TextAppearance.AuthCredential.Subtitle" />
+    <TextView android:id="@id/description" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" style="@style/TextAppearance.AuthCredential.Description" />
     <Space android:id="@id/space_above_icon" android:layout_width="fill_parent" android:layout_height="48.0dip" />
     <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/biometric_icon_frame" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <ImageView android:layout_gravity="center" android:id="@id/biometric_icon" android:layout_width="@dimen/biometric_dialog_biometric_icon_size" android:layout_height="@dimen/biometric_dialog_biometric_icon_size" android:scaleType="fitXY" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center" android:id="@id/biometric_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitXY" android:contentDescription="@null" />
     </FrameLayout>
     <Space android:id="@id/space_below_icon" android:layout_width="fill_parent" android:layout_height="12.0dip" />
     <TextView android:textSize="12.0sp" android:textColor="@color/biometric_dialog_gray" android:ellipsize="marquee" android:gravity="center_horizontal" android:id="@id/indicator" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:scrollHorizontally="true" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" android:accessibilityLiveRegion="polite" android:paddingHorizontal="24.0dip" />

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">Il y a %d jours</item>
-        <item quantity="one">Il y a %d jour</item>
+        <item quantity="other">Il y a %d j</item>
+        <item quantity="one">Il y a %d j</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">Il y a %d minutes</item>
-        <item quantity="one">Il y a %d minute</item>
+        <item quantity="other">Il y a %d min</item>
+        <item quantity="one">Il y a %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">Il y a %d ans</item>
@@ -15,6 +15,10 @@
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s commandes ajoutées.</item>
         <item quantity="one">%s commande ajoutée.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s applications sont actives</item>
+        <item quantity="one">%s application est active</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Entrez le NIP de votre carte SIM. Il vous reste %d tentatives.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Le code PUK de la carte SIM est incorrect. Il vous reste %d tentatives avant que votre carte SIM devienne définitivement inutilisable.</item>
         <item quantity="one">Le code PUK de la carte SIM est incorrect. Il vous reste %d tentative avant que votre carte SIM devienne définitivement inutilisable.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Réessayer dans %d secondes.</item>
-        <item quantity="one">Réessayer dans %d seconde.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d nouvelles notifications</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">"Vous pouvez ajouter jusqu'à %d utilisateurs."</item>
         <item quantity="one">"Vous pouvez ajouter jusqu'à %d utilisateur."</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d appareils connectés</item>
-        <item quantity="one">%1$d appareil connecté</item>
     </plurals>
 </resources>

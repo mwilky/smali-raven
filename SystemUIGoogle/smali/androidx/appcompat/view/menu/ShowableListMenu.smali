@@ -7,7 +7,7 @@
 .method public abstract dismiss()V
 .end method
 
-.method public abstract getListView()Landroid/widget/ListView;
+.method public abstract getListView()Landroidx/appcompat/widget/DropDownListView;
 .end method
 
 .method public abstract isShowing()Z

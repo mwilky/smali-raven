@@ -4,48 +4,32 @@
 
 
 # instance fields
-.field private mActiveBarHeight:I
+.field public mActiveBarHeight:I
 
-.field private mActiveRadius:I
+.field public mActiveRadius:I
 
-.field private final mBackgroundPaint:Landroid/graphics/Paint;
+.field public final mBackgroundPaint:Landroid/graphics/Paint;
 
-.field private final mBackgroundRect:Landroid/graphics/RectF;
+.field public final mBackgroundRect:Landroid/graphics/RectF;
 
-.field private mBarHeight:I
+.field public mBarHeight:I
 
-.field private final mKnobPaint:Landroid/graphics/Paint;
+.field public final mKnobPaint:Landroid/graphics/Paint;
 
-.field private mKnobx:I
+.field public mKnobx:I
 
-.field private mMax:I
+.field public final mProgressPaint:Landroid/graphics/Paint;
 
-.field private mProgress:I
+.field public final mProgressRect:Landroid/graphics/RectF;
 
-.field private final mProgressPaint:Landroid/graphics/Paint;
+.field public final mSecondProgressPaint:Landroid/graphics/Paint;
 
-.field private final mProgressRect:Landroid/graphics/RectF;
-
-.field private mSecondProgress:I
-
-.field private final mSecondProgressPaint:Landroid/graphics/Paint;
-
-.field private final mSecondProgressRect:Landroid/graphics/RectF;
+.field public final mSecondProgressRect:Landroid/graphics/RectF;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -117,7 +101,7 @@
 
     move-result-object p2
 
-    sget v0, Landroidx/leanback/R$dimen;->lb_playback_transport_progressbar_bar_height:I
+    const v0, 0x7f070391
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -129,7 +113,7 @@
 
     move-result-object p2
 
-    sget v0, Landroidx/leanback/R$dimen;->lb_playback_transport_progressbar_active_bar_height:I
+    const v0, 0x7f07038f
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -141,7 +125,7 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/leanback/R$dimen;->lb_playback_transport_progressbar_active_radius:I
+    const p2, 0x7f070390
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -152,8 +136,10 @@
     return-void
 .end method
 
-.method private calculate()V
-    .locals 8
+
+# virtual methods
+.method public final calculate()V
+    .locals 7
 
     invoke-virtual {p0}, Landroid/view/View;->isFocused()Z
 
@@ -223,27 +209,39 @@
 
     sub-int/2addr v1, v3
 
-    iget v3, p0, Landroidx/leanback/widget/SeekBar;->mProgress:I
+    const/4 v3, 0x0
 
     int-to-float v3, v3
 
-    iget v4, p0, Landroidx/leanback/widget/SeekBar;->mMax:I
-
-    int-to-float v4, v4
-
-    div-float/2addr v3, v4
+    div-float/2addr v3, v3
 
     int-to-float v1, v1
 
     mul-float/2addr v3, v1
 
+    iget-object v1, p0, Landroidx/leanback/widget/SeekBar;->mProgressRect:Landroid/graphics/RectF;
+
+    iget v4, p0, Landroidx/leanback/widget/SeekBar;->mBarHeight:I
+
+    div-int/lit8 v5, v4, 0x2
+
+    int-to-float v5, v5
+
+    div-int/lit8 v4, v4, 0x2
+
+    int-to-float v4, v4
+
+    add-float/2addr v4, v3
+
+    invoke-virtual {v1, v5, v6, v4, v0}, Landroid/graphics/RectF;->set(FFFF)V
+
+    iget-object v1, p0, Landroidx/leanback/widget/SeekBar;->mSecondProgressRect:Landroid/graphics/RectF;
+
     iget-object v4, p0, Landroidx/leanback/widget/SeekBar;->mProgressRect:Landroid/graphics/RectF;
 
+    iget v4, v4, Landroid/graphics/RectF;->right:F
+
     iget v5, p0, Landroidx/leanback/widget/SeekBar;->mBarHeight:I
-
-    div-int/lit8 v7, v5, 0x2
-
-    int-to-float v7, v7
 
     div-int/lit8 v5, v5, 0x2
 
@@ -251,35 +249,7 @@
 
     add-float/2addr v5, v3
 
-    invoke-virtual {v4, v7, v6, v5, v0}, Landroid/graphics/RectF;->set(FFFF)V
-
-    iget v4, p0, Landroidx/leanback/widget/SeekBar;->mSecondProgress:I
-
-    int-to-float v4, v4
-
-    iget v5, p0, Landroidx/leanback/widget/SeekBar;->mMax:I
-
-    int-to-float v5, v5
-
-    div-float/2addr v4, v5
-
-    mul-float/2addr v4, v1
-
-    iget-object v1, p0, Landroidx/leanback/widget/SeekBar;->mSecondProgressRect:Landroid/graphics/RectF;
-
-    iget-object v5, p0, Landroidx/leanback/widget/SeekBar;->mProgressRect:Landroid/graphics/RectF;
-
-    iget v5, v5, Landroid/graphics/RectF;->right:F
-
-    iget v7, p0, Landroidx/leanback/widget/SeekBar;->mBarHeight:I
-
-    div-int/lit8 v7, v7, 0x2
-
-    int-to-float v7, v7
-
-    add-float/2addr v7, v4
-
-    invoke-virtual {v1, v5, v6, v7, v0}, Landroid/graphics/RectF;->set(FFFF)V
+    invoke-virtual {v1, v4, v6, v5, v0}, Landroid/graphics/RectF;->set(FFFF)V
 
     float-to-int v0, v3
 
@@ -292,9 +262,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public getAccessibilityClassName()Ljava/lang/CharSequence;
+.method public final getAccessibilityClassName()Ljava/lang/CharSequence;
     .locals 0
 
     const-class p0, Landroid/widget/SeekBar;
@@ -306,16 +274,8 @@
     return-object p0
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
+.method public final onDraw(Landroid/graphics/Canvas;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
 
@@ -383,64 +343,28 @@
     return-void
 .end method
 
-.method protected onFocusChanged(ZILandroid/graphics/Rect;)V
+.method public final onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "gainFocus",
-            "direction",
-            "previouslyFocusedRect"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3}, Landroid/view/View;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
-    invoke-direct {p0}, Landroidx/leanback/widget/SeekBar;->calculate()V
+    invoke-virtual {p0}, Landroidx/leanback/widget/SeekBar;->calculate()V
 
     return-void
 .end method
 
-.method protected onSizeChanged(IIII)V
+.method public final onSizeChanged(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x10,
-            0x10,
-            0x10
-        }
-        names = {
-            "w",
-            "h",
-            "oldw",
-            "oldh"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/View;->onSizeChanged(IIII)V
 
-    invoke-direct {p0}, Landroidx/leanback/widget/SeekBar;->calculate()V
+    invoke-virtual {p0}, Landroidx/leanback/widget/SeekBar;->calculate()V
 
     return-void
 .end method
 
-.method public performAccessibilityAction(ILandroid/os/Bundle;)Z
+.method public final performAccessibilityAction(ILandroid/os/Bundle;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "action",
-            "arguments"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroid/view/View;->performAccessibilityAction(ILandroid/os/Bundle;)Z
 

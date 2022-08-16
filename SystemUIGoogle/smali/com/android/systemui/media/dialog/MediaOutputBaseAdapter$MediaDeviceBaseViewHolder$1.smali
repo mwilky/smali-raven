@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;
+.class public final Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;
 .super Ljava/lang/Object;
 .source "MediaOutputBaseAdapter.java"
 
@@ -8,23 +8,23 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->initSeekbar(Lcom/android/settingslib/media/MediaDevice;)V
+    value = Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->initSeekbar(Lcom/android/settingslib/media/MediaDevice;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;
+.field public final synthetic this$1:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;
 
-.field final synthetic val$device:Lcom/android/settingslib/media/MediaDevice;
+.field public final synthetic val$device:Lcom/android/settingslib/media/MediaDevice;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;)V
+.method public constructor <init>(Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;Lcom/android/settingslib/media/MediaDevice;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;->this$1:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;
@@ -38,32 +38,91 @@
 
 
 # virtual methods
-.method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
-    .locals 0
+.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
+    .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;->val$device:Lcom/android/settingslib/media/MediaDevice;
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3
 
     if-nez p3, :cond_0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;->this$1:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;
+    sget p3, Lcom/android/systemui/media/dialog/MediaOutputSeekbar;->$r8$clinit:I
 
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->this$0:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
+    div-int/lit16 p2, p2, 0x3e8
 
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->mController:Lcom/android/systemui/media/dialog/MediaOutputController;
+    iget-object p1, p1, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/media/dialog/MediaOutputController;->adjustVolume(Lcom/android/settingslib/media/MediaDevice;I)V
+    if-nez p1, :cond_1
+
+    const-string p1, "MediaDevice"
+
+    const-string p3, "Unable to get current volume. RouteInfo is empty"
+
+    invoke-static {p1, p3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p1, 0x0
+
+    goto :goto_0
 
     :cond_1
+    invoke-virtual {p1}, Landroid/media/MediaRoute2Info;->getVolume()I
+
+    move-result p1
+
     :goto_0
+    if-eq p2, p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;->this$1:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;
+
+    iget-object p1, p1, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;->this$0:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;
+
+    iget-object p1, p1, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter;->mController:Lcom/android/systemui/media/dialog/MediaOutputController;
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;->val$device:Lcom/android/settingslib/media/MediaDevice;
+
+    iget-object p1, p1, Lcom/android/systemui/media/dialog/MediaOutputController;->mMetricLogger:Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;
+
+    sget-boolean p3, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->DEBUG:Z
+
+    if-eqz p3, :cond_2
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const-string p3, "MediaOutputMetricLogger"
+
+    const-string v0, "logInteraction - AdjustVolume"
+
+    invoke-static {p3, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    const/16 p3, 0x1d2
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {p0}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getInteractionDeviceType(Lcom/android/settingslib/media/MediaDevice;)I
+
+    move-result p1
+
+    invoke-static {p3, v0, p1}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(III)V
+
+    new-instance p1, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, p0, p2}, Lcom/android/systemui/media/dialog/MediaOutputController$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/media/MediaDevice;I)V
+
+    invoke-static {p1}, Landroidx/core/R$attr;->postOnBackgroundThread(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+
+    :cond_3
+    :goto_1
     return-void
 .end method
 
-.method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;->this$1:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;
@@ -77,7 +136,7 @@
     return-void
 .end method
 
-.method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStopTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder$1;->this$1:Lcom/android/systemui/media/dialog/MediaOutputBaseAdapter$MediaDeviceBaseViewHolder;

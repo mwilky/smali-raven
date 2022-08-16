@@ -9,6 +9,9 @@
     <fraction name="config_one_handed_offset">39.999996%</fraction>
     <fraction name="config_pipShortestEdgePercent">39.999996%</fraction>
     <fraction name="controls_toggle_bg_intensity">4.999995%</fraction>
+    <fraction name="display_density_max_scale">150.0%</fraction>
+    <fraction name="display_density_min_scale">85.0%</fraction>
+    <fraction name="display_density_min_scale_interval">9.000004%</fraction>
     <fraction name="lb_browse_header_unselect_alpha">50.0%</fraction>
     <fraction name="lb_browse_rows_scale">79.99999%</fraction>
     <fraction name="lb_focus_zoom_factor_large">117.99927%</fraction>

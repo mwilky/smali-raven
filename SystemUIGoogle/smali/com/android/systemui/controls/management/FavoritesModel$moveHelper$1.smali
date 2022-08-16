@@ -6,23 +6,12 @@
 .implements Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/FavoritesModel;-><init>(Lcom/android/systemui/controls/CustomIconCache;Landroid/content/ComponentName;Ljava/util/List;Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/management/FavoritesModel;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/FavoritesModel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/FavoritesModel;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/FavoritesModel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;->this$0:Lcom/android/systemui/controls/management/FavoritesModel;
@@ -34,7 +23,7 @@
 
 
 # virtual methods
-.method public canMoveAfter(I)Z
+.method public final canMoveAfter(I)Z
     .locals 1
 
     const/4 v0, 0x1
@@ -43,9 +32,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;->this$0:Lcom/android/systemui/controls/management/FavoritesModel;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->access$getDividerPosition$p(Lcom/android/systemui/controls/management/FavoritesModel;)I
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
 
     sub-int/2addr p0, v0
 
@@ -60,16 +47,14 @@
     return v0
 .end method
 
-.method public canMoveBefore(I)Z
+.method public final canMoveBefore(I)Z
     .locals 0
 
     if-lez p1, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;->this$0:Lcom/android/systemui/controls/management/FavoritesModel;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->access$getDividerPosition$p(Lcom/android/systemui/controls/management/FavoritesModel;)I
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
 
     if-ge p1, p0, :cond_0
 
@@ -84,7 +69,7 @@
     return p0
 .end method
 
-.method public moveAfter(I)V
+.method public final moveAfter(I)V
     .locals 1
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;->canMoveAfter(I)Z
@@ -122,13 +107,13 @@
 
     add-int/lit8 v0, p1, 0x1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItem(II)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItemInternal(II)V
 
     :goto_0
     return-void
 .end method
 
-.method public moveBefore(I)V
+.method public final moveBefore(I)V
     .locals 1
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;->canMoveBefore(I)Z
@@ -166,7 +151,7 @@
 
     add-int/lit8 v0, p1, -0x1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItem(II)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItemInternal(II)V
 
     :goto_0
     return-void

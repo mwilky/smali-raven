@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$BindParams;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$BindParams;
 .super Ljava/lang/Object;
 .source "NotificationRowContentBinder.java"
 

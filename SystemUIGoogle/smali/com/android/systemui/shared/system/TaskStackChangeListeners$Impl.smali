@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;
+.class public final Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;
 .super Landroid/app/TaskStackListener;
 .source "TaskStackChangeListeners.java"
 
@@ -12,39 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Impl"
 .end annotation
 
 
 # instance fields
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private mRegistered:Z
+.field public mRegistered:Z
 
-.field private final mTaskStackListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/shared/system/TaskStackChangeListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mTaskStackListeners:Ljava/util/ArrayList;
 
-.field private final mTmpListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/shared/system/TaskStackChangeListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mTmpListeners:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/Looper;)V
+.method public constructor <init>(Landroid/os/Looper;)V
     .locals 1
 
     invoke-direct {p0}, Landroid/app/TaskStackListener;-><init>()V
@@ -53,13 +37,13 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/os/Handler;
 
@@ -72,17 +56,17 @@
 
 
 # virtual methods
-.method public addListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
+.method public final addListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     monitor-exit v0
     :try_end_0
@@ -110,9 +94,9 @@
     :catch_0
     move-exception p0
 
-    invoke-static {}, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->access$000()Ljava/lang/String;
+    sget-object p1, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->INSTANCE:Lcom/android/systemui/shared/system/TaskStackChangeListeners;
 
-    move-result-object p1
+    const-string p1, "TaskStackChangeListeners"
 
     const-string v0, "Failed to call registerTaskStackListener"
 
@@ -133,615 +117,565 @@
     throw p0
 .end method
 
-.method public handleMessage(Landroid/os/Message;)Z
-    .locals 9
+.method public final handleMessage(Landroid/os/Message;)Z
+    .locals 6
 
-    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
     monitor-enter v0
 
     :try_start_0
     iget v1, p1, Landroid/os/Message;->what:I
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
     packed-switch v1, :pswitch_data_0
 
     :pswitch_0
-    goto/16 :goto_18
+    goto/16 :goto_15
 
     :pswitch_1
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     :goto_0
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
     iget v4, p1, Landroid/os/Message;->arg1:I
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onLockTaskModeChanged(I)V
+    invoke-interface {v3, v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onLockTaskModeChanged(I)V
 
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_0
 
     :pswitch_2
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     :goto_1
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    invoke-virtual {v2, v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityRotation(I)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_1
+
+    :catchall_0
+    move-exception p0
+
+    goto/16 :goto_16
 
     :pswitch_3
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v1, v2
 
     :goto_2
-    if-ltz v2, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    invoke-virtual {v4, v1}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskDescriptionChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v1, v1, -0x1
 
     goto :goto_2
 
     :pswitch_4
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     :goto_3
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v3
 
-    check-cast v4, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    iget v5, p1, Landroid/os/Message;->arg1:I
+    iget v4, p1, Landroid/os/Message;->arg1:I
 
-    if-eqz v5, :cond_0
-
-    move v5, v3
-
-    goto :goto_4
-
-    :cond_0
-    move v5, v2
-
-    :goto_4
-    invoke-virtual {v4, v5}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onRecentTaskListFrozenChanged(Z)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_3
 
     :pswitch_5
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
+
+    :goto_4
+    if-ltz v1, :cond_4
+
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_4
+
+    :pswitch_6
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    sub-int/2addr v1, v2
 
     :goto_5
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    invoke-virtual {v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onRecentTaskListUpdated()V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_5
 
-    :pswitch_6
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    :pswitch_7
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     :goto_6
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
-
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    iget v5, p1, Landroid/os/Message;->arg2:I
-
-    invoke-virtual {v2, v4, v5}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskDisplayChanged(II)V
-
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_6
-
-    :pswitch_7
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    sub-int/2addr v1, v3
-
-    :goto_7
-    if-ltz v1, :cond_6
-
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onBackPressedOnTaskRoot(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_7
+    goto :goto_6
 
     :pswitch_8
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    sub-int/2addr v2, v3
-
-    :goto_8
-    if-ltz v2, :cond_6
-
-    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/systemui/shared/system/TaskStackChangeListener;
-
-    invoke-virtual {v4, v1}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityLaunchOnSecondaryDisplayRerouted(Landroid/app/ActivityManager$RunningTaskInfo;)V
-
-    add-int/lit8 v2, v2, -0x1
-
-    goto :goto_8
-
-    :pswitch_9
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
-    :goto_9
-    if-ltz v1, :cond_6
+    :goto_7
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    iget v5, p1, Landroid/os/Message;->arg2:I
-
-    invoke-virtual {v2, v4, v5}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityRequestedOrientationChanged(II)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_9
+    goto :goto_7
+
+    :pswitch_9
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    sub-int/2addr v1, v2
+
+    :goto_8
+    if-ltz v1, :cond_4
+
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+
+    iget v4, p1, Landroid/os/Message;->arg1:I
+
+    invoke-interface {v3, v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityRequestedOrientationChanged(I)V
+
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_8
 
     :pswitch_a
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v3
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v3, v2
 
-    :goto_a
-    if-ltz v2, :cond_6
+    :goto_9
+    if-ltz v3, :cond_4
 
-    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    invoke-virtual {v4, v1}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskMovedToFront(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    invoke-interface {v4, v1}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskMovedToFront(Landroid/app/ActivityManager$RunningTaskInfo;)V
 
-    add-int/lit8 v2, v2, -0x1
+    add-int/lit8 v3, v3, -0x1
 
-    goto :goto_a
+    goto :goto_9
 
     :pswitch_b
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
+
+    :goto_a
+    if-ltz v1, :cond_4
+
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+
+    invoke-interface {v3}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskRemoved()V
+
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_a
+
+    :pswitch_c
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    sub-int/2addr v1, v2
 
     :goto_b
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    iget v4, p1, Landroid/os/Message;->arg1:I
+    iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    invoke-virtual {v2, v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskRemoved(I)V
+    check-cast v4, Landroid/content/ComponentName;
+
+    invoke-interface {v3, v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskCreated(Landroid/content/ComponentName;)V
 
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_b
-
-    :pswitch_c
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    sub-int/2addr v1, v3
-
-    :goto_c
-    if-ltz v1, :cond_6
-
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
-
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
-
-    check-cast v5, Landroid/content/ComponentName;
-
-    invoke-virtual {v2, v4, v5}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskCreated(ILandroid/content/ComponentName;)V
-
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_c
 
     :pswitch_d
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v1
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v1, v2
+
+    :goto_c
+    if-ltz v1, :cond_4
+
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_c
+
+    :pswitch_e
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    sub-int/2addr v1, v2
 
     :goto_d
-    if-ltz v2, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+
+    invoke-interface {v3}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityUnpinned()V
+
+    add-int/lit8 v1, v1, -0x1
+
+    goto :goto_d
+
+    :pswitch_f
+    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
+    check-cast v1, Landroid/app/ActivityManager$RunningTaskInfo;
+
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    sub-int/2addr v3, v2
+
+    :goto_e
+    if-ltz v3, :cond_4
+
+    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
     check-cast v4, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    invoke-virtual {v4, v1}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityLaunchOnSecondaryDisplayFailed(Landroid/app/ActivityManager$RunningTaskInfo;)V
+    invoke-interface {v4, v1}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskProfileLocked(Landroid/app/ActivityManager$RunningTaskInfo;)V
 
-    add-int/lit8 v2, v2, -0x1
-
-    goto :goto_d
-
-    :pswitch_e
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    sub-int/2addr v1, v3
-
-    :goto_e
-    if-ltz v1, :cond_6
-
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
-
-    invoke-virtual {v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityUnpinned()V
-
-    add-int/lit8 v1, v1, -0x1
+    add-int/lit8 v3, v3, -0x1
 
     goto :goto_e
 
-    :pswitch_f
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    :pswitch_10
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     :goto_f
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    iget v4, p1, Landroid/os/Message;->arg1:I
-
-    iget v5, p1, Landroid/os/Message;->arg2:I
-
-    invoke-virtual {v2, v4, v5}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskProfileLocked(II)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
     goto :goto_f
 
-    :pswitch_10
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    :pswitch_11
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
     :goto_10
-    if-ltz v1, :cond_6
+    if-ltz v1, :cond_4
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
-
-    invoke-virtual {v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityDismissingDockedStack()V
-
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_10
-
-    :pswitch_11
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    sub-int/2addr v1, v3
-
-    :goto_11
-    if-ltz v1, :cond_6
-
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
     iget-object v4, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v4, Ljava/lang/String;
 
-    iget v5, p1, Landroid/os/Message;->arg1:I
-
-    iget v6, p1, Landroid/os/Message;->arg2:I
-
-    invoke-virtual {v2, v4, v5, v6}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityForcedResizable(Ljava/lang/String;II)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_11
+    goto :goto_10
 
     :pswitch_12
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/internal/os/SomeArgs;
 
-    iget-object v4, v1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
+    iget-object v3, v1, Lcom/android/internal/os/SomeArgs;->arg1:Ljava/lang/Object;
 
-    check-cast v4, Landroid/app/ActivityManager$RunningTaskInfo;
+    check-cast v3, Landroid/app/ActivityManager$RunningTaskInfo;
 
-    iget v5, v1, Lcom/android/internal/os/SomeArgs;->argi1:I
+    iget v3, v1, Lcom/android/internal/os/SomeArgs;->argi1:I
 
-    if-eqz v5, :cond_1
+    iget v1, v1, Lcom/android/internal/os/SomeArgs;->argi2:I
 
-    move v5, v3
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    goto :goto_12
-
-    :cond_1
-    move v5, v2
-
-    :goto_12
-    iget v6, v1, Lcom/android/internal/os/SomeArgs;->argi2:I
-
-    if-eqz v6, :cond_2
-
-    move v6, v3
-
-    goto :goto_13
-
-    :cond_2
-    move v6, v2
-
-    :goto_13
-    iget v1, v1, Lcom/android/internal/os/SomeArgs;->argi3:I
-
-    if-eqz v1, :cond_3
-
-    move v2, v3
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
-    :goto_14
-    if-ltz v1, :cond_6
+    :goto_11
+    if-ltz v1, :cond_4
 
-    iget-object v7, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v7, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v3
 
-    check-cast v7, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    invoke-virtual {v7, v4, v5, v6, v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityRestartAttempt(Landroid/app/ActivityManager$RunningTaskInfo;ZZZ)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_14
+    goto :goto_11
 
     :pswitch_13
     iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v1, Lcom/android/systemui/shared/system/TaskStackChangeListeners$PinnedActivityInfo;
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/util/List;->size()I
+    invoke-virtual {v3}, Ljava/util/ArrayList;->size()I
 
-    move-result v2
+    move-result v3
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v3, v2
 
-    :goto_15
-    if-ltz v2, :cond_6
+    :goto_12
+    if-ltz v3, :cond_4
 
-    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -749,20 +683,14 @@
 
     iget-object v5, v1, Lcom/android/systemui/shared/system/TaskStackChangeListeners$PinnedActivityInfo;->mPackageName:Ljava/lang/String;
 
-    iget v6, v1, Lcom/android/systemui/shared/system/TaskStackChangeListeners$PinnedActivityInfo;->mUserId:I
+    invoke-interface {v4}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityPinned()V
 
-    iget v7, v1, Lcom/android/systemui/shared/system/TaskStackChangeListeners$PinnedActivityInfo;->mTaskId:I
+    add-int/lit8 v3, v3, -0x1
 
-    iget v8, v1, Lcom/android/systemui/shared/system/TaskStackChangeListeners$PinnedActivityInfo;->mStackId:I
-
-    invoke-virtual {v4, v5, v6, v7, v8}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onActivityPinned(Ljava/lang/String;III)V
-
-    add-int/lit8 v2, v2, -0x1
-
-    goto :goto_15
+    goto :goto_12
 
     :pswitch_14
-    const-string v1, "onTaskSnapshotChanged"
+    const-string/jumbo v1, "onTaskSnapshotChanged"
 
     invoke-static {v1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
@@ -770,77 +698,95 @@
 
     check-cast v1, Landroid/window/TaskSnapshot;
 
-    new-instance v2, Lcom/android/systemui/shared/recents/model/ThumbnailData;
+    new-instance v3, Lcom/android/systemui/shared/recents/model/ThumbnailData;
 
-    invoke-direct {v2, v1}, Lcom/android/systemui/shared/recents/model/ThumbnailData;-><init>(Landroid/window/TaskSnapshot;)V
+    invoke-direct {v3, v1}, Lcom/android/systemui/shared/recents/model/ThumbnailData;-><init>(Landroid/window/TaskSnapshot;)V
 
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v4
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v4, v2
 
-    :goto_16
-    if-ltz v1, :cond_4
+    :goto_13
+    if-ltz v4, :cond_0
 
-    iget-object v4, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v5, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v4, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v4
+    move-result-object v5
 
-    check-cast v4, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v5, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    iget v5, p1, Landroid/os/Message;->arg1:I
+    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v4, v5, v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskSnapshotChanged(ILcom/android/systemui/shared/recents/model/ThumbnailData;)V
+    add-int/lit8 v4, v4, -0x1
 
-    add-int/lit8 v1, v1, -0x1
+    goto :goto_13
 
-    goto :goto_16
+    :cond_0
+    iget-object p0, v3, Lcom/android/systemui/shared/recents/model/ThumbnailData;->thumbnail:Landroid/graphics/Bitmap;
 
-    :cond_4
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0}, Landroid/graphics/Bitmap;->recycle()V
+
+    :cond_1
+    invoke-virtual {v1}, Landroid/window/TaskSnapshot;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_2
+
+    invoke-virtual {v1}, Landroid/window/TaskSnapshot;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/hardware/HardwareBuffer;->close()V
+
+    :cond_2
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    goto :goto_18
+    goto :goto_15
 
     :pswitch_15
-    const-string v1, "onTaskStackChanged"
+    const-string/jumbo v1, "onTaskStackChanged"
 
     invoke-static {v1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    sub-int/2addr v1, v3
+    sub-int/2addr v1, v2
 
-    :goto_17
-    if-ltz v1, :cond_5
+    :goto_14
+    if-ltz v1, :cond_3
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
+    check-cast v3, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    invoke-virtual {v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskStackChanged()V
+    invoke-interface {v3}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskStackChanged()V
 
     add-int/lit8 v1, v1, -0x1
 
-    goto :goto_17
+    goto :goto_14
 
-    :cond_5
+    :cond_3
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    :cond_6
-    :goto_18
+    :cond_4
+    :goto_15
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -849,26 +795,22 @@
 
     instance-of p1, p0, Lcom/android/internal/os/SomeArgs;
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_5
 
     check-cast p0, Lcom/android/internal/os/SomeArgs;
 
     invoke-virtual {p0}, Lcom/android/internal/os/SomeArgs;->recycle()V
 
-    :cond_7
-    return v3
+    :cond_5
+    return v2
 
-    :catchall_0
-    move-exception p0
-
+    :goto_16
     :try_start_1
     monitor-exit v0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     throw p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -898,7 +840,7 @@
     .end packed-switch
 .end method
 
-.method public onActivityDismissingDockedTask()V
+.method public final onActivityDismissingDockedTask()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -910,7 +852,7 @@
     return-void
 .end method
 
-.method public onActivityForcedResizable(Ljava/lang/String;II)V
+.method public final onActivityForcedResizable(Ljava/lang/String;II)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -926,7 +868,7 @@
     return-void
 .end method
 
-.method public onActivityLaunchOnSecondaryDisplayFailed(Landroid/app/ActivityManager$RunningTaskInfo;I)V
+.method public final onActivityLaunchOnSecondaryDisplayFailed(Landroid/app/ActivityManager$RunningTaskInfo;I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -944,7 +886,7 @@
     return-void
 .end method
 
-.method public onActivityLaunchOnSecondaryDisplayRerouted(Landroid/app/ActivityManager$RunningTaskInfo;I)V
+.method public final onActivityLaunchOnSecondaryDisplayRerouted(Landroid/app/ActivityManager$RunningTaskInfo;I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -962,7 +904,7 @@
     return-void
 .end method
 
-.method public onActivityPinned(Ljava/lang/String;III)V
+.method public final onActivityPinned(Ljava/lang/String;III)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -986,7 +928,7 @@
     return-void
 .end method
 
-.method public onActivityRequestedOrientationChanged(II)V
+.method public final onActivityRequestedOrientationChanged(II)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1002,7 +944,7 @@
     return-void
 .end method
 
-.method public onActivityRestartAttempt(Landroid/app/ActivityManager$RunningTaskInfo;ZZZ)V
+.method public final onActivityRestartAttempt(Landroid/app/ActivityManager$RunningTaskInfo;ZZZ)V
     .locals 1
 
     invoke-static {}, Lcom/android/internal/os/SomeArgs;->obtain()Lcom/android/internal/os/SomeArgs;
@@ -1034,7 +976,7 @@
     return-void
 .end method
 
-.method public onActivityRotation(I)V
+.method public final onActivityRotation(I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1052,7 +994,7 @@
     return-void
 .end method
 
-.method public onActivityUnpinned()V
+.method public final onActivityUnpinned()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1068,7 +1010,7 @@
     return-void
 .end method
 
-.method public onBackPressedOnTaskRoot(Landroid/app/ActivityManager$RunningTaskInfo;)V
+.method public final onBackPressedOnTaskRoot(Landroid/app/ActivityManager$RunningTaskInfo;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1084,7 +1026,7 @@
     return-void
 .end method
 
-.method public onLockTaskModeChanged(I)V
+.method public final onLockTaskModeChanged(I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1102,7 +1044,7 @@
     return-void
 .end method
 
-.method public onRecentTaskListFrozenChanged(Z)V
+.method public final onRecentTaskListFrozenChanged(Z)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1120,7 +1062,7 @@
     return-void
 .end method
 
-.method public onRecentTaskListUpdated()V
+.method public final onRecentTaskListUpdated()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1136,7 +1078,7 @@
     return-void
 .end method
 
-.method public onTaskCreated(ILandroid/content/ComponentName;)V
+.method public final onTaskCreated(ILandroid/content/ComponentName;)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1154,7 +1096,7 @@
     return-void
 .end method
 
-.method public onTaskDescriptionChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
+.method public final onTaskDescriptionChanged(Landroid/app/ActivityManager$RunningTaskInfo;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1170,7 +1112,7 @@
     return-void
 .end method
 
-.method public onTaskDisplayChanged(II)V
+.method public final onTaskDisplayChanged(II)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1186,7 +1128,7 @@
     return-void
 .end method
 
-.method public onTaskMovedToFront(Landroid/app/ActivityManager$RunningTaskInfo;)V
+.method public final onTaskMovedToFront(Landroid/app/ActivityManager$RunningTaskInfo;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1202,14 +1144,14 @@
     return-void
 .end method
 
-.method public onTaskProfileLocked(II)V
+.method public final onTaskProfileLocked(Landroid/app/ActivityManager$RunningTaskInfo;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
 
     const/16 v0, 0x8
 
-    invoke-virtual {p0, v0, p1, p2}, Landroid/os/Handler;->obtainMessage(III)Landroid/os/Message;
+    invoke-virtual {p0, v0, p1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object p0
 
@@ -1218,7 +1160,7 @@
     return-void
 .end method
 
-.method public onTaskRemoved(I)V
+.method public final onTaskRemoved(I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1236,7 +1178,7 @@
     return-void
 .end method
 
-.method public onTaskSnapshotChanged(ILandroid/window/TaskSnapshot;)V
+.method public final onTaskSnapshotChanged(ILandroid/window/TaskSnapshot;)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
@@ -1254,27 +1196,27 @@
     return-void
 .end method
 
-.method public onTaskStackChanged()V
+.method public final onTaskStackChanged()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1, v2}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -1285,24 +1227,24 @@
     :goto_0
     if-ltz v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/systemui/shared/system/TaskStackChangeListener;
 
-    invoke-virtual {v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskStackChangedBackground()V
+    invoke-interface {v2}, Lcom/android/systemui/shared/system/TaskStackChangeListener;->onTaskStackChangedBackground()V
 
     add-int/lit8 v0, v0, -0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTmpListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mHandler:Landroid/os/Handler;
 
@@ -1325,21 +1267,21 @@
     throw p0
 .end method
 
-.method public removeListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
+.method public final removeListener(Lcom/android/systemui/shared/system/TaskStackChangeListener;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    iget-object p1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/List;
+    iget-object p1, p0, Lcom/android/systemui/shared/system/TaskStackChangeListeners$Impl;->mTaskStackListeners:Ljava/util/ArrayList;
 
-    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {p1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result p1
 
@@ -1371,9 +1313,9 @@
     :catch_0
     move-exception p0
 
-    invoke-static {}, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->access$000()Ljava/lang/String;
+    sget-object p1, Lcom/android/systemui/shared/system/TaskStackChangeListeners;->INSTANCE:Lcom/android/systemui/shared/system/TaskStackChangeListeners;
 
-    move-result-object p1
+    const-string p1, "TaskStackChangeListeners"
 
     const-string v0, "Failed to call unregisterTaskStackListener"
 

@@ -1,16 +1,16 @@
-.class final Landroidx/fragment/app/LogWriter;
+.class public final Landroidx/fragment/app/LogWriter;
 .super Ljava/io/Writer;
 .source "LogWriter.java"
 
 
 # instance fields
-.field private mBuilder:Ljava/lang/StringBuilder;
+.field public mBuilder:Ljava/lang/StringBuilder;
 
-.field private final mTag:Ljava/lang/String;
+.field public final mTag:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/io/Writer;-><init>()V
@@ -23,12 +23,32 @@
 
     iput-object v0, p0, Landroidx/fragment/app/LogWriter;->mBuilder:Ljava/lang/StringBuilder;
 
-    iput-object p1, p0, Landroidx/fragment/app/LogWriter;->mTag:Ljava/lang/String;
+    const-string v0, "FragmentManager"
+
+    iput-object v0, p0, Landroidx/fragment/app/LogWriter;->mTag:Ljava/lang/String;
 
     return-void
 .end method
 
-.method private flushBuilder()V
+
+# virtual methods
+.method public final close()V
+    .locals 0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/LogWriter;->flushBuilder()V
+
+    return-void
+.end method
+
+.method public final flush()V
+    .locals 0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/LogWriter;->flushBuilder()V
+
+    return-void
+.end method
+
+.method public final flushBuilder()V
     .locals 2
 
     iget-object v0, p0, Landroidx/fragment/app/LogWriter;->mBuilder:Ljava/lang/StringBuilder;
@@ -63,25 +83,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public close()V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/fragment/app/LogWriter;->flushBuilder()V
-
-    return-void
-.end method
-
-.method public flush()V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/fragment/app/LogWriter;->flushBuilder()V
-
-    return-void
-.end method
-
-.method public write([CII)V
+.method public final write([CII)V
     .locals 3
 
     const/4 v0, 0x0
@@ -97,7 +99,7 @@
 
     if-ne v1, v2, :cond_0
 
-    invoke-direct {p0}, Landroidx/fragment/app/LogWriter;->flushBuilder()V
+    invoke-virtual {p0}, Landroidx/fragment/app/LogWriter;->flushBuilder()V
 
     goto :goto_1
 

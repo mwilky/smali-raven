@@ -37,24 +37,16 @@
 
 
 # direct methods
-.method public constructor <init>(II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "width",
-            "height"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 1
 
-    invoke-direct {p0, p1, p2}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
+    const/4 v0, -0x2
 
-    const/4 p1, 0x0
+    invoke-direct {p0, v0, v0}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
 
-    iput p1, p0, Landroidx/leanback/widget/BaseCardView$LayoutParams;->viewType:I
+    const/4 v0, 0x0
+
+    iput v0, p0, Landroidx/leanback/widget/BaseCardView$LayoutParams;->viewType:I
 
     return-void
 .end method
@@ -64,17 +56,6 @@
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "CustomViewStyleable"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "c",
-            "attrs"
         }
     .end annotation
 
@@ -90,9 +71,7 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/leanback/R$styleable;->lbBaseCardView_Layout_layout_viewType:I
-
-    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {p1, v0, v0}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result p2
 
@@ -105,14 +84,6 @@
 
 .method public constructor <init>(Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "p"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$LayoutParams;)V
 
@@ -125,14 +96,6 @@
 
 .method public constructor <init>(Landroidx/leanback/widget/BaseCardView$LayoutParams;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "source"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(Landroid/view/ViewGroup$MarginLayoutParams;)V
 

@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field private final ambientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+.field public final ambientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 
-.field private animationHandlerOnKeyguardDismiss:Lkotlin/jvm/functions/Function1;
+.field public animationHandlerOnKeyguardDismiss:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function1<",
@@ -21,280 +21,212 @@
     .end annotation
 .end field
 
-.field private final context:Landroid/content/Context;
+.field public centralSurfaces:Lcom/android/systemui/statusbar/phone/CentralSurfaces;
 
-.field private final depthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+.field public final context:Landroid/content/Context;
 
-.field private dragDownAmount:F
+.field public final depthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-.field private dragDownAnimator:Landroid/animation/ValueAnimator;
+.field public depthControllerTransitionDistance:I
 
-.field private draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+.field public dragDownAmount:F
 
-.field private final falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+.field public dragDownAnimator:Landroid/animation/ValueAnimator;
 
-.field private forceApplyAmount:Z
+.field public draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-.field private fullTransitionDistance:I
+.field public final falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
-.field private isWakingToShadeLocked:Z
+.field public forceApplyAmount:Z
 
-.field private final keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+.field public fractionToShade:F
 
-.field private final lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+.field public fullTransitionDistance:I
 
-.field private final logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+.field public fullTransitionDistanceByTap:I
 
-.field private final mediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
+.field public isWakingToShadeLocked:Z
 
-.field private nextHideKeyguardNeedsNoAnimation:Z
+.field public final keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+
+.field public final keyguardTransitionController$delegate:Lkotlin/Lazy;
+
+.field public final keyguardTransitionControllerFactory:Lcom/android/systemui/statusbar/LockscreenShadeKeyguardTransitionController$Factory;
+
+.field public final lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+.field public final logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+
+.field public final mediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
+
+.field public nextHideKeyguardNeedsNoAnimation:Z
 
 .field public notificationPanelController:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
-.field private nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+.field public notificationShelfTransitionDistance:I
 
-.field private pulseHeight:F
+.field public nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-.field private pulseHeightAnimator:Landroid/animation/ValueAnimator;
+.field public final phoneShadeOverScroller$delegate:Lkotlin/Lazy;
+
+.field public pulseHeight:F
+
+.field public pulseHeightAnimator:Landroid/animation/ValueAnimator;
 
 .field public qS:Lcom/android/systemui/plugins/qs/QS;
 
-.field private final scrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+.field public qSDragProgress:F
 
-.field private scrimTransitionDistance:I
+.field public qsTransitionDistance:I
 
-.field private final statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+.field public final scrimTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeScrimTransitionController;
 
-.field public statusbar:Lcom/android/systemui/statusbar/phone/StatusBar;
+.field public final singleShadeOverScrollerFactory:Lcom/android/systemui/statusbar/SingleShadeLockScreenOverScroller$Factory;
 
-.field private final touchHelper:Lcom/android/systemui/statusbar/DragDownHelper;
+.field public final splitShadeOverScroller$delegate:Lkotlin/Lazy;
 
-.field private udfpsKeyguardViewController:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+.field public final splitShadeOverScrollerFactory:Lcom/android/systemui/statusbar/SplitShadeLockScreenOverScroller$Factory;
 
-.field private useSplitShade:Z
+.field public final statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+
+.field public statusBarTransitionDistance:I
+
+.field public final touchHelper:Lcom/android/systemui/statusbar/DragDownHelper;
+
+.field public udfpsKeyguardViewController:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+
+.field public udfpsTransitionDistance:I
+
+.field public useSplitShade:Z
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/phone/ScrimController;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/content/Context;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/notification/stack/AmbientState;Lcom/android/systemui/media/MediaHierarchyManager;Lcom/android/systemui/statusbar/LockscreenShadeScrimTransitionController;Lcom/android/systemui/statusbar/LockscreenShadeKeyguardTransitionController$Factory;Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/content/Context;Lcom/android/systemui/statusbar/SplitShadeLockScreenOverScroller$Factory;Lcom/android/systemui/statusbar/SingleShadeLockScreenOverScroller$Factory;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)V
+    .locals 6
 
-    const-string v0, "statusBarStateController"
+    move-object v0, p0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object v1, p1
 
-    const-string v0, "logger"
+    move-object v2, p5
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "keyguardBypassController"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "lockScreenUserManager"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "falsingCollector"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "ambientState"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "mediaHierarchyManager"
-
-    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "scrimController"
-
-    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "depthController"
-
-    invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "context"
-
-    invoke-static {p10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "wakefulnessLifecycle"
-
-    invoke-static {p11, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "configurationController"
-
-    invoke-static {p12, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "falsingManager"
-
-    invoke-static {p13, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dumpManager"
-
-    invoke-static {p14, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v3, p11
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+    move-object v4, p2
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    move-object v4, p3
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    iput-object p6, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->ambientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+    move-object v4, p4
 
-    iput-object p7, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->mediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    iput-object p8, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
+    iput-object v2, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
-    iput-object p9, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->depthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+    move-object v4, p6
 
-    iput-object p10, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->ambientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 
-    new-instance p2, Lcom/android/systemui/statusbar/DragDownHelper;
+    move-object v4, p7
 
-    invoke-direct {p2, p13, p5, p0, p10}, Lcom/android/systemui/statusbar/DragDownHelper;-><init>(Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Landroid/content/Context;)V
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->mediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->touchHelper:Lcom/android/systemui/statusbar/DragDownHelper;
+    move-object v4, p8
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->updateResources()V
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeScrimTransitionController;
 
-    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$1;
+    move-object v4, p9
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardTransitionControllerFactory:Lcom/android/systemui/statusbar/LockscreenShadeKeyguardTransitionController$Factory;
 
-    invoke-interface {p12, p2}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    move-object/from16 v4, p10
 
-    invoke-virtual {p14, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->depthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$2;
+    iput-object v3, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$2;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
+    move-object/from16 v4, p12
 
-    invoke-interface {p1, p2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->splitShadeOverScrollerFactory:Lcom/android/systemui/statusbar/SplitShadeLockScreenOverScroller$Factory;
 
-    new-instance p1, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$3;
+    move-object/from16 v4, p13
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$3;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->singleShadeOverScrollerFactory:Lcom/android/systemui/statusbar/SingleShadeLockScreenOverScroller$Factory;
 
-    invoke-virtual {p11, p1}, Lcom/android/systemui/keyguard/Lifecycle;->addObserver(Ljava/lang/Object;)V
+    new-instance v4, Lcom/android/systemui/statusbar/DragDownHelper;
 
-    return-void
-.end method
+    move-object/from16 v5, p16
 
-.method public static final synthetic access$getContext$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)Landroid/content/Context;
-    .locals 0
+    invoke-direct {v4, v5, p5, p0, v3}, Lcom/android/systemui/statusbar/DragDownHelper;-><init>(Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Landroid/content/Context;)V
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
+    iput-object v4, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->touchHelper:Lcom/android/systemui/statusbar/DragDownHelper;
 
-    return-object p0
-.end method
+    new-instance v2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$splitShadeOverScroller$2;
 
-.method public static final synthetic access$getDraggedDownEntry$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-    .locals 0
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$splitShadeOverScroller$2;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    invoke-static {v2}, Lkotlin/LazyKt__LazyJVMKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    return-object p0
-.end method
+    move-result-object v2
 
-.method public static final synthetic access$getLogger$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-    .locals 0
+    iput-object v2, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->splitShadeOverScroller$delegate:Lkotlin/Lazy;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+    new-instance v2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$phoneShadeOverScroller$2;
 
-    return-object p0
-.end method
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$phoneShadeOverScroller$2;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
-.method public static final synthetic access$getPulseHeight$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)F
-    .locals 0
+    invoke-static {v2}, Lkotlin/LazyKt__LazyJVMKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-    iget p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeight:F
+    move-result-object v2
 
-    return p0
-.end method
+    iput-object v2, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->phoneShadeOverScroller$delegate:Lkotlin/Lazy;
 
-.method public static final synthetic access$getStatusBarStateController$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-    .locals 0
+    new-instance v2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$keyguardTransitionController$2;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$keyguardTransitionController$2;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
-    return-object p0
-.end method
+    invoke-static {v2}, Lkotlin/LazyKt__LazyJVMKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
-.method public static final synthetic access$setAnimationHandlerOnKeyguardDismiss$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lkotlin/jvm/functions/Function1;)V
-    .locals 0
+    move-result-object v2
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->animationHandlerOnKeyguardDismiss:Lkotlin/jvm/functions/Function1;
+    iput-object v2, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardTransitionController$delegate:Lkotlin/Lazy;
 
-    return-void
-.end method
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->updateResources()V
 
-.method public static final synthetic access$setDraggedDownEntry$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 0
+    new-instance v2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$1;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
-    return-void
-.end method
+    move-object/from16 v3, p15
 
-.method public static final synthetic access$setForceApplyAmount$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Z)V
-    .locals 0
+    invoke-interface {v3, v2}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->forceApplyAmount:Z
+    move-object/from16 v2, p17
 
-    return-void
-.end method
+    invoke-virtual {v2, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
 
-.method public static final synthetic access$setNextHideKeyguardNeedsNoAnimation$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Z)V
-    .locals 0
+    new-instance v2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$2;
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nextHideKeyguardNeedsNoAnimation:Z
+    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$2;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
-    return-void
-.end method
+    invoke-interface {p1, v2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->addCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
 
-.method public static final synthetic access$setWakingToShadeLocked$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Z)V
-    .locals 0
+    new-instance v1, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$3;
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isWakingToShadeLocked:Z
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$3;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
-    return-void
-.end method
+    move-object/from16 v0, p14
 
-.method public static final synthetic access$updateResources(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
-    .locals 0
+    iget-object v0, v0, Lcom/android/systemui/keyguard/Lifecycle;->mObservers:Ljava/util/ArrayList;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->updateResources()V
-
-    return-void
-.end method
-
-.method private final animateAppear(J)V
-    .locals 2
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->forceApplyAmount:Z
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setDragDownAmount$frameworks__base__packages__SystemUI__android_common__SystemUI_core(F)V
-
-    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fullTransitionDistance:I
-
-    int-to-float v0, v0
-
-    new-instance v1, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
-
-    invoke-direct {p0, v0, p1, p2, v1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setDragDownAmountAnimated(FJLkotlin/jvm/functions/Function0;)V
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
@@ -311,475 +243,10 @@
     return-void
 .end method
 
-.method public static synthetic goToLockedShade$default(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Landroid/view/View;ZILjava/lang/Object;)V
-    .locals 0
-
-    and-int/lit8 p3, p3, 0x2
-
-    if-eqz p3, :cond_0
-
-    const/4 p2, 0x1
-
-    :cond_0
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->goToLockedShade(Landroid/view/View;Z)V
-
-    return-void
-.end method
-
-.method private final goToLockedShadeInternal(Landroid/view/View;Lkotlin/jvm/functions/Function1;Ljava/lang/Runnable;)V
-    .locals 6
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/View;",
-            "Lkotlin/jvm/functions/Function1<",
-            "-",
-            "Ljava/lang/Long;",
-            "Lkotlin/Unit;",
-            ">;",
-            "Ljava/lang/Runnable;",
-            ")V"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getStatusbar()Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isShadeDisabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    if-nez p3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p3}, Ljava/lang/Runnable;->run()V
-
-    :goto_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logShadeDisabledOnGoToLockedShade()V
-
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
-
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->getCurrentUserId()I
-
-    move-result v0
-
-    instance-of v1, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    if-eqz v1, :cond_2
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object p1
-
-    invoke-virtual {p1, v3, v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setUserExpanded(ZZ)V
-
-    invoke-virtual {p1, v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setGroupExpansionChanging(Z)V
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getUserId()I
-
-    move-result v0
-
-    goto :goto_1
-
-    :cond_2
-    move-object p1, v2
-
-    :goto_1
-    iget-object v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
-
-    invoke-interface {v1}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->getCurrentUserId()I
-
-    move-result v4
-
-    invoke-interface {v1, v4}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->userAllowsPrivateNotificationsInPublic(I)Z
-
-    move-result v1
-
-    const/4 v4, 0x0
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
-
-    invoke-interface {v1}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->shouldShowLockscreenNotifications()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
-
-    invoke-interface {v1}, Lcom/android/systemui/classifier/FalsingCollector;->shouldEnforceBouncer()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    goto :goto_2
-
-    :cond_3
-    move v1, v4
-
-    goto :goto_3
-
-    :cond_4
-    :goto_2
-    move v1, v3
-
-    :goto_3
-    iget-object v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
-
-    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    move v1, v4
-
-    :cond_5
-    iget-object v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
-
-    invoke-interface {v5, v0}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    if-eqz v1, :cond_7
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    invoke-interface {v0, v3}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setLeaveOpenOnKeyguardHide(Z)V
-
-    if-eqz p2, :cond_6
-
-    new-instance v2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$1;
-
-    invoke-direct {v2, p0, p2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lkotlin/jvm/functions/Function1;)V
-
-    :cond_6
-    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$cancelHandler$1;
-
-    invoke-direct {p2, p0, p3}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$cancelHandler$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Ljava/lang/Runnable;)V
-
-    iget-object p3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {p3}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logShowBouncerOnGoToLockedShade()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getStatusbar()Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    move-result-object p3
-
-    invoke-virtual {p3, v2, p2}, Lcom/android/systemui/statusbar/phone/StatusBar;->showBouncerWithDimissAndCancelIfKeyguard(Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;Ljava/lang/Runnable;)V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    goto :goto_4
-
-    :cond_7
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    if-eqz p2, :cond_8
-
-    move v4, v3
-
-    :cond_8
-    invoke-virtual {p1, v4}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logGoingToLockedShade(Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    invoke-interface {p1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_9
-
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isWakingToShadeLocked:Z
-
-    :cond_9
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    const/4 p3, 0x2
-
-    invoke-interface {p1, p3}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setState(I)Z
-
-    const-wide/16 v0, 0x0
-
-    if-eqz p2, :cond_a
-
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_4
-
-    :cond_a
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->performDefaultGoToFullShadeAnimation(J)V
-
-    :goto_4
-    return-void
-.end method
-
-.method private final performDefaultGoToFullShadeAnimation(J)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDefaultGoToFullShadeAnimation(J)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getNotificationPanelController()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->animateToFullShade(J)V
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->animateAppear(J)V
-
-    return-void
-.end method
-
-.method private final setDragDownAmountAnimated(FJLkotlin/jvm/functions/Function0;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(FJ",
-            "Lkotlin/jvm/functions/Function0<",
-            "Lkotlin/Unit;",
-            ">;)V"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDragDownAnimation(F)V
-
-    const/4 v0, 0x2
-
-    new-array v0, v0, [F
-
-    iget v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
-
-    const/4 v2, 0x0
-
-    aput v1, v0, v2
-
-    const/4 v1, 0x1
-
-    aput p1, v0, v1
-
-    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
-
-    move-result-object p1
-
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const-wide/16 v0, 0x177
-
-    invoke-virtual {p1, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    new-instance v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$1;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
-
-    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    const-wide/16 v0, 0x0
-
-    cmp-long v0, p2, v0
-
-    if-lez v0, :cond_0
-
-    invoke-virtual {p1, p2, p3}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
-
-    :cond_0
-    if-eqz p4, :cond_1
-
-    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$2;
-
-    invoke-direct {p2, p4}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$2;-><init>(Lkotlin/jvm/functions/Function0;)V
-
-    invoke-virtual {p1, p2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAnimator:Landroid/animation/ValueAnimator;
-
-    return-void
-.end method
-
-.method static synthetic setDragDownAmountAnimated$default(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;FJLkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
-    .locals 0
-
-    and-int/lit8 p6, p5, 0x2
-
-    if-eqz p6, :cond_0
-
-    const-wide/16 p2, 0x0
-
-    :cond_0
-    and-int/lit8 p5, p5, 0x4
-
-    if-eqz p5, :cond_1
-
-    const/4 p4, 0x0
-
-    :cond_1
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setDragDownAmountAnimated(FJLkotlin/jvm/functions/Function0;)V
-
-    return-void
-.end method
-
-.method public static synthetic setPulseHeight$default(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;FZILjava/lang/Object;)V
-    .locals 0
-
-    and-int/lit8 p3, p3, 0x2
-
-    if-eqz p3, :cond_0
-
-    const/4 p2, 0x0
-
-    :cond_0
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
-
-    return-void
-.end method
-
-.method private final transitionToShadeAmountCommon(F)V
-    .locals 2
-
-    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimTransitionDistance:I
-
-    int-to-float v0, v0
-
-    div-float/2addr p1, v0
-
-    invoke-static {p1}, Landroid/util/MathUtils;->saturate(F)F
-
-    move-result p1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimController:Lcom/android/systemui/statusbar/phone/ScrimController;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/ScrimController;->setTransitionToFullShadeProgress(F)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getNotificationPanelController()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
-
-    move-result-object v0
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    sub-float/2addr v1, p1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->setKeyguardOnlyContentAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->depthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->setTransitionToFullShadeProgress(F)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->udfpsKeyguardViewController:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->setTransitionToFullShadeProgress(F)V
-
-    :goto_0
-    return-void
-.end method
-
-.method private final updateResources()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$dimen;->lockscreen_shade_scrim_transition_distance:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimTransitionDistance:I
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$dimen;->lockscreen_shade_qs_transition_distance:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fullTransitionDistance:I
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public final bindController(Lcom/android/systemui/statusbar/NotificationShelfController;)V
-    .locals 1
-
-    const-string v0, "notificationShelfController"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$bindController$1;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$bindController$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/NotificationShelfController;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    return-void
-.end method
-
 .method public final canDragDown$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Z
-    .locals 2
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
@@ -787,217 +254,224 @@
 
     move-result v0
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    if-eq v0, v1, :cond_1
+    const/4 v2, 0x1
+
+    if-eq v0, v2, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isInLockedDownShade()Z
+    move-object v0, v1
+
+    :cond_0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mDynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->isInLockedDownShade()Z
 
     move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qS:Lcom/android/systemui/plugins/qs/QS;
 
     if-eqz v0, :cond_2
 
-    goto :goto_0
+    move-object v1, v0
 
-    :cond_0
-    const-string p0, "nsslController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-
-    :cond_1
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getQS()Lcom/android/systemui/plugins/qs/QS;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/systemui/plugins/qs/QS;->isFullyCollapsed()Z
+    :cond_2
+    invoke-interface {v1}, Lcom/android/systemui/plugins/qs/QS;->isFullyCollapsed()Z
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_3
 
-    goto :goto_1
-
-    :cond_2
-    const/4 v1, 0x0
+    goto :goto_0
 
     :cond_3
-    :goto_1
-    return v1
+    const/4 v2, 0x0
+
+    :cond_4
+    :goto_0
+    return v2
 .end method
 
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 3
 
-    const-string v0, "fd"
+    new-instance p2, Landroid/util/IndentingPrintWriter;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "  "
 
-    const-string p1, "pw"
+    invoke-direct {p2, p1, v0}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
 
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string p1, "LSShadeTransitionController:"
 
-    const-string p1, "args"
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p2}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    new-instance p1, Landroid/util/IndentingPrintWriter;
+    iget p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeight:F
 
-    const-string p3, "  "
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    invoke-direct {p1, p2, p3}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
+    move-result-object p1
 
-    const-string p2, "LSShadeTransitionController:"
+    const-string/jumbo v0, "pulseHeight: "
 
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
+    move-result-object p1
 
-    iget p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeight:F
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
 
-    move-result-object p2
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const-string p3, "pulseHeight: "
+    move-result-object p1
 
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    const-string/jumbo v0, "useSplitShade: "
 
-    move-result-object p2
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    move-result-object p1
 
-    iget-boolean p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    iget p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
 
-    move-result-object p2
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    const-string/jumbo p3, "useSplitShade: "
+    move-result-object p1
 
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    const-string v0, "dragDownAmount: "
 
-    move-result-object p2
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    move-result-object p1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getDragDownAmount$frameworks__base__packages__SystemUI__android_common__SystemUI_core()F
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    move-result p2
+    iget p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qSDragProgress:F
 
-    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object p2
+    move-result-object p1
 
-    const-string p3, "dragDownAmount: "
+    const-string/jumbo v0, "qSDragProgress: "
 
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isDragDownAnywhereEnabled$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Z
 
-    move-result p2
+    move-result p1
 
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object p2
+    move-result-object p1
 
-    const-string p3, "isDragDownAnywhereEnabled: "
+    const-string v0, "isDragDownAnywhereEnabled: "
 
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isFalsingCheckNeeded$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Z
+    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    move-result p2
+    invoke-interface {p1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
 
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move-result p1
 
-    move-result-object p2
+    const/4 v0, 0x0
 
-    const-string p3, "isFalsingCheckNeeded: "
+    const/4 v1, 0x1
 
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    if-ne p1, v1, :cond_0
 
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isWakingToShadeLocked()Z
-
-    move-result p2
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p2
-
-    const-string p3, "isWakingToShadeLocked: "
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->animationHandlerOnKeyguardDismiss:Lkotlin/jvm/functions/Function1;
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
+    move p1, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    move p1, v0
 
     :goto_0
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p1
+
+    const-string v2, "isFalsingCheckNeeded: "
+
+    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isWakingToShadeLocked:Z
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p1
+
+    const-string v2, "isWakingToShadeLocked: "
+
+    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->animationHandlerOnKeyguardDismiss:Lkotlin/jvm/functions/Function1;
+
+    if-eqz p0, :cond_1
+
+    move v0, v1
+
+    :cond_1
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
 
-    const-string p2, "hasPendingHandlerOnKeyguardDismiss: "
+    const-string p1, "hasPendingHandlerOnKeyguardDismiss: "
 
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
 .method public final finishPulseAnimation(Z)V
-    .locals 1
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logPulseExpansionFinished(Z)V
 
-    const/4 v0, 0x0
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
 
     if-eqz p1, :cond_0
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
 
     goto :goto_0
 
@@ -1006,38 +480,32 @@
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->onPulseExpansionFinished()V
+    const-wide/16 v2, 0x1c0
+
+    const-wide/16 v4, 0x0
+
+    iput-boolean v0, p1, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mAnimateNextNotificationBounds:Z
+
+    iput-wide v2, p1, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationBoundsAnimationDuration:J
+
+    iput-wide v4, p1, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mNotificationBoundsAnimationDelay:J
+
+    iput-boolean v0, p1, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mIsPulseExpansionResetAnimator:Z
 
     const/4 p1, 0x0
 
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
+    invoke-virtual {p0, v1, p1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
 
     :goto_0
     return-void
 .end method
 
-.method public final getDistanceUntilShowingPulsingNotifications()I
+.method public final getFractionToShade()F
     .locals 0
 
-    iget p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimTransitionDistance:I
+    iget p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fractionToShade:F
 
     return p0
-.end method
-
-.method public final getDragDownAmount$frameworks__base__packages__SystemUI__android_common__SystemUI_core()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
-
-    return p0
-.end method
-
-.method public final getDragDownAnimator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAnimator:Landroid/animation/ValueAnimator;
-
-    return-object p0
 .end method
 
 .method public final getNotificationPanelController()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
@@ -1050,89 +518,9 @@
     return-object p0
 
     :cond_0
-    const-string p0, "notificationPanelController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
     const/4 p0, 0x0
 
-    throw p0
-.end method
-
-.method public final getPulseHeightAnimator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Landroid/animation/ValueAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeightAnimator:Landroid/animation/ValueAnimator;
-
     return-object p0
-.end method
-
-.method public final getQS()Lcom/android/systemui/plugins/qs/QS;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qS:Lcom/android/systemui/plugins/qs/QS;
-
-    if-eqz p0, :cond_0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "qS"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method public final getStatusbar()Lcom/android/systemui/statusbar/phone/StatusBar;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusbar:Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    if-eqz p0, :cond_0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "statusbar"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method public final getTouchHelper()Lcom/android/systemui/statusbar/DragDownHelper;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->touchHelper:Lcom/android/systemui/statusbar/DragDownHelper;
-
-    return-object p0
-.end method
-
-.method public final getUdfpsKeyguardViewController()Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->udfpsKeyguardViewController:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    return-object p0
-.end method
-
-.method public final goToLockedShade(Landroid/view/View;)V
-    .locals 3
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x2
-
-    const/4 v2, 0x0
-
-    invoke-static {p0, p1, v0, v1, v2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->goToLockedShade$default(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Landroid/view/View;ZILjava/lang/Object;)V
-
-    return-void
 .end method
 
 .method public final goToLockedShade(Landroid/view/View;Z)V
@@ -1174,9 +562,225 @@
     invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShade$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
     :goto_1
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->goToLockedShadeInternal(Landroid/view/View;Lkotlin/jvm/functions/Function1;Ljava/lang/Runnable;)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->goToLockedShadeInternal(Landroid/view/View;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$cancelRunnable$1;)V
 
     :cond_2
+    return-void
+.end method
+
+.method public final goToLockedShadeInternal(Landroid/view/View;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$cancelRunnable$1;)V
+    .locals 6
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->centralSurfaces:Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move-object v0, v1
+
+    :goto_0
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->isShadeDisabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    if-nez p3, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p3}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$cancelRunnable$1;->run()V
+
+    :goto_1
+    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logShadeDisabledOnGoToLockedShade()V
+
+    return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->getCurrentUserId()I
+
+    move-result v0
+
+    instance-of v2, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_5
+
+    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0, v3, v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserExpanded(ZZ)V
+
+    :cond_3
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v0, :cond_4
+
+    iput-boolean v3, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mGroupExpansionChanging:Z
+
+    :cond_4
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getUserId()I
+
+    move-result v0
+
+    goto :goto_2
+
+    :cond_5
+    move-object p1, v1
+
+    :goto_2
+    iget-object v2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->getCurrentUserId()I
+
+    move-result v4
+
+    invoke-interface {v2, v4}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->userAllowsPrivateNotificationsInPublic(I)Z
+
+    move-result v2
+
+    const/4 v4, 0x0
+
+    if-eqz v2, :cond_6
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->shouldShowLockscreenNotifications()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+
+    invoke-interface {v2}, Lcom/android/systemui/classifier/FalsingCollector;->shouldEnforceBouncer()V
+
+    move v2, v4
+
+    goto :goto_3
+
+    :cond_6
+    move v2, v3
+
+    :goto_3
+    iget-object v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_7
+
+    move v2, v4
+
+    :cond_7
+    iget-object v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->lockScreenUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+
+    invoke-interface {v5, v0}, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;->isLockscreenPublicMode(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    if-eqz v2, :cond_a
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+
+    invoke-interface {v0, v3}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setLeaveOpenOnKeyguardHide(Z)V
+
+    if-eqz p2, :cond_8
+
+    new-instance v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$1;
+
+    invoke-direct {v0, p0, p2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lkotlin/jvm/functions/Function1;)V
+
+    goto :goto_4
+
+    :cond_8
+    move-object v0, v1
+
+    :goto_4
+    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$cancelHandler$1;
+
+    invoke-direct {p2, p0, p3}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$cancelHandler$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$cancelRunnable$1;)V
+
+    iget-object p3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+
+    invoke-virtual {p3}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logShowBouncerOnGoToLockedShade()V
+
+    iget-object p3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->centralSurfaces:Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    if-eqz p3, :cond_9
+
+    move-object v1, p3
+
+    :cond_9
+    invoke-interface {v1, v0, p2}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->showBouncerWithDimissAndCancelIfKeyguard(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$1;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$goToLockedShadeInternal$cancelHandler$1;)V
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    goto :goto_5
+
+    :cond_a
+    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+
+    if-eqz p2, :cond_b
+
+    move v4, v3
+
+    :cond_b
+    invoke-virtual {p1, v4}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logGoingToLockedShade(Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+
+    invoke-interface {p1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_c
+
+    iput-boolean v3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isWakingToShadeLocked:Z
+
+    :cond_c
+    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+
+    const/4 p3, 0x2
+
+    invoke-interface {p1, p3}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setState(I)V
+
+    const-wide/16 v0, 0x0
+
+    if-eqz p2, :cond_d
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object p0
+
+    invoke-interface {p2, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_5
+
+    :cond_d
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->performDefaultGoToFullShadeAnimation(J)V
+
+    :goto_5
     return-void
 .end method
 
@@ -1191,7 +795,7 @@
 
     const/4 v1, 0x1
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
@@ -1199,29 +803,35 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getQS()Lcom/android/systemui/plugins/qs/QS;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Lcom/android/systemui/plugins/qs/QS;->isFullyCollapsed()Z
-
-    move-result v0
-
     if-nez v0, :cond_1
 
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qS:Lcom/android/systemui/plugins/qs/QS;
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v1, 0x0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-interface {v0}, Lcom/android/systemui/plugins/qs/QS;->isFullyCollapsed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
+
+    if-eqz p0, :cond_1
+
+    goto :goto_1
 
     :cond_1
-    :goto_0
+    const/4 v1, 0x0
+
+    :cond_2
+    :goto_1
     return v1
 .end method
 
@@ -1241,421 +851,73 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    if-eqz p0, :cond_3
+    if-nez p0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isInLockedDownShade()Z
+    const/4 p0, 0x0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mDynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->isInLockedDownShade()Z
 
     move-result p0
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_3
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_2
 
     return v1
 
-    :cond_1
+    :cond_2
     instance-of p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_3
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isSensitive()Z
-
-    move-result p0
-
-    return p0
-
-    :cond_2
-    const/4 p0, 0x0
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSensitive:Z
 
     return p0
 
     :cond_3
-    const-string p0, "nsslController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
     const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method public final isFalsingCheckNeeded$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Z
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    invoke-interface {p0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
-
-    move-result p0
-
-    const/4 v0, 0x1
-
-    if-ne p0, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method public final isWakingToShadeLocked()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->isWakingToShadeLocked:Z
 
     return p0
 .end method
 
-.method public final onCrossedThreshold$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Z)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    if-eqz p0, :cond_0
-
-    const/4 v0, 0x1
-
-    xor-int/2addr p1, v0
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->setDimmed(ZZ)V
-
-    return-void
-
-    :cond_0
-    const-string p0, "nsslController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method public final onDragDownReset$frameworks__base__packages__SystemUI__android_common__SystemUI_core()V
-    .locals 10
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDragDownAborted()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    const/4 v1, 0x0
-
-    const-string v2, "nsslController"
-
-    if-eqz v0, :cond_2
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v0, v3, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->setDimmed(ZZ)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->resetScrollPosition()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->resetCheckSnoozeLeavebehind()V
-
-    const/4 v4, 0x0
-
-    const-wide/16 v5, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x6
-
-    const/4 v9, 0x0
-
-    move-object v3, p0
-
-    invoke-static/range {v3 .. v9}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setDragDownAmountAnimated$default(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;FJLkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
-
-    return-void
-
-    :cond_0
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_1
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_2
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-.end method
-
-.method public final onDragDownStarted$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+.method public final performDefaultGoToFullShadeAnimation(J)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDragDownStarted(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDefaultGoToFullShadeAnimation(J)V
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getNotificationPanelController()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
-    const/4 v0, 0x0
+    move-result-object v0
 
-    const-string v1, "nsslController"
+    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->animateToFullShade(J)V
 
-    if-eqz p1, :cond_3
+    const/4 v0, 0x1
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->cancelLongPress()V
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->forceApplyAmount:Z
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_2
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setDragDownAmount$frameworks__base__packages__SystemUI__android_common__SystemUI_core(F)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->checkSnoozeLeavebehind()V
+    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fullTransitionDistanceByTap:I
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAnimator:Landroid/animation/ValueAnimator;
+    int-to-float v0, v0
 
-    if-nez p1, :cond_0
+    new-instance v1, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;
 
-    goto :goto_0
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
 
-    :cond_0
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->isRunning()Z
+    invoke-virtual {p0, v0, p1, p2, v1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setDragDownAmountAnimated(FJLkotlin/jvm/functions/Function0;)V
 
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logAnimationCancelled(Z)V
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->cancel()V
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_3
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method public final onDraggedDown$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Landroid/view/View;I)V
-    .locals 7
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->canDragDown$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    new-instance v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$cancelRunnable$1;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$cancelRunnable$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    if-eqz v1, :cond_2
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isInLockedDownShade()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDraggedDownLockDownShade(Landroid/view/View;)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    const/4 p2, 0x1
-
-    invoke-interface {p1, p2}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setLeaveOpenOnKeyguardHide(Z)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getStatusbar()Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    move-result-object p1
-
-    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$1;
-
-    invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
-
-    const/4 p0, 0x0
-
-    invoke-virtual {p1, p2, v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->dismissKeyguardThenExecute(Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;Ljava/lang/Runnable;Z)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {v1, p1, p2}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDraggedDown(Landroid/view/View;I)V
-
-    iget-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->ambientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
-
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isDozing()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_1
-
-    if-eqz p1, :cond_4
-
-    :cond_1
-    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$animationHandler$1;
-
-    invoke-direct {p2, p1, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$onDraggedDown$animationHandler$1;-><init>(Landroid/view/View;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
-
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->goToLockedShadeInternal(Landroid/view/View;Lkotlin/jvm/functions/Function1;Ljava/lang/Runnable;)V
-
-    goto :goto_0
-
-    :cond_2
-    const-string p0, "nsslController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-
-    :cond_3
-    iget-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logUnSuccessfulDragDown(Landroid/view/View;)V
-
-    const/4 v1, 0x0
-
-    const-wide/16 v2, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x6
-
-    const/4 v6, 0x0
-
-    move-object v0, p0
-
-    invoke-static/range {v0 .. v6}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setDragDownAmountAnimated$default(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;FJLkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
-
-    :cond_4
-    :goto_0
-    return-void
-.end method
-
-.method public final onHideKeyguard(JI)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logOnHideKeyguard()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->animationHandlerOnKeyguardDismiss:Lkotlin/jvm/functions/Function1;
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p1
-
-    invoke-interface {v0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
-
-    iput-object v2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->animationHandlerOnKeyguardDismiss:Lkotlin/jvm/functions/Function1;
-
-    goto :goto_0
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nextHideKeyguardNeedsNoAnimation:Z
-
-    if-eqz v0, :cond_1
-
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nextHideKeyguardNeedsNoAnimation:Z
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x2
-
-    if-eq p3, v0, :cond_2
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->performDefaultGoToFullShadeAnimation(J)V
-
-    :cond_2
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    if-nez p1, :cond_3
-
-    goto :goto_1
-
-    :cond_3
-    invoke-virtual {p1, v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setUserLocked(Z)V
-
-    iput-object v2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->draggedDownEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    :goto_1
-    return-void
-.end method
-
-.method public final onPulseExpansionStarted()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logPulseExpansionStarted()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeightAnimator:Landroid/animation/ValueAnimator;
-
-    if-nez v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logAnimationCancelled(Z)V
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
-
-    :cond_1
-    :goto_0
     return-void
 .end method
 
@@ -1666,148 +928,411 @@
 
     cmpg-float v0, v0, p1
 
-    const/4 v1, 0x1
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
     if-nez v0, :cond_0
 
-    move v0, v1
+    move v0, v2
 
     goto :goto_0
 
     :cond_0
-    move v0, v2
+    move v0, v1
 
     :goto_0
     if-eqz v0, :cond_1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->forceApplyAmount:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_13
 
     :cond_1
     iput p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    const/4 v0, 0x0
+    const/4 v3, 0x0
 
-    const-string v3, "nsslController"
+    if-nez v0, :cond_2
 
-    if-eqz p1, :cond_7
+    move-object v0, v3
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isInLockedDownShade()Z
+    :cond_2
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mDynamicPrivacyController:Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;
 
-    move-result p1
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/DynamicPrivacyController;->isInLockedDownShade()Z
+
+    move-result v0
 
     const/4 v4, 0x0
 
-    if-eqz p1, :cond_3
+    if-eqz v0, :cond_4
 
-    iget p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
 
-    cmpg-float p1, p1, v4
+    cmpg-float v0, v0, v4
 
-    if-nez p1, :cond_2
+    if-nez v0, :cond_3
+
+    move v0, v2
 
     goto :goto_1
 
-    :cond_2
-    move v1, v2
+    :cond_3
+    move v0, v1
 
     :goto_1
-    if-nez v1, :cond_3
+    if-nez v0, :cond_4
 
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->forceApplyAmount:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->forceApplyAmount:Z
 
-    if-eqz p1, :cond_5
+    if-eqz v0, :cond_13
 
-    :cond_3
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    :cond_4
+    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
 
-    if-eqz p1, :cond_6
+    iget v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->notificationShelfTransitionDistance:I
+
+    int-to-float v5, v5
+
+    div-float/2addr v0, v5
+
+    invoke-static {v0}, Landroid/util/MathUtils;->saturate(F)F
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fractionToShade:F
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    if-nez v5, :cond_5
+
+    move-object v5, v3
+
+    :cond_5
+    iget-object v5, v5, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+
+    iget-object v6, v5, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+
+    iput v0, v6, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mFractionToShade:F
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->updateContentHeight()V
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->requestChildrenUpdate()V
 
     iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->setTransitionToFullShadeAmount(F)V
+    iget v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qsTransitionDistance:I
+
+    int-to-float v5, v5
+
+    div-float/2addr v0, v5
+
+    invoke-static {v0}, Landroid/util/MathUtils;->saturate(F)F
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qSDragProgress:F
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qS:Lcom/android/systemui/plugins/qs/QS;
+
+    if-eqz v5, :cond_6
+
+    move-object v3, v5
+
+    :cond_6
+    iget v5, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+
+    invoke-interface {v3, v5, v0}, Lcom/android/systemui/plugins/qs/QS;->setTransitionToFullShadeAmount(FF)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getNotificationPanelController()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
-    move-result-object p1
+    move-result-object v0
 
-    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+    iget v3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
 
     const-wide/16 v5, 0x0
 
-    invoke-virtual {p1, v0, v2, v5, v6}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->setTransitionToFullShadeAmount(FZJ)V
+    invoke-virtual {v0, v3, v1, v5, v6}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->setTransitionToFullShadeAmount(FZJ)V
 
-    iget p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->mediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
 
-    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimTransitionDistance:I
+    iget v3, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
 
-    int-to-float v0, v0
+    iget v5, v0, Lcom/android/systemui/media/MediaHierarchyManager;->distanceForFullShadeTransition:I
 
-    div-float/2addr p1, v0
+    int-to-float v5, v5
 
-    invoke-static {p1}, Landroid/util/MathUtils;->saturate(F)F
+    div-float/2addr v3, v5
 
-    move-result p1
+    invoke-static {v3}, Landroid/util/MathUtils;->saturate(F)F
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getQS()Lcom/android/systemui/plugins/qs/QS;
+    move-result v3
 
-    move-result-object v0
+    iget v5, v0, Lcom/android/systemui/media/MediaHierarchyManager;->fullShadeTransitionProgress:F
 
-    iget v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+    cmpg-float v5, v5, v3
 
-    invoke-interface {v0, v1, p1}, Lcom/android/systemui/plugins/qs/QS;->setTransitionToFullShadeAmount(FF)V
+    if-nez v5, :cond_7
 
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
-
-    if-eqz p1, :cond_4
+    move v5, v2
 
     goto :goto_2
 
-    :cond_4
-    iget v4, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+    :cond_7
+    move v5, v1
 
     :goto_2
-    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->mediaHierarchyManager:Lcom/android/systemui/media/MediaHierarchyManager;
+    if-eqz v5, :cond_8
 
-    invoke-virtual {p1, v4}, Lcom/android/systemui/media/MediaHierarchyManager;->setTransitionToFullShadeAmount(F)V
+    goto :goto_5
 
-    iget p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+    :cond_8
+    iput v3, v0, Lcom/android/systemui/media/MediaHierarchyManager;->fullShadeTransitionProgress:F
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->transitionToShadeAmountCommon(F)V
+    iget-object v5, v0, Lcom/android/systemui/media/MediaHierarchyManager;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    :cond_5
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
+
+    move-result v5
+
+    if-nez v5, :cond_d
+
+    iget v5, v0, Lcom/android/systemui/media/MediaHierarchyManager;->statusbarState:I
+
+    if-eq v5, v2, :cond_9
+
+    goto :goto_5
+
+    :cond_9
+    invoke-virtual {v0}, Lcom/android/systemui/media/MediaHierarchyManager;->isCurrentlyFading()Z
+
+    move-result v5
+
+    const/4 v6, 0x2
+
+    invoke-static {v0, v5, v6}, Lcom/android/systemui/media/MediaHierarchyManager;->updateDesiredLocation$default(Lcom/android/systemui/media/MediaHierarchyManager;ZI)V
+
+    cmpl-float v3, v3, v4
+
+    if-ltz v3, :cond_d
+
+    invoke-virtual {v0}, Lcom/android/systemui/media/MediaHierarchyManager;->updateTargetState()V
+
+    iget v3, v0, Lcom/android/systemui/media/MediaHierarchyManager;->fullShadeTransitionProgress:F
+
+    const/high16 v4, 0x3f000000    # 0.5f
+
+    cmpg-float v5, v3, v4
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    if-gtz v5, :cond_a
+
+    div-float/2addr v3, v4
+
+    sub-float/2addr v6, v3
+
+    :cond_a
+    iget v3, v0, Lcom/android/systemui/media/MediaHierarchyManager;->carouselAlpha:F
+
+    cmpg-float v3, v3, v6
+
+    if-nez v3, :cond_b
+
+    move v3, v2
+
+    goto :goto_3
+
+    :cond_b
+    move v3, v1
+
+    :goto_3
+    if-eqz v3, :cond_c
+
+    goto :goto_4
+
+    :cond_c
+    iput v6, v0, Lcom/android/systemui/media/MediaHierarchyManager;->carouselAlpha:F
+
+    iget-object v3, v0, Lcom/android/systemui/media/MediaHierarchyManager;->mediaCarouselController:Lcom/android/systemui/media/MediaCarouselController;
+
+    iget-object v3, v3, Lcom/android/systemui/media/MediaCarouselController;->mediaFrame:Landroid/view/ViewGroup;
+
+    invoke-static {v3, v6, v1}, Landroidx/leanback/R$style;->fadeIn(Landroid/view/View;FZ)V
+
+    :goto_4
+    invoke-virtual {v0}, Lcom/android/systemui/media/MediaHierarchyManager;->applyTargetStateIfNotAnimating()V
+
+    :cond_d
+    :goto_5
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->scrimTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeScrimTransitionController;
+
+    iget v3, v0, Lcom/android/systemui/statusbar/AbstractLockscreenShadeTransitionController;->dragDownAmount:F
+
+    cmpg-float v3, p1, v3
+
+    if-nez v3, :cond_e
+
+    move v3, v2
+
+    goto :goto_6
+
+    :cond_e
+    move v3, v1
+
+    :goto_6
+    if-eqz v3, :cond_f
+
+    goto :goto_7
+
+    :cond_f
+    iput p1, v0, Lcom/android/systemui/statusbar/AbstractLockscreenShadeTransitionController;->dragDownAmount:F
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/LockscreenShadeScrimTransitionController;->onDragDownAmountChanged(F)V
+
+    :goto_7
+    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->transitionToShadeAmountCommon(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardTransitionController$delegate:Lkotlin/Lazy;
+
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/LockscreenShadeKeyguardTransitionController;
+
+    iget v3, v0, Lcom/android/systemui/statusbar/AbstractLockscreenShadeTransitionController;->dragDownAmount:F
+
+    cmpg-float v3, p1, v3
+
+    if-nez v3, :cond_10
+
+    move v1, v2
+
+    :cond_10
+    if-eqz v1, :cond_11
+
+    goto :goto_8
+
+    :cond_11
+    iput p1, v0, Lcom/android/systemui/statusbar/AbstractLockscreenShadeTransitionController;->dragDownAmount:F
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/LockscreenShadeKeyguardTransitionController;->onDragDownAmountChanged(F)V
+
+    :goto_8
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
+
+    if-eqz p1, :cond_12
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->splitShadeOverScroller$delegate:Lkotlin/Lazy;
+
+    invoke-interface {p1}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/statusbar/SplitShadeLockScreenOverScroller;
+
+    goto :goto_9
+
+    :cond_12
+    iget-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->phoneShadeOverScroller$delegate:Lkotlin/Lazy;
+
+    invoke-interface {p1}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/statusbar/SingleShadeLockScreenOverScroller;
+
+    :goto_9
+    iget p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+
+    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/LockScreenShadeOverScroller;->setExpansionDragDownAmount(F)V
+
+    :cond_13
     return-void
-
-    :cond_6
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_7
-    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v0
 .end method
 
-.method public final setNotificationPanelController(Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;)V
-    .locals 1
+.method public final setDragDownAmountAnimated(FJLkotlin/jvm/functions/Function0;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(FJ",
+            "Lkotlin/jvm/functions/Function0<",
+            "Lkotlin/Unit;",
+            ">;)V"
+        }
+    .end annotation
 
-    const-string v0, "<set-?>"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDragDownAnimation(F)V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->notificationPanelController:Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
+    const/4 v0, 0x2
+
+    new-array v0, v0, [F
+
+    iget v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAmount:F
+
+    const/4 v2, 0x0
+
+    aput v1, v0, v2
+
+    const/4 v1, 0x1
+
+    aput p1, v0, v1
+
+    invoke-static {v0}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+
+    move-result-object p1
+
+    sget-object v0, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    const-wide/16 v0, 0x177
+
+    invoke-virtual {p1, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    new-instance v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$1;-><init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
+
+    invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    const-wide/16 v0, 0x0
+
+    cmp-long v0, p2, v0
+
+    if-lez v0, :cond_0
+
+    invoke-virtual {p1, p2, p3}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+
+    :cond_0
+    if-eqz p4, :cond_1
+
+    new-instance p2, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$2;
+
+    invoke-direct {p2, p4}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$setDragDownAmountAnimated$2;-><init>(Lkotlin/jvm/functions/Function0;)V
+
+    invoke-virtual {p1, p2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->dragDownAnimator:Landroid/animation/ValueAnimator;
 
     return-void
 .end method
 
 .method public final setPulseHeight(FZ)V
-    .locals 2
+    .locals 6
+
+    const/4 v0, 0x1
 
     if-eqz p2, :cond_0
 
@@ -1815,13 +1340,11 @@
 
     new-array p2, p2, [F
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    iget v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeight:F
+    iget v2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeight:F
 
-    aput v1, p2, v0
-
-    const/4 v0, 0x1
+    aput v2, p2, v1
 
     aput p1, p2, v0
 
@@ -1829,7 +1352,7 @@
 
     move-result-object p1
 
-    sget-object p2, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    sget-object p2, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
 
     invoke-virtual {p1, p2}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -1854,17 +1377,64 @@
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    if-eqz p2, :cond_2
+    if-nez p2, :cond_1
 
-    invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->setPulseHeight(F)F
+    const/4 p2, 0x0
+
+    :cond_1
+    iget-object p2, p2, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+
+    invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->setPulseHeight(F)F
 
     move-result p2
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getNotificationPanelController()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0, p2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->setOverStrechAmount(F)V
+    iget-object v2, v1, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v2}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    div-float/2addr p2, v2
+
+    sget-object v2, Lcom/android/systemui/animation/Interpolators;->EMPHASIZED:Landroid/view/animation/PathInterpolator;
+
+    const/high16 v2, -0x3f800000    # -4.0f
+
+    mul-float/2addr p2, v2
+
+    float-to-double v2, p2
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->exp(D)D
+
+    move-result-wide v2
+
+    const-wide/high16 v4, 0x3ff0000000000000L    # 1.0
+
+    sub-double/2addr v4, v2
+
+    double-to-float p2, v4
+
+    const/4 v2, 0x0
+
+    invoke-static {v2, p2}, Landroid/util/MathUtils;->max(FF)F
+
+    move-result p2
+
+    iget v3, v1, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mMaxOverscrollAmountForPulse:I
+
+    int-to-float v3, v3
+
+    mul-float/2addr p2, v3
+
+    iput p2, v1, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->mOverStretchAmount:F
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->positionClockAndNotifications(Z)V
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->keyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
@@ -1872,93 +1442,249 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     goto :goto_0
 
-    :cond_1
-    const/4 p1, 0x0
+    :cond_2
+    move p1, v2
 
     :goto_0
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->transitionToShadeAmountCommon(F)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->transitionToShadeAmountCommon(F)V
 
     :goto_1
     return-void
+.end method
+
+.method public final transitionToShadeAmountCommon(F)V
+    .locals 6
+
+    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->depthControllerTransitionDistance:I
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->depthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+
+    const/4 v4, 0x0
+
+    iget v5, v0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->transitionToFullShadeProgress:F
+
+    cmpg-float v5, v5, v4
+
+    if-nez v5, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v2
+
+    :goto_0
+    if-eqz v1, :cond_1
+
+    goto :goto_2
+
+    :cond_1
+    iput v4, v0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->transitionToFullShadeProgress:F
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate(Landroid/view/View;)V
+
+    goto :goto_2
 
     :cond_2
-    const-string p0, "nsslController"
+    int-to-float v0, v0
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    div-float v0, p1, v0
 
-    const/4 p0, 0x0
+    invoke-static {v0}, Landroid/util/MathUtils;->saturate(F)F
 
-    throw p0
-.end method
+    move-result v0
 
-.method public final setQS(Lcom/android/systemui/plugins/qs/QS;)V
-    .locals 1
+    iget-object v4, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->depthController:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    const-string v0, "<set-?>"
+    iget v5, v4, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->transitionToFullShadeProgress:F
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    cmpg-float v5, v5, v0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qS:Lcom/android/systemui/plugins/qs/QS;
+    if-nez v5, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    move v1, v2
+
+    :goto_1
+    if-eqz v1, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    iput v0, v4, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->transitionToFullShadeProgress:F
+
+    invoke-virtual {v4, v3}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate(Landroid/view/View;)V
+
+    :goto_2
+    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->udfpsTransitionDistance:I
+
+    int-to-float v0, v0
+
+    div-float v0, p1, v0
+
+    invoke-static {v0}, Landroid/util/MathUtils;->saturate(F)F
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->udfpsKeyguardViewController:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+
+    if-nez v1, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    iput v0, v1, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mTransitionToFullShadeProgress:F
+
+    invoke-virtual {v1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->updateAlpha()V
+
+    :goto_3
+    iget v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarTransitionDistance:I
+
+    int-to-float v0, v0
+
+    div-float/2addr p1, v0
+
+    invoke-static {p1}, Landroid/util/MathUtils;->saturate(F)F
+
+    move-result p1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->centralSurfaces:Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    if-eqz p0, :cond_6
+
+    move-object v3, p0
+
+    :cond_6
+    invoke-interface {v3, p1}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->setTransitionToFullShadeProgress(F)V
 
     return-void
 .end method
 
-.method public final setStackScroller(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)V
-    .locals 3
+.method public final updateResources()V
+    .locals 2
 
-    const-string v0, "nsslController"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->nsslController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->touchHelper:Lcom/android/systemui/statusbar/DragDownHelper;
+    const v1, 0x7f0703bf
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->getView()Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result-object v1
+    move-result v0
 
-    const-string v2, "nsslController.view"
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fullTransitionDistance:I
 
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/DragDownHelper;->setHost(Landroid/view/View;)V
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->touchHelper:Lcom/android/systemui/statusbar/DragDownHelper;
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->getExpandHelperCallback()Lcom/android/systemui/ExpandHelper$Callback;
+    const v1, 0x7f0703cb
 
-    move-result-object p1
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    const-string v0, "nsslController.expandHelperCallback"
+    move-result v0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fullTransitionDistanceByTap:I
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/DragDownHelper;->setExpandCallback(Lcom/android/systemui/ExpandHelper$Callback;)V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
 
-    return-void
-.end method
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-.method public final setStatusbar(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 1
+    move-result-object v0
 
-    const-string v0, "<set-?>"
+    const v1, 0x7f0703c4
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusbar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    move-result v0
 
-    return-void
-.end method
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->notificationShelfTransitionDistance:I
 
-.method public final setUdfpsKeyguardViewController(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
-    .locals 0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->udfpsKeyguardViewController:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0703c8
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->qsTransitionDistance:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0703be
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->depthControllerTransitionDistance:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0703cc
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->udfpsTransitionDistance:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0703ca
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->statusBarTransitionDistance:I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->context:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/util/LargeScreenUtils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->useSplitShade:Z
 
     return-void
 .end method

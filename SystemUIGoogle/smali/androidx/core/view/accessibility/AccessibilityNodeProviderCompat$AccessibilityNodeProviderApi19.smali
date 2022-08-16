@@ -1,4 +1,4 @@
-.class Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19;
+.class public Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi19;
 .super Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16;
 .source "AccessibilityNodeProviderCompat.java"
 
@@ -9,22 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AccessibilityNodeProviderApi19"
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;)V
+.method public constructor <init>(Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "compat"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16;-><init>(Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;)V
 
@@ -33,16 +25,8 @@
 
 
 # virtual methods
-.method public findFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
+.method public final findFocus(I)Landroid/view/accessibility/AccessibilityNodeInfo;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "focus"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat$AccessibilityNodeProviderApi16;->mCompat:Landroidx/core/view/accessibility/AccessibilityNodeProviderCompat;
 
@@ -57,9 +41,7 @@
     return-object p0
 
     :cond_0
-    invoke-virtual {p0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->unwrap()Landroid/view/accessibility/AccessibilityNodeInfo;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->mInfo:Landroid/view/accessibility/AccessibilityNodeInfo;
 
     return-object p0
 .end method

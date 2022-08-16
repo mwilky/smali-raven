@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final dozeHostProvider:Ljavax/inject/Provider;
+.field public final dozeHostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final dozeMachineServiceProvider:Ljavax/inject/Provider;
+.field public final dozeMachineServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final dozeParametersProvider:Ljavax/inject/Provider;
+.field public final dozeParametersProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -50,22 +50,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ldagger/internal/InstanceFactory;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/doze/DozeMachine$Service;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/doze/DozeHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -78,51 +64,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/dagger/DozeModule_ProvidesWrappedServiceFactory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/doze/DozeMachine$Service;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/doze/DozeHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            ">;)",
-            "Lcom/android/systemui/doze/dagger/DozeModule_ProvidesWrappedServiceFactory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/doze/dagger/DozeModule_ProvidesWrappedServiceFactory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/doze/dagger/DozeModule_ProvidesWrappedServiceFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static providesWrappedService(Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/doze/DozeHost;Lcom/android/systemui/statusbar/phone/DozeParameters;)Lcom/android/systemui/doze/DozeMachine$Service;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/doze/dagger/DozeModule;->providesWrappedService(Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/doze/DozeHost;Lcom/android/systemui/statusbar/phone/DozeParameters;)Lcom/android/systemui/doze/DozeMachine$Service;
-
-    move-result-object p0
-
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/doze/DozeMachine$Service;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/doze/DozeMachine$Service;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/doze/dagger/DozeModule_ProvidesWrappedServiceFactory;->dozeMachineServiceProvider:Ljavax/inject/Provider;
 
@@ -148,19 +93,53 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/doze/dagger/DozeModule_ProvidesWrappedServiceFactory;->providesWrappedService(Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/doze/DozeHost;Lcom/android/systemui/statusbar/phone/DozeParameters;)Lcom/android/systemui/doze/DozeMachine$Service;
+    new-instance v2, Lcom/android/systemui/doze/DozeBrightnessHostForwarder;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1}, Lcom/android/systemui/doze/DozeBrightnessHostForwarder;-><init>(Lcom/android/systemui/doze/DozeMachine$Service;Lcom/android/systemui/doze/DozeHost;)V
 
-    return-object p0
-.end method
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mResources:Landroid/content/res/Resources;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    const v1, 0x7f050048
 
-    invoke-virtual {p0}, Lcom/android/systemui/doze/dagger/DozeModule_ProvidesWrappedServiceFactory;->get()Lcom/android/systemui/doze/DozeMachine$Service;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result-object p0
+    move-result v0
 
-    return-object p0
+    const-string v1, "doze.display.supported"
+
+    invoke-static {v1, v0}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/doze/DozeScreenStatePreventingAdapter;
+
+    invoke-direct {v0, v2}, Lcom/android/systemui/doze/DozeScreenStatePreventingAdapter;-><init>(Lcom/android/systemui/doze/DozeMachine$Service;)V
+
+    move-object v2, v0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mResources:Landroid/content/res/Resources;
+
+    const v0, 0x7f05004f
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result p0
+
+    xor-int/lit8 p0, p0, 0x1
+
+    if-eqz p0, :cond_1
+
+    new-instance p0, Lcom/android/systemui/doze/DozeSuspendScreenStatePreventingAdapter;
+
+    invoke-direct {p0, v2}, Lcom/android/systemui/doze/DozeSuspendScreenStatePreventingAdapter;-><init>(Lcom/android/systemui/doze/DozeMachine$Service;)V
+
+    move-object v2, p0
+
+    :cond_1
+    return-object v2
 .end method

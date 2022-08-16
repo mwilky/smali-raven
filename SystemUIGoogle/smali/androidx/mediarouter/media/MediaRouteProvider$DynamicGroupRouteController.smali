@@ -22,23 +22,15 @@
 
 
 # instance fields
-.field mExecutor:Ljava/util/concurrent/Executor;
+.field public mExecutor:Ljava/util/concurrent/Executor;
 
-.field mListener:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;
+.field public mListener:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
-.field mPendingGroupRoute:Landroidx/mediarouter/media/MediaRouteDescriptor;
+.field public mPendingGroupRoute:Landroidx/mediarouter/media/MediaRouteDescriptor;
 
-.field mPendingRoutes:Ljava/util/Collection;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Collection<",
-            "Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mPendingRoutes:Ljava/util/ArrayList;
 
 
 # direct methods
@@ -74,36 +66,10 @@
     return-object p0
 .end method
 
-.method public final notifyDynamicRoutesChanged(Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/Collection;)V
+.method public final notifyDynamicRoutesChanged(Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/ArrayList;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "groupRoute",
-            "dynamicRoutes"
-        }
-    .end annotation
 
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/mediarouter/media/MediaRouteDescriptor;",
-            "Ljava/util/Collection<",
-            "Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor;",
-            ">;)V"
-        }
-    .end annotation
-
-    const-string v0, "groupRoute must not be null"
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    const-string v0, "dynamicRoutes must not be null"
-
-    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_1
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mLock:Ljava/lang/Object;
 
@@ -118,7 +84,7 @@
 
     new-instance v3, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$3;
 
-    invoke-direct {v3, p0, v2, p1, p2}, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$3;-><init>(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/Collection;)V
+    invoke-direct {v3, p0, v2, p1, p2}, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$3;-><init>(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/ArrayList;)V
 
     invoke-interface {v1, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -131,7 +97,7 @@
 
     invoke-direct {p1, p2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mPendingRoutes:Ljava/util/Collection;
+    iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mPendingRoutes:Ljava/util/ArrayList;
 
     :goto_0
     monitor-exit v0
@@ -146,40 +112,24 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw p0
+
+    :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "groupRoute must not be null"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 .method public abstract onAddMemberRoute(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeId"
-        }
-    .end annotation
 .end method
 
 .method public abstract onRemoveMemberRoute(Ljava/lang/String;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeId"
-        }
-    .end annotation
 .end method
 
 .method public abstract onUpdateMemberRoutes(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeIds"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -188,91 +138,4 @@
             ">;)V"
         }
     .end annotation
-.end method
-
-.method setOnDynamicRoutesChangedListener(Ljava/util/concurrent/Executor;Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "executor",
-            "listener"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    if-eqz p1, :cond_2
-
-    if-eqz p2, :cond_1
-
-    :try_start_0
-    iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mExecutor:Ljava/util/concurrent/Executor;
-
-    iput-object p2, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mListener:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;
-
-    iget-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mPendingRoutes:Ljava/util/Collection;
-
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1}, Ljava/util/Collection;->isEmpty()Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    iget-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mPendingGroupRoute:Landroidx/mediarouter/media/MediaRouteDescriptor;
-
-    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mPendingRoutes:Ljava/util/Collection;
-
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mPendingGroupRoute:Landroidx/mediarouter/media/MediaRouteDescriptor;
-
-    iput-object v2, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mPendingRoutes:Ljava/util/Collection;
-
-    iget-object v2, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->mExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v3, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$1;
-
-    invoke-direct {v3, p0, p2, p1, v1}, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$1;-><init>(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/Collection;)V
-
-    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    :cond_0
-    monitor-exit v0
-
-    return-void
-
-    :cond_1
-    new-instance p0, Ljava/lang/NullPointerException;
-
-    const-string p1, "Listener shouldn\'t be null"
-
-    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :cond_2
-    new-instance p0, Ljava/lang/NullPointerException;
-
-    const-string p1, "Executor shouldn\'t be null"
-
-    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :catchall_0
-    move-exception p0
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p0
 .end method

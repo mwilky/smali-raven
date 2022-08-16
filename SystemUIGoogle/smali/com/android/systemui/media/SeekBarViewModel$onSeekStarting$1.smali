@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/SeekBarViewModel$onSeekStarting$1;
+.class public final Lcom/android/systemui/media/SeekBarViewModel$onSeekStarting$1;
 .super Ljava/lang/Object;
 .source "SeekBarViewModel.kt"
 
@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/SeekBarViewModel;->onSeekStarting()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
+.field public final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
+.method public constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel$onSeekStarting$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
@@ -47,7 +36,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/media/SeekBarViewModel;->access$setFalseSeek$p(Lcom/android/systemui/media/SeekBarViewModel;Z)V
+    iput-boolean v0, p0, Lcom/android/systemui/media/SeekBarViewModel;->isFalseSeek:Z
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Landroidx/preference/PreferenceGroupAdapter$1;
+.class public final Landroidx/preference/PreferenceGroupAdapter$1;
 .super Ljava/lang/Object;
 .source "PreferenceGroupAdapter.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/preference/PreferenceGroupAdapter;
+.field public final synthetic this$0:Landroidx/preference/PreferenceGroupAdapter;
 
 
 # direct methods
-.method constructor <init>(Landroidx/preference/PreferenceGroupAdapter;)V
+.method public constructor <init>(Landroidx/preference/PreferenceGroupAdapter;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/preference/PreferenceGroupAdapter$1;->this$0:Landroidx/preference/PreferenceGroupAdapter;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Landroidx/preference/PreferenceGroupAdapter$1;->this$0:Landroidx/preference/PreferenceGroupAdapter;

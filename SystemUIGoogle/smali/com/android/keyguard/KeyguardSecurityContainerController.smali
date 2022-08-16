@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/KeyguardSecurityContainerController;
+.class public final Lcom/android/keyguard/KeyguardSecurityContainerController;
 .super Lcom/android/systemui/util/ViewController;
 .source "KeyguardSecurityContainerController.java"
 
@@ -24,60 +24,104 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mAdminSecondaryLockScreenController:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+.field public final mAdminSecondaryLockScreenController:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-.field private final mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+.field public final mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-.field private mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+.field public mConfigurationListener:Lcom/android/keyguard/KeyguardSecurityContainerController$4;
 
-.field private mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+.field public mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-.field private final mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+.field public final mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
-.field final mGlobalTouchListener:Lcom/android/systemui/Gefingerpoken;
+.field public final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+.field public final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+
+.field public final mGlobalSettings:Lcom/android/systemui/util/settings/GlobalSettings;
+
+.field public final mGlobalTouchListener:Lcom/android/systemui/Gefingerpoken;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+.field public mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$2;
 
-.field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.field public final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private mLastOrientation:I
+.field public final mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$5;
 
-.field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+.field public mLastOrientation:I
 
-.field private final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+.field public final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-.field private final mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+.field public final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-.field private final mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
+.field public final mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
 
-.field private final mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+.field public final mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
 
-.field private mSwipeListener:Lcom/android/keyguard/KeyguardSecurityContainer$SwipeListener;
+.field public final mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
 
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final mSessionTracker:Lcom/android/systemui/log/SessionTracker;
 
-.field private final mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public mSwipeListener:Lcom/android/keyguard/KeyguardSecurityContainerController$3;
+
+.field public final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+.field public final mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+.field public mUserSwitchCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;
+
+.field public final mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$fVkc3_XpDNpr2tdjWUZ98k5DC44(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-    .locals 0
+.method public static -$$Nest$mreloadColors(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
+    .locals 2
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->lambda$showPrimarySecurityScreen$0()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
 
-    move-result-object p0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->mChildren:Ljava/util/ArrayList;
 
-    return-object p0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/keyguard/KeyguardInputViewController;
+
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardInputViewController;->reloadColors()V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/keyguard/KeyguardSecurityContainer;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
+
+    invoke-interface {p0}, Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;->reloadColors()V
+
+    return-void
 .end method
 
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
@@ -87,316 +131,355 @@
     return-void
 .end method
 
-.method private constructor <init>(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;)V
-    .locals 0
+.method public constructor <init>(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardHostViewController$2;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/systemui/log/SessionTracker;)V
+    .locals 7
+
+    move-object v0, p0
+
+    move-object v1, p2
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
 
-    const/4 p1, 0x0
+    const/4 v2, 0x0
 
-    iput p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLastOrientation:I
+    iput v2, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLastOrientation:I
 
-    sget-object p1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Invalid:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sget-object v2, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Invalid:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    iput-object v2, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    new-instance p1, Lcom/android/keyguard/KeyguardSecurityContainerController$1;
+    new-instance v2, Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;
 
-    invoke-direct {p1, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$1;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mGlobalTouchListener:Lcom/android/systemui/Gefingerpoken;
+    iput-object v2, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUserSwitchCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;
 
-    new-instance p1, Lcom/android/keyguard/KeyguardSecurityContainerController$2;
+    new-instance v2, Lcom/android/keyguard/KeyguardSecurityContainerController$1;
 
-    invoke-direct {p1, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$2;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$1;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+    iput-object v2, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mGlobalTouchListener:Lcom/android/systemui/Gefingerpoken;
 
-    new-instance p1, Lcom/android/keyguard/KeyguardSecurityContainerController$3;
+    new-instance v2, Lcom/android/keyguard/KeyguardSecurityContainerController$2;
 
-    invoke-direct {p1, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$3;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
+    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$2;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSwipeListener:Lcom/android/keyguard/KeyguardSecurityContainer$SwipeListener;
+    iput-object v2, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$2;
 
-    new-instance p1, Lcom/android/keyguard/KeyguardSecurityContainerController$4;
+    new-instance v3, Lcom/android/keyguard/KeyguardSecurityContainerController$3;
 
-    invoke-direct {p1, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$4;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
+    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$3;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSwipeListener:Lcom/android/keyguard/KeyguardSecurityContainerController$3;
 
-    iput-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    new-instance v3, Lcom/android/keyguard/KeyguardSecurityContainerController$4;
 
-    iput-object p4, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$4;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
 
-    iput-object p5, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationListener:Lcom/android/keyguard/KeyguardSecurityContainerController$4;
 
-    iput-object p6, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+    new-instance v3, Lcom/android/keyguard/KeyguardSecurityContainerController$5;
 
-    iput-object p7, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    invoke-direct {v3, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$5;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
 
-    iput-object p8, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$5;
 
-    iput-object p9, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+    move-object v3, p3
 
-    iput-object p10, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+    move-object v3, p4
 
-    invoke-virtual {p2, p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->create(Lcom/android/keyguard/KeyguardSecurityCallback;)Lcom/android/keyguard/AdminSecondaryLockScreenController;
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object p1
+    move-object v3, p5
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mAdminSecondaryLockScreenController:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
 
-    iput-object p11, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    move-object v3, p6
+
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+
+    move-object v3, p7
+
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    move-object v3, p8
+
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    move-object/from16 v3, p9
+
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
+
+    move-object/from16 v3, p10
+
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+
+    new-instance v3, Lcom/android/keyguard/AdminSecondaryLockScreenController;
+
+    iget-object v4, v1, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mContext:Landroid/content/Context;
+
+    iget-object v5, v1, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mParent:Lcom/android/keyguard/KeyguardSecurityContainer;
+
+    iget-object v6, v1, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iget-object v1, v1, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mHandler:Landroid/os/Handler;
+
+    move-object p1, v3
+
+    move-object p2, v4
+
+    move-object p3, v5
+
+    move-object p4, v6
+
+    move-object p5, v2
+
+    move-object p6, v1
+
+    invoke-direct/range {p1 .. p6}, Lcom/android/keyguard/AdminSecondaryLockScreenController;-><init>(Landroid/content/Context;Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityContainerController$2;Landroid/os/Handler;)V
+
+    iput-object v3, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mAdminSecondaryLockScreenController:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+
+    move-object/from16 v1, p11
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-virtual {p1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object p1
+    move-result-object v1
 
-    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
+    iget v1, v1, Landroid/content/res/Configuration;->orientation:I
 
-    iput p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLastOrientation:I
+    iput v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLastOrientation:I
 
-    iput-object p12, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+    move-object/from16 v1, p12
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+
+    move-object/from16 v1, p13
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    move-object/from16 v1, p14
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    move-object/from16 v1, p15
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+
+    move-object/from16 v1, p16
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mGlobalSettings:Lcom/android/systemui/util/settings/GlobalSettings;
+
+    move-object/from16 v1, p17
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSessionTracker:Lcom/android/systemui/log/SessionTracker;
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/keyguard/KeyguardSecurityContainerController$1;)V
-    .locals 0
 
-    invoke-direct/range {p0 .. p12}, Lcom/android/keyguard/KeyguardSecurityContainerController;-><init>(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;Lcom/android/keyguard/KeyguardSecurityViewFlipperController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;)V
+# virtual methods
+.method public final configureMode()V
+    .locals 11
 
-    return-void
-.end method
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-.method static synthetic access$000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-    .locals 0
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SimPin:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    const/4 v2, 0x0
 
-    return-object p0
-.end method
+    const/4 v3, 0x1
 
-.method static synthetic access$100(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-    .locals 0
+    if-eq v0, v1, :cond_1
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SimPuk:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    return-object p0
-.end method
+    if-ne v0, v1, :cond_0
 
-.method static synthetic access$1000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/widget/LockPatternUtils;
-    .locals 0
+    goto :goto_0
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+    :cond_0
+    move v0, v2
 
-    return-object p0
-.end method
+    goto :goto_1
 
-.method static synthetic access$1100(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/logging/MetricsLogger;
-    .locals 0
+    :cond_1
+    :goto_0
+    move v0, v3
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+    :goto_1
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
 
-    return-object p0
-.end method
+    sget-object v4, Lcom/android/systemui/flags/Flags;->BOUNCER_USER_SWITCHER:Lcom/android/systemui/flags/ResourceBooleanFlag;
 
-.method static synthetic access$1200(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/internal/logging/UiEventLogger;
-    .locals 0
+    invoke-interface {v1, v4}, Lcom/android/systemui/flags/FeatureFlags;->isEnabled(Lcom/android/systemui/flags/ResourceBooleanFlag;)Z
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    move-result v1
 
-    return-object p0
-.end method
+    const/4 v4, 0x2
 
-.method static synthetic access$1300(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityCallback;
-    .locals 0
+    if-eqz v1, :cond_2
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+    if-nez v0, :cond_2
 
-    return-object p0
-.end method
+    move v2, v4
 
-.method static synthetic access$1400(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
-    .locals 0
+    goto :goto_3
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+    :cond_2
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    return-object p0
-.end method
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Pattern:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-.method static synthetic access$200(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-    .locals 0
+    if-eq v0, v1, :cond_3
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->PIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    return-object p0
-.end method
+    if-eq v0, v1, :cond_3
 
-.method static synthetic access$300(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-    .locals 0
+    move v0, v2
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    goto :goto_2
 
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/systemui/classifier/FalsingCollector;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
-
-    return-object p0
-.end method
-
-.method static synthetic access$600(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    return-object p0
-.end method
-
-.method static synthetic access$800(Lcom/android/keyguard/KeyguardSecurityContainerController;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->canUseOneHandedBouncer()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$900(Lcom/android/keyguard/KeyguardSecurityContainerController;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->isOneHandedKeyguardLeftAligned()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private canUseOneHandedBouncer()Z
-    .locals 2
-
+    :cond_3
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v1, 0x11100cd
+    const v1, 0x7f050004
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
     move-result v0
 
-    const/4 v1, 0x0
+    :goto_2
+    if-eqz v0, :cond_4
 
-    if-nez v0, :cond_0
+    move v2, v3
 
-    return v1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityModel;->isSecurityViewOneHanded(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    return v1
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    sget v0, Lcom/android/systemui/R$bool;->can_use_one_handed_bouncer:I
-
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private changeSecurityMode(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)Lcom/android/keyguard/KeyguardInputViewController;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;",
-            ")",
-            "Lcom/android/keyguard/KeyguardInputViewController<",
-            "Lcom/android/keyguard/KeyguardInputView;",
-            ">;"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private configureOneHandedMode()V
-    .locals 2
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->canUseOneHandedBouncer()Z
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v1, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v1, v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->setOneHandedMode(Z)V
-
-    if-eqz v0, :cond_0
-
+    :cond_4
+    :goto_3
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
+    move-object v6, v0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->isOneHandedKeyguardLeftAligned()Z
+    check-cast v6, Lcom/android/keyguard/KeyguardSecurityContainer;
 
-    move-result p0
+    iget-object v7, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mGlobalSettings:Lcom/android/systemui/util/settings/GlobalSettings;
 
-    const/4 v1, 0x0
+    iget-object v9, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->setOneHandedModeLeftAligned(ZZ)V
+    iget-object v10, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    :cond_0
+    iget p0, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mCurrentMode:I
+
+    if-ne p0, v2, :cond_5
+
+    goto :goto_5
+
+    :cond_5
+    const-string p0, "Switching mode from "
+
+    invoke-static {p0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p0
+
+    iget v0, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mCurrentMode:I
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->modeToString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, " to "
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v2}, Lcom/android/keyguard/KeyguardSecurityContainer;->modeToString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v0, "KeyguardSecurityView"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v2, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mCurrentMode:I
+
+    iget-object p0, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
+
+    invoke-interface {p0}, Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;->onDestroy()V
+
+    if-eq v2, v3, :cond_7
+
+    if-eq v2, v4, :cond_6
+
+    new-instance p0, Lcom/android/keyguard/KeyguardSecurityContainer$DefaultViewMode;
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer$DefaultViewMode;-><init>()V
+
+    iput-object p0, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
+
+    goto :goto_4
+
+    :cond_6
+    new-instance p0, Lcom/android/keyguard/KeyguardSecurityContainer$UserSwitcherViewMode;
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer$UserSwitcherViewMode;-><init>()V
+
+    iput-object p0, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
+
+    goto :goto_4
+
+    :cond_7
+    new-instance p0, Lcom/android/keyguard/KeyguardSecurityContainer$OneHandedViewMode;
+
+    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainer$OneHandedViewMode;-><init>()V
+
+    iput-object p0, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
+
+    :goto_4
+    iput-object v7, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mGlobalSettings:Lcom/android/systemui/util/settings/GlobalSettings;
+
+    iput-object v9, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    iget-object v8, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    if-eqz v8, :cond_9
+
+    if-eqz v7, :cond_9
+
+    if-eqz v9, :cond_9
+
+    if-nez v10, :cond_8
+
+    goto :goto_5
+
+    :cond_8
+    iget-object v5, v6, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
+
+    invoke-interface/range {v5 .. v10}, Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;->init(Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/systemui/util/settings/GlobalSettings;Lcom/android/keyguard/KeyguardSecurityViewFlipper;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
+
+    :cond_9
+    :goto_5
     return-void
 .end method
 
-.method private getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
+.method public final getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -411,7 +494,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$2;
 
     invoke-virtual {v0, v1, p0}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->getSecurityView(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/keyguard/KeyguardSecurityCallback;)Lcom/android/keyguard/KeyguardInputViewController;
 
@@ -420,88 +503,10 @@
     return-object p0
 .end method
 
-.method private isOneHandedKeyguardLeftAligned()Z
-    .locals 2
-
-    const/4 v0, 0x1
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    const-string v1, "one_handed_keyguard_side"
-
-    invoke-static {p0, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;)I
-
-    move-result p0
-    :try_end_0
-    .catch Landroid/provider/Settings$SettingNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :catch_0
-    :goto_0
-    return v0
-.end method
-
-.method private synthetic lambda$showPrimarySecurityScreen$0()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardSecurityModel;->getSecurityMode(I)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-
-# virtual methods
-.method public getCurrentSecurityMode()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+.method public final needsInput()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    return-object p0
-.end method
-
-.method public getTitle()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public needsInput()Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
 
     move-result-object p0
 
@@ -512,7 +517,7 @@
     return p0
 .end method
 
-.method public onInit()V
+.method public final onInit()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
@@ -522,7 +527,7 @@
     return-void
 .end method
 
-.method public onPause()V
+.method public final onPause()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mAdminSecondaryLockScreenController:Lcom/android/keyguard/AdminSecondaryLockScreenController;
@@ -535,7 +540,7 @@
 
     if-eq v0, v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
 
     move-result-object v0
 
@@ -546,84 +551,29 @@
 
     check-cast p0, Lcom/android/keyguard/KeyguardSecurityContainer;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->onPause()V
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mAlertDialog:Landroid/app/AlertDialog;
 
-    return-void
-.end method
+    const/4 v1, 0x0
 
-.method public onResume(I)V
-    .locals 2
+    if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-eq v0, v1, :cond_2
-
-    const/4 v0, 0x2
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->canUseOneHandedBouncer()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->isOneHandedModeLeftAligned()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x3
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x4
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mAlertDialog:Landroid/app/AlertDialog;
 
     :cond_1
-    :goto_0
-    const/16 v1, 0x3f
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSecurityViewFlipper:Lcom/android/keyguard/KeyguardSecurityViewFlipper;
 
-    invoke-static {v1, v0}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(II)V
+    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setWindowInsetsAnimationCallback(Landroid/view/WindowInsetsAnimation$Callback;)V
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
 
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardInputViewController;->onResume(I)V
-
-    :cond_2
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p1, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardSecurityModel;->getSecurityMode(I)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isFaceAuthEnabled()Z
-
-    move-result p0
-
-    invoke-virtual {p1, v0, p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->onResume(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Z)V
+    invoke-interface {p0}, Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;->reset()V
 
     return-void
 .end method
 
-.method public onStartingToHide()V
+.method public final onStartingToHide()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
@@ -632,7 +582,7 @@
 
     if-eq v0, v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
 
     move-result-object p0
 
@@ -642,40 +592,58 @@
     return-void
 .end method
 
-.method protected onViewAttached()V
+.method public final onViewAttached()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$5;
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSwipeListener:Lcom/android/keyguard/KeyguardSecurityContainer$SwipeListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->setSwipeListener(Lcom/android/keyguard/KeyguardSecurityContainer$SwipeListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSwipeListener:Lcom/android/keyguard/KeyguardSecurityContainerController$3;
+
+    iput-object v1, v0, Lcom/android/keyguard/KeyguardSecurityContainer;->mSwipeListener:Lcom/android/keyguard/KeyguardSecurityContainer$SwipeListener;
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mGlobalTouchListener:Lcom/android/systemui/Gefingerpoken;
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->addMotionEventListener(Lcom/android/systemui/Gefingerpoken;)V
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardSecurityContainer;->mMotionEventListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationListener:Lcom/android/keyguard/KeyguardSecurityContainerController$4;
 
-    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUserSwitchCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserSwitchCallbacks:Ljava/util/List;
+
+    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method protected onViewDetached()V
+.method public final onViewDetached()V
     .locals 2
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$5;
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationListener:Lcom/android/systemui/statusbar/policy/ConfigurationController$ConfigurationListener;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mConfigurationListener:Lcom/android/keyguard/KeyguardSecurityContainerController$4;
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
@@ -683,476 +651,31 @@
 
     check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mGlobalTouchListener:Lcom/android/systemui/Gefingerpoken;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mGlobalTouchListener:Lcom/android/systemui/Gefingerpoken;
 
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->removeMotionEventListener(Lcom/android/systemui/Gefingerpoken;)V
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardSecurityContainer;->mMotionEventListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUserSwitchCallback:Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mUserSwitchCallbacks:Ljava/util/List;
+
+    invoke-interface {v0, p0}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public reportFailedUnlockAttempt(II)V
-    .locals 6
+.method public final showPrimarySecurityScreen(Z)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->getCurrentFailedPasswordAttempts(I)I
-
-    move-result v0
+    new-instance v0, Lcom/android/systemui/qs/QSSecurityFooter$$ExternalSyntheticLambda13;
 
     const/4 v1, 0x1
 
-    add-int/2addr v0, v1
-
-    sget-boolean v2, Lcom/android/keyguard/KeyguardSecurityContainerController;->DEBUG:Z
-
-    const-string v3, "KeyguardSecurityView"
-
-    if-eqz v2, :cond_0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "reportFailedPatternAttempt: #"
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v2}, Lcom/android/internal/widget/LockPatternUtils;->getDevicePolicyManager()Landroid/app/admin/DevicePolicyManager;
-
-    move-result-object v2
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v4, p1}, Landroid/app/admin/DevicePolicyManager;->getMaximumFailedPasswordsForWipe(Landroid/content/ComponentName;I)I
-
-    move-result v4
-
-    if-lez v4, :cond_1
-
-    sub-int/2addr v4, v0
-
-    goto :goto_0
-
-    :cond_1
-    const v4, 0x7fffffff
-
-    :goto_0
-    const/4 v5, 0x5
-
-    if-ge v4, v5, :cond_5
-
-    invoke-virtual {v2, p1}, Landroid/app/admin/DevicePolicyManager;->getProfileWithMinimumFailedPasswordsForWipe(I)I
-
-    move-result v2
-
-    if-ne v2, p1, :cond_2
-
-    if-eqz v2, :cond_3
-
-    const/4 v1, 0x3
-
-    goto :goto_1
-
-    :cond_2
-    const/16 v5, -0x2710
-
-    if-eq v2, v5, :cond_3
-
-    const/4 v1, 0x2
-
-    :cond_3
-    :goto_1
-    if-lez v4, :cond_4
-
-    iget-object v2, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v2, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v2, v0, v4, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->showAlmostAtWipeDialog(III)V
-
-    goto :goto_2
-
-    :cond_4
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Too many unlock attempts; user "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v2, " will be wiped!"
-
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v3, v2}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v2, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v2, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->showWipeDialog(II)V
-
-    :cond_5
-    :goto_2
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->reportFailedPasswordAttempt(I)V
-
-    if-lez p2, :cond_6
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0, p2, p1}, Lcom/android/internal/widget/LockPatternUtils;->reportPasswordLockout(II)V
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardSecurityModel;->getSecurityMode(I)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p1, p2, v1, p0}, Lcom/android/keyguard/KeyguardSecurityContainer;->showTimeoutDialog(IILcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
-
-    :cond_6
-    return-void
-.end method
-
-.method public reset()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->reset()V
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->reset()V
-
-    return-void
-.end method
-
-.method public showMessage(Ljava/lang/CharSequence;Landroid/content/res/ColorStateList;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-eq v0, v1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/keyguard/KeyguardInputViewController;->showMessage(Ljava/lang/CharSequence;Landroid/content/res/ColorStateList;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public showNextSecurityScreenOrFinish(ZIZ)Z
-    .locals 11
-
-    sget-boolean v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->DEBUG:Z
-
-    const-string v1, "KeyguardSecurityView"
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "showNextSecurityScreenOrFinish("
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    const-string v2, ")"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    sget-object v0, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->UNKNOWN:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v2, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserHasTrust(I)Z
-
-    move-result v2
-
-    const/4 v3, 0x5
-
-    const/4 v4, 0x4
-
-    const/4 v5, 0x2
-
-    const/4 v6, 0x3
-
-    const/4 v7, -0x1
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x1
-
-    if-eqz v2, :cond_1
-
-    sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->BOUNCER_DISMISS_EXTENDED_ACCESS:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
-
-    move v4, v6
-
-    :goto_0
-    move v1, v8
-
-    goto/16 :goto_2
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {v2, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserUnlockedWithBiometric(I)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_2
-
-    sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->BOUNCER_DISMISS_BIOMETRIC:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
-
-    move v4, v5
-
-    goto :goto_0
-
-    :cond_2
-    sget-object v2, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityMode()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object v10
-
-    if-ne v2, v10, :cond_4
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
-
-    invoke-virtual {p1, p2}, Lcom/android/keyguard/KeyguardSecurityModel;->getSecurityMode(I)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object p1
-
-    if-ne v2, p1, :cond_3
-
-    sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->BOUNCER_DISMISS_NONE_SECURITY:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
-
-    move v4, v8
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainerController;->showSecurityScreen(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
-
-    move-object p1, v0
-
-    move v4, v7
-
-    move v9, v8
-
-    goto :goto_0
-
-    :cond_4
-    if-eqz p1, :cond_8
-
-    sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainerController$5;->$SwitchMap$com$android$keyguard$KeyguardSecurityModel$SecurityMode:[I
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityMode()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v10
-
-    aget p1, p1, v10
-
-    if-eq p1, v9, :cond_7
-
-    if-eq p1, v5, :cond_7
-
-    if-eq p1, v6, :cond_7
-
-    if-eq p1, v4, :cond_5
-
-    if-eq p1, v3, :cond_5
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Bad security screen "
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityMode()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string v2, ", fail safe"
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v1, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, v8}, Lcom/android/keyguard/KeyguardSecurityContainerController;->showPrimarySecurityScreen(Z)V
-
-    goto :goto_1
-
-    :cond_5
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityModel:Lcom/android/keyguard/KeyguardSecurityModel;
-
-    invoke-virtual {p1, p2}, Lcom/android/keyguard/KeyguardSecurityModel;->getSecurityMode(I)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object p1
-
-    if-ne p1, v2, :cond_6
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->isLockScreenDisabled(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_6
-
-    sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->BOUNCER_DISMISS_SIM:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
-
-    goto :goto_0
-
-    :cond_6
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainerController;->showSecurityScreen(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
-
-    goto :goto_1
-
-    :cond_7
-    sget-object p1, Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;->BOUNCER_DISMISS_PASSWORD:Lcom/android/keyguard/KeyguardSecurityContainer$BouncerUiEvent;
-
-    move v1, v9
-
-    move v4, v1
-
-    goto :goto_2
-
-    :cond_8
-    :goto_1
-    move-object p1, v0
-
-    move v4, v7
-
-    move v1, v8
-
-    move v9, v1
-
-    :goto_2
-    if-eqz v9, :cond_9
-
-    if-nez p3, :cond_9
-
-    iget-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-virtual {p3, p2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSecondaryLockscreenRequirement(I)Landroid/content/Intent;
-
-    move-result-object p3
-
-    if-eqz p3, :cond_9
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mAdminSecondaryLockScreenController:Lcom/android/keyguard/AdminSecondaryLockScreenController;
-
-    invoke-virtual {p0, p3}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->show(Landroid/content/Intent;)V
-
-    return v8
-
-    :cond_9
-    if-eq v4, v7, :cond_a
-
-    iget-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
-
-    new-instance v2, Landroid/metrics/LogMaker;
-
-    const/16 v5, 0xc5
-
-    invoke-direct {v2, v5}, Landroid/metrics/LogMaker;-><init>(I)V
-
-    invoke-virtual {v2, v3}, Landroid/metrics/LogMaker;->setType(I)Landroid/metrics/LogMaker;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v4}, Landroid/metrics/LogMaker;->setSubtype(I)Landroid/metrics/LogMaker;
-
-    move-result-object v2
-
-    invoke-virtual {p3, v2}, Lcom/android/internal/logging/MetricsLogger;->write(Landroid/metrics/LogMaker;)V
-
-    :cond_a
-    if-eq p1, v0, :cond_b
-
-    iget-object p3, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    invoke-interface {p3, p1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
-
-    :cond_b
-    if-eqz v9, :cond_c
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
-
-    invoke-interface {p0, v1, p2}, Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;->finish(ZI)V
-
-    :cond_c
-    return v9
-.end method
-
-.method public showPrimarySecurityScreen(Z)V
-    .locals 3
-
-    new-instance v0, Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/qs/QSSecurityFooter$$ExternalSyntheticLambda13;-><init>(Lcom/android/systemui/util/ViewController;I)V
 
     invoke-static {v0}, Lcom/android/systemui/DejankUtils;->whitelistIpcs(Ljava/util/function/Supplier;)Ljava/lang/Object;
 
@@ -1168,7 +691,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "showPrimarySecurityScreen(turningOff="
+    const-string/jumbo v2, "showPrimarySecurityScreen(turningOff="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1192,48 +715,8 @@
     return-void
 .end method
 
-.method public showPromptReason(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-eq v0, v1, :cond_1
-
-    if-eqz p1, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Strong auth required, reason: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "KeyguardSecurityView"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardInputViewController;->showPromptReason(I)V
-
-    :cond_1
-    return-void
-.end method
-
-.method showSecurityScreen(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
-    .locals 2
+.method public showSecurityScreen(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
+    .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -1245,7 +728,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "showSecurityScreen("
+    const-string/jumbo v1, "showSecurityScreen("
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1266,7 +749,7 @@
     :cond_0
     sget-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Invalid:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    if-eq p1, v0, :cond_5
+    if-eq p1, v0, :cond_6
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
@@ -1275,7 +758,7 @@
     goto :goto_1
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
 
     move-result-object v0
 
@@ -1284,174 +767,67 @@
     invoke-virtual {v0}, Lcom/android/keyguard/KeyguardInputViewController;->onPause()V
 
     :cond_2
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainerController;->changeSecurityMode(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)Lcom/android/keyguard/KeyguardInputViewController;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    move-result-object v0
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
 
-    if-eqz v0, :cond_3
+    move-result-object p1
 
-    const/4 v1, 0x2
+    if-eqz p1, :cond_4
 
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardInputViewController;->onResume(I)V
+    const/4 v0, 0x2
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardInputViewController;->onResume(I)V
 
-    invoke-virtual {v1, v0}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;->show(Lcom/android/keyguard/KeyguardInputViewController;)V
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityViewFlipperController:Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->configureOneHandedMode()V
+    iget-object v1, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v1, Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    iget-object v2, p1, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    invoke-virtual {v1, v2}, Landroid/widget/ViewFlipper;->indexOfChild(Landroid/view/View;)I
+
+    move-result v1
+
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_3
+
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/keyguard/KeyguardSecurityViewFlipper;
+
+    invoke-virtual {v0, v1}, Landroid/widget/ViewFlipper;->setDisplayedChild(I)V
 
     :cond_3
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
-
-    if-eqz v0, :cond_4
-
-    invoke-interface {v0}, Lcom/android/keyguard/KeyguardSecurityView;->needsInput()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const/4 v0, 0x1
-
-    goto :goto_0
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->configureMode()V
 
     :cond_4
-    const/4 v0, 0x0
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mSecurityCallback:Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;
 
-    :goto_0
-    invoke-interface {p0, p1, v0}, Lcom/android/keyguard/KeyguardSecurityContainer$SecurityCallback;->onSecurityModeChanged(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Z)V
+    if-eqz p1, :cond_5
 
-    :cond_5
-    :goto_1
-    return-void
-.end method
+    invoke-interface {p1}, Lcom/android/keyguard/KeyguardSecurityView;->needsInput()Z
 
-.method public startAppearAnimation()V
-    .locals 2
+    move-result p1
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    if-eqz p1, :cond_5
 
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-eq v0, v1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->startAppearAnimation()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public startDisappearAnimation(Ljava/lang/Runnable;)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityMode()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardSecurityContainer;->startDisappearAnimation(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-eq v0, v1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardInputViewController;->startDisappearAnimation(Ljava/lang/Runnable;)Z
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public updateKeyguardPosition(F)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->isOneHandedMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    move-object v0, p0
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    check-cast p0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
-
-    move-result p0
-
-    int-to-float p0, p0
-
-    const/high16 v1, 0x40000000    # 2.0f
-
-    div-float/2addr p0, v1
-
-    cmpg-float p0, p1, p0
-
-    const/4 p1, 0x0
-
-    if-gtz p0, :cond_0
-
-    const/4 p0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
-    :cond_0
-    move p0, p1
+    :cond_5
+    const/4 p1, 0x0
 
     :goto_0
-    invoke-virtual {v0, p0, p1}, Lcom/android/keyguard/KeyguardSecurityContainer;->setOneHandedModeLeftAligned(ZZ)V
+    check-cast p0, Lcom/android/keyguard/KeyguardHostViewController$2;
 
-    :cond_1
-    return-void
-.end method
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardHostViewController$2;->onSecurityModeChanged(Z)V
 
-.method public updateResources()V
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
-
-    iget v1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLastOrientation:I
-
-    if-eq v0, v1, :cond_0
-
-    iput v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mLastOrientation:I
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->configureOneHandedMode()V
-
-    :cond_0
+    :cond_6
+    :goto_1
     return-void
 .end method

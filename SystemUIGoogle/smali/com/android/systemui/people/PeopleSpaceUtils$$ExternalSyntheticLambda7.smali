@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda7;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
-
-
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda7;
+.implements Ljava/util/Comparator;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda7;
-
-    invoke-direct {v0}, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda7;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda7;->INSTANCE:Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda7;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -32,12 +17,30 @@
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
-    .locals 0
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 2
 
     check-cast p1, Landroid/app/people/PeopleSpaceTile;
 
-    invoke-static {p1}, Lcom/android/systemui/people/PeopleSpaceUtils;->$r8$lambda$MV51HZE8JfKBBEXiludEozQSba4(Landroid/app/people/PeopleSpaceTile;)Z
+    check-cast p2, Landroid/app/people/PeopleSpaceTile;
+
+    new-instance p0, Ljava/lang/Long;
+
+    invoke-virtual {p2}, Landroid/app/people/PeopleSpaceTile;->getLastInteractionTimestamp()J
+
+    move-result-wide v0
+
+    invoke-direct {p0, v0, v1}, Ljava/lang/Long;-><init>(J)V
+
+    new-instance p2, Ljava/lang/Long;
+
+    invoke-virtual {p1}, Landroid/app/people/PeopleSpaceTile;->getLastInteractionTimestamp()J
+
+    move-result-wide v0
+
+    invoke-direct {p2, v0, v1}, Ljava/lang/Long;-><init>(J)V
+
+    invoke-virtual {p0, p2}, Ljava/lang/Long;->compareTo(Ljava/lang/Long;)I
 
     move-result p0
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/FalsingCollectorImpl$3;
+.class public final Lcom/android/systemui/classifier/FalsingCollectorImpl$3;
 .super Ljava/lang/Object;
 .source "FalsingCollectorImpl.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/classifier/FalsingCollectorImpl;
+.field public final synthetic this$0:Lcom/android/systemui/classifier/FalsingCollectorImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/FalsingCollectorImpl;)V
+.method public constructor <init>(Lcom/android/systemui/classifier/FalsingCollectorImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$3;->this$0:Lcom/android/systemui/classifier/FalsingCollectorImpl;
@@ -34,22 +34,20 @@
 
 
 # virtual methods
-.method public onBatteryLevelChanged(IZZ)V
+.method public final onBatteryLevelChanged(IZZ)V
     .locals 0
 
     return-void
 .end method
 
-.method public onWirelessChargingChanged(Z)V
+.method public final onWirelessChargingChanged(Z)V
     .locals 0
 
     if-nez p1, :cond_1
 
     iget-object p1, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$3;->this$0:Lcom/android/systemui/classifier/FalsingCollectorImpl;
 
-    invoke-static {p1}, Lcom/android/systemui/classifier/FalsingCollectorImpl;->access$300(Lcom/android/systemui/classifier/FalsingCollectorImpl;)Lcom/android/systemui/dock/DockManager;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/classifier/FalsingCollectorImpl;->mDockManager:Lcom/android/systemui/dock/DockManager;
 
     invoke-interface {p1}, Lcom/android/systemui/dock/DockManager;->isDocked()Z
 
@@ -62,9 +60,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$3;->this$0:Lcom/android/systemui/classifier/FalsingCollectorImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/classifier/FalsingCollectorImpl;->access$400(Lcom/android/systemui/classifier/FalsingCollectorImpl;)Lcom/android/systemui/util/sensors/ProximitySensor;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
     invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->resume()V
 
@@ -74,9 +70,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$3;->this$0:Lcom/android/systemui/classifier/FalsingCollectorImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/classifier/FalsingCollectorImpl;->access$400(Lcom/android/systemui/classifier/FalsingCollectorImpl;)Lcom/android/systemui/util/sensors/ProximitySensor;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl;->mProximitySensor:Lcom/android/systemui/util/sensors/ProximitySensor;
 
     invoke-interface {p0}, Lcom/android/systemui/util/sensors/ThresholdSensor;->pause()V
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/dock/DockManager$AlignmentStateListener;
 
 
 # instance fields
@@ -22,12 +23,18 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 0
+.method public final onAlignmentStateChanged(I)V
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->$r8$lambda$I7mNe1735guEz1gKG0bJ8ksgGo4(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mHandler:Lcom/android/systemui/statusbar/KeyguardIndicationController$3;
+
+    new-instance v1, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;I)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

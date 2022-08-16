@@ -21,13 +21,30 @@
 .method public abstract getLaunchContainer()Landroid/view/ViewGroup;
 .end method
 
-.method public abstract onLaunchAnimationEnd(Z)V
+.method public getOpeningWindowSyncView()Landroid/view/View;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
-.method public abstract onLaunchAnimationProgress(Lcom/android/systemui/animation/LaunchAnimator$State;FF)V
+.method public onLaunchAnimationEnd(Z)V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onLaunchAnimationStart(Z)V
+.method public onLaunchAnimationProgress(Lcom/android/systemui/animation/LaunchAnimator$State;FF)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onLaunchAnimationStart(Z)V
+    .locals 0
+
+    return-void
 .end method
 
 .method public abstract setLaunchContainer(Landroid/view/ViewGroup;)V

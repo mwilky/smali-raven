@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;
 .super Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;
 .source "GlobalActionsDialogLite.java"
 
@@ -9,50 +9,42 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AirplaneModeAction"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+.field public final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
-    .locals 7
+.method public constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+    .locals 3
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    const v2, 0x10803d0
+    const p1, 0x10803dc
 
-    const v3, 0x10803d2
+    const v0, 0x10803de
 
-    const v4, 0x10403d7
+    const v1, 0x104041c
 
-    const v5, 0x10403d6
+    const v2, 0x104041b
 
-    const v6, 0x10403d5
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;IIIII)V
+    invoke-direct {p0, p1, v0, v1, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleAction;-><init>(IIII)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected changeStateFromPress(Z)V
+.method public final changeStateFromPress(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHasTelephony:Z
 
     if-nez v0, :cond_0
 
@@ -91,20 +83,18 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2602(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mAirplaneState:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ToggleState;
 
     :cond_2
     return-void
 .end method
 
-.method onToggle(Z)V
+.method public final onToggle(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Z
-
-    move-result v0
+    iget-boolean v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHasTelephony:Z
 
     if-eqz v0, :cond_0
 
@@ -130,7 +120,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p1, v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2402(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)Z
+    iput-boolean v0, p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mIsWaitingForEcmExit:Z
 
     new-instance p1, Landroid/content/Intent;
 
@@ -146,9 +136,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Landroid/content/Context;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
 
@@ -157,13 +145,13 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$AirplaneModeAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2500(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)V
+    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->-$$Nest$mchangeAirplaneModeSystemSetting(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Z)V
 
     :goto_0
     return-void
 .end method
 
-.method public showBeforeProvisioning()Z
+.method public final showBeforeProvisioning()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -171,10 +159,8 @@
     return p0
 .end method
 
-.method public showDuringKeyguard()Z
+.method public final showDuringKeyguard()V
     .locals 0
 
-    const/4 p0, 0x1
-
-    return p0
+    return-void
 .end method

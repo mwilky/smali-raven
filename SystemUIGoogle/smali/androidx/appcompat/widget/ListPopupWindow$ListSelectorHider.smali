@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ListPopupWindow$ListSelectorHider;
+.class public final Landroidx/appcompat/widget/ListPopupWindow$ListSelectorHider;
 .super Ljava/lang/Object;
 .source "ListPopupWindow.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ListSelectorHider"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ListPopupWindow;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ListPopupWindow$ListSelectorHider;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -34,12 +34,21 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 0
+.method public final run()V
+    .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/widget/ListPopupWindow$ListSelectorHider;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ListPopupWindow;->clearListSelection()V
+    iget-object p0, p0, Landroidx/appcompat/widget/ListPopupWindow;->mDropDownList:Landroidx/appcompat/widget/DropDownListView;
 
+    if-eqz p0, :cond_0
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/appcompat/widget/DropDownListView;->mListSelectionHidden:Z
+
+    invoke-virtual {p0}, Landroid/widget/ListView;->requestLayout()V
+
+    :cond_0
     return-void
 .end method

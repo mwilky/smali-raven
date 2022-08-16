@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardDisplayManager$2;
+.class public final Lcom/android/keyguard/KeyguardDisplayManager$2;
 .super Landroid/media/MediaRouter$SimpleCallback;
 .source "KeyguardDisplayManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardDisplayManager;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardDisplayManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardDisplayManager;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardDisplayManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardDisplayManager$2;->this$0:Lcom/android/keyguard/KeyguardDisplayManager;
@@ -31,12 +31,10 @@
 
 
 # virtual methods
-.method public onRoutePresentationDisplayChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
+.method public final onRoutePresentationDisplayChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardDisplayManager;->access$500()Z
-
-    move-result p1
+    sget-boolean p1, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
 
     if-eqz p1, :cond_0
 
@@ -44,7 +42,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "onRoutePresentationDisplayChanged: info="
+    const-string/jumbo v0, "onRoutePresentationDisplayChanged: info="
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -61,21 +59,17 @@
     :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$2;->this$0:Lcom/android/keyguard/KeyguardDisplayManager;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardDisplayManager;->access$100(Lcom/android/keyguard/KeyguardDisplayManager;)Z
+    iget-boolean p1, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
 
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)Z
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)V
 
     return-void
 .end method
 
-.method public onRouteSelected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
+.method public final onRouteSelected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardDisplayManager;->access$500()Z
-
-    move-result p1
+    sget-boolean p1, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
 
     if-eqz p1, :cond_0
 
@@ -83,7 +77,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "onRouteSelected: type="
+    const-string/jumbo v0, "onRouteSelected: type="
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -106,21 +100,17 @@
     :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$2;->this$0:Lcom/android/keyguard/KeyguardDisplayManager;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardDisplayManager;->access$100(Lcom/android/keyguard/KeyguardDisplayManager;)Z
+    iget-boolean p1, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
 
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)Z
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)V
 
     return-void
 .end method
 
-.method public onRouteUnselected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
+.method public final onRouteUnselected(Landroid/media/MediaRouter;ILandroid/media/MediaRouter$RouteInfo;)V
     .locals 1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardDisplayManager;->access$500()Z
-
-    move-result p1
+    sget-boolean p1, Lcom/android/keyguard/KeyguardDisplayManager;->DEBUG:Z
 
     if-eqz p1, :cond_0
 
@@ -128,7 +118,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "onRouteUnselected: type="
+    const-string/jumbo v0, "onRouteUnselected: type="
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -151,11 +141,9 @@
     :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$2;->this$0:Lcom/android/keyguard/KeyguardDisplayManager;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardDisplayManager;->access$100(Lcom/android/keyguard/KeyguardDisplayManager;)Z
+    iget-boolean p1, p0, Lcom/android/keyguard/KeyguardDisplayManager;->mShowing:Z
 
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)Z
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardDisplayManager;->updateDisplays(Z)V
 
     return-void
 .end method

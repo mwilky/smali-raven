@@ -13,7 +13,7 @@
     <com.android.systemui.scrim.ScrimView android:id="@id/scrim_in_front" android:layout_width="fill_parent" android:layout_height="fill_parent" android:importantForAccessibility="no" sysui:ignoreRightInset="true" />
     <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center|top" android:orientation="vertical" android:id="@id/keyguard_message_area_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/status_bar_height">
         <com.android.keyguard.KeyguardMessageArea android:ellipsize="marquee" android:gravity="center" android:id="@id/keyguard_message_area" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="@dimen/keyguard_lock_padding" android:singleLine="true" style="@style/Keyguard.TextView" />
-        <FrameLayout android:id="@id/keyguard_bouncer_container" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+        <FrameLayout android:id="@id/keyguard_bouncer_container" android:background="@android:color/transparent" android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
     </LinearLayout>
     <com.android.systemui.biometrics.AuthRippleView android:id="@id/auth_ripple" android:layout_width="fill_parent" android:layout_height="fill_parent" android:importantForAccessibility="no" sysui:ignoreRightInset="true" />
 </com.android.systemui.statusbar.phone.NotificationShadeWindowView>

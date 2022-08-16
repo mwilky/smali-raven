@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;
+.class public final Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;
 .super Ljava/lang/Object;
 .source "NotificationStackScrollLayout.java"
 
@@ -9,36 +9,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AnimationEvent"
 .end annotation
 
 
 # static fields
-.field static FILTERS:[Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.field public static FILTERS:[Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-.field static LENGTHS:[I
+.field public static LENGTHS:[I
 
 
 # instance fields
-.field final animationType:I
+.field public final animationType:I
 
-.field final eventStartTime:J
+.field public final filter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-.field final filter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.field public headsUpFromBottom:Z
 
-.field headsUpFromBottom:Z
+.field public final length:J
 
-.field final length:J
+.field public final mChangingView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field final mChangingView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-.field viewAfterChangingView:Landroid/view/View;
+.field public viewAfterChangingView:Landroid/view/View;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
+.method public static constructor <clinit>()V
+    .locals 5
 
     const/16 v0, 0x10
 
@@ -48,409 +46,269 @@
 
     invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
     const/4 v3, 0x1
 
-    aput-object v2, v1, v3
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha:Z
+
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
+
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
+
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
+
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
+
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays:Z
+
+    const/4 v4, 0x0
+
+    aput-object v2, v1, v4
 
     new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
     invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha:Z
 
-    move-result-object v2
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    move-result-object v2
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    const/4 v3, 0x2
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays:Z
 
     aput-object v2, v1, v3
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    const/4 v2, 0x2
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/4 v2, 0x3
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    move-result-object v2
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    const/4 v3, 0x3
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    aput-object v2, v1, v3
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    move-result-object v2
+    aput-object v4, v1, v2
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    aput-object v2, v1, v3
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/4 v2, 0x5
 
-    const/4 v3, 0x5
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    aput-object v2, v1, v3
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed:Z
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    aput-object v4, v1, v2
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    const/4 v2, 0x6
 
-    move-result-object v2
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/4 v2, 0x7
 
-    const/4 v3, 0x6
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    aput-object v2, v1, v3
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/16 v2, 0x8
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    move-result-object v2
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHideSensitive:Z
 
-    move-result-object v2
+    aput-object v4, v1, v2
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    const/16 v2, 0x9
 
-    move-result-object v2
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    const/4 v3, 0x7
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    aput-object v2, v1, v3
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHideSensitive()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    move-result-object v2
+    aput-object v4, v1, v2
 
-    const/16 v3, 0x8
+    const/16 v2, 0xa
 
-    aput-object v2, v1, v3
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/16 v2, 0xb
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    move-result-object v2
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    const/16 v3, 0x9
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    aput-object v2, v1, v3
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/16 v2, 0xc
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    move-result-object v2
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays:Z
 
-    move-result-object v2
+    aput-object v4, v1, v2
 
-    const/16 v3, 0xa
+    const/16 v2, 0xd
 
-    aput-object v2, v1, v3
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/16 v2, 0xe
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    move-result-object v2
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    const/16 v3, 0xb
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    aput-object v2, v1, v3
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    aput-object v4, v1, v2
 
-    move-result-object v2
+    const/16 v2, 0xf
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    new-instance v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    move-result-object v2
+    invoke-direct {v4}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHideSensitive:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight:Z
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset:Z
 
-    move-result-object v2
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY:Z
 
-    const/16 v3, 0xc
+    iput-boolean v3, v4, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ:Z
 
-    aput-object v2, v1, v3
-
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->hasDelays()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    const/16 v3, 0xd
-
-    aput-object v2, v1, v3
-
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    const/16 v3, 0xe
-
-    aput-object v2, v1, v3
-
-    new-instance v2, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateDimmed()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHideSensitive()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateHeight()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateTopInset()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateY()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateZ()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
-
-    move-result-object v2
-
-    const/16 v3, 0xf
-
-    aput-object v2, v1, v3
+    aput-object v4, v1, v2
 
     sput-object v1, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->FILTERS:[Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
@@ -483,7 +341,7 @@
     .end array-data
 .end method
 
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;I)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;I)V
     .locals 2
 
     sget-object v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->LENGTHS:[I
@@ -497,36 +355,16 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;IJ)V
-    .locals 7
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;IJ)V
+    .locals 1
 
     sget-object v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->FILTERS:[Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
-    aget-object v6, v0, p2
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move v3, p2
-
-    move-wide v4, p3
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;IJLcom/android/systemui/statusbar/notification/stack/AnimationFilter;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;IJLcom/android/systemui/statusbar/notification/stack/AnimationFilter;)V
-    .locals 2
+    aget-object v0, v0, p2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->eventStartTime:J
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->mChangingView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
@@ -534,60 +372,7 @@
 
     iput-wide p3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->length:J
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->filter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->filter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
     return-void
-.end method
-
-.method static combineLength(Ljava/util/ArrayList;)J
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList<",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;",
-            ">;)J"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const-wide/16 v1, 0x0
-
-    const/4 v3, 0x0
-
-    :goto_0
-    if-ge v3, v0, :cond_1
-
-    invoke-virtual {p0, v3}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;
-
-    iget-wide v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->length:J
-
-    invoke-static {v1, v2, v5, v6}, Ljava/lang/Math;->max(JJ)J
-
-    move-result-wide v1
-
-    iget v5, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->animationType:I
-
-    const/4 v6, 0x7
-
-    if-ne v5, v6, :cond_0
-
-    iget-wide v0, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$AnimationEvent;->length:J
-
-    return-wide v0
-
-    :cond_0
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return-wide v1
 .end method

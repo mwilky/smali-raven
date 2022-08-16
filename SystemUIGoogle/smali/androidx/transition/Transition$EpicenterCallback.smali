@@ -25,5 +25,5 @@
 
 
 # virtual methods
-.method public abstract onGetEpicenter(Landroidx/transition/Transition;)Landroid/graphics/Rect;
+.method public abstract onGetEpicenter()Landroid/graphics/Rect;
 .end method

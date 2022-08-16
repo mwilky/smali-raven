@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/app/AlertController$AlertParams$3;
+.class public final Landroidx/appcompat/app/AlertController$AlertParams$3;
 .super Ljava/lang/Object;
 .source "AlertController.java"
 
@@ -6,25 +6,14 @@
 .implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/app/AlertController$AlertParams;->createListView(Landroidx/appcompat/app/AlertController;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/app/AlertController$AlertParams;
+.field public final synthetic this$0:Landroidx/appcompat/app/AlertController$AlertParams;
 
-.field final synthetic val$dialog:Landroidx/appcompat/app/AlertController;
+.field public final synthetic val$dialog:Landroidx/appcompat/app/AlertController;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/app/AlertController$AlertParams;Landroidx/appcompat/app/AlertController;)V
+.method public constructor <init>(Landroidx/appcompat/app/AlertController$AlertParams;Landroidx/appcompat/app/AlertController;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/app/AlertController$AlertParams$3;->this$0:Landroidx/appcompat/app/AlertController$AlertParams;
@@ -38,7 +27,7 @@
 
 
 # virtual methods
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

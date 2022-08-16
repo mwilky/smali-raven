@@ -1,31 +1,24 @@
-.class final synthetic Lcom/android/systemui/animation/AnimatedDialog$start$2;
+.class public final Lcom/android/systemui/animation/AnimatedDialog$start$2;
 .super Ljava/lang/Object;
 .source "DialogLaunchAnimator.kt"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/animation/AnimatedDialog;->start()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
-    name = null
-.end annotation
+.implements Landroid/view/View$OnLayoutChangeListener;
 
 
 # instance fields
-.field final synthetic $tmp0:Lcom/android/systemui/animation/AnimatedDialog;
+.field public final synthetic $dialogContentWithBackground:Landroid/view/ViewGroup;
+
+.field public final synthetic this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
+.method public constructor <init>(Landroid/view/ViewGroup;Lcom/android/systemui/animation/AnimatedDialog;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$start$2;->$tmp0:Lcom/android/systemui/animation/AnimatedDialog;
+    iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$start$2;->$dialogContentWithBackground:Landroid/view/ViewGroup;
+
+    iput-object p2, p0, Lcom/android/systemui/animation/AnimatedDialog$start$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,12 +27,20 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog$start$2;->$tmp0:Lcom/android/systemui/animation/AnimatedDialog;
+    iget-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$start$2;->$dialogContentWithBackground:Landroid/view/ViewGroup;
 
-    invoke-static {p0}, Lcom/android/systemui/animation/AnimatedDialog;->access$onDialogDismissed(Lcom/android/systemui/animation/AnimatedDialog;)V
+    invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->removeOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog$start$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/systemui/animation/AnimatedDialog;->isOriginalDialogViewLaidOut:Z
+
+    invoke-static {p0}, Lcom/android/systemui/animation/AnimatedDialog;->access$maybeStartLaunchAnimation(Lcom/android/systemui/animation/AnimatedDialog;)V
 
     return-void
 .end method

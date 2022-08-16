@@ -1,4 +1,4 @@
-.class final Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;
+.class public final Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;
 .super Ljava/lang/Object;
 .source "AbstractResolvableFuture.java"
 
@@ -9,25 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "Listener"
 .end annotation
 
 
 # static fields
-.field static final TOMBSTONE:Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;
+.field public static final TOMBSTONE:Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;
 
 
 # instance fields
-.field final executor:Ljava/util/concurrent/Executor;
+.field public final executor:Ljava/util/concurrent/Executor;
 
-.field next:Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;
+.field public next:Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;
 
-.field final task:Ljava/lang/Runnable;
+.field public final task:Ljava/lang/Runnable;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+.method public constructor <init>(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

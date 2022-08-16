@@ -16,6 +16,10 @@
         <item quantity="other">%s కంట్రోల్‌లు యాడ్ అయ్యాయి.</item>
         <item quantity="one">%s కంట్రోల్ యాడ్ అయింది.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s యాప్‌లు యాక్టివ్‌గా ఉన్నాయి</item>
+        <item quantity="one">%s యాప్ యాక్టివ్‌గా ఉంది</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">SIM పిన్‌ని నమోదు చేయండి. మీకు %d ప్రయత్నలు మిగిలి ఉన్నాయి.</item>
         <item quantity="one">SIM పిన్‌ని నమోదు చేయండి, మీరు మీ పరికరాన్ని అన్‌లాక్ చేయడానికి తప్పనిసరిగా మీ క్యారియర్‌ను సంప్రదించడానికి ముందు మీకు %d ప్రయత్నం మిగిలి ఉంది.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">SIM PUK కోడ్ తప్పు, మీకు మరో %d ప్రయత్నాలు మిగిలి ఉన్నాయి, ఆ తర్వాత SIM శాశ్వతంగా నిరుపయోగకరంగా మారుతుంది.</item>
         <item quantity="one">SIM PUK కోడ్ తప్పు, మీకు మరో %d ప్రయత్నం మిగిలి ఉంది, ఆ తర్వాత SIM శాశ్వతంగా నిరుపయోగకరంగా మారుతుంది.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d సెకన్లలో మళ్లీ ప్రయత్నించండి.</item>
-        <item quantity="one">1 సెకనులో మళ్లీ ప్రయత్నించండి.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d కొత్త నోటిఫికేషన్‌లు</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">మీరు %d వినియోగదారుల వరకు జోడించవచ్చు.</item>
         <item quantity="one">ఒక్క వినియోగదారుని మాత్రమే సృష్టించవచ్చు.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d పరికరాలు కనెక్ట్ చేయబడ్డాయి</item>
-        <item quantity="one">%1$d పరికరం కనెక్ట్ చేయబడింది</item>
     </plurals>
 </resources>

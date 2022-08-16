@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/SystemUIApplication$2;
+.class public final Lcom/android/systemui/SystemUIApplication$2;
 .super Landroid/content/BroadcastReceiver;
 .source "SystemUIApplication.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/SystemUIApplication;
+.field public final synthetic this$0:Lcom/android/systemui/SystemUIApplication;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/SystemUIApplication;)V
+.method public constructor <init>(Lcom/android/systemui/SystemUIApplication;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/SystemUIApplication$2;->this$0:Lcom/android/systemui/SystemUIApplication;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -48,9 +48,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/SystemUIApplication$2;->this$0:Lcom/android/systemui/SystemUIApplication;
 
-    invoke-static {p0}, Lcom/android/systemui/SystemUIApplication;->access$000(Lcom/android/systemui/SystemUIApplication;)Lcom/android/systemui/BootCompleteCacheImpl;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/SystemUIApplication;->mBootCompleteCache:Lcom/android/systemui/BootCompleteCacheImpl;
 
     invoke-virtual {p0}, Lcom/android/systemui/BootCompleteCacheImpl;->isBootComplete()Z
 

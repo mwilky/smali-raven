@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/applications/ServiceListing$2;
+.class public final Lcom/android/settingslib/applications/ServiceListing$2;
 .super Landroid/content/BroadcastReceiver;
 .source "ServiceListing.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/applications/ServiceListing;
+.field public final synthetic this$0:Lcom/android/settingslib/applications/ServiceListing;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/applications/ServiceListing;)V
+.method public constructor <init>(Lcom/android/settingslib/applications/ServiceListing;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/applications/ServiceListing$2;->this$0:Lcom/android/settingslib/applications/ServiceListing;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/applications/ServiceListing$2;->this$0:Lcom/android/settingslib/applications/ServiceListing;

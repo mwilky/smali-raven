@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/DialogFragment$2;
+.class public final Landroidx/fragment/app/DialogFragment$2;
 .super Ljava/lang/Object;
 .source "DialogFragment.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/DialogFragment;
+.field public final synthetic this$0:Landroidx/fragment/app/DialogFragment;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/DialogFragment;)V
+.method public constructor <init>(Landroidx/fragment/app/DialogFragment;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
+.method public final onCancel(Landroid/content/DialogInterface;)V
     .locals 0
     .annotation build Landroid/annotation/SuppressLint;
         value = {
@@ -42,19 +42,11 @@
         }
     .end annotation
 
-    iget-object p1, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
-
-    invoke-static {p1}, Landroidx/fragment/app/DialogFragment;->access$000(Landroidx/fragment/app/DialogFragment;)Landroid/app/Dialog;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_0
-
     iget-object p0, p0, Landroidx/fragment/app/DialogFragment$2;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    invoke-static {p0}, Landroidx/fragment/app/DialogFragment;->access$000(Landroidx/fragment/app/DialogFragment;)Landroid/app/Dialog;
+    iget-object p1, p0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
-    move-result-object p1
+    if-eqz p1, :cond_0
 
     invoke-virtual {p0, p1}, Landroidx/fragment/app/DialogFragment;->onCancel(Landroid/content/DialogInterface;)V
 

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final fragmentCreatorFactoryProvider:Ljavax/inject/Provider;
+.field public final fragmentCreatorFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,45 +78,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/fragments/FragmentService_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/fragments/FragmentService$FragmentCreator$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;)",
-            "Lcom/android/systemui/fragments/FragmentService_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/fragments/FragmentService_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/fragments/FragmentService_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/systemui/fragments/FragmentService$FragmentCreator$Factory;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/fragments/FragmentService;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/fragments/FragmentService;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/fragments/FragmentService;-><init>(Lcom/android/systemui/fragments/FragmentService$FragmentCreator$Factory;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/fragments/FragmentService;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/fragments/FragmentService_Factory;->fragmentCreatorFactoryProvider:Ljavax/inject/Provider;
 
@@ -142,19 +107,9 @@
 
     check-cast p0, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/fragments/FragmentService_Factory;->newInstance(Lcom/android/systemui/fragments/FragmentService$FragmentCreator$Factory;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/fragments/FragmentService;
+    new-instance v2, Lcom/android/systemui/fragments/FragmentService;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/fragments/FragmentService;-><init>(Lcom/android/systemui/fragments/FragmentService$FragmentCreator$Factory;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/fragments/FragmentService_Factory;->get()Lcom/android/systemui/fragments/FragmentService;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v2
 .end method

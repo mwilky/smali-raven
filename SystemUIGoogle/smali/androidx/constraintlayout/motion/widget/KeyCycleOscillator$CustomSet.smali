@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$CustomSet;
+.class public final Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$CustomSet;
 .super Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;
 .source "KeyCycleOscillator.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "CustomSet"
 .end annotation
 
 
 # instance fields
-.field value:[F
+.field public value:[F
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;-><init>()V
@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method public setProperty(Landroid/view/View;F)V
+.method public final setProperty(Landroid/view/View;F)V
     .locals 2
 
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$CustomSet;->value:[F

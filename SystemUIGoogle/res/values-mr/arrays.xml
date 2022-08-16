@@ -17,6 +17,7 @@
         <item>जास्तीत जास्त 3 प्रक्रिया</item>
         <item>जास्तीत जास्त 4 प्रक्रिया</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>०%</item>
         <item>५०%</item>
@@ -28,7 +29,7 @@
         <item>हे आयकन दाखवू नका</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_bits_per_sample_summaries">
-        <item>सिस्टम निवड वापरा (डीफॉल्ट)</item>
+        <item>सिस्टीम निवड वापरा (डीफॉल्ट)</item>
         <item>16 बिट/पॅटर्न</item>
         <item>24 बिट/पॅटर्न</item>
         <item>32 बिट/पॅटर्न</item>
@@ -40,7 +41,7 @@
         <item>32 बिट/पॅटर्न</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_channel_mode_summaries">
-        <item>सिस्टम निवड वापरा (डीफॉल्ट)</item>
+        <item>सिस्टीम निवड वापरा (डीफॉल्ट)</item>
         <item>मोनो</item>
         <item>स्टिरिओ</item>
     </string-array>
@@ -84,7 +85,7 @@
         <item>LDAC</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_titles">
-        <item>सिस्टम निवड वापरा (डीफॉल्ट)</item>
+        <item>सिस्टीम निवड वापरा (डीफॉल्ट)</item>
         <item>SBC</item>
         <item>AAC</item>
         <item>Qualcomm® aptX™ ऑडिओ</item>
@@ -260,6 +261,11 @@
         <item>बंद आहे</item>
         <item>सुरू आहे</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>उपलब्ध नाही</item>
+        <item>बंद आहे</item>
+        <item>सुरू आहे</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>उपलब्ध नाही</item>
         <item>बंद आहे</item>
@@ -306,6 +312,16 @@
         <item>सुरू आहे</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>उपलब्ध नाही</item>
+        <item>बंद आहे</item>
+        <item>सुरू आहे</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>उपलब्ध नाही</item>
+        <item>बंद आहे</item>
+        <item>सुरू आहे</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>उपलब्ध नाही</item>
         <item>बंद आहे</item>
         <item>सुरू आहे</item>
@@ -375,6 +391,12 @@
         <item>अतिशीघ्र</item>
         <item>जलद</item>
     </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>डावीकडे हलवा</item>
+        <item>खाली हलवा</item>
+        <item>उजवीकडे हलवा</item>
+        <item>वर हलवा</item>
+    </string-array>
     <string-array name="usb_configuration_titles">
         <item>चार्ज होत आहे</item>
         <item>MTP (मीडिया स्‍थानांतरण प्रोटोकॉल)</item>
@@ -394,7 +416,7 @@
         <item>डिस्कनेक्ट करत आहे...</item>
         <item>डिस्कनेक्ट केले</item>
         <item>अयशस्वी</item>
-        <item>अवरोधित</item>
+        <item>ब्लॉक केले</item>
         <item>तात्पुरते खराब कनेक्शन टाळत आहे</item>
     </string-array>
     <string-array name="wifi_status_with_ssid">
@@ -408,7 +430,7 @@
         <item>%1$s वरून डिस्कनेक्ट करत आहे…</item>
         <item>डिस्कनेक्ट केले</item>
         <item>अयशस्वी</item>
-        <item>अवरोधित</item>
+        <item>ब्लॉक केले</item>
         <item>तात्पुरते खराब कनेक्शन टाळत आहे</item>
     </string-array>
     <string-array name="wifitrackerlib_wifi_status">

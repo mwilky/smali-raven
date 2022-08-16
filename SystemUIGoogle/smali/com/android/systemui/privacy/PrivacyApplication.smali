@@ -4,31 +4,27 @@
 
 
 # instance fields
-.field private final packageName:Ljava/lang/String;
+.field public final packageName:Ljava/lang/String;
 
-.field private final uid:I
+.field public final uid:I
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
-
-    const-string v0, "packageName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(ILjava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyApplication;->packageName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/privacy/PrivacyApplication;->packageName:Ljava/lang/String;
 
-    iput p2, p0, Lcom/android/systemui/privacy/PrivacyApplication;->uid:I
+    iput p1, p0, Lcom/android/systemui/privacy/PrivacyApplication;->uid:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -74,23 +70,7 @@
     return v0
 .end method
 
-.method public final getPackageName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyApplication;->packageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public final getUid()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/privacy/PrivacyApplication;->uid:I
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyApplication;->packageName:Ljava/lang/String;
@@ -107,21 +87,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "PrivacyApplication(packageName="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "PrivacyApplication(packageName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyApplication;->packageName:Ljava/lang/String;
 
@@ -133,13 +111,9 @@
 
     iget p0, p0, Lcom/android/systemui/privacy/PrivacyApplication;->uid:I
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/core/graphics/Insets$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;IC)Ljava/lang/String;
 
     move-result-object p0
 

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;
+.class public final Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;
 .super Ljava/lang/Object;
 .source "HotspotTile.java"
 
@@ -13,19 +13,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "HotspotAndDataSaverCallbacks"
 .end annotation
 
 
 # instance fields
-.field mCallbackInfo:Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;
+.field public mCallbackInfo:Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;
 
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
@@ -41,17 +41,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/HotspotTile;Lcom/android/systemui/qs/tiles/HotspotTile$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onDataSaverChanged(Z)V
+.method public final onDataSaverChanged(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->mCallbackInfo:Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;
@@ -60,37 +52,29 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-static {p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->access$100(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public onHotspotAvailabilityChanged(Z)V
+.method public final onHotspotAvailabilityChanged(Z)V
     .locals 1
 
     if-nez p1, :cond_0
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/HotspotTile;->access$300(Lcom/android/systemui/qs/tiles/HotspotTile;)Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
     const-string v0, "Tile removed. Hotspot no longer available"
 
     invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/HotspotTile;->access$400(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/qs/QSHost;
-
-    move-result-object p1
-
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getTileSpec()Ljava/lang/String;
+    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHost:Lcom/android/systemui/qs/QSHost;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mTileSpec:Ljava/lang/String;
 
     invoke-interface {p1, p0}, Lcom/android/systemui/qs/QSHost;->removeTile(Ljava/lang/String;)V
 
@@ -98,18 +82,18 @@
     return-void
 .end method
 
-.method public onHotspotChanged(ZI)V
+.method public final onHotspotChanged(IZ)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->mCallbackInfo:Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;
 
-    iput-boolean p1, v0, Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;->isHotspotEnabled:Z
+    iput-boolean p2, v0, Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;->isHotspotEnabled:Z
 
-    iput p2, v0, Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;->numConnectedDevices:I
+    iput p1, v0, Lcom/android/systemui/qs/tiles/HotspotTile$CallbackInfo;->numConnectedDevices:I
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;->this$0:Lcom/android/systemui/qs/tiles/HotspotTile;
 
-    invoke-static {p0, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->access$200(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method

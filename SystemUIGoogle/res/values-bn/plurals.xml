@@ -16,6 +16,10 @@
         <item quantity="other">%sটি কন্ট্রোল যোগ করা হয়েছে।</item>
         <item quantity="one">%sটি কন্ট্রোল যোগ করা হয়েছে।</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%sটি অ্যাপ চালু আছে</item>
+        <item quantity="one">%sটি অ্যাপ চালু আছে</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">সিমের পিন লিখুন। আপনি আর %d বার চেষ্টা করতে পারবেন।</item>
         <item quantity="one">সিমের পিন লিখুন। আপনি আর %d বার চেষ্টা করতে পারবেন।</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">সিমের PUK কোডটি ভুল, আপনি আর %d বার চেষ্টা করতে পারেন, তারপর আপনার সিমটি স্থায়ীভাবে অব্যবহারযোগ্য হবে।</item>
         <item quantity="one">সিমের PUK কোডটি ভুল, আপনি আর %d বার চেষ্টা করতে পারেন, তারপর আপনার সিমটি স্থায়ীভাবে অব্যবহারযোগ্য হবে।</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d সেকেন্ডের মধ্যে আবার চেষ্টা করুন।</item>
-        <item quantity="one">%d সেকেন্ডের মধ্যে আবার চেষ্টা করুন।</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%dটি নতুন বিজ্ঞপ্তি</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">আপনি %d জন পর্যন্ত ব্যবহারকারীর প্রোফাইল যোগ করতে পারেন।</item>
         <item quantity="one">আপনি %d জন পর্যন্ত ব্যবহারকারীর প্রোফাইল যোগ করতে পারেন।</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$dটি ডিভাইস কানেক্ট রয়েছে</item>
-        <item quantity="one">%1$dটি ডিভাইস কানেক্ট রয়েছে</item>
     </plurals>
 </resources>

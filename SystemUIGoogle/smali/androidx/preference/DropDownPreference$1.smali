@@ -1,4 +1,4 @@
-.class Landroidx/preference/DropDownPreference$1;
+.class public final Landroidx/preference/DropDownPreference$1;
 .super Ljava/lang/Object;
 .source "DropDownPreference.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/preference/DropDownPreference;
+.field public final synthetic this$0:Landroidx/preference/DropDownPreference;
 
 
 # direct methods
-.method constructor <init>(Landroidx/preference/DropDownPreference;)V
+.method public constructor <init>(Landroidx/preference/DropDownPreference;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/preference/DropDownPreference$1;->this$0:Landroidx/preference/DropDownPreference;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+.method public final onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,9 +50,7 @@
 
     iget-object p1, p0, Landroidx/preference/DropDownPreference$1;->this$0:Landroidx/preference/DropDownPreference;
 
-    invoke-virtual {p1}, Landroidx/preference/ListPreference;->getEntryValues()[Ljava/lang/CharSequence;
-
-    move-result-object p1
+    iget-object p1, p1, Landroidx/preference/ListPreference;->mEntryValues:[Ljava/lang/CharSequence;
 
     aget-object p1, p1, p3
 
@@ -62,9 +60,7 @@
 
     iget-object p2, p0, Landroidx/preference/DropDownPreference$1;->this$0:Landroidx/preference/DropDownPreference;
 
-    invoke-virtual {p2}, Landroidx/preference/ListPreference;->getValue()Ljava/lang/String;
-
-    move-result-object p2
+    iget-object p2, p2, Landroidx/preference/ListPreference;->mValue:Ljava/lang/String;
 
     invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -74,7 +70,7 @@
 
     iget-object p2, p0, Landroidx/preference/DropDownPreference$1;->this$0:Landroidx/preference/DropDownPreference;
 
-    invoke-virtual {p2, p1}, Landroidx/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Landroidx/preference/Preference;->callChangeListener(Ljava/io/Serializable;)Z
 
     move-result p2
 
@@ -88,7 +84,7 @@
     return-void
 .end method
 
-.method public onNothingSelected(Landroid/widget/AdapterView;)V
+.method public final onNothingSelected(Landroid/widget/AdapterView;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

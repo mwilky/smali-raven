@@ -1,4 +1,4 @@
-.class Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;
+.class public final Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;
 .super Landroidx/recyclerview/widget/RecyclerView;
 .source "ViewPager2.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "RecyclerViewImpl"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/viewpager2/widget/ViewPager2;
+.field public final synthetic this$0:Landroidx/viewpager2/widget/ViewPager2;
 
 
 # direct methods
-.method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;Landroid/content/Context;)V
+.method public constructor <init>(Landroidx/viewpager2/widget/ViewPager2;Landroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
@@ -31,38 +31,21 @@
 
 
 # virtual methods
-.method public getAccessibilityClassName()Ljava/lang/CharSequence;
-    .locals 1
-
-    iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
-
-    iget-object v0, v0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;
-
-    invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;->handlesRvGetAccessibilityClassName()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+.method public final getAccessibilityClassName()Ljava/lang/CharSequence;
+    .locals 0
 
     iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;
+    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
 
-    invoke-virtual {p0}, Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;->onRvGetAccessibilityClassName()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    invoke-super {p0}, Landroidx/recyclerview/widget/RecyclerView;->getAccessibilityClassName()Ljava/lang/CharSequence;
-
-    move-result-object p0
+    const-string p0, "androidx.recyclerview.widget.RecyclerView"
 
     return-object p0
 .end method
 
-.method public onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+.method public final onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
@@ -81,21 +64,25 @@
 
     iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;
+    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2;->mAccessibilityProvider:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
 
-    invoke-virtual {p0, p1}, Landroidx/viewpager2/widget/ViewPager2$AccessibilityProvider;->onRvInitializeAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
+
+    invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityEvent;->setSource(Landroid/view/View;)V
+
+    const-string p0, "androidx.viewpager.widget.ViewPager"
+
+    invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityEvent;->setClassName(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->isUserInputEnabled()Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroidx/viewpager2/widget/ViewPager2;->mUserInputEnabled:Z
 
     if-eqz v0, :cond_0
 
@@ -116,7 +103,7 @@
     return p0
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
     .annotation build Landroid/annotation/SuppressLint;
         value = {
@@ -126,9 +113,7 @@
 
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    invoke-virtual {v0}, Landroidx/viewpager2/widget/ViewPager2;->isUserInputEnabled()Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroidx/viewpager2/widget/ViewPager2;->mUserInputEnabled:Z
 
     if-eqz v0, :cond_0
 

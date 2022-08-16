@@ -18,17 +18,13 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/assist/AssistantSessionEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/assist/AssistantSessionEvent;
 
 .field public static final enum ASSISTANT_SESSION_CLOSE:Lcom/android/systemui/assist/AssistantSessionEvent;
 
 .field public static final enum ASSISTANT_SESSION_INVOCATION_CANCELLED:Lcom/android/systemui/assist/AssistantSessionEvent;
 
-.field public static final enum ASSISTANT_SESSION_INVOCATION_START:Lcom/android/systemui/assist/AssistantSessionEvent;
-
 .field public static final enum ASSISTANT_SESSION_TIMEOUT_DISMISS:Lcom/android/systemui/assist/AssistantSessionEvent;
-
-.field public static final enum ASSISTANT_SESSION_UNKNOWN:Lcom/android/systemui/assist/AssistantSessionEvent;
 
 .field public static final enum ASSISTANT_SESSION_UPDATE:Lcom/android/systemui/assist/AssistantSessionEvent;
 
@@ -40,7 +36,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 16
 
     new-instance v0, Lcom/android/systemui/assist/AssistantSessionEvent;
@@ -50,8 +46,6 @@
     const/4 v2, 0x0
 
     invoke-direct {v0, v1, v2, v2}, Lcom/android/systemui/assist/AssistantSessionEvent;-><init>(Ljava/lang/String;II)V
-
-    sput-object v0, Lcom/android/systemui/assist/AssistantSessionEvent;->ASSISTANT_SESSION_UNKNOWN:Lcom/android/systemui/assist/AssistantSessionEvent;
 
     new-instance v1, Lcom/android/systemui/assist/AssistantSessionEvent;
 
@@ -74,8 +68,6 @@
     const/16 v7, 0x20d
 
     invoke-direct {v3, v5, v6, v7}, Lcom/android/systemui/assist/AssistantSessionEvent;-><init>(Ljava/lang/String;II)V
-
-    sput-object v3, Lcom/android/systemui/assist/AssistantSessionEvent;->ASSISTANT_SESSION_INVOCATION_START:Lcom/android/systemui/assist/AssistantSessionEvent;
 
     new-instance v5, Lcom/android/systemui/assist/AssistantSessionEvent;
 
@@ -148,7 +140,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -166,10 +158,6 @@
 .method public static valueOf(Ljava/lang/String;)Lcom/android/systemui/assist/AssistantSessionEvent;
     .locals 1
 
-    const-string/jumbo v0, "value"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const-class v0, Lcom/android/systemui/assist/AssistantSessionEvent;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -182,26 +170,22 @@
 .end method
 
 .method public static values()[Lcom/android/systemui/assist/AssistantSessionEvent;
-    .locals 4
+    .locals 1
 
     sget-object v0, Lcom/android/systemui/assist/AssistantSessionEvent;->$VALUES:[Lcom/android/systemui/assist/AssistantSessionEvent;
 
-    array-length v1, v0
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    new-array v1, v1, [Lcom/android/systemui/assist/AssistantSessionEvent;
+    move-result-object v0
 
-    array-length v2, v0
+    check-cast v0, [Lcom/android/systemui/assist/AssistantSessionEvent;
 
-    const/4 v3, 0x0
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    return-object v1
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/assist/AssistantSessionEvent;->id:I

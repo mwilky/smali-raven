@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static final ALERT_WINDOW:J
+.field public static final ALERT_WINDOW:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->SECONDS:Ljava/util/concurrent/TimeUnit;
@@ -22,12 +22,4 @@
     sput-wide v0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SmartspaceDedupingCoordinatorKt;->ALERT_WINDOW:J
 
     return-void
-.end method
-
-.method public static final synthetic access$getALERT_WINDOW$p()J
-    .locals 2
-
-    sget-wide v0, Lcom/android/systemui/statusbar/notification/collection/coordinator/SmartspaceDedupingCoordinatorKt;->ALERT_WINDOW:J
-
-    return-wide v0
 .end method

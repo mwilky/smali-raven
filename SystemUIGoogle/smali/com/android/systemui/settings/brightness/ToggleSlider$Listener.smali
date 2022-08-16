@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onChanged(ZIZ)V
+.method public abstract onChanged(IZZ)V
 .end method

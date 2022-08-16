@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/external/TileServiceManager$2;
+.class public final Lcom/android/systemui/qs/external/TileServiceManager$2;
 .super Ljava/lang/Object;
 .source "TileServiceManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/external/TileServiceManager;
+.field public final synthetic this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
+.method public constructor <init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileServiceManager$2;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
@@ -34,20 +34,16 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$2;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/external/TileServiceManager;->access$302(Lcom/android/systemui/qs/external/TileServiceManager;Z)Z
+.method public final run()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager$2;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->access$400(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileServices;
+    const/4 v0, 0x0
 
-    move-result-object p0
+    iput-boolean v0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mJustBound:Z
+
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileServices;->recalculateBindAllowance()V
 

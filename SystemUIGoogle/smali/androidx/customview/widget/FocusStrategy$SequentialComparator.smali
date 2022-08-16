@@ -1,4 +1,4 @@
-.class Landroidx/customview/widget/FocusStrategy$SequentialComparator;
+.class public final Landroidx/customview/widget/FocusStrategy$SequentialComparator;
 .super Ljava/lang/Object;
 .source "FocusStrategy.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SequentialComparator"
 .end annotation
 
@@ -29,7 +29,7 @@
 
 
 # instance fields
-.field private final mAdapter:Landroidx/customview/widget/FocusStrategy$BoundsAdapter;
+.field public final mAdapter:Landroidx/customview/widget/FocusStrategy$BoundsAdapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/customview/widget/FocusStrategy$BoundsAdapter<",
@@ -38,23 +38,16 @@
     .end annotation
 .end field
 
-.field private final mIsLayoutRtl:Z
+.field public final mIsLayoutRtl:Z
 
-.field private final mTemp1:Landroid/graphics/Rect;
+.field public final mTemp1:Landroid/graphics/Rect;
 
-.field private final mTemp2:Landroid/graphics/Rect;
+.field public final mTemp2:Landroid/graphics/Rect;
 
 
 # direct methods
-.method constructor <init>(ZLandroidx/customview/widget/FocusStrategy$BoundsAdapter;)V
+.method public constructor <init>(ZLandroidx/customview/widget/ExploreByTouchHelper$1;)V
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(Z",
-            "Landroidx/customview/widget/FocusStrategy$BoundsAdapter<",
-            "TT;>;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -79,7 +72,7 @@
 
 
 # virtual methods
-.method public compare(Ljava/lang/Object;Ljava/lang/Object;)I
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {

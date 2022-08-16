@@ -17,6 +17,7 @@
         <item>Trois processus maximum</item>
         <item>Quatre processus maximum</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Désactivées</item>
         <item>Activées</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Indisponible</item>
+        <item>Désactivée</item>
+        <item>Activée</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Indisponibles</item>
         <item>Désactivées</item>
@@ -306,6 +312,16 @@
         <item>Activé</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Indisponible</item>
+        <item>Désactivé</item>
+        <item>Activé</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Indisponible</item>
+        <item>Désactivé</item>
+        <item>Activé</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Indisponible</item>
         <item>Désactivé</item>
         <item>Activé</item>
@@ -374,6 +390,12 @@
         <item>Beaucoup plus rapide</item>
         <item>Extrêmement rapide</item>
         <item>La plus rapide</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Déplacer vers la gauche</item>
+        <item>Déplacer vers le bas</item>
+        <item>Déplacer vers la droite</item>
+        <item>Déplacer vers le haut</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>En charge</item>

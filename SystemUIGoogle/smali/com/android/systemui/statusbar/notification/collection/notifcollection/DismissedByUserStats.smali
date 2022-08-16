@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;
+.class public final Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;
 .super Ljava/lang/Object;
 .source "DismissedByUserStats.java"
 
@@ -12,16 +12,18 @@
 
 
 # direct methods
-.method public constructor <init>(IILcom/android/internal/statusbar/NotificationVisibility;)V
+.method public constructor <init>(ILcom/android/internal/statusbar/NotificationVisibility;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;->dismissalSurface:I
 
-    iput p2, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;->dismissalSentiment:I
+    const/4 p1, 0x1
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;->notificationVisibility:Lcom/android/internal/statusbar/NotificationVisibility;
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;->dismissalSentiment:I
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/DismissedByUserStats;->notificationVisibility:Lcom/android/internal/statusbar/NotificationVisibility;
 
     return-void
 .end method

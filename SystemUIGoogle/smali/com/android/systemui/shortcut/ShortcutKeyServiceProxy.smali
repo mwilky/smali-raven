@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;
+.class public final Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;
 .super Lcom/android/internal/policy/IShortcutService$Stub;
 .source "ShortcutKeyServiceProxy.java"
 
@@ -13,16 +13,16 @@
 
 
 # instance fields
-.field private mCallbacks:Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$Callbacks;
+.field public mCallbacks:Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$Callbacks;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$H;
 
-.field private final mLock:Ljava/lang/Object;
+.field public final mLock:Ljava/lang/Object;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$Callbacks;)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/internal/policy/IShortcutService$Stub;-><init>()V
 
@@ -34,28 +34,18 @@
 
     new-instance v0, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$H;
 
-    const/4 v1, 0x0
+    invoke-direct {v0, p0}, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$H;-><init>(Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;)V
 
-    invoke-direct {v0, p0, v1}, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$H;-><init>(Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$1;)V
-
-    iput-object v0, p0, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;->mHandler:Landroid/os/Handler;
+    iput-object v0, p0, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;->mHandler:Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$H;
 
     iput-object p1, p0, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;->mCallbacks:Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$Callbacks;
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;)Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$Callbacks;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;->mCallbacks:Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$Callbacks;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public notifyShortcutKeyPressed(J)V
+.method public final notifyShortcutKeyPressed(J)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -68,7 +58,7 @@
     monitor-enter v0
 
     :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy;->mHandler:Lcom/android/systemui/shortcut/ShortcutKeyServiceProxy$H;
 
     const/4 v1, 0x1
 

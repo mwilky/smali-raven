@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/ScrollCaptureClient$CaptureResult;
+.class public final Lcom/android/systemui/screenshot/ScrollCaptureClient$CaptureResult;
 .super Ljava/lang/Object;
 .source "ScrollCaptureClient.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "CaptureResult"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/media/Image;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
+.method public constructor <init>(Landroid/media/Image;Landroid/graphics/Rect;Landroid/graphics/Rect;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,16 +39,14 @@
 
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 4
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "CaptureResult{requested="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "CaptureResult{requested="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/ScrollCaptureClient$CaptureResult;->requested:Landroid/graphics/Rect;
 

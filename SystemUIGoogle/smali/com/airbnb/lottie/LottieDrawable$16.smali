@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieDrawable$16;
+.class public final Lcom/airbnb/lottie/LottieDrawable$16;
 .super Ljava/lang/Object;
 .source "LottieDrawable.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
+.field public final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
 
-.field final synthetic val$callback:Lcom/airbnb/lottie/value/LottieValueCallback;
+.field public final synthetic val$callback:Lcom/airbnb/lottie/value/LottieValueCallback;
 
-.field final synthetic val$keyPath:Lcom/airbnb/lottie/model/KeyPath;
+.field public final synthetic val$keyPath:Lcom/airbnb/lottie/model/KeyPath;
 
-.field final synthetic val$property:Ljava/lang/Object;
+.field public final synthetic val$property:Ljava/lang/Object;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/KeyPath;Ljava/lang/Object;Lcom/airbnb/lottie/value/LottieValueCallback;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/KeyPath;Ljava/lang/Object;Lcom/airbnb/lottie/value/LottieValueCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$16;->this$0:Lcom/airbnb/lottie/LottieDrawable;
@@ -46,18 +46,18 @@
 
 
 # virtual methods
-.method public run(Lcom/airbnb/lottie/LottieComposition;)V
-    .locals 2
+.method public final run()V
+    .locals 3
 
-    iget-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$16;->this$0:Lcom/airbnb/lottie/LottieDrawable;
+    iget-object v0, p0, Lcom/airbnb/lottie/LottieDrawable$16;->this$0:Lcom/airbnb/lottie/LottieDrawable;
 
-    iget-object v0, p0, Lcom/airbnb/lottie/LottieDrawable$16;->val$keyPath:Lcom/airbnb/lottie/model/KeyPath;
+    iget-object v1, p0, Lcom/airbnb/lottie/LottieDrawable$16;->val$keyPath:Lcom/airbnb/lottie/model/KeyPath;
 
-    iget-object v1, p0, Lcom/airbnb/lottie/LottieDrawable$16;->val$property:Ljava/lang/Object;
+    iget-object v2, p0, Lcom/airbnb/lottie/LottieDrawable$16;->val$property:Ljava/lang/Object;
 
     iget-object p0, p0, Lcom/airbnb/lottie/LottieDrawable$16;->val$callback:Lcom/airbnb/lottie/value/LottieValueCallback;
 
-    invoke-virtual {p1, v0, v1, p0}, Lcom/airbnb/lottie/LottieDrawable;->addValueCallback(Lcom/airbnb/lottie/model/KeyPath;Ljava/lang/Object;Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {v0, v1, v2, p0}, Lcom/airbnb/lottie/LottieDrawable;->addValueCallback(Lcom/airbnb/lottie/model/KeyPath;Ljava/lang/Object;Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     return-void
 .end method

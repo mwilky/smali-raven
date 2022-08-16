@@ -1,32 +1,30 @@
-.class public Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;
+.class public final Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;
 .super Ljava/lang/Object;
 .source "MediaOutputMetricLogger.java"
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private mAppliedDeviceCountWithinRemoteGroup:I
+.field public mConnectedBluetoothDeviceCount:I
 
-.field private mConnectedBluetoothDeviceCount:I
+.field public final mContext:Landroid/content/Context;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mPackageName:Ljava/lang/String;
 
-.field private final mPackageName:Ljava/lang/String;
+.field public mRemoteDeviceCount:I
 
-.field private mRemoteDeviceCount:I
+.field public mSourceDevice:Lcom/android/settingslib/media/MediaDevice;
 
-.field private mSourceDevice:Lcom/android/settingslib/media/MediaDevice;
+.field public mTargetDevice:Lcom/android/settingslib/media/MediaDevice;
 
-.field private mTargetDevice:Lcom/android/settingslib/media/MediaDevice;
-
-.field private mWiredDeviceCount:I
+.field public mWiredDeviceCount:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "MediaOutputMetricLogger"
@@ -54,71 +52,133 @@
     return-void
 .end method
 
-.method private getLoggingDeviceType(Lcom/android/settingslib/media/MediaDevice;Z)I
-    .locals 0
+.method public static getInteractionDeviceType(Lcom/android/settingslib/media/MediaDevice;)I
+    .locals 1
 
-    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getDeviceType()I
+    iget p0, p0, Lcom/android/settingslib/media/MediaDevice;->mType:I
 
-    move-result p0
+    const/4 v0, 0x1
 
-    const/4 p1, 0x1
+    if-eq p0, v0, :cond_5
 
-    if-eq p0, p1, :cond_5
+    const/4 v0, 0x2
 
-    const/4 p2, 0x2
+    if-eq p0, v0, :cond_4
 
-    if-eq p0, p2, :cond_4
+    const/4 v0, 0x3
 
-    const/4 p2, 0x4
+    if-eq p0, v0, :cond_3
 
-    if-eq p0, p2, :cond_3
+    const/4 v0, 0x5
 
-    const/4 p2, 0x5
+    if-eq p0, v0, :cond_2
 
-    if-eq p0, p2, :cond_2
+    const/4 v0, 0x6
 
-    const/4 p2, 0x6
+    if-eq p0, v0, :cond_1
 
-    if-eq p0, p2, :cond_1
+    const/4 v0, 0x7
 
-    const/4 p2, 0x7
-
-    if-eq p0, p2, :cond_0
+    if-eq p0, v0, :cond_0
 
     const/4 p0, 0x0
 
     return p0
 
     :cond_0
-    return p1
-
-    :cond_1
     const/16 p0, 0x1f4
 
     return p0
 
-    :cond_2
+    :cond_1
     const/16 p0, 0x190
 
     return p0
 
-    :cond_3
+    :cond_2
     const/16 p0, 0x12c
 
     return p0
 
-    :cond_4
+    :cond_3
     const/16 p0, 0x64
 
     return p0
 
-    :cond_5
+    :cond_4
     const/16 p0, 0xc8
 
     return p0
+
+    :cond_5
+    return v0
 .end method
 
-.method private getLoggingPackageName()Ljava/lang/String;
+.method public static getLoggingDeviceType(Lcom/android/settingslib/media/MediaDevice;)I
+    .locals 1
+
+    iget p0, p0, Lcom/android/settingslib/media/MediaDevice;->mType:I
+
+    const/4 v0, 0x1
+
+    if-eq p0, v0, :cond_5
+
+    const/4 v0, 0x2
+
+    if-eq p0, v0, :cond_4
+
+    const/4 v0, 0x3
+
+    if-eq p0, v0, :cond_3
+
+    const/4 v0, 0x5
+
+    if-eq p0, v0, :cond_2
+
+    const/4 v0, 0x6
+
+    if-eq p0, v0, :cond_1
+
+    const/4 v0, 0x7
+
+    if-eq p0, v0, :cond_0
+
+    const/4 p0, 0x0
+
+    return p0
+
+    :cond_0
+    const/16 p0, 0x1f4
+
+    return p0
+
+    :cond_1
+    const/16 p0, 0x190
+
+    return p0
+
+    :cond_2
+    const/16 p0, 0x12c
+
+    return p0
+
+    :cond_3
+    const/16 p0, 0x64
+
+    return p0
+
+    :cond_4
+    const/16 p0, 0xc8
+
+    return p0
+
+    :cond_5
+    return v0
+.end method
+
+
+# virtual methods
+.method public final getLoggingPackageName()Ljava/lang/String;
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mPackageName:Ljava/lang/String;
@@ -190,54 +250,8 @@
     return-object p0
 .end method
 
-.method private getLoggingSwitchOpSubResult(I)I
-    .locals 1
-
-    const/4 p0, 0x1
-
-    const/4 v0, 0x2
-
-    if-eq p1, p0, :cond_3
-
-    const/4 p0, 0x3
-
-    if-eq p1, v0, :cond_2
-
-    const/4 v0, 0x4
-
-    if-eq p1, p0, :cond_1
-
-    if-eq p1, v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x5
-
-    return p0
-
-    :cond_1
-    return v0
-
-    :cond_2
-    return p0
-
-    :cond_3
-    return v0
-.end method
-
-.method private updateLoggingDeviceCount(Ljava/util/List;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;)V"
-        }
-    .end annotation
+.method public final updateLoggingDeviceCount(Ljava/util/ArrayList;)V
+    .locals 2
 
     const/4 v0, 0x0
 
@@ -247,9 +261,7 @@
 
     iput v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mWiredDeviceCount:I
 
-    iput v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mAppliedDeviceCountWithinRemoteGroup:I
-
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
@@ -273,36 +285,34 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/settingslib/media/MediaDevice;->getDeviceType()I
+    iget v0, v0, Lcom/android/settingslib/media/MediaDevice;->mType:I
 
-    move-result v0
-
-    const/4 v1, 0x1
+    const/4 v1, 0x2
 
     if-eq v0, v1, :cond_3
 
-    const/4 v2, 0x2
+    const/4 v1, 0x3
 
-    if-eq v0, v2, :cond_3
+    if-eq v0, v1, :cond_3
 
-    const/4 v2, 0x4
+    const/4 v1, 0x5
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v1, :cond_2
 
-    const/4 v2, 0x5
+    const/4 v1, 0x6
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v1, :cond_1
 
-    const/4 v2, 0x6
+    const/4 v1, 0x7
 
-    if-eq v0, v2, :cond_1
+    if-eq v0, v1, :cond_1
 
     goto :goto_0
 
     :cond_1
     iget v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mRemoteDeviceCount:I
 
-    add-int/2addr v0, v1
+    add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mRemoteDeviceCount:I
 
@@ -311,7 +321,7 @@
     :cond_2
     iget v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mConnectedBluetoothDeviceCount:I
 
-    add-int/2addr v0, v1
+    add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mConnectedBluetoothDeviceCount:I
 
@@ -320,7 +330,7 @@
     :cond_3
     iget v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mWiredDeviceCount:I
 
-    add-int/2addr v0, v1
+    add-int/lit8 v0, v0, 0x1
 
     iput v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mWiredDeviceCount:I
 
@@ -331,13 +341,11 @@
 
     if-eqz p1, :cond_5
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "connected devices: wired: "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "connected devices: wired: "
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget v0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mWiredDeviceCount:I
 
@@ -357,222 +365,10 @@
 
     iget p0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mRemoteDeviceCount:I
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "MediaOutputMetricLogger"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_5
-    return-void
-.end method
-
-
-# virtual methods
-.method public logOutputFailure(Ljava/util/List;I)V
-    .locals 12
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;I)V"
-        }
-    .end annotation
-
-    sget-boolean v0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->DEBUG:Z
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "logRequestFailed - "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "MediaOutputMetricLogger"
-
-    invoke-static {v1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-direct {p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->updateLoggingDeviceCount(Ljava/util/List;)V
-
-    const/16 v2, 0x115
-
-    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mSourceDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getLoggingDeviceType(Lcom/android/settingslib/media/MediaDevice;Z)I
-
-    move-result v3
-
-    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mTargetDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getLoggingDeviceType(Lcom/android/settingslib/media/MediaDevice;Z)I
-
-    move-result v4
-
-    const/4 v5, 0x0
-
-    invoke-direct {p0, p2}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getLoggingSwitchOpSubResult(I)I
-
-    move-result v6
-
-    invoke-direct {p0}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getLoggingPackageName()Ljava/lang/String;
-
-    move-result-object v7
-
-    iget v8, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mWiredDeviceCount:I
-
-    iget v9, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mConnectedBluetoothDeviceCount:I
-
-    iget v10, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mRemoteDeviceCount:I
-
-    iget v11, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mAppliedDeviceCountWithinRemoteGroup:I
-
-    invoke-static/range {v2 .. v11}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(IIIIILjava/lang/String;IIII)V
-
-    return-void
-.end method
-
-.method public logOutputSuccess(Ljava/lang/String;Ljava/util/List;)V
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;)V"
-        }
-    .end annotation
-
-    sget-boolean v0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->DEBUG:Z
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "logOutputSuccess - selected device: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
     const-string v0, "MediaOutputMetricLogger"
 
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p1, p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ILjava/lang/String;)V
 
-    :cond_0
-    invoke-direct {p0, p2}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->updateLoggingDeviceCount(Ljava/util/List;)V
-
-    const/16 v1, 0x115
-
-    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mSourceDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    const/4 p2, 0x1
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getLoggingDeviceType(Lcom/android/settingslib/media/MediaDevice;Z)I
-
-    move-result v2
-
-    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mTargetDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    const/4 p2, 0x0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getLoggingDeviceType(Lcom/android/settingslib/media/MediaDevice;Z)I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    const/4 v5, 0x1
-
-    invoke-direct {p0}, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->getLoggingPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    iget v7, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mWiredDeviceCount:I
-
-    iget v8, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mConnectedBluetoothDeviceCount:I
-
-    iget v9, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mRemoteDeviceCount:I
-
-    iget v10, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mAppliedDeviceCountWithinRemoteGroup:I
-
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/shared/system/SysUiStatsLog;->write(IIIIILjava/lang/String;IIII)V
-
-    return-void
-.end method
-
-.method public updateOutputEndPoints(Lcom/android/settingslib/media/MediaDevice;Lcom/android/settingslib/media/MediaDevice;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mSourceDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    iput-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mTargetDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    sget-boolean p1, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->DEBUG:Z
-
-    if-eqz p1, :cond_0
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo p2, "updateOutputEndPoints - source:"
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mSourceDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    invoke-virtual {p2}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p2, " target:"
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputMetricLogger;->mTargetDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    invoke-virtual {p0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "MediaOutputMetricLogger"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
+    :cond_5
     return-void
 .end method

@@ -7,46 +7,34 @@
 
 
 # instance fields
-.field private final keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final sonificationEffects:Landroid/media/AudioAttributes;
 
-.field private final sonificationEffects:Landroid/media/AudioAttributes;
+.field public udfpsController:Lcom/android/systemui/biometrics/UdfpsController;
 
-.field private udfpsController:Lcom/android/systemui/biometrics/UdfpsController;
-
-.field private final vibrator:Landroid/os/Vibrator;
+.field public final vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Landroid/os/Vibrator;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;Lcom/android/systemui/statusbar/VibratorHelper;)V
     .locals 1
-
-    const-string v0, "commandRegistry"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "keyguardUpdateMonitor"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->vibrator:Landroid/os/Vibrator;
-
-    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->keyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
 
     new-instance p2, Landroid/media/AudioAttributes$Builder;
 
     invoke-direct {p2}, Landroid/media/AudioAttributes$Builder;-><init>()V
 
-    const/4 p3, 0x4
+    const/4 v0, 0x4
 
-    invoke-virtual {p2, p3}, Landroid/media/AudioAttributes$Builder;->setContentType(I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {p2, v0}, Landroid/media/AudioAttributes$Builder;->setContentType(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object p2
 
-    const/16 p3, 0xd
+    const/16 v0, 0xd
 
-    invoke-virtual {p2, p3}, Landroid/media/AudioAttributes$Builder;->setUsage(I)Landroid/media/AudioAttributes$Builder;
+    invoke-virtual {p2, v0}, Landroid/media/AudioAttributes$Builder;->setUsage(I)Landroid/media/AudioAttributes$Builder;
 
     move-result-object p2
 
@@ -60,7 +48,7 @@
 
     invoke-direct {p2, p0}, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator$1;-><init>(Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;)V
 
-    const-string p0, "udfps-haptic"
+    const-string/jumbo p0, "udfps-haptic"
 
     invoke-virtual {p1, p0, p2}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->registerCommand(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
 
@@ -69,7 +57,7 @@
 
 
 # virtual methods
-.method public execute(Ljava/io/PrintWriter;Ljava/util/List;)V
+.method public final execute(Ljava/io/PrintWriter;Ljava/util/List;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -80,14 +68,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "args"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
@@ -114,7 +94,7 @@
 
     const v2, -0x6f4abffd
 
-    if-eq v1, v2, :cond_7
+    if-eq v1, v2, :cond_6
 
     const v0, 0x5c4d208
 
@@ -127,7 +107,7 @@
     goto :goto_0
 
     :cond_1
-    const-string v0, "start"
+    const-string/jumbo v0, "start"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -161,13 +141,8 @@
     goto :goto_0
 
     :cond_5
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->vibrator:Landroid/os/Vibrator;
+    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
 
-    if-nez p1, :cond_6
-
-    goto :goto_1
-
-    :cond_6
     const/4 p2, 0x1
 
     invoke-static {p2}, Landroid/os/VibrationEffect;->get(I)Landroid/os/VibrationEffect;
@@ -176,50 +151,45 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->sonificationEffects:Landroid/media/AudioAttributes;
 
-    invoke-virtual {p1, p2, p0}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;Landroid/media/AudioAttributes;)V
+    invoke-virtual {p1, p2, p0}, Lcom/android/systemui/statusbar/VibratorHelper;->vibrate(Landroid/os/VibrationEffect;Landroid/media/AudioAttributes;)V
 
     goto :goto_1
 
-    :cond_7
-    const-string v1, "success"
+    :cond_6
+    const-string/jumbo v1, "success"
 
     invoke-virtual {p2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p2
 
-    if-nez p2, :cond_8
+    if-nez p2, :cond_7
 
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->invalidCommand(Ljava/io/PrintWriter;)V
 
     goto :goto_1
 
-    :cond_8
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->vibrator:Landroid/os/Vibrator;
+    :cond_7
+    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
 
-    if-nez p1, :cond_9
-
-    goto :goto_1
-
-    :cond_9
     invoke-static {v0}, Landroid/os/VibrationEffect;->get(I)Landroid/os/VibrationEffect;
 
     move-result-object p2
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->sonificationEffects:Landroid/media/AudioAttributes;
 
-    invoke-virtual {p1, p2, p0}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;Landroid/media/AudioAttributes;)V
+    invoke-virtual {p1, p2, p0}, Lcom/android/systemui/statusbar/VibratorHelper;->vibrate(Landroid/os/VibrationEffect;Landroid/media/AudioAttributes;)V
 
     :goto_1
     return-void
 .end method
 
-.method public help(Ljava/io/PrintWriter;)V
+.method public final invalidCommand(Ljava/io/PrintWriter;)V
     .locals 0
 
-    const-string p0, "pw"
+    const-string p0, "invalid command"
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     const-string p0, "Usage: adb shell cmd statusbar udfps-haptic <haptic>"
 
@@ -240,30 +210,6 @@
     const-string p0, "  error, always plays DOUBLE_CLICK haptic"
 
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public final invalidCommand(Ljava/io/PrintWriter;)V
-    .locals 1
-
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "invalid command"
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->help(Ljava/io/PrintWriter;)V
-
-    return-void
-.end method
-
-.method public final setUdfpsController(Lcom/android/systemui/biometrics/UdfpsController;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsHapticsSimulator;->udfpsController:Lcom/android/systemui/biometrics/UdfpsController;
 
     return-void
 .end method

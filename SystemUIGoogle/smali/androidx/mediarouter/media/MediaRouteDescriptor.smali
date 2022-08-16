@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field final mBundle:Landroid/os/Bundle;
+.field public final mBundle:Landroid/os/Bundle;
 
-.field mControlFilters:Ljava/util/List;
+.field public mControlFilters:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field mGroupMemberIds:Ljava/util/List;
+.field public mGroupMemberIds:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -36,16 +36,8 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/os/Bundle;)V
+.method public constructor <init>(Landroid/os/Bundle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bundle"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -54,51 +46,9 @@
     return-void
 .end method
 
-.method public static fromBundle(Landroid/os/Bundle;)Landroidx/mediarouter/media/MediaRouteDescriptor;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bundle"
-        }
-    .end annotation
-
-    if-eqz p0, :cond_0
-
-    new-instance v0, Landroidx/mediarouter/media/MediaRouteDescriptor;
-
-    invoke-direct {v0, p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;-><init>(Landroid/os/Bundle;)V
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public canDisconnectAndKeepPlaying()Z
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "canDisconnect"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method ensureControlFilters()V
+.method public final ensureControlFilters()V
     .locals 2
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mControlFilters:Ljava/util/List;
@@ -127,8 +77,16 @@
     return-void
 .end method
 
-.method ensureGroupMemberIds()V
+.method public final getGroupMemberIds()Ljava/util/List;
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mGroupMemberIds:Ljava/util/List;
 
@@ -153,104 +111,12 @@
     iput-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mGroupMemberIds:Ljava/util/List;
 
     :cond_0
-    return-void
-.end method
-
-.method public getConnectionState()I
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "connectionState"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getControlFilters()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Landroid/content/IntentFilter;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->ensureControlFilters()V
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mControlFilters:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method public getDescription()Ljava/lang/String;
-    .locals 1
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "status"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getDeviceType()I
-    .locals 1
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "deviceType"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getExtras()Landroid/os/Bundle;
-    .locals 1
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "extras"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getGroupMemberIds()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->ensureGroupMemberIds()V
-
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mGroupMemberIds:Ljava/util/List;
 
     return-object p0
 .end method
 
-.method public getIconUri()Landroid/net/Uri;
+.method public final getIconUri()Landroid/net/Uri;
     .locals 1
 
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
@@ -276,7 +142,7 @@
     return-object p0
 .end method
 
-.method public getId()Ljava/lang/String;
+.method public final getId()Ljava/lang/String;
     .locals 1
 
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
@@ -290,178 +156,8 @@
     return-object p0
 .end method
 
-.method public getMaxClientVersion()I
+.method public final isValid()Z
     .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "maxClientVersion"
-
-    const v1, 0x7fffffff
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getMinClientVersion()I
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "minClientVersion"
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 1
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "name"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getPlaybackStream()I
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "playbackStream"
-
-    const/4 v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getPlaybackType()I
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "playbackType"
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getPresentationDisplayId()I
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "presentationDisplayId"
-
-    const/4 v1, -0x1
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getSettingsActivity()Landroid/content/IntentSender;
-    .locals 1
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "settingsIntent"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/content/IntentSender;
-
-    return-object p0
-.end method
-
-.method public getVolume()I
-    .locals 1
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string/jumbo v0, "volume"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getVolumeHandling()I
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string/jumbo v0, "volumeHandling"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getVolumeMax()I
-    .locals 1
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string/jumbo v0, "volumeMax"
-
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public isEnabled()Z
-    .locals 2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
-
-    const-string v0, "enabled"
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v0, v1}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public isValid()Z
-    .locals 1
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->ensureControlFilters()V
 
@@ -475,7 +171,11 @@
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getName()Ljava/lang/String;
+    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string v1, "name"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -509,20 +209,16 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 2
+.method public final toString()Ljava/lang/String;
+    .locals 6
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "MediaRouteDescriptor{ "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "MediaRouteDescriptor{ "
 
     const-string v1, "id="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0, v1}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getId()Ljava/lang/String;
 
@@ -544,7 +240,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getName()Ljava/lang/String;
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string v2, "name"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -554,7 +254,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getDescription()Ljava/lang/String;
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "status"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -574,7 +278,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->isEnabled()Z
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string v2, "enabled"
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
     move-result v1
 
@@ -584,7 +294,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getConnectionState()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string v2, "connectionState"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v2, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -594,9 +310,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getControlFilters()Ljava/util/List;
+    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->ensureControlFilters()V
 
-    move-result-object v1
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mControlFilters:Ljava/util/List;
 
     invoke-interface {v1}, Ljava/util/List;->toArray()[Ljava/lang/Object;
 
@@ -612,7 +328,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getPlaybackType()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "playbackType"
+
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -622,7 +342,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getPlaybackStream()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "playbackStream"
+
+    const/4 v5, -0x1
+
+    invoke-virtual {v1, v2, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -632,7 +358,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getDeviceType()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string v2, "deviceType"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v1
 
@@ -642,7 +372,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getVolume()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "volume"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v1
 
@@ -652,7 +386,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getVolumeMax()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "volumeMax"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v1
 
@@ -662,7 +400,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getVolumeHandling()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "volumeHandling"
+
+    invoke-virtual {v1, v2, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -672,7 +414,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getPresentationDisplayId()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo v2, "presentationDisplayId"
+
+    invoke-virtual {v1, v2, v5}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -682,7 +428,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getExtras()Landroid/os/Bundle;
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string v2, "extras"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBundle(Ljava/lang/String;)Landroid/os/Bundle;
 
     move-result-object v1
 
@@ -702,7 +452,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getMinClientVersion()I
+    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const-string v2, "minClientVersion"
+
+    invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -712,7 +466,13 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getMaxClientVersion()I
+    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
+
+    const v1, 0x7fffffff
+
+    const-string v2, "maxClientVersion"
+
+    invoke-virtual {p0, v2, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
     move-result p0
 

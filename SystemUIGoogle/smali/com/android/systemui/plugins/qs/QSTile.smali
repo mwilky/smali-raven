@@ -10,9 +10,6 @@
             target = Lcom/android/systemui/plugins/qs/QSIconView;
         .end subannotation,
         .subannotation Lcom/android/systemui/plugins/annotations/DependsOn;
-            target = Lcom/android/systemui/plugins/qs/DetailAdapter;
-        .end subannotation,
-        .subannotation Lcom/android/systemui/plugins/annotations/DependsOn;
             target = Lcom/android/systemui/plugins/qs/QSTile$Callback;
         .end subannotation,
         .subannotation Lcom/android/systemui/plugins/annotations/DependsOn;
@@ -25,7 +22,7 @@
 .end annotation
 
 .annotation runtime Lcom/android/systemui/plugins/annotations/ProvidesInterface;
-    version = 0x1
+    version = 0x4
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -41,7 +38,7 @@
 
 
 # static fields
-.field public static final VERSION:I = 0x1
+.field public static final VERSION:I = 0x4
 
 
 # virtual methods
@@ -65,13 +62,12 @@
 .method public abstract destroy()V
 .end method
 
-.method public abstract getDetailAdapter()Lcom/android/systemui/plugins/qs/DetailAdapter;
-.end method
-
 .method public abstract getInstanceId()Lcom/android/internal/logging/InstanceId;
 .end method
 
 .method public abstract getMetricsCategory()I
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 .end method
 
 .method public getMetricsSpec()Ljava/lang/String;
@@ -98,6 +94,9 @@
 .end method
 
 .method public abstract isAvailable()Z
+.end method
+
+.method public abstract isListening()Z
 .end method
 
 .method public isTileReady()Z

@@ -14,42 +14,8 @@
 
 
 # virtual methods
-.method public onChildViewHolderSelected(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;II)V
+.method public onChildViewHolderSelected(Landroidx/leanback/widget/BaseGridView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "child",
-            "position",
-            "subposition"
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public onChildViewHolderSelectedAndPositioned(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "child",
-            "position",
-            "subposition"
-        }
-    .end annotation
 
     return-void
 .end method

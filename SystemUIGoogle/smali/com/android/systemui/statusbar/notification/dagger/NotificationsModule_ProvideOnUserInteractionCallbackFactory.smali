@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final entryManagerProvider:Ljavax/inject/Provider;
+.field public final entryManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,17 +28,7 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final groupMembershipManagerLazyProvider:Ljavax/inject/Provider;
+.field public final groupMembershipManagerLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final headsUpManagerProvider:Ljavax/inject/Provider;
+.field public final headsUpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final notifCollectionProvider:Ljavax/inject/Provider;
+.field public final notifCollectionProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,17 +58,17 @@
     .end annotation
 .end field
 
-.field private final pipelineProvider:Ljavax/inject/Provider;
+.field public final notifPipelineFlagsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +78,17 @@
     .end annotation
 .end field
 
-.field private final visualStabilityCoordinatorProvider:Ljavax/inject/Provider;
+.field public final visibilityProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final visualStabilityCoordinatorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final visualStabilityManagerProvider:Ljavax/inject/Provider;
+.field public final visualStabilityManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -116,7 +116,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
@@ -125,10 +125,10 @@
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
+            "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/coordinator/VisualStabilityCoordinator;",
@@ -147,15 +147,15 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->notifPipelineFlagsProvider:Ljavax/inject/Provider;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->headsUpManagerProvider:Ljavax/inject/Provider;
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->pipelineProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->notifCollectionProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->notifCollectionProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->visibilityProvider:Ljavax/inject/Provider;
 
     iput-object p6, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->visualStabilityCoordinatorProvider:Ljavax/inject/Provider;
 
@@ -174,7 +174,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
@@ -183,10 +183,10 @@
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
+            "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/coordinator/VisualStabilityCoordinator;",
@@ -231,137 +231,146 @@
     return-object v10
 .end method
 
-.method public static provideOnUserInteractionCallback(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
-            ">;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifCollection;",
-            ">;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/notification/collection/coordinator/VisualStabilityCoordinator;",
-            ">;",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
-            "Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;"
-        }
-    .end annotation
-
-    invoke-static/range {p0 .. p8}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideOnUserInteractionCallback(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
-
-    move-result-object p0
-
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 9
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->featureFlagsProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/flags/FeatureFlags;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->headsUpManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->notifPipelineFlagsProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    move-object v2, v0
+    check-cast v0, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
 
-    check-cast v2, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->headsUpManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v0
+    move-object v5, v1
 
-    move-object v3, v0
+    check-cast v5, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    check-cast v3, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->pipelineProvider:Ljavax/inject/Provider;
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    move-result-object v1
+
+    move-object v6, v1
+
+    check-cast v6, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->notifCollectionProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->visibilityProvider:Ljavax/inject/Provider;
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->visualStabilityCoordinatorProvider:Ljavax/inject/Provider;
+
+    invoke-static {v3}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->entryManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v4}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v4
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->notifCollectionProvider:Ljavax/inject/Provider;
+    check-cast v4, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    iget-object v7, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
 
-    move-result-object v5
+    invoke-interface {v7}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->visualStabilityCoordinatorProvider:Ljavax/inject/Provider;
+    move-result-object v7
 
-    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
-
-    move-result-object v6
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->entryManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v7, v0
-
-    check-cast v7, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v8, v0
-
-    check-cast v8, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    check-cast v7, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->groupMembershipManagerLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v9
+    move-result-object p0
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->provideOnUserInteractionCallback(Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Ldagger/Lazy;)Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;->isNewPipelineEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance p0, Lcom/android/systemui/statusbar/notification/collection/inflation/OnUserInteractionCallbackImpl;
+
+    invoke-interface {v2}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;
+
+    invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v4, v1
+
+    check-cast v4, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+
+    invoke-interface {v3}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v7, v1
+
+    check-cast v7, Lcom/android/systemui/statusbar/notification/collection/coordinator/VisualStabilityCoordinator;
+
+    move-object v2, p0
+
+    move-object v3, v0
+
+    invoke-direct/range {v2 .. v7}, Lcom/android/systemui/statusbar/notification/collection/inflation/OnUserInteractionCallbackImpl;-><init>(Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/collection/coordinator/VisualStabilityCoordinator;)V
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/legacy/OnUserInteractionCallbackImplLegacy;
+
+    invoke-interface {v2}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;
+
+    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    move-object v8, p0
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    check-cast v8, Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideOnUserInteractionCallbackFactory;->get()Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
+    move-object v2, v0
 
-    move-result-object p0
+    move-object v3, v4
+
+    move-object v4, v1
+
+    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/statusbar/notification/collection/legacy/OnUserInteractionCallbackImplLegacy;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;)V
+
+    move-object p0, v0
+
+    :goto_0
+    check-cast p0, Lcom/android/systemui/statusbar/notification/row/OnUserInteractionCallback;
 
     return-object p0
 .end method

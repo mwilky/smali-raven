@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaDataFilter$1$onUserSwitched$1;
+.class public final Lcom/android/systemui/media/MediaDataFilter$1$onUserSwitched$1;
 .super Ljava/lang/Object;
 .source "MediaDataFilter.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $newUserId:I
+.field public final synthetic $newUserId:I
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDataFilter;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDataFilter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDataFilter;I)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaDataFilter;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaDataFilter$1$onUserSwitched$1;->this$0:Lcom/android/systemui/media/MediaDataFilter;

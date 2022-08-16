@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/QSCustomizerController$4;
+.class public final Lcom/android/systemui/qs/customize/QSCustomizerController$4;
 .super Landroidx/recyclerview/widget/GridLayoutManager;
 .source "QSCustomizerController.java"
 
@@ -9,50 +9,46 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-.field final synthetic val$recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+.field public final synthetic val$recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/customize/QSCustomizerController;Landroid/content/Context;ILandroidx/recyclerview/widget/RecyclerView;)V
+.method public constructor <init>(Lcom/android/systemui/qs/customize/QSCustomizerController;ILandroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$4;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    iput-object p4, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$4;->val$recyclerView:Landroidx/recyclerview/widget/RecyclerView;
+    iput-object p3, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$4;->val$recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    invoke-direct {p0, p2, p3}, Landroidx/recyclerview/widget/GridLayoutManager;-><init>(Landroid/content/Context;I)V
+    invoke-direct {p0, p2}, Landroidx/recyclerview/widget/GridLayoutManager;-><init>(I)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public calculateItemDecorationsForChild(Landroid/view/View;Landroid/graphics/Rect;)V
+.method public final calculateItemDecorationsForChild(Landroid/graphics/Rect;Landroid/view/View;)V
     .locals 2
 
-    instance-of v0, p1, Landroid/widget/TextView;
+    instance-of v0, p2, Landroid/widget/TextView;
 
     if-nez v0, :cond_0
 
-    invoke-virtual {p2}, Landroid/graphics/Rect;->setEmpty()V
+    invoke-virtual {p1}, Landroid/graphics/Rect;->setEmpty()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$4;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$800(Lcom/android/systemui/qs/customize/QSCustomizerController;)Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object v0, v0, Lcom/android/systemui/qs/customize/QSCustomizerController;->mTileAdapter:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/customize/TileAdapter;->getMarginItemDecoration()Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/customize/TileAdapter;->mMarginDecoration:Lcom/android/systemui/qs/customize/TileAdapter$MarginTileDecoration;
 
     iget-object p0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$4;->val$recyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -60,25 +56,25 @@
 
     invoke-direct {v1}, Landroidx/recyclerview/widget/RecyclerView$State;-><init>()V
 
-    invoke-virtual {v0, p2, p1, p0, v1}, Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;->getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
+    invoke-virtual {v0, p1, p2, p0, v1}, Lcom/android/systemui/qs/customize/TileAdapter$MarginTileDecoration;->getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
 
-    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p0
 
     check-cast p0, Landroidx/recyclerview/widget/GridLayoutManager$LayoutParams;
 
-    iget v0, p2, Landroid/graphics/Rect;->left:I
+    iget v0, p1, Landroid/graphics/Rect;->left:I
 
     iput v0, p0, Landroid/view/ViewGroup$MarginLayoutParams;->leftMargin:I
 
-    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p0
 
     check-cast p0, Landroidx/recyclerview/widget/GridLayoutManager$LayoutParams;
 
-    iget p1, p2, Landroid/graphics/Rect;->right:I
+    iget p1, p1, Landroid/graphics/Rect;->right:I
 
     iput p1, p0, Landroid/view/ViewGroup$MarginLayoutParams;->rightMargin:I
 
@@ -86,7 +82,7 @@
     return-void
 .end method
 
-.method public onInitializeAccessibilityNodeInfoForItem(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
+.method public final onInitializeAccessibilityNodeInfoForItem(Landroidx/recyclerview/widget/RecyclerView$Recycler;Landroidx/recyclerview/widget/RecyclerView$State;Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
     .locals 0
 
     return-void

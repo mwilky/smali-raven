@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
+.class public final Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
 .super Ljava/lang/Object;
 .source "InternetTile.java"
 
@@ -9,41 +9,47 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "WifiCallbackInfo"
 .end annotation
 
 
 # instance fields
-.field mActivityIn:Z
+.field public mActivityIn:Z
 
-.field mActivityOut:Z
+.field public mActivityOut:Z
 
-.field mAirplaneModeEnabled:Z
+.field public mAirplaneModeEnabled:Z
 
-.field mConnected:Z
+.field public mConnected:Z
 
-.field mEnabled:Z
+.field public mEnabled:Z
 
-.field mIsTransient:Z
+.field public mIsTransient:Z
 
-.field mNoDefaultNetwork:Z
+.field public mNoDefaultNetwork:Z
 
-.field mNoNetworksAvailable:Z
+.field public mNoNetworksAvailable:Z
 
-.field mNoValidatedNetwork:Z
+.field public mNoValidatedNetwork:Z
 
-.field mSsid:Ljava/lang/String;
+.field public mSsid:Ljava/lang/String;
 
-.field public mStatusLabel:Ljava/lang/String;
+.field public mWifiSignalContentDescription:Ljava/lang/String;
 
-.field mWifiSignalContentDescription:Ljava/lang/String;
-
-.field mWifiSignalIconId:I
+.field public mWifiSignalIconId:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,17 +57,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/InternetTile$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -164,13 +162,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mNoNetworksAvailable:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x5d
 
-    const/16 p0, 0x5d
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/PagedTileLayout$3;
+.class public final Lcom/android/systemui/qs/PagedTileLayout$3;
 .super Landroidx/viewpager/widget/PagerAdapter;
 .source "PagedTileLayout.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/PagedTileLayout;
+.field public final synthetic this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/PagedTileLayout;)V
+.method public constructor <init>(Lcom/android/systemui/qs/PagedTileLayout;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
+.method public final destroyItem(Landroid/view/ViewGroup;ILjava/lang/Object;)V
     .locals 0
 
     check-cast p3, Landroid/view/View;
@@ -40,19 +40,19 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/PagedTileLayout;->access$600(Lcom/android/systemui/qs/PagedTileLayout;)V
+    sget-object p1, Lcom/android/systemui/qs/PagedTileLayout;->SCROLL_CUBIC:Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->updateListening()V
 
     return-void
 .end method
 
-.method public getCount()I
+.method public final getCount()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/PagedTileLayout;->access$400(Lcom/android/systemui/qs/PagedTileLayout;)Ljava/util/ArrayList;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/PagedTileLayout;->mPages:Ljava/util/ArrayList;
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
@@ -61,7 +61,7 @@
     return p0
 .end method
 
-.method public instantiateItem(Landroid/view/ViewGroup;I)Ljava/lang/Object;
+.method public final instantiateItem(ILandroid/view/ViewGroup;)Ljava/lang/Object;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
@@ -74,9 +74,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/PagedTileLayout;->access$400(Lcom/android/systemui/qs/PagedTileLayout;)Ljava/util/ArrayList;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/PagedTileLayout;->mPages:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -84,40 +82,38 @@
 
     add-int/lit8 v0, v0, -0x1
 
-    sub-int p2, v0, p2
+    sub-int p1, v0, p1
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/PagedTileLayout;->access$400(Lcom/android/systemui/qs/PagedTileLayout;)Ljava/util/ArrayList;
+    iget-object v0, v0, Lcom/android/systemui/qs/PagedTileLayout;->mPages:Ljava/util/ArrayList;
 
-    move-result-object v0
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object p2
+    check-cast p1, Landroid/view/ViewGroup;
 
-    check-cast p2, Landroid/view/ViewGroup;
-
-    invoke-virtual {p2}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
+    invoke-virtual {p2, p1}, Landroid/view/ViewGroup;->removeView(Landroid/view/View;)V
 
     :cond_1
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {p2, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     iget-object p0, p0, Lcom/android/systemui/qs/PagedTileLayout$3;->this$0:Lcom/android/systemui/qs/PagedTileLayout;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/PagedTileLayout;->access$600(Lcom/android/systemui/qs/PagedTileLayout;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/PagedTileLayout;->updateListening()V
 
-    return-object p2
+    return-object p1
 .end method
 
-.method public isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
+.method public final isViewFromObject(Landroid/view/View;Ljava/lang/Object;)Z
     .locals 0
 
     if-ne p1, p2, :cond_0

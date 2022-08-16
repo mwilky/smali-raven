@@ -14,12 +14,12 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nAllModel.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AllModel.kt\ncom/android/systemui/controls/management/AllModel\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 4 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n*L\n1#1,137:1\n1588#2,3:138\n734#2:141\n825#2,2:142\n1571#2,9:144\n1819#2:153\n256#2,2:154\n1820#2:157\n1580#2:158\n256#2,2:159\n1470#2,3:161\n1473#2,3:171\n1#3:156\n355#4,7:164\n*E\n*S KotlinDebug\n*F\n+ 1 AllModel.kt\ncom/android/systemui/controls/management/AllModel\n*L\n62#1,3:138\n63#1:141\n63#1,2:142\n54#1,9:144\n54#1:153\n55#1,2:154\n54#1:157\n54#1:158\n69#1,2:159\n88#1,3:161\n88#1,3:171\n54#1:156\n88#1,7:164\n*E\n"
+    value = "SMAP\nAllModel.kt\nKotlin\n*S Kotlin\n*F\n+ 1 AllModel.kt\ncom/android/systemui/controls/management/AllModel\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 4 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n*L\n1#1,137:1\n1618#2,3:138\n764#2:141\n855#2,2:142\n1601#2,9:144\n1849#2:153\n286#2,2:154\n1850#2:157\n1610#2:158\n286#2,2:159\n1500#2,3:161\n1503#2,3:171\n1#3:156\n357#4,7:164\n*S KotlinDebug\n*F\n+ 1 AllModel.kt\ncom/android/systemui/controls/management/AllModel\n*L\n62#1:138,3\n63#1:141\n63#1:142,2\n54#1:144,9\n54#1:153\n55#1:154,2\n54#1:157\n54#1:158\n69#1:159,2\n88#1:161,3\n88#1:171,3\n54#1:156\n88#1:164,7\n*E\n"
 .end annotation
 
 
 # instance fields
-.field private final controls:Ljava/util/List;
+.field public final controls:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -29,68 +29,20 @@
     .end annotation
 .end field
 
-.field private final controlsModelCallback:Lcom/android/systemui/controls/management/ControlsModel$ControlsModelCallback;
+.field public final controlsModelCallback:Lcom/android/systemui/controls/management/ControlsModel$ControlsModelCallback;
 
-.field private final elements:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/management/ElementWrapper;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final elements:Ljava/util/ArrayList;
 
-.field private final emptyZoneString:Ljava/lang/CharSequence;
+.field public final emptyZoneString:Ljava/lang/CharSequence;
 
-.field private final favoriteIds:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final favoriteIds:Ljava/util/ArrayList;
 
-.field private modified:Z
-
-.field private final moveHelper:Ljava/lang/Void;
+.field public modified:Z
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/List;Ljava/util/List;Ljava/lang/CharSequence;Lcom/android/systemui/controls/management/ControlsModel$ControlsModelCallback;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlStatus;",
-            ">;",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;",
-            "Ljava/lang/CharSequence;",
-            "Lcom/android/systemui/controls/management/ControlsModel$ControlsModelCallback;",
-            ")V"
-        }
-    .end annotation
-
-    const-string v0, "controls"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "initialFavoriteIds"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "emptyZoneString"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "controlsModelCallback"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/util/List;Ljava/util/List;Ljava/lang/CharSequence;Lcom/android/systemui/controls/management/ControlsFavoritingActivity$controlsModelCallback$1;)V
+    .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -121,15 +73,13 @@
 
     check-cast p4, Lcom/android/systemui/controls/ControlStatus;
 
-    invoke-virtual {p4}, Lcom/android/systemui/controls/ControlStatus;->getControl()Landroid/service/controls/Control;
-
-    move-result-object p4
+    iget-object p4, p4, Lcom/android/systemui/controls/ControlStatus;->control:Landroid/service/controls/Control;
 
     invoke-virtual {p4}, Landroid/service/controls/Control;->getControlId()Ljava/lang/String;
 
     move-result-object p4
 
-    invoke-interface {p3, p4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p3, p4}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -164,214 +114,175 @@
 
     if-eqz v0, :cond_1
 
-    invoke-interface {p1, p4}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_2
-    invoke-static {p1}, Lkotlin/collections/CollectionsKt;->toMutableList(Ljava/util/Collection;)Ljava/util/List;
+    new-instance p2, Ljava/util/ArrayList;
 
-    move-result-object p1
+    invoke-direct {p2, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/List;
+    iput-object p2, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/ArrayList;
 
     iget-object p1, p0, Lcom/android/systemui/controls/management/AllModel;->controls:Ljava/util/List;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/controls/management/AllModel;->createWrappers(Ljava/util/List;)Ljava/util/List;
+    new-instance p2, Lcom/android/systemui/controls/management/AllModel$OrderedMap;
 
-    move-result-object p1
+    new-instance p3, Landroid/util/ArrayMap;
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/AllModel;->elements:Ljava/util/List;
+    invoke-direct {p3}, Landroid/util/ArrayMap;-><init>()V
 
-    return-void
-.end method
-
-.method private final createWrappers(Ljava/util/List;)Ljava/util/List;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlStatus;",
-            ">;)",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/management/ElementWrapper;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;
-
-    new-instance v1, Landroid/util/ArrayMap;
-
-    invoke-direct {v1}, Landroid/util/ArrayMap;-><init>()V
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;-><init>(Ljava/util/Map;)V
+    invoke-direct {p2, p3}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;-><init>(Landroid/util/ArrayMap;)V
 
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
-    :goto_0
+    :goto_2
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result p3
 
-    if-eqz v1, :cond_2
+    if-eqz p3, :cond_5
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object p3
 
-    move-object v2, v1
+    move-object p4, p3
 
-    check-cast v2, Lcom/android/systemui/controls/ControlStatus;
+    check-cast p4, Lcom/android/systemui/controls/ControlStatus;
 
-    invoke-virtual {v2}, Lcom/android/systemui/controls/ControlStatus;->getControl()Landroid/service/controls/Control;
+    iget-object p4, p4, Lcom/android/systemui/controls/ControlStatus;->control:Landroid/service/controls/Control;
 
-    move-result-object v2
+    invoke-virtual {p4}, Landroid/service/controls/Control;->getZone()Ljava/lang/CharSequence;
 
-    invoke-virtual {v2}, Landroid/service/controls/Control;->getZone()Ljava/lang/CharSequence;
+    move-result-object p4
 
-    move-result-object v2
+    if-nez p4, :cond_3
 
-    if-nez v2, :cond_0
+    const-string p4, ""
 
-    const-string v2, ""
+    :cond_3
+    invoke-virtual {p2, p4}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
-    invoke-interface {v0, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-result-object v0
 
-    move-result-object v3
+    if-nez v0, :cond_4
 
-    if-nez v3, :cond_1
+    new-instance v0, Ljava/util/ArrayList;
 
-    new-instance v3, Ljava/util/ArrayList;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    invoke-virtual {p2, p4, v0}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {v0, v2, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :cond_4
+    check-cast v0, Ljava/util/List;
 
-    :cond_1
-    check-cast v3, Ljava/util/List;
+    invoke-interface {v0, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    goto :goto_2
 
-    goto :goto_0
-
-    :cond_2
+    :cond_5
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v1, 0x0
+    const/4 p3, 0x0
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->getOrderedKeys()Ljava/util/List;
+    iget-object p4, p2, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/ArrayList;
 
-    move-result-object v2
+    invoke-virtual {p4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    move-result-object p4
 
-    move-result-object v2
-
-    :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/CharSequence;
-
-    invoke-static {v0, v3}, Lkotlin/collections/MapsKt;->getValue(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    const-string v5, "map.getValue(zoneName)"
-
-    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v4, Ljava/lang/Iterable;
-
-    invoke-static {v4}, Lkotlin/collections/CollectionsKt;->asSequence(Ljava/lang/Iterable;)Lkotlin/sequences/Sequence;
-
-    move-result-object v4
-
-    sget-object v5, Lcom/android/systemui/controls/management/AllModel$createWrappers$values$1;->INSTANCE:Lcom/android/systemui/controls/management/AllModel$createWrappers$values$1;
-
-    invoke-static {v4, v5}, Lkotlin/sequences/SequencesKt;->map(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)Lkotlin/sequences/Sequence;
-
-    move-result-object v4
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_3
-
-    move-object v1, v4
-
-    goto :goto_1
-
-    :cond_3
-    new-instance v5, Lcom/android/systemui/controls/management/ZoneNameWrapper;
-
-    const-string/jumbo v6, "zoneName"
-
-    invoke-static {v3, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {v5, v3}, Lcom/android/systemui/controls/management/ZoneNameWrapper;-><init>(Ljava/lang/CharSequence;)V
-
-    invoke-interface {p1, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-static {p1, v4}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
-
-    goto :goto_1
-
-    :cond_4
-    if-eqz v1, :cond_6
-
-    invoke-virtual {v0}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->size()I
+    :goto_3
+    invoke-interface {p4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    const/4 v2, 0x1
+    if-eqz v0, :cond_7
 
-    if-eq v0, v2, :cond_5
+    invoke-interface {p4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    new-instance v0, Lcom/android/systemui/controls/management/ZoneNameWrapper;
+    move-result-object v0
 
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel;->emptyZoneString:Ljava/lang/CharSequence;
+    check-cast v0, Ljava/lang/CharSequence;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/controls/management/ZoneNameWrapper;-><init>(Ljava/lang/CharSequence;)V
+    invoke-static {p2, v0}, Lkotlin/collections/MapsKt___MapsKt;->getValue(Ljava/util/Map;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    move-result-object v1
 
-    :cond_5
-    invoke-static {p1, v1}, Lkotlin/collections/CollectionsKt;->addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
+    check-cast v1, Ljava/lang/Iterable;
+
+    new-instance v2, Lkotlin/collections/CollectionsKt___CollectionsKt$asSequence$$inlined$Sequence$1;
+
+    invoke-direct {v2, v1}, Lkotlin/collections/CollectionsKt___CollectionsKt$asSequence$$inlined$Sequence$1;-><init>(Ljava/lang/Iterable;)V
+
+    sget-object v1, Lcom/android/systemui/controls/management/AllModel$createWrappers$values$1;->INSTANCE:Lcom/android/systemui/controls/management/AllModel$createWrappers$values$1;
+
+    new-instance v3, Lkotlin/sequences/TransformingSequence;
+
+    invoke-direct {v3, v2, v1}, Lkotlin/sequences/TransformingSequence;-><init>(Lkotlin/sequences/Sequence;Lkotlin/jvm/functions/Function1;)V
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    move-object p3, v3
+
+    goto :goto_3
 
     :cond_6
-    return-object p1
+    new-instance v1, Lcom/android/systemui/controls/management/ZoneNameWrapper;
+
+    invoke-direct {v1, v0}, Lcom/android/systemui/controls/management/ZoneNameWrapper;-><init>(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p1, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-static {p1, v3}, Lkotlin/collections/CollectionsKt__ReversedViewsKt;->addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
+
+    goto :goto_3
+
+    :cond_7
+    if-eqz p3, :cond_9
+
+    invoke-virtual {p2}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->size()I
+
+    move-result p2
+
+    const/4 p4, 0x1
+
+    if-eq p2, p4, :cond_8
+
+    new-instance p2, Lcom/android/systemui/controls/management/ZoneNameWrapper;
+
+    iget-object p4, p0, Lcom/android/systemui/controls/management/AllModel;->emptyZoneString:Ljava/lang/CharSequence;
+
+    invoke-direct {p2, p4}, Lcom/android/systemui/controls/management/ZoneNameWrapper;-><init>(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p1, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_8
+    invoke-static {p1, p3}, Lkotlin/collections/CollectionsKt__ReversedViewsKt;->addAll(Ljava/util/Collection;Lkotlin/sequences/Sequence;)Z
+
+    :cond_9
+    iput-object p1, p0, Lcom/android/systemui/controls/management/AllModel;->elements:Ljava/util/ArrayList;
+
+    return-void
 .end method
 
 
 # virtual methods
-.method public changeFavoriteStatus(Ljava/lang/String;Z)V
+.method public final changeFavoriteStatus(Ljava/lang/String;Z)V
     .locals 6
 
-    const-string v0, "controlId"
+    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel;->elements:Ljava/util/ArrayList;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/AllModel;->getElements()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -400,13 +311,9 @@
 
     check-cast v4, Lcom/android/systemui/controls/management/ControlStatusWrapper;
 
-    invoke-virtual {v4}, Lcom/android/systemui/controls/management/ControlStatusWrapper;->getControlStatus()Lcom/android/systemui/controls/ControlStatus;
+    iget-object v4, v4, Lcom/android/systemui/controls/management/ControlStatusWrapper;->controlStatus:Lcom/android/systemui/controls/ControlStatus;
 
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/systemui/controls/ControlStatus;->getControl()Landroid/service/controls/Control;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/controls/ControlStatus;->control:Landroid/service/controls/Control;
 
     invoke-virtual {v4}, Landroid/service/controls/Control;->getControlId()Ljava/lang/String;
 
@@ -423,7 +330,7 @@
     goto :goto_0
 
     :cond_1
-    const/4 v4, 0x0
+    move v4, v3
 
     :goto_0
     if-eqz v4, :cond_0
@@ -431,70 +338,59 @@
     goto :goto_1
 
     :cond_2
-    move-object v1, v3
+    const/4 v1, 0x0
 
     :goto_1
     check-cast v1, Lcom/android/systemui/controls/management/ControlStatusWrapper;
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
 
     if-nez v1, :cond_3
 
     goto :goto_2
 
     :cond_3
-    invoke-virtual {v1}, Lcom/android/systemui/controls/management/ControlStatusWrapper;->getControlStatus()Lcom/android/systemui/controls/ControlStatus;
+    iget-object v0, v1, Lcom/android/systemui/controls/management/ControlStatusWrapper;->controlStatus:Lcom/android/systemui/controls/ControlStatus;
 
-    move-result-object v4
-
-    if-nez v4, :cond_4
+    if-nez v0, :cond_4
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual {v4}, Lcom/android/systemui/controls/ControlStatus;->getFavorite()Z
+    iget-boolean v0, v0, Lcom/android/systemui/controls/ControlStatus;->favorite:Z
 
-    move-result v3
+    if-ne p2, v0, :cond_5
 
-    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    move v3, v2
 
-    move-result-object v3
-
+    :cond_5
     :goto_2
-    invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
+    if-eqz v3, :cond_6
 
     return-void
 
-    :cond_5
-    if-eqz p2, :cond_6
+    :cond_6
+    if-eqz p2, :cond_7
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/ArrayList;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     move-result p1
 
     goto :goto_3
 
-    :cond_6
-    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/List;
+    :cond_7
+    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/ArrayList;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     move-result p1
 
     :goto_3
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_8
 
     iget-boolean p1, p0, Lcom/android/systemui/controls/management/AllModel;->modified:Z
 
-    if-nez p1, :cond_7
+    if-nez p1, :cond_8
 
     iput-boolean v2, p0, Lcom/android/systemui/controls/management/AllModel;->modified:Z
 
@@ -502,23 +398,21 @@
 
     invoke-interface {p0}, Lcom/android/systemui/controls/management/ControlsModel$ControlsModelCallback;->onFirstChange()V
 
-    :cond_7
-    if-nez v1, :cond_8
+    :cond_8
+    if-nez v1, :cond_9
 
     goto :goto_4
 
-    :cond_8
-    invoke-virtual {v1}, Lcom/android/systemui/controls/management/ControlStatusWrapper;->getControlStatus()Lcom/android/systemui/controls/ControlStatus;
+    :cond_9
+    iget-object p0, v1, Lcom/android/systemui/controls/management/ControlStatusWrapper;->controlStatus:Lcom/android/systemui/controls/ControlStatus;
 
-    move-result-object p0
-
-    invoke-virtual {p0, p2}, Lcom/android/systemui/controls/ControlStatus;->setFavorite(Z)V
+    iput-boolean p2, p0, Lcom/android/systemui/controls/ControlStatus;->favorite:Z
 
     :goto_4
     return-void
 .end method
 
-.method public getElements()Ljava/util/List;
+.method public final getElements()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -529,33 +423,24 @@
         }
     .end annotation
 
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel;->elements:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel;->elements:Ljava/util/ArrayList;
 
     return-object p0
 .end method
 
-.method public getFavorites()Ljava/util/List;
+.method public final getFavorites()Ljava/util/ArrayList;
     .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/ControlInfo;",
-            ">;"
-        }
-    .end annotation
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel;->favoriteIds:Ljava/util/ArrayList;
 
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
-    :cond_0
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -575,14 +460,14 @@
 
     move-result-object v3
 
-    :cond_1
+    :cond_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
     const/4 v5, 0x0
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_1
 
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -592,9 +477,7 @@
 
     check-cast v6, Lcom/android/systemui/controls/ControlStatus;
 
-    invoke-virtual {v6}, Lcom/android/systemui/controls/ControlStatus;->getControl()Landroid/service/controls/Control;
-
-    move-result-object v6
+    iget-object v6, v6, Lcom/android/systemui/controls/ControlStatus;->control:Landroid/service/controls/Control;
 
     invoke-virtual {v6}, Landroid/service/controls/Control;->getControlId()Ljava/lang/String;
 
@@ -604,43 +487,58 @@
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_0
 
     goto :goto_1
 
-    :cond_2
+    :cond_1
     move-object v4, v5
 
     :goto_1
     check-cast v4, Lcom/android/systemui/controls/ControlStatus;
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_2
 
     move-object v2, v5
 
     goto :goto_2
 
-    :cond_3
-    invoke-virtual {v4}, Lcom/android/systemui/controls/ControlStatus;->getControl()Landroid/service/controls/Control;
-
-    move-result-object v2
+    :cond_2
+    iget-object v2, v4, Lcom/android/systemui/controls/ControlStatus;->control:Landroid/service/controls/Control;
 
     :goto_2
-    if-nez v2, :cond_4
+    if-nez v2, :cond_3
 
     goto :goto_3
 
-    :cond_4
-    sget-object v3, Lcom/android/systemui/controls/controller/ControlInfo;->Companion:Lcom/android/systemui/controls/controller/ControlInfo$Companion;
+    :cond_3
+    new-instance v5, Lcom/android/systemui/controls/controller/ControlInfo;
 
-    invoke-virtual {v3, v2}, Lcom/android/systemui/controls/controller/ControlInfo$Companion;->fromControl(Landroid/service/controls/Control;)Lcom/android/systemui/controls/controller/ControlInfo;
+    invoke-virtual {v2}, Landroid/service/controls/Control;->getControlId()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
+
+    invoke-virtual {v2}, Landroid/service/controls/Control;->getTitle()Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-virtual {v2}, Landroid/service/controls/Control;->getSubtitle()Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    invoke-virtual {v2}, Landroid/service/controls/Control;->getDeviceType()I
+
+    move-result v2
+
+    invoke-direct {v5, v3, v4, v6, v2}, Lcom/android/systemui/controls/controller/ControlInfo;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
 
     :goto_3
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_4
 
-    invoke-interface {v1, v5}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -648,22 +546,10 @@
     return-object v1
 .end method
 
-.method public bridge synthetic getMoveHelper()Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
+.method public final bridge synthetic getMoveHelper()Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/AllModel;->getMoveHelper()Ljava/lang/Void;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
-
-    return-object p0
-.end method
-
-.method public getMoveHelper()Ljava/lang/Void;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel;->moveHelper:Ljava/lang/Void;
+    const/4 p0, 0x0
 
     return-object p0
 .end method

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final backExecutorProvider:Ljavax/inject/Provider;
+.field public final backExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final controlsControllerProvider:Ljavax/inject/Provider;
+.field public final controlsControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final executorProvider:Ljavax/inject/Provider;
+.field public final executorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final listingControllerProvider:Ljavax/inject/Provider;
+.field public final listingControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final uiControllerProvider:Ljavax/inject/Provider;
+.field public final uiControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -171,46 +171,12 @@
     return-object v7
 .end method
 
-.method public static newInstance(Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/controls/management/ControlsListingController;Lcom/android/systemui/controls/controller/ControlsController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/controls/ui/ControlsUiController;)Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
-    .locals 8
-
-    new-instance v7, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
-
-    move-object v0, v7
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;-><init>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/controls/management/ControlsListingController;Lcom/android/systemui/controls/controller/ControlsController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/controls/ui/ControlsUiController;)V
-
-    return-object v7
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
-    .locals 7
+.method public final get()Ljava/lang/Object;
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->executorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v1, v0
-
-    check-cast v1, Ljava/util/concurrent/Executor;
-
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->backExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -220,7 +186,7 @@
 
     check-cast v2, Ljava/util/concurrent/Executor;
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->listingControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->backExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -228,9 +194,9 @@
 
     move-object v3, v0
 
-    check-cast v3, Lcom/android/systemui/controls/management/ControlsListingController;
+    check-cast v3, Ljava/util/concurrent/Executor;
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->controlsControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->listingControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -238,9 +204,9 @@
 
     move-object v4, v0
 
-    check-cast v4, Lcom/android/systemui/controls/controller/ControlsController;
+    check-cast v4, Lcom/android/systemui/controls/management/ControlsListingController;
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->controlsControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -248,7 +214,17 @@
 
     move-object v5, v0
 
-    check-cast v5, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v5, Lcom/android/systemui/controls/controller/ControlsController;
+
+    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->uiControllerProvider:Ljavax/inject/Provider;
 
@@ -256,23 +232,15 @@
 
     move-result-object p0
 
-    move-object v6, p0
+    move-object v7, p0
 
-    check-cast v6, Lcom/android/systemui/controls/ui/ControlsUiController;
+    check-cast v7, Lcom/android/systemui/controls/ui/ControlsUiController;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->newInstance(Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/controls/management/ControlsListingController;Lcom/android/systemui/controls/controller/ControlsController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/controls/ui/ControlsUiController;)Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
+    new-instance p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity_Factory;->get()Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;-><init>(Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/controls/management/ControlsListingController;Lcom/android/systemui/controls/controller/ControlsController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/controls/ui/ControlsUiController;)V
 
     return-object p0
 .end method

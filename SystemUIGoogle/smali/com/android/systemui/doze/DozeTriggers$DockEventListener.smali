@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/doze/DozeTriggers$DockEventListener;
+.class public final Lcom/android/systemui/doze/DozeTriggers$DockEventListener;
 .super Ljava/lang/Object;
 .source "DozeTriggers.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DockEventListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/doze/DozeTriggers;
+.field public final synthetic this$0:Lcom/android/systemui/doze/DozeTriggers;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/doze/DozeTriggers;)V
+.method public constructor <init>(Lcom/android/systemui/doze/DozeTriggers;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeTriggers$DockEventListener;->this$0:Lcom/android/systemui/doze/DozeTriggers;
@@ -32,78 +32,109 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/doze/DozeTriggers;Lcom/android/systemui/doze/DozeTriggers$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeTriggers$DockEventListener;-><init>(Lcom/android/systemui/doze/DozeTriggers;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onEvent(I)V
-    .locals 2
+.method public final onEvent(I)V
+    .locals 4
 
-    invoke-static {}, Lcom/android/systemui/doze/DozeTriggers;->access$500()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/doze/DozeTriggers;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "dock event = "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
+    const-string v0, "dock event = "
 
     const-string v1, "DozeTriggers"
 
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, p1, v1}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline1;->m(Ljava/lang/String;ILjava/lang/String;)V
 
     :cond_0
-    if-eqz p1, :cond_2
+    const/4 v0, 0x0
 
-    const/4 v0, 0x1
+    if-eqz p1, :cond_4
 
-    if-eq p1, v0, :cond_1
-
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     if-eq p1, v1, :cond_1
 
-    goto :goto_0
+    const/4 v2, 0x2
+
+    if-eq p1, v2, :cond_1
+
+    goto :goto_4
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers$DockEventListener;->this$0:Lcom/android/systemui/doze/DozeTriggers;
 
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeTriggers;->access$400(Lcom/android/systemui/doze/DozeTriggers;)Lcom/android/systemui/doze/DozeSensors;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeSensors:Lcom/android/systemui/doze/DozeSensors;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/doze/DozeSensors;->ignoreTouchScreenSensorsSettingInterferingWithDocking(Z)V
+    array-length p1, p0
+
+    :goto_0
+    if-ge v0, p1, :cond_7
+
+    aget-object v2, p0, v0
+
+    iget-boolean v3, v2, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRequiresTouchscreen:Z
+
+    if-eqz v3, :cond_3
+
+    iget-boolean v3, v2, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mIgnoresSetting:Z
+
+    if-ne v3, v1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    iput-boolean v1, v2, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mIgnoresSetting:Z
+
+    invoke-virtual {v2}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->updateListening()V
+
+    :cond_3
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_4
     iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers$DockEventListener;->this$0:Lcom/android/systemui/doze/DozeTriggers;
 
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeTriggers;->access$400(Lcom/android/systemui/doze/DozeTriggers;)Lcom/android/systemui/doze/DozeSensors;
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeSensors:Lcom/android/systemui/doze/DozeSensors;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mTriggerSensors:[Lcom/android/systemui/doze/DozeSensors$TriggerSensor;
 
-    const/4 p1, 0x0
+    array-length p1, p0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->ignoreTouchScreenSensorsSettingInterferingWithDocking(Z)V
+    move v1, v0
 
-    :goto_0
+    :goto_2
+    if-ge v1, p1, :cond_7
+
+    aget-object v2, p0, v1
+
+    iget-boolean v3, v2, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mRequiresTouchscreen:Z
+
+    if-eqz v3, :cond_6
+
+    iget-boolean v3, v2, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mIgnoresSetting:Z
+
+    if-nez v3, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    iput-boolean v0, v2, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mIgnoresSetting:Z
+
+    invoke-virtual {v2}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->updateListening()V
+
+    :cond_6
+    :goto_3
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    :cond_7
+    :goto_4
     return-void
 .end method

@@ -17,6 +17,7 @@
         <item>အများဆုံးလုပ်ငန်းစဉ်(၃)ခု</item>
         <item>အများဆုံးလုပ်ငန်းစဉ်(၄)ခု</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>၀%</item>
         <item>၅၀%</item>
@@ -260,6 +261,11 @@
         <item>ပိတ်</item>
         <item>ဖွင့်</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>မရနိုင်ပါ</item>
+        <item>ပိတ်</item>
+        <item>ဖွင့်</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>မရနိုင်ပါ</item>
         <item>ပိတ်</item>
@@ -306,6 +312,16 @@
         <item>ဖွင့်</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>မရနိုင်ပါ</item>
+        <item>ပိတ်</item>
+        <item>ဖွင့်</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>မရနိုင်ပါ</item>
+        <item>ပိတ်</item>
+        <item>ဖွင့်</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>မရနိုင်ပါ</item>
         <item>ပိတ်</item>
         <item>ဖွင့်</item>
@@ -374,6 +390,12 @@
         <item>သွက်သွက်</item>
         <item>အရမ်းသွက်</item>
         <item>အမြန်ဆုံး</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>ဘယ်ဘက်သို့ရွှေ့ရန်</item>
+        <item>အောက်သို့ရွှေ့ရန်</item>
+        <item>ညာဘက်သို့ရွှေ့ရန်</item>
+        <item>အပေါ်သို့ရွှေ့ရန်</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>အားသွင်းနေပါသည်</item>

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/qs/QuickStatusBarHeaderController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/internal/colorextraction/ColorExtractor$OnColorsChangedListener;
@@ -27,7 +28,27 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/QuickStatusBarHeaderController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->$r8$lambda$cFqUFu8nFqfUEvSWLdscueAdKd4(Lcom/android/systemui/qs/QuickStatusBarHeaderController;Lcom/android/internal/colorextraction/ColorExtractor;I)V
+    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+
+    iget-boolean p2, p1, Lcom/android/systemui/colorextraction/SysuiColorExtractor;->mHasMediaArtwork:Z
+
+    if-eqz p2, :cond_0
+
+    iget-object p1, p1, Lcom/android/systemui/colorextraction/SysuiColorExtractor;->mBackdropColors:Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p1, Lcom/android/systemui/colorextraction/SysuiColorExtractor;->mNeutralColorsLock:Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;
+
+    :goto_0
+    invoke-virtual {p1}, Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;->supportsDarkText()Z
+
+    move-result p1
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/Clock;->onColorsChanged(Z)V
 
     return-void
 .end method

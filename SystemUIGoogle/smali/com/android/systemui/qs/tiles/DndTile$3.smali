@@ -1,9 +1,9 @@
-.class Lcom/android/systemui/qs/tiles/DndTile$3;
+.class public final Lcom/android/systemui/qs/tiles/DndTile$3;
 .super Ljava/lang/Object;
 .source "DndTile.java"
 
 # interfaces
-.implements Landroid/content/SharedPreferences$OnSharedPreferenceChangeListener;
+.implements Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
 
 
 # annotations
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/DndTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/DndTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/DndTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/DndTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/DndTile$3;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
@@ -34,30 +34,16 @@
 
 
 # virtual methods
-.method public onSharedPreferenceChanged(Landroid/content/SharedPreferences;Ljava/lang/String;)V
+.method public final onZenChanged(I)V
     .locals 0
 
-    const-string p1, "DndTileCombinedIcon"
-
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    const-string p1, "DndTileVisible"
-
-    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    :cond_0
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/DndTile$3;->this$0:Lcom/android/systemui/qs/tiles/DndTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    :cond_1
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
+
     return-void
 .end method

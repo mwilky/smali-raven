@@ -24,6 +24,12 @@
         <item quantity="few">Dodano %s elementy sterujące</item>
         <item quantity="many">Dodano %s elementów sterujących</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s aplikacji jest aktywne</item>
+        <item quantity="one">%s aplikacja jest aktywna</item>
+        <item quantity="few">%s aplikacje są aktywne</item>
+        <item quantity="many">%s aplikacji jest aktywnych</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Wpisz kod PIN karty SIM. Masz jeszcze %d próby.</item>
         <item quantity="one">Wpisz kod PIN karty SIM. Masz jeszcze %d próbę, zanim będzie trzeba skontaktować się z operatorem, by odblokować to urządzenie.</item>
@@ -47,12 +53,6 @@
         <item quantity="one">Nieprawidłowy kod PUK karty SIM. Masz jeszcze %d próbę, zanim karta SIM zostanie trwale zablokowana.</item>
         <item quantity="few">Nieprawidłowy kod PUK karty SIM. Masz jeszcze %d próby, zanim karta SIM zostanie trwale zablokowana.</item>
         <item quantity="many">Nieprawidłowy kod PUK karty SIM. Masz jeszcze %d prób, zanim karta SIM zostanie trwale zablokowana.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Spróbuj ponownie za %d sekundy.</item>
-        <item quantity="one">Spróbuj ponownie za sekundę</item>
-        <item quantity="few">Spróbuj ponownie za %d sekundy.</item>
-        <item quantity="many">Spróbuj ponownie za %d sekund.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d nowego powiadomienia</item>
@@ -101,11 +101,5 @@
         <item quantity="one">Można utworzyć tylko jednego użytkownika.</item>
         <item quantity="few">Możesz dodać maksymalnie %d użytkowników.</item>
         <item quantity="many">Możesz dodać maksymalnie %d użytkowników.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d urządzenia podłączonego</item>
-        <item quantity="one">%1$d urządzenie podłączone</item>
-        <item quantity="few">%1$d urządzenia podłączone</item>
-        <item quantity="many">%1$d urządzeń podłączonych</item>
     </plurals>
 </resources>

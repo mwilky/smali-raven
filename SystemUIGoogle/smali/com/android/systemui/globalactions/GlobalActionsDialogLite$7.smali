@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/globalactions/GlobalActionsDialogLite$7;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsDialogLite$7;
 .super Landroid/database/ContentObserver;
 .source "GlobalActionsDialogLite.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+.field public final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$7;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
@@ -31,12 +31,12 @@
 
 
 # virtual methods
-.method public onChange(Z)V
+.method public final onChange(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$7;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2900(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->onAirplaneModeChanged()V
 
     return-void
 .end method

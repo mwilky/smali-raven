@@ -16,6 +16,10 @@
         <item quantity="other">පාලන %sක් එක් කරන ලදී.</item>
         <item quantity="one">පාලන %sක් එක් කරන ලදී.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">යෙදුම් %sක් සක්‍රියයි</item>
+        <item quantity="one">යෙදුම් %sක් සක්‍රියයි</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">SIM PIN ඇතුළු කරන්න, ඔබ සතුව උත්සාහයන් %dක් ඉතිරිව ඇත.</item>
         <item quantity="one">SIM PIN ඇතුළු කරන්න, ඔබ සතුව උත්සාහයන් %dක් ඉතිරිව ඇත.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">වැරදි SIM PUK කේතයකි, SIM කාඩ්පත ස්ථිරවම භාවිත කළ නොහැකි බවට පත්වීමට පෙර ඔබට තවත් උත්සාහයන් %dක් ඉතිරිව ඇත.</item>
         <item quantity="one">වැරදි SIM PUK කේතයකි, SIM කාඩ්පත ස්ථිරවම භාවිත කළ නොහැකි බවට පත්වීමට පෙර ඔබට තවත් උත්සාහයන් %dක් ඉතිරිව ඇත.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">තත්පර %dකින් නැවත උත්සාහ කරන්න.</item>
-        <item quantity="one">තත්පර %dකින් නැවත උත්සාහ කරන්න.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">නව දැනුම්දීම් %dක්</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">ඔබට පරිශීලකයින් %dක් දක්වා එක් කළ හැකිය.</item>
         <item quantity="one">ඔබට පරිශීලකයින් %dක් දක්වා එක් කළ හැකිය.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">උපාංග %1$dක් සම්බන්ධ කරන ලදී</item>
-        <item quantity="one">උපාංග %1$dක් සම්බන්ධ කරන ලදී</item>
     </plurals>
 </resources>

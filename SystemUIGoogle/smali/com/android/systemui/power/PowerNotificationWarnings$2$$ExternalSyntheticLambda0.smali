@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/power/PowerNotificationWarnings$2$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/plugins/ActivityStarter$Callback;
@@ -27,7 +28,11 @@
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$2$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/power/PowerNotificationWarnings$2;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/power/PowerNotificationWarnings$2;->$r8$lambda$M6dTW-gRkKSWSTvLHmHmL3S3mWg(Lcom/android/systemui/power/PowerNotificationWarnings$2;I)V
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$2;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mThermalShutdownDialog:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
     return-void
 .end method

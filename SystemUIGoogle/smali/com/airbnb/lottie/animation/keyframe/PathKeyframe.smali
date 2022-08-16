@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;
+.class public final Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;
 .super Lcom/airbnb/lottie/value/Keyframe;
 .source "PathKeyframe.java"
 
@@ -14,9 +14,9 @@
 
 
 # instance fields
-.field private path:Landroid/graphics/Path;
+.field public path:Landroid/graphics/Path;
 
-.field private final pointKeyFrame:Lcom/airbnb/lottie/value/Keyframe;
+.field public final pointKeyFrame:Lcom/airbnb/lottie/value/Keyframe;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/value/Keyframe<",
@@ -65,8 +65,8 @@
 
 
 # virtual methods
-.method public createPath()V
-    .locals 4
+.method public final createPath()V
+    .locals 12
 
     iget-object v0, p0, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
 
@@ -104,9 +104,9 @@
     :goto_0
     iget-object v1, p0, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_3
 
     iget-object v0, p0, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
 
@@ -120,20 +120,81 @@
 
     iget-object v2, v2, Lcom/airbnb/lottie/value/Keyframe;->pathCp2:Landroid/graphics/PointF;
 
-    invoke-static {v0, v1, v3, v2}, Lcom/airbnb/lottie/utils/Utils;->createPath(Landroid/graphics/PointF;Landroid/graphics/PointF;Landroid/graphics/PointF;Landroid/graphics/PointF;)Landroid/graphics/Path;
+    sget-object v4, Lcom/airbnb/lottie/utils/Utils;->pathMeasure:Landroid/graphics/PathMeasure;
 
-    move-result-object v0
+    new-instance v4, Landroid/graphics/Path;
 
-    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;->path:Landroid/graphics/Path;
+    invoke-direct {v4}, Landroid/graphics/Path;-><init>()V
+
+    iget v5, v0, Landroid/graphics/PointF;->x:F
+
+    iget v6, v0, Landroid/graphics/PointF;->y:F
+
+    invoke-virtual {v4, v5, v6}, Landroid/graphics/Path;->moveTo(FF)V
+
+    if-eqz v3, :cond_2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v3}, Landroid/graphics/PointF;->length()F
+
+    move-result v5
+
+    const/4 v6, 0x0
+
+    cmpl-float v5, v5, v6
+
+    if-nez v5, :cond_1
+
+    invoke-virtual {v2}, Landroid/graphics/PointF;->length()F
+
+    move-result v5
+
+    cmpl-float v5, v5, v6
+
+    if-eqz v5, :cond_2
 
     :cond_1
+    iget v5, v0, Landroid/graphics/PointF;->x:F
+
+    iget v6, v3, Landroid/graphics/PointF;->x:F
+
+    add-float/2addr v6, v5
+
+    iget v0, v0, Landroid/graphics/PointF;->y:F
+
+    iget v3, v3, Landroid/graphics/PointF;->y:F
+
+    add-float v7, v0, v3
+
+    iget v10, v1, Landroid/graphics/PointF;->x:F
+
+    iget v0, v2, Landroid/graphics/PointF;->x:F
+
+    add-float v8, v10, v0
+
+    iget v11, v1, Landroid/graphics/PointF;->y:F
+
+    iget v0, v2, Landroid/graphics/PointF;->y:F
+
+    add-float v9, v11, v0
+
+    move-object v5, v4
+
+    invoke-virtual/range {v5 .. v11}, Landroid/graphics/Path;->cubicTo(FFFFFF)V
+
+    goto :goto_1
+
+    :cond_2
+    iget v0, v1, Landroid/graphics/PointF;->x:F
+
+    iget v1, v1, Landroid/graphics/PointF;->y:F
+
+    invoke-virtual {v4, v0, v1}, Landroid/graphics/Path;->lineTo(FF)V
+
+    :goto_1
+    iput-object v4, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;->path:Landroid/graphics/Path;
+
+    :cond_3
     return-void
-.end method
-
-.method getPath()Landroid/graphics/Path;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;->path:Landroid/graphics/Path;
-
-    return-object p0
 .end method

@@ -23,9 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/airbnb/lottie/model/content/PolystarShape$Type;
-
-.field public static final enum POLYGON:Lcom/airbnb/lottie/model/content/PolystarShape$Type;
+.field public static final synthetic $VALUES:[Lcom/airbnb/lottie/model/content/PolystarShape$Type;
 
 .field public static final enum STAR:Lcom/airbnb/lottie/model/content/PolystarShape$Type;
 
@@ -35,7 +33,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 6
 
     new-instance v0, Lcom/airbnb/lottie/model/content/PolystarShape$Type;
@@ -58,8 +56,6 @@
 
     invoke-direct {v1, v4, v3, v5}, Lcom/airbnb/lottie/model/content/PolystarShape$Type;-><init>(Ljava/lang/String;II)V
 
-    sput-object v1, Lcom/airbnb/lottie/model/content/PolystarShape$Type;->POLYGON:Lcom/airbnb/lottie/model/content/PolystarShape$Type;
-
     new-array v4, v5, [Lcom/airbnb/lottie/model/content/PolystarShape$Type;
 
     aput-object v0, v4, v2
@@ -71,7 +67,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

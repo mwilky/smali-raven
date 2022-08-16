@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/TransformState$1;
+.class public final Lcom/android/systemui/statusbar/notification/TransformState$1;
 .super Ljava/lang/Object;
 .source "TransformState.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 
 # virtual methods
-.method public onClippingStateChanged(Landroid/view/View;Z)V
+.method public final onClippingStateChanged(Landroid/view/View;Z)V
     .locals 0
 
     instance-of p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
@@ -61,7 +61,7 @@
     return-void
 .end method
 
-.method public shouldFinish(Landroid/view/View;)Z
+.method public final shouldFinish(Landroid/view/View;)Z
     .locals 0
 
     instance-of p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;

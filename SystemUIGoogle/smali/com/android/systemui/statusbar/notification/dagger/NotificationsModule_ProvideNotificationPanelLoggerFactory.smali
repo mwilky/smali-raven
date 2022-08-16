@@ -32,50 +32,14 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationPanelLoggerFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationPanelLoggerFactory$InstanceHolder;->access$000()Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationPanelLoggerFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static provideNotificationPanelLogger()Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLogger;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideNotificationPanelLogger()Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLogger;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLogger;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLogger;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationPanelLoggerFactory;->provideNotificationPanelLogger()Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLogger;
+    new-instance p0, Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLoggerImpl;
 
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideNotificationPanelLoggerFactory;->get()Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLogger;
-
-    move-result-object p0
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/logging/NotificationPanelLoggerImpl;-><init>()V
 
     return-object p0
 .end method

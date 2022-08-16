@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/clock/ClockOptionsProvider$MyWriter;
+.class public final Lcom/android/keyguard/clock/ClockOptionsProvider$MyWriter;
 .super Ljava/lang/Object;
 .source "ClockOptionsProvider.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "MyWriter"
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,18 +35,12 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/keyguard/clock/ClockOptionsProvider$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/clock/ClockOptionsProvider$MyWriter;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public writeDataToPipe(Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/graphics/Bitmap;)V
+.method public final writeDataToPipe(Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;)V
     .locals 0
+
+    check-cast p5, Landroid/graphics/Bitmap;
 
     :try_start_0
     new-instance p0, Landroid/os/ParcelFileDescriptor$AutoCloseOutputStream;
@@ -102,15 +96,5 @@
     invoke-static {p1, p2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_1
-    return-void
-.end method
-
-.method public bridge synthetic writeDataToPipe(Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p5, Landroid/graphics/Bitmap;
-
-    invoke-virtual/range {p0 .. p5}, Lcom/android/keyguard/clock/ClockOptionsProvider$MyWriter;->writeDataToPipe(Landroid/os/ParcelFileDescriptor;Landroid/net/Uri;Ljava/lang/String;Landroid/os/Bundle;Landroid/graphics/Bitmap;)V
-
     return-void
 .end method

@@ -17,6 +17,7 @@
         <item>Como moito 3 procesos</item>
         <item>Como moito 4 procesos</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Non</item>
         <item>Si</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Non dispoñible</item>
+        <item>Desactivada</item>
+        <item>Activada</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Non dispoñible</item>
         <item>Non</item>
@@ -309,6 +315,16 @@
         <item>Non dispoñible</item>
         <item>Non</item>
         <item>Si</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Non dispoñible</item>
+        <item>Desactivado</item>
+        <item>Activado</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Non dispoñible</item>
+        <item>Desactivado</item>
+        <item>Activado</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>Non dispoñible</item>
@@ -374,6 +390,12 @@
         <item>Rápido</item>
         <item>Moi rápido</item>
         <item>O máis rápido</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Mover cara á esquerda</item>
+        <item>Mover cara abaixo</item>
+        <item>Mover cara á dereita</item>
+        <item>Mover cara arriba</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Cargando</item>

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;
 .super Landroid/os/Handler;
 .source "GlobalActionsDialogLite.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+.field public final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+.method public constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public final handleMessage(Landroid/os/Message;)V
     .locals 1
 
     iget v0, p1, Landroid/os/Message;->what:I
@@ -47,7 +47,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$3000(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+    invoke-virtual {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->refreshSilentMode()V
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 

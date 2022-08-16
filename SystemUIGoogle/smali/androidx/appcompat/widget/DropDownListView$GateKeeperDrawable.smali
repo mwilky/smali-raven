@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;
+.class public final Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;
 .super Landroidx/appcompat/graphics/drawable/DrawableWrapper;
 .source "DropDownListView.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "GateKeeperDrawable"
 .end annotation
 
 
 # instance fields
-.field private mEnabled:Z
+.field public mEnabled:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/graphics/drawable/Drawable;)V
+.method public constructor <init>(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroidx/appcompat/graphics/drawable/DrawableWrapper;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 1
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;->mEnabled:Z
@@ -46,15 +46,7 @@
     return-void
 .end method
 
-.method setEnabled(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;->mEnabled:Z
-
-    return-void
-.end method
-
-.method public setHotspot(FF)V
+.method public final setHotspot(FF)V
     .locals 1
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;->mEnabled:Z
@@ -67,7 +59,7 @@
     return-void
 .end method
 
-.method public setHotspotBounds(IIII)V
+.method public final setHotspotBounds(IIII)V
     .locals 1
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;->mEnabled:Z
@@ -80,7 +72,7 @@
     return-void
 .end method
 
-.method public setState([I)Z
+.method public final setState([I)Z
     .locals 1
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;->mEnabled:Z
@@ -99,7 +91,7 @@
     return p0
 .end method
 
-.method public setVisible(ZZ)Z
+.method public final setVisible(ZZ)Z
     .locals 1
 
     iget-boolean v0, p0, Landroidx/appcompat/widget/DropDownListView$GateKeeperDrawable;->mEnabled:Z

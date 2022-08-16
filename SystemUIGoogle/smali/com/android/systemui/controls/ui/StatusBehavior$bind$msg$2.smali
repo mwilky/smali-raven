@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/StatusBehavior$bind$msg$2;
+.class public final Lcom/android/systemui/controls/ui/StatusBehavior$bind$msg$2;
 .super Ljava/lang/Object;
 .source "StatusBehavior.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $cws:Lcom/android/systemui/controls/ui/ControlWithState;
+.field public final synthetic $cws:Lcom/android/systemui/controls/ui/ControlWithState;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/StatusBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/StatusBehavior;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/StatusBehavior;Lcom/android/systemui/controls/ui/ControlWithState;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/StatusBehavior;Lcom/android/systemui/controls/ui/ControlWithState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/StatusBehavior$bind$msg$2;->this$0:Lcom/android/systemui/controls/ui/StatusBehavior;

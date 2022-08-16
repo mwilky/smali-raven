@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/accessibility/floatingmenu/InstantInsetLayerDrawable;
+.class public final Lcom/android/systemui/accessibility/floatingmenu/InstantInsetLayerDrawable;
 .super Landroid/graphics/drawable/LayerDrawable;
 .source "InstantInsetLayerDrawable.java"
 
@@ -14,7 +14,7 @@
 
 
 # virtual methods
-.method public setLayerInset(IIIII)V
+.method public final setLayerInset(IIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Landroid/graphics/drawable/LayerDrawable;->setLayerInset(IIIII)V

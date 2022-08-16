@@ -27,13 +27,13 @@
 
 
 # instance fields
-.field mFilter:Landroid/window/TransitionFilter;
+.field public mFilter:Landroid/window/TransitionFilter;
 
-.field final mTransition:Landroid/window/RemoteTransition;
+.field public final mTransition:Landroid/window/RemoteTransition;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/shared/system/RemoteTransitionCompat$3;
@@ -45,7 +45,7 @@
     return-void
 .end method
 
-.method protected constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -97,7 +97,7 @@
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -105,7 +105,7 @@
     return p0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/shared/system/RemoteTransitionCompat;->mFilter:Landroid/window/TransitionFilter;

@@ -1,10 +1,10 @@
-.class final Lcom/android/systemui/statusbar/commandline/CommandWrapper;
+.class public final Lcom/android/systemui/statusbar/commandline/CommandWrapper;
 .super Ljava/lang/Object;
 .source "CommandRegistry.kt"
 
 
 # instance fields
-.field private final commandFactory:Lkotlin/jvm/functions/Function0;
+.field public final commandFactory:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function0<",
@@ -14,12 +14,12 @@
     .end annotation
 .end field
 
-.field private final executor:Ljava/util/concurrent/Executor;
+.field public final executor:Ljava/util/concurrent/Executor;
 
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function0;Ljava/util/concurrent/Executor;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -32,14 +32,6 @@
         }
     .end annotation
 
-    const-string v0, "commandFactory"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "executor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->commandFactory:Lkotlin/jvm/functions/Function0;
@@ -51,7 +43,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -101,31 +93,7 @@
     return v0
 .end method
 
-.method public final getCommandFactory()Lkotlin/jvm/functions/Function0;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lkotlin/jvm/functions/Function0<",
-            "Lcom/android/systemui/statusbar/commandline/Command;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->commandFactory:Lkotlin/jvm/functions/Function0;
-
-    return-object p0
-.end method
-
-.method public final getExecutor()Ljava/util/concurrent/Executor;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->executor:Ljava/util/concurrent/Executor;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->commandFactory:Lkotlin/jvm/functions/Function0;
@@ -142,21 +110,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "CommandWrapper(commandFactory="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "CommandWrapper(commandFactory="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->commandFactory:Lkotlin/jvm/functions/Function0;
 

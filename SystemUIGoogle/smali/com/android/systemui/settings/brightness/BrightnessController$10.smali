@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/settings/brightness/BrightnessController$10;
+.class public final Lcom/android/systemui/settings/brightness/BrightnessController$10;
 .super Ljava/lang/Object;
 .source "BrightnessController.java"
 
@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/settings/brightness/BrightnessController;->checkRestrictionAndSetEnabled()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
+.field public final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessController;)V
+.method public constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$10;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
@@ -34,26 +23,16 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$10;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
-
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$2000(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/ToggleSlider;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$10;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
-
-    invoke-static {v1}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$500(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/content/Context;
-
-    move-result-object v1
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$10;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1400(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
+    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mControl:Lcom/android/systemui/settings/brightness/ToggleSlider;
 
-    move-result-object p0
+    iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mContext:Landroid/content/Context;
+
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/brightness/BrightnessController$8;
 
     invoke-virtual {p0}, Lcom/android/systemui/settings/CurrentUserTracker;->getCurrentUserId()I
 
@@ -61,11 +40,13 @@
 
     const-string v2, "no_config_brightness"
 
-    invoke-static {v1, v2, p0}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->checkIfRestrictionEnforced(Landroid/content/Context;Ljava/lang/String;I)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+    invoke-static {p0, v1, v2}, Lcom/android/settingslib/RestrictedLockUtilsInternal;->checkIfRestrictionEnforced(ILandroid/content/Context;Ljava/lang/String;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     move-result-object p0
 
-    invoke-interface {v0, p0}, Lcom/android/systemui/settings/brightness/ToggleSlider;->setEnforcedAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+    check-cast v0, Lcom/android/systemui/settings/brightness/BrightnessSliderController;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderController;->setEnforcedAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     return-void
 .end method

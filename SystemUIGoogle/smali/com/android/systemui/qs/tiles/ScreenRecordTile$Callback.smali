@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;
+.class public final Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;
 .super Ljava/lang/Object;
 .source "ScreenRecordTile.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Callback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
@@ -32,56 +32,54 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;Lcom/android/systemui/qs/tiles/ScreenRecordTile$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;-><init>(Lcom/android/systemui/qs/tiles/ScreenRecordTile;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onCountdown(J)V
+.method public final onCountdown(J)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
+
+    iput-wide p1, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->mMillisUntilFinished:J
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
+
+    return-void
+.end method
+
+.method public final onCountdownEnd()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
-
-    invoke-static {v0, p1, p2}, Lcom/android/systemui/qs/tiles/ScreenRecordTile;->access$102(Lcom/android/systemui/qs/tiles/ScreenRecordTile;J)J
-
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public onCountdownEnd()V
-    .locals 0
+.method public final onRecordingEnd()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public onRecordingEnd()V
-    .locals 0
+.method public final onRecordingStart()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 v0, 0x0
 
-    return-void
-.end method
-
-.method public onRecordingStart()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/ScreenRecordTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/ScreenRecordTile;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method

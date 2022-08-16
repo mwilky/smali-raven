@@ -12,16 +12,3 @@
     accessFlags = 0x609
     name = "TileStateListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onTilesChanged(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/qs/customize/TileQueryHelper$TileInfo;",
-            ">;)V"
-        }
-    .end annotation
-.end method

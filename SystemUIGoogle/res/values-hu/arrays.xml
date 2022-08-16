@@ -17,6 +17,7 @@
         <item>Legfeljebb 3 folyamat</item>
         <item>Legfeljebb 4 folyamat</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Ki</item>
         <item>Be</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Nem áll rendelkezésre</item>
+        <item>Ki</item>
+        <item>Be</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Nem áll rendelkezésre</item>
         <item>Ki</item>
@@ -306,6 +312,16 @@
         <item>Be</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Nem áll rendelkezésre</item>
+        <item>Ki</item>
+        <item>Be</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Nem áll rendelkezésre</item>
+        <item>Ki</item>
+        <item>Be</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Nem áll rendelkezésre</item>
         <item>Ki</item>
         <item>Be</item>
@@ -374,6 +390,12 @@
         <item>Igen gyors</item>
         <item>Rendkívül gyors</item>
         <item>Leggyorsabb</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Mozgatás balra</item>
+        <item>Mozgatás lefelé</item>
+        <item>Mozgatás jobbra</item>
+        <item>Mozgatás felfelé</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Töltés</item>

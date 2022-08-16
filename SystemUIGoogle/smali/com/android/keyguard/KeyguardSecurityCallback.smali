@@ -4,10 +4,10 @@
 
 
 # virtual methods
-.method public abstract dismiss(ZI)V
+.method public abstract dismiss(I)V
 .end method
 
-.method public abstract dismiss(ZIZ)V
+.method public abstract dismiss(IZ)V
 .end method
 
 .method public onCancelClicked()V
@@ -19,7 +19,7 @@
 .method public abstract onUserInput()V
 .end method
 
-.method public abstract reportUnlockAttempt(IZI)V
+.method public abstract reportUnlockAttempt(IIZ)V
 .end method
 
 .method public abstract reset()V

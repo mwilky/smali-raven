@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/NotificationListController$2;
+.class public final Lcom/android/systemui/statusbar/notification/NotificationListController$2;
 .super Ljava/lang/Object;
 .source "NotificationListController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/NotificationListController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/NotificationListController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationListController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationListController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationListController$2;->this$0:Lcom/android/systemui/statusbar/notification/NotificationListController;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onDeviceProvisionedChanged()V
+.method public final onDeviceProvisionedChanged()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController$2;->this$0:Lcom/android/systemui/statusbar/notification/NotificationListController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/NotificationListController;->access$100(Lcom/android/systemui/statusbar/notification/NotificationListController;)Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
     const-string v0, "device provisioned changed"
 

@@ -1,9 +1,6 @@
-.class Lcom/android/systemui/qs/QSSecurityFooter$1;
-.super Ljava/lang/Object;
+.class public final Lcom/android/systemui/qs/QSSecurityFooter$1;
+.super Landroid/content/BroadcastReceiver;
 .source "QSSecurityFooter.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -12,70 +9,61 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/QSSecurityFooter;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QSSecurityFooter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSSecurityFooter;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSSecurityFooter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSSecurityFooter$1;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSSecurityFooter$1;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QSSecurityFooter;->access$200(Lcom/android/systemui/qs/QSSecurityFooter;)Landroid/graphics/drawable/Drawable;
+    move-result-object p1
 
-    move-result-object v0
+    const-string p2, "android.app.action.SHOW_DEVICE_MONITORING_DIALOG"
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSSecurityFooter$1;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
+    move-result p1
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QSSecurityFooter;->access$300(Lcom/android/systemui/qs/QSSecurityFooter;)Landroid/widget/ImageView;
-
-    move-result-object v0
+    if-eqz p1, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSSecurityFooter$1;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSSecurityFooter;->access$200(Lcom/android/systemui/qs/QSSecurityFooter;)Landroid/graphics/drawable/Drawable;
+    iget-object p1, p0, Lcom/android/systemui/qs/QSSecurityFooter;->mShouldUseSettingsButton:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object p0
+    const/4 p2, 0x0
 
-    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, p2}, Ljava/util/concurrent/atomic/AtomicBoolean;->set(Z)V
 
-    goto :goto_0
+    iget-object p1, p0, Lcom/android/systemui/qs/QSSecurityFooter;->mHandler:Lcom/android/systemui/qs/QSSecurityFooter$H;
+
+    new-instance p2, Lcom/android/systemui/power/PowerUI$$ExternalSyntheticLambda0;
+
+    const/4 v0, 0x4
+
+    invoke-direct {p2, v0, p0}, Lcom/android/systemui/power/PowerUI$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QSSecurityFooter$1;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QSSecurityFooter;->access$300(Lcom/android/systemui/qs/QSSecurityFooter;)Landroid/widget/ImageView;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSSecurityFooter$1;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
-
-    invoke-static {p0}, Lcom/android/systemui/qs/QSSecurityFooter;->access$400(Lcom/android/systemui/qs/QSSecurityFooter;)I
-
-    move-result p0
-
-    invoke-virtual {v0, p0}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    :goto_0
     return-void
 .end method

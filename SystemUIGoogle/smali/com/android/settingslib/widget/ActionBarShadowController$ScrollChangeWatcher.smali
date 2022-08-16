@@ -1,4 +1,4 @@
-.class final Lcom/android/settingslib/widget/ActionBarShadowController$ScrollChangeWatcher;
+.class public final Lcom/android/settingslib/widget/ActionBarShadowController$ScrollChangeWatcher;
 .super Ljava/lang/Object;
 .source "ActionBarShadowController.java"
 
@@ -12,6 +12,6 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "ScrollChangeWatcher"
 .end annotation

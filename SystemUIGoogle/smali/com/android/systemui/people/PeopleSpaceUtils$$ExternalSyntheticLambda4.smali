@@ -1,31 +1,22 @@
 .class public final synthetic Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Function;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;
+# instance fields
+.field public final synthetic f$0:Landroid/content/pm/LauncherApps;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;
-
-    invoke-direct {v0}, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(Landroid/content/pm/LauncherApps;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;->f$0:Landroid/content/pm/LauncherApps;
 
     return-void
 .end method
@@ -33,11 +24,17 @@
 
 # virtual methods
 .method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+    .locals 1
 
-    check-cast p1, Ljava/util/Map$Entry;
+    iget-object p0, p0, Lcom/android/systemui/people/PeopleSpaceUtils$$ExternalSyntheticLambda4;->f$0:Landroid/content/pm/LauncherApps;
 
-    invoke-static {p1}, Lcom/android/systemui/people/PeopleSpaceUtils;->$r8$lambda$aXvmJhRcEF_Oxv3fHy3jXzOVgmk(Ljava/util/Map$Entry;)Ljava/util/stream/Stream;
+    check-cast p1, Landroid/content/pm/ShortcutInfo;
+
+    new-instance v0, Landroid/app/people/PeopleSpaceTile$Builder;
+
+    invoke-direct {v0, p1, p0}, Landroid/app/people/PeopleSpaceTile$Builder;-><init>(Landroid/content/pm/ShortcutInfo;Landroid/content/pm/LauncherApps;)V
+
+    invoke-virtual {v0}, Landroid/app/people/PeopleSpaceTile$Builder;->build()Landroid/app/people/PeopleSpaceTile;
 
     move-result-object p0
 

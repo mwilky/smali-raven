@@ -12,127 +12,136 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String;
+.field public static final synthetic $r8$clinit:I
 
 
 # instance fields
-.field private final mBackgroundExecutor:Ljava/util/concurrent/Executor;
+.field public final mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
-.field private mCacheLoadFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
-            "Lcom/android/systemui/screenshot/ImageLoader$Result;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mCacheLoadFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
-.field private mCacheSaveFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
-            "Ljava/io/File;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mCacheSaveFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
-.field private mCropView:Lcom/android/systemui/screenshot/CropView;
+.field public mCancel:Landroid/view/View;
 
-.field private mEdit:Landroid/view/View;
+.field public mCropView:Lcom/android/systemui/screenshot/CropView;
 
-.field private mEnterTransitionView:Landroid/widget/ImageView;
+.field public mEdit:Landroid/view/View;
 
-.field private final mImageExporter:Lcom/android/systemui/screenshot/ImageExporter;
+.field public mEnterTransitionView:Landroid/widget/ImageView;
 
-.field private mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+.field public final mImageExporter:Lcom/android/systemui/screenshot/ImageExporter;
 
-.field private final mLongScreenshotHolder:Lcom/android/systemui/screenshot/LongScreenshotData;
+.field public mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-.field private mMagnifierView:Lcom/android/systemui/screenshot/MagnifierView;
+.field public final mLongScreenshotHolder:Lcom/android/systemui/screenshot/LongScreenshotData;
 
-.field private mOutputBitmap:Landroid/graphics/Bitmap;
+.field public mMagnifierView:Lcom/android/systemui/screenshot/MagnifierView;
 
-.field private mPreview:Landroid/widget/ImageView;
+.field public mOutputBitmap:Landroid/graphics/Bitmap;
 
-.field private mSave:Landroid/view/View;
+.field public mPreview:Landroid/widget/ImageView;
 
-.field private mSavedImagePath:Ljava/io/File;
+.field public mSave:Landroid/view/View;
 
-.field private mScrollCaptureResponse:Landroid/view/ScrollCaptureResponse;
+.field public mSavedImagePath:Ljava/io/File;
 
-.field private mShare:Landroid/view/View;
+.field public mScrollCaptureResponse:Landroid/view/ScrollCaptureResponse;
 
-.field private mTransitionStarted:Z
+.field public mShare:Landroid/view/View;
 
-.field private mTransitionView:Landroid/widget/ImageView;
+.field public mTransitionStarted:Z
 
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public mTransitionView:Landroid/widget/ImageView;
 
-.field private final mUiExecutor:Ljava/util/concurrent/Executor;
+.field public final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+.field public final mUiExecutor:Ljava/util/concurrent/Executor;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$H-iDcR4QC5j4yFgE99izWYuHfJE(Lcom/android/systemui/screenshot/LongScreenshotActivity;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+.method public static $r8$lambda$qOUpLbBDnQlAC3CzBI4dsyuYNs4(Lcom/android/systemui/screenshot/LongScreenshotActivity;Landroid/view/View;)V
+    .locals 2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->lambda$onStart$2(Lcom/google/common/util/concurrent/ListenableFuture;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    return-void
-.end method
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
 
-.method public static synthetic $r8$lambda$OLBSMIcvAokOUwtNFx9v1Q1ywRY(Lcom/android/systemui/screenshot/LongScreenshotActivity;Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
+    move-result v0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->lambda$startExport$4(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;Lcom/google/common/util/concurrent/ListenableFuture;)V
+    const/4 v1, 0x1
 
-    return-void
-.end method
+    invoke-virtual {p1, v1}, Landroid/view/View;->setPressed(Z)V
 
-.method public static synthetic $r8$lambda$aMkbduOksLUQfNp9Tn4RQVDXZxU(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-    .locals 0
+    const/4 p1, 0x0
 
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->lambda$onLongScreenshotReceived$3()V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->setButtonsEnabled(Z)V
 
-    return-void
-.end method
+    const p1, 0x7f0b0576
 
-.method public static synthetic $r8$lambda$m4NfrFvpC0f9Nijg41aPq_nvyTE(Lcom/android/systemui/screenshot/LongScreenshotActivity;Landroid/view/View;IIIIIIII)V
-    .locals 0
+    if-ne v0, p1, :cond_0
 
-    invoke-direct/range {p0 .. p9}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->lambda$onCreate$1(Landroid/view/View;IIIIIIII)V
+    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    return-void
-.end method
+    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_SAVED:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-.method public static synthetic $r8$lambda$qOUpLbBDnQlAC3CzBI4dsyuYNs4(Lcom/android/systemui/screenshot/LongScreenshotActivity;Landroid/view/View;)V
-    .locals 0
+    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->onClicked(Landroid/view/View;)V
+    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;->SAVE:Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;
 
-    return-void
-.end method
+    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
 
-.method public static synthetic $r8$lambda$xgjucvzjZ5lg860xHAMc-fEw2UA(Lcom/android/systemui/screenshot/LongScreenshotActivity;Landroid/view/View;)V
-    .locals 0
+    goto :goto_0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->lambda$onCreate$0(Landroid/view/View;)V
+    :cond_0
+    const p1, 0x7f0b0246
 
-    return-void
-.end method
+    if-ne v0, p1, :cond_1
 
-.method static constructor <clinit>()V
-    .locals 1
+    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    const-class v0, Lcom/android/systemui/screenshot/LongScreenshotActivity;
+    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_EDIT:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    invoke-static {v0}, Lcom/android/systemui/screenshot/LogConfig;->logTag(Ljava/lang/Class;)Ljava/lang/String;
+    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    move-result-object v0
+    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;->EDIT:Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;
 
-    sput-object v0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
 
+    goto :goto_0
+
+    :cond_1
+    const p1, 0x7f0b05f2
+
+    if-ne v0, p1, :cond_2
+
+    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_SHARE:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
+    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;->SHARE:Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
+
+    goto :goto_0
+
+    :cond_2
+    const p1, 0x7f0b0159
+
+    if-ne v0, p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_EXIT:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
+
+    :cond_3
+    :goto_0
     return-void
 .end method
 
@@ -154,278 +163,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/screenshot/LongScreenshotActivity;)Landroid/widget/ImageView;
-    .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEnterTransitionView:Landroid/widget/ImageView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->updateImageDimensions()V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/screenshot/LongScreenshotActivity;)Lcom/android/systemui/screenshot/LongScreenshotData;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshotHolder:Lcom/android/systemui/screenshot/LongScreenshotData;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/screenshot/LongScreenshotActivity;)Landroid/widget/ImageView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/screenshot/LongScreenshotActivity;)Lcom/android/systemui/screenshot/CropView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/screenshot/LongScreenshotActivity;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->setButtonsEnabled(Z)V
-
-    return-void
-.end method
-
-.method private doEdit(Landroid/net/Uri;)V
-    .locals 3
-
-    sget v0, Lcom/android/systemui/R$string;->config_screenshotEditor:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.EDIT"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    :cond_0
-    const-string v0, "image/png"
-
-    invoke-virtual {v1, p1, v0}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
-
-    const/4 p1, 0x3
-
-    invoke-virtual {v1, p1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mOutputBitmap:Landroid/graphics/Bitmap;
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    const-string v0, "screenshot_preview_image"
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setTransitionName(Ljava/lang/String;)V
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionStarted:Z
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    invoke-static {p0, p1, v0}, Landroid/app/ActivityOptions;->makeSceneTransitionAnimation(Landroid/app/Activity;Landroid/view/View;Ljava/lang/String;)Landroid/app/ActivityOptions;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
-
-    move-result-object p1
-
-    invoke-virtual {p0, v1, p1}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method private doShare(Landroid/net/Uri;)V
-    .locals 2
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "android.intent.action.SEND"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const-string v1, "image/png"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string v1, "android.intent.extra.STREAM"
-
-    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    const p1, 0x10008001
-
-    invoke-virtual {v0, p1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    const/4 p1, 0x0
-
-    invoke-static {v0, p1}, Landroid/content/Intent;->createChooser(Landroid/content/Intent;Ljava/lang/CharSequence;)Landroid/content/Intent;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    move-result-object p1
-
-    sget-object v0, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
-
-    invoke-virtual {p0, p1, v0}, Landroid/app/Activity;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onCreate$0(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onCreate$1(Landroid/view/View;IIIIIIII)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->updateImageDimensions()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onLongScreenshotReceived$3()V
-    .locals 3
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheSaveFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-
-    invoke-interface {v0}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/io/File;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    sget-object v1, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
-
-    const-string v2, "Error saving temp image file"
-
-    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
-
-    :goto_0
-    return-void
-.end method
-
-.method private synthetic lambda$onStart$2(Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 2
-
-    sget-object v0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
-
-    const-string v1, "cached bitmap load complete"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :try_start_0
-    invoke-interface {p1}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/screenshot/ImageLoader$Result;
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->onCachedImageLoaded(Lcom/android/systemui/screenshot/ImageLoader$Result;)V
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p1
-
-    sget-object v0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
-
-    const-string v1, "Failed to load cached image"
-
-    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Ljava/io/File;->delete()Z
-
-    const/4 p1, 0x0
-
-    iput-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
-
-    :goto_0
-    return-void
-.end method
-
-.method private synthetic lambda$startExport$4(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->onExportCompleted(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;Lcom/google/common/util/concurrent/ListenableFuture;)V
-
-    return-void
-.end method
-
-.method private onCachedImageLoaded(Lcom/android/systemui/screenshot/ImageLoader$Result;)V
-    .locals 4
+# virtual methods
+.method public final onCachedImageLoaded(Lcom/android/systemui/screenshot/ImageLoader$Result;)V
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -467,13 +208,17 @@
 
     move-result v3
 
-    invoke-virtual {v1, v0, v2, v3}, Lcom/android/systemui/screenshot/MagnifierView;->setDrawable(Landroid/graphics/drawable/Drawable;II)V
+    iput-object v0, v1, Lcom/android/systemui/screenshot/MagnifierView;->mDrawable:Landroid/graphics/drawable/Drawable;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v4, v4, v2, v3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
 
     iget-object p1, p1, Lcom/android/systemui/screenshot/ImageLoader$Result;->fileName:Ljava/io/File;
 
@@ -481,379 +226,580 @@
 
     const/4 p1, 0x1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->setButtonsEnabled(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->setButtonsEnabled(Z)V
 
     return-void
 .end method
 
-.method private onClicked(Landroid/view/View;)V
-    .locals 2
+.method public final onCreate(Landroid/os/Bundle;)V
+    .locals 3
 
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    move-result v0
+    const v0, 0x7f0e0123
 
-    const/4 v1, 0x1
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->setPressed(Z)V
+    const v0, 0x7f0b04fe
 
-    const/4 p1, 0x0
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->setButtonsEnabled(Z)V
+    move-result-object v0
 
-    sget p1, Lcom/android/systemui/R$id;->save:I
+    check-cast v0, Landroid/widget/ImageView;
 
-    if-ne v0, p1, :cond_0
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
 
-    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;->SAVE:Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;
+    const v0, 0x7f0b0576
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    goto :goto_0
+    move-result-object v0
 
-    :cond_0
-    sget p1, Lcom/android/systemui/R$id;->edit:I
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSave:Landroid/view/View;
 
-    if-ne v0, p1, :cond_1
+    const v0, 0x7f0b0246
 
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_EDIT:Lcom/android/systemui/screenshot/ScreenshotEvent;
+    move-result-object v0
 
-    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEdit:Landroid/view/View;
 
-    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;->EDIT:Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;
+    const v0, 0x7f0b05f2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    goto :goto_0
+    move-result-object v0
 
-    :cond_1
-    sget p1, Lcom/android/systemui/R$id;->share:I
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mShare:Landroid/view/View;
 
-    if-ne v0, p1, :cond_2
+    const v0, 0x7f0b0159
 
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_SHARE:Lcom/android/systemui/screenshot/ScreenshotEvent;
+    move-result-object v0
 
-    invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCancel:Landroid/view/View;
 
-    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;->SHARE:Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;
+    const v0, 0x7f0b01d4
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    :cond_2
-    :goto_0
-    return-void
-.end method
+    move-result-object v0
 
-.method private onExportCompleted(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;Lcom/google/common/util/concurrent/ListenableFuture;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
-            "Lcom/android/systemui/screenshot/ImageExporter$Result;",
-            ">;)V"
-        }
-    .end annotation
+    check-cast v0, Lcom/android/systemui/screenshot/CropView;
 
-    const/4 v0, 0x1
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->setButtonsEnabled(Z)V
+    const v0, 0x7f0b03be
 
-    :try_start_0
-    invoke-interface {p2}, Ljava/util/concurrent/Future;->get()Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p2
+    move-result-object v0
 
-    check-cast p2, Lcom/android/systemui/screenshot/ImageExporter$Result;
-    :try_end_0
-    .catch Ljava/util/concurrent/CancellationException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
+    check-cast v0, Lcom/android/systemui/screenshot/MagnifierView;
 
-    sget-object v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$2;->$SwitchMap$com$android$systemui$screenshot$LongScreenshotActivity$PendingAction:[I
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mMagnifierView:Lcom/android/systemui/screenshot/MagnifierView;
 
-    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
-    move-result p1
+    iput-object v0, v1, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
 
-    aget p1, v1, p1
+    const v0, 0x7f0b06e5
 
-    if-eq p1, v0, :cond_2
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    const/4 v0, 0x2
+    move-result-object v0
 
-    if-eq p1, v0, :cond_1
+    check-cast v0, Landroid/widget/ImageView;
 
-    const/4 p2, 0x3
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
 
-    if-eq p1, p2, :cond_0
+    const v0, 0x7f0b0266
 
-    goto :goto_0
+    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
 
-    :cond_0
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEnterTransitionView:Landroid/widget/ImageView;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSave:Landroid/view/View;
+
+    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;-><init>(Landroid/view/KeyEvent$Callback;I)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCancel:Landroid/view/View;
+
+    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda1;-><init>(Landroid/view/KeyEvent$Callback;I)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEdit:Landroid/view/View;
+
+    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda2;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda2;-><init>(Landroid/view/KeyEvent$Callback;I)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mShare:Landroid/view/View;
+
+    new-instance v1, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda12;
+
+    const/4 v2, 0x2
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda12;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
+
+    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda3;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    const-string v1, "capture-response"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ScrollCaptureResponse;
+
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mScrollCaptureResponse:Landroid/view/ScrollCaptureResponse;
+
+    if-eqz p1, :cond_1
+
+    const-string/jumbo v0, "saved-image-path"
+
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    if-nez p1, :cond_0
+
+    const-string p1, "Screenshot"
+
+    const-string v0, "Missing saved state entry with key \'saved-image-path\'!"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
 
-    goto :goto_0
-
-    :cond_1
-    iget-object p1, p2, Lcom/android/systemui/screenshot/ImageExporter$Result;->uri:Landroid/net/Uri;
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->doShare(Landroid/net/Uri;)V
-
-    goto :goto_0
-
-    :cond_2
-    iget-object p1, p2, Lcom/android/systemui/screenshot/ImageExporter$Result;->uri:Landroid/net/Uri;
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->doEdit(Landroid/net/Uri;)V
-
-    :goto_0
     return-void
 
-    :catch_0
-    move-exception p0
+    :cond_0
+    new-instance v0, Ljava/io/File;
 
-    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
+    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    const-string p2, "failed to export"
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
 
-    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-virtual {p0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
+    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
+
+    new-instance v0, Lcom/android/systemui/screenshot/ImageLoader$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, p1}, Lcom/android/systemui/screenshot/ImageLoader$$ExternalSyntheticLambda0;-><init>(Ljava/io/File;)V
+
+    invoke-static {v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter;->getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    :cond_1
     return-void
 .end method
 
-.method private onLongScreenshotReceived(Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;)V
-    .locals 5
+.method public final onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 1
 
-    sget-object v0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
+    invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string/jumbo v0, "saved-image-path"
+
+    invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onStart()V
+    .locals 6
+
+    invoke-super {p0}, Landroid/app/Activity;->onStart()V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_STARTED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    const/4 v1, 0x0
+
+    const-string v2, "Screenshot"
+
+    if-eqz v0, :cond_1
+
+    const-string v0, "mCacheLoadFuture != null"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;
+
+    const/4 v3, 0x2
+
+    invoke-direct {v2, v3, p0, v0}, Lcom/android/systemui/qs/tiles/ScreenRecordTile$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiExecutor:Ljava/util/concurrent/Executor;
+
+    iget-object v0, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;->delegate:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;
+
+    invoke-virtual {v0, v2, v3}, Landroidx/concurrent/futures/AbstractResolvableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+
+    iput-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    goto/16 :goto_0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshotHolder:Lcom/android/systemui/screenshot/LongScreenshotData;
+
+    iget-object v0, v0, Lcom/android/systemui/screenshot/LongScreenshotData;->mLongScreenshot:Ljava/util/concurrent/atomic/AtomicReference;
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/atomic/AtomicReference;->getAndSet(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+
+    if-eqz v0, :cond_2
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "Completed: "
+    const-string v3, "Completed: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {p1}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getDrawable()Landroid/graphics/drawable/Drawable;
+    iget-object v0, v0, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    move-result-object p1
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v1, Lcom/android/systemui/screenshot/TiledImageDrawable;
+
+    invoke-direct {v1, v0}, Lcom/android/systemui/screenshot/TiledImageDrawable;-><init>(Lcom/android/systemui/screenshot/ImageTileSet;)V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mMagnifierView:Lcom/android/systemui/screenshot/MagnifierView;
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v1}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getDrawable()Landroid/graphics/drawable/Drawable;
+    iget-object v2, v2, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    move-result-object v1
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v3, Lcom/android/systemui/screenshot/TiledImageDrawable;
+
+    invoke-direct {v3, v2}, Lcom/android/systemui/screenshot/TiledImageDrawable;-><init>(Lcom/android/systemui/screenshot/ImageTileSet;)V
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getWidth()I
+    iget-object v2, v2, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ImageTileSet;->getWidth()I
 
     move-result v2
 
-    iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+    iget-object v4, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getHeight()I
+    iget-object v4, v4, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    move-result v3
+    invoke-virtual {v4}, Lcom/android/systemui/screenshot/ImageTileSet;->getHeight()I
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/systemui/screenshot/MagnifierView;->setDrawable(Landroid/graphics/drawable/Drawable;II)V
+    move-result v4
+
+    iput-object v3, v0, Lcom/android/systemui/screenshot/MagnifierView;->mDrawable:Landroid/graphics/drawable/Drawable;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v5, v5, v2, v4}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    invoke-virtual {v0}, Landroid/view/View;->invalidate()V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v0}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getTop()I
+    iget-object v0, v0, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    move-result v0
+    iget-object v0, v0, Lcom/android/systemui/screenshot/ImageTileSet;->mRegion:Landroid/graphics/Region;
+
+    invoke-virtual {v0}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/graphics/Rect;->top:I
 
     neg-int v0, v0
 
     int-to-float v0, v0
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v1}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getHeight()I
+    iget-object v2, v2, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    move-result v1
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ImageTileSet;->getHeight()I
 
-    int-to-float v1, v1
+    move-result v2
 
-    div-float/2addr v0, v1
+    int-to-float v2, v2
 
-    const/4 v1, 0x0
+    div-float/2addr v0, v2
 
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(FF)F
+    const/4 v2, 0x0
+
+    invoke-static {v2, v0}, Ljava/lang/Math;->max(FF)F
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
-
-    invoke-virtual {v1}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getBottom()I
-
-    move-result v1
-
     iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getPageHeight()I
+    iget-object v2, v2, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    move-result v2
+    iget-object v2, v2, Lcom/android/systemui/screenshot/ImageTileSet;->mRegion:Landroid/graphics/Region;
 
-    sub-int/2addr v1, v2
+    invoke-virtual {v2}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
 
-    int-to-float v1, v1
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+    iget v2, v2, Landroid/graphics/Rect;->bottom:I
 
-    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getHeight()I
+    iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    move-result v2
+    iget-object v3, v3, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mSession:Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;
+
+    invoke-interface {v3}, Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;->getPageHeight()I
+
+    move-result v3
+
+    sub-int/2addr v2, v3
 
     int-to-float v2, v2
 
-    div-float/2addr v1, v2
+    iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    iget-object v3, v3, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    sub-float v1, v2, v1
+    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ImageTileSet;->getHeight()I
 
-    invoke-static {v2, v1}, Ljava/lang/Math;->min(FF)F
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEnterTransitionView:Landroid/widget/ImageView;
-
-    invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEnterTransitionView:Landroid/widget/ImageView;
-
-    invoke-virtual {p1}, Landroid/widget/ImageView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object p1
-
-    new-instance v2, Lcom/android/systemui/screenshot/LongScreenshotActivity$1;
-
-    invoke-direct {v2, p0, v0, v1}, Lcom/android/systemui/screenshot/LongScreenshotActivity$1;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;FF)V
-
-    invoke-virtual {p1, v2}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mImageExporter:Lcom/android/systemui/screenshot/ImageExporter;
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
-
-    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
-
-    invoke-virtual {v1}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->toBitmap()Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/io/File;
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getCacheDir()Ljava/io/File;
-
-    move-result-object v3
-
-    const-string v4, "long_screenshot_cache.png"
-
-    invoke-direct {v2, v3, v4}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {p1, v0, v1, v2}, Lcom/android/systemui/screenshot/ImageExporter;->exportToRawFile(Ljava/util/concurrent/Executor;Landroid/graphics/Bitmap;Ljava/io/File;)Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheSaveFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-
-    new-instance v0, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda3;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiExecutor:Ljava/util/concurrent/Executor;
-
-    invoke-interface {p1, v0, p0}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-
-    return-void
-.end method
-
-.method private static renderBitmap(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/Bitmap;
-    .locals 4
-
-    new-instance v0, Landroid/graphics/RenderNode;
-
-    const-string v1, "Bitmap Export"
-
-    invoke-direct {v0, v1}, Landroid/graphics/RenderNode;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
-
-    move-result v1
-
-    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/RenderNode;->setPosition(IIII)Z
-
-    invoke-virtual {v0}, Landroid/graphics/RenderNode;->beginRecording()Landroid/graphics/RecordingCanvas;
-
-    move-result-object v1
-
-    iget v2, p1, Landroid/graphics/Rect;->left:I
-
-    neg-int v2, v2
-
-    int-to-float v2, v2
-
-    iget v3, p1, Landroid/graphics/Rect;->top:I
-
-    neg-int v3, v3
+    move-result v3
 
     int-to-float v3, v3
 
-    invoke-virtual {v1, v2, v3}, Landroid/graphics/RecordingCanvas;->translate(FF)V
+    div-float/2addr v2, v3
 
-    invoke-virtual {v1, p1}, Landroid/graphics/RecordingCanvas;->clipRect(Landroid/graphics/Rect;)Z
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    sub-float v2, v3, v2
 
-    invoke-virtual {v0}, Landroid/graphics/RenderNode;->endRecording()V
+    invoke-static {v3, v2}, Ljava/lang/Math;->min(FF)F
 
-    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+    move-result v2
 
-    move-result p0
+    iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEnterTransitionView:Landroid/widget/ImageView;
 
-    invoke-virtual {p1}, Landroid/graphics/Rect;->height()I
+    invoke-virtual {v3, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    move-result p1
+    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEnterTransitionView:Landroid/widget/ImageView;
 
-    invoke-static {v0, p0, p1}, Landroid/graphics/HardwareRenderer;->createHardwareBitmap(Landroid/graphics/RenderNode;II)Landroid/graphics/Bitmap;
+    invoke-virtual {v1}, Landroid/widget/ImageView;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
-    move-result-object p0
+    move-result-object v1
 
-    return-object p0
+    new-instance v3, Lcom/android/systemui/screenshot/LongScreenshotActivity$1;
+
+    invoke-direct {v3, p0, v0, v2}, Lcom/android/systemui/screenshot/LongScreenshotActivity$1;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;FF)V
+
+    invoke-virtual {v1, v3}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mImageExporter:Lcom/android/systemui/screenshot/ImageExporter;
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+
+    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+
+    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->toBitmap()Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    new-instance v3, Ljava/io/File;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getCacheDir()Ljava/io/File;
+
+    move-result-object v4
+
+    const-string v5, "long_screenshot_cache.png"
+
+    invoke-direct {v3, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v4, Lcom/android/systemui/screenshot/ImageExporter$$ExternalSyntheticLambda0;
+
+    invoke-direct {v4, v0, v1, v3, v2}, Lcom/android/systemui/screenshot/ImageExporter$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/screenshot/ImageExporter;Ljava/util/concurrent/Executor;Ljava/io/File;Landroid/graphics/Bitmap;)V
+
+    invoke-static {v4}, Landroidx/concurrent/futures/CallbackToFutureAdapter;->getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheSaveFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    new-instance v1, Lcom/android/systemui/qs/external/CustomTile$$ExternalSyntheticLambda1;
+
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/qs/external/CustomTile$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiExecutor:Ljava/util/concurrent/Executor;
+
+    iget-object v0, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;->delegate:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;
+
+    invoke-virtual {v0, v1, p0}, Landroidx/concurrent/futures/AbstractResolvableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+
+    goto :goto_0
+
+    :cond_2
+    const-string v0, "No long screenshot available!"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
+
+    :goto_0
+    return-void
 .end method
 
-.method private setButtonsEnabled(Z)V
+.method public final onStop()V
+    .locals 2
+
+    invoke-super {p0}, Landroid/app/Activity;->onStop()V
+
+    iget-boolean v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionStarted:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_FINISHED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mScrollCaptureResponse:Landroid/view/ScrollCaptureResponse;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/view/ScrollCaptureResponse;->close()V
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheSaveFuture:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+
+    if-eqz v0, :cond_2
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;->cancel(Z)Z
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Ljava/io/File;->delete()Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
+
+    :cond_3
+    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
+
+    if-eqz p0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
+
+    invoke-virtual {v0}, Lcom/android/systemui/screenshot/ImageTileSet;->clear()V
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mSession:Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;
+
+    invoke-interface {p0}, Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;->release()V
+
+    :cond_4
+    return-void
+.end method
+
+.method public final setButtonsEnabled(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSave:Landroid/view/View;
@@ -871,8 +817,8 @@
     return-void
 .end method
 
-.method private startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
-    .locals 5
+.method public final startExport(Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;)V
+    .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
 
@@ -880,49 +826,129 @@
 
     move-result-object v0
 
+    const-string v1, "Screenshot"
+
     if-nez v0, :cond_0
 
-    sget-object p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
+    const-string p0, "No drawable, skipping export!"
 
-    const-string p1, "No drawable, skipping export!"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
+    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v2
+    move-result v3
 
     invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    move-result v3
+    move-result v4
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/systemui/screenshot/CropView;->getCropBoundaries(II)Landroid/graphics/Rect;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    new-instance v5, Landroid/graphics/Rect;
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->isEmpty()Z
+    iget-object v2, v2, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget v6, v2, Landroid/graphics/RectF;->left:F
+
+    int-to-float v3, v3
+
+    mul-float/2addr v6, v3
+
+    float-to-int v6, v6
+
+    iget v7, v2, Landroid/graphics/RectF;->top:F
+
+    int-to-float v4, v4
+
+    mul-float/2addr v7, v4
+
+    float-to-int v7, v7
+
+    iget v8, v2, Landroid/graphics/RectF;->right:F
+
+    mul-float/2addr v8, v3
+
+    float-to-int v3, v8
+
+    iget v2, v2, Landroid/graphics/RectF;->bottom:F
+
+    mul-float/2addr v2, v4
+
+    float-to-int v2, v2
+
+    invoke-direct {v5, v6, v7, v3, v2}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->isEmpty()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    sget-object p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
+    const-string p0, "Crop bounds empty, skipping export."
 
-    const-string p1, "Crop bounds empty, skipping export."
-
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->updateImageDimensions()V
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->updateImageDimensions()V
 
-    invoke-static {v0, v1}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->renderBitmap(Landroid/graphics/drawable/Drawable;Landroid/graphics/Rect;)Landroid/graphics/Bitmap;
+    new-instance v1, Landroid/graphics/RenderNode;
+
+    const-string v2, "Bitmap Export"
+
+    invoke-direct {v1, v2}, Landroid/graphics/RenderNode;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
+
+    move-result v2
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v4, v4, v2, v3}, Landroid/graphics/RenderNode;->setPosition(IIII)Z
+
+    invoke-virtual {v1}, Landroid/graphics/RenderNode;->beginRecording()Landroid/graphics/RecordingCanvas;
+
+    move-result-object v2
+
+    iget v3, v5, Landroid/graphics/Rect;->left:I
+
+    neg-int v3, v3
+
+    int-to-float v3, v3
+
+    iget v4, v5, Landroid/graphics/Rect;->top:I
+
+    neg-int v4, v4
+
+    int-to-float v4, v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/graphics/RecordingCanvas;->translate(FF)V
+
+    invoke-virtual {v2, v5}, Landroid/graphics/RecordingCanvas;->clipRect(Landroid/graphics/Rect;)Z
+
+    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {v1}, Landroid/graphics/RenderNode;->endRecording()V
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    invoke-virtual {v5}, Landroid/graphics/Rect;->height()I
+
+    move-result v2
+
+    invoke-static {v1, v0, v2}, Landroid/graphics/HardwareRenderer;->createHardwareBitmap(Landroid/graphics/RenderNode;II)Landroid/graphics/Bitmap;
 
     move-result-object v0
 
@@ -934,31 +960,49 @@
 
     invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mOutputBitmap:Landroid/graphics/Bitmap;
+    iget-object v5, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mOutputBitmap:Landroid/graphics/Bitmap;
 
     invoke-static {}, Ljava/time/ZonedDateTime;->now()Ljava/time/ZonedDateTime;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/systemui/screenshot/ImageExporter;->export(Ljava/util/concurrent/Executor;Ljava/util/UUID;Landroid/graphics/Bitmap;Ljava/time/ZonedDateTime;)Lcom/google/common/util/concurrent/ListenableFuture;
+    new-instance v9, Lcom/android/systemui/screenshot/ImageExporter$Task;
+
+    iget-object v3, v0, Lcom/android/systemui/screenshot/ImageExporter;->mResolver:Landroid/content/ContentResolver;
+
+    iget-object v7, v0, Lcom/android/systemui/screenshot/ImageExporter;->mCompressFormat:Landroid/graphics/Bitmap$CompressFormat;
+
+    iget v8, v0, Lcom/android/systemui/screenshot/ImageExporter;->mQuality:I
+
+    move-object v2, v9
+
+    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/screenshot/ImageExporter$Task;-><init>(Landroid/content/ContentResolver;Ljava/util/UUID;Landroid/graphics/Bitmap;Ljava/time/ZonedDateTime;Landroid/graphics/Bitmap$CompressFormat;I)V
+
+    new-instance v0, Lcom/android/systemui/screenshot/ImageExporter$$ExternalSyntheticLambda2;
+
+    invoke-direct {v0, v1, v9}, Lcom/android/systemui/screenshot/ImageExporter$$ExternalSyntheticLambda2;-><init>(Ljava/util/concurrent/Executor;Lcom/android/systemui/screenshot/ImageExporter$Task;)V
+
+    invoke-static {v0}, Landroidx/concurrent/futures/CallbackToFutureAdapter;->getFuture(Landroidx/concurrent/futures/CallbackToFutureAdapter$Resolver;)Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
     move-result-object v0
 
     new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0, p1, v0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;Lcom/google/common/util/concurrent/ListenableFuture;)V
+    invoke-direct {v1, p0, p1, v0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;Lcom/android/systemui/screenshot/LongScreenshotActivity$PendingAction;Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;)V
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiExecutor:Ljava/util/concurrent/Executor;
 
-    invoke-interface {v0, v1, p0}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
+    iget-object p1, v0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;->delegate:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;
+
+    invoke-virtual {p1, v1, p0}, Landroidx/concurrent/futures/AbstractResolvableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
 
     return-void
 .end method
 
-.method private updateImageDimensions()V
-    .locals 12
+.method public final updateImageDimensions()V
+    .locals 14
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
 
@@ -1085,17 +1129,27 @@
 
     add-int/2addr v10, v9
 
-    invoke-virtual {v3, v6, v10}, Lcom/android/systemui/screenshot/CropView;->setExtraPadding(II)V
+    iput v6, v3, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
+
+    iput v10, v3, Lcom/android/systemui/screenshot/CropView;->mExtraBottomPadding:I
+
+    invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
     add-int/2addr v8, v9
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
-    invoke-virtual {v3, v9, v9}, Lcom/android/systemui/screenshot/CropView;->setExtraPadding(II)V
+    iput v9, v3, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
+
+    iput v9, v3, Lcom/android/systemui/screenshot/CropView;->mExtraBottomPadding:I
+
+    invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
-    invoke-virtual {v3, v1}, Lcom/android/systemui/screenshot/CropView;->setImageWidth(I)V
+    iput v1, v3, Lcom/android/systemui/screenshot/CropView;->mImageWidth:I
+
+    invoke-virtual {v3}, Landroid/view/View;->invalidate()V
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
 
@@ -1142,7 +1196,11 @@
 
     move-result v10
 
-    invoke-virtual {v1, v6, v10}, Lcom/android/systemui/screenshot/CropView;->setExtraPadding(II)V
+    iput v6, v1, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
+
+    iput v10, v1, Lcom/android/systemui/screenshot/CropView;->mExtraBottomPadding:I
+
+    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
@@ -1150,7 +1208,9 @@
 
     float-to-int v2, v2
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/screenshot/CropView;->setImageWidth(I)V
+    iput v2, v1, Lcom/android/systemui/screenshot/CropView;->mImageWidth:I
+
+    invoke-virtual {v1}, Landroid/view/View;->invalidate()V
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
 
@@ -1166,62 +1226,94 @@
 
     div-float v1, v5, v1
 
-    move v11, v4
+    move v13, v4
 
     move v4, v1
 
-    move v1, v11
+    move v1, v13
 
     :goto_0
     iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
 
-    invoke-virtual {v2, v1, v3}, Lcom/android/systemui/screenshot/CropView;->getCropBoundaries(II)Landroid/graphics/Rect;
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object v1
+    new-instance v6, Landroid/graphics/Rect;
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
+    iget-object v2, v2, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
-    iget v3, v1, Landroid/graphics/Rect;->left:I
+    iget v10, v2, Landroid/graphics/RectF;->left:F
 
-    add-int/2addr v7, v3
+    int-to-float v1, v1
 
-    int-to-float v3, v7
+    mul-float/2addr v10, v1
 
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setTranslationX(F)V
+    float-to-int v10, v10
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
+    iget v11, v2, Landroid/graphics/RectF;->top:F
 
-    iget v3, v1, Landroid/graphics/Rect;->top:I
+    int-to-float v3, v3
 
-    add-int/2addr v8, v3
+    mul-float/2addr v11, v3
 
-    int-to-float v3, v8
+    float-to-int v11, v11
 
-    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setTranslationY(F)V
+    iget v12, v2, Landroid/graphics/RectF;->right:F
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
+    mul-float/2addr v12, v1
 
-    invoke-virtual {v2}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    float-to-int v1, v12
 
-    move-result-object v2
+    iget v2, v2, Landroid/graphics/RectF;->bottom:F
 
-    check-cast v2, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+    mul-float/2addr v2, v3
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
+    float-to-int v2, v2
 
-    move-result v3
-
-    iput v3, v2, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
-
-    move-result v1
-
-    iput v1, v2, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+    invoke-direct {v6, v10, v11, v1, v2}, Landroid/graphics/Rect;-><init>(IIII)V
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    iget v2, v6, Landroid/graphics/Rect;->left:I
+
+    add-int/2addr v7, v2
+
+    int-to-float v2, v7
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setTranslationX(F)V
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
+
+    iget v2, v6, Landroid/graphics/Rect;->top:I
+
+    add-int/2addr v8, v2
+
+    int-to-float v2, v8
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setTranslationY(F)V
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
+
+    invoke-virtual {v1}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    check-cast v1, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
+
+    invoke-virtual {v6}, Landroid/graphics/Rect;->width()I
+
+    move-result v2
+
+    iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
+
+    invoke-virtual {v6}, Landroid/graphics/Rect;->height()I
+
+    move-result v2
+
+    iput v2, v1, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+
+    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
@@ -1237,9 +1329,15 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v2}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getTop()I
+    iget-object v2, v2, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
 
-    move-result v2
+    iget-object v2, v2, Lcom/android/systemui/screenshot/ImageTileSet;->mRegion:Landroid/graphics/Region;
+
+    invoke-virtual {v2}, Landroid/graphics/Region;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/graphics/Rect;->top:I
 
     neg-int v2, v2
 
@@ -1247,7 +1345,9 @@
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getHeight()I
+    iget-object v3, v3, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mImageTileSet:Lcom/android/systemui/screenshot/ImageTileSet;
+
+    invoke-virtual {v3}, Lcom/android/systemui/screenshot/ImageTileSet;->getHeight()I
 
     move-result v3
 
@@ -1275,7 +1375,9 @@
 
     iget-object v6, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
 
-    invoke-virtual {v6}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->getPageHeight()I
+    iget-object v6, v6, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->mSession:Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;
+
+    invoke-interface {v6}, Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;->getPageHeight()I
 
     move-result v6
 
@@ -1334,364 +1436,6 @@
     add-float/2addr v2, p0
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setTranslationY(F)V
-
-    :cond_2
-    return-void
-.end method
-
-
-# virtual methods
-.method cleanupCache()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheSaveFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-
-    if-eqz v0, :cond_0
-
-    const/4 v1, 0x1
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Future;->cancel(Z)Z
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Ljava/io/File;->delete()Z
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-
-    :cond_1
-    return-void
-.end method
-
-.method public onCreate(Landroid/os/Bundle;)V
-    .locals 2
-
-    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
-
-    sget v0, Lcom/android/systemui/R$layout;->long_screenshot:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
-
-    sget v0, Lcom/android/systemui/R$id;->preview:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
-
-    sget v0, Lcom/android/systemui/R$id;->save:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSave:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->edit:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEdit:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->share:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mShare:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->crop_view:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/screenshot/CropView;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
-
-    sget v0, Lcom/android/systemui/R$id;->magnifier:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/screenshot/MagnifierView;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mMagnifierView:Lcom/android/systemui/screenshot/MagnifierView;
-
-    iget-object v1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCropView:Lcom/android/systemui/screenshot/CropView;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/screenshot/CropView;->setCropInteractionListener(Lcom/android/systemui/screenshot/CropView$CropInteractionListener;)V
-
-    sget v0, Lcom/android/systemui/R$id;->transition:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionView:Landroid/widget/ImageView;
-
-    sget v0, Lcom/android/systemui/R$id;->enter_transition:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEnterTransitionView:Landroid/widget/ImageView;
-
-    sget v0, Lcom/android/systemui/R$id;->cancel:I
-
-    invoke-virtual {p0, v0}, Landroid/app/Activity;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda1;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSave:Landroid/view/View;
-
-    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mEdit:Landroid/view/View;
-
-    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mShare:Landroid/view/View;
-
-    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
-
-    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda2;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    const-string v1, "capture-response"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/ScrollCaptureResponse;
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mScrollCaptureResponse:Landroid/view/ScrollCaptureResponse;
-
-    if-eqz p1, :cond_1
-
-    const-string v0, "saved-image-path"
-
-    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object p1
-
-    if-nez p1, :cond_0
-
-    sget-object p1, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
-
-    const-string v0, "Missing saved state entry with key \'saved-image-path\'!"
-
-    invoke-static {p1, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/io/File;
-
-    invoke-direct {v0, p1}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-
-    new-instance p1, Lcom/android/systemui/screenshot/ImageLoader;
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    invoke-direct {p1, v0}, Lcom/android/systemui/screenshot/ImageLoader;-><init>(Landroid/content/ContentResolver;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/screenshot/ImageLoader;->load(Ljava/io/File;)Lcom/google/common/util/concurrent/ListenableFuture;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-
-    :cond_1
-    return-void
-.end method
-
-.method protected onSaveInstanceState(Landroid/os/Bundle;)V
-    .locals 1
-
-    invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mSavedImagePath:Ljava/io/File;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string v0, "saved-image-path"
-
-    invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onStart()V
-    .locals 3
-
-    invoke-super {p0}, Landroid/app/Activity;->onStart()V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_STARTED:Lcom/android/systemui/screenshot/ScreenshotEvent;
-
-    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mPreview:Landroid/widget/ImageView;
-
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-
-    if-eqz v0, :cond_1
-
-    sget-object v0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
-
-    const-string v1, "mCacheLoadFuture != null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-
-    new-instance v1, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda5;
-
-    invoke-direct {v1, p0, v0}, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/screenshot/LongScreenshotActivity;Lcom/google/common/util/concurrent/ListenableFuture;)V
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiExecutor:Ljava/util/concurrent/Executor;
-
-    invoke-interface {v0, v1, v2}, Lcom/google/common/util/concurrent/ListenableFuture;->addListener(Ljava/lang/Runnable;Ljava/util/concurrent/Executor;)V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mCacheLoadFuture:Lcom/google/common/util/concurrent/ListenableFuture;
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshotHolder:Lcom/android/systemui/screenshot/LongScreenshotData;
-
-    invoke-virtual {v0}, Lcom/android/systemui/screenshot/LongScreenshotData;->takeLongScreenshot()Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->onLongScreenshotReceived(Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;)V
-
-    goto :goto_0
-
-    :cond_2
-    sget-object v0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->TAG:Ljava/lang/String;
-
-    const-string v1, "No long screenshot available!"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finishAndRemoveTask()V
-
-    :goto_0
-    return-void
-.end method
-
-.method protected onStop()V
-    .locals 2
-
-    invoke-super {p0}, Landroid/app/Activity;->onStop()V
-
-    iget-boolean v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mTransitionStarted:Z
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_LONG_SCREENSHOT_ACTIVITY_FINISHED:Lcom/android/systemui/screenshot/ScreenshotEvent;
-
-    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mScrollCaptureResponse:Landroid/view/ScrollCaptureResponse;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Landroid/view/ScrollCaptureResponse;->close()V
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->cleanupCache()V
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity;->mLongScreenshot:Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;
-
-    if-eqz p0, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScrollCaptureController$LongScreenshot;->release()V
 
     :cond_2
     return-void

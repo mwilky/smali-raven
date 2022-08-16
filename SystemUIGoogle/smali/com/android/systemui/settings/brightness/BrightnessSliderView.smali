@@ -12,15 +12,15 @@
 
 
 # instance fields
-.field private mListener:Lcom/android/systemui/settings/brightness/BrightnessSliderView$DispatchTouchEventListener;
+.field public mListener:Lcom/android/systemui/settings/brightness/BrightnessSliderView$DispatchTouchEventListener;
 
-.field private mOnInterceptListener:Lcom/android/systemui/Gefingerpoken;
+.field public mOnInterceptListener:Lcom/android/systemui/Gefingerpoken;
 
-.field private mProgressDrawable:Landroid/graphics/drawable/Drawable;
+.field public mProgressDrawable:Landroid/graphics/drawable/Drawable;
 
-.field private mScale:F
+.field public mScale:F
 
-.field private mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
+.field public mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
 
 
 # direct methods
@@ -46,7 +46,9 @@
     return-void
 .end method
 
-.method private applySliderScale()V
+
+# virtual methods
+.method public final applySliderScale()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mProgressDrawable:Landroid/graphics/drawable/Drawable;
@@ -95,9 +97,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mListener:Lcom/android/systemui/settings/brightness/BrightnessSliderView$DispatchTouchEventListener;
@@ -114,39 +114,17 @@
     return p0
 .end method
 
-.method public getMax()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
-
-    invoke-virtual {p0}, Landroid/widget/SeekBar;->getMax()I
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public getSliderScaleY()F
     .locals 0
+    .annotation build Landroidx/annotation/Keep;
+    .end annotation
 
     iget p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mScale:F
 
     return p0
 .end method
 
-.method public getValue()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
-
-    invoke-virtual {p0}, Landroid/widget/SeekBar;->getProgress()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 2
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
@@ -157,7 +135,7 @@
 
     invoke-virtual {p0, v0, v1}, Landroid/widget/FrameLayout;->setLayerType(ILandroid/graphics/Paint;)V
 
-    sget v0, Lcom/android/systemui/R$id;->slider:I
+    const v0, 0x7f0b0608
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->requireViewById(I)Landroid/view/View;
 
@@ -175,7 +153,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/brightness/ToggleSeekBar;->setAccessibilityLabel(Ljava/lang/String;)V
+    iput-object v1, v0, Lcom/android/systemui/settings/brightness/ToggleSeekBar;->mAccessibilityLabel:Ljava/lang/String;
 
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
@@ -200,7 +178,7 @@
 
     check-cast v0, Landroid/graphics/drawable/LayerDrawable;
 
-    sget v1, Lcom/android/systemui/R$id;->slider_foreground:I
+    const v1, 0x7f0b0609
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/LayerDrawable;->findDrawableByLayerId(I)Landroid/graphics/drawable/Drawable;
 
@@ -214,7 +192,7 @@
     return-void
 .end method
 
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mOnInterceptListener:Lcom/android/systemui/Gefingerpoken;
@@ -235,17 +213,17 @@
     return p0
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Landroid/widget/FrameLayout;->onLayout(ZIIII)V
 
-    invoke-direct {p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->applySliderScale()V
+    invoke-virtual {p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->applySliderScale()V
 
     return-void
 .end method
 
-.method public requestDisallowInterceptTouchEvent(Z)V
+.method public final requestDisallowInterceptTouchEvent(Z)V
     .locals 0
 
     iget-object p0, p0, Landroid/widget/FrameLayout;->mParent:Landroid/view/ViewParent;
@@ -258,68 +236,10 @@
     return-void
 .end method
 
-.method public setEnforcedAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
-
-    if-nez p1, :cond_0
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setEnabled(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/settings/brightness/ToggleSeekBar;->setEnforcedAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
-
-    return-void
-.end method
-
-.method public setMax(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
-
-    invoke-virtual {p0, p1}, Landroid/widget/SeekBar;->setMax(I)V
-
-    return-void
-.end method
-
-.method public setOnDispatchTouchEventListener(Lcom/android/systemui/settings/brightness/BrightnessSliderView$DispatchTouchEventListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mListener:Lcom/android/systemui/settings/brightness/BrightnessSliderView$DispatchTouchEventListener;
-
-    return-void
-.end method
-
-.method public setOnInterceptListener(Lcom/android/systemui/Gefingerpoken;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mOnInterceptListener:Lcom/android/systemui/Gefingerpoken;
-
-    return-void
-.end method
-
-.method public setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
-
-    invoke-virtual {p0, p1}, Landroid/widget/SeekBar;->setOnSeekBarChangeListener(Landroid/widget/SeekBar$OnSeekBarChangeListener;)V
-
-    return-void
-.end method
-
 .method public setSliderScaleY(F)V
     .locals 1
+    .annotation build Landroidx/annotation/Keep;
+    .end annotation
 
     iget v0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mScale:F
 
@@ -329,18 +249,8 @@
 
     iput p1, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mScale:F
 
-    invoke-direct {p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->applySliderScale()V
+    invoke-virtual {p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->applySliderScale()V
 
     :cond_0
-    return-void
-.end method
-
-.method public setValue(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderView;->mSlider:Lcom/android/systemui/settings/brightness/ToggleSeekBar;
-
-    invoke-virtual {p0, p1}, Landroid/widget/SeekBar;->setProgress(I)V
-
     return-void
 .end method

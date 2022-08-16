@@ -8,63 +8,26 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/BootCompleteCacheImpl$Companion;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nBootCompleteCacheImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 BootCompleteCacheImpl.kt\ncom/android/systemui/BootCompleteCacheImpl\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,117:1\n1819#2,2:118\n1819#2,2:120\n*E\n*S KotlinDebug\n*F\n+ 1 BootCompleteCacheImpl.kt\ncom/android/systemui/BootCompleteCacheImpl\n*L\n66#1,2:118\n111#1,2:120\n*E\n"
+    value = "SMAP\nBootCompleteCacheImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 BootCompleteCacheImpl.kt\ncom/android/systemui/BootCompleteCacheImpl\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,116:1\n1849#2,2:117\n1849#2,2:119\n*S KotlinDebug\n*F\n+ 1 BootCompleteCacheImpl.kt\ncom/android/systemui/BootCompleteCacheImpl\n*L\n65#1:117,2\n110#1:119,2\n*E\n"
 .end annotation
-
-
-# static fields
-.field public static final Companion:Lcom/android/systemui/BootCompleteCacheImpl$Companion;
 
 
 # instance fields
-.field private final bootComplete:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field public final bootComplete:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field private final listeners:Ljava/util/List;
+.field public final listeners:Ljava/util/ArrayList;
     .annotation build Lcom/android/internal/annotations/GuardedBy;
         value = {
             "listeners"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/ref/WeakReference<",
-            "Lcom/android/systemui/BootCompleteCache$BootCompleteListener;",
-            ">;>;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/BootCompleteCacheImpl$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/BootCompleteCacheImpl$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/BootCompleteCacheImpl;->Companion:Lcom/android/systemui/BootCompleteCacheImpl$Companion;
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/dump/DumpManager;)V
     .locals 1
-
-    const-string v0, "dumpManager"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -76,7 +39,7 @@
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
     new-instance p1, Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -91,12 +54,8 @@
 
 
 # virtual methods
-.method public addListener(Lcom/android/systemui/BootCompleteCache$BootCompleteListener;)Z
+.method public final addListener(Lcom/android/systemui/BootCompleteCache$BootCompleteListener;)Z
     .locals 3
-
-    const-string v0, "listener"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->bootComplete:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -111,7 +70,7 @@
     return v1
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
     monitor-enter v0
 
@@ -132,13 +91,13 @@
 
     :cond_1
     :try_start_1
-    iget-object p0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
     new-instance v1, Ljava/lang/ref/WeakReference;
 
     invoke-direct {v1, p1}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
 
-    invoke-interface {p0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -156,98 +115,84 @@
     throw p0
 .end method
 
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 2
 
-    const-string v0, "fd"
+    const-string p2, "BootCompleteCache state:"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string p1, "pw"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "args"
-
-    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "BootCompleteCache state:"
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string p1, "  boot complete: "
+    const-string p2, "  boot complete: "
 
     invoke-virtual {p0}, Lcom/android/systemui/BootCompleteCacheImpl;->isBootComplete()Z
 
-    move-result p3
+    move-result v0
 
-    invoke-static {p3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p2
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/BootCompleteCacheImpl;->isBootComplete()Z
 
-    move-result p1
+    move-result p2
 
-    if-nez p1, :cond_1
+    if-nez p2, :cond_1
 
-    const-string p1, "  listeners:"
+    const-string p2, "  listeners:"
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object p1, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iget-object p2, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
-    monitor-enter p1
+    monitor-enter p2
 
     :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result p3
+    move-result v0
 
-    if-eqz p3, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object p3
+    move-result-object v0
 
-    check-cast p3, Ljava/lang/ref/WeakReference;
+    check-cast v0, Ljava/lang/ref/WeakReference;
 
-    const-string v0, "    "
+    const-string v1, "    "
 
-    invoke-static {v0, p3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object v0
 
-    invoke-virtual {p2, p3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     goto :goto_0
 
     :cond_0
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p1
+    monitor-exit p2
 
     goto :goto_1
 
     :catchall_0
     move-exception p0
 
-    monitor-exit p1
+    monitor-exit p2
 
     throw p0
 
@@ -256,7 +201,7 @@
     return-void
 .end method
 
-.method public isBootComplete()Z
+.method public final isBootComplete()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->bootComplete:Ljava/util/concurrent/atomic/AtomicBoolean;
@@ -283,14 +228,14 @@
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
     monitor-enter v0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -323,11 +268,9 @@
     goto :goto_0
 
     :cond_1
-    iget-object p0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/BootCompleteCacheImpl;->listeners:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/util/List;->clear()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    invoke-virtual {p0}, Ljava/util/ArrayList;->clear()V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

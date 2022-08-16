@@ -68,23 +68,22 @@
     .end annotation
 .end field
 
+.field private final preHandlerManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final privilegedPluginsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/List<",
             "Ljava/lang/String;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private final uncaughtExceptionHandlerOptionalProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Ljava/lang/Thread$UncaughtExceptionHandler;",
             ">;>;"
         }
     .end annotation
@@ -107,9 +106,8 @@
             "Ljava/lang/Boolean;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Ljava/lang/Thread$UncaughtExceptionHandler;",
-            ">;>;",
+            "Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;",
+            ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/shared/plugins/PluginEnabler;",
             ">;",
@@ -131,7 +129,7 @@
 
     iput-object p3, p0, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->debugProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->uncaughtExceptionHandlerOptionalProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->preHandlerManagerProvider:Ljavax/inject/Provider;
 
     iput-object p5, p0, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->pluginEnablerProvider:Ljavax/inject/Provider;
 
@@ -157,9 +155,8 @@
             "Ljava/lang/Boolean;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Ljava/lang/Thread$UncaughtExceptionHandler;",
-            ">;>;",
+            "Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;",
+            ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/shared/plugins/PluginEnabler;",
             ">;",
@@ -197,7 +194,7 @@
     return-object v8
 .end method
 
-.method public static providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLjava/util/Optional;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
+.method public static providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -205,9 +202,7 @@
             "Landroid/content/Context;",
             "Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;",
             "Z",
-            "Ljava/util/Optional<",
-            "Ljava/lang/Thread$UncaughtExceptionHandler;",
-            ">;",
+            "Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;",
             "Lcom/android/systemui/shared/plugins/PluginEnabler;",
             "Lcom/android/systemui/shared/plugins/PluginPrefs;",
             "Ljava/util/List<",
@@ -217,15 +212,11 @@
         }
     .end annotation
 
-    invoke-static/range {p0 .. p6}, Lcom/android/systemui/plugins/PluginsModule;->providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLjava/util/Optional;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
+    invoke-static/range {p0 .. p6}, Lcom/android/systemui/plugins/PluginsModule;->providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
 
     move-result-object p0
 
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/shared/plugins/PluginManager;
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object p0
 .end method
@@ -267,7 +258,7 @@
 
     move-result v3
 
-    iget-object v0, p0, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->uncaughtExceptionHandlerOptionalProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->preHandlerManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -275,7 +266,7 @@
 
     move-object v4, v0
 
-    check-cast v4, Ljava/util/Optional;
+    check-cast v4, Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;
 
     iget-object v0, p0, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->pluginEnablerProvider:Ljavax/inject/Provider;
 
@@ -307,7 +298,7 @@
 
     check-cast v7, Ljava/util/List;
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLjava/util/Optional;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginManagerFactory;->providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
 
     move-result-object p0
 

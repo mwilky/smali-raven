@@ -4,13 +4,13 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final DEBUG:Z
 
-.field private static final settingsIntent:Landroid/content/Intent;
+.field public static final settingsIntent:Landroid/content/Intent;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Landroid/content/Intent;
@@ -36,20 +36,4 @@
     sput-boolean v0, Lcom/android/systemui/media/MediaCarouselControllerKt;->DEBUG:Z
 
     return-void
-.end method
-
-.method public static final synthetic access$getDEBUG$p()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/systemui/media/MediaCarouselControllerKt;->DEBUG:Z
-
-    return v0
-.end method
-
-.method public static final synthetic access$getSettingsIntent$p()Landroid/content/Intent;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/media/MediaCarouselControllerKt;->settingsIntent:Landroid/content/Intent;
-
-    return-object v0
 .end method

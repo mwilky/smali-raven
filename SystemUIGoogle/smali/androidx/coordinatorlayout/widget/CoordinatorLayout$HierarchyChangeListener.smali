@@ -1,4 +1,4 @@
-.class Landroidx/coordinatorlayout/widget/CoordinatorLayout$HierarchyChangeListener;
+.class public final Landroidx/coordinatorlayout/widget/CoordinatorLayout$HierarchyChangeListener;
 .super Ljava/lang/Object;
 .source "CoordinatorLayout.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "HierarchyChangeListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
+.field public final synthetic this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
 
 # direct methods
-.method constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V
+.method public constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$HierarchyChangeListener;->this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
+.method public final onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$HierarchyChangeListener;->this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -49,7 +49,7 @@
     return-void
 .end method
 
-.method public onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
+.method public final onChildViewRemoved(Landroid/view/View;Landroid/view/View;)V
     .locals 2
 
     iget-object v0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$HierarchyChangeListener;->this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;

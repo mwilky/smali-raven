@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/media/dialog/MediaOutputController$Callback;
+.class public interface abstract Lcom/android/systemui/media/dialog/MediaOutputController$Callback;
 .super Ljava/lang/Object;
 .source "MediaOutputController.java"
 
@@ -9,18 +9,12 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Callback"
 .end annotation
 
 
 # virtual methods
-.method public abstract dismissDialog()V
-.end method
-
-.method public abstract onDeviceListChanged()V
-.end method
-
 .method public abstract onMediaChanged()V
 .end method
 

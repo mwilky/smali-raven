@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onRefreshState$1$1$1$1;
+.class public final Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onRefreshState$1$1$1$1;
 .super Ljava/lang/Object;
 .source "ControlsUiControllerImpl.kt"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $cws:Lcom/android/systemui/controls/ui/ControlWithState;
+.field public final synthetic $cws:Lcom/android/systemui/controls/ui/ControlWithState;
 
-.field final synthetic $isLocked:Z
+.field public final synthetic $isLocked:Z
 
-.field final synthetic $it:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic $it:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/ControlWithState;Z)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/ControlWithState;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onRefreshState$1$1$1$1;->$it:Lcom/android/systemui/controls/ui/ControlViewHolder;

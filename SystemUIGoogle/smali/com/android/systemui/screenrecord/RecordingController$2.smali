@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenrecord/RecordingController$2;
+.class public final Lcom/android/systemui/screenrecord/RecordingController$2;
 .super Landroid/content/BroadcastReceiver;
 .source "RecordingController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/screenrecord/RecordingController;
+.field public final synthetic this$0:Lcom/android/systemui/screenrecord/RecordingController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/screenrecord/RecordingController;)V
+.method public constructor <init>(Lcom/android/systemui/screenrecord/RecordingController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/screenrecord/RecordingController$2;->this$0:Lcom/android/systemui/screenrecord/RecordingController;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
     if-eqz p2, :cond_1

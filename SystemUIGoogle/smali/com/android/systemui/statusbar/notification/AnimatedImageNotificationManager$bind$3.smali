@@ -1,31 +1,21 @@
-.class public final Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;
+.class public final synthetic Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;
 .super Ljava/lang/Object;
 .source "ConversationNotifications.kt"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;->bind()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
+.implements Lcom/android/systemui/statusbar/notification/collection/inflation/BindEventManager$Listener;
+.implements Lkotlin/jvm/internal/FunctionAdapter;
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;
+.field public final synthetic $tmp0:Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->this$0:Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->$tmp0:Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,62 +24,76 @@
 
 
 # virtual methods
-.method public onEntryInflated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 1
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 2
 
-    const-string v0, "entry"
+    instance-of v0, p1, Lcom/android/systemui/statusbar/notification/collection/inflation/BindEventManager$Listener;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v1, 0x0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    if-eqz v0, :cond_0
+
+    instance-of v0, p1, Lkotlin/jvm/internal/FunctionAdapter;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->getFunctionDelegate()Lkotlin/Function;
+
+    move-result-object p0
+
+    check-cast p1, Lkotlin/jvm/internal/FunctionAdapter;
+
+    invoke-interface {p1}, Lkotlin/jvm/internal/FunctionAdapter;->getFunctionDelegate()Lkotlin/Function;
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    goto :goto_2
+    move-result v1
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->this$0:Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;->access$isStatusBarExpanded$p(Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isHeadsUp()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_1
-
-    :cond_2
-    :goto_0
-    const/4 v0, 0x1
-
-    :goto_1
-    invoke-static {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;->access$updateAnimatedImageDrawables(Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Z)V
-
-    :goto_2
-    return-void
+    return v1
 .end method
 
-.method public onEntryReinflated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final getFunctionDelegate()Lkotlin/Function;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Lkotlin/Function<",
+            "*>;"
+        }
+    .end annotation
 
-    const-string v0, "entry"
+    new-instance v0, Lkotlin/jvm/internal/AdaptedFunctionReference;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->$tmp0:Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->onEntryInflated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-direct {v0, p0}, Lkotlin/jvm/internal/AdaptedFunctionReference;-><init>(Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;)V
+
+    return-object v0
+.end method
+
+.method public final hashCode()I
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->getFunctionDelegate()Lkotlin/Function;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final onViewBound(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager$bind$3;->$tmp0:Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/AnimatedImageNotificationManager;->updateAnimatedImageDrawables(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Lkotlin/Unit;
 
     return-void
 .end method

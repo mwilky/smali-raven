@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "SkinThermalEventListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/power/PowerUI;
+.field public final synthetic this$0:Lcom/android/systemui/power/PowerUI;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/power/PowerUI;)V
+.method public constructor <init>(Lcom/android/systemui/power/PowerUI;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/power/PowerUI$SkinThermalEventListener;->this$0:Lcom/android/systemui/power/PowerUI;
@@ -34,8 +34,8 @@
 
 
 # virtual methods
-.method public notifyThrottling(Landroid/os/Temperature;)V
-    .locals 3
+.method public final notifyThrottling(Landroid/os/Temperature;)V
+    .locals 4
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
 
@@ -47,9 +47,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/power/PowerUI$SkinThermalEventListener;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {v1}, Lcom/android/systemui/power/PowerUI;->access$1300(Lcom/android/systemui/power/PowerUI;)Ldagger/Lazy;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/power/PowerUI;->mCentralSurfacesOptionalLazy:Ldagger/Lazy;
 
     invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
@@ -57,7 +55,11 @@
 
     check-cast v1, Ljava/util/Optional;
 
-    sget-object v2, Lcom/android/systemui/power/PowerUI$SkinThermalEventListener$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/power/PowerUI$SkinThermalEventListener$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/settingslib/dream/DreamBackend$$ExternalSyntheticLambda1;
+
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v3}, Lcom/android/settingslib/dream/DreamBackend$$ExternalSyntheticLambda1;-><init>(I)V
 
     invoke-virtual {v1, v2}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
 
@@ -79,9 +81,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerUI$SkinThermalEventListener;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerUI;->access$1000(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     invoke-interface {p0}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showHighTemperatureWarning()V
 
@@ -118,9 +118,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/power/PowerUI$SkinThermalEventListener;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerUI;->access$1000(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     invoke-interface {p0}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissHighTemperatureWarning()V
 

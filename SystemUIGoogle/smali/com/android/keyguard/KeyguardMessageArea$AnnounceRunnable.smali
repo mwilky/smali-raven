@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardMessageArea$AnnounceRunnable;
+.class public final Lcom/android/keyguard/KeyguardMessageArea$AnnounceRunnable;
 .super Ljava/lang/Object;
 .source "KeyguardMessageArea.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AnnounceRunnable"
 .end annotation
 
 
 # instance fields
-.field private final mHost:Ljava/lang/ref/WeakReference;
+.field public final mHost:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -28,11 +28,11 @@
     .end annotation
 .end field
 
-.field private final mTextToAnnounce:Ljava/lang/CharSequence;
+.field public final mTextToAnnounce:Ljava/lang/CharSequence;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;Ljava/lang/CharSequence;)V
+.method public constructor <init>(Landroid/view/View;Ljava/lang/CharSequence;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageArea$AnnounceRunnable;->mHost:Ljava/lang/ref/WeakReference;

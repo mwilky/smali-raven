@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
+.class public final Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
 .super Landroid/graphics/drawable/Drawable;
 .source "KeyButtonDrawable.java"
 
@@ -12,87 +12,43 @@
 
 
 # static fields
-.field public static final KEY_DRAWABLE_ROTATE:Landroid/util/FloatProperty;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/FloatProperty<",
-            "Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public static final KEY_DRAWABLE_ROTATE:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$1;
 
-.field public static final KEY_DRAWABLE_TRANSLATE_Y:Landroid/util/FloatProperty;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/FloatProperty<",
-            "Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public static final KEY_DRAWABLE_TRANSLATE_Y:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;
 
 
 # instance fields
-.field private mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
+.field public mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-.field private final mAnimatedDrawableCallback:Landroid/graphics/drawable/Drawable$Callback;
+.field public final mAnimatedDrawableCallback:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$3;
 
-.field private final mIconPaint:Landroid/graphics/Paint;
+.field public final mIconPaint:Landroid/graphics/Paint;
 
-.field private final mShadowPaint:Landroid/graphics/Paint;
+.field public final mShadowPaint:Landroid/graphics/Paint;
 
-.field private final mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+.field public final mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public static constructor <clinit>()V
+    .locals 1
 
     new-instance v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$1;
 
-    const-string v1, "KeyButtonRotation"
+    invoke-direct {v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$1;-><init>()V
 
-    invoke-direct {v0, v1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$1;-><init>(Ljava/lang/String;)V
-
-    sput-object v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->KEY_DRAWABLE_ROTATE:Landroid/util/FloatProperty;
+    sput-object v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->KEY_DRAWABLE_ROTATE:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$1;
 
     new-instance v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;
 
-    const-string v1, "KeyButtonTranslateY"
+    invoke-direct {v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;-><init>()V
 
-    invoke-direct {v0, v1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;-><init>(Ljava/lang/String;)V
-
-    sput-object v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->KEY_DRAWABLE_TRANSLATE_Y:Landroid/util/FloatProperty;
+    sput-object v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->KEY_DRAWABLE_TRANSLATE_Y:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$2;
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/graphics/drawable/Drawable;IIZLandroid/graphics/Color;)V
-    .locals 7
-
-    new-instance v6, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    instance-of v3, p1, Landroid/graphics/drawable/AnimatedVectorDrawable;
-
-    move-object v0, v6
-
-    move v1, p2
-
-    move v2, p3
-
-    move v4, p4
-
-    move-object v5, p5
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;-><init>(IIZZLandroid/graphics/Color;)V
-
-    invoke-direct {p0, p1, v6}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;-><init>(Landroid/graphics/drawable/Drawable;Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;)V
-
-    return-void
-.end method
-
-.method private constructor <init>(Landroid/graphics/drawable/Drawable;Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;)V
+.method public constructor <init>(Landroid/graphics/drawable/Drawable;Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;)V
     .locals 2
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -115,7 +71,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$3;-><init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;)V
 
-    iput-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawableCallback:Landroid/graphics/drawable/Drawable$Callback;
+    iput-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawableCallback:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$3;
 
     iput-object p2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
@@ -146,9 +102,7 @@
     iput-object p1, p2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mChildState:Landroid/graphics/drawable/Drawable$ConstantState;
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->canAnimate()Z
-
-    move-result p1
+    iget-boolean p1, p2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mSupportsAnimation:Z
 
     if-eqz p1, :cond_1
 
@@ -170,22 +124,14 @@
 
     iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
 
     :cond_1
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/graphics/drawable/Drawable;Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;-><init>(Landroid/graphics/drawable/Drawable;Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;)V
-
-    return-void
-.end method
-
-.method public static create(Landroid/content/Context;IIIZLandroid/graphics/Color;)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
-    .locals 10
+.method public static create(Landroid/content/Context;IIIZ)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
+    .locals 5
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -215,452 +161,128 @@
     :goto_0
     invoke-virtual {p0, p3}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v5
+    move-result-object p3
 
-    new-instance p3, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
+    new-instance v4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->isAutoMirrored()Z
+    invoke-virtual {p3}, Landroid/graphics/drawable/Drawable;->isAutoMirrored()Z
 
     move-result v1
 
     if-eqz v1, :cond_1
 
-    move v8, v3
-
-    goto :goto_1
+    move v2, v3
 
     :cond_1
-    move v8, v2
+    new-instance v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    :goto_1
-    move-object v4, p3
+    instance-of v3, p3, Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    move v6, p1
+    invoke-direct {v1, p1, p2, v3, v2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;-><init>(IIZZ)V
 
-    move v7, p2
+    invoke-direct {v4, p3, v1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;-><init>(Landroid/graphics/drawable/Drawable;Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;)V
 
-    move-object v9, p5
+    if-eqz p4, :cond_4
 
-    invoke-direct/range {v4 .. v9}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;-><init>(Landroid/graphics/drawable/Drawable;IIZLandroid/graphics/Color;)V
-
-    if-eqz p4, :cond_2
-
-    sget p1, Lcom/android/systemui/R$dimen;->nav_key_button_shadow_offset_x:I
+    const p1, 0x7f070594
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p1
 
-    sget p2, Lcom/android/systemui/R$dimen;->nav_key_button_shadow_offset_y:I
+    const p2, 0x7f070595
 
     invoke-virtual {v0, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result p2
 
-    sget p4, Lcom/android/systemui/R$dimen;->nav_key_button_shadow_radius:I
+    const p3, 0x7f070596
 
-    invoke-virtual {v0, p4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result p4
+    move-result p3
 
-    sget p5, Lcom/android/systemui/R$color;->nav_key_button_shadow_color:I
+    const p4, 0x7f060330
 
-    invoke-virtual {p0, p5}, Landroid/content/Context;->getColor(I)I
+    invoke-virtual {p0, p4}, Landroid/content/Context;->getColor(I)I
 
     move-result p0
 
-    invoke-virtual {p3, p1, p2, p4, p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setShadowProperties(IIII)V
+    iget-object p4, v4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    :cond_2
-    return-object p3
-.end method
-
-.method public static create(Landroid/content/Context;Landroid/content/Context;IZLandroid/graphics/Color;)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
-    .locals 7
-
-    sget v0, Lcom/android/systemui/R$attr;->singleToneColor:I
-
-    invoke-static {p0, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result v2
-
-    invoke-static {p1, v0}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result v3
-
-    move-object v1, p0
-
-    move v4, p2
-
-    move v5, p3
-
-    move-object v6, p4
-
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->create(Landroid/content/Context;IIIZLandroid/graphics/Color;)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private regenerateBitmapIconCache()V
-    .locals 8
-
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicWidth()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicHeight()I
-
-    move-result v1
-
-    sget-object v2, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v0, v1, v2}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    new-instance v3, Landroid/graphics/Canvas;
-
-    invoke-direct {v3, v2}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    iget-object v4, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-object v4, v4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mChildState:Landroid/graphics/drawable/Drawable$ConstantState;
-
-    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v4
-
-    invoke-direct {p0, v4}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {v3}, Landroid/graphics/Canvas;->save()I
-
-    iget-object v5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-boolean v5, v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mHorizontalFlip:Z
-
-    if-eqz v5, :cond_0
-
-    const/high16 v5, -0x40800000    # -1.0f
-
-    const/high16 v6, 0x3f800000    # 1.0f
-
-    int-to-float v0, v0
-
-    const/high16 v7, 0x3f000000    # 0.5f
-
-    mul-float/2addr v0, v7
-
-    int-to-float v1, v1
-
-    mul-float/2addr v1, v7
-
-    invoke-virtual {v3, v5, v6, v0, v1}, Landroid/graphics/Canvas;->scale(FFFF)V
-
-    :cond_0
-    invoke-virtual {v4, v3}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    invoke-virtual {v3}, Landroid/graphics/Canvas;->restore()V
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mIsHardwareBitmap:Z
-
-    if-eqz v0, :cond_1
-
-    sget-object v0, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v2, v0, v1}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iput-object v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnIcon:Landroid/graphics/Bitmap;
-
-    return-void
-.end method
-
-.method private regenerateBitmapShadowCache()V
-    .locals 9
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
-
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_0
-
-    iput-object v2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnIcon:Landroid/graphics/Bitmap;
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicWidth()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicHeight()I
-
-    move-result v1
-
-    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static {v0, v1, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v3
-
-    new-instance v4, Landroid/graphics/Canvas;
-
-    invoke-direct {v4, v3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
-
-    iget-object v5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-object v5, v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mChildState:Landroid/graphics/drawable/Drawable$ConstantState;
-
-    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v5
-
-    invoke-direct {p0, v5}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {v4}, Landroid/graphics/Canvas;->save()I
-
-    iget-object v6, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-boolean v6, v6, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mHorizontalFlip:Z
-
-    if-eqz v6, :cond_1
-
-    const/high16 v6, -0x40800000    # -1.0f
-
-    const/high16 v7, 0x3f800000    # 1.0f
-
-    int-to-float v0, v0
-
-    const/high16 v8, 0x3f000000    # 0.5f
-
-    mul-float/2addr v0, v8
-
-    int-to-float v1, v1
-
-    mul-float/2addr v1, v8
-
-    invoke-virtual {v4, v6, v7, v0, v1}, Landroid/graphics/Canvas;->scale(FFFF)V
-
-    :cond_1
-    invoke-virtual {v5, v4}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    invoke-virtual {v4}, Landroid/graphics/Canvas;->restore()V
-
-    new-instance v0, Landroid/graphics/Paint;
-
-    const/4 v1, 0x3
-
-    invoke-direct {v0, v1}, Landroid/graphics/Paint;-><init>(I)V
-
-    new-instance v1, Landroid/graphics/BlurMaskFilter;
-
-    iget-object v5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget v5, v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
-
-    int-to-float v5, v5
-
-    sget-object v6, Landroid/graphics/BlurMaskFilter$Blur;->NORMAL:Landroid/graphics/BlurMaskFilter$Blur;
-
-    invoke-direct {v1, v5, v6}, Landroid/graphics/BlurMaskFilter;-><init>(FLandroid/graphics/BlurMaskFilter$Blur;)V
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [I
-
-    invoke-virtual {v3, v0, v1}, Landroid/graphics/Bitmap;->extractAlpha(Landroid/graphics/Paint;[I)Landroid/graphics/Bitmap;
-
-    move-result-object v5
-
-    invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v3, v2}, Landroid/graphics/Bitmap;->eraseColor(I)V
-
-    aget v6, v1, v2
-
-    int-to-float v6, v6
-
-    const/4 v7, 0x1
-
-    aget v1, v1, v7
-
-    int-to-float v1, v1
-
-    invoke-virtual {v4, v5, v6, v1, v0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mIsHardwareBitmap:Z
+    iget-boolean v0, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mSupportsAnimation:Z
 
     if-eqz v0, :cond_2
 
-    sget-object v0, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
-
-    invoke-virtual {v3, v0, v2}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
-
-    move-result-object v3
+    goto :goto_1
 
     :cond_2
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+    iget v0, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetX:I
 
-    iput-object v3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnShadow:Landroid/graphics/Bitmap;
+    if-ne v0, p1, :cond_3
 
-    return-void
-.end method
+    iget v0, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetY:I
 
-.method private setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
-    .locals 3
+    if-ne v0, p2, :cond_3
 
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+    iget v0, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
 
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
+    if-ne v0, p3, :cond_3
 
-    iget v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetX:I
+    iget v0, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(I)I
+    if-eq v0, p0, :cond_4
 
-    move-result v0
+    :cond_3
+    iput p1, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetX:I
 
-    add-int/2addr v1, v0
+    iput p2, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetY:I
 
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+    iput p3, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
 
-    iget v2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
+    iput p0, p4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
 
-    iget v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetY:I
+    iget-object p0, v4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mShadowPaint:Landroid/graphics/Paint;
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(I)I
+    new-instance p1, Landroid/graphics/PorterDuffColorFilter;
 
-    move-result v0
+    iget-object p2, v4, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    add-int/2addr v2, v0
+    iget p2, p2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicWidth()I
+    sget-object p3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    move-result v0
+    invoke-direct {p1, p2, p3}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
 
-    sub-int/2addr v0, v1
+    invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicHeight()I
+    invoke-virtual {v4}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->updateShadowAlpha()V
 
-    move-result p0
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
-    sub-int/2addr p0, v2
-
-    invoke-virtual {p1, v1, v2, v0, p0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
-
-    return-void
-.end method
-
-.method private updateShadowAlpha()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
-
-    invoke-static {v0}, Landroid/graphics/Color;->alpha(I)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mShadowPaint:Landroid/graphics/Paint;
-
-    int-to-float v0, v0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mAlpha:I
-
-    int-to-float v2, v2
-
-    const/high16 v3, 0x437f0000    # 255.0f
-
-    div-float/2addr v2, v3
-
-    mul-float/2addr v0, v2
-
-    iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mDarkIntensity:F
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    sub-float/2addr v2, p0
-
-    mul-float/2addr v0, v2
-
-    invoke-static {v0}, Ljava/lang/Math;->round(F)I
-
-    move-result p0
-
-    invoke-virtual {v1, p0}, Landroid/graphics/Paint;->setAlpha(I)V
-
-    return-void
+    :cond_4
+    :goto_1
+    return-object v4
 .end method
 
 
 # virtual methods
-.method public canAnimate()Z
+.method public final canApplyTheme()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    iget-boolean p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mSupportsAnimation:Z
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 p0, 0x1
 
     return p0
 .end method
 
-.method public canApplyTheme()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->canApplyTheme()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public clearAnimationCallbacks()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->clearAnimationCallbacks()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public draw(Landroid/graphics/Canvas;)V
-    .locals 10
+.method public final draw(Landroid/graphics/Canvas;)V
+    .locals 14
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
@@ -681,7 +303,7 @@
 
     invoke-virtual {v1, p1}, Landroid/graphics/drawable/AnimatedVectorDrawable;->draw(Landroid/graphics/Canvas;)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
@@ -692,14 +314,18 @@
 
     move-result v2
 
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
     if-eq v1, v2, :cond_2
 
-    const/4 v1, 0x1
+    move v1, v3
 
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
+    move v1, v4
 
     :goto_0
     if-eqz v1, :cond_3
@@ -708,32 +334,108 @@
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->isHardwareAccelerated()Z
 
-    move-result v3
+    move-result v5
 
-    iput-boolean v3, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mIsHardwareBitmap:Z
+    iput-boolean v5, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mIsHardwareBitmap:Z
 
     :cond_3
     iget-object v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
     iget-object v2, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnIcon:Landroid/graphics/Bitmap;
 
+    const/high16 v5, 0x3f000000    # 0.5f
+
+    const/high16 v6, 0x3f800000    # 1.0f
+
+    const/high16 v7, -0x40800000    # -1.0f
+
     if-eqz v2, :cond_4
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_7
 
     :cond_4
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->regenerateBitmapIconCache()V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicWidth()I
+
+    move-result v2
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicHeight()I
+
+    move-result v8
+
+    sget-object v9, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v2, v8, v9}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v9
+
+    new-instance v10, Landroid/graphics/Canvas;
+
+    invoke-direct {v10, v9}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    iget-object v11, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-object v11, v11, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mChildState:Landroid/graphics/drawable/Drawable$ConstantState;
+
+    invoke-virtual {v11}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v11
+
+    invoke-virtual {p0, v11}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v10}, Landroid/graphics/Canvas;->save()I
+
+    iget-object v12, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-boolean v12, v12, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mHorizontalFlip:Z
+
+    if-eqz v12, :cond_5
+
+    int-to-float v2, v2
+
+    mul-float/2addr v2, v5
+
+    int-to-float v8, v8
+
+    mul-float/2addr v8, v5
+
+    invoke-virtual {v10, v7, v6, v2, v8}, Landroid/graphics/Canvas;->scale(FFFF)V
 
     :cond_5
+    invoke-virtual {v11, v10}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {v10}, Landroid/graphics/Canvas;->restore()V
+
+    iget-object v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-boolean v2, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mIsHardwareBitmap:Z
+
+    if-eqz v2, :cond_6
+
+    sget-object v2, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
+
+    invoke-virtual {v9, v2, v4}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
+
+    move-result-object v9
+
+    :cond_6
+    iget-object v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iput-object v9, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnIcon:Landroid/graphics/Bitmap;
+
+    :cond_7
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
     iget-object v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    iget v3, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
+    iget v8, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
 
     iget v2, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationY:F
 
-    invoke-virtual {p1, v3, v2}, Landroid/graphics/Canvas;->translate(FF)V
+    invoke-virtual {p1, v8, v2}, Landroid/graphics/Canvas;->translate(FF)V
 
     iget-object v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
@@ -741,38 +443,160 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicWidth()I
 
-    move-result v3
+    move-result v8
 
-    div-int/lit8 v3, v3, 0x2
+    const/4 v9, 0x2
 
-    int-to-float v3, v3
+    div-int/2addr v8, v9
+
+    int-to-float v8, v8
 
     invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicHeight()I
 
-    move-result v4
+    move-result v10
 
-    div-int/lit8 v4, v4, 0x2
+    div-int/2addr v10, v9
 
-    int-to-float v4, v4
+    int-to-float v10, v10
 
-    invoke-virtual {p1, v2, v3, v4}, Landroid/graphics/Canvas;->rotate(FFF)V
+    invoke-virtual {p1, v2, v8, v10}, Landroid/graphics/Canvas;->rotate(FFF)V
 
     iget-object v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    iget v3, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
+    iget v8, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
 
-    if-lez v3, :cond_8
+    const/4 v10, 0x0
 
-    iget-object v2, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnShadow:Landroid/graphics/Bitmap;
+    if-lez v8, :cond_d
 
-    if-eqz v2, :cond_6
+    iget-object v11, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnShadow:Landroid/graphics/Bitmap;
 
-    if-eqz v1, :cond_7
+    if-eqz v11, :cond_8
 
-    :cond_6
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->regenerateBitmapShadowCache()V
+    if-eqz v1, :cond_c
 
-    :cond_7
+    :cond_8
+    if-nez v8, :cond_9
+
+    iput-object v10, v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnIcon:Landroid/graphics/Bitmap;
+
+    goto :goto_1
+
+    :cond_9
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicWidth()I
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicHeight()I
+
+    move-result v2
+
+    sget-object v8, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {v1, v2, v8}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v8
+
+    new-instance v11, Landroid/graphics/Canvas;
+
+    invoke-direct {v11, v8}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    iget-object v12, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-object v12, v12, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mChildState:Landroid/graphics/drawable/Drawable$ConstantState;
+
+    invoke-virtual {v12}, Landroid/graphics/drawable/Drawable$ConstantState;->newDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v12
+
+    invoke-virtual {p0, v12}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v11}, Landroid/graphics/Canvas;->save()I
+
+    iget-object v13, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-boolean v13, v13, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mHorizontalFlip:Z
+
+    if-eqz v13, :cond_a
+
+    int-to-float v1, v1
+
+    mul-float/2addr v1, v5
+
+    int-to-float v2, v2
+
+    mul-float/2addr v2, v5
+
+    invoke-virtual {v11, v7, v6, v1, v2}, Landroid/graphics/Canvas;->scale(FFFF)V
+
+    :cond_a
+    invoke-virtual {v12, v11}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {v11}, Landroid/graphics/Canvas;->restore()V
+
+    new-instance v1, Landroid/graphics/Paint;
+
+    const/4 v2, 0x3
+
+    invoke-direct {v1, v2}, Landroid/graphics/Paint;-><init>(I)V
+
+    new-instance v2, Landroid/graphics/BlurMaskFilter;
+
+    iget-object v5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget v5, v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
+
+    int-to-float v5, v5
+
+    sget-object v6, Landroid/graphics/BlurMaskFilter$Blur;->NORMAL:Landroid/graphics/BlurMaskFilter$Blur;
+
+    invoke-direct {v2, v5, v6}, Landroid/graphics/BlurMaskFilter;-><init>(FLandroid/graphics/BlurMaskFilter$Blur;)V
+
+    invoke-virtual {v1, v2}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+
+    new-array v2, v9, [I
+
+    invoke-virtual {v8, v1, v2}, Landroid/graphics/Bitmap;->extractAlpha(Landroid/graphics/Paint;[I)Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v10}, Landroid/graphics/Paint;->setMaskFilter(Landroid/graphics/MaskFilter;)Landroid/graphics/MaskFilter;
+
+    invoke-virtual {v8, v4}, Landroid/graphics/Bitmap;->eraseColor(I)V
+
+    aget v6, v2, v4
+
+    int-to-float v6, v6
+
+    aget v2, v2, v3
+
+    int-to-float v2, v2
+
+    invoke-virtual {v11, v5, v6, v2, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-boolean v1, v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mIsHardwareBitmap:Z
+
+    if-eqz v1, :cond_b
+
+    sget-object v1, Landroid/graphics/Bitmap$Config;->HARDWARE:Landroid/graphics/Bitmap$Config;
+
+    invoke-virtual {v8, v1, v4}, Landroid/graphics/Bitmap;->copy(Landroid/graphics/Bitmap$Config;Z)Landroid/graphics/Bitmap;
+
+    move-result-object v8
+
+    :cond_b
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iput-object v8, v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnShadow:Landroid/graphics/Bitmap;
+
+    :cond_c
+    :goto_1
     iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
     iget v1, v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mRotateDegrees:F
@@ -815,9 +639,9 @@
 
     mul-double/2addr v5, v8
 
-    add-double/2addr v3, v5
+    add-double/2addr v5, v3
 
-    double-to-float v3, v3
+    double-to-float v3, v5
 
     iget v4, v7, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
 
@@ -861,24 +685,22 @@
 
     invoke-virtual {p1, v2, v3, v1, v4}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    :cond_8
+    :cond_d
     iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
     iget-object v1, v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mLastDrawnIcon:Landroid/graphics/Bitmap;
 
-    const/4 v2, 0x0
-
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mIconPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v1, v2, v0, p0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
+    invoke-virtual {p1, v1, v10, v0, p0}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
 
-    :goto_1
+    :goto_2
     return-void
 .end method
 
-.method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+.method public final getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
@@ -886,31 +708,7 @@
     return-object p0
 .end method
 
-.method public getDarkIntensity()F
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mDarkIntensity:F
-
-    return p0
-.end method
-
-.method getDrawableBackgroundColor()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mOvalBackgroundColor:Landroid/graphics/Color;
-
-    invoke-virtual {p0}, Landroid/graphics/Color;->toArgb()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getIntrinsicHeight()I
+.method public final getIntrinsicHeight()I
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
@@ -925,16 +723,16 @@
 
     move-result p0
 
-    add-int/2addr v1, p0
+    add-int/2addr p0, v1
 
-    mul-int/lit8 v1, v1, 0x2
+    mul-int/lit8 p0, p0, 0x2
 
-    add-int/2addr v0, v1
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public getIntrinsicWidth()I
+.method public final getIntrinsicWidth()I
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
@@ -949,16 +747,16 @@
 
     move-result p0
 
-    add-int/2addr v1, p0
+    add-int/2addr p0, v1
 
-    mul-int/lit8 v1, v1, 0x2
+    mul-int/lit8 p0, p0, 0x2
 
-    add-int/2addr v0, v1
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, -0x3
@@ -966,47 +764,7 @@
     return p0
 .end method
 
-.method public getRotation()F
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mRotateDegrees:F
-
-    return p0
-.end method
-
-.method public getTranslationY()F
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationY:F
-
-    return p0
-.end method
-
-.method hasOvalBg()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mOvalBackgroundColor:Landroid/graphics/Color;
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public jumpToCurrentState()V
+.method public final jumpToCurrentState()V
     .locals 0
 
     invoke-super {p0}, Landroid/graphics/drawable/Drawable;->jumpToCurrentState()V
@@ -1021,20 +779,7 @@
     return-void
 .end method
 
-.method public resetAnimation()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->reset()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
@@ -1045,14 +790,14 @@
 
     invoke-virtual {v0, p1}, Landroid/graphics/Paint;->setAlpha(I)V
 
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->updateShadowAlpha()V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->updateShadowAlpha()V
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     return-void
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mIconPaint:Landroid/graphics/Paint;
@@ -1061,17 +806,25 @@
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->hasOvalBg()Z
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    move-result v0
+    iget-object v1, v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mOvalBackgroundColor:Landroid/graphics/Color;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
+    const/4 v1, 0x1
 
-    new-instance v0, Landroid/graphics/PorterDuffColorFilter;
+    goto :goto_0
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    if-eqz v1, :cond_1
+
+    new-instance p1, Landroid/graphics/PorterDuffColorFilter;
 
     iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
@@ -1079,25 +832,23 @@
 
     sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-direct {v0, v1, v2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
-
-    invoke-virtual {p1, v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
+    invoke-direct {p1, v1, v2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
 
     invoke-virtual {v0, p1}, Landroid/graphics/drawable/AnimatedVectorDrawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
+    goto :goto_1
+
     :cond_1
-    :goto_0
+    invoke-virtual {v0, p1}, Landroid/graphics/drawable/AnimatedVectorDrawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
+
+    :cond_2
+    :goto_1
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     return-void
 .end method
 
-.method public setDarkIntensity(F)V
+.method public final setDarkIntensity(F)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
@@ -1134,7 +885,7 @@
 
     move-result p1
 
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->updateShadowAlpha()V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->updateShadowAlpha()V
 
     new-instance v0, Landroid/graphics/PorterDuffColorFilter;
 
@@ -1147,20 +898,62 @@
     return-void
 .end method
 
-.method public setRotation(F)V
-    .locals 2
+.method public final setDrawableBounds(Landroid/graphics/drawable/Drawable;)V
+    .locals 3
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->canAnimate()Z
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
+
+    iget v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetX:I
+
+    invoke-static {v0}, Ljava/lang/Math;->abs(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    add-int/2addr v0, v1
+
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget v2, v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
+
+    iget v1, v1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetY:I
+
+    invoke-static {v1}, Ljava/lang/Math;->abs(I)I
+
+    move-result v1
+
+    add-int/2addr v1, v2
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicWidth()I
+
+    move-result v2
+
+    sub-int/2addr v2, v0
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getIntrinsicHeight()I
+
+    move-result p0
+
+    sub-int/2addr p0, v1
+
+    invoke-virtual {p1, v0, v1, v2, p0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    return-void
+.end method
+
+.method public final setRotation(F)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-boolean v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mSupportsAnimation:Z
+
+    if-eqz v1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
     iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mRotateDegrees:F
 
     cmpl-float v1, v1, p1
@@ -1175,108 +968,7 @@
     return-void
 .end method
 
-.method public setShadowProperties(IIII)V
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->canAnimate()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetX:I
-
-    if-ne v1, p1, :cond_1
-
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetY:I
-
-    if-ne v1, p2, :cond_1
-
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
-
-    if-ne v1, p3, :cond_1
-
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
-
-    if-eq v1, p4, :cond_2
-
-    :cond_1
-    iput p1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetX:I
-
-    iput p2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowOffsetY:I
-
-    iput p3, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowSize:I
-
-    iput p4, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
-
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mShadowPaint:Landroid/graphics/Paint;
-
-    new-instance p2, Landroid/graphics/PorterDuffColorFilter;
-
-    iget-object p3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget p3, p3, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
-
-    sget-object p4, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-direct {p2, p3, p4}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
-
-    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
-
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->updateShadowAlpha()V
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    :cond_2
-    return-void
-.end method
-
-.method public setTranslation(FF)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
-
-    cmpl-float v1, v1, p1
-
-    if-nez v1, :cond_0
-
-    iget v1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationY:F
-
-    cmpl-float v1, v1, p2
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    iput p1, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
-
-    iput p2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationY:F
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
-
-    :cond_1
-    return-void
-.end method
-
-.method public setTranslationY(F)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
-
-    iget v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mTranslationX:F
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setTranslation(FF)V
-
-    return-void
-.end method
-
-.method public setVisible(ZZ)Z
+.method public final setVisible(ZZ)Z
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/graphics/drawable/Drawable;->setVisible(ZZ)Z
@@ -1291,15 +983,46 @@
     return p1
 .end method
 
-.method public startAnimation()V
-    .locals 0
+.method public final updateShadowAlpha()V
+    .locals 4
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    if-eqz p0, :cond_0
+    iget v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mShadowColor:I
 
-    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V
+    invoke-static {v0}, Landroid/graphics/Color;->alpha(I)I
 
-    :cond_0
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mShadowPaint:Landroid/graphics/Paint;
+
+    int-to-float v0, v0
+
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget v2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mAlpha:I
+
+    int-to-float v2, v2
+
+    const/high16 v3, 0x437f0000    # 255.0f
+
+    div-float/2addr v2, v3
+
+    mul-float/2addr v2, v0
+
+    iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mDarkIntensity:F
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    sub-float/2addr v0, p0
+
+    mul-float/2addr v0, v2
+
+    invoke-static {v0}, Ljava/lang/Math;->round(F)I
+
+    move-result p0
+
+    invoke-virtual {v1, p0}, Landroid/graphics/Paint;->setAlpha(I)V
+
     return-void
 .end method

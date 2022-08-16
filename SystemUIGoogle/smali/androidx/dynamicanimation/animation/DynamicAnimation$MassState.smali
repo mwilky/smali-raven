@@ -1,4 +1,4 @@
-.class Landroidx/dynamicanimation/animation/DynamicAnimation$MassState;
+.class public final Landroidx/dynamicanimation/animation/DynamicAnimation$MassState;
 .super Ljava/lang/Object;
 .source "DynamicAnimation.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "MassState"
 .end annotation
 
 
 # instance fields
-.field mValue:F
+.field public mValue:F
 
-.field mVelocity:F
+.field public mVelocity:F
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

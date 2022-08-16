@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieDrawable$5;
+.class public final Lcom/airbnb/lottie/LottieDrawable$5;
 .super Ljava/lang/Object;
 .source "LottieDrawable.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
+.field public final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
 
-.field final synthetic val$minProgress:F
+.field public final synthetic val$minProgress:F
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieDrawable;F)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieDrawable;F)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$5;->this$0:Lcom/airbnb/lottie/LottieDrawable;
@@ -38,14 +38,14 @@
 
 
 # virtual methods
-.method public run(Lcom/airbnb/lottie/LottieComposition;)V
-    .locals 0
+.method public final run()V
+    .locals 1
 
-    iget-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$5;->this$0:Lcom/airbnb/lottie/LottieDrawable;
+    iget-object v0, p0, Lcom/airbnb/lottie/LottieDrawable$5;->this$0:Lcom/airbnb/lottie/LottieDrawable;
 
     iget p0, p0, Lcom/airbnb/lottie/LottieDrawable$5;->val$minProgress:F
 
-    invoke-virtual {p1, p0}, Lcom/airbnb/lottie/LottieDrawable;->setMinProgress(F)V
+    invoke-virtual {v0, p0}, Lcom/airbnb/lottie/LottieDrawable;->setMinProgress(F)V
 
     return-void
 .end method

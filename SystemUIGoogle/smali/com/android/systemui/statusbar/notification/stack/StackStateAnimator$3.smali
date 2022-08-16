@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$3;
+.class public final Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$3;
 .super Ljava/lang/Object;
 .source "StackStateAnimator.java"
 
@@ -6,27 +6,16 @@
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->animateOverScrollToAmount(FZZ)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
-.field final synthetic val$isRubberbanded:Z
+.field public final synthetic val$isRubberbanded:Z
 
-.field final synthetic val$onTop:Z
+.field public final synthetic val$onTop:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;ZZ)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;ZZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$3;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
@@ -42,7 +31,7 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 6
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;

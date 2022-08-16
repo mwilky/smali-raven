@@ -32,50 +32,22 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIPackageManagerFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIPackageManagerFactory$InstanceHolder;->access$000()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIPackageManagerFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static provideIPackageManager()Landroid/content/pm/IPackageManager;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule;->provideIPackageManager()Landroid/content/pm/IPackageManager;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/content/pm/IPackageManager;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Landroid/content/pm/IPackageManager;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIPackageManagerFactory;->provideIPackageManager()Landroid/content/pm/IPackageManager;
+    const-string/jumbo p0, "package"
+
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIPackageManagerFactory;->get()Landroid/content/pm/IPackageManager;
+    invoke-static {p0}, Landroid/content/pm/IPackageManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/content/pm/IPackageManager;
 
     move-result-object p0
+
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object p0
 .end method

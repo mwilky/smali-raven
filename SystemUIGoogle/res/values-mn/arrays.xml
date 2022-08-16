@@ -17,6 +17,7 @@
         <item>Хамгийн ихдээ 3 процесс</item>
         <item>Хамгийн ихдээ 4 процесс</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -152,7 +153,7 @@
     </string-array>
     <string-array name="hdcp_checking_summaries">
         <item>HDCP шалгахыг хэзээ ч ашиглахгүй</item>
-        <item>HDCP шалгахыг зөвхөн DRM контентэд ашиглах</item>
+        <item>HDCP шалгахыг зөвхөн DRM контентод ашиглах</item>
         <item>Байнга HDCP шалгахыг ашиглах</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
@@ -260,6 +261,11 @@
         <item>Унтраалттай</item>
         <item>Асаалттай</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Боломжгүй</item>
+        <item>Унтраалттай</item>
+        <item>Асаалттай</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Боломжгүй</item>
         <item>Унтраалттай</item>
@@ -306,6 +312,16 @@
         <item>Асаалттай</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Боломжгүй</item>
+        <item>Унтраалттай</item>
+        <item>Асаалттай</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Боломжгүй</item>
+        <item>Унтраалттай</item>
+        <item>Асаалттай</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Боломжгүй</item>
         <item>Унтраалттай</item>
         <item>Асаалттай</item>
@@ -374,6 +390,12 @@
         <item>Түргэн</item>
         <item>Маш түргэн</item>
         <item>Хамгийн хурдан</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Зүүн тийш зөөх</item>
+        <item>Доош зөөх</item>
+        <item>Баруун тийш зөөх</item>
+        <item>Дээш зөөх</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Цэнэглэж байна</item>

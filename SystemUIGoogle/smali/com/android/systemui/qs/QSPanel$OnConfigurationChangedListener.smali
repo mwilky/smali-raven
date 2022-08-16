@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
+.class public interface abstract Lcom/android/systemui/qs/QSPanel$OnConfigurationChangedListener;
 .super Ljava/lang/Object;
 .source "QSPanel.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OnConfigurationChangedListener"
 .end annotation
 

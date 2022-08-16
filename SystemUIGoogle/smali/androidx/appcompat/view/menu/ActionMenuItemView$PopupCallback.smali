@@ -22,8 +22,3 @@
 
     return-void
 .end method
-
-
-# virtual methods
-.method public abstract getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
-.end method

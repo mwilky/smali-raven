@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardMessageAreaController$2;
+.class public final Lcom/android/keyguard/KeyguardMessageAreaController$2;
 .super Ljava/lang/Object;
 .source "KeyguardMessageAreaController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardMessageAreaController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardMessageAreaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardMessageAreaController$2;->this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
@@ -34,30 +34,65 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+.method public final onConfigChanged(Landroid/content/res/Configuration;)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageAreaController$2;->this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$400(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/keyguard/KeyguardMessageArea;
 
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardMessageArea;->onConfigChanged(Landroid/content/res/Configuration;)V
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
 
+    if-nez p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/internal/policy/SystemBarUtils;->getStatusBarHeight(Landroid/content/Context;)I
+
+    move-result p1
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+
+    if-ne v0, p1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iput p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mTopMargin:I
+
+    iput v0, p1, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageArea;->mContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :goto_0
     return-void
 .end method
 
-.method public onDensityOrFontScaleChanged()V
+.method public final onDensityOrFontScaleChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageAreaController$2;->this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$600(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/keyguard/KeyguardMessageArea;
 
@@ -66,14 +101,12 @@
     return-void
 .end method
 
-.method public onThemeChanged()V
+.method public final onThemeChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardMessageAreaController$2;->this$0:Lcom/android/keyguard/KeyguardMessageAreaController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->access$500(Lcom/android/keyguard/KeyguardMessageAreaController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/keyguard/KeyguardMessageArea;
 

@@ -13,9 +13,9 @@
 
 
 # instance fields
-.field private mIsAlternativeOrder:Z
+.field public mIsAlternativeOrder:Z
 
-.field private mIsLayoutReverse:Z
+.field public mIsLayoutReverse:Z
 
 
 # direct methods
@@ -27,15 +27,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/view/ViewGroup;Z)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->reverseGroup(Landroid/view/ViewGroup;Z)V
-
-    return-void
-.end method
-
-.method private static reverseGroup(Landroid/view/ViewGroup;Z)V
+.method public static reverseGroup(Landroid/view/ViewGroup;Z)V
     .locals 3
 
     const/4 v0, 0x0
@@ -74,7 +66,7 @@
     return-void
 .end method
 
-.method private static reverseParams(Landroid/view/ViewGroup$LayoutParams;Landroid/view/View;Z)V
+.method public static reverseParams(Landroid/view/ViewGroup$LayoutParams;Landroid/view/View;Z)V
     .locals 3
 
     instance-of v0, p1, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout$Reversable;
@@ -143,7 +135,81 @@
     return-void
 .end method
 
-.method private updateOrder()V
+
+# virtual methods
+.method public final addView(Landroid/view/View;)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    iget-boolean v1, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    invoke-static {v0, p1, v1}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->reverseParams(Landroid/view/ViewGroup$LayoutParams;Landroid/view/View;Z)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-super {p0, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public final addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    invoke-static {p2, p1, v0}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->reverseParams(Landroid/view/ViewGroup$LayoutParams;Landroid/view/View;Z)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-super {p0, p1, v0, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    :goto_0
+    return-void
+.end method
+
+.method public final onFinishInflate()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->updateOrder()V
+
+    return-void
+.end method
+
+.method public final onRtlPropertiesChanged(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onRtlPropertiesChanged(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->updateOrder()V
+
+    return-void
+.end method
+
+.method public final updateOrder()V
     .locals 6
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getLayoutDirection()I
@@ -217,89 +283,5 @@
     iput-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
 
     :cond_3
-    return-void
-.end method
-
-
-# virtual methods
-.method public addView(Landroid/view/View;)V
-    .locals 2
-
-    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    iget-boolean v1, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
-
-    invoke-static {v0, p1, v1}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->reverseParams(Landroid/view/ViewGroup$LayoutParams;Landroid/view/View;Z)V
-
-    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    invoke-super {p0, p1, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    :goto_0
-    return-void
-.end method
-
-.method public addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
-
-    invoke-static {p2, p1, v0}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->reverseParams(Landroid/view/ViewGroup$LayoutParams;Landroid/view/View;Z)V
-
-    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsLayoutReverse:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    invoke-super {p0, p1, v0, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    :goto_0
-    return-void
-.end method
-
-.method protected onFinishInflate()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
-
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->updateOrder()V
-
-    return-void
-.end method
-
-.method public onRtlPropertiesChanged(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onRtlPropertiesChanged(I)V
-
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->updateOrder()V
-
-    return-void
-.end method
-
-.method public setAlternativeOrder(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->mIsAlternativeOrder:Z
-
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->updateOrder()V
-
     return-void
 .end method

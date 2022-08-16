@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda12;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # instance fields
@@ -22,12 +23,18 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda12;->f$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/screenshot/ScreenshotView;->$r8$lambda$SyT_JmFjCwz0ON9aD-8DkalME8k(Lcom/android/systemui/screenshot/ScreenshotView;Landroid/view/View;)V
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotPreviewBorder:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
 
     return-void
 .end method

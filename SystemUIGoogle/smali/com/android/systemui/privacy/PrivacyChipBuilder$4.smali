@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -39,7 +39,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/privacy/PrivacyChipBuilder$4;
@@ -51,7 +51,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     const/4 v0, 0x1
@@ -63,26 +63,10 @@
 
 
 # virtual methods
-.method public final invoke(Lkotlin/Pair;)Ljava/lang/Comparable;
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lkotlin/Pair<",
-            "Lcom/android/systemui/privacy/PrivacyApplication;",
-            "+",
-            "Ljava/util/List<",
-            "+",
-            "Lcom/android/systemui/privacy/PrivacyType;",
-            ">;>;)",
-            "Ljava/lang/Comparable<",
-            "*>;"
-        }
-    .end annotation
 
-    const-string p0, "it"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p1, Lkotlin/Pair;
 
     invoke-virtual {p1}, Lkotlin/Pair;->getSecond()Ljava/lang/Object;
 
@@ -90,19 +74,7 @@
 
     check-cast p0, Ljava/lang/Iterable;
 
-    invoke-static {p0}, Lkotlin/collections/CollectionsKt;->minOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p1, Lkotlin/Pair;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/privacy/PrivacyChipBuilder$4;->invoke(Lkotlin/Pair;)Ljava/lang/Comparable;
+    invoke-static {p0}, Lkotlin/collections/CollectionsKt___CollectionsKt;->minOrNull(Ljava/lang/Iterable;)Ljava/lang/Comparable;
 
     move-result-object p0
 

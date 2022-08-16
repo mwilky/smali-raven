@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/animation/AnimatedDialog$start$dialogContentWithBackground$1;
+.class public final Lcom/android/systemui/animation/AnimatedDialog$start$dialogContentWithBackground$1;
 .super Ljava/lang/Object;
 .source "DialogLaunchAnimator.kt"
 
@@ -6,23 +6,12 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/animation/AnimatedDialog;->start()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/animation/AnimatedDialog;
+.field public final synthetic this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
+.method public constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$start$dialogContentWithBackground$1;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
@@ -39,9 +28,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog$start$dialogContentWithBackground$1;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/AnimatedDialog;->getDialog()Landroid/app/Dialog;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog;->dialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;
+.class public final Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;
 .super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "ReduceBrightColorsTile.java"
 
@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field private final mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+.field public final mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-.field private final mIsAvailable:Z
+.field public final mIsAvailable:Z
 
-.field private final mReduceBrightColorsController:Lcom/android/systemui/qs/ReduceBrightColorsController;
+.field public final mReduceBrightColorsController:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
 
 # direct methods
@@ -53,7 +53,7 @@
 
     invoke-direct/range {v0 .. v8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
 
-    sget v0, Lcom/android/systemui/R$drawable;->ic_reduce_bright_colors:I
+    const v0, 0x7f080654
 
     invoke-static {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -63,9 +63,7 @@
 
     iput-object v10, v9, Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;->mReduceBrightColorsController:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getLifecycle()Landroidx/lifecycle/Lifecycle;
-
-    move-result-object v0
+    iget-object v0, v9, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mLifecycle:Landroidx/lifecycle/LifecycleRegistry;
 
     invoke-interface {p2, v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/Lifecycle;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -78,7 +76,7 @@
 
 
 # virtual methods
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 1
 
     new-instance p0, Landroid/content/Intent;
@@ -90,7 +88,7 @@
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/4 p0, 0x0
@@ -98,12 +96,12 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
+.method public final getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    const v0, 0x1040764
+    const v0, 0x10407d5
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -112,7 +110,7 @@
     return-object p0
 .end method
 
-.method protected handleClick(Landroid/view/View;)V
+.method public final handleClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;->mReduceBrightColorsController:Lcom/android/systemui/qs/ReduceBrightColorsController;
@@ -125,12 +123,14 @@
 
     xor-int/lit8 p0, p0, 0x1
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/qs/ReduceBrightColorsController;->setReduceBrightColorsActivated(Z)V
+    iget-object p1, p1, Lcom/android/systemui/qs/ReduceBrightColorsController;->mManager:Landroid/hardware/display/ColorDisplayManager;
+
+    invoke-virtual {p1, p0}, Landroid/hardware/display/ColorDisplayManager;->setReduceBrightColorsActivated(Z)Z
 
     return-void
 .end method
 
-.method protected handleDestroy()V
+.method public final handleDestroy()V
     .locals 0
 
     invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
@@ -138,12 +138,16 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+.method public final handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 1
+
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     iget-object p2, p0, Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;->mReduceBrightColorsController:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-virtual {p2}, Lcom/android/systemui/qs/ReduceBrightColorsController;->isReduceBrightColorsActivated()Z
+    iget-object p2, p2, Lcom/android/systemui/qs/ReduceBrightColorsController;->mManager:Landroid/hardware/display/ColorDisplayManager;
+
+    invoke-virtual {p2}, Landroid/hardware/display/ColorDisplayManager;->isReduceBrightColorsActivated()Z
 
     move-result p2
 
@@ -163,7 +167,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    const v0, 0x1040764
+    const v0, 0x10407d5
 
     invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -190,17 +194,7 @@
     return-void
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public isAvailable()Z
+.method public final isAvailable()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;->mIsAvailable:Z
@@ -208,7 +202,7 @@
     return p0
 .end method
 
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
@@ -218,20 +212,12 @@
     return-object p0
 .end method
 
-.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
+.method public final onActivated(Z)V
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/ReduceBrightColorsTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    const/4 p1, 0x0
 
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onActivated(Z)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method

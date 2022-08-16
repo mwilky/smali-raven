@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/SplineSet$ScaleYset;
+.class public final Landroidx/constraintlayout/motion/widget/SplineSet$ScaleYset;
 .super Landroidx/constraintlayout/motion/widget/SplineSet;
 .source "SplineSet.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ScaleYset"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/SplineSet;-><init>()V
@@ -25,7 +25,7 @@
 
 
 # virtual methods
-.method public setProperty(Landroid/view/View;F)V
+.method public final setProperty(Landroid/view/View;F)V
     .locals 0
 
     invoke-virtual {p0, p2}, Landroidx/constraintlayout/motion/widget/SplineSet;->get(F)F

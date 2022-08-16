@@ -4,7 +4,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 .method public abstract captureValues(Landroidx/transition/TransitionValues;)V
 .end method
 
-.method public abstract getPropagationProperties()[Ljava/lang/String;
+.method public abstract getPropagationProperties()V
 .end method
 
 .method public abstract getStartDelay(Landroid/view/ViewGroup;Landroidx/transition/Transition;Landroidx/transition/TransitionValues;Landroidx/transition/TransitionValues;)J

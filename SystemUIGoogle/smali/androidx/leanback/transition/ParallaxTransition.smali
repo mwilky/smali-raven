@@ -4,18 +4,18 @@
 
 
 # static fields
-.field static sInterpolator:Landroid/view/animation/Interpolator;
+.field public static sInterpolator:Landroid/view/animation/LinearInterpolator;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/view/animation/LinearInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/LinearInterpolator;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/ParallaxTransition;->sInterpolator:Landroid/view/animation/Interpolator;
+    sput-object v0, Landroidx/leanback/transition/ParallaxTransition;->sInterpolator:Landroid/view/animation/LinearInterpolator;
 
     return-void
 .end method
@@ -30,44 +30,24 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/transition/Visibility;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     return-void
 .end method
 
-
-# virtual methods
-.method createAnimator(Landroid/view/View;)Landroid/animation/Animator;
+.method public static createAnimator(Landroid/view/View;)Landroid/animation/ValueAnimator;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
-    sget v0, Landroidx/leanback/R$id;->lb_parallax_source:I
+    const v0, 0x7f0b037c
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p0
 
-    check-cast p1, Landroidx/leanback/widget/Parallax;
+    check-cast p0, Landroidx/leanback/widget/Parallax;
 
-    if-nez p1, :cond_0
+    if-nez p0, :cond_0
 
     const/4 p0, 0x0
 
@@ -84,17 +64,19 @@
 
     move-result-object v0
 
-    sget-object v1, Landroidx/leanback/transition/ParallaxTransition;->sInterpolator:Landroid/view/animation/Interpolator;
+    sget-object v1, Landroidx/leanback/transition/ParallaxTransition;->sInterpolator:Landroid/view/animation/LinearInterpolator;
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     new-instance v1, Landroidx/leanback/transition/ParallaxTransition$1;
 
-    invoke-direct {v1, p0, p1}, Landroidx/leanback/transition/ParallaxTransition$1;-><init>(Landroidx/leanback/transition/ParallaxTransition;Landroidx/leanback/widget/Parallax;)V
+    invoke-direct {v1, p0}, Landroidx/leanback/transition/ParallaxTransition$1;-><init>(Landroidx/leanback/widget/Parallax;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     return-object v0
+
+    nop
 
     :array_0
     .array-data 4
@@ -103,22 +85,10 @@
     .end array-data
 .end method
 
-.method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
+
+# virtual methods
+.method public final onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sceneRoot",
-            "view",
-            "startValues",
-            "endValues"
-        }
-    .end annotation
 
     if-nez p4, :cond_0
 
@@ -127,29 +97,15 @@
     return-object p0
 
     :cond_0
-    invoke-virtual {p0, p2}, Landroidx/leanback/transition/ParallaxTransition;->createAnimator(Landroid/view/View;)Landroid/animation/Animator;
+    invoke-static {p2}, Landroidx/leanback/transition/ParallaxTransition;->createAnimator(Landroid/view/View;)Landroid/animation/ValueAnimator;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
+.method public final onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sceneRoot",
-            "view",
-            "startValues",
-            "endValues"
-        }
-    .end annotation
 
     if-nez p3, :cond_0
 
@@ -158,7 +114,7 @@
     return-object p0
 
     :cond_0
-    invoke-virtual {p0, p2}, Landroidx/leanback/transition/ParallaxTransition;->createAnimator(Landroid/view/View;)Landroid/animation/Animator;
+    invoke-static {p2}, Landroidx/leanback/transition/ParallaxTransition;->createAnimator(Landroid/view/View;)Landroid/animation/ValueAnimator;
 
     move-result-object p0
 

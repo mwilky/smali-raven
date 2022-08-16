@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final qsPanelControllerProvider:Ljavax/inject/Provider;
+.field public final qsPanelControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final quickStatusBarHeaderControllerProvider:Ljavax/inject/Provider;
+.field public final quickStatusBarHeaderControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final viewProvider:Ljavax/inject/Provider;
+.field public final viewProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -93,50 +93,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QSContainerImplController_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSContainerImpl;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSPanelController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QuickStatusBarHeaderController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;)",
-            "Lcom/android/systemui/qs/QSContainerImplController_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/qs/QSContainerImplController_Factory;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/qs/QSContainerImplController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/systemui/qs/QSContainerImpl;Lcom/android/systemui/qs/QSPanelController;Ljava/lang/Object;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/qs/QSContainerImplController;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/QSContainerImplController;
-
-    check-cast p2, Lcom/android/systemui/qs/QuickStatusBarHeaderController;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/qs/QSContainerImplController;-><init>(Lcom/android/systemui/qs/QSContainerImpl;Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickStatusBarHeaderController;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/QSContainerImplController;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImplController_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -168,19 +128,11 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/qs/QSContainerImplController_Factory;->newInstance(Lcom/android/systemui/qs/QSContainerImpl;Lcom/android/systemui/qs/QSPanelController;Ljava/lang/Object;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/systemui/qs/QSContainerImplController;
+    new-instance v3, Lcom/android/systemui/qs/QSContainerImplController;
 
-    move-result-object p0
+    check-cast v2, Lcom/android/systemui/qs/QuickStatusBarHeaderController;
 
-    return-object p0
-.end method
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/qs/QSContainerImplController;-><init>(Lcom/android/systemui/qs/QSContainerImpl;Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickStatusBarHeaderController;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSContainerImplController_Factory;->get()Lcom/android/systemui/qs/QSContainerImplController;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v3
 .end method

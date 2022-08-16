@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final diagonalClassifierProvider:Ljavax/inject/Provider;
+.field public final diagonalClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -29,7 +29,7 @@
     .end annotation
 .end field
 
-.field private final distanceClassifierProvider:Ljavax/inject/Provider;
+.field public final distanceClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -39,7 +39,7 @@
     .end annotation
 .end field
 
-.field private final pointerCountClassifierProvider:Ljavax/inject/Provider;
+.field public final pointerCountClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -49,7 +49,7 @@
     .end annotation
 .end field
 
-.field private final proximityClassifierProvider:Ljavax/inject/Provider;
+.field public final proximityClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -59,7 +59,7 @@
     .end annotation
 .end field
 
-.field private final typeClassifierProvider:Ljavax/inject/Provider;
+.field public final typeClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -69,7 +69,7 @@
     .end annotation
 .end field
 
-.field private final zigZagClassifierProvider:Ljavax/inject/Provider;
+.field public final zigZagClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -81,31 +81,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/volume/VolumeUI_Factory;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/DistanceClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/ProximityClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/PointerCountClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/TypeClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/DiagonalClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/ZigZagClassifier;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -124,32 +101,8 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/volume/VolumeUI_Factory;)Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;
     .locals 8
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/DistanceClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/ProximityClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/PointerCountClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/TypeClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/DiagonalClassifier;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/classifier/ZigZagClassifier;",
-            ">;)",
-            "Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;"
-        }
-    .end annotation
 
     new-instance v7, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;
 
@@ -167,130 +120,99 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/volume/VolumeUI_Factory;)V
 
     return-object v7
 .end method
 
-.method public static providesBrightLineGestureClassifiers(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Lcom/android/systemui/classifier/TypeClassifier;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
-    .locals 6
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Object;",
-            "Ljava/lang/Object;",
-            "Ljava/lang/Object;",
-            "Lcom/android/systemui/classifier/TypeClassifier;",
-            "Ljava/lang/Object;",
-            "Ljava/lang/Object;",
-            ")",
-            "Ljava/util/Set<",
-            "Lcom/android/systemui/classifier/FalsingClassifier;",
-            ">;"
-        }
-    .end annotation
-
-    move-object v0, p0
-
-    check-cast v0, Lcom/android/systemui/classifier/DistanceClassifier;
-
-    move-object v1, p1
-
-    check-cast v1, Lcom/android/systemui/classifier/ProximityClassifier;
-
-    move-object v2, p2
-
-    check-cast v2, Lcom/android/systemui/classifier/PointerCountClassifier;
-
-    move-object v4, p4
-
-    check-cast v4, Lcom/android/systemui/classifier/DiagonalClassifier;
-
-    move-object v5, p5
-
-    check-cast v5, Lcom/android/systemui/classifier/ZigZagClassifier;
-
-    move-object v3, p3
-
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/classifier/FalsingModule;->providesBrightLineGestureClassifiers(Lcom/android/systemui/classifier/DistanceClassifier;Lcom/android/systemui/classifier/ProximityClassifier;Lcom/android/systemui/classifier/PointerCountClassifier;Lcom/android/systemui/classifier/TypeClassifier;Lcom/android/systemui/classifier/DiagonalClassifier;Lcom/android/systemui/classifier/ZigZagClassifier;)Ljava/util/Set;
-
-    move-result-object p0
-
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/util/Set;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->get()Ljava/util/Set;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public get()Ljava/util/Set;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Set<",
-            "Lcom/android/systemui/classifier/FalsingClassifier;",
-            ">;"
-        }
-    .end annotation
+.method public final get()Ljava/lang/Object;
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->distanceClassifierProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->proximityClassifierProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
     move-result-object v1
 
-    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->proximityClassifierProvider:Ljavax/inject/Provider;
+    iget-object v2, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->pointerCountClassifierProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v2
 
-    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->pointerCountClassifierProvider:Ljavax/inject/Provider;
+    iget-object v3, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->typeClassifierProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v3
 
-    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->typeClassifierProvider:Ljavax/inject/Provider;
+    check-cast v3, Lcom/android/systemui/classifier/TypeClassifier;
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v4, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->diagonalClassifierProvider:Ljavax/inject/Provider;
 
-    move-result-object v0
+    invoke-interface {v4}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-object v4, v0
-
-    check-cast v4, Lcom/android/systemui/classifier/TypeClassifier;
-
-    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->diagonalClassifierProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v5
+    move-result-object v4
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->zigZagClassifierProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v6
+    move-result-object p0
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/classifier/FalsingModule_ProvidesBrightLineGestureClassifiersFactory;->providesBrightLineGestureClassifiers(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;Lcom/android/systemui/classifier/TypeClassifier;Ljava/lang/Object;Ljava/lang/Object;)Ljava/util/Set;
+    check-cast v0, Lcom/android/systemui/classifier/DistanceClassifier;
+
+    check-cast v1, Lcom/android/systemui/classifier/ProximityClassifier;
+
+    check-cast v2, Lcom/android/systemui/classifier/PointerCountClassifier;
+
+    check-cast v4, Lcom/android/systemui/classifier/DiagonalClassifier;
+
+    check-cast p0, Lcom/android/systemui/classifier/ZigZagClassifier;
+
+    new-instance v5, Ljava/util/HashSet;
+
+    const/4 v6, 0x6
+
+    new-array v6, v6, [Lcom/android/systemui/classifier/FalsingClassifier;
+
+    const/4 v7, 0x0
+
+    aput-object v2, v6, v7
+
+    const/4 v2, 0x1
+
+    aput-object v3, v6, v2
+
+    const/4 v2, 0x2
+
+    aput-object v4, v6, v2
+
+    const/4 v2, 0x3
+
+    aput-object v0, v6, v2
+
+    const/4 v0, 0x4
+
+    aput-object v1, v6, v0
+
+    const/4 v0, 0x5
+
+    aput-object p0, v6, v0
+
+    invoke-static {v6}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object p0
 
-    return-object p0
+    invoke-direct {v5, p0}, Ljava/util/HashSet;-><init>(Ljava/util/Collection;)V
+
+    return-object v5
 .end method

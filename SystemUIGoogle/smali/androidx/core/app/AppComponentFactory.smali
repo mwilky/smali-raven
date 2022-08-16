@@ -16,19 +16,6 @@
 # virtual methods
 .method public final instantiateActivity(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Activity;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className",
-            "intent"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -52,19 +39,6 @@
 
 .method public instantiateActivityCompat(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Activity;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className",
-            "intent"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -119,17 +93,6 @@
 
 .method public final instantiateApplication(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/app/Application;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -153,17 +116,6 @@
 
 .method public instantiateApplicationCompat(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/app/Application;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -218,17 +170,6 @@
 
 .method public final instantiateProvider(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/content/ContentProvider;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -252,17 +193,6 @@
 
 .method public instantiateProviderCompat(Ljava/lang/ClassLoader;Ljava/lang/String;)Landroid/content/ContentProvider;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -317,19 +247,6 @@
 
 .method public final instantiateReceiver(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/content/BroadcastReceiver;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className",
-            "intent"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -353,19 +270,6 @@
 
 .method public instantiateReceiverCompat(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/content/BroadcastReceiver;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className",
-            "intent"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -420,19 +324,6 @@
 
 .method public final instantiateService(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Service;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className",
-            "intent"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,
@@ -456,19 +347,6 @@
 
 .method public instantiateServiceCompat(Ljava/lang/ClassLoader;Ljava/lang/String;Landroid/content/Intent;)Landroid/app/Service;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cl",
-            "className",
-            "intent"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/InstantiationException;,

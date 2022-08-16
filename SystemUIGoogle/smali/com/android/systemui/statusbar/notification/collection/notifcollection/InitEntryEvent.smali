@@ -4,20 +4,16 @@
 
 
 # instance fields
-.field private final entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+.field public final entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 1
 
-    const-string v0, "entry"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifEvent;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifEvent;-><init>(I)V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/InitEntryEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
@@ -26,12 +22,8 @@
 
 
 # virtual methods
-.method public dispatchToListener(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;)V
-    .locals 1
-
-    const-string v0, "listener"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final dispatchToListener(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/InitEntryEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
@@ -40,7 +32,7 @@
     return-void
 .end method
 
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 3
 
     const/4 v0, 0x1
@@ -77,7 +69,7 @@
     return v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/InitEntryEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
@@ -89,16 +81,14 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 2
+.method public final toString()Ljava/lang/String;
+    .locals 1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "InitEntryEvent(entry="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "InitEntryEvent(entry="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/InitEntryEvent;->entry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 

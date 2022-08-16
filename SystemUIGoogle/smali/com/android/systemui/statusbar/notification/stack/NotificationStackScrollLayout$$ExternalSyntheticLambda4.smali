@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,42 @@
 
 
 # virtual methods
-.method public final run()V
-    .locals 0
+.method public final onClick(Landroid/view/View;)V
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->$r8$lambda$AS6jo8CEcSFhaADyX-XiuyvH2Lc(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)V
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isHistoryEnabled()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    new-instance p1, Landroid/content/Intent;
+
+    const-string v0, "android.settings.NOTIFICATION_HISTORY"
+
+    invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_0
+    new-instance p1, Landroid/content/Intent;
+
+    const-string v0, "android.settings.NOTIFICATION_SETTINGS"
+
+    invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mCentralSurfaces:Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    const/high16 v0, 0x20000000
+
+    const/4 v1, 0x1
+
+    invoke-interface {p0, p1, v1, v1, v0}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->startActivity(Landroid/content/Intent;ZZI)V
 
     return-void
 .end method

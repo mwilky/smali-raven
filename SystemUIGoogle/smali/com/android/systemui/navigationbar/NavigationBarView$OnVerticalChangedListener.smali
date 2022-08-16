@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnVerticalChangedListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onVerticalChanged(Z)V
-.end method

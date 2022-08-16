@@ -18,56 +18,38 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final synthetic $r8$clinit:I
 
 
 # instance fields
-.field private final mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
+.field public final mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
-.field private mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+.field public mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
-.field private final mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
+.field public final mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
 
-.field private final mDisappearAnimationUtilsLocked:Lcom/android/settingslib/animation/DisappearAnimationUtils;
+.field public final mDisappearAnimationUtilsLocked:Lcom/android/settingslib/animation/DisappearAnimationUtils;
 
-.field private mEcaView:Landroid/view/View;
+.field public mEcaView:Landroid/view/View;
 
-.field private mLastPokeTime:J
+.field public mLastPokeTime:J
 
-.field private final mLockPatternScreenBounds:Landroid/graphics/Rect;
+.field public final mLockPatternScreenBounds:Landroid/graphics/Rect;
 
-.field private mLockPatternView:Lcom/android/internal/widget/LockPatternView;
+.field public mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
-.field mSecurityMessageDisplay:Lcom/android/keyguard/KeyguardMessageArea;
+.field public mSecurityMessageDisplay:Lcom/android/keyguard/KeyguardMessageArea;
 
-.field private final mTempRect:Landroid/graphics/Rect;
+.field public final mTempRect:Landroid/graphics/Rect;
 
-.field private final mTmpPosition:[I
+.field public final mTmpPosition:[I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$1cDVOSyY7kk25K7QUf6Oa8c8Pwg(Lcom/android/keyguard/KeyguardPatternView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardPatternView;->lambda$startAppearAnimation$0()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Sz_3IRlQouOrbmx4V9rQ2s0DkzU(Lcom/android/keyguard/KeyguardPatternView;Ljava/lang/Runnable;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPatternView;->lambda$startDisappearAnimation$1(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
-
-    sput-boolean v0, Lcom/android/keyguard/KeyguardPatternView;->DEBUG:Z
 
     return-void
 .end method
@@ -184,105 +166,76 @@
     return-void
 .end method
 
-.method private enableClipping(Z)V
-    .locals 1
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
-
-    invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->setClipToPadding(Z)V
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
-
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setClipChildren(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$startAppearAnimation$0()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardPatternView;->enableClipping(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$startDisappearAnimation$1(Ljava/lang/Runnable;)V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardPatternView;->enableClipping(Z)V
-
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public createAnimation(Lcom/android/internal/widget/LockPatternView$CellState;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+.method public final createAnimation(Ljava/lang/Object;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
     .locals 15
 
     move-object v0, p0
 
+    move-object/from16 v2, p1
+
+    check-cast v2, Lcom/android/internal/widget/LockPatternView$CellState;
+
     iget-object v1, v0, Lcom/android/keyguard/KeyguardPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
-    const/high16 v2, 0x3f800000    # 1.0f
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     if-eqz p7, :cond_0
 
-    move v4, v2
+    move v5, v3
 
     goto :goto_0
 
     :cond_0
-    move v4, v3
+    move v5, v4
 
     :goto_0
     if-eqz p7, :cond_1
 
-    move/from16 v5, p6
+    move/from16 v6, p6
 
     goto :goto_1
 
     :cond_1
-    move v5, v3
+    move v6, v4
 
     :goto_1
     if-eqz p7, :cond_2
 
-    move v6, v3
+    move v7, v4
 
     goto :goto_2
 
     :cond_2
-    move/from16 v6, p6
+    move/from16 v7, p6
 
     :goto_2
     if-eqz p7, :cond_3
 
-    move v7, v3
+    move v8, v4
 
     goto :goto_3
 
     :cond_3
-    move v7, v2
+    move v8, v3
 
     :goto_3
-    const/high16 v8, 0x3f800000    # 1.0f
+    const/high16 v9, 0x3f800000    # 1.0f
 
     const/high16 v3, 0x3f800000    # 1.0f
 
-    move-object/from16 v2, p1
+    move v4, v5
+
+    move v5, v6
+
+    move v6, v7
+
+    move v7, v8
+
+    move v8, v9
 
     move-wide/from16 v9, p2
 
@@ -298,41 +251,29 @@
 
     iget-object v1, v0, Lcom/android/keyguard/KeyguardPatternView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
-    iget-object v2, v0, Lcom/android/keyguard/KeyguardPatternView;->mEcaView:Landroid/view/View;
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPatternView;->mEcaView:Landroid/view/View;
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    move-object v0, v1
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-object v1, v2
+    move-wide/from16 v1, p2
 
-    move-wide/from16 v2, p2
+    move-wide/from16 v3, p4
 
-    move-wide/from16 v4, p4
+    move/from16 v5, p6
 
-    move/from16 v6, p6
+    move/from16 v6, p7
 
-    move/from16 v7, p7
+    move-object/from16 v7, p8
 
-    move-object/from16 v8, p8
-
-    invoke-virtual/range {v0 .. v9}, Lcom/android/settingslib/animation/AppearAnimationUtils;->createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+    invoke-static/range {v0 .. v8}, Lcom/android/settingslib/animation/AppearAnimationUtils;->createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
 
     :cond_4
     return-void
 .end method
 
-.method public bridge synthetic createAnimation(Ljava/lang/Object;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/internal/widget/LockPatternView$CellState;
-
-    invoke-virtual/range {p0 .. p9}, Lcom/android/keyguard/KeyguardPatternView;->createAnimation(Lcom/android/internal/widget/LockPatternView$CellState;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method disallowInterceptTouch(Landroid/view/MotionEvent;)Z
+.method public final disallowInterceptTouch(Landroid/view/MotionEvent;)Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
@@ -378,14 +319,30 @@
     return p0
 .end method
 
-.method public getTitle()Ljava/lang/CharSequence;
+.method public final enableClipping(Z)V
+    .locals 1
+
+    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->setClipToPadding(Z)V
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setClipChildren(Z)V
+
+    return-void
+.end method
+
+.method public final getTitle()Ljava/lang/String;
     .locals 1
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    const v0, 0x104043c
+    const v0, 0x1040486
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -394,7 +351,7 @@
     return-object p0
 .end method
 
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -402,7 +359,7 @@
     return p0
 .end method
 
-.method protected onAttachedToWindow()V
+.method public final onAttachedToWindow()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
@@ -416,8 +373,8 @@
     return-void
 .end method
 
-.method onDevicePostureChanged(I)V
-    .locals 4
+.method public final onDevicePostureChanged(I)V
+    .locals 3
 
     iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
@@ -425,7 +382,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->half_opened_bouncer_height_ratio:I
+    const v1, 0x7f070270
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -439,11 +396,9 @@
 
     invoke-virtual {v1, v2}, Landroidx/constraintlayout/widget/ConstraintSet;->clone(Landroidx/constraintlayout/widget/ConstraintLayout;)V
 
-    sget v2, Lcom/android/systemui/R$id;->pattern_top_guideline:I
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
-
-    if-ne p1, v3, :cond_0
+    if-ne p1, v2, :cond_0
 
     goto :goto_0
 
@@ -451,7 +406,33 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v1, v2, v0}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
+    const p1, 0x7f0b04df
+
+    invoke-virtual {v1, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object v2
+
+    iget-object v2, v2, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput v0, v2, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->guidePercent:F
+
+    invoke-virtual {v1, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object v0
+
+    iget-object v0, v0, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    const/4 v2, -0x1
+
+    iput v2, v0, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->guideEnd:I
+
+    invoke-virtual {v1, p1}, Landroidx/constraintlayout/widget/ConstraintSet;->get(I)Landroidx/constraintlayout/widget/ConstraintSet$Constraint;
+
+    move-result-object p1
+
+    iget-object p1, p1, Landroidx/constraintlayout/widget/ConstraintSet$Constraint;->layout:Landroidx/constraintlayout/widget/ConstraintSet$Layout;
+
+    iput v2, p1, Landroidx/constraintlayout/widget/ConstraintSet$Layout;->guideBegin:I
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mContainer:Landroidx/constraintlayout/widget/ConstraintLayout;
 
@@ -460,12 +441,12 @@
     return-void
 .end method
 
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/systemui/R$id;->lockPatternView:I
+    const v0, 0x7f0b03aa
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -475,7 +456,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
-    sget v0, Lcom/android/systemui/R$id;->keyguard_selector_fade_container:I
+    const v0, 0x7f0b0353
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -483,7 +464,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mEcaView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->pattern_container:I
+    const v0, 0x7f0b04de
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -496,7 +477,7 @@
     return-void
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 1
 
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
@@ -513,27 +494,25 @@
 
     const/4 p3, 0x0
 
-    aget p4, p2, p3
+    aget p3, p2, p3
 
-    add-int/lit8 p4, p4, -0x28
+    add-int/lit8 p4, p3, -0x28
 
     const/4 p5, 0x1
 
-    aget v0, p2, p5
+    aget p2, p2, p5
 
-    add-int/lit8 v0, v0, -0x28
+    add-int/lit8 p2, p2, -0x28
 
-    aget p2, p2, p3
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
-    iget-object p3, p0, Lcom/android/keyguard/KeyguardPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
+    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternView;->getWidth()I
 
-    invoke-virtual {p3}, Lcom/android/internal/widget/LockPatternView;->getWidth()I
+    move-result v0
 
-    move-result p3
+    add-int/2addr v0, p3
 
-    add-int/2addr p2, p3
-
-    add-int/lit8 p2, p2, 0x28
+    add-int/lit8 v0, v0, 0x28
 
     iget-object p3, p0, Lcom/android/keyguard/KeyguardPatternView;->mTmpPosition:[I
 
@@ -545,16 +524,16 @@
 
     move-result p0
 
-    add-int/2addr p3, p0
+    add-int/2addr p0, p3
 
-    add-int/lit8 p3, p3, 0x28
+    add-int/lit8 p0, p0, 0x28
 
-    invoke-virtual {p1, p4, v0, p2, p3}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {p1, p4, p2, v0, p0}, Landroid/graphics/Rect;->set(IIII)V
 
     return-void
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 5
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onTouchEvent(Landroid/view/MotionEvent;)Z
@@ -641,12 +620,12 @@
     return v2
 .end method
 
-.method public startAppearAnimation()V
-    .locals 11
+.method public final startAppearAnimation()V
+    .locals 10
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/keyguard/KeyguardPatternView;->enableClipping(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardPatternView;->enableClipping(Z)V
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -654,23 +633,19 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
-    invoke-virtual {v0}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getStartTranslation()F
-
-    move-result v0
+    iget v0, v0, Lcom/android/settingslib/animation/AppearAnimationUtils;->mStartTranslation:F
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setTranslationY(F)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
-    invoke-virtual {v0}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getInterpolator()Landroid/view/animation/Interpolator;
+    iget-object v7, v0, Lcom/android/settingslib/animation/AppearAnimationUtils;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    move-result-object v7
+    new-instance v8, Lcom/android/keyguard/KeyguardInputView$1;
 
     const/16 v0, 0x12
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardInputView;->getAnimationListener(I)Landroid/animation/AnimatorListenerAdapter;
-
-    move-result-object v8
+    invoke-direct {v8, p0, v0}, Lcom/android/keyguard/KeyguardInputView$1;-><init>(Lcom/android/keyguard/KeyguardInputView;I)V
 
     const-wide/16 v2, 0x0
 
@@ -680,7 +655,7 @@
 
     move-object v1, p0
 
-    invoke-static/range {v1 .. v8}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;Landroid/animation/Animator$AnimatorListener;)V
+    invoke-static/range {v1 .. v8}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;Lcom/android/keyguard/KeyguardInputView$1;)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
@@ -690,9 +665,11 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/keyguard/KeyguardPatternView$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
 
-    invoke-direct {v2, p0}, Lcom/android/keyguard/KeyguardPatternView$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardPatternView;)V
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v3, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1, v2, p0}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startAnimation2d([[Ljava/lang/Object;Ljava/lang/Runnable;Lcom/android/settingslib/animation/AppearAnimationCreator;)V
 
@@ -708,161 +685,24 @@
 
     if-nez v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardPatternView;->mSecurityMessageDisplay:Lcom/android/keyguard/KeyguardMessageArea;
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mSecurityMessageDisplay:Lcom/android/keyguard/KeyguardMessageArea;
 
-    const-wide/16 v3, 0x0
+    const-wide/16 v2, 0x0
 
-    const-wide/16 v5, 0xdc
+    const-wide/16 v4, 0xdc
 
-    invoke-virtual {v1}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getStartTranslation()F
+    iget v6, v0, Lcom/android/settingslib/animation/AppearAnimationUtils;->mStartTranslation:F
 
-    move-result v7
+    const/4 v7, 0x1
 
-    const/4 v8, 0x1
+    iget-object v8, v0, Lcom/android/settingslib/animation/AppearAnimationUtils;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mAppearAnimationUtils:Lcom/android/settingslib/animation/AppearAnimationUtils;
+    const/4 v9, 0x0
 
-    invoke-virtual {p0}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getInterpolator()Landroid/view/animation/Interpolator;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    invoke-virtual/range {v1 .. v10}, Lcom/android/settingslib/animation/AppearAnimationUtils;->createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
+    invoke-static/range {v1 .. v9}, Lcom/android/settingslib/animation/AppearAnimationUtils;->createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
 
     :cond_0
     return-void
-.end method
-
-.method public startDisappearAnimation(ZLjava/lang/Runnable;)Z
-    .locals 11
-
-    if-eqz p1, :cond_0
-
-    const/high16 v0, 0x3fc00000    # 1.5f
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
-
-    invoke-virtual {v1}, Lcom/android/internal/widget/LockPatternView;->clearPattern()V
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardPatternView;->enableClipping(Z)V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setTranslationY(F)V
-
-    const-wide/16 v3, 0x0
-
-    const/high16 v1, 0x43960000    # 300.0f
-
-    mul-float/2addr v1, v0
-
-    float-to-long v5, v1
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
-
-    invoke-virtual {v1}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getStartTranslation()F
-
-    move-result v1
-
-    neg-float v7, v1
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
-
-    invoke-virtual {v1}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getInterpolator()Landroid/view/animation/Interpolator;
-
-    move-result-object v8
-
-    const/16 v1, 0x15
-
-    invoke-virtual {p0, v1}, Lcom/android/keyguard/KeyguardInputView;->getAnimationListener(I)Landroid/animation/AnimatorListenerAdapter;
-
-    move-result-object v9
-
-    move-object v2, p0
-
-    invoke-static/range {v2 .. v9}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startTranslationYAnimation(Landroid/view/View;JJFLandroid/view/animation/Interpolator;Landroid/animation/Animator$AnimatorListener;)V
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternView;->mDisappearAnimationUtilsLocked:Lcom/android/settingslib/animation/DisappearAnimationUtils;
-
-    goto :goto_1
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
-
-    :goto_1
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
-
-    invoke-virtual {v1}, Lcom/android/internal/widget/LockPatternView;->getCellStates()[[Lcom/android/internal/widget/LockPatternView$CellState;
-
-    move-result-object v1
-
-    new-instance v2, Lcom/android/keyguard/KeyguardPatternView$$ExternalSyntheticLambda1;
-
-    invoke-direct {v2, p0, p2}, Lcom/android/keyguard/KeyguardPatternView$$ExternalSyntheticLambda1;-><init>(Lcom/android/keyguard/KeyguardPatternView;Ljava/lang/Runnable;)V
-
-    invoke-virtual {p1, v1, v2, p0}, Lcom/android/settingslib/animation/AppearAnimationUtils;->startAnimation2d([[Ljava/lang/Object;Ljava/lang/Runnable;Lcom/android/settingslib/animation/AppearAnimationCreator;)V
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternView;->mSecurityMessageDisplay:Lcom/android/keyguard/KeyguardMessageArea;
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_2
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
-
-    iget-object v2, p0, Lcom/android/keyguard/KeyguardPatternView;->mSecurityMessageDisplay:Lcom/android/keyguard/KeyguardMessageArea;
-
-    const-wide/16 v3, 0x0
-
-    const/high16 p1, 0x43480000    # 200.0f
-
-    mul-float/2addr v0, p1
-
-    float-to-long v5, v0
-
-    invoke-virtual {v1}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getStartTranslation()F
-
-    move-result p1
-
-    neg-float p1, p1
-
-    const/high16 p2, 0x40400000    # 3.0f
-
-    mul-float v7, p1, p2
-
-    const/4 v8, 0x0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/animation/AppearAnimationUtils;->getInterpolator()Landroid/view/animation/Interpolator;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    invoke-virtual/range {v1 .. v10}, Lcom/android/settingslib/animation/AppearAnimationUtils;->createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;)V
-
-    :cond_2
-    const/4 p0, 0x1
-
-    return p0
 .end method

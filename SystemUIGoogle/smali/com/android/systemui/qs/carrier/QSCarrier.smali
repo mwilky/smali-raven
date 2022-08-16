@@ -4,21 +4,21 @@
 
 
 # instance fields
-.field private mCarrierText:Landroid/widget/TextView;
+.field public mCarrierText:Landroid/widget/TextView;
 
-.field private mIsSingleCarrier:Z
+.field public mIsSingleCarrier:Z
 
-.field private mLastSignalState:Lcom/android/systemui/qs/carrier/CellSignalState;
+.field public mLastSignalState:Lcom/android/systemui/qs/carrier/CellSignalState;
 
-.field private mMobileGroup:Landroid/view/View;
+.field public mMobileGroup:Landroid/view/View;
 
-.field private mMobileRoaming:Landroid/widget/ImageView;
+.field public mMobileRoaming:Landroid/widget/ImageView;
 
-.field private mMobileSignal:Landroid/widget/ImageView;
+.field public mMobileSignal:Landroid/widget/ImageView;
 
-.field private mProviderModelInitialized:Z
+.field public mProviderModelInitialized:Z
 
-.field private mSpacer:Landroid/view/View;
+.field public mSpacer:Landroid/view/View;
 
 
 # direct methods
@@ -70,69 +70,9 @@
     return-void
 .end method
 
-.method private hasValidTypeContentDescription(Ljava/lang/String;)Z
-    .locals 2
-
-    iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
-
-    sget v1, Lcom/android/systemui/R$string;->data_connection_no_internet:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
-
-    sget v1, Lcom/android/settingslib/R$string;->cell_data_off_content_description:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {p1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object p0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
-
-    sget v0, Lcom/android/settingslib/R$string;->not_default_data_content_description:I
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p1, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
 
 # virtual methods
-.method getRSSIView()Landroid/view/View;
+.method public getRSSIView()Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileGroup:Landroid/view/View;
@@ -140,12 +80,12 @@
     return-object p0
 .end method
 
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_combo:I
+    const v0, 0x7f0b0413
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -153,7 +93,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileGroup:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_roaming:I
+    const v0, 0x7f0b0418
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -163,7 +103,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileRoaming:Landroid/widget/ImageView;
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_signal:I
+    const v0, 0x7f0b041b
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -173,7 +113,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileSignal:Landroid/widget/ImageView;
 
-    sget v0, Lcom/android/systemui/R$id;->qs_carrier_text:I
+    const v0, 0x7f0b0525
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -183,7 +123,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mCarrierText:Landroid/widget/TextView;
 
-    sget v0, Lcom/android/systemui/R$id;->spacer:I
+    const v0, 0x7f0b061b
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -194,17 +134,7 @@
     return-void
 .end method
 
-.method public setCarrierText(Ljava/lang/CharSequence;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mCarrierText:Landroid/widget/TextView;
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method public updateState(Lcom/android/systemui/qs/carrier/CellSignalState;Z)Z
+.method public final updateState(Lcom/android/systemui/qs/carrier/CellSignalState;Z)V
     .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mLastSignalState:Lcom/android/systemui/qs/carrier/CellSignalState;
@@ -213,15 +143,13 @@
 
     move-result v0
 
-    const/4 v1, 0x0
-
     if-eqz v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mIsSingleCarrier:Z
 
     if-ne p2, v0, :cond_0
 
-    return v1
+    return-void
 
     :cond_0
     iput-object p1, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mLastSignalState:Lcom/android/systemui/qs/carrier/CellSignalState;
@@ -230,18 +158,20 @@
 
     iget-boolean v0, p1, Lcom/android/systemui/qs/carrier/CellSignalState;->visible:Z
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     if-eqz v0, :cond_1
 
     if-nez p2, :cond_1
 
-    move v0, v2
+    move v0, v1
 
     goto :goto_0
 
     :cond_1
-    move v0, v1
+    move v0, v2
 
     :goto_0
     iget-object v3, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileGroup:Landroid/view/View;
@@ -250,7 +180,7 @@
 
     if-eqz v0, :cond_2
 
-    move v5, v1
+    move v5, v2
 
     goto :goto_1
 
@@ -264,7 +194,7 @@
 
     if-eqz p2, :cond_3
 
-    move p2, v1
+    move p2, v2
 
     goto :goto_2
 
@@ -274,7 +204,7 @@
     :goto_2
     invoke-virtual {v3, p2}, Landroid/view/View;->setVisibility(I)V
 
-    if-eqz v0, :cond_b
+    if-eqz v0, :cond_d
 
     iget-object p2, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileRoaming:Landroid/widget/ImageView;
 
@@ -282,13 +212,10 @@
 
     if-eqz v0, :cond_4
 
-    goto :goto_3
+    move v4, v2
 
     :cond_4
-    move v1, v4
-
-    :goto_3
-    invoke-virtual {p2, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+    invoke-virtual {p2, v4}, Landroid/widget/ImageView;->setVisibility(I)V
 
     iget-object p2, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
@@ -314,13 +241,13 @@
 
     if-nez p2, :cond_5
 
-    iput-boolean v2, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mProviderModelInitialized:Z
+    iput-boolean v1, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mProviderModelInitialized:Z
 
     iget-object p2, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileSignal:Landroid/widget/ImageView;
 
     iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    sget v1, Lcom/android/systemui/R$drawable;->ic_qs_no_calling_sms:I
+    const v1, 0x7f080644
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -347,22 +274,22 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    goto :goto_4
+    goto/16 :goto_4
 
     :cond_6
     iget-boolean p2, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mProviderModelInitialized:Z
 
     if-nez p2, :cond_7
 
-    iput-boolean v2, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mProviderModelInitialized:Z
+    iput-boolean v1, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mProviderModelInitialized:Z
 
     iget-object p2, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileSignal:Landroid/widget/ImageView;
 
     new-instance v0, Lcom/android/settingslib/graph/SignalDrawable;
 
-    iget-object v1, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    invoke-direct {v0, v1}, Lcom/android/settingslib/graph/SignalDrawable;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v3}, Lcom/android/settingslib/graph/SignalDrawable;-><init>(Landroid/content/Context;)V
 
     invoke-virtual {p2, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
@@ -379,13 +306,13 @@
 
     iget-object v0, p1, Lcom/android/systemui/qs/carrier/CellSignalState;->contentDescription:Ljava/lang/String;
 
-    const-string v1, ", "
+    const-string v3, ", "
 
     if-eqz v0, :cond_8
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_8
     iget-boolean v0, p1, Lcom/android/systemui/qs/carrier/CellSignalState;->roaming:Z
@@ -394,35 +321,80 @@
 
     iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    sget v3, Lcom/android/systemui/R$string;->data_connection_roaming:I
+    const v4, 0x7f13027c
 
-    invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_9
     iget-object v0, p1, Lcom/android/systemui/qs/carrier/CellSignalState;->typeContentDescription:Ljava/lang/String;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/carrier/QSCarrier;->hasValidTypeContentDescription(Ljava/lang/String;)Z
+    iget-object v3, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f13027b
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    iget-object v3, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f1301e1
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    iget-object v3, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f1304f4
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v0
 
     if-eqz v0, :cond_a
 
+    goto :goto_3
+
+    :cond_a
+    move v1, v2
+
+    :cond_b
+    :goto_3
+    if-eqz v1, :cond_c
+
     iget-object p1, p1, Lcom/android/systemui/qs/carrier/CellSignalState;->typeContentDescription:Ljava/lang/String;
 
     invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_a
+    :cond_c
     iget-object p0, p0, Lcom/android/systemui/qs/carrier/QSCarrier;->mMobileSignal:Landroid/widget/ImageView;
 
     invoke-virtual {p0, p2}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    :cond_b
+    :cond_d
     :goto_4
-    return v2
+    return-void
 .end method

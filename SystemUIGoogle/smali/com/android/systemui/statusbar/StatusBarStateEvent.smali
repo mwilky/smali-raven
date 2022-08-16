@@ -18,9 +18,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/statusbar/StatusBarStateEvent;
-
-.field public static final enum STATUS_BAR_STATE_FULLSCREEN_USER_SWITCHER:Lcom/android/systemui/statusbar/StatusBarStateEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/statusbar/StatusBarStateEvent;
 
 .field public static final enum STATUS_BAR_STATE_KEYGUARD:Lcom/android/systemui/statusbar/StatusBarStateEvent;
 
@@ -36,8 +34,8 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 12
+.method public static constructor <clinit>()V
+    .locals 10
 
     new-instance v0, Lcom/android/systemui/statusbar/StatusBarStateEvent;
 
@@ -87,38 +85,24 @@
 
     sput-object v5, Lcom/android/systemui/statusbar/StatusBarStateEvent;->STATUS_BAR_STATE_SHADE_LOCKED:Lcom/android/systemui/statusbar/StatusBarStateEvent;
 
-    new-instance v7, Lcom/android/systemui/statusbar/StatusBarStateEvent;
+    const/4 v7, 0x4
 
-    const-string v9, "STATUS_BAR_STATE_FULLSCREEN_USER_SWITCHER"
+    new-array v7, v7, [Lcom/android/systemui/statusbar/StatusBarStateEvent;
 
-    const/4 v10, 0x4
+    aput-object v0, v7, v2
 
-    const/16 v11, 0x1b0
+    aput-object v1, v7, v4
 
-    invoke-direct {v7, v9, v10, v11}, Lcom/android/systemui/statusbar/StatusBarStateEvent;-><init>(Ljava/lang/String;II)V
+    aput-object v3, v7, v6
 
-    sput-object v7, Lcom/android/systemui/statusbar/StatusBarStateEvent;->STATUS_BAR_STATE_FULLSCREEN_USER_SWITCHER:Lcom/android/systemui/statusbar/StatusBarStateEvent;
+    aput-object v5, v7, v8
 
-    const/4 v9, 0x5
-
-    new-array v9, v9, [Lcom/android/systemui/statusbar/StatusBarStateEvent;
-
-    aput-object v0, v9, v2
-
-    aput-object v1, v9, v4
-
-    aput-object v3, v9, v6
-
-    aput-object v5, v9, v8
-
-    aput-object v7, v9, v10
-
-    sput-object v9, Lcom/android/systemui/statusbar/StatusBarStateEvent;->$VALUES:[Lcom/android/systemui/statusbar/StatusBarStateEvent;
+    sput-object v7, Lcom/android/systemui/statusbar/StatusBarStateEvent;->$VALUES:[Lcom/android/systemui/statusbar/StatusBarStateEvent;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -131,48 +115,6 @@
     iput p3, p0, Lcom/android/systemui/statusbar/StatusBarStateEvent;->mId:I
 
     return-void
-.end method
-
-.method public static fromState(I)Lcom/android/systemui/statusbar/StatusBarStateEvent;
-    .locals 1
-
-    if-eqz p0, :cond_3
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_2
-
-    const/4 v0, 0x2
-
-    if-eq p0, v0, :cond_1
-
-    const/4 v0, 0x3
-
-    if-eq p0, v0, :cond_0
-
-    sget-object p0, Lcom/android/systemui/statusbar/StatusBarStateEvent;->STATUS_BAR_STATE_UNKNOWN:Lcom/android/systemui/statusbar/StatusBarStateEvent;
-
-    return-object p0
-
-    :cond_0
-    sget-object p0, Lcom/android/systemui/statusbar/StatusBarStateEvent;->STATUS_BAR_STATE_FULLSCREEN_USER_SWITCHER:Lcom/android/systemui/statusbar/StatusBarStateEvent;
-
-    return-object p0
-
-    :cond_1
-    sget-object p0, Lcom/android/systemui/statusbar/StatusBarStateEvent;->STATUS_BAR_STATE_SHADE_LOCKED:Lcom/android/systemui/statusbar/StatusBarStateEvent;
-
-    return-object p0
-
-    :cond_2
-    sget-object p0, Lcom/android/systemui/statusbar/StatusBarStateEvent;->STATUS_BAR_STATE_KEYGUARD:Lcom/android/systemui/statusbar/StatusBarStateEvent;
-
-    return-object p0
-
-    :cond_3
-    sget-object p0, Lcom/android/systemui/statusbar/StatusBarStateEvent;->STATUS_BAR_STATE_SHADE:Lcom/android/systemui/statusbar/StatusBarStateEvent;
-
-    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/systemui/statusbar/StatusBarStateEvent;
@@ -205,7 +147,7 @@
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/statusbar/StatusBarStateEvent;->mId:I

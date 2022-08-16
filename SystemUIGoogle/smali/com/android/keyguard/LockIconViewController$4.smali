@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/LockIconViewController$4;
+.class public final Lcom/android/keyguard/LockIconViewController$4;
 .super Ljava/lang/Object;
 .source "LockIconViewController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/LockIconViewController;
+.field public final synthetic this$0:Lcom/android/keyguard/LockIconViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/LockIconViewController;)V
+.method public constructor <init>(Lcom/android/keyguard/LockIconViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
@@ -34,52 +34,44 @@
 
 
 # virtual methods
-.method public onKeyguardFadingAwayChanged()V
+.method public final onKeyguardFadingAwayChanged()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$2100(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-virtual {v0}, Lcom/android/keyguard/LockIconViewController;->updateKeyguardShowing()V
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$1000(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/LockIconViewController;->updateVisibility()V
 
     return-void
 .end method
 
-.method public onKeyguardShowingChanged()V
+.method public final onKeyguardShowingChanged()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$2000(Lcom/android/keyguard/LockIconViewController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/android/keyguard/LockIconViewController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->canDismissLockScreen()Z
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/LockIconViewController;->access$1902(Lcom/android/keyguard/LockIconViewController;Z)Z
+    iput-boolean v1, v0, Lcom/android/keyguard/LockIconViewController;->mCanDismissLockScreen:Z
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$2100(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-virtual {v0}, Lcom/android/keyguard/LockIconViewController;->updateKeyguardShowing()V
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$2200(Lcom/android/keyguard/LockIconViewController;)Z
+    iget-boolean v1, v0, Lcom/android/keyguard/LockIconViewController;->mIsKeyguardShowing:Z
 
-    move-result v0
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
-
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$1600(Lcom/android/keyguard/LockIconViewController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/android/keyguard/LockIconViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
@@ -89,42 +81,36 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/LockIconViewController;->access$1502(Lcom/android/keyguard/LockIconViewController;Z)Z
+    iput-boolean v1, v0, Lcom/android/keyguard/LockIconViewController;->mUserUnlockedWithBiometric:Z
 
     :cond_0
-    iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
-
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$900(Lcom/android/keyguard/LockIconViewController;)V
-
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$1000(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/LockIconViewController;->updateVisibility()V
 
     return-void
 .end method
 
-.method public onUnlockedChanged()V
+.method public final onUnlockedChanged()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$2000(Lcom/android/keyguard/LockIconViewController;)Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/android/keyguard/LockIconViewController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->canDismissLockScreen()Z
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/LockIconViewController;->access$1902(Lcom/android/keyguard/LockIconViewController;Z)Z
+    iput-boolean v1, v0, Lcom/android/keyguard/LockIconViewController;->mCanDismissLockScreen:Z
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/LockIconViewController;->access$2100(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-virtual {v0}, Lcom/android/keyguard/LockIconViewController;->updateKeyguardShowing()V
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$4;->this$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->access$1000(Lcom/android/keyguard/LockIconViewController;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/LockIconViewController;->updateVisibility()V
 
     return-void
 .end method

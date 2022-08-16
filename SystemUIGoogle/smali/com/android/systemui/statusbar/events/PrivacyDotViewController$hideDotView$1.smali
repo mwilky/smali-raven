@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/events/PrivacyDotViewController$hideDotView$1;
+.class public final Lcom/android/systemui/statusbar/events/PrivacyDotViewController$hideDotView$1;
 .super Ljava/lang/Object;
 .source "PrivacyDotViewController.kt"
 
@@ -6,26 +6,19 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->hideDotView(Landroid/view/View;Z)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $dot:Landroid/view/View;
+.field public final synthetic $dot:Landroid/view/View;
+
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/View;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$hideDotView$1;->$dot:Landroid/view/View;
+
+    iput-object p2, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$hideDotView$1;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,13 +28,27 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 2
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$hideDotView$1;->$dot:Landroid/view/View;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$hideDotView$1;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->showingListener:Lcom/android/systemui/statusbar/events/PrivacyDotViewController$ShowingListener;
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$hideDotView$1;->$dot:Landroid/view/View;
 
-    const/4 v0, 0x4
+    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$ShowingListener;->onPrivacyDotHidden(Landroid/view/View;)V
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setVisibility(I)V
-
+    :goto_0
     return-void
 .end method

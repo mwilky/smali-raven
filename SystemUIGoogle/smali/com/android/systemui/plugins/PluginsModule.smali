@@ -20,7 +20,7 @@
     return-void
 .end method
 
-.method static providePluginInstanceManagerFactory(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Landroid/app/NotificationManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Ljava/util/List;Lcom/android/systemui/shared/plugins/PluginInstance$Factory;)Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;
+.method public static providePluginInstanceManagerFactory(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Landroid/app/NotificationManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Ljava/util/List;Lcom/android/systemui/shared/plugins/PluginInstance$Factory;)Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;
     .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -65,7 +65,7 @@
     return-object v9
 .end method
 
-.method static providesPluginDebug()Z
+.method public static providesPluginDebug()Z
     .locals 1
 
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
@@ -73,19 +73,19 @@
     return v0
 .end method
 
-.method static providesPluginExecutor(Lcom/android/systemui/util/concurrency/ThreadFactory;)Ljava/util/concurrent/Executor;
+.method public static providesPluginExecutor(Lcom/android/systemui/util/concurrency/ThreadFactory;)Ljava/util/concurrent/Executor;
     .locals 1
 
-    const-string v0, "plugin"
+    const-string/jumbo v0, "plugin"
 
-    invoke-interface {p0, v0}, Lcom/android/systemui/util/concurrency/ThreadFactory;->buildExecutorOnNewThread(Ljava/lang/String;)Ljava/util/concurrent/Executor;
+    invoke-interface {p0, v0}, Lcom/android/systemui/util/concurrency/ThreadFactory;->buildExecutorOnNewThread(Ljava/lang/String;)Lcom/android/systemui/util/concurrency/ExecutorImpl;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method static providesPluginInstanceFactory(Ljava/util/List;Z)Lcom/android/systemui/shared/plugins/PluginInstance$Factory;
+.method public static providesPluginInstanceFactory(Ljava/util/List;Z)Lcom/android/systemui/shared/plugins/PluginInstance$Factory;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -124,7 +124,7 @@
     return-object v6
 .end method
 
-.method static providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLjava/util/Optional;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
+.method public static providesPluginManager(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)Lcom/android/systemui/shared/plugins/PluginManager;
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -132,9 +132,7 @@
             "Landroid/content/Context;",
             "Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;",
             "Z",
-            "Ljava/util/Optional<",
-            "Ljava/lang/Thread$UncaughtExceptionHandler;",
-            ">;",
+            "Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;",
             "Lcom/android/systemui/shared/plugins/PluginEnabler;",
             "Lcom/android/systemui/shared/plugins/PluginPrefs;",
             "Ljava/util/List<",
@@ -162,12 +160,12 @@
 
     move-object v7, p6
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/shared/plugins/PluginManagerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLjava/util/Optional;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/shared/plugins/PluginManagerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/shared/plugins/PluginActionManager$Factory;ZLcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Lcom/android/systemui/shared/plugins/PluginPrefs;Ljava/util/List;)V
 
     return-object v8
 .end method
 
-.method static providesPluginPrefs(Landroid/content/Context;)Lcom/android/systemui/shared/plugins/PluginPrefs;
+.method public static providesPluginPrefs(Landroid/content/Context;)Lcom/android/systemui/shared/plugins/PluginPrefs;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/shared/plugins/PluginPrefs;
@@ -177,7 +175,7 @@
     return-object v0
 .end method
 
-.method static providesPrivilegedPlugins(Landroid/content/Context;)Ljava/util/List;
+.method public static providesPrivilegedPlugins(Landroid/content/Context;)Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -194,7 +192,7 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$array;->config_pluginWhitelist:I
+    const v0, 0x7f03003b
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -209,5 +207,5 @@
 
 
 # virtual methods
-.method abstract bindsPluginEnablerImpl(Lcom/android/systemui/plugins/PluginEnablerImpl;)Lcom/android/systemui/shared/plugins/PluginEnabler;
+.method public abstract bindsPluginEnablerImpl(Lcom/android/systemui/plugins/PluginEnablerImpl;)Lcom/android/systemui/shared/plugins/PluginEnabler;
 .end method

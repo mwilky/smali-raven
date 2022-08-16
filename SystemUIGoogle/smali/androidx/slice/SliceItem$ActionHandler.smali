@@ -15,17 +15,5 @@
 
 
 # virtual methods
-.method public abstract onAction(Landroidx/slice/SliceItem;Landroid/content/Context;Landroid/content/Intent;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "context",
-            "intent"
-        }
-    .end annotation
+.method public abstract onAction()V
 .end method

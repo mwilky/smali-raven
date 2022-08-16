@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/clock/DefaultClockController;
+.class public final Lcom/android/keyguard/clock/DefaultClockController;
 .super Ljava/lang/Object;
 .source "DefaultClockController.java"
 
@@ -7,19 +7,19 @@
 
 
 # instance fields
-.field private final mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+.field public final mColorExtractor:Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
-.field private final mLayoutInflater:Landroid/view/LayoutInflater;
+.field public final mLayoutInflater:Landroid/view/LayoutInflater;
 
-.field private final mRenderer:Lcom/android/keyguard/clock/ViewPreviewer;
+.field public final mRenderer:Lcom/android/keyguard/clock/ViewPreviewer;
 
-.field private final mResources:Landroid/content/res/Resources;
+.field public final mResources:Landroid/content/res/Resources;
 
-.field private mTextDate:Landroid/widget/TextView;
+.field public mTextDate:Landroid/widget/TextView;
 
-.field private mTextTime:Landroid/widget/TextView;
+.field public mTextTime:Landroid/widget/TextView;
 
-.field private mView:Landroid/view/View;
+.field public mView:Landroid/view/View;
 
 
 # direct methods
@@ -43,12 +43,18 @@
     return-void
 .end method
 
-.method private createViews()V
+
+# virtual methods
+.method public final getBigClockView()Landroid/view/View;
     .locals 3
+
+    iget-object v0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mView:Landroid/view/View;
+
+    if-nez v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    sget v1, Lcom/android/systemui/R$layout;->default_clock_preview:I
+    const v1, 0x7f0e0083
 
     const/4 v2, 0x0
 
@@ -58,7 +64,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mView:Landroid/view/View;
 
-    sget v1, Lcom/android/systemui/R$id;->time:I
+    const v1, 0x7f0b06c0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -70,7 +76,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mView:Landroid/view/View;
 
-    sget v1, Lcom/android/systemui/R$id;->date:I
+    const v1, 0x7f0b01e2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -80,27 +86,13 @@
 
     iput-object v0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mTextDate:Landroid/widget/TextView;
 
-    return-void
-.end method
-
-
-# virtual methods
-.method public getBigClockView()Landroid/view/View;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mView:Landroid/view/View;
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/keyguard/clock/DefaultClockController;->createViews()V
-
     :cond_0
     iget-object p0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mView:Landroid/view/View;
 
     return-object p0
 .end method
 
-.method public getName()Ljava/lang/String;
+.method public final getName()Ljava/lang/String;
     .locals 0
 
     const-string p0, "default"
@@ -108,7 +100,7 @@
     return-object p0
 .end method
 
-.method public getPreferredY(I)I
+.method public final getPreferredY(I)I
     .locals 0
 
     div-int/lit8 p1, p1, 0x2
@@ -116,16 +108,12 @@
     return p1
 .end method
 
-.method public getPreview(II)Landroid/graphics/Bitmap;
-    .locals 3
+.method public final getPreview(II)Landroid/graphics/Bitmap;
+    .locals 4
 
     invoke-virtual {p0}, Lcom/android/keyguard/clock/DefaultClockController;->getBigClockView()Landroid/view/View;
 
     move-result-object v0
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-virtual {p0, v1}, Lcom/android/keyguard/clock/DefaultClockController;->setDarkAmount(F)V
 
     const/4 v1, -0x1
 
@@ -141,31 +129,79 @@
 
     invoke-virtual {v1}, Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;->supportsDarkText()Z
 
-    move-result v2
-
     invoke-virtual {v1}, Lcom/android/internal/colorextraction/ColorExtractor$GradientColors;->getColorPalette()[I
-
-    move-result-object v1
-
-    invoke-virtual {p0, v2, v1}, Lcom/android/keyguard/clock/DefaultClockController;->setColorPalette(Z[I)V
-
-    invoke-virtual {p0}, Lcom/android/keyguard/clock/DefaultClockController;->onTimeTick()V
 
     iget-object p0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mRenderer:Lcom/android/keyguard/clock/ViewPreviewer;
 
-    invoke-virtual {p0, v0, p1, p2}, Lcom/android/keyguard/clock/ViewPreviewer;->createPreview(Landroid/view/View;II)Landroid/graphics/Bitmap;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    new-instance v2, Ljava/util/concurrent/FutureTask;
+
+    new-instance v3, Lcom/android/keyguard/clock/ViewPreviewer$1;
+
+    invoke-direct {v3, p0, p1, p2, v0}, Lcom/android/keyguard/clock/ViewPreviewer$1;-><init>(Lcom/android/keyguard/clock/ViewPreviewer;IILandroid/view/View;)V
+
+    invoke-direct {v2, v3}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/util/concurrent/Callable;)V
+
+    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
+
+    move-result-object p1
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object p2
+
+    if-ne p1, p2, :cond_1
+
+    invoke-virtual {v2}, Ljava/util/concurrent/FutureTask;->run()V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/keyguard/clock/ViewPreviewer;->mMainHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    :goto_0
+    :try_start_0
+    invoke-virtual {v2}, Ljava/util/concurrent/FutureTask;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
+    check-cast p0, Landroid/graphics/Bitmap;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-object v1, p0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception p0
+
+    const-string p1, "ViewPreviewer"
+
+    const-string p2, "Error completing task"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_1
+    return-object v1
 .end method
 
-.method public getThumbnail()Landroid/graphics/Bitmap;
+.method public final getThumbnail()Landroid/graphics/Bitmap;
     .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mResources:Landroid/content/res/Resources;
 
-    sget v0, Lcom/android/systemui/R$drawable;->default_thumbnail:I
+    const v0, 0x7f080419
 
     invoke-static {p0, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -174,12 +210,12 @@
     return-object p0
 .end method
 
-.method public getTitle()Ljava/lang/String;
+.method public final getTitle()Ljava/lang/String;
     .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mResources:Landroid/content/res/Resources;
 
-    sget v0, Lcom/android/systemui/R$string;->clock_title_default:I
+    const v0, 0x7f130203
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -188,7 +224,7 @@
     return-object p0
 .end method
 
-.method public getView()Landroid/view/View;
+.method public final getView()Landroid/view/View;
     .locals 0
 
     const/4 p0, 0x0
@@ -196,7 +232,7 @@
     return-object p0
 .end method
 
-.method public onDestroyView()V
+.method public final onDestroyView()V
     .locals 1
 
     const/4 v0, 0x0
@@ -210,37 +246,37 @@
     return-void
 .end method
 
-.method public onTimeTick()V
+.method public final onTimeTick()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTimeZoneChanged(Ljava/util/TimeZone;)V
+.method public final onTimeZoneChanged(Ljava/util/TimeZone;)V
     .locals 0
 
     return-void
 .end method
 
-.method public setColorPalette(Z[I)V
+.method public final setColorPalette(Z[I)V
     .locals 0
 
     return-void
 .end method
 
-.method public setDarkAmount(F)V
+.method public final setDarkAmount(F)V
     .locals 0
 
     return-void
 .end method
 
-.method public setStyle(Landroid/graphics/Paint$Style;)V
+.method public final setStyle(Landroid/graphics/Paint$Style;)V
     .locals 0
 
     return-void
 .end method
 
-.method public setTextColor(I)V
+.method public final setTextColor(I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/clock/DefaultClockController;->mTextTime:Landroid/widget/TextView;
@@ -254,7 +290,7 @@
     return-void
 .end method
 
-.method public shouldShowStatusArea()Z
+.method public final shouldShowStatusArea()Z
     .locals 0
 
     const/4 p0, 0x1

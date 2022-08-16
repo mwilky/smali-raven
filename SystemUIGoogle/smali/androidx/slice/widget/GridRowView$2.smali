@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/GridRowView$2;
+.class public final Landroidx/slice/widget/GridRowView$2;
 .super Ljava/lang/Object;
 .source "GridRowView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/slice/widget/GridRowView;
+.field public final synthetic this$0:Landroidx/slice/widget/GridRowView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/GridRowView;)V
+.method public constructor <init>(Landroidx/slice/widget/GridRowView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/GridRowView$2;->this$0:Landroidx/slice/widget/GridRowView;
 
@@ -42,7 +34,7 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
+.method public final onPreDraw()Z
     .locals 2
 
     iget-object v0, p0, Landroidx/slice/widget/GridRowView$2;->this$0:Landroidx/slice/widget/GridRowView;

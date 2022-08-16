@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$1;
+.class public final Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$1;
 .super Landroid/os/Handler;
 .source "MediaRouteDynamicChooserDialog.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$1;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;
 
@@ -39,16 +31,8 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public final handleMessage(Landroid/os/Message;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "message"
-        }
-    .end annotation
 
     iget v0, p1, Landroid/os/Message;->what:I
 
@@ -65,7 +49,25 @@
 
     check-cast p1, Ljava/util/List;
 
-    invoke-virtual {p0, p1}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->updateRoutes(Ljava/util/List;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    iput-wide v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->mLastUpdateTime:J
+
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->mRoutes:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->mRoutes:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog;->mAdapter:Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;
+
+    invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteDynamicChooserDialog$RecyclerAdapter;->rebuildItems()V
 
     :goto_0
     return-void

@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/app/MediaRouteControllerDialog$4;
+.class public final Landroidx/mediarouter/app/MediaRouteControllerDialog$4;
 .super Ljava/lang/Object;
 .source "MediaRouteControllerDialog.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
@@ -42,16 +34,8 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$4;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
@@ -59,7 +43,11 @@
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat;->getSessionActivity()Landroid/app/PendingIntent;
+    iget-object p1, p1, Landroid/support/v4/media/session/MediaControllerCompat;->mImpl:Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;
+
+    iget-object p1, p1, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->mControllerFwk:Landroid/media/session/MediaController;
+
+    invoke-virtual {p1}, Landroid/media/session/MediaController;->getSessionActivity()Landroid/app/PendingIntent;
 
     move-result-object p1
 

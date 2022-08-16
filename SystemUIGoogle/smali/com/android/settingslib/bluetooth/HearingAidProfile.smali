@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/bluetooth/HearingAidProfile;
+.class public final Lcom/android/settingslib/bluetooth/HearingAidProfile;
 .super Ljava/lang/Object;
 .source "HearingAidProfile.java"
 
@@ -14,37 +14,21 @@
 .end annotation
 
 
-# static fields
-.field private static V:Z = true
-
-
 # instance fields
-.field private final mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+.field public final mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-.field private mContext:Landroid/content/Context;
+.field public final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
-.field private final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+.field public final mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
-.field private mIsProfileReady:Z
-
-.field private final mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-.field private mService:Landroid/bluetooth/BluetoothHearingAid;
+.field public mService:Landroid/bluetooth/BluetoothHearingAid;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)V
     .locals 0
 
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)V
-    .locals 1
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
@@ -58,9 +42,7 @@
 
     new-instance p3, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p3, p0, v0}, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HearingAidProfile;Lcom/android/settingslib/bluetooth/HearingAidProfile$1;)V
+    invoke-direct {p3, p0}, Lcom/android/settingslib/bluetooth/HearingAidProfile$HearingAidServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HearingAidProfile;)V
 
     const/16 p0, 0x15
 
@@ -69,57 +51,9 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Landroid/bluetooth/BluetoothHearingAid;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mService:Landroid/bluetooth/BluetoothHearingAid;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/bluetooth/HearingAidProfile;Landroid/bluetooth/BluetoothHearingAid;)Landroid/bluetooth/BluetoothHearingAid;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mService:Landroid/bluetooth/BluetoothHearingAid;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->V:Z
-
-    return v0
-.end method
-
-.method static synthetic access$302(Lcom/android/settingslib/bluetooth/HearingAidProfile;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mIsProfileReady:Z
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/android/settingslib/bluetooth/HearingAidProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public accessProfileEnabled()Z
+.method public final accessProfileEnabled()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -127,7 +61,7 @@
     return p0
 .end method
 
-.method protected finalize()V
+.method public final finalize()V
     .locals 4
 
     const-string v0, "HearingAidProfile"
@@ -171,36 +105,7 @@
     return-void
 .end method
 
-.method public getActiveDevices()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Landroid/bluetooth/BluetoothDevice;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mService:Landroid/bluetooth/BluetoothHearingAid;
-
-    if-nez p0, :cond_0
-
-    new-instance p0, Ljava/util/ArrayList;
-
-    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
-
-    return-object p0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/bluetooth/BluetoothHearingAid;->getActiveDevices()Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
+.method public final getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mService:Landroid/bluetooth/BluetoothHearingAid;
@@ -219,40 +124,15 @@
     return p0
 .end method
 
-.method public getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
+.method public final getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
     .locals 0
 
-    const p0, 0x1080338
+    const p0, 0x1080341
 
     return p0
 .end method
 
-.method public getHiSyncId(Landroid/bluetooth/BluetoothDevice;)J
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mService:Landroid/bluetooth/BluetoothHearingAid;
-
-    if-eqz p0, :cond_1
-
-    if-nez p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0, p1}, Landroid/bluetooth/BluetoothHearingAid;->getHiSyncId(Landroid/bluetooth/BluetoothDevice;)J
-
-    move-result-wide p0
-
-    return-wide p0
-
-    :cond_1
-    :goto_0
-    const-wide/16 p0, 0x0
-
-    return-wide p0
-.end method
-
-.method public getProfileId()I
+.method public final getProfileId()I
     .locals 0
 
     const/16 p0, 0x15
@@ -260,7 +140,7 @@
     return p0
 .end method
 
-.method public setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
+.method public final setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mService:Landroid/bluetooth/BluetoothHearingAid;
@@ -302,7 +182,7 @@
     return v1
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     const-string p0, "HearingAid"

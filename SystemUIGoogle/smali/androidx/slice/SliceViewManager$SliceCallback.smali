@@ -16,12 +16,4 @@
 
 # virtual methods
 .method public abstract onSliceUpdated(Landroidx/slice/Slice;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "s"
-        }
-    .end annotation
 .end method

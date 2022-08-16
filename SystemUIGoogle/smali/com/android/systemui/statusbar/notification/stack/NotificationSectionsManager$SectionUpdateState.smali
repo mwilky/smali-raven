@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+.class public interface abstract Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
 .super Ljava/lang/Object;
 .source "NotificationSectionsManager.kt"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "SectionUpdateState"
 .end annotation
 

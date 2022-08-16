@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;
 .super Ljava/lang/Object;
 .source "GlobalActionsDialogLite.java"
 
@@ -13,23 +13,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SilentModeTriStateAction"
 .end annotation
 
 
 # static fields
-.field private static final ITEM_IDS:[I
+.field public static final ITEM_IDS:[I
 
 
 # instance fields
-.field private final mAudioManager:Landroid/media/AudioManager;
+.field public final mAudioManager:Landroid/media/AudioManager;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const/4 v0, 0x3
@@ -46,13 +46,13 @@
 
     :array_0
     .array-data 4
-        0x10203d2
-        0x10203d3
-        0x10203d4
+        0x1020401
+        0x1020402
+        0x1020403
     .end array-data
 .end method
 
-.method constructor <init>(Landroid/media/AudioManager;Landroid/os/Handler;)V
+.method public constructor <init>(Landroid/media/AudioManager;Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,24 +64,12 @@
     return-void
 .end method
 
-.method private indexToRingerMode(I)I
-    .locals 0
-
-    return p1
-.end method
-
-.method private ringerModeToIndex(I)I
-    .locals 0
-
-    return p1
-.end method
-
 
 # virtual methods
-.method public create(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/LayoutInflater;)Landroid/view/View;
+.method public final create(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/LayoutInflater;)Landroid/view/View;
     .locals 2
 
-    const p1, 0x1090081
+    const p1, 0x1090085
 
     const/4 p2, 0x0
 
@@ -92,10 +80,6 @@
     iget-object p3, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;->mAudioManager:Landroid/media/AudioManager;
 
     invoke-virtual {p3}, Landroid/media/AudioManager;->getRingerMode()I
-
-    move-result p3
-
-    invoke-direct {p0, p3}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;->ringerModeToIndex(I)I
 
     move-result p3
 
@@ -142,7 +126,7 @@
     return-object p1
 .end method
 
-.method public getIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+.method public final getIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     const/4 p0, 0x0
@@ -150,7 +134,7 @@
     return-object p0
 .end method
 
-.method public getMessage()Ljava/lang/CharSequence;
+.method public final getMessage()Ljava/lang/CharSequence;
     .locals 0
 
     const/4 p0, 0x0
@@ -158,7 +142,7 @@
     return-object p0
 .end method
 
-.method public getMessageResId()I
+.method public final getMessageResId()I
     .locals 0
 
     const/4 p0, 0x0
@@ -166,7 +150,7 @@
     return p0
 .end method
 
-.method public isEnabled()Z
+.method public final isEnabled()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -174,7 +158,7 @@
     return p0
 .end method
 
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 2
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
@@ -200,10 +184,6 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;->mAudioManager:Landroid/media/AudioManager;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;->indexToRingerMode(I)I
-
-    move-result p1
-
     invoke-virtual {v0, p1}, Landroid/media/AudioManager;->setRingerMode(I)V
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;->mHandler:Landroid/os/Handler;
@@ -217,13 +197,13 @@
     return-void
 .end method
 
-.method public onPress()V
+.method public final onPress()V
     .locals 0
 
     return-void
 .end method
 
-.method public showBeforeProvisioning()Z
+.method public final showBeforeProvisioning()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -231,10 +211,8 @@
     return p0
 .end method
 
-.method public showDuringKeyguard()Z
+.method public final showDuringKeyguard()V
     .locals 0
 
-    const/4 p0, 0x1
-
-    return p0
+    return-void
 .end method

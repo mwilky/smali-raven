@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/DocumentData;
+.class public final Lcom/airbnb/lottie/model/DocumentData;
 .super Ljava/lang/Object;
 .source "DocumentData.java"
 
@@ -68,8 +68,8 @@
 
 
 # virtual methods
-.method public hashCode()I
-    .locals 5
+.method public final hashCode()I
+    .locals 6
 
     iget-object v0, p0, Lcom/airbnb/lottie/model/DocumentData;->text:Ljava/lang/String;
 
@@ -85,11 +85,11 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    int-to-float v0, v0
+    int-to-float v0, v1
 
     iget v1, p0, Lcom/airbnb/lottie/model/DocumentData;->size:F
 
@@ -105,39 +105,39 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget v1, p0, Lcom/airbnb/lottie/model/DocumentData;->tracking:I
+    iget v0, p0, Lcom/airbnb/lottie/model/DocumentData;->tracking:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    iget v1, p0, Lcom/airbnb/lottie/model/DocumentData;->lineHeight:F
+    iget v0, p0, Lcom/airbnb/lottie/model/DocumentData;->lineHeight:F
 
-    invoke-static {v1}, Ljava/lang/Float;->floatToRawIntBits(F)I
+    invoke-static {v0}, Ljava/lang/Float;->floatToRawIntBits(F)I
 
-    move-result v1
+    move-result v0
 
-    int-to-long v1, v1
+    int-to-long v2, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    const/16 v3, 0x20
+    const/16 v0, 0x20
 
-    ushr-long v3, v1, v3
+    ushr-long v4, v2, v0
 
-    xor-long/2addr v1, v3
+    xor-long/2addr v2, v4
 
-    long-to-int v1, v1
+    long-to-int v0, v2
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget p0, p0, Lcom/airbnb/lottie/model/DocumentData;->color:I
 
-    add-int/2addr v0, p0
+    add-int/2addr v1, p0
 
-    return v0
+    return v1
 .end method

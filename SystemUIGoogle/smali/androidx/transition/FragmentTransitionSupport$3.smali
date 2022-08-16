@@ -1,37 +1,26 @@
-.class Landroidx/transition/FragmentTransitionSupport$3;
+.class public final Landroidx/transition/FragmentTransitionSupport$3;
 .super Landroidx/transition/TransitionListenerAdapter;
 .source "FragmentTransitionSupport.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/transition/FragmentTransitionSupport;->scheduleRemoveTargets(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/transition/FragmentTransitionSupport;
+.field public final synthetic this$0:Landroidx/transition/FragmentTransitionSupport;
 
-.field final synthetic val$enterTransition:Ljava/lang/Object;
+.field public final synthetic val$enterTransition:Ljava/lang/Object;
 
-.field final synthetic val$enteringViews:Ljava/util/ArrayList;
+.field public final synthetic val$enteringViews:Ljava/util/ArrayList;
 
-.field final synthetic val$exitTransition:Ljava/lang/Object;
+.field public final synthetic val$exitTransition:Ljava/lang/Object;
 
-.field final synthetic val$exitingViews:Ljava/util/ArrayList;
+.field public final synthetic val$exitingViews:Ljava/util/ArrayList;
 
-.field final synthetic val$sharedElementTransition:Ljava/lang/Object;
+.field public final synthetic val$sharedElementTransition:Ljava/lang/Object;
 
-.field final synthetic val$sharedElementsIn:Ljava/util/ArrayList;
+.field public final synthetic val$sharedElementsIn:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/FragmentTransitionSupport;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
+.method public constructor <init>(Landroidx/transition/FragmentTransitionSupport;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/transition/FragmentTransitionSupport$3;->this$0:Landroidx/transition/FragmentTransitionSupport;
@@ -40,13 +29,15 @@
 
     iput-object p3, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$enteringViews:Ljava/util/ArrayList;
 
-    iput-object p4, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$exitTransition:Ljava/lang/Object;
+    const/4 p1, 0x0
 
-    iput-object p5, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$exitingViews:Ljava/util/ArrayList;
+    iput-object p1, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$exitTransition:Ljava/lang/Object;
 
-    iput-object p6, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$sharedElementTransition:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$exitingViews:Ljava/util/ArrayList;
 
-    iput-object p7, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$sharedElementsIn:Ljava/util/ArrayList;
+    iput-object p4, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$sharedElementTransition:Ljava/lang/Object;
+
+    iput-object p5, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$sharedElementsIn:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Landroidx/transition/TransitionListenerAdapter;-><init>()V
 
@@ -55,15 +46,15 @@
 
 
 # virtual methods
-.method public onTransitionEnd(Landroidx/transition/Transition;)V
+.method public final onTransitionEnd(Landroidx/transition/Transition;)V
     .locals 0
 
-    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)V
 
     return-void
 .end method
 
-.method public onTransitionStart(Landroidx/transition/Transition;)V
+.method public final onTransitionStart(Landroidx/transition/Transition;)V
     .locals 3
 
     iget-object p1, p0, Landroidx/transition/FragmentTransitionSupport$3;->val$enterTransition:Ljava/lang/Object;

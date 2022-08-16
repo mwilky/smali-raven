@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/FastScroller$AnimatorUpdater;
+.class public final Landroidx/recyclerview/widget/FastScroller$AnimatorUpdater;
 .super Ljava/lang/Object;
 .source "FastScroller.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AnimatorUpdater"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/recyclerview/widget/FastScroller;
+.field public final synthetic this$0:Landroidx/recyclerview/widget/FastScroller;
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
+.method public constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorUpdater;->this$0:Landroidx/recyclerview/widget/FastScroller;
 
@@ -42,16 +34,8 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "valueAnimator"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
@@ -83,7 +67,9 @@
 
     iget-object p0, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorUpdater;->this$0:Landroidx/recyclerview/widget/FastScroller;
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/FastScroller;->requestRedraw()V
+    iget-object p0, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->invalidate()V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;
+.class public final Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;
 .super Ljava/lang/Object;
 .source "CascadingMenuPopup.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "CascadingMenuInfo"
 .end annotation
 
@@ -35,18 +35,4 @@
     iput p3, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;->position:I
 
     return-void
-.end method
-
-
-# virtual methods
-.method public getListView()Landroid/widget/ListView;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;->window:Landroidx/appcompat/widget/MenuPopupWindow;
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ListPopupWindow;->getListView()Landroid/widget/ListView;
-
-    move-result-object p0
-
-    return-object p0
 .end method

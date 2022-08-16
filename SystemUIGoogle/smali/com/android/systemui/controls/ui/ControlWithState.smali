@@ -4,24 +4,16 @@
 
 
 # instance fields
-.field private final ci:Lcom/android/systemui/controls/controller/ControlInfo;
+.field public final ci:Lcom/android/systemui/controls/controller/ControlInfo;
 
-.field private final componentName:Landroid/content/ComponentName;
+.field public final componentName:Landroid/content/ComponentName;
 
-.field private final control:Landroid/service/controls/Control;
+.field public final control:Landroid/service/controls/Control;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlInfo;Landroid/service/controls/Control;)V
-    .locals 1
-
-    const-string v0, "componentName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "ci"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -36,7 +28,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -99,31 +91,7 @@
     return v0
 .end method
 
-.method public final getCi()Lcom/android/systemui/controls/controller/ControlInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlWithState;->ci:Lcom/android/systemui/controls/controller/ControlInfo;
-
-    return-object p0
-.end method
-
-.method public final getComponentName()Landroid/content/ComponentName;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlWithState;->componentName:Landroid/content/ComponentName;
-
-    return-object p0
-.end method
-
-.method public final getControl()Landroid/service/controls/Control;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlWithState;->componentName:Landroid/content/ComponentName;
@@ -140,9 +108,9 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
 
@@ -158,21 +126,19 @@
     move-result p0
 
     :goto_0
-    add-int/2addr v0, p0
+    add-int/2addr v1, p0
 
-    return v0
+    return v1
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "ControlWithState(componentName="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "ControlWithState(componentName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/controls/ui/ControlWithState;->componentName:Landroid/content/ComponentName;
 

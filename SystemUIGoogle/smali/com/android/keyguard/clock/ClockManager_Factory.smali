@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final colorExtractorProvider:Ljavax/inject/Provider;
+.field public final colorExtractorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final dockManagerProvider:Ljavax/inject/Provider;
+.field public final dockManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final layoutInflaterProvider:Ljavax/inject/Provider;
+.field public final layoutInflaterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final pluginManagerProvider:Ljavax/inject/Provider;
+.field public final pluginManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -171,34 +171,10 @@
     return-object v7
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;)Lcom/android/keyguard/clock/ClockManager;
-    .locals 8
-
-    new-instance v7, Lcom/android/keyguard/clock/ClockManager;
-
-    move-object v0, v7
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/keyguard/clock/ClockManager;-><init>(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
-
-    return-object v7
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/keyguard/clock/ClockManager;
-    .locals 7
+.method public final get()Ljava/lang/Object;
+    .locals 10
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -206,9 +182,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager_Factory;->layoutInflaterProvider:Ljavax/inject/Provider;
 
@@ -216,9 +192,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Landroid/view/LayoutInflater;
+    check-cast v3, Landroid/view/LayoutInflater;
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager_Factory;->pluginManagerProvider:Ljavax/inject/Provider;
 
@@ -226,9 +202,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/shared/plugins/PluginManager;
+    check-cast v4, Lcom/android/systemui/shared/plugins/PluginManager;
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager_Factory;->colorExtractorProvider:Ljavax/inject/Provider;
 
@@ -236,9 +212,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    check-cast v5, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager_Factory;->dockManagerProvider:Ljavax/inject/Provider;
 
@@ -246,9 +222,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v9, v0
 
-    check-cast v5, Lcom/android/systemui/dock/DockManager;
+    check-cast v9, Lcom/android/systemui/dock/DockManager;
 
     iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
@@ -256,23 +232,33 @@
 
     move-result-object p0
 
-    move-object v6, p0
+    check-cast p0, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    check-cast v6, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    new-instance v0, Lcom/android/keyguard/clock/ClockManager;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/keyguard/clock/ClockManager_Factory;->newInstance(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;)Lcom/android/keyguard/clock/ClockManager;
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    new-instance v7, Lcom/android/systemui/settings/CurrentUserObservable;
+
+    invoke-direct {v7, p0}, Lcom/android/systemui/settings/CurrentUserObservable;-><init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+
+    new-instance v8, Lcom/android/keyguard/clock/SettingsWrapper;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    new-instance v1, Lcom/android/keyguard/clock/SettingsWrapper$Migrator;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    invoke-direct {v1, p0}, Lcom/android/keyguard/clock/SettingsWrapper$Migrator;-><init>(Landroid/content/ContentResolver;)V
 
-    invoke-virtual {p0}, Lcom/android/keyguard/clock/ClockManager_Factory;->get()Lcom/android/keyguard/clock/ClockManager;
+    invoke-direct {v8, p0, v1}, Lcom/android/keyguard/clock/SettingsWrapper;-><init>(Landroid/content/ContentResolver;Lcom/android/keyguard/clock/SettingsWrapper$Migration;)V
 
-    move-result-object p0
+    move-object v1, v0
 
-    return-object p0
+    invoke-direct/range {v1 .. v9}, Lcom/android/keyguard/clock/ClockManager;-><init>(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Landroid/content/ContentResolver;Lcom/android/systemui/settings/CurrentUserObservable;Lcom/android/keyguard/clock/SettingsWrapper;Lcom/android/systemui/dock/DockManager;)V
+
+    return-object v0
 .end method

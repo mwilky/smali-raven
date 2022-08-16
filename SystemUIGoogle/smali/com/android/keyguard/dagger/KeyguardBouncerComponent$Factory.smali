@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract create()Lcom/android/keyguard/dagger/KeyguardBouncerComponent;
+.method public abstract create(Landroid/view/ViewGroup;)Lcom/android/keyguard/dagger/KeyguardBouncerComponent;
 .end method

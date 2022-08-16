@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/FragmentStateManager$1;
+.class public final Landroidx/fragment/app/FragmentStateManager$1;
 .super Ljava/lang/Object;
 .source "FragmentStateManager.java"
 
@@ -12,24 +12,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/FragmentStateManager;
-
-.field final synthetic val$fragmentView:Landroid/view/View;
+.field public final synthetic val$fragmentView:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/FragmentStateManager;Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/View;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/fragment/app/FragmentStateManager$1;->this$0:Landroidx/fragment/app/FragmentStateManager;
-
-    iput-object p2, p0, Landroidx/fragment/app/FragmentStateManager$1;->val$fragmentView:Landroid/view/View;
+    iput-object p1, p0, Landroidx/fragment/app/FragmentStateManager$1;->val$fragmentView:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +34,7 @@
 
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
+.method public final onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
 
     iget-object p1, p0, Landroidx/fragment/app/FragmentStateManager$1;->val$fragmentView:Landroid/view/View;
@@ -47,12 +43,14 @@
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentStateManager$1;->val$fragmentView:Landroid/view/View;
 
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->requestApplyInsets(Landroid/view/View;)V
+    sget-object p1, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {p0}, Landroidx/core/view/ViewCompat$Api20Impl;->requestApplyInsets(Landroid/view/View;)V
 
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
+.method public final onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
 
     return-void

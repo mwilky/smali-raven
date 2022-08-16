@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/ImageExporter$Result;
+.class public final Lcom/android/systemui/screenshot/ImageExporter$Result;
 .super Ljava/lang/Object;
 .source "ImageExporter.java"
 
@@ -9,29 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Result"
 .end annotation
 
 
 # instance fields
-.field deleted:Z
+.field public fileName:Ljava/lang/String;
 
-.field fileName:Ljava/lang/String;
+.field public format:Landroid/graphics/Bitmap$CompressFormat;
 
-.field format:Landroid/graphics/Bitmap$CompressFormat;
+.field public published:Z
 
-.field published:Z
+.field public requestId:Ljava/util/UUID;
 
-.field requestId:Ljava/util/UUID;
+.field public timestamp:J
 
-.field timestamp:J
-
-.field uri:Landroid/net/Uri;
+.field public uri:Landroid/net/Uri;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,7 +39,7 @@
 
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -98,15 +96,15 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/systemui/screenshot/ImageExporter$Result;->published:Z
+    iget-boolean p0, p0, Lcom/android/systemui/screenshot/ImageExporter$Result;->published:Z
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v1, ", deleted="
+    const-string p0, ", deleted="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean p0, p0, Lcom/android/systemui/screenshot/ImageExporter$Result;->deleted:Z
+    const/4 p0, 0x0
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 

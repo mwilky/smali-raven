@@ -22,22 +22,21 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
-        "TT;>;"
+        "Ljava/util/Comparator;"
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$3\n+ 2 ControlsFavoritingActivity.kt\ncom/android/systemui/controls/management/ControlsFavoritingActivity\n*L\n1#1,319:1\n127#2:320\n*E\n"
+    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$3\n+ 2 ControlsFavoritingActivity.kt\ncom/android/systemui/controls/management/ControlsFavoritingActivity\n*L\n1#1,320:1\n127#2:321\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic $comparator:Ljava/util/Comparator;
+.field public final synthetic $comparator:Ljava/util/Comparator;
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/Comparator;)V
+.method public constructor <init>(Ljava/text/Collator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$onCreate$$inlined$compareBy$1;->$comparator:Ljava/util/Comparator;
@@ -61,15 +60,11 @@
 
     check-cast p1, Lcom/android/systemui/controls/management/StructureContainer;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/management/StructureContainer;->getStructureName()Ljava/lang/CharSequence;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/management/StructureContainer;->structureName:Ljava/lang/CharSequence;
 
     check-cast p2, Lcom/android/systemui/controls/management/StructureContainer;
 
-    invoke-virtual {p2}, Lcom/android/systemui/controls/management/StructureContainer;->getStructureName()Ljava/lang/CharSequence;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/controls/management/StructureContainer;->structureName:Ljava/lang/CharSequence;
 
     invoke-interface {p0, p1, p2}, Ljava/util/Comparator;->compare(Ljava/lang/Object;Ljava/lang/Object;)I
 

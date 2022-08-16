@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/external/TileLifecycleManager$1;
+.class public final Lcom/android/systemui/qs/external/TileLifecycleManager$1;
 .super Ljava/lang/Object;
 .source "TileLifecycleManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/external/TileLifecycleManager;
+.field public final synthetic this$0:Lcom/android/systemui/qs/external/TileLifecycleManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/external/TileLifecycleManager;)V
+.method public constructor <init>(Lcom/android/systemui/qs/external/TileLifecycleManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileLifecycleManager$1;->this$0:Lcom/android/systemui/qs/external/TileLifecycleManager;
@@ -34,18 +34,14 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager$1;->this$0:Lcom/android/systemui/qs/external/TileLifecycleManager;
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager$1;->this$0:Lcom/android/systemui/qs/external/TileLifecycleManager;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/external/TileLifecycleManager;->access$000(Lcom/android/systemui/qs/external/TileLifecycleManager;)Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mBound:Z
 
     if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/TileLifecycleManager$1;->this$0:Lcom/android/systemui/qs/external/TileLifecycleManager;
 
     const/4 v0, 0x1
 

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final entryManagerProvider:Ljavax/inject/Provider;
+.field public final entryManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,17 +28,17 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
+.field public final notifPipelineFlagsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private final pipelineProvider:Ljavax/inject/Provider;
+.field public final pipelineProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -56,7 +56,7 @@
         value = {
             "(",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
@@ -69,7 +69,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->notifPipelineFlagsProvider:Ljavax/inject/Provider;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->pipelineProvider:Ljavax/inject/Provider;
 
@@ -78,71 +78,18 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static provideCommonNotifCollection(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;)Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
-            ">;",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
-            ")",
-            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;"
-        }
-    .end annotation
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule;->provideCommonNotifCollection(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;)Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
-
-    move-result-object p0
-
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
+.method public final get()Ljava/lang/Object;
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->notifPipelineFlagsProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/flags/FeatureFlags;
+    check-cast v0, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->pipelineProvider:Ljavax/inject/Provider;
 
@@ -158,19 +105,20 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->provideCommonNotifCollection(Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;)Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;->isNewPipelineEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/dagger/NotificationsModule_ProvideCommonNotifCollectionFactory;->get()Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
-
-    move-result-object p0
+    :cond_0
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object p0
 .end method

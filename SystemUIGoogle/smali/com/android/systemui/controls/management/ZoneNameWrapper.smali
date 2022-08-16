@@ -4,20 +4,16 @@
 
 
 # instance fields
-.field private final zoneName:Ljava/lang/CharSequence;
+.field public final zoneName:Ljava/lang/CharSequence;
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;)V
     .locals 1
 
-    const-string/jumbo v0, "zoneName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/controls/management/ElementWrapper;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p0, v0}, Lcom/android/systemui/controls/management/ElementWrapper;-><init>(I)V
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ZoneNameWrapper;->zoneName:Ljava/lang/CharSequence;
 
@@ -26,7 +22,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 3
 
     const/4 v0, 0x1
@@ -63,15 +59,7 @@
     return v0
 .end method
 
-.method public final getZoneName()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ZoneNameWrapper;->zoneName:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ZoneNameWrapper;->zoneName:Ljava/lang/CharSequence;
@@ -83,16 +71,14 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 2
+.method public final toString()Ljava/lang/String;
+    .locals 1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "ZoneNameWrapper(zoneName="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "ZoneNameWrapper(zoneName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ZoneNameWrapper;->zoneName:Ljava/lang/CharSequence;
 

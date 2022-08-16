@@ -17,6 +17,7 @@
         <item>ಬಹುತೇಕ 3 ಪ್ರಕ್ರಿಯೆಗಳು</item>
         <item>ಬಹುತೇಕ 4 ಪ್ರಕ್ರಿಯೆಗಳು</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -50,14 +51,14 @@
         <item>ಸ್ಟೀರಿಯೊ</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_summaries">
-        <item>ಆಡಿಯೊ ಗುಣಮಟ್ಟಕ್ಕಾಗಿ ಆಪ್ಟಿಮೈಸ್‌ ಮಾಡಲಾಗಿದೆ</item>
-        <item>ಸಂತುಲಿತ ಆಡಿಯೊ ಮತ್ತು ಸಂಪರ್ಕದ ಗುಣಮಟ್ಟ</item>
+        <item>ಆಡಿಯೋ ಗುಣಮಟ್ಟಕ್ಕಾಗಿ ಆಪ್ಟಿಮೈಸ್‌ ಮಾಡಲಾಗಿದೆ</item>
+        <item>ಸಂತುಲಿತ ಆಡಿಯೋ ಮತ್ತು ಸಂಪರ್ಕದ ಗುಣಮಟ್ಟ</item>
         <item>ಸಂಪರ್ಕ ಗುಣಮಟ್ಟಕ್ಕಾಗಿ ಆಪ್ಟಿಮೈಸ್ ಮಾಡಲಾಗಿದೆ</item>
         <item>ಅತ್ಯುತ್ತಮ ಪ್ರಯತ್ನ (ಹೊಂದಿಸಬಹುದಾದ ಬಿಟ್ ಪ್ರಮಾಣ)</item>
     </string-array>
     <string-array name="bluetooth_a2dp_codec_ldac_playback_quality_titles">
         <item>ಆಡಿಯೋ ಗುಣಮಟ್ಟಕ್ಕಾಗಿ (990kbps/909kbps) ಆಪ್ಟಿಮೈಸ್ ಮಾಡಲಾಗಿದೆ</item>
-        <item>ಸಂತುಲಿತ ಆಡಿಯೊ ಮತ್ತು ಸಂಪರ್ಕದ ಗುಣಮಟ್ಟ (660kbps/606kbps)</item>
+        <item>ಸಂತುಲಿತ ಆಡಿಯೋ ಮತ್ತು ಸಂಪರ್ಕದ ಗುಣಮಟ್ಟ (660kbps/606kbps)</item>
         <item>ಸಂಪರ್ಕದ ಗುಣಮಟ್ಟಕ್ಕಾಗಿ (330kbps/303kbps) ಆಪ್ಟಿಮೈಸ್ ಮಾಡಲಾಗಿದೆ</item>
         <item>ಅತ್ಯುತ್ತಮ ಪ್ರಯತ್ನ (ಹೊಂದಿಸಬಹುದಾದ ಬಿಟ್ ಪ್ರಮಾಣ)</item>
     </string-array>
@@ -260,6 +261,11 @@
         <item>ಆಫ್ ಮಾಡಿ</item>
         <item>ಆನ್ ಮಾಡಿ</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>ಲಭ್ಯವಿಲ್ಲ</item>
+        <item>ಆಫ್ ಮಾಡಿ</item>
+        <item>ಆನ್ ಮಾಡಿ</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>ಲಭ್ಯವಿಲ್ಲ</item>
         <item>ಆಫ್ ಮಾಡಿ</item>
@@ -306,6 +312,16 @@
         <item>ಆನ್ ಮಾಡಿ</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>ಲಭ್ಯವಿಲ್ಲ</item>
+        <item>ಆಫ್ ಮಾಡಿ</item>
+        <item>ಆನ್ ಮಾಡಿ</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>ಲಭ್ಯವಿಲ್ಲ</item>
+        <item>ಆಫ್ ಮಾಡಿ</item>
+        <item>ಆನ್ ಮಾಡಿ</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>ಲಭ್ಯವಿಲ್ಲ</item>
         <item>ಆಫ್ ಮಾಡಿ</item>
         <item>ಆನ್ ಮಾಡಿ</item>
@@ -374,6 +390,12 @@
         <item>ತ್ವರಿತ</item>
         <item>ಅತ್ಯಂತ ತ್ವರಿತ</item>
         <item>ಅತಿ ಕ್ಷಿಪ್ರ</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>ಎಡಕ್ಕೆ ಸರಿಸಿ</item>
+        <item>ಕೆಳಗೆ ಸರಿಸಿ</item>
+        <item>ಬಲಕ್ಕೆ ಸರಿಸಿ</item>
+        <item>ಮೇಲಕ್ಕೆ ಸರಿಸಿ</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>ಚಾರ್ಜ್ ಆಗುತ್ತಿದೆ</item>

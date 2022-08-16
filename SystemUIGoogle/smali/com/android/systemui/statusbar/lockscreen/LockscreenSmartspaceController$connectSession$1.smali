@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$connectSession$1;
+.class public final Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$connectSession$1;
 .super Ljava/lang/Object;
 .source "LockscreenSmartspaceController.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$connectSession$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
@@ -39,9 +39,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$connectSession$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->access$getSession$p(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)Landroid/app/smartspace/SmartspaceSession;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->session:Landroid/app/smartspace/SmartspaceSession;
 
     if-nez p0, :cond_0
 

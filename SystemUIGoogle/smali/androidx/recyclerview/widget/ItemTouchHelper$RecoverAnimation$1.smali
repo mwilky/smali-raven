@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation$1;
+.class public final Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation$1;
 .super Ljava/lang/Object;
 .source "ItemTouchHelper.java"
 
@@ -6,32 +6,13 @@
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;-><init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIFFFF)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;
+.field public final synthetic this$0:Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;)V
+.method public constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation$1;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;
 
@@ -42,16 +23,8 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation$1;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;
 
@@ -59,7 +32,7 @@
 
     move-result p1
 
-    invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->setFraction(F)V
+    iput p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+.class public interface abstract Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 .super Ljava/lang/Object;
 .source "SlideKitkat.java"
 
@@ -9,32 +9,16 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "CalculateSlide"
 .end annotation
 
 
 # virtual methods
 .method public abstract getGone(Landroid/view/View;)F
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getHere(Landroid/view/View;)F
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 .end method
 
 .method public abstract getProperty()Landroid/util/Property;

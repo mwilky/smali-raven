@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/volume/D;
+.class public final Lcom/android/settingslib/volume/D;
 .super Ljava/lang/Object;
 .source "D.java"
 
@@ -8,7 +8,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string/jumbo v0, "volume"

@@ -10,13 +10,13 @@
 .method public abstract setVisible(Z)V
 .end method
 
+.method public abstract transformFrom(FLcom/android/systemui/statusbar/TransformableView;)V
+.end method
+
 .method public abstract transformFrom(Lcom/android/systemui/statusbar/TransformableView;)V
 .end method
 
-.method public abstract transformFrom(Lcom/android/systemui/statusbar/TransformableView;F)V
-.end method
-
-.method public abstract transformTo(Lcom/android/systemui/statusbar/TransformableView;F)V
+.method public abstract transformTo(FLcom/android/systemui/statusbar/TransformableView;)V
 .end method
 
 .method public abstract transformTo(Lcom/android/systemui/statusbar/TransformableView;Ljava/lang/Runnable;)V

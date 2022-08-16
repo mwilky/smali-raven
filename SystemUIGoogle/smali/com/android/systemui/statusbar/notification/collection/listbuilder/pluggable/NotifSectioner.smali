@@ -14,28 +14,28 @@
 
 
 # instance fields
-.field private final mBucket:I
+.field public final mBucket:I
 
 
 # direct methods
-.method protected constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;-><init>(Ljava/lang/String;)V
+    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;-><init>(Ljava/lang/String;)V
 
-    iput p2, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;->mBucket:I
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;->mBucket:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final getBucket()I
+.method public getComparator()Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifComparator;
     .locals 0
 
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;->mBucket:I
+    const/4 p0, 0x0
 
-    return p0
+    return-object p0
 .end method
 
 .method public getHeaderNodeController()Lcom/android/systemui/statusbar/notification/collection/render/NodeController;
@@ -49,16 +49,8 @@
 .method public abstract isInSection(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Z
 .end method
 
-.method public onEntriesUpdated(Ljava/util/List;)V
+.method public onEntriesUpdated(Ljava/util/ArrayList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/collection/ListEntry;",
-            ">;)V"
-        }
-    .end annotation
 
     return-void
 .end method

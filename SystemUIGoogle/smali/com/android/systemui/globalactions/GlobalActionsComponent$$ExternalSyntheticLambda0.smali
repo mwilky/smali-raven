@@ -1,35 +1,38 @@
 .class public final synthetic Lcom/android/systemui/globalactions/GlobalActionsComponent$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Ljava/util/function/Supplier;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/globalactions/GlobalActionsComponent;
+.field public final synthetic f$0:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsComponent;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsComponent$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/globalactions/GlobalActionsComponent;
+    iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsComponent$$ExternalSyntheticLambda0;->f$0:Ljavax/inject/Provider;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsComponent$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/globalactions/GlobalActionsComponent;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsComponent$$ExternalSyntheticLambda0;->f$0:Ljavax/inject/Provider;
 
-    check-cast p1, Lcom/android/systemui/plugins/GlobalActions;
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsComponent;->$r8$lambda$1xiWj4llACQFeadr-Z8c57CyYi4(Lcom/android/systemui/globalactions/GlobalActionsComponent;Lcom/android/systemui/plugins/GlobalActions;)V
+    move-result-object p0
 
-    return-void
+    check-cast p0, Lcom/android/systemui/plugins/GlobalActions;
+
+    return-object p0
 .end method

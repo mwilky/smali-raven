@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary$1;
+.class public final Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary$1;
 .super Ljava/lang/Object;
 .source "PeopleHubNotificationListener.kt"
 
@@ -12,26 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
+        "<T:",
         "Ljava/lang/Object;",
-        "Ljava/util/function/Consumer<",
-        "Lcom/android/systemui/plugins/NotificationPersonExtractorPlugin;",
-        ">;"
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Consumer;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary$1;->this$0:Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;
@@ -43,22 +44,14 @@
 
 
 # virtual methods
-.method public final accept(Lcom/android/systemui/plugins/NotificationPersonExtractorPlugin;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary$1;->this$0:Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;->access$setPlugin$p(Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;Lcom/android/systemui/plugins/NotificationPersonExtractorPlugin;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic accept(Ljava/lang/Object;)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/plugins/NotificationPersonExtractorPlugin;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary$1;->accept(Lcom/android/systemui/plugins/NotificationPersonExtractorPlugin;)V
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary$1;->this$0:Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/people/NotificationPersonExtractorPluginBoundary;->plugin:Lcom/android/systemui/plugins/NotificationPersonExtractorPlugin;
 
     return-void
 .end method

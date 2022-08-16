@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;->getPeopleTypeOfSummary(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)I
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/Lambda;",
@@ -28,11 +19,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl$getPeopleTypeOfSummary$childTypes$1;->this$0:Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;
@@ -46,28 +37,14 @@
 
 
 # virtual methods
-.method public final invoke(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)I
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl$getPeopleTypeOfSummary$childTypes$1;->this$0:Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;
-
-    const-string v0, "it"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;->getPeopleNotificationType(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl$getPeopleTypeOfSummary$childTypes$1;->invoke(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)I
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl$getPeopleTypeOfSummary$childTypes$1;->this$0:Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifierImpl;->getPeopleNotificationType(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)I
 
     move-result p0
 

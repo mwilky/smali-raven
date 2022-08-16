@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "ContextButtonListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onVisibilityChanged(Lcom/android/systemui/navigationbar/buttons/ContextualButton;Z)V
-.end method

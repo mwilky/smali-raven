@@ -30,14 +30,6 @@
 
 
 # virtual methods
-.method public abstract getEncapsulatingTraceProto()Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TS;"
-        }
-    .end annotation
-.end method
-
 .method public abstract getProtoBytes(Ljava/lang/Object;)[B
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,26 +46,12 @@
     .end annotation
 .end method
 
-.method public abstract getTraceFile()Ljava/io/File;
-.end method
-
 .method public abstract serializeEncapsulatingProto(Ljava/lang/Object;Ljava/util/Queue;)[B
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TS;",
             "Ljava/util/Queue<",
             "TT;>;)[B"
-        }
-    .end annotation
-.end method
-
-.method public abstract updateBufferProto(Ljava/lang/Object;Ljava/util/ArrayList;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;",
-            "Ljava/util/ArrayList<",
-            "Lcom/android/systemui/shared/tracing/ProtoTraceable<",
-            "TR;>;>;)TT;"
         }
     .end annotation
 .end method

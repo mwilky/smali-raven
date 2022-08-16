@@ -1,39 +1,23 @@
-.class final Lcom/android/systemui/controls/ui/SelectionItem;
+.class public final Lcom/android/systemui/controls/ui/SelectionItem;
 .super Ljava/lang/Object;
 .source "ControlsUiControllerImpl.kt"
 
 
 # instance fields
-.field private final appName:Ljava/lang/CharSequence;
+.field public final appName:Ljava/lang/CharSequence;
 
-.field private final componentName:Landroid/content/ComponentName;
+.field public final componentName:Landroid/content/ComponentName;
 
-.field private final icon:Landroid/graphics/drawable/Drawable;
+.field public final icon:Landroid/graphics/drawable/Drawable;
 
-.field private final structure:Ljava/lang/CharSequence;
+.field public final structure:Ljava/lang/CharSequence;
 
-.field private final uid:I
+.field public final uid:I
 
 
 # direct methods
 .method public constructor <init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/ComponentName;I)V
-    .locals 1
-
-    const-string v0, "appName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "structure"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "icon"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "componentName"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -50,112 +34,9 @@
     return-void
 .end method
 
-.method public static synthetic copy$default(Lcom/android/systemui/controls/ui/SelectionItem;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/ComponentName;IILjava/lang/Object;)Lcom/android/systemui/controls/ui/SelectionItem;
-    .locals 3
-
-    and-int/lit8 p7, p6, 0x1
-
-    if-eqz p7, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/controls/ui/SelectionItem;->appName:Ljava/lang/CharSequence;
-
-    :cond_0
-    and-int/lit8 p7, p6, 0x2
-
-    if-eqz p7, :cond_1
-
-    iget-object p2, p0, Lcom/android/systemui/controls/ui/SelectionItem;->structure:Ljava/lang/CharSequence;
-
-    :cond_1
-    move-object p7, p2
-
-    and-int/lit8 p2, p6, 0x4
-
-    if-eqz p2, :cond_2
-
-    iget-object p3, p0, Lcom/android/systemui/controls/ui/SelectionItem;->icon:Landroid/graphics/drawable/Drawable;
-
-    :cond_2
-    move-object v0, p3
-
-    and-int/lit8 p2, p6, 0x8
-
-    if-eqz p2, :cond_3
-
-    iget-object p4, p0, Lcom/android/systemui/controls/ui/SelectionItem;->componentName:Landroid/content/ComponentName;
-
-    :cond_3
-    move-object v1, p4
-
-    and-int/lit8 p2, p6, 0x10
-
-    if-eqz p2, :cond_4
-
-    iget p5, p0, Lcom/android/systemui/controls/ui/SelectionItem;->uid:I
-
-    :cond_4
-    move v2, p5
-
-    move-object p2, p0
-
-    move-object p3, p1
-
-    move-object p4, p7
-
-    move-object p5, v0
-
-    move-object p6, v1
-
-    move p7, v2
-
-    invoke-virtual/range {p2 .. p7}, Lcom/android/systemui/controls/ui/SelectionItem;->copy(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/ComponentName;I)Lcom/android/systemui/controls/ui/SelectionItem;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public final copy(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/ComponentName;I)Lcom/android/systemui/controls/ui/SelectionItem;
-    .locals 6
-
-    const-string p0, "appName"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "structure"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "icon"
-
-    invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "componentName"
-
-    invoke-static {p4, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p0, Lcom/android/systemui/controls/ui/SelectionItem;
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move v5, p5
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/controls/ui/SelectionItem;-><init>(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Drawable;Landroid/content/ComponentName;I)V
-
-    return-object p0
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -240,30 +121,6 @@
     return v0
 .end method
 
-.method public final getComponentName()Landroid/content/ComponentName;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->componentName:Landroid/content/ComponentName;
-
-    return-object p0
-.end method
-
-.method public final getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->icon:Landroid/graphics/drawable/Drawable;
-
-    return-object p0
-.end method
-
-.method public final getStructure()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->structure:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
 .method public final getTitle()Ljava/lang/CharSequence;
     .locals 1
 
@@ -296,15 +153,7 @@
     return-object p0
 .end method
 
-.method public final getUid()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->uid:I
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->appName:Ljava/lang/CharSequence;
@@ -321,15 +170,15 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget-object v1, p0, Lcom/android/systemui/controls/ui/SelectionItem;->icon:Landroid/graphics/drawable/Drawable;
+    iget-object v0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->icon:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->hashCode()I
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->hashCode()I
 
-    move-result v1
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -341,9 +190,9 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget p0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->uid:I
 
@@ -351,21 +200,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v1
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "SelectionItem(appName="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "SelectionItem(appName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/controls/ui/SelectionItem;->appName:Ljava/lang/CharSequence;
 
@@ -401,13 +248,9 @@
 
     iget p0, p0, Lcom/android/systemui/controls/ui/SelectionItem;->uid:I
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/core/graphics/Insets$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;IC)Ljava/lang/String;
 
     move-result-object p0
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/model/SysUiState$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -29,7 +30,7 @@
 
     check-cast p1, Lcom/android/systemui/model/SysUiState$SysUiStateCallback;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/model/SysUiState;->$r8$lambda$KFax9YyMU3-i58zdBHJCjXC_Tks(ILcom/android/systemui/model/SysUiState$SysUiStateCallback;)V
+    invoke-interface {p1, p0}, Lcom/android/systemui/model/SysUiState$SysUiStateCallback;->onSystemUiStateChanged(I)V
 
     return-void
 .end method

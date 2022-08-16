@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/SimpleColorFilter;
+.class public final Lcom/airbnb/lottie/SimpleColorFilter;
 .super Landroid/graphics/PorterDuffColorFilter;
 .source "SimpleColorFilter.java"
 

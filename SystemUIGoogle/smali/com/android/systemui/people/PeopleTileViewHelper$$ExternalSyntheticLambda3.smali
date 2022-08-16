@@ -1,21 +1,16 @@
 .class public final synthetic Lcom/android/systemui/people/PeopleTileViewHelper$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/people/PeopleTileViewHelper;
-
-
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/people/PeopleTileViewHelper;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/people/PeopleTileViewHelper$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/people/PeopleTileViewHelper;
 
     return-void
 .end method
@@ -25,13 +20,23 @@
 .method public final test(Ljava/lang/Object;)Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/people/PeopleTileViewHelper$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/people/PeopleTileViewHelper;
-
     check-cast p1, Landroid/app/people/ConversationStatus;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/people/PeopleTileViewHelper;->$r8$lambda$ZEemqe9wBIF2mxVq-yu89jspVxw(Lcom/android/systemui/people/PeopleTileViewHelper;Landroid/app/people/ConversationStatus;)Z
+    invoke-virtual {p1}, Landroid/app/people/ConversationStatus;->getActivity()I
 
     move-result p0
 
+    const/4 p1, 0x3
+
+    if-ne p0, p1, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     return p0
 .end method

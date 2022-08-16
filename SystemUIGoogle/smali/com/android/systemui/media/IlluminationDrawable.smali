@@ -8,7 +8,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nIlluminationDrawable.kt\nKotlin\n*S Kotlin\n*F\n+ 1 IlluminationDrawable.kt\ncom/android/systemui/media/IlluminationDrawable\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,218:1\n1819#2,2:219\n*E\n*S KotlinDebug\n*F\n+ 1 IlluminationDrawable.kt\ncom/android/systemui/media/IlluminationDrawable\n*L\n142#1,2:219\n*E\n"
+    value = "SMAP\nIlluminationDrawable.kt\nKotlin\n*S Kotlin\n*F\n+ 1 IlluminationDrawable.kt\ncom/android/systemui/media/IlluminationDrawable\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,218:1\n1849#2,2:219\n*S KotlinDebug\n*F\n+ 1 IlluminationDrawable.kt\ncom/android/systemui/media/IlluminationDrawable\n*L\n142#1:219,2\n*E\n"
 .end annotation
 
 
@@ -207,7 +207,7 @@
 
     invoke-virtual {v1, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    sget-object v4, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/Interpolator;
+    sget-object v4, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_LINEAR_IN:Landroid/view/animation/PathInterpolator;
 
     invoke-virtual {v1, v4}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -224,8 +224,6 @@
     invoke-virtual {v1, v0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     iput-object v1, p0, Lcom/android/systemui/media/IlluminationDrawable;->backgroundAnimation:Landroid/animation/ValueAnimator;
 
@@ -276,9 +274,9 @@
 .end method
 
 .method private final updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
-    .locals 2
+    .locals 3
 
-    sget v0, Lcom/android/systemui/R$styleable;->IlluminationDrawable_cornerRadius:I
+    const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -292,22 +290,20 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/media/IlluminationDrawable;->cornerRadius:F
-
-    :cond_0
-    sget v0, Lcom/android/systemui/R$styleable;->IlluminationDrawable_highlight:I
-
-    invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->hasValue(I)Z
-
     move-result v1
 
-    if-eqz v1, :cond_1
+    iput v1, p0, Lcom/android/systemui/media/IlluminationDrawable;->cornerRadius:F
 
-    const/4 v1, 0x0
+    :cond_0
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getInteger(II)I
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->hasValue(I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p1, v1, v0}, Landroid/content/res/TypedArray;->getInteger(II)I
 
     move-result p1
 
@@ -328,10 +324,6 @@
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 2
 
-    const-string v0, "t"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->applyTheme(Landroid/content/res/Resources$Theme;)V
 
     iget-object v0, p0, Lcom/android/systemui/media/IlluminationDrawable;->themeAttrs:[I
@@ -346,10 +338,6 @@
     invoke-virtual {p1, v0, v1}, Landroid/content/res/Resources$Theme;->resolveAttributes([I[I)Landroid/content/res/TypedArray;
 
     move-result-object p1
-
-    const-string v0, "a"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/systemui/media/IlluminationDrawable;->updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
 
@@ -393,10 +381,6 @@
 
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 9
-
-    const-string v0, "canvas"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
@@ -482,10 +466,6 @@
 .method public getOutline(Landroid/graphics/Outline;)V
     .locals 1
 
-    const-string v0, "outline"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0
@@ -500,19 +480,7 @@
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 1
-
-    const-string v0, "r"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "parser"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p2, "attrs"
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     sget-object p2, Lcom/android/systemui/R$styleable;->IlluminationDrawable:[I
 
@@ -526,10 +494,6 @@
 
     iput-object p2, p0, Lcom/android/systemui/media/IlluminationDrawable;->themeAttrs:[I
 
-    const-string p2, "a"
-
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-direct {p0, p1}, Lcom/android/systemui/media/IlluminationDrawable;->updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
@@ -540,10 +504,6 @@
 .method public final registerLightSource(Landroid/view/View;)V
     .locals 2
 
-    const-string v0, "lightSource"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-virtual {p1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
@@ -552,13 +512,13 @@
 
     const-string v1, "null cannot be cast to non-null type com.android.systemui.media.LightSourceDrawable"
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    invoke-static {p1, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     check-cast p1, Lcom/android/systemui/media/LightSourceDrawable;
 
@@ -567,25 +527,41 @@
     goto :goto_0
 
     :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    invoke-direct {p0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
     invoke-virtual {p1}, Landroid/view/View;->getForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
     instance-of v0, v0, Lcom/android/systemui/media/LightSourceDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-virtual {p1}, Landroid/view/View;->getForeground()Landroid/graphics/drawable/Drawable;
 
     move-result-object p1
 
-    invoke-static {p1, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_2
 
     check-cast p1, Lcom/android/systemui/media/LightSourceDrawable;
 
     invoke-direct {p0, p1}, Lcom/android/systemui/media/IlluminationDrawable;->registerLightSource(Lcom/android/systemui/media/LightSourceDrawable;)V
 
-    :cond_1
+    goto :goto_0
+
+    :cond_2
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    invoke-direct {p0, v1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_3
     :goto_0
     return-void
 .end method

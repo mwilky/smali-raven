@@ -1,4 +1,4 @@
-.class Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$2;
+.class public final Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$2;
 .super Landroid/database/ContentObserver;
 .source "SliceViewManagerBase.java"
 
@@ -9,28 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
+.field public final synthetic this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;Landroid/os/Handler;)V
+.method public constructor <init>(Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;Landroid/os/Handler;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0
-        }
-        names = {
-            "this$1",
-            "handler"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$2;->this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
@@ -41,20 +31,12 @@
 
 
 # virtual methods
-.method public onChange(Z)V
+.method public final onChange(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "selfChange"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$2;->this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
-    iget-object p0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mUpdateSlice:Ljava/lang/Runnable;
+    iget-object p0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mUpdateSlice:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$1;
 
     invoke-static {p0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 

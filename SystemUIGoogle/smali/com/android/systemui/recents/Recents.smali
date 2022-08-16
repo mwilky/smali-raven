@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/recents/Recents;
-.super Lcom/android/systemui/SystemUI;
+.super Lcom/android/systemui/CoreStartable;
 .source "Recents.java"
 
 # interfaces
@@ -7,16 +7,16 @@
 
 
 # instance fields
-.field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+.field public final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-.field private final mImpl:Lcom/android/systemui/recents/RecentsImplementation;
+.field public final mImpl:Lcom/android/systemui/recents/RecentsImplementation;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/recents/RecentsImplementation;Lcom/android/systemui/statusbar/CommandQueue;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/SystemUI;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/CoreStartable;-><init>(Landroid/content/Context;)V
 
     iput-object p2, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
 
@@ -25,10 +25,79 @@
     return-void
 .end method
 
-.method private isUserSetup()Z
+
+# virtual methods
+.method public final appTransitionFinished(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getDisplayId()I
+
+    move-result v0
+
+    if-ne v0, p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    :cond_0
+    return-void
+.end method
+
+.method public final cancelPreloadRecentApps()V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    return-void
+.end method
+
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    return-void
+.end method
+
+.method public final hideRecentApps(ZZ)V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
+
+    invoke-interface {p0, p1, p2}, Lcom/android/systemui/recents/RecentsImplementation;->hideRecentApps(ZZ)V
+
+    return-void
+.end method
+
+.method public final isUserSetup()Z
     .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -58,31 +127,30 @@
     return v1
 .end method
 
-
-# virtual methods
-.method public appTransitionFinished(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getDisplayId()I
-
-    move-result v0
-
-    if-ne v0, p1, :cond_0
+.method public final onBootCompleted()V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
 
-    invoke-interface {p0}, Lcom/android/systemui/recents/RecentsImplementation;->onAppTransitionFinished()V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    :cond_0
     return-void
 .end method
 
-.method public cancelPreloadRecentApps()V
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    return-void
+.end method
+
+.method public final preloadRecentApps()V
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
+    invoke-virtual {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
 
     move-result v0
 
@@ -93,83 +161,15 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
 
-    invoke-interface {p0}, Lcom/android/systemui/recents/RecentsImplementation;->cancelPreloadRecentApps()V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-void
 .end method
 
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
-
-    invoke-interface {p0, p2}, Lcom/android/systemui/recents/RecentsImplementation;->dump(Ljava/io/PrintWriter;)V
-
-    return-void
-.end method
-
-.method public hideRecentApps(ZZ)V
+.method public final showRecentApps(Z)V
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
-
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/recents/RecentsImplementation;->hideRecentApps(ZZ)V
-
-    return-void
-.end method
-
-.method public onBootCompleted()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
-
-    invoke-interface {p0}, Lcom/android/systemui/recents/RecentsImplementation;->onBootCompleted()V
-
-    return-void
-.end method
-
-.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/recents/RecentsImplementation;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    return-void
-.end method
-
-.method public preloadRecentApps()V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
-
-    invoke-interface {p0}, Lcom/android/systemui/recents/RecentsImplementation;->preloadRecentApps()V
-
-    return-void
-.end method
-
-.method public showRecentApps(Z)V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
+    invoke-virtual {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
 
     move-result v0
 
@@ -185,26 +185,24 @@
     return-void
 .end method
 
-.method public start()V
+.method public final start()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/recents/Recents;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/CommandQueue;->addCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
 
-    iget-object v0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
+    iget-object p0, p0, Lcom/android/systemui/recents/Recents;->mImpl:Lcom/android/systemui/recents/RecentsImplementation;
 
-    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/recents/RecentsImplementation;->onStart(Landroid/content/Context;)V
+    invoke-interface {p0}, Lcom/android/systemui/recents/RecentsImplementation;->onStart()V
 
     return-void
 .end method
 
-.method public toggleRecentApps()V
+.method public final toggleRecentApps()V
     .locals 1
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
+    invoke-virtual {p0}, Lcom/android/systemui/recents/Recents;->isUserSetup()Z
 
     move-result v0
 

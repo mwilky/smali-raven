@@ -21,29 +21,13 @@
 .method public abstract addFavorite(Landroid/content/ComponentName;Ljava/lang/CharSequence;Lcom/android/systemui/controls/controller/ControlInfo;)V
 .end method
 
-.method public abstract addSeedingFavoritesCallback(Ljava/util/function/Consumer;)Z
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Boolean;",
-            ">;)Z"
-        }
-    .end annotation
+.method public abstract addSeedingFavoritesCallback(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;)Z
 .end method
 
 .method public abstract countFavoritesForComponent(Landroid/content/ComponentName;)I
 .end method
 
-.method public abstract getFavorites()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/StructureInfo;",
-            ">;"
-        }
-    .end annotation
+.method public abstract getFavorites()Ljava/util/ArrayList;
 .end method
 
 .method public abstract getFavoritesForComponent(Landroid/content/ComponentName;)Ljava/util/List;

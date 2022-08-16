@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final biometricUnlockControllerProvider:Ljavax/inject/Provider;
+.field public final biometricUnlockControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,9 +48,29 @@
     .end annotation
 .end field
 
+.field public final deviceConfigProxyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/DeviceConfigProxy;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mainExecutorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,6 +83,12 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/DeviceConfigProxy;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
             ">;)V"
         }
     .end annotation
@@ -75,48 +101,17 @@
 
     iput-object p3, p0, Lcom/android/systemui/LatencyTester_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
+    iput-object p4, p0, Lcom/android/systemui/LatencyTester_Factory;->deviceConfigProxyProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/LatencyTester_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/LatencyTester_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            ">;)",
-            "Lcom/android/systemui/LatencyTester_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/LatencyTester_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/LatencyTester_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/broadcast/BroadcastDispatcher;)Lcom/android/systemui/LatencyTester;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/LatencyTester;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/LatencyTester;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/LatencyTester;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/LatencyTester_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -124,37 +119,55 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/content/Context;
+    move-object v2, v0
 
-    iget-object v1, p0, Lcom/android/systemui/LatencyTester_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
+    check-cast v2, Landroid/content/Context;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/LatencyTester_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
+    move-result-object v0
 
-    iget-object p0, p0, Lcom/android/systemui/LatencyTester_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
+
+    iget-object v0, p0, Lcom/android/systemui/LatencyTester_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    iget-object v0, p0, Lcom/android/systemui/LatencyTester_Factory;->deviceConfigProxyProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/systemui/util/DeviceConfigProxy;
+
+    iget-object p0, p0, Lcom/android/systemui/LatencyTester_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    move-object v6, p0
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/LatencyTester_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/broadcast/BroadcastDispatcher;)Lcom/android/systemui/LatencyTester;
+    check-cast v6, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    move-result-object p0
+    new-instance p0, Lcom/android/systemui/LatencyTester;
 
-    return-object p0
-.end method
+    move-object v1, p0
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/LatencyTester_Factory;->get()Lcom/android/systemui/LatencyTester;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/LatencyTester;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/util/concurrency/DelayableExecutor;)V
 
     return-object p0
 .end method

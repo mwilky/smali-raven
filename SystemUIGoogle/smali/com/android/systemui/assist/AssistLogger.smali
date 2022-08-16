@@ -3,18 +3,8 @@
 .source "AssistLogger.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/assist/AssistLogger$Companion;
-    }
-.end annotation
-
-
 # static fields
-.field public static final Companion:Lcom/android/systemui/assist/AssistLogger$Companion;
-
-.field private static final SESSION_END_EVENTS:Ljava/util/Set;
+.field public static final SESSION_END_EVENTS:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -26,30 +16,22 @@
 
 
 # instance fields
-.field private final assistUtils:Lcom/android/internal/app/AssistUtils;
+.field public final assistUtils:Lcom/android/internal/app/AssistUtils;
 
-.field private final context:Landroid/content/Context;
+.field public final context:Landroid/content/Context;
 
-.field private currentInstanceId:Lcom/android/internal/logging/InstanceId;
+.field public currentInstanceId:Lcom/android/internal/logging/InstanceId;
 
-.field private final instanceIdSequence:Lcom/android/internal/logging/InstanceIdSequence;
+.field public final instanceIdSequence:Lcom/android/internal/logging/InstanceIdSequence;
 
-.field private final phoneStateMonitor:Lcom/android/systemui/assist/PhoneStateMonitor;
+.field public final phoneStateMonitor:Lcom/android/systemui/assist/PhoneStateMonitor;
 
-.field private final uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
-
-    new-instance v0, Lcom/android/systemui/assist/AssistLogger$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/assist/AssistLogger$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/assist/AssistLogger;->Companion:Lcom/android/systemui/assist/AssistLogger$Companion;
 
     const/4 v0, 0x2
 
@@ -67,7 +49,7 @@
 
     aput-object v1, v0, v2
 
-    invoke-static {v0}, Lkotlin/collections/SetsKt;->setOf([Ljava/lang/Object;)Ljava/util/Set;
+    invoke-static {v0}, Landroidx/preference/R$drawable;->setOf([Ljava/lang/Object;)Ljava/util/Set;
 
     move-result-object v0
 
@@ -77,23 +59,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/assist/PhoneStateMonitor;)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "uiEventLogger"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "assistUtils"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "phoneStateMonitor"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -118,250 +84,451 @@
 
 
 # virtual methods
-.method protected final clearInstanceId()V
-    .locals 1
+.method public final reportAssistantInvocationEventFromLegacy(IZLandroid/content/ComponentName;Ljava/lang/Integer;)V
+    .locals 23
 
-    const/4 v0, 0x0
+    move-object/from16 v1, p0
 
-    iput-object v0, p0, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
+    move/from16 v0, p1
 
-    return-void
-.end method
+    const/4 v2, 0x0
 
-.method protected final getAssistantComponentForCurrentUser()Landroid/content/ComponentName;
-    .locals 1
+    const/16 v4, 0x9
 
-    iget-object p0, p0, Lcom/android/systemui/assist/AssistLogger;->assistUtils:Lcom/android/internal/app/AssistUtils;
+    const/16 v5, 0x8
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+    const/4 v6, 0x7
 
-    move-result v0
+    const/4 v7, 0x6
 
-    invoke-virtual {p0, v0}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
+    const/4 v8, 0x5
 
-    move-result-object p0
+    const/4 v9, 0x4
 
-    const-string v0, "assistUtils.getAssistComponentForUser(KeyguardUpdateMonitor.getCurrentUser())"
+    const/4 v10, 0x3
 
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v11, 0x2
 
-    return-object p0
-.end method
+    const/4 v12, 0x1
 
-.method protected final getAssistantUid(Landroid/content/ComponentName;)I
-    .locals 2
+    if-nez p4, :cond_0
 
-    const-string v0, "assistantComponent"
+    const/4 v13, 0x0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    goto :goto_1
 
-    const/4 v0, 0x0
+    :cond_0
+    invoke-virtual/range {p4 .. p4}, Ljava/lang/Integer;->intValue()I
 
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/assist/AssistLogger;->context:Landroid/content/Context;
+    move-result v13
 
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    packed-switch v13, :pswitch_data_0
 
-    move-result-object p0
-
-    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object p0
-
-    iget v0, p0, Landroid/content/pm/ApplicationInfo;->uid:I
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    move v13, v2
 
     goto :goto_0
 
-    :catch_0
-    move-exception p0
+    :pswitch_0
+    const/16 v13, 0xa
 
-    const-string p1, "AssistLogger"
+    goto :goto_0
 
-    const-string v1, "Unable to find Assistant UID"
+    :pswitch_1
+    move v13, v4
 
-    invoke-static {p1, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    goto :goto_0
+
+    :pswitch_2
+    move v13, v5
+
+    goto :goto_0
+
+    :pswitch_3
+    move v13, v6
+
+    goto :goto_0
+
+    :pswitch_4
+    move v13, v7
+
+    goto :goto_0
+
+    :pswitch_5
+    move v13, v8
+
+    goto :goto_0
+
+    :pswitch_6
+    move v13, v9
+
+    goto :goto_0
+
+    :pswitch_7
+    move v13, v10
+
+    goto :goto_0
+
+    :pswitch_8
+    move v13, v11
+
+    goto :goto_0
+
+    :pswitch_9
+    move v13, v12
 
     :goto_0
-    return v0
-.end method
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-.method protected final getOrCreateInstanceId()Lcom/android/internal/logging/InstanceId;
-    .locals 1
+    move-result-object v13
 
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
+    :goto_1
+    if-eqz p2, :cond_1
 
-    if-nez v0, :cond_0
+    packed-switch v0, :pswitch_data_1
 
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistLogger;->instanceIdSequence:Lcom/android/internal/logging/InstanceIdSequence;
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_UNKNOWN:Lcom/android/systemui/assist/AssistantInvocationEvent;
 
-    invoke-virtual {v0}, Lcom/android/internal/logging/InstanceIdSequence;->newInstanceId()Lcom/android/internal/logging/InstanceId;
+    goto :goto_2
+
+    :pswitch_a
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_POWER_LONG_PRESS:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :pswitch_b
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_HOME_LONG_PRESS:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :pswitch_c
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_QUICK_SEARCH_BAR:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :pswitch_d
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_HOTWORD:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :pswitch_e
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_PHYSICAL_GESTURE:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :pswitch_f
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_TOUCH_GESTURE:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :cond_1
+    if-eq v0, v12, :cond_3
+
+    if-eq v0, v11, :cond_2
+
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_START_UNKNOWN:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :cond_2
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_START_PHYSICAL_GESTURE:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    goto :goto_2
+
+    :cond_3
+    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_START_TOUCH_GESTURE:Lcom/android/systemui/assist/AssistantInvocationEvent;
+
+    :goto_2
+    move-object v14, v0
+
+    if-nez p3, :cond_4
+
+    iget-object v0, v1, Lcom/android/systemui/assist/AssistLogger;->assistUtils:Lcom/android/internal/app/AssistUtils;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v15
+
+    invoke-virtual {v0, v15}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
 
     move-result-object v0
 
-    :cond_0
-    iput-object v0, p0, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
+    move-object v15, v0
 
-    const-string p0, "instanceId"
+    goto :goto_3
 
-    invoke-static {v0, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    :cond_4
+    move-object/from16 v15, p3
 
-    return-object v0
-.end method
+    :goto_3
+    :try_start_0
+    iget-object v0, v1, Lcom/android/systemui/assist/AssistLogger;->context:Landroid/content/Context;
 
-.method public final reportAssistantInvocationEvent(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;Landroid/content/ComponentName;Ljava/lang/Integer;)V
-    .locals 7
+    invoke-virtual {v0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    const-string v0, "invocationEvent"
+    move-result-object v0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v15}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    if-nez p2, :cond_0
+    move-result-object v3
 
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistLogger;->getAssistantComponentForCurrentUser()Landroid/content/ComponentName;
+    invoke-virtual {v0, v3, v2}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    move-result-object p2
+    move-result-object v0
 
-    :cond_0
-    invoke-virtual {p0, p2}, Lcom/android/systemui/assist/AssistLogger;->getAssistantUid(Landroid/content/ComponentName;)I
+    iget v0, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v2
+    move/from16 v18, v0
 
-    if-nez p3, :cond_1
+    goto :goto_4
 
-    sget-object p3, Lcom/android/systemui/assist/AssistantInvocationEvent;->Companion:Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;
+    :catch_0
+    move-exception v0
 
-    iget-object v0, p0, Lcom/android/systemui/assist/AssistLogger;->phoneStateMonitor:Lcom/android/systemui/assist/PhoneStateMonitor;
+    const-string v3, "AssistLogger"
+
+    const-string v2, "Unable to find Assistant UID"
+
+    invoke-static {v3, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/16 v18, 0x0
+
+    :goto_4
+    if-nez v13, :cond_5
+
+    iget-object v0, v1, Lcom/android/systemui/assist/AssistLogger;->phoneStateMonitor:Lcom/android/systemui/assist/PhoneStateMonitor;
 
     invoke-virtual {v0}, Lcom/android/systemui/assist/PhoneStateMonitor;->getPhoneState()I
 
     move-result v0
 
-    invoke-virtual {p3, v0}, Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;->deviceStateFromLegacyDeviceState(I)I
+    packed-switch v0, :pswitch_data_2
 
-    move-result p3
+    const/4 v2, 0x0
 
-    goto :goto_0
+    goto :goto_5
 
-    :cond_1
-    invoke-virtual {p3}, Ljava/lang/Integer;->intValue()I
+    :pswitch_10
+    const/16 v21, 0xa
 
-    move-result p3
+    goto :goto_6
 
-    :goto_0
-    move v5, p3
+    :pswitch_11
+    move/from16 v21, v4
 
-    const/16 v0, 0x119
+    goto :goto_6
 
-    invoke-interface {p1}, Lcom/android/internal/logging/UiEventLogger$UiEventEnum;->getId()I
+    :pswitch_12
+    move/from16 v21, v5
 
-    move-result v1
+    goto :goto_6
 
-    invoke-virtual {p2}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+    :pswitch_13
+    move/from16 v21, v6
 
-    move-result-object v3
+    goto :goto_6
 
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistLogger;->getOrCreateInstanceId()Lcom/android/internal/logging/InstanceId;
+    :pswitch_14
+    move/from16 v21, v7
 
-    move-result-object p1
+    goto :goto_6
 
-    invoke-virtual {p1}, Lcom/android/internal/logging/InstanceId;->getId()I
+    :pswitch_15
+    move/from16 v21, v8
 
-    move-result v4
+    goto :goto_6
 
-    const/4 v6, 0x0
+    :pswitch_16
+    move/from16 v21, v9
 
-    invoke-static/range {v0 .. v6}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIILjava/lang/String;IIZ)V
+    goto :goto_6
 
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistLogger;->reportAssistantInvocationExtraData()V
+    :pswitch_17
+    move/from16 v21, v10
+
+    goto :goto_6
+
+    :pswitch_18
+    move/from16 v21, v11
+
+    goto :goto_6
+
+    :pswitch_19
+    move/from16 v21, v12
+
+    goto :goto_6
+
+    :cond_5
+    invoke-virtual {v13}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    :goto_5
+    move/from16 v21, v2
+
+    :goto_6
+    const/16 v16, 0x119
+
+    invoke-virtual {v14}, Lcom/android/systemui/assist/AssistantInvocationEvent;->getId()I
+
+    move-result v17
+
+    invoke-virtual {v15}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
+
+    move-result-object v19
+
+    iget-object v0, v1, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
+
+    if-nez v0, :cond_6
+
+    iget-object v0, v1, Lcom/android/systemui/assist/AssistLogger;->instanceIdSequence:Lcom/android/internal/logging/InstanceIdSequence;
+
+    invoke-virtual {v0}, Lcom/android/internal/logging/InstanceIdSequence;->newInstanceId()Lcom/android/internal/logging/InstanceId;
+
+    move-result-object v0
+
+    :cond_6
+    iput-object v0, v1, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
+
+    invoke-virtual {v0}, Lcom/android/internal/logging/InstanceId;->getId()I
+
+    move-result v20
+
+    const/16 v22, 0x0
+
+    invoke-static/range {v16 .. v22}, Lcom/android/internal/util/FrameworkStatsLog;->write(IIILjava/lang/String;IIZ)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/assist/AssistLogger;->reportAssistantInvocationExtraData()V
 
     return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x1
+        :pswitch_f
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_a
+    .end packed-switch
+
+    :pswitch_data_2
+    .packed-switch 0x1
+        :pswitch_19
+        :pswitch_18
+        :pswitch_17
+        :pswitch_16
+        :pswitch_15
+        :pswitch_14
+        :pswitch_13
+        :pswitch_12
+        :pswitch_11
+        :pswitch_10
+    .end packed-switch
 .end method
 
-.method public final reportAssistantInvocationEventFromLegacy(IZLandroid/content/ComponentName;Ljava/lang/Integer;)V
-    .locals 1
-
-    if-nez p4, :cond_0
-
-    const/4 p4, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->Companion:Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;
-
-    invoke-virtual {p4}, Ljava/lang/Integer;->intValue()I
-
-    move-result p4
-
-    invoke-virtual {v0, p4}, Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;->deviceStateFromLegacyDeviceState(I)I
-
-    move-result p4
-
-    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p4
-
-    :goto_0
-    sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->Companion:Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;->eventFromLegacyInvocationType(IZ)Lcom/android/systemui/assist/AssistantInvocationEvent;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1, p3, p4}, Lcom/android/systemui/assist/AssistLogger;->reportAssistantInvocationEvent(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;Landroid/content/ComponentName;Ljava/lang/Integer;)V
-
-    return-void
-.end method
-
-.method protected reportAssistantInvocationExtraData()V
+.method public reportAssistantInvocationExtraData()V
     .locals 0
 
     return-void
 .end method
 
 .method public final reportAssistantSessionEvent(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
-    .locals 4
+    .locals 5
 
-    const-string v0, "sessionEvent"
+    iget-object v0, p0, Lcom/android/systemui/assist/AssistLogger;->assistUtils:Lcom/android/internal/app/AssistUtils;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistLogger;->getAssistantComponentForCurrentUser()Landroid/content/ComponentName;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/assist/AssistLogger;->getAssistantUid(Landroid/content/ComponentName;)I
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
     move-result v1
 
+    invoke-virtual {v0, v1}, Lcom/android/internal/app/AssistUtils;->getAssistComponentForUser(I)Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v2, p0, Lcom/android/systemui/assist/AssistLogger;->context:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v2
+
+    iget v1, v2, Landroid/content/pm/ApplicationInfo;->uid:I
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    const-string v3, "AssistLogger"
+
+    const-string v4, "Unable to find Assistant UID"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
     iget-object v2, p0, Lcom/android/systemui/assist/AssistLogger;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     invoke-virtual {v0}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistLogger;->getOrCreateInstanceId()Lcom/android/internal/logging/InstanceId;
+    iget-object v3, p0, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
+
+    if-nez v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/assist/AssistLogger;->instanceIdSequence:Lcom/android/internal/logging/InstanceIdSequence;
+
+    invoke-virtual {v3}, Lcom/android/internal/logging/InstanceIdSequence;->newInstanceId()Lcom/android/internal/logging/InstanceId;
 
     move-result-object v3
+
+    :cond_0
+    iput-object v3, p0, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
 
     invoke-interface {v2, p1, v1, v0, v3}, Lcom/android/internal/logging/UiEventLogger;->logWithInstanceId(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;Lcom/android/internal/logging/InstanceId;)V
 
     sget-object v0, Lcom/android/systemui/assist/AssistLogger;->SESSION_END_EVENTS:Ljava/util/Set;
 
-    invoke-static {v0, p1}, Lkotlin/collections/CollectionsKt;->contains(Ljava/lang/Iterable;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->contains(Ljava/lang/Iterable;Ljava/lang/Object;)Z
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistLogger;->clearInstanceId()V
+    const/4 p1, 0x0
 
-    :cond_0
+    iput-object p1, p0, Lcom/android/systemui/assist/AssistLogger;->currentInstanceId:Lcom/android/internal/logging/InstanceId;
+
+    :cond_1
     return-void
 .end method

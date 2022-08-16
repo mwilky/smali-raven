@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final bypassControllerProvider:Ljavax/inject/Provider;
+.field public final bypassControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,11 +38,31 @@
     .end annotation
 .end field
 
-.field private final sectionProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dump/DumpManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final sectionProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
             ">;"
         }
     .end annotation
@@ -50,73 +70,28 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager_Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->sectionProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->bypassControllerProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->sectionProvider:Ljavax/inject/Provider;
+
+    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->bypassControllerProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;)Lcom/android/systemui/statusbar/notification/stack/AmbientState;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/stack/AmbientState;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -124,37 +99,55 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/content/Context;
+    move-object v2, v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->sectionProvider:Ljavax/inject/Provider;
+    check-cast v2, Landroid/content/Context;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
+    move-result-object v0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->bypassControllerProvider:Ljavax/inject/Provider;
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->sectionProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->bypassControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;
+    move-object v6, p0
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;)Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+    check-cast v6, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    move-result-object p0
+    new-instance p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 
-    return-object p0
-.end method
+    move-object v1, p0
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState_Factory;->get()Lcom/android/systemui/statusbar/notification/stack/AmbientState;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;-><init>(Landroid/content/Context;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
 
     return-object p0
 .end method

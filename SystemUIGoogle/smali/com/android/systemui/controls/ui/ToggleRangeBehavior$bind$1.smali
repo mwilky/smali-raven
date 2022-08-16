@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
@@ -31,16 +31,8 @@
 
 
 # virtual methods
-.method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
+.method public final onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 7
-
-    const-string v0, "host"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "info"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-super {p0, p1, p2}, Landroid/view/View$AccessibilityDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
@@ -48,7 +40,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->access$levelToRangeValue(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;I)F
+    invoke-virtual {p1, v0}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->levelToRangeValue(I)F
 
     move-result p1
 
@@ -62,7 +54,7 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->access$levelToRangeValue(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;I)F
+    invoke-virtual {v1, v2}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->levelToRangeValue(I)F
 
     move-result v1
 
@@ -70,7 +62,7 @@
 
     const/16 v3, 0x2710
 
-    invoke-static {v2, v3}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->access$levelToRangeValue(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;I)F
+    invoke-virtual {v2, v3}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->levelToRangeValue(I)F
 
     move-result v2
 
@@ -103,9 +95,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked()Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked:Z
 
     if-eqz p0, :cond_1
 
@@ -123,32 +113,16 @@
     return-void
 .end method
 
-.method public onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+.method public final onRequestSendAccessibilityEvent(Landroid/view/ViewGroup;Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 0
-
-    const-string p0, "host"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "child"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "event"
-
-    invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     const/4 p0, 0x1
 
     return p0
 .end method
 
-.method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
-    .locals 6
-
-    const-string v0, "host"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
+    .locals 7
 
     const/4 v0, 0x0
 
@@ -160,28 +134,18 @@
 
     iget-object v2, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-virtual {v2}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isToggleable()Z
+    iget-boolean v3, v2, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isToggleable:Z
 
-    move-result v2
+    if-nez v3, :cond_0
 
-    if-nez v2, :cond_1
+    goto/16 :goto_2
 
     :cond_0
-    :goto_0
-    move v2, v0
-
-    goto :goto_2
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
-
     invoke-virtual {v2}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getCvh()Lcom/android/systemui/controls/ui/ControlViewHolder;
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getControlActionCoordinator()Lcom/android/systemui/controls/ui/ControlActionCoordinator;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/controls/ui/ControlViewHolder;->controlActionCoordinator:Lcom/android/systemui/controls/ui/ControlActionCoordinator;
 
     iget-object v3, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
@@ -191,17 +155,19 @@
 
     iget-object v4, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-virtual {v4}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getTemplateId()Ljava/lang/String;
+    iget-object v5, v4, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->templateId:Ljava/lang/String;
 
-    move-result-object v4
+    if-eqz v5, :cond_1
 
-    iget-object v5, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
+    goto :goto_0
 
-    invoke-virtual {v5}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked()Z
+    :cond_1
+    const/4 v5, 0x0
 
-    move-result v5
+    :goto_0
+    iget-boolean v4, v4, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked:Z
 
-    invoke-interface {v2, v3, v4, v5}, Lcom/android/systemui/controls/ui/ControlActionCoordinator;->toggle(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Z)V
+    invoke-interface {v2, v3, v5, v4}, Lcom/android/systemui/controls/ui/ControlActionCoordinator;->toggle(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Z)V
 
     goto :goto_1
 
@@ -216,9 +182,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getControlActionCoordinator()Lcom/android/systemui/controls/ui/ControlActionCoordinator;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/controls/ui/ControlViewHolder;->controlActionCoordinator:Lcom/android/systemui/controls/ui/ControlActionCoordinator;
 
     iget-object v3, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
@@ -228,10 +192,7 @@
 
     invoke-interface {v2, v3}, Lcom/android/systemui/controls/ui/ControlActionCoordinator;->longPress(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
 
-    :goto_1
-    move v2, v1
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_3
     sget-object v2, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_SET_PROGRESS:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
@@ -240,9 +201,9 @@
 
     move-result v2
 
-    if-ne p2, v2, :cond_0
+    if-ne p2, v2, :cond_5
 
-    if-eqz p3, :cond_0
+    if-eqz p3, :cond_5
 
     const-string v2, "android.view.accessibility.action.ARGUMENT_PROGRESS_VALUE"
 
@@ -252,7 +213,7 @@
 
     if-nez v3, :cond_4
 
-    goto :goto_0
+    goto :goto_2
 
     :cond_4
     invoke-virtual {p3, v2}, Landroid/os/Bundle;->getFloat(Ljava/lang/String;)F
@@ -261,15 +222,35 @@
 
     iget-object v3, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-static {v3, v2}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->access$rangeToLevelValue(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;F)I
+    invoke-virtual {v3}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getRangeTemplate()Landroid/service/controls/templates/RangeTemplate;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/service/controls/templates/RangeTemplate;->getMinValue()F
+
+    move-result v4
+
+    invoke-virtual {v3}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->getRangeTemplate()Landroid/service/controls/templates/RangeTemplate;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/service/controls/templates/RangeTemplate;->getMaxValue()F
+
+    move-result v3
+
+    const/4 v5, 0x0
+
+    const v6, 0x461c4000    # 10000.0f
+
+    invoke-static {v5, v6, v4, v3, v2}, Landroid/util/MathUtils;->constrainedMap(FFFFF)F
 
     move-result v2
 
+    float-to-int v2, v2
+
     iget-object v3, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
-    invoke-virtual {v3}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked()Z
-
-    move-result v4
+    iget-boolean v4, v3, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->isChecked:Z
 
     invoke-virtual {v3, v2, v4, v1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->updateRange(IZZ)V
 
@@ -277,20 +258,27 @@
 
     invoke-virtual {v2}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->endUpdateRange()V
 
-    goto :goto_1
+    :goto_1
+    move v2, v1
 
+    goto :goto_3
+
+    :cond_5
     :goto_2
-    if-nez v2, :cond_5
+    move v2, v0
+
+    :goto_3
+    if-nez v2, :cond_6
 
     invoke-super {p0, p1, p2, p3}, Landroid/view/View$AccessibilityDelegate;->performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_6
-
-    :cond_5
-    move v0, v1
+    if-eqz p0, :cond_7
 
     :cond_6
+    move v0, v1
+
+    :cond_7
     return v0
 .end method

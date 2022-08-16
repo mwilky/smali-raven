@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaDataManager$dismissMediaData$2;
+.class public final Lcom/android/systemui/media/MediaDataManager$dismissMediaData$2;
 .super Ljava/lang/Object;
 .source "MediaDataManager.kt"
 
@@ -6,25 +6,14 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaDataManager;->dismissMediaData(Ljava/lang/String;J)Z
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $key:Ljava/lang/String;
+.field public final synthetic $key:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDataManager;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDataManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaDataManager$dismissMediaData$2;->this$0:Lcom/android/systemui/media/MediaDataManager;
@@ -39,13 +28,41 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDataManager$dismissMediaData$2;->this$0:Lcom/android/systemui/media/MediaDataManager;
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager$dismissMediaData$2;->$key:Ljava/lang/String;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/media/MediaDataManager;->access$removeEntry(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;)V
+    iget-object v1, v0, Lcom/android/systemui/media/MediaDataManager;->mediaEntries:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {v1, p0}, Ljava/util/LinkedHashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/media/MediaData;
+
+    if-nez v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v2, v0, Lcom/android/systemui/media/MediaDataManager;->logger:Lcom/android/systemui/media/MediaUiEventLogger;
+
+    iget v3, v1, Lcom/android/systemui/media/MediaData;->appUid:I
+
+    iget-object v4, v1, Lcom/android/systemui/media/MediaData;->packageName:Ljava/lang/String;
+
+    iget-object v1, v1, Lcom/android/systemui/media/MediaData;->instanceId:Lcom/android/internal/logging/InstanceId;
+
+    iget-object v2, v2, Lcom/android/systemui/media/MediaUiEventLogger;->logger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v5, Lcom/android/systemui/media/MediaUiEvent;->MEDIA_REMOVED:Lcom/android/systemui/media/MediaUiEvent;
+
+    invoke-interface {v2, v5, v3, v4, v1}, Lcom/android/internal/logging/UiEventLogger;->logWithInstanceId(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;Lcom/android/internal/logging/InstanceId;)V
+
+    :goto_0
+    invoke-virtual {v0, p0}, Lcom/android/systemui/media/MediaDataManager;->notifyMediaDataRemoved(Ljava/lang/String;)V
 
     return-void
 .end method

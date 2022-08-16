@@ -12,18 +12,14 @@
 
 
 # instance fields
-.field private darkColor:Lcom/android/systemui/DualToneHandler$Color;
+.field public darkColor:Lcom/android/systemui/DualToneHandler$Color;
 
-.field private lightColor:Lcom/android/systemui/DualToneHandler$Color;
+.field public lightColor:Lcom/android/systemui/DualToneHandler$Color;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -32,28 +28,26 @@
     return-void
 .end method
 
-.method private final getColorForDarkIntensity(FII)I
-    .locals 0
+.method public static getColorForDarkIntensity(FII)I
+    .locals 1
 
     invoke-static {}, Landroid/animation/ArgbEvaluator;->getInstance()Landroid/animation/ArgbEvaluator;
 
-    move-result-object p0
+    move-result-object v0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p2
 
-    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p3
-
-    invoke-virtual {p0, p1, p2, p3}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0, p1, p2}, Landroid/animation/ArgbEvaluator;->evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
-    const-string p1, "null cannot be cast to non-null type kotlin.Int"
-
-    invoke-static {p0, p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p0, :cond_0
 
     check-cast p0, Ljava/lang/Integer;
 
@@ -62,146 +56,58 @@
     move-result p0
 
     return p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Int"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 
 # virtual methods
-.method public final getBackgroundColor(F)I
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/DualToneHandler;->lightColor:Lcom/android/systemui/DualToneHandler$Color;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Lcom/android/systemui/DualToneHandler$Color;->getBackground()I
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/android/systemui/DualToneHandler;->darkColor:Lcom/android/systemui/DualToneHandler$Color;
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/systemui/DualToneHandler$Color;->getBackground()I
-
-    move-result v1
-
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/DualToneHandler;->getColorForDarkIntensity(FII)I
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    const-string p0, "darkColor"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_1
-    const-string p0, "lightColor"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-.end method
-
-.method public final getFillColor(F)I
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/DualToneHandler;->lightColor:Lcom/android/systemui/DualToneHandler$Color;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Lcom/android/systemui/DualToneHandler$Color;->getFill()I
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/android/systemui/DualToneHandler;->darkColor:Lcom/android/systemui/DualToneHandler$Color;
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/systemui/DualToneHandler$Color;->getFill()I
-
-    move-result v1
-
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/DualToneHandler;->getColorForDarkIntensity(FII)I
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    const-string p0, "darkColor"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_1
-    const-string p0, "lightColor"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-.end method
-
 .method public final getSingleColor(F)I
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/DualToneHandler;->lightColor:Lcom/android/systemui/DualToneHandler$Color;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/systemui/DualToneHandler$Color;->getSingle()I
+    move-object v0, v1
 
-    move-result v0
+    :cond_0
+    iget v0, v0, Lcom/android/systemui/DualToneHandler$Color;->single:I
 
-    iget-object v2, p0, Lcom/android/systemui/DualToneHandler;->darkColor:Lcom/android/systemui/DualToneHandler$Color;
+    iget-object p0, p0, Lcom/android/systemui/DualToneHandler;->darkColor:Lcom/android/systemui/DualToneHandler$Color;
 
-    if-eqz v2, :cond_0
+    if-nez p0, :cond_1
 
-    invoke-virtual {v2}, Lcom/android/systemui/DualToneHandler$Color;->getSingle()I
+    goto :goto_0
 
-    move-result v1
+    :cond_1
+    move-object v1, p0
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/DualToneHandler;->getColorForDarkIntensity(FII)I
+    :goto_0
+    iget p0, v1, Lcom/android/systemui/DualToneHandler$Color;->single:I
+
+    invoke-static {p1, v0, p0}, Lcom/android/systemui/DualToneHandler;->getColorForDarkIntensity(FII)I
 
     move-result p0
 
     return p0
-
-    :cond_0
-    const-string p0, "darkColor"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
-    :cond_1
-    const-string p0, "lightColor"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
 .end method
 
 .method public final setColorsFromContext(Landroid/content/Context;)V
     .locals 7
 
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    sget v1, Lcom/android/systemui/R$attr;->darkIconTheme:I
+    const v1, 0x7f040153
 
     invoke-static {p1, v1}, Lcom/android/settingslib/Utils;->getThemeAttr(Landroid/content/Context;I)I
 
@@ -211,7 +117,7 @@
 
     new-instance v1, Landroid/view/ContextThemeWrapper;
 
-    sget v2, Lcom/android/systemui/R$attr;->lightIconTheme:I
+    const v2, 0x7f040318
 
     invoke-static {p1, v2}, Lcom/android/settingslib/Utils;->getThemeAttr(Landroid/content/Context;I)I
 
@@ -221,19 +127,19 @@
 
     new-instance p1, Lcom/android/systemui/DualToneHandler$Color;
 
-    sget v2, Lcom/android/systemui/R$attr;->singleToneColor:I
+    const v2, 0x7f040493
 
     invoke-static {v0, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
     move-result v3
 
-    sget v4, Lcom/android/systemui/R$attr;->backgroundColor:I
+    const v4, 0x7f04027e
 
     invoke-static {v0, v4}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
     move-result v5
 
-    sget v6, Lcom/android/systemui/R$attr;->fillColor:I
+    const v6, 0x7f0401e3
 
     invoke-static {v0, v6}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 

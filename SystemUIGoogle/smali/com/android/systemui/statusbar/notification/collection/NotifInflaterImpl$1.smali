@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;
+.class public final Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;
 .super Ljava/lang/Object;
 .source "NotifInflaterImpl.java"
 
@@ -6,25 +6,14 @@
 .implements Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$InflationCallback;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->wrapInflationCallback(Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$InflationCallback;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;
 
-.field final synthetic val$callback:Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;
+.field public final synthetic val$callback:Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;->this$0:Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;
@@ -38,28 +27,24 @@
 
 
 # virtual methods
-.method public handleInflationException(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/Exception;)V
+.method public final handleInflationException(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/Exception;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;->this$0:Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->access$000(Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;)Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotifErrorManager:Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
 
     invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;->setInflationError(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/Exception;)V
 
     return-void
 .end method
 
-.method public onAsyncInflationFinished(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final onAsyncInflationFinished(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;->this$0:Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->access$000(Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;)Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotifErrorManager:Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;->clearInflationError(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
@@ -67,7 +52,9 @@
 
     if-eqz p0, :cond_0
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;->onInflationFinished(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRowController:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
+
+    invoke-interface {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;->onInflationFinished(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;)V
 
     :cond_0
     return-void

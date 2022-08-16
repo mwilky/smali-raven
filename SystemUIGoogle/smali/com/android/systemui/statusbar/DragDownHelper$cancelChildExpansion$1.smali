@@ -3,25 +3,14 @@
 .source "LockscreenShadeTransitionController.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/DragDownHelper;->cancelChildExpansion(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public final synthetic $child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/DragDownHelper;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/DragDownHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/DragDownHelper;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/DragDownHelper;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/DragDownHelper$cancelChildExpansion$1;->this$0:Lcom/android/systemui/statusbar/DragDownHelper;
@@ -35,24 +24,28 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
-
-    const-string v0, "animation"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/DragDownHelper$cancelChildExpansion$1;->this$0:Lcom/android/systemui/statusbar/DragDownHelper;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/DragDownHelper;->getExpandCallback()Lcom/android/systemui/ExpandHelper$Callback;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/DragDownHelper;->expandCallback:Lcom/android/systemui/ExpandHelper$Callback;
 
-    move-result-object p1
+    if-eqz p1, :cond_0
 
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/DragDownHelper$cancelChildExpansion$1;->$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     const/4 v0, 0x0
 
-    invoke-interface {p1, p0, v0}, Lcom/android/systemui/ExpandHelper$Callback;->setUserLockedChild(Landroid/view/View;Z)V
+    check-cast p1, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$11;
+
+    invoke-virtual {p1, p0, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$11;->setUserLockedChild(Landroid/view/View;Z)V
 
     return-void
 .end method

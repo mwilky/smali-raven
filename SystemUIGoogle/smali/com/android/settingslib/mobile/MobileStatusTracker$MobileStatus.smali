@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
+.class public final Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 .super Ljava/lang/Object;
 .source "MobileStatusTracker.java"
 
@@ -66,16 +66,6 @@
 
     iput-object v1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->telephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
 
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->copyFrom(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method protected copyFrom(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
-    .locals 1
-
     iget-boolean v0, p1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->activityIn:Z
 
     iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->activityIn:Z
@@ -111,16 +101,16 @@
     return-void
 .end method
 
-.method public toString()Ljava/lang/String;
+
+# virtual methods
+.method public final toString()Ljava/lang/String;
     .locals 6
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "[activityIn="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "[activityIn="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-boolean v1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->activityIn:Z
 
@@ -170,7 +160,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const-string v2, "serviceState="
+    const-string/jumbo v2, "serviceState="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -185,13 +175,11 @@
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, "mVoiceRegState="
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v4, "mVoiceRegState="
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     iget-object v4, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->serviceState:Landroid/telephony/ServiceState;
 
@@ -256,7 +244,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const-string v2, "signalStrength="
+    const-string/jumbo v2, "signalStrength="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -282,7 +270,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const-string v1, "telephonyDisplayInfo="
+    const-string/jumbo v1, "telephonyDisplayInfo="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

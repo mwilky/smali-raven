@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/TooltipManager$hide$1;
+.class public final Lcom/android/systemui/controls/TooltipManager$hide$1;
 .super Ljava/lang/Object;
 .source "TooltipManager.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $animate:Z
+.field public final synthetic $animate:Z
 
-.field final synthetic this$0:Lcom/android/systemui/controls/TooltipManager;
+.field public final synthetic this$0:Lcom/android/systemui/controls/TooltipManager;
 
 
 # direct methods
-.method constructor <init>(ZLcom/android/systemui/controls/TooltipManager;)V
+.method public constructor <init>(ZLcom/android/systemui/controls/TooltipManager;)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/controls/TooltipManager$hide$1;->$animate:Z
@@ -49,9 +49,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/TooltipManager$hide$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -92,9 +90,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/controls/TooltipManager$hide$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -104,9 +100,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/TooltipManager$hide$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
     invoke-virtual {p0, v1}, Landroid/view/ViewGroup;->setAlpha(F)V
 

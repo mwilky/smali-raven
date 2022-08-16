@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;
+.class public final Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;
 .super Landroid/bluetooth/le/ScanCallback;
 .source "KeyboardUI.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "KeyboardScanCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
+.field public final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
+.method public constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
@@ -29,43 +29,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;Lcom/android/systemui/keyboard/KeyboardUI$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;-><init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
-
-    return-void
-.end method
-
-.method private isDeviceDiscoverable(Landroid/bluetooth/le/ScanResult;)Z
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/bluetooth/le/ScanResult;->getScanRecord()Landroid/bluetooth/le/ScanRecord;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/bluetooth/le/ScanRecord;->getAdvertiseFlags()I
-
-    move-result p0
-
-    and-int/lit8 p0, p0, 0x3
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
 
 # virtual methods
-.method public onBatchScanResults(Ljava/util/List;)V
+.method public final onBatchScanResults(Ljava/util/List;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -90,7 +56,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -98,10 +64,26 @@
 
     check-cast v2, Landroid/bluetooth/le/ScanResult;
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;->isDeviceDiscoverable(Landroid/bluetooth/le/ScanResult;)Z
+    invoke-virtual {v2}, Landroid/bluetooth/le/ScanResult;->getScanRecord()Landroid/bluetooth/le/ScanRecord;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/bluetooth/le/ScanRecord;->getAdvertiseFlags()I
 
     move-result v3
 
+    and-int/lit8 v3, v3, 0x3
+
+    if-eqz v3, :cond_1
+
+    const/4 v3, 0x1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 v3, 0x0
+
+    :goto_1
     if-eqz v3, :cond_0
 
     invoke-virtual {v2}, Landroid/bluetooth/le/ScanResult;->getRssi()I
@@ -120,14 +102,12 @@
 
     goto :goto_0
 
-    :cond_1
-    if-eqz v0, :cond_2
+    :cond_2
+    if-eqz v0, :cond_3
 
     iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
-    invoke-static {p0}, Lcom/android/systemui/keyboard/KeyboardUI;->access$1700(Lcom/android/systemui/keyboard/KeyboardUI;)Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mHandler:Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
 
     const/4 p1, 0x6
 
@@ -137,18 +117,16 @@
 
     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
-.method public onScanFailed(I)V
+.method public final onScanFailed(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
-    invoke-static {p0}, Lcom/android/systemui/keyboard/KeyboardUI;->access$1700(Lcom/android/systemui/keyboard/KeyboardUI;)Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mHandler:Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
 
     const/4 p1, 0x7
 
@@ -161,20 +139,34 @@
     return-void
 .end method
 
-.method public onScanResult(ILandroid/bluetooth/le/ScanResult;)V
+.method public final onScanResult(ILandroid/bluetooth/le/ScanResult;)V
     .locals 0
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;->isDeviceDiscoverable(Landroid/bluetooth/le/ScanResult;)Z
+    invoke-virtual {p2}, Landroid/bluetooth/le/ScanResult;->getScanRecord()Landroid/bluetooth/le/ScanRecord;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/bluetooth/le/ScanRecord;->getAdvertiseFlags()I
 
     move-result p1
 
+    and-int/lit8 p1, p1, 0x3
+
     if-eqz p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    if-eqz p1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI$KeyboardScanCallback;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
-    invoke-static {p0}, Lcom/android/systemui/keyboard/KeyboardUI;->access$1700(Lcom/android/systemui/keyboard/KeyboardUI;)Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mHandler:Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
 
     const/4 p1, 0x6
 
@@ -188,6 +180,6 @@
 
     invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method

@@ -17,6 +17,7 @@
         <item>Не более 3 процессов</item>
         <item>Не более 4 процессов</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Откл.</item>
         <item>Вкл.</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Недоступно</item>
+        <item>Отключено</item>
+        <item>Включено</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Функция недоступна</item>
         <item>Откл.</item>
@@ -309,6 +315,16 @@
         <item>Функция недоступна</item>
         <item>Откл.</item>
         <item>Вкл.</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Недоступен</item>
+        <item>Отключен</item>
+        <item>Включен</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Недоступен</item>
+        <item>Отключен</item>
+        <item>Включен</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>Функция недоступна</item>
@@ -374,6 +390,12 @@
         <item>Ускоренная</item>
         <item>Сильно ускоренная</item>
         <item>Максимальная</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Переместите палец влево</item>
+        <item>Переместите палец вниз</item>
+        <item>Переместите палец вправо</item>
+        <item>Переместите палец вверх</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Зарядка</item>

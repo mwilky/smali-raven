@@ -2,22 +2,21 @@
 .super Landroid/widget/AutoCompleteTextView;
 .source "AppCompatAutoCompleteTextView.java"
 
-# interfaces
-.implements Landroidx/core/view/TintableBackgroundView;
-
 
 # static fields
-.field private static final TINT_ATTRS:[I
+.field public static final TINT_ATTRS:[I
 
 
 # instance fields
-.field private final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+.field public final mAppCompatEmojiEditTextHelper:Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;
 
-.field private final mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
+.field public final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+
+.field public final mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const/4 v0, 0x1
@@ -48,7 +47,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    sget v0, Landroidx/appcompat/R$attr;->autoCompleteTextViewStyle:I
+    const v0, 0x7f040043
 
     invoke-direct {p0, p1, p2, v0}, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -58,9 +57,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 2
 
-    invoke-static {p1}, Landroidx/appcompat/widget/TintContextWrapper;->wrap(Landroid/content/Context;)Landroid/content/Context;
-
-    move-result-object p1
+    invoke-static {p1}, Landroidx/appcompat/widget/TintContextWrapper;->wrap(Landroid/content/Context;)V
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/AutoCompleteTextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -68,7 +65,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/view/View;Landroid/content/Context;)V
+    invoke-static {p1, p0}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/content/Context;Landroid/view/View;)V
 
     invoke-virtual {p0}, Landroid/widget/AutoCompleteTextView;->getContext()Landroid/content/Context;
 
@@ -76,19 +73,19 @@
 
     sget-object v0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->TINT_ATTRS:[I
 
-    const/4 v1, 0x0
-
-    invoke-static {p1, p2, v0, p3, v1}, Landroidx/appcompat/widget/TintTypedArray;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[III)Landroidx/appcompat/widget/TintTypedArray;
+    invoke-static {p1, p2, v0, p3}, Landroidx/appcompat/widget/TintTypedArray;->obtainStyledAttributes(Landroid/content/Context;Landroid/util/AttributeSet;[II)Landroidx/appcompat/widget/TintTypedArray;
 
     move-result-object p1
 
-    invoke-virtual {p1, v1}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
+    const/4 v0, 0x0
 
-    move-result v0
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->hasValue(I)Z
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    invoke-virtual {p1, v1}, Landroidx/appcompat/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p1, v0}, Landroidx/appcompat/widget/TintTypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -115,12 +112,22 @@
 
     invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatTextHelper;->applyCompoundDrawablesTints()V
 
+    new-instance p1, Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;
+
+    invoke-direct {p1, p0}, Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;-><init>(Landroid/widget/EditText;)V
+
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->mAppCompatEmojiEditTextHelper:Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;
+
+    invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
+
+    invoke-virtual {p1}, Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;->initKeyListener()V
+
     return-void
 .end method
 
 
 # virtual methods
-.method protected drawableStateChanged()V
+.method public final drawableStateChanged()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/AutoCompleteTextView;->drawableStateChanged()V
@@ -142,43 +149,17 @@
     return-void
 .end method
 
-.method public getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
+.method public final getCustomSelectionActionModeCallback()Landroid/view/ActionMode$Callback;
     .locals 0
 
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
+    invoke-super {p0}, Landroid/widget/AutoCompleteTextView;->getCustomSelectionActionModeCallback()Landroid/view/ActionMode$Callback;
 
     move-result-object p0
 
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
-.method public getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
+    invoke-static {p0}, Landroidx/core/widget/TextViewCompat;->unwrapCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
 
     move-result-object p0
 
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
     return-object p0
 .end method
 
@@ -189,14 +170,18 @@
 
     move-result-object v0
 
-    invoke-static {v0, p1, p0}, Landroidx/appcompat/widget/AppCompatHintHelper;->onCreateInputConnection(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;Landroid/view/View;)Landroid/view/inputmethod/InputConnection;
+    invoke-static {p0, p1, v0}, Landroidx/slice/view/R$string;->onCreateInputConnection(Landroid/view/View;Landroid/view/inputmethod/EditorInfo;Landroid/view/inputmethod/InputConnection;)V
+
+    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->mAppCompatEmojiEditTextHelper:Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;
+
+    invoke-virtual {p0, v0, p1}, Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;->onCreateInputConnection(Landroid/view/inputmethod/InputConnection;Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+.method public final setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/AutoCompleteTextView;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -205,13 +190,13 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable()V
 
     :cond_0
     return-void
 .end method
 
-.method public setBackgroundResource(I)V
+.method public final setBackgroundResource(I)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/AutoCompleteTextView;->setBackgroundResource(I)V
@@ -226,19 +211,15 @@
     return-void
 .end method
 
-.method public setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
+.method public final setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
     .locals 0
-
-    invoke-static {p0, p1}, Landroidx/core/widget/TextViewCompat;->wrapCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
-
-    move-result-object p1
 
     invoke-super {p0, p1}, Landroid/widget/AutoCompleteTextView;->setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
 
     return-void
 .end method
 
-.method public setDropDownBackgroundResource(I)V
+.method public final setDropDownBackgroundResource(I)V
     .locals 1
 
     invoke-virtual {p0}, Landroid/widget/AutoCompleteTextView;->getContext()Landroid/content/Context;
@@ -254,33 +235,21 @@
     return-void
 .end method
 
-.method public setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+.method public final setKeyListener(Landroid/text/method/KeyListener;)V
+    .locals 1
 
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->mAppCompatEmojiEditTextHelper:Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;
 
-    if-eqz p0, :cond_0
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEmojiEditTextHelper;->getKeyListener(Landroid/text/method/KeyListener;)Landroid/text/method/KeyListener;
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
+    move-result-object p1
 
-    :cond_0
+    invoke-super {p0, p1}, Landroid/widget/AutoCompleteTextView;->setKeyListener(Landroid/text/method/KeyListener;)V
+
     return-void
 .end method
 
-.method public setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatAutoCompleteTextView;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setTextAppearance(Landroid/content/Context;I)V
+.method public final setTextAppearance(Landroid/content/Context;I)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/widget/AutoCompleteTextView;->setTextAppearance(Landroid/content/Context;I)V

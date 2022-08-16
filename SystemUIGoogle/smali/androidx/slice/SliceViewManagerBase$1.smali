@@ -1,4 +1,4 @@
-.class Landroidx/slice/SliceViewManagerBase$1;
+.class public final Landroidx/slice/SliceViewManagerBase$1;
 .super Ljava/lang/Object;
 .source "SliceViewManagerBase.java"
 
@@ -6,40 +6,15 @@
 .implements Ljava/util/concurrent/Executor;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/slice/SliceViewManagerBase;->registerSliceCallback(Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/slice/SliceViewManagerBase;
-
-.field final synthetic val$h:Landroid/os/Handler;
+.field public final synthetic val$h:Landroid/os/Handler;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/SliceViewManagerBase;Landroid/os/Handler;)V
+.method public constructor <init>(Landroid/os/Handler;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$h"
-        }
-    .end annotation
 
-    iput-object p1, p0, Landroidx/slice/SliceViewManagerBase$1;->this$0:Landroidx/slice/SliceViewManagerBase;
-
-    iput-object p2, p0, Landroidx/slice/SliceViewManagerBase$1;->val$h:Landroid/os/Handler;
+    iput-object p1, p0, Landroidx/slice/SliceViewManagerBase$1;->val$h:Landroid/os/Handler;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -48,16 +23,8 @@
 
 
 # virtual methods
-.method public execute(Ljava/lang/Runnable;)V
+.method public final execute(Ljava/lang/Runnable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "command"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/SliceViewManagerBase$1;->val$h:Landroid/os/Handler;
 

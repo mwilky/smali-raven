@@ -18,7 +18,7 @@
 
 
 # virtual methods
-.method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+.method public final addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
     .locals 1
 
     new-instance v0, Landroid/widget/LinearLayout$LayoutParams;

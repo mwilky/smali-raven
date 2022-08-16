@@ -1,10 +1,10 @@
-.class public Lcom/android/systemui/UiOffloadThread;
+.class public final Lcom/android/systemui/UiOffloadThread;
 .super Ljava/lang/Object;
 .source "UiOffloadThread.java"
 
 
 # instance fields
-.field private final mExecutorService:Ljava/util/concurrent/ExecutorService;
+.field public final mExecutorService:Ljava/util/concurrent/ExecutorService;
 
 
 # direct methods
@@ -20,27 +20,4 @@
     iput-object v0, p0, Lcom/android/systemui/UiOffloadThread;->mExecutorService:Ljava/util/concurrent/ExecutorService;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public execute(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Runnable;",
-            ")",
-            "Ljava/util/concurrent/Future<",
-            "*>;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/UiOffloadThread;->mExecutorService:Ljava/util/concurrent/ExecutorService;
-
-    invoke-interface {p0, p1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
-
-    move-result-object p0
-
-    return-object p0
 .end method

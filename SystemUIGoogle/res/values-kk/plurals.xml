@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d күн бұрын</item>
-        <item quantity="one">%d күн бұрын</item>
+        <item quantity="other">%d күн бұрын</item>
+        <item quantity="one">%d күн бұрын</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d минут бұрын</item>
-        <item quantity="one">%d минут бұрын</item>
+        <item quantity="other">%d мин бұрын</item>
+        <item quantity="one">%d мин бұрын</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d жыл бұрын</item>
@@ -15,6 +15,10 @@
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s басқару элементі енгізілді.</item>
         <item quantity="one">%s басқару элементі енгізілді.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s қолданба қосылып тұр.</item>
+        <item quantity="one">%s қолданба қосылып тұр.</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">SIM PIN кодын енгізіңіз. %d мүмкіндік қалды, одан кейін оператордан SIM картасының құлпын ашуды сұрауға тура келеді.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">SIM PUK коды дұрыс емес. %d әрекет қалды. Одан кейін SIM біржола қолданыстан шығады.</item>
         <item quantity="one">SIM PUK коды дұрыс емес. %d әрекет қалды. Одан кейін SIM біржола қолданыстан шығады.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d секундтан кейін қайталап көріңіз.</item>
-        <item quantity="one">1 секундтан кейін қайталап көріңіз.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d жаңа хабарландыру</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">%d пайдаланушыға дейін енгізуге болады.</item>
         <item quantity="one">Тек бір пайдаланушыны жасауға болады.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d құрылғы қосылды</item>
-        <item quantity="one">%1$d құрылғы қосылды</item>
     </plurals>
 </resources>

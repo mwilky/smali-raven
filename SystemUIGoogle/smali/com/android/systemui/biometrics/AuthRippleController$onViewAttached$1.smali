@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/AuthRippleController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/AuthRippleController;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/AuthRippleController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleController$onViewAttached$1;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
@@ -45,7 +45,7 @@
 
 
 # virtual methods
-.method public final invoke()Lcom/android/systemui/statusbar/commandline/Command;
+.method public final invoke()Ljava/lang/Object;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;
@@ -55,14 +55,4 @@
     invoke-direct {v0, p0}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;-><init>(Lcom/android/systemui/biometrics/AuthRippleController;)V
 
     return-object v0
-.end method
-
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthRippleController$onViewAttached$1;->invoke()Lcom/android/systemui/statusbar/commandline/Command;
-
-    move-result-object p0
-
-    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/CascadingMenuPopup$1;
+.class public final Landroidx/appcompat/view/menu/CascadingMenuPopup$1;
 .super Ljava/lang/Object;
 .source "CascadingMenuPopup.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
+.field public final synthetic this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/view/menu/CascadingMenuPopup;)V
+.method public constructor <init>(Landroidx/appcompat/view/menu/CascadingMenuPopup;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onGlobalLayout()V
+.method public final onGlobalLayout()V
     .locals 2
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
@@ -47,9 +47,9 @@
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
-    iget-object v0, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/List;
+    iget-object v0, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -57,11 +57,11 @@
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
-    iget-object v0, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/List;
+    iget-object v0, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/ArrayList;
 
     const/4 v1, 0x0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -69,9 +69,7 @@
 
     iget-object v0, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;->window:Landroidx/appcompat/widget/MenuPopupWindow;
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->isModal()Z
-
-    move-result v0
+    iget-boolean v0, v0, Landroidx/appcompat/widget/ListPopupWindow;->mModal:Z
 
     if-nez v0, :cond_2
 
@@ -92,9 +90,9 @@
     :cond_0
     iget-object p0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
-    iget-object p0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/List;
+    iget-object p0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mShowingMenus:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 

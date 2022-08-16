@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/screenshot/ScreenshotController$QuickShareActionReadyListener;
+.class public interface abstract Lcom/android/systemui/screenshot/ScreenshotController$QuickShareActionReadyListener;
 .super Ljava/lang/Object;
 .source "ScreenshotController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "QuickShareActionReadyListener"
 .end annotation
 

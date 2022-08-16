@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/people/PeopleSpaceActivity$1;
+.class public final Lcom/android/systemui/people/PeopleSpaceActivity$1;
 .super Landroid/view/ViewOutlineProvider;
 .source "PeopleSpaceActivity.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/people/PeopleSpaceActivity;
+.field public final synthetic this$0:Lcom/android/systemui/people/PeopleSpaceActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/people/PeopleSpaceActivity;)V
+.method public constructor <init>(Lcom/android/systemui/people/PeopleSpaceActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/people/PeopleSpaceActivity$1;->this$0:Lcom/android/systemui/people/PeopleSpaceActivity;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
+.method public final getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 6
 
     invoke-virtual {p1}, Landroid/view/View;->getWidth()I
@@ -44,15 +44,13 @@
 
     iget-object p0, p0, Lcom/android/systemui/people/PeopleSpaceActivity$1;->this$0:Lcom/android/systemui/people/PeopleSpaceActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/people/PeopleSpaceActivity;->access$000(Lcom/android/systemui/people/PeopleSpaceActivity;)Landroid/content/Context;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    sget p1, Lcom/android/systemui/R$dimen;->people_space_widget_radius:I
+    const p1, 0x7f070643
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimension(I)F
 

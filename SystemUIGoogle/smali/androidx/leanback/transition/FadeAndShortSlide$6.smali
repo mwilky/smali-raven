@@ -1,4 +1,4 @@
-.class Landroidx/leanback/transition/FadeAndShortSlide$6;
+.class public final Landroidx/leanback/transition/FadeAndShortSlide$6;
 .super Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 .source "FadeAndShortSlide.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/transition/FadeAndShortSlide;
+.field public final synthetic this$0:Landroidx/leanback/transition/FadeAndShortSlide;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/transition/FadeAndShortSlide;)V
+.method public constructor <init>(Landroidx/leanback/transition/FadeAndShortSlide;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide$6;->this$0:Landroidx/leanback/transition/FadeAndShortSlide;
 
@@ -39,22 +31,8 @@
 
 
 # virtual methods
-.method public getGoneY(Landroidx/leanback/transition/FadeAndShortSlide;Landroid/view/ViewGroup;Landroid/view/View;[I)F
+.method public final getGoneY(Landroidx/leanback/transition/FadeAndShortSlide;Landroid/view/ViewGroup;Landroid/view/View;[I)F
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "t",
-            "sceneRoot",
-            "view",
-            "position"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -66,7 +44,7 @@
 
     div-int/lit8 v2, v2, 0x2
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
     invoke-virtual {p2, p4}, Landroid/view/ViewGroup;->getLocationOnScreen([I)V
 
@@ -86,17 +64,17 @@
 
     div-int/lit8 p4, p4, 0x2
 
-    add-int/2addr p0, p4
+    add-int/2addr p4, p0
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p0}, Landroid/graphics/Rect;->centerY()I
 
-    move-result p0
+    move-result p4
 
     :goto_0
-    if-ge v1, p0, :cond_1
+    if-ge v2, p4, :cond_1
 
     invoke-virtual {p3}, Landroid/view/View;->getTranslationY()F
 
@@ -119,7 +97,7 @@
 
     move-result p1
 
-    add-float/2addr p0, p1
+    add-float/2addr p1, p0
 
-    return p0
+    return p1
 .end method

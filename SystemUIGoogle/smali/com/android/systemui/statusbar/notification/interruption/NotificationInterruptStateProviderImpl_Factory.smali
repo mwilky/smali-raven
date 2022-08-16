@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final ambientDisplayConfigurationProvider:Ljavax/inject/Provider;
+.field public final ambientDisplayConfigurationProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final batteryControllerProvider:Ljavax/inject/Provider;
+.field public final batteryControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final contentResolverProvider:Ljavax/inject/Provider;
+.field public final contentResolverProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final dreamManagerProvider:Ljavax/inject/Provider;
+.field public final dreamManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,17 @@
     .end annotation
 .end field
 
-.field private final headsUpManagerProvider:Ljavax/inject/Provider;
+.field public final flagsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final headsUpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +78,27 @@
     .end annotation
 .end field
 
-.field private final mainHandlerProvider:Ljavax/inject/Provider;
+.field public final keyguardNotificationVisibilityProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/interruption/KeyguardNotificationVisibilityProvider;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final loggerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptLogger;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final mainHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +108,7 @@
     .end annotation
 .end field
 
-.field private final notificationFilterProvider:Ljavax/inject/Provider;
+.field public final notificationFilterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +118,7 @@
     .end annotation
 .end field
 
-.field private final powerManagerProvider:Ljavax/inject/Provider;
+.field public final powerManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +128,7 @@
     .end annotation
 .end field
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -110,7 +140,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,7 +170,16 @@
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/interruption/KeyguardNotificationVisibilityProvider;",
             ">;)V"
         }
     .end annotation
@@ -163,13 +202,19 @@
 
     iput-object p8, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->headsUpManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    iput-object p10, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+
+    iput-object p11, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->flagsProvider:Ljavax/inject/Provider;
+
+    iput-object p12, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->keyguardNotificationVisibilityProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;
-    .locals 11
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,25 +243,34 @@
             "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptLogger;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/interruption/KeyguardNotificationVisibilityProvider;",
             ">;)",
             "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;"
         }
     .end annotation
 
-    new-instance v10, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;
+    new-instance v13, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;
 
-    move-object v0, v10
+    move-object v0, v13
 
     move-object v1, p0
 
     move-object v2, p1
 
-    move-object v3, p2
+    move-object/from16 v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -226,45 +280,21 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v10, p9
 
-    return-object v10
-.end method
+    move-object/from16 v11, p10
 
-.method public static newInstance(Landroid/content/ContentResolver;Landroid/os/PowerManager;Landroid/service/dreams/IDreamManager;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Landroid/os/Handler;)Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;
-    .locals 11
+    move-object/from16 v12, p11
 
-    new-instance v10, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;
+    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;-><init>(Landroid/content/ContentResolver;Landroid/os/PowerManager;Landroid/service/dreams/IDreamManager;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Landroid/os/Handler;)V
-
-    return-object v10
+    return-object v13
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 14
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->contentResolverProvider:Ljavax/inject/Provider;
 
@@ -272,9 +302,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/ContentResolver;
+    check-cast v2, Landroid/content/ContentResolver;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->powerManagerProvider:Ljavax/inject/Provider;
 
@@ -282,9 +312,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Landroid/os/PowerManager;
+    check-cast v3, Landroid/os/PowerManager;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->dreamManagerProvider:Ljavax/inject/Provider;
 
@@ -292,9 +322,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Landroid/service/dreams/IDreamManager;
+    check-cast v4, Landroid/service/dreams/IDreamManager;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->ambientDisplayConfigurationProvider:Ljavax/inject/Provider;
 
@@ -302,9 +332,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Landroid/hardware/display/AmbientDisplayConfiguration;
+    check-cast v5, Landroid/hardware/display/AmbientDisplayConfiguration;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->notificationFilterProvider:Ljavax/inject/Provider;
 
@@ -312,9 +342,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/statusbar/notification/NotificationFilter;
+    check-cast v6, Lcom/android/systemui/statusbar/notification/NotificationFilter;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->batteryControllerProvider:Ljavax/inject/Provider;
 
@@ -322,9 +352,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/statusbar/policy/BatteryController;
+    check-cast v7, Lcom/android/systemui/statusbar/policy/BatteryController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
@@ -332,9 +362,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v8, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->headsUpManagerProvider:Ljavax/inject/Provider;
 
@@ -342,33 +372,55 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+    check-cast v9, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptLogger;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v11, v0
+
+    check-cast v11, Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->flagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v12, v0
+
+    check-cast v12, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->keyguardNotificationVisibilityProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v13, p0
 
-    check-cast v9, Landroid/os/Handler;
+    check-cast v13, Lcom/android/systemui/statusbar/notification/interruption/KeyguardNotificationVisibilityProvider;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->newInstance(Landroid/content/ContentResolver;Landroid/os/PowerManager;Landroid/service/dreams/IDreamManager;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Landroid/os/Handler;)Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;
+    new-instance p0, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl_Factory;->get()Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v13}, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProviderImpl;-><init>(Landroid/content/ContentResolver;Landroid/os/PowerManager;Landroid/service/dreams/IDreamManager;Landroid/hardware/display/AmbientDisplayConfiguration;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptLogger;Landroid/os/Handler;Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;Lcom/android/systemui/statusbar/notification/interruption/KeyguardNotificationVisibilityProvider;)V
 
     return-object p0
 .end method

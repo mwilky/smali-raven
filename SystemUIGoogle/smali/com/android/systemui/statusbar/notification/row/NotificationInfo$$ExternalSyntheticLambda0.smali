@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/row/NotificationInfo$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnClickListener;
@@ -27,7 +28,21 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInfo$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/notification/row/NotificationInfo;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationInfo;->$r8$lambda$CwPy86YPpZ_L_xZK-tC8pvkc3A8(Lcom/android/systemui/statusbar/notification/row/NotificationInfo;Landroid/view/View;)V
+    const/4 p1, 0x2
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInfo;->mChosenImportance:Ljava/lang/Integer;
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationInfo;->mIsAutomaticChosen:Z
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationInfo;->applyAlertingBehavior(IZ)V
 
     return-void
 .end method

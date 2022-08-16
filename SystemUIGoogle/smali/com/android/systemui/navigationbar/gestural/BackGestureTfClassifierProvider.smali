@@ -14,14 +14,6 @@
 
 
 # virtual methods
-.method public isActive()Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
 .method public loadVocab(Landroid/content/res/AssetManager;)Ljava/util/Map;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;

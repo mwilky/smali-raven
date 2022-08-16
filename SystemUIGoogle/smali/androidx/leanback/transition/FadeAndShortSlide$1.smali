@@ -1,4 +1,4 @@
-.class Landroidx/leanback/transition/FadeAndShortSlide$1;
+.class public final Landroidx/leanback/transition/FadeAndShortSlide$1;
 .super Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 .source "FadeAndShortSlide.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;-><init>()V
@@ -25,22 +25,8 @@
 
 
 # virtual methods
-.method public getGoneX(Landroidx/leanback/transition/FadeAndShortSlide;Landroid/view/ViewGroup;Landroid/view/View;[I)F
+.method public final getGoneX(Landroidx/leanback/transition/FadeAndShortSlide;Landroid/view/ViewGroup;Landroid/view/View;[I)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "t",
-            "sceneRoot",
-            "view",
-            "position"
-        }
-    .end annotation
 
     invoke-virtual {p2}, Landroid/view/ViewGroup;->getLayoutDirection()I
 
@@ -66,7 +52,7 @@
 
     move-result p1
 
-    add-float/2addr p0, p1
+    add-float/2addr p1, p0
 
     goto :goto_1
 
@@ -79,8 +65,8 @@
 
     move-result p1
 
-    sub-float/2addr p0, p1
+    sub-float p1, p0, p1
 
     :goto_1
-    return p0
+    return p1
 .end method

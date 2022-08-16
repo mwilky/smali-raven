@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 .super Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 .source "ValueCallbackKeyframeAnimation.java"
 
@@ -18,16 +18,7 @@
 
 
 # instance fields
-.field private final frameInfo:Lcom/airbnb/lottie/value/LottieFrameInfo;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Lcom/airbnb/lottie/value/LottieFrameInfo<",
-            "TA;>;"
-        }
-    .end annotation
-.end field
-
-.field private final valueCallbackValue:Ljava/lang/Object;
+.field public final valueCallbackValue:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TA;"
@@ -37,23 +28,6 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/airbnb/lottie/value/LottieValueCallback;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/value/LottieValueCallback<",
-            "TA;>;)V"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
@@ -70,12 +44,6 @@
 
     invoke-direct {p0, v0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;-><init>(Ljava/util/List;)V
 
-    new-instance v0, Lcom/airbnb/lottie/value/LottieFrameInfo;
-
-    invoke-direct {v0}, Lcom/airbnb/lottie/value/LottieFrameInfo;-><init>()V
-
-    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;->frameInfo:Lcom/airbnb/lottie/value/LottieFrameInfo;
-
     invoke-virtual {p0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;->valueCallbackValue:Ljava/lang/Object;
@@ -85,7 +53,7 @@
 
 
 # virtual methods
-.method getEndProgress()F
+.method public final getEndProgress()F
     .locals 0
 
     const/high16 p0, 0x3f800000    # 1.0f
@@ -93,8 +61,8 @@
     return p0
 .end method
 
-.method public getValue()Ljava/lang/Object;
-    .locals 8
+.method public final getValue()Ljava/lang/Object;
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()TA;"
@@ -103,34 +71,16 @@
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
 
-    iget-object v4, p0, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;->valueCallbackValue:Ljava/lang/Object;
+    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;->valueCallbackValue:Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getProgress()F
-
-    move-result v5
-
-    invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getProgress()F
-
-    move-result v6
-
-    invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getProgress()F
-
-    move-result v7
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    move-object v3, v4
-
-    invoke-virtual/range {v0 .. v7}, Lcom/airbnb/lottie/value/LottieValueCallback;->getValueInternal(FFLjava/lang/Object;Ljava/lang/Object;FFF)Ljava/lang/Object;
+    invoke-virtual {v0, p0, p0}, Lcom/airbnb/lottie/value/LottieValueCallback;->getValueInternal(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
+.method public final getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -147,7 +97,7 @@
     return-object p0
 .end method
 
-.method public notifyListeners()V
+.method public final notifyListeners()V
     .locals 1
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;

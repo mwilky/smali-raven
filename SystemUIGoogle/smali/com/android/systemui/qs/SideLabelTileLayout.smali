@@ -5,11 +5,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/TileLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -18,21 +14,7 @@
 
 
 # virtual methods
-.method public final getPhantomTopPosition(I)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
-
-    div-int/2addr p1, v0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/TileLayout;->getRowTop(I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public updateMaxRows(II)Z
+.method public final updateMaxRows(II)Z
     .locals 4
 
     iget p1, p0, Lcom/android/systemui/qs/TileLayout;->mRows:I
@@ -90,7 +72,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$integer;->quick_settings_max_rows:I
+    const v2, 0x7f0c00c2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -101,7 +83,7 @@
     return v0
 .end method
 
-.method protected useSidePadding()Z
+.method public final useSidePadding()Z
     .locals 0
 
     const/4 p0, 0x0

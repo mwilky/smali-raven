@@ -1,4 +1,4 @@
-.class public Landroidx/slice/widget/SliceAdapter;
+.class public final Landroidx/slice/widget/SliceAdapter;
 .super Landroidx/recyclerview/widget/RecyclerView$Adapter;
 .source "SliceAdapter.java"
 
@@ -26,23 +26,23 @@
 
 
 # instance fields
-.field mAllowTwoLines:Z
+.field public mAllowTwoLines:Z
 
-.field final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mIdGen:Landroidx/slice/widget/SliceAdapter$IdGenerator;
+.field public final mIdGen:Landroidx/slice/widget/SliceAdapter$IdGenerator;
 
-.field mInsetBottom:I
+.field public mInsetBottom:I
 
-.field mInsetEnd:I
+.field public mInsetEnd:I
 
-.field mInsetStart:I
+.field public mInsetStart:I
 
-.field mInsetTop:I
+.field public mInsetTop:I
 
-.field mLastUpdated:J
+.field public mLastUpdated:J
 
-.field mLoadingActions:Ljava/util/Set;
+.field public mLoadingActions:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -52,13 +52,13 @@
     .end annotation
 .end field
 
-.field mParent:Landroidx/slice/widget/SliceView;
+.field public mParent:Landroidx/slice/widget/SliceView;
 
-.field mPolicy:Landroidx/slice/widget/SliceViewPolicy;
+.field public mPolicy:Landroidx/slice/widget/SliceViewPolicy;
 
-.field mShowLastUpdated:Z
+.field public mShowLastUpdated:Z
 
-.field mSliceActions:Ljava/util/List;
+.field public mSliceActions:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -68,36 +68,16 @@
     .end annotation
 .end field
 
-.field mSliceObserver:Landroidx/slice/widget/SliceView$OnSliceActionListener;
+.field public mSliceStyle:Landroidx/slice/widget/SliceStyle;
 
-.field mSliceStyle:Landroidx/slice/widget/SliceStyle;
+.field public mSlices:Ljava/util/ArrayList;
 
-.field private mSlices:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroidx/slice/widget/SliceAdapter$SliceWrapper;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field mTemplateView:Landroidx/slice/widget/TemplateView;
-
-.field mTintColor:I
+.field public mTemplateView:Landroidx/slice/widget/TemplateView;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;-><init>()V
 
@@ -111,7 +91,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
+    iput-object v0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/HashSet;
 
@@ -128,138 +108,26 @@
     return-void
 .end method
 
-.method private inflateForType(I)Landroid/view/View;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "viewType"
-        }
-    .end annotation
-
-    const/4 v0, 0x3
-
-    if-eq p1, v0, :cond_2
-
-    const/4 v0, 0x4
-
-    const/4 v1, 0x0
-
-    if-eq p1, v0, :cond_1
-
-    const/4 v0, 0x5
-
-    if-eq p1, v0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceAdapter;->getRowView()Landroidx/slice/widget/RowView;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
-
-    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object p0
-
-    sget p1, Landroidx/slice/view/R$layout;->abc_slice_message_local:I
-
-    invoke-virtual {p0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
-
-    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object p0
-
-    sget p1, Landroidx/slice/view/R$layout;->abc_slice_message:I
-
-    invoke-virtual {p0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_2
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceAdapter;->getGridRowView()Landroidx/slice/widget/GridRowView;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public getGridRowView()Landroidx/slice/widget/GridRowView;
-    .locals 3
-
-    iget-object v0, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    sget v1, Landroidx/slice/view/R$layout;->abc_slice_grid:I
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    instance-of v1, v0, Landroidx/slice/widget/GridRowView;
-
-    if-eqz v1, :cond_0
-
-    check-cast v0, Landroidx/slice/widget/GridRowView;
-
-    return-object v0
-
-    :cond_0
-    new-instance v0, Landroidx/slice/widget/GridRowView;
-
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, p0, v2}, Landroidx/slice/widget/GridRowView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-object v0
-.end method
-
-.method public getItemCount()I
+.method public final getItemCount()I
     .locals 0
 
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
+    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/util/List;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result p0
 
     return p0
 .end method
 
-.method public getItemId(I)J
+.method public final getItemId(I)J
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
+    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -270,20 +138,12 @@
     return-wide p0
 .end method
 
-.method public getItemViewType(I)I
+.method public final getItemViewType(I)I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
 
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
+    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -294,19 +154,7 @@
     return p0
 .end method
 
-.method public getRowView()Landroidx/slice/widget/RowView;
-    .locals 1
-
-    new-instance v0, Landroidx/slice/widget/RowView;
-
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, p0}, Landroidx/slice/widget/RowView;-><init>(Landroid/content/Context;)V
-
-    return-object v0
-.end method
-
-.method public notifyHeaderChanged()V
+.method public final notifyHeaderChanged()V
     .locals 1
 
     invoke-virtual {p0}, Landroidx/slice/widget/SliceAdapter;->getItemCount()I
@@ -323,42 +171,14 @@
     return-void
 .end method
 
-.method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "holder",
-            "position"
-        }
-    .end annotation
+.method public final onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+    .locals 8
 
     check-cast p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;
 
-    invoke-virtual {p0, p1, p2}, Landroidx/slice/widget/SliceAdapter;->onBindViewHolder(Landroidx/slice/widget/SliceAdapter$SliceViewHolder;I)V
+    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
-    return-void
-.end method
-
-.method public onBindViewHolder(Landroidx/slice/widget/SliceAdapter$SliceViewHolder;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "holder",
-            "position"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
-
-    invoke-interface {p0, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -366,48 +186,331 @@
 
     iget-object p0, p0, Landroidx/slice/widget/SliceAdapter$SliceWrapper;->mItem:Landroidx/slice/widget/SliceContent;
 
-    invoke-virtual {p1, p0, p2}, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->bind(Landroidx/slice/widget/SliceContent;I)V
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
 
+    if-eqz v0, :cond_9
+
+    if-nez p0, :cond_0
+
+    goto/16 :goto_7
+
+    :cond_0
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-object v0, v0, Landroidx/slice/widget/SliceAdapter;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
+
+    iget-object v1, p0, Landroidx/slice/widget/SliceContent;->mSliceItem:Landroidx/slice/SliceItem;
+
+    invoke-virtual {v0, v1}, Landroidx/slice/widget/SliceStyle;->getRowStyle(Landroidx/slice/SliceItem;)Landroidx/slice/widget/RowStyle;
+
+    move-result-object v0
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    invoke-virtual {v1, p1}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    invoke-virtual {v1, p1}, Landroid/widget/FrameLayout;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    iget-object v2, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iput-object v2, v1, Landroidx/slice/widget/SliceChildView;->mLoadingListener:Landroidx/slice/widget/SliceActionView$SliceActionLoadingListener;
+
+    instance-of v3, p0, Landroidx/slice/widget/RowContent;
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    if-eqz v3, :cond_1
+
+    move-object v3, p0
+
+    check-cast v3, Landroidx/slice/widget/RowContent;
+
+    iget-boolean v3, v3, Landroidx/slice/widget/RowContent;->mIsHeader:Z
+
+    goto :goto_0
+
+    :cond_1
+    if-nez p2, :cond_2
+
+    move v3, v4
+
+    goto :goto_0
+
+    :cond_2
+    move v3, v5
+
+    :goto_0
+    iget-object v2, v2, Landroidx/slice/widget/SliceAdapter;->mLoadingActions:Ljava/util/Set;
+
+    invoke-virtual {v1, v2}, Landroidx/slice/widget/SliceChildView;->setLoadingActions(Ljava/util/Set;)V
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    iget-object v2, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-object v2, v2, Landroidx/slice/widget/SliceAdapter;->mPolicy:Landroidx/slice/widget/SliceViewPolicy;
+
+    invoke-virtual {v1, v2}, Landroidx/slice/widget/SliceChildView;->setPolicy(Landroidx/slice/widget/SliceViewPolicy;)V
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    iget-object v2, v0, Landroidx/slice/widget/RowStyle;->mTintColor:Ljava/lang/Integer;
+
+    if-eqz v2, :cond_3
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v2, v0, Landroidx/slice/widget/RowStyle;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
+
+    iget v2, v2, Landroidx/slice/widget/SliceStyle;->mTintColor:I
+
+    :goto_1
+    invoke-virtual {v1, v2}, Landroidx/slice/widget/SliceChildView;->setTint(I)V
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    iget-object v2, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-object v2, v2, Landroidx/slice/widget/SliceAdapter;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
+
+    invoke-virtual {v1, v2, v0}, Landroidx/slice/widget/SliceChildView;->setStyle(Landroidx/slice/widget/SliceStyle;Landroidx/slice/widget/RowStyle;)V
+
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    if-eqz v3, :cond_4
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-boolean v1, v1, Landroidx/slice/widget/SliceAdapter;->mShowLastUpdated:Z
+
+    if-eqz v1, :cond_4
+
+    move v1, v4
+
+    goto :goto_2
+
+    :cond_4
+    move v1, v5
+
+    :goto_2
+    invoke-virtual {v0, v1}, Landroidx/slice/widget/SliceChildView;->setShowLastUpdated(Z)V
+
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    if-eqz v3, :cond_5
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-wide v1, v1, Landroidx/slice/widget/SliceAdapter;->mLastUpdated:J
+
+    goto :goto_3
+
+    :cond_5
+    const-wide/16 v1, -0x1
+
+    :goto_3
+    invoke-virtual {v0, v1, v2}, Landroidx/slice/widget/SliceChildView;->setLastUpdated(J)V
+
+    if-nez p2, :cond_6
+
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget v0, v0, Landroidx/slice/widget/SliceAdapter;->mInsetTop:I
+
+    goto :goto_4
+
+    :cond_6
+    move v0, v5
+
+    :goto_4
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    invoke-virtual {v1}, Landroidx/slice/widget/SliceAdapter;->getItemCount()I
+
+    move-result v1
+
+    sub-int/2addr v1, v4
+
+    if-ne p2, v1, :cond_7
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget v1, v1, Landroidx/slice/widget/SliceAdapter;->mInsetBottom:I
+
+    goto :goto_5
+
+    :cond_7
+    move v1, v5
+
+    :goto_5
+    iget-object v2, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    iget-object v6, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget v7, v6, Landroidx/slice/widget/SliceAdapter;->mInsetStart:I
+
+    iget v6, v6, Landroidx/slice/widget/SliceAdapter;->mInsetEnd:I
+
+    invoke-virtual {v2, v7, v0, v6, v1}, Landroidx/slice/widget/SliceChildView;->setInsets(IIII)V
+
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-boolean v1, v1, Landroidx/slice/widget/SliceAdapter;->mAllowTwoLines:Z
+
+    invoke-virtual {v0, v1}, Landroidx/slice/widget/SliceChildView;->setAllowTwoLines(Z)V
+
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    if-eqz v3, :cond_8
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-object v1, v1, Landroidx/slice/widget/SliceAdapter;->mSliceActions:Ljava/util/List;
+
+    goto :goto_6
+
+    :cond_8
+    const/4 v1, 0x0
+
+    :goto_6
+    invoke-virtual {v0, v1}, Landroidx/slice/widget/SliceChildView;->setSliceActions(Ljava/util/List;)V
+
+    iget-object v0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    invoke-virtual {v1}, Landroidx/slice/widget/SliceAdapter;->getItemCount()I
+
+    move-result v1
+
+    iget-object v2, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {v0, p0, v3, p2, v1}, Landroidx/slice/widget/SliceChildView;->setSliceItem(Landroidx/slice/widget/SliceContent;ZII)V
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [I
+
+    iget-object v1, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->this$0:Landroidx/slice/widget/SliceAdapter;
+
+    iget-object v1, v1, Landroidx/slice/widget/SliceAdapter;->mSliceActions:Ljava/util/List;
+
+    invoke-static {p0, v3, v1}, Landroidx/slice/widget/ListContent;->getRowType(Landroidx/slice/widget/SliceContent;ZLjava/util/List;)I
+
+    move-result p0
+
+    aput p0, v0, v5
+
+    aput p2, v0, v4
+
+    iget-object p0, p1, Landroidx/slice/widget/SliceAdapter$SliceViewHolder;->mSliceChildView:Landroidx/slice/widget/SliceChildView;
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setTag(Ljava/lang/Object;)V
+
+    :cond_9
+    :goto_7
     return-void
 .end method
 
-.method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "parent",
-            "viewType"
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1, p2}, Landroidx/slice/widget/SliceAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/slice/widget/SliceAdapter$SliceViewHolder;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/slice/widget/SliceAdapter$SliceViewHolder;
+.method public final onCreateViewHolder(ILandroidx/recyclerview/widget/RecyclerView;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "viewType"
-        }
-    .end annotation
 
-    invoke-direct {p0, p2}, Landroidx/slice/widget/SliceAdapter;->inflateForType(I)Landroid/view/View;
+    const/4 p2, 0x3
+
+    const/4 v0, 0x0
+
+    if-eq p1, p2, :cond_2
+
+    const/4 p2, 0x4
+
+    if-eq p1, p2, :cond_1
+
+    const/4 p2, 0x5
+
+    if-eq p1, p2, :cond_0
+
+    new-instance p1, Landroidx/slice/widget/RowView;
+
+    iget-object p2, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
+
+    invoke-direct {p1, p2}, Landroidx/slice/widget/RowView;-><init>(Landroid/content/Context;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
 
+    const p2, 0x7f0e0020
+
+    invoke-virtual {p1, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object p1
+
+    const p2, 0x7f0e001f
+
+    invoke-virtual {p1, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object p1
+
+    goto :goto_0
+
+    :cond_2
+    iget-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object p1
+
+    const p2, 0x7f0e001b
+
+    invoke-virtual {p1, p2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object p1
+
+    instance-of p2, p1, Landroidx/slice/widget/GridRowView;
+
+    if-eqz p2, :cond_3
+
+    check-cast p1, Landroidx/slice/widget/GridRowView;
+
+    goto :goto_0
+
+    :cond_3
+    new-instance p1, Landroidx/slice/widget/GridRowView;
+
+    iget-object p2, p0, Landroidx/slice/widget/SliceAdapter;->mContext:Landroid/content/Context;
+
+    invoke-direct {p1, p2, v0}, Landroidx/slice/widget/GridRowView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
+
+    :goto_0
     new-instance p2, Landroid/view/ViewGroup$LayoutParams;
 
     const/4 v0, -0x1
@@ -425,18 +528,8 @@
     return-object p2
 .end method
 
-.method public onSliceActionLoading(Landroidx/slice/SliceItem;I)V
+.method public final onSliceActionLoading(Landroidx/slice/SliceItem;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "actionItem",
-            "position"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/SliceAdapter;->mLoadingActions:Ljava/util/Set;
 
@@ -459,223 +552,8 @@
     return-void
 .end method
 
-.method public setAllowTwoLines(Z)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "allowTwoLines"
-        }
-    .end annotation
-
-    iput-boolean p1, p0, Landroidx/slice/widget/SliceAdapter;->mAllowTwoLines:Z
-
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceAdapter;->notifyHeaderChanged()V
-
-    return-void
-.end method
-
-.method public setInsets(IIII)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "l",
-            "t",
-            "r",
-            "b"
-        }
-    .end annotation
-
-    iput p1, p0, Landroidx/slice/widget/SliceAdapter;->mInsetStart:I
-
-    iput p2, p0, Landroidx/slice/widget/SliceAdapter;->mInsetTop:I
-
-    iput p3, p0, Landroidx/slice/widget/SliceAdapter;->mInsetEnd:I
-
-    iput p4, p0, Landroidx/slice/widget/SliceAdapter;->mInsetBottom:I
-
-    return-void
-.end method
-
-.method public setLastUpdated(J)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "lastUpdated"
-        }
-    .end annotation
-
-    iget-wide v0, p0, Landroidx/slice/widget/SliceAdapter;->mLastUpdated:J
-
-    cmp-long v0, v0, p1
-
-    if-eqz v0, :cond_0
-
-    iput-wide p1, p0, Landroidx/slice/widget/SliceAdapter;->mLastUpdated:J
-
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceAdapter;->notifyHeaderChanged()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setLoadingActions(Ljava/util/Set;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "actions"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Set<",
-            "Landroidx/slice/SliceItem;",
-            ">;)V"
-        }
-    .end annotation
-
-    if-nez p1, :cond_0
-
-    iget-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mLoadingActions:Ljava/util/Set;
-
-    invoke-interface {p1}, Ljava/util/Set;->clear()V
-
-    goto :goto_0
-
-    :cond_0
-    iput-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mLoadingActions:Ljava/util/Set;
-
-    :goto_0
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
-
-    return-void
-.end method
-
-.method public setParents(Landroidx/slice/widget/SliceView;Landroidx/slice/widget/TemplateView;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "templateView"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mParent:Landroidx/slice/widget/SliceView;
-
-    iput-object p2, p0, Landroidx/slice/widget/SliceAdapter;->mTemplateView:Landroidx/slice/widget/TemplateView;
-
-    return-void
-.end method
-
-.method public setPolicy(Landroidx/slice/widget/SliceViewPolicy;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "p"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mPolicy:Landroidx/slice/widget/SliceViewPolicy;
-
-    return-void
-.end method
-
-.method public setShowLastUpdated(Z)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "showLastUpdated"
-        }
-    .end annotation
-
-    iget-boolean v0, p0, Landroidx/slice/widget/SliceAdapter;->mShowLastUpdated:Z
-
-    if-eq v0, p1, :cond_0
-
-    iput-boolean p1, p0, Landroidx/slice/widget/SliceAdapter;->mShowLastUpdated:Z
-
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceAdapter;->notifyHeaderChanged()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setSliceActions(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "actions"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Landroidx/slice/core/SliceAction;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mSliceActions:Ljava/util/List;
-
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceAdapter;->notifyHeaderChanged()V
-
-    return-void
-.end method
-
-.method public setSliceItems(Ljava/util/List;II)V
+.method public final setSliceItems(Ljava/util/List;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "slices",
-            "color",
-            "mode"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Landroidx/slice/widget/SliceContent;",
-            ">;II)V"
-        }
-    .end annotation
 
     if-nez p1, :cond_0
 
@@ -683,16 +561,18 @@
 
     invoke-interface {p1}, Ljava/util/Set;->clear()V
 
-    iget-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
+    iget-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
-    invoke-interface {p1}, Ljava/util/List;->clear()V
+    invoke-virtual {p1}, Ljava/util/ArrayList;->clear()V
 
     goto :goto_1
 
     :cond_0
     iget-object v0, p0, Landroidx/slice/widget/SliceAdapter;->mIdGen:Landroidx/slice/widget/SliceAdapter$IdGenerator;
 
-    invoke-virtual {v0}, Landroidx/slice/widget/SliceAdapter$IdGenerator;->resetUsage()V
+    iget-object v0, v0, Landroidx/slice/widget/SliceAdapter$IdGenerator;->mUsedIds:Landroidx/collection/ArrayMap;
+
+    invoke-virtual {v0}, Landroidx/collection/SimpleArrayMap;->clear()V
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -702,7 +582,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
+    iput-object v0, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -721,56 +601,20 @@
 
     check-cast v0, Landroidx/slice/widget/SliceContent;
 
-    iget-object v1, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/List;
+    iget-object v1, p0, Landroidx/slice/widget/SliceAdapter;->mSlices:Ljava/util/ArrayList;
 
     new-instance v2, Landroidx/slice/widget/SliceAdapter$SliceWrapper;
 
     iget-object v3, p0, Landroidx/slice/widget/SliceAdapter;->mIdGen:Landroidx/slice/widget/SliceAdapter$IdGenerator;
 
-    invoke-direct {v2, v0, v3, p3}, Landroidx/slice/widget/SliceAdapter$SliceWrapper;-><init>(Landroidx/slice/widget/SliceContent;Landroidx/slice/widget/SliceAdapter$IdGenerator;I)V
+    invoke-direct {v2, v0, v3}, Landroidx/slice/widget/SliceAdapter$SliceWrapper;-><init>(Landroidx/slice/widget/SliceContent;Landroidx/slice/widget/SliceAdapter$IdGenerator;)V
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
     :goto_1
-    iput p2, p0, Landroidx/slice/widget/SliceAdapter;->mTintColor:I
-
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
-
-    return-void
-.end method
-
-.method public setSliceObserver(Landroidx/slice/widget/SliceView$OnSliceActionListener;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "observer"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mSliceObserver:Landroidx/slice/widget/SliceView$OnSliceActionListener;
-
-    return-void
-.end method
-
-.method public setStyle(Landroidx/slice/widget/SliceStyle;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "style"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/slice/widget/SliceAdapter;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
-
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
 
     return-void

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ToggleRangeBehavior$updateRange$1$1;
+.class public final Lcom/android/systemui/controls/ui/ToggleRangeBehavior$updateRange$1$1;
 .super Ljava/lang/Object;
 .source "ToggleRangeBehavior.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$updateRange$1$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$updateRange$1$1;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
@@ -43,17 +43,13 @@
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getClipLayer()Landroid/graphics/drawable/ClipDrawable;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder;->clipLayer:Landroid/graphics/drawable/ClipDrawable;
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object p1
 
-    const-string v0, "null cannot be cast to non-null type kotlin.Int"
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -64,4 +60,13 @@
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/ClipDrawable;->setLevel(I)Z
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Int"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

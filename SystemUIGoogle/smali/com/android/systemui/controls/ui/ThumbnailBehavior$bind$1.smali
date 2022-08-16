@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ThumbnailBehavior$bind$1;
+.class public final Lcom/android/systemui/controls/ui/ThumbnailBehavior$bind$1;
 .super Ljava/lang/Object;
 .source "ThumbnailBehavior.kt"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $clipLayer:Landroid/graphics/drawable/ClipDrawable;
+.field public final synthetic $clipLayer:Landroid/graphics/drawable/ClipDrawable;
 
-.field final synthetic $colorOffset:I
+.field public final synthetic $colorOffset:I
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ThumbnailBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ThumbnailBehavior;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ThumbnailBehavior;Landroid/graphics/drawable/ClipDrawable;I)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ThumbnailBehavior;Landroid/graphics/drawable/ClipDrawable;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ThumbnailBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ThumbnailBehavior;
@@ -47,10 +47,16 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ThumbnailBehavior$bind$1;->this$0:Lcom/android/systemui/controls/ui/ThumbnailBehavior;
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/ui/ThumbnailBehavior;->getTemplate()Landroid/service/controls/templates/ThumbnailTemplate;
+    iget-object v0, v0, Lcom/android/systemui/controls/ui/ThumbnailBehavior;->template:Landroid/service/controls/templates/ThumbnailTemplate;
 
-    move-result-object v0
+    if-eqz v0, :cond_0
 
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
     invoke-virtual {v0}, Landroid/service/controls/templates/ThumbnailTemplate;->getThumbnail()Landroid/graphics/drawable/Icon;
 
     move-result-object v0
@@ -61,9 +67,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getContext()Landroid/content/Context;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/controls/ui/ControlViewHolder;->context:Landroid/content/Context;
 
     invoke-virtual {v0, v1}, Landroid/graphics/drawable/Icon;->loadDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
 
@@ -75,9 +79,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getUiExecutor()Lcom/android/systemui/util/concurrency/DelayableExecutor;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/controls/ui/ControlViewHolder;->uiExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
     new-instance v2, Lcom/android/systemui/controls/ui/ThumbnailBehavior$bind$1$1;
 

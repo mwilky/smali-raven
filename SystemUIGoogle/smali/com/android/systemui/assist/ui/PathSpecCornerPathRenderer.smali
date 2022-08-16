@@ -4,21 +4,21 @@
 
 
 # instance fields
-.field private final mBottomCornerRadius:I
+.field public final mBottomCornerRadius:I
 
-.field private final mHeight:I
+.field public final mHeight:I
 
-.field private final mMatrix:Landroid/graphics/Matrix;
+.field public final mMatrix:Landroid/graphics/Matrix;
 
-.field private final mPath:Landroid/graphics/Path;
+.field public final mPath:Landroid/graphics/Path;
 
-.field private final mPathScale:F
+.field public final mPathScale:F
 
-.field private final mRoundedPath:Landroid/graphics/Path;
+.field public final mRoundedPath:Landroid/graphics/Path;
 
-.field private final mTopCornerRadius:I
+.field public final mTopCornerRadius:I
 
-.field private final mWidth:I
+.field public final mWidth:I
 
 
 # direct methods
@@ -39,25 +39,25 @@
 
     iput-object v0, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mMatrix:Landroid/graphics/Matrix;
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getWidth(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getWidth(Landroid/content/Context;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mWidth:I
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getHeight(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getHeight(Landroid/content/Context;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mHeight:I
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getCornerRadiusBottom(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getCornerRadiusBottom(Landroid/content/Context;)I
 
     move-result v0
 
     iput v0, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mBottomCornerRadius:I
 
-    invoke-static {p1}, Lcom/android/systemui/assist/ui/DisplayUtils;->getCornerRadiusTop(Landroid/content/Context;)I
+    invoke-static {p1}, Landroidx/slice/view/R$plurals;->getCornerRadiusTop(Landroid/content/Context;)I
 
     move-result v0
 
@@ -67,7 +67,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$string;->config_rounded_mask:I
+    const v0, 0x7f13021b
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -138,7 +138,7 @@
 
 
 # virtual methods
-.method public getCornerPath(Lcom/android/systemui/assist/ui/CornerPathRenderer$Corner;)Landroid/graphics/Path;
+.method public final getCornerPath(Lcom/android/systemui/assist/ui/CornerPathRenderer$Corner;)Landroid/graphics/Path;
     .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mRoundedPath:Landroid/graphics/Path;
@@ -154,13 +154,9 @@
     return-object p0
 
     :cond_0
-    sget-object v0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer$1;->$SwitchMap$com$android$systemui$assist$ui$CornerPathRenderer$Corner:[I
-
     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result p1
-
-    aget p1, v0, p1
 
     const/4 v0, 0x1
 
@@ -191,13 +187,11 @@
     goto :goto_0
 
     :cond_1
-    iget p1, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mBottomCornerRadius:I
+    iget p1, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mTopCornerRadius:I
 
-    const/16 v1, 0xb4
+    move v0, v1
 
-    iget v0, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mWidth:I
-
-    iget v2, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mHeight:I
+    move v2, v0
 
     goto :goto_0
 
@@ -219,11 +213,13 @@
     goto :goto_0
 
     :cond_3
-    iget p1, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mTopCornerRadius:I
+    iget p1, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mBottomCornerRadius:I
 
-    move v0, v1
+    const/16 v1, 0xb4
 
-    move v2, v0
+    iget v0, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mWidth:I
+
+    iget v2, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mHeight:I
 
     :goto_0
     iget-object v3, p0, Lcom/android/systemui/assist/ui/PathSpecCornerPathRenderer;->mPath:Landroid/graphics/Path;

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final contentResolverProvider:Ljavax/inject/Provider;
+.field public final contentResolverProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final looperProvider:Ljavax/inject/Provider;
+.field public final looperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -40,71 +40,24 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/ContentResolver;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljavax/inject/Provider;)V
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/util/concurrency/GlobalConcurrencyModule_ProvideMainLooperFactory$InstanceHolder;->INSTANCE:Lcom/android/systemui/util/concurrency/GlobalConcurrencyModule_ProvideMainLooperFactory;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;->contentResolverProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;->looperProvider:Ljavax/inject/Provider;
+    iput-object v0, p0, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;->looperProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/ContentResolver;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;)",
-            "Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static provideLogcatEchoTracker(Landroid/content/ContentResolver;Landroid/os/Looper;)Lcom/android/systemui/log/LogcatEchoTracker;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/log/dagger/LogModule;->provideLogcatEchoTracker(Landroid/content/ContentResolver;Landroid/os/Looper;)Lcom/android/systemui/log/LogcatEchoTracker;
-
-    move-result-object p0
-
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/log/LogcatEchoTracker;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/log/LogcatEchoTracker;
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;->contentResolverProvider:Ljavax/inject/Provider;
 
@@ -122,19 +75,57 @@
 
     check-cast p0, Landroid/os/Looper;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;->provideLogcatEchoTracker(Landroid/content/ContentResolver;Landroid/os/Looper;)Lcom/android/systemui/log/LogcatEchoTracker;
+    invoke-static {}, Landroid/os/Build;->isDebuggable()Z
 
-    move-result-object p0
+    move-result v1
 
-    return-object p0
-.end method
+    if-eqz v1, :cond_0
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    new-instance v1, Lcom/android/systemui/log/LogcatEchoTrackerDebug;
 
-    invoke-virtual {p0}, Lcom/android/systemui/log/dagger/LogModule_ProvideLogcatEchoTrackerFactory;->get()Lcom/android/systemui/log/LogcatEchoTracker;
+    invoke-direct {v1, v0}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;-><init>(Landroid/content/ContentResolver;)V
 
-    move-result-object p0
+    const-string/jumbo v2, "systemui/buffer"
 
-    return-object p0
+    invoke-static {v2}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    new-instance v3, Landroid/os/Handler;
+
+    invoke-direct {v3, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    new-instance v4, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$1;
+
+    invoke-direct {v4, v1, v3}, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$1;-><init>(Lcom/android/systemui/log/LogcatEchoTrackerDebug;Landroid/os/Handler;)V
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v0, v2, v3, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    const-string/jumbo v2, "systemui/tag"
+
+    invoke-static {v2}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    new-instance p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$2;
+
+    invoke-direct {p0, v1, v4}, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$2;-><init>(Lcom/android/systemui/log/LogcatEchoTrackerDebug;Landroid/os/Handler;)V
+
+    invoke-virtual {v0, v2, v3, p0}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v1, Lcom/android/systemui/log/LogcatEchoTrackerProd;
+
+    invoke-direct {v1}, Lcom/android/systemui/log/LogcatEchoTrackerProd;-><init>()V
+
+    :goto_0
+    return-object v1
 .end method

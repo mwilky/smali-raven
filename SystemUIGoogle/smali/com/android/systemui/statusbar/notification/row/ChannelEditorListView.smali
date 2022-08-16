@@ -4,23 +4,15 @@
 
 
 # instance fields
-.field private appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
+.field public appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
 
-.field private appIcon:Landroid/graphics/drawable/Drawable;
+.field public appIcon:Landroid/graphics/drawable/Drawable;
 
-.field private appName:Ljava/lang/String;
+.field public appName:Ljava/lang/String;
 
-.field private final channelRows:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/row/ChannelRow;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final channelRows:Ljava/util/ArrayList;
 
-.field private channels:Ljava/util/List;
+.field public channels:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -35,15 +27,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
-
-    const-string v0, "c"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "attrs"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -57,80 +41,130 @@
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/ArrayList;
 
     return-void
 .end method
 
-.method public static final synthetic access$updateRows(Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;)V
-    .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->updateRows()V
+# virtual methods
+.method public final onFinishInflate()V
+    .locals 1
 
-    return-void
-.end method
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-.method private final addChannelRow(Landroid/app/NotificationChannel;Landroid/view/LayoutInflater;)V
-    .locals 2
+    const v0, 0x7f0b00a9
 
-    sget v0, Lcom/android/systemui/R$layout;->notif_half_shelf_row:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p2, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p2
-
-    const-string v0, "null cannot be cast to non-null type com.android.systemui.statusbar.notification.row.ChannelRow"
-
-    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    check-cast p2, Lcom/android/systemui/statusbar/notification/row/ChannelRow;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->getController()Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-virtual {p2, v0}, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->setController(Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;)V
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/AppControlView;
 
-    invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->setChannel(Landroid/app/NotificationChannel;)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/List;
-
-    invoke-interface {p1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
 
     return-void
 .end method
 
-.method private final updateAppControlRow(Z)V
-    .locals 8
+.method public final updateRows()V
+    .locals 11
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->controller:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
 
     const/4 v1, 0x0
 
-    const-string v2, "appControlRow"
+    if-eqz v0, :cond_0
 
-    if-eqz v0, :cond_3
+    goto :goto_0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/AppControlView;->getIconView()Landroid/widget/ImageView;
+    :cond_0
+    move-object v0, v1
 
-    move-result-object v0
+    :goto_0
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;->appNotificationsEnabled:Z
 
+    new-instance v2, Landroid/transition/AutoTransition;
+
+    invoke-direct {v2}, Landroid/transition/AutoTransition;-><init>()V
+
+    const-wide/16 v3, 0xc8
+
+    invoke-virtual {v2, v3, v4}, Landroid/transition/AutoTransition;->setDuration(J)Landroid/transition/TransitionSet;
+
+    new-instance v3, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateRows$1;
+
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateRows$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;)V
+
+    invoke-virtual {v2, v3}, Landroid/transition/AutoTransition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/TransitionSet;
+
+    invoke-static {p0, v2}, Landroid/transition/TransitionManager;->beginDelayedTransition(Landroid/view/ViewGroup;Landroid/transition/Transition;)V
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_1
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/statusbar/notification/row/ChannelRow;
+
+    invoke-virtual {p0, v3}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
+
+    if-nez v2, :cond_2
+
+    move-object v2, v1
+
+    :cond_2
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/row/AppControlView;->iconView:Landroid/widget/ImageView;
+
+    if-eqz v2, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move-object v2, v1
+
+    :goto_2
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appIcon:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
 
-    if-eqz v0, :cond_2
+    if-nez v2, :cond_4
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/AppControlView;->getChannelName()Landroid/widget/TextView;
+    move-object v2, v1
 
-    move-result-object v0
+    :cond_4
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/row/AppControlView;->channelName:Landroid/widget/TextView;
 
+    if-eqz v2, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    move-object v2, v1
+
+    :goto_3
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object v3
@@ -139,129 +173,67 @@
 
     move-result-object v3
 
-    sget v4, Lcom/android/systemui/R$string;->notification_channel_dialog_title:I
+    const v4, 0x7f130500
 
     const/4 v5, 0x1
 
-    new-array v5, v5, [Ljava/lang/Object;
-
-    const/4 v6, 0x0
+    new-array v6, v5, [Ljava/lang/Object;
 
     iget-object v7, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appName:Ljava/lang/String;
 
-    aput-object v7, v5, v6
+    const/4 v8, 0x0
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v7, v6, v8
+
+    invoke-virtual {v3, v4, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
 
-    if-eqz v0, :cond_1
+    if-nez v2, :cond_6
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/AppControlView;->getSwitch()Landroid/widget/Switch;
+    move-object v2, v1
 
-    move-result-object v0
+    :cond_6
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/row/AppControlView;->switch:Landroid/widget/Switch;
 
-    invoke-virtual {v0, p1}, Landroid/widget/Switch;->setChecked(Z)V
+    if-eqz v2, :cond_7
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
+    goto :goto_4
 
-    if-eqz p1, :cond_0
+    :cond_7
+    move-object v2, v1
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/AppControlView;->getSwitch()Landroid/widget/Switch;
+    :goto_4
+    invoke-virtual {v2, v0}, Landroid/widget/Switch;->setChecked(Z)V
 
-    move-result-object p1
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateAppControlRow$1;
+    if-nez v2, :cond_8
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateAppControlRow$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;)V
+    move-object v2, v1
 
-    invoke-virtual {p1, v0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    :cond_8
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/row/AppControlView;->switch:Landroid/widget/Switch;
 
-    return-void
+    if-eqz v2, :cond_9
 
-    :cond_0
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    goto :goto_5
 
-    throw v1
+    :cond_9
+    move-object v2, v1
 
-    :cond_1
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    :goto_5
+    new-instance v3, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateAppControlRow$1;
 
-    throw v1
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateAppControlRow$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;)V
 
-    :cond_2
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    throw v1
-
-    :cond_3
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-.end method
-
-.method private final updateRows()V
-    .locals 4
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->getController()Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;->areAppNotificationsEnabled()Z
-
-    move-result v0
-
-    new-instance v1, Landroid/transition/AutoTransition;
-
-    invoke-direct {v1}, Landroid/transition/AutoTransition;-><init>()V
-
-    const-wide/16 v2, 0xc8
-
-    invoke-virtual {v1, v2, v3}, Landroid/transition/AutoTransition;->setDuration(J)Landroid/transition/TransitionSet;
-
-    new-instance v2, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateRows$1;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateRows$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;)V
-
-    invoke-virtual {v1, v2}, Landroid/transition/AutoTransition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/TransitionSet;
-
-    invoke-static {p0, v1}, Landroid/transition/TransitionManager;->beginDelayedTransition(Landroid/view/ViewGroup;Landroid/transition/Transition;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/notification/row/ChannelRow;
-
-    invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->removeView(Landroid/view/View;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->clear()V
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->updateAppControlRow(Z)V
-
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_1b
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
@@ -271,173 +243,221 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channels:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channels:Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Landroid/app/NotificationChannel;
+    :goto_6
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    const-string v3, "inflater"
+    move-result v3
 
-    invoke-static {v0, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    if-eqz v3, :cond_1b
 
-    invoke-direct {p0, v2, v0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->addChannelRow(Landroid/app/NotificationChannel;Landroid/view/LayoutInflater;)V
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    goto :goto_1
+    move-result-object v3
 
-    :cond_1
-    return-void
-.end method
+    check-cast v3, Landroid/app/NotificationChannel;
 
+    const v4, 0x7f0e0179
 
-# virtual methods
-.method public final getController()Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-    .locals 0
+    invoke-virtual {v0, v4, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->controller:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
+    move-result-object v4
 
-    if-eqz p0, :cond_0
+    if-eqz v4, :cond_1a
 
-    return-object p0
+    check-cast v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;
 
-    :cond_0
-    const-string p0, "controller"
+    iget-object v6, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->controller:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    if-eqz v6, :cond_a
 
-    const/4 p0, 0x0
+    goto :goto_7
+
+    :cond_a
+    move-object v6, v1
+
+    :goto_7
+    iput-object v6, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->controller:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
+
+    iput-object v3, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->channel:Landroid/app/NotificationChannel;
+
+    if-nez v3, :cond_b
+
+    goto :goto_8
+
+    :cond_b
+    invoke-virtual {v3}, Landroid/app/NotificationChannel;->getImportance()I
+
+    :goto_8
+    iget-object v3, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->channel:Landroid/app/NotificationChannel;
+
+    if-nez v3, :cond_c
+
+    goto/16 :goto_f
+
+    :cond_c
+    iget-object v6, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->channelName:Landroid/widget/TextView;
+
+    if-nez v6, :cond_d
+
+    move-object v6, v1
+
+    :cond_d
+    invoke-virtual {v3}, Landroid/app/NotificationChannel;->getName()Ljava/lang/CharSequence;
+
+    move-result-object v7
+
+    const-string v9, ""
+
+    if-nez v7, :cond_e
+
+    move-object v7, v9
+
+    :cond_e
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {v3}, Landroid/app/NotificationChannel;->getGroup()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-nez v6, :cond_f
+
+    goto :goto_b
+
+    :cond_f
+    iget-object v7, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->channelDescription:Landroid/widget/TextView;
+
+    if-nez v7, :cond_10
+
+    move-object v7, v1
+
+    :cond_10
+    iget-object v10, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->controller:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
+
+    if-eqz v10, :cond_11
+
+    goto :goto_9
+
+    :cond_11
+    move-object v10, v1
+
+    :goto_9
+    iget-object v10, v10, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;->groupNameLookup:Ljava/util/HashMap;
+
+    invoke-virtual {v10, v6}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/CharSequence;
+
+    if-nez v6, :cond_12
+
+    goto :goto_a
+
+    :cond_12
+    move-object v9, v6
+
+    :goto_a
+    invoke-virtual {v7, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_b
+    invoke-virtual {v3}, Landroid/app/NotificationChannel;->getGroup()Ljava/lang/String;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_16
+
+    iget-object v6, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->channelDescription:Landroid/widget/TextView;
+
+    if-nez v6, :cond_13
+
+    move-object v6, v1
+
+    :cond_13
+    invoke-virtual {v6}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v6
+
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_14
+
+    goto :goto_c
+
+    :cond_14
+    iget-object v6, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->channelDescription:Landroid/widget/TextView;
+
+    if-nez v6, :cond_15
+
+    move-object v6, v1
+
+    :cond_15
+    invoke-virtual {v6, v8}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_d
+
+    :cond_16
+    :goto_c
+    iget-object v6, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->channelDescription:Landroid/widget/TextView;
+
+    if-nez v6, :cond_17
+
+    move-object v6, v1
+
+    :cond_17
+    const/16 v7, 0x8
+
+    invoke-virtual {v6, v7}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :goto_d
+    iget-object v6, v4, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->switch:Landroid/widget/Switch;
+
+    if-nez v6, :cond_18
+
+    move-object v6, v1
+
+    :cond_18
+    invoke-virtual {v3}, Landroid/app/NotificationChannel;->getImportance()I
+
+    move-result v3
+
+    if-eqz v3, :cond_19
+
+    move v3, v5
+
+    goto :goto_e
+
+    :cond_19
+    move v3, v8
+
+    :goto_e
+    invoke-virtual {v6, v3}, Landroid/widget/Switch;->setChecked(Z)V
+
+    :goto_f
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {p0, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+
+    goto/16 :goto_6
+
+    :cond_1a
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string v0, "null cannot be cast to non-null type com.android.systemui.statusbar.notification.row.ChannelRow"
+
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
     throw p0
-.end method
 
-.method public final highlightChannel(Landroid/app/NotificationChannel;)V
-    .locals 2
-
-    const-string v0, "channel"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channelRows:Ljava/util/List;
-
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_0
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/row/ChannelRow;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->getChannel()Landroid/app/NotificationChannel;
-
-    move-result-object v1
-
-    invoke-static {v1, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ChannelRow;->playHighlight()V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method protected onFinishInflate()V
-    .locals 2
-
-    invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
-
-    sget v0, Lcom/android/systemui/R$id;->app_control:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    const-string v1, "findViewById(R.id.app_control)"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/row/AppControlView;
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appControlRow:Lcom/android/systemui/statusbar/notification/row/AppControlView;
-
-    return-void
-.end method
-
-.method public final setAppIcon(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appIcon:Landroid/graphics/drawable/Drawable;
-
-    return-void
-.end method
-
-.method public final setAppName(Ljava/lang/String;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->appName:Ljava/lang/String;
-
-    return-void
-.end method
-
-.method public final setChannels(Ljava/util/List;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Landroid/app/NotificationChannel;",
-            ">;)V"
-        }
-    .end annotation
-
-    const-string v0, "newValue"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->channels:Ljava/util/List;
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->updateRows()V
-
-    return-void
-.end method
-
-.method public final setController(Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;)V
-    .locals 1
-
-    const-string v0, "<set-?>"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;->controller:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-
+    :cond_1b
     return-void
 .end method

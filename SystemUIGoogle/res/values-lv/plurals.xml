@@ -20,6 +20,11 @@
         <item quantity="zero">Pievienotas %s vadīklas.</item>
         <item quantity="one">Pievienota %s vadīkla.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s lietotnes ir aktīvas</item>
+        <item quantity="zero">%s lietotnes ir aktīvas</item>
+        <item quantity="one">%s lietotne ir aktīva</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Ievadiet SIM kartes PIN. Varat mēģināt vēl %d reizes.</item>
         <item quantity="zero">Ievadiet SIM kartes PIN. Varat mēģināt vēl %d reizes.</item>
@@ -39,11 +44,6 @@
         <item quantity="other">Nepareizs SIM kartes PUK kods. Varat mēģināt vēl %d reizes. Ja pēdējais mēģinājums būs kļūdains, SIM karti vairs nevarēs izmantot.</item>
         <item quantity="zero">Nepareizs SIM kartes PUK kods. Varat mēģināt vēl %d reizes. Ja pēdējais mēģinājums būs kļūdains, SIM karti vairs nevarēs izmantot.</item>
         <item quantity="one">Nepareizs SIM kartes PUK kods. Varat mēģināt vēl %d reizi. Ja pēdējais mēģinājums būs kļūdains, SIM karti vairs nevarēs izmantot.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Mēģiniet vēlreiz pēc %d sekundēm.</item>
-        <item quantity="zero">Mēģiniet vēlreiz pēc %d sekundēm.</item>
-        <item quantity="one">Mēģiniet vēlreiz pēc %d sekundes.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d jauni paziņojumi</item>
@@ -84,10 +84,5 @@
         <item quantity="other">Varat pievienot ne vairāk kā %d lietotājus.</item>
         <item quantity="zero">Varat pievienot ne vairāk kā %d lietotājus.</item>
         <item quantity="one">Varat pievienot ne vairāk kā %d lietotāju.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Pievienotas %1$d ierīces</item>
-        <item quantity="zero">Pievienotas %1$d ierīces</item>
-        <item quantity="one">Pievienota %1$d ierīce</item>
     </plurals>
 </resources>

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotificationInfo$UpdateImportanceRunnable;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationInfo$UpdateImportanceRunnable;
 .super Ljava/lang/Object;
 .source "NotificationInfo.java"
 
@@ -12,25 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "UpdateImportanceRunnable"
 .end annotation
 
 
 # instance fields
-.field private final mAppUid:I
+.field public final mAppUid:I
 
-.field private final mChannelToUpdate:Landroid/app/NotificationChannel;
+.field public final mChannelToUpdate:Landroid/app/NotificationChannel;
 
-.field private final mCurrentImportance:I
+.field public final mCurrentImportance:I
 
-.field private final mINotificationManager:Landroid/app/INotificationManager;
+.field public final mINotificationManager:Landroid/app/INotificationManager;
 
-.field private final mNewImportance:I
+.field public final mNewImportance:I
 
-.field private final mPackageName:Ljava/lang/String;
+.field public final mPackageName:Ljava/lang/String;
 
-.field private final mUnlockImportance:Z
+.field public final mUnlockImportance:Z
 
 
 # direct methods
@@ -58,7 +58,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 4
 
     :try_start_0

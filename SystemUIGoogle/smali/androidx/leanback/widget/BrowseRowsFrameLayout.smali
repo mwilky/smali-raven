@@ -6,14 +6,6 @@
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -24,16 +16,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -44,18 +26,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyle"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -64,24 +34,8 @@
 
 
 # virtual methods
-.method protected measureChildWithMargins(Landroid/view/View;IIII)V
+.method public final measureChildWithMargins(Landroid/view/View;IIII)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "parentWidthMeasureSpec",
-            "widthUsed",
-            "parentHeightMeasureSpec",
-            "heightUsed"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -97,13 +51,13 @@
 
     move-result v2
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
-    add-int/2addr v1, p3
+    add-int/2addr v2, p3
 
     iget p3, v0, Landroid/view/ViewGroup$MarginLayoutParams;->width:I
 
-    invoke-static {p2, v1, p3}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
+    invoke-static {p2, v2, p3}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
 
     move-result p2
 
@@ -115,13 +69,13 @@
 
     move-result p0
 
-    add-int/2addr p3, p0
+    add-int/2addr p0, p3
 
-    add-int/2addr p3, p5
+    add-int/2addr p0, p5
 
-    iget p0, v0, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
+    iget p3, v0, Landroid/view/ViewGroup$MarginLayoutParams;->height:I
 
-    invoke-static {p4, p3, p0}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
+    invoke-static {p4, p0, p3}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
 
     move-result p0
 

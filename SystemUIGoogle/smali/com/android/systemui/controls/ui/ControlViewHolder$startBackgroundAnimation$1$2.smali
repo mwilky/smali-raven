@@ -3,23 +3,12 @@
 .source "ControlViewHolder.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/ControlViewHolder;->startBackgroundAnimation(Landroid/graphics/drawable/Drawable;III)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$2;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
@@ -31,14 +20,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$2;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->access$setStateAnimator$p(Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/animation/ValueAnimator;)V
+    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder;->stateAnimator:Landroid/animation/ValueAnimator;
 
     return-void
 .end method

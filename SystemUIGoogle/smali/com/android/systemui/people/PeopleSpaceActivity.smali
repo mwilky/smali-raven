@@ -4,24 +4,16 @@
 
 
 # instance fields
-.field private mAppWidgetId:I
+.field public mAppWidgetId:I
 
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
+.field public mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
 
-.field private mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
+.field public mViewOutlineProvider:Lcom/android/systemui/people/PeopleSpaceActivity$1;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$iaS2r-tDGGYc-ZTPta7NUxFFxEA(Lcom/android/systemui/people/PeopleSpaceActivity;Landroid/app/people/PeopleSpaceTile;Lcom/android/systemui/people/widget/PeopleTileKey;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/people/PeopleSpaceActivity;->lambda$setTileView$0(Landroid/app/people/PeopleSpaceTile;Lcom/android/systemui/people/widget/PeopleTileKey;Landroid/view/View;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;)V
     .locals 1
 
@@ -31,23 +23,57 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/people/PeopleSpaceActivity$1;-><init>(Lcom/android/systemui/people/PeopleSpaceActivity;)V
 
-    iput-object v0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
+    iput-object v0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mViewOutlineProvider:Lcom/android/systemui/people/PeopleSpaceActivity$1;
 
     iput-object p1, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/people/PeopleSpaceActivity;)Landroid/content/Context;
+
+# virtual methods
+.method public dismissActivity(Landroid/view/View;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mContext:Landroid/content/Context;
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
-    return-object p0
+    return-void
 .end method
 
-.method private buildActivity()V
-    .locals 5
+.method public final onCreate(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object p1
+
+    const-string v0, "appWidgetId"
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mAppWidgetId:I
+
+    invoke-virtual {p0, v1}, Landroid/app/Activity;->setResult(I)V
+
+    return-void
+.end method
+
+.method public final onResume()V
+    .locals 7
+
+    invoke-super {p0}, Landroid/app/Activity;->onResume()V
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -57,16 +83,54 @@
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    :try_start_0
-    iget-object v2, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
+    const/4 v2, 0x1
 
-    invoke-virtual {v2}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->getPriorityTiles()Ljava/util/List;
+    :try_start_0
+    iget-object v3, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
+
+    iget-object v4, v3, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->mINotificationManager:Landroid/app/INotificationManager;
+
+    invoke-interface {v4, v2}, Landroid/app/INotificationManager;->getConversations(Z)Landroid/content/pm/ParceledListSlice;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/pm/ParceledListSlice;->getList()Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/List;->stream()Ljava/util/stream/Stream;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda2;
+
+    invoke-direct {v5}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda2;-><init>()V
+
+    invoke-interface {v4, v5}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object v4
+
+    new-instance v5, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda4;
+
+    invoke-direct {v5, v2}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda4;-><init>(I)V
+
+    invoke-interface {v4, v5}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+
+    move-result-object v4
+
+    iget-object v5, v3, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->mIPeopleManager:Landroid/app/people/IPeopleManager;
+
+    iget-object v6, v3, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->mLauncherApps:Landroid/content/pm/LauncherApps;
+
+    iget-object v3, v3, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->mUserManager:Landroid/os/UserManager;
+
+    invoke-static {v5, v6, v3, v4}, Lcom/android/systemui/people/PeopleSpaceUtils;->getSortedTiles(Landroid/app/people/IPeopleManager;Landroid/content/pm/LauncherApps;Landroid/os/UserManager;Ljava/util/stream/Stream;)Ljava/util/List;
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
+    iget-object v3, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
 
-    invoke-virtual {v2}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->getRecentTiles()Ljava/util/List;
+    invoke-virtual {v3}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->getRecentTiles()Ljava/util/List;
 
     move-result-object v1
     :try_end_0
@@ -75,28 +139,28 @@
     goto :goto_0
 
     :catch_0
-    move-exception v2
+    move-exception v3
 
-    const-string v3, "PeopleSpaceActivity"
+    const-string v4, "PeopleSpaceActivity"
 
-    const-string v4, "Couldn\'t retrieve conversations"
+    const-string v5, "Couldn\'t retrieve conversations"
 
-    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v5, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
     invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    sget v0, Lcom/android/systemui/R$layout;->people_space_activity_no_conversations:I
+    const v0, 0x7f0e019a
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(I)V
 
@@ -120,9 +184,7 @@
 
     move-result-object p0
 
-    const/4 v1, 0x1
-
-    new-array v1, v1, [I
+    new-array v1, v2, [I
 
     const v2, 0x112002d
 
@@ -142,140 +204,31 @@
 
     invoke-virtual {v0, p0}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
 
-    return-void
+    goto :goto_1
 
     :cond_0
-    sget v2, Lcom/android/systemui/R$layout;->people_space_activity:I
+    const v2, 0x7f0e0198
 
     invoke-virtual {p0, v2}, Landroid/app/Activity;->setContentView(I)V
 
-    sget v2, Lcom/android/systemui/R$id;->priority:I
+    const v2, 0x7f0b0502
 
-    sget v3, Lcom/android/systemui/R$id;->priority_tiles:I
+    const v3, 0x7f0b0507
 
-    invoke-direct {p0, v2, v3, v0}, Lcom/android/systemui/people/PeopleSpaceActivity;->setTileViews(IILjava/util/List;)V
+    invoke-virtual {p0, v2, v3, v0}, Lcom/android/systemui/people/PeopleSpaceActivity;->setTileViews(IILjava/util/List;)V
 
-    sget v0, Lcom/android/systemui/R$id;->recent:I
+    const v0, 0x7f0b053c
 
-    sget v2, Lcom/android/systemui/R$id;->recent_tiles:I
+    const v2, 0x7f0b053f
 
-    invoke-direct {p0, v0, v2, v1}, Lcom/android/systemui/people/PeopleSpaceActivity;->setTileViews(IILjava/util/List;)V
+    invoke-virtual {p0, v0, v2, v1}, Lcom/android/systemui/people/PeopleSpaceActivity;->setTileViews(IILjava/util/List;)V
 
+    :goto_1
     return-void
 .end method
 
-.method private finishActivity()V
-    .locals 1
-
-    const/4 v0, -0x1
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/people/PeopleSpaceActivity;->setActivityResult(I)V
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setTileView$0(Landroid/app/people/PeopleSpaceTile;Lcom/android/systemui/people/widget/PeopleTileKey;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/people/PeopleSpaceActivity;->storeWidgetConfiguration(Landroid/app/people/PeopleSpaceTile;Lcom/android/systemui/people/widget/PeopleTileKey;)V
-
-    return-void
-.end method
-
-.method private setActivityResult(I)V
-    .locals 3
-
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    iget v1, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mAppWidgetId:I
-
-    const-string v2, "appWidgetId"
-
-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
-
-    invoke-virtual {p0, p1, v0}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
-
-    return-void
-.end method
-
-.method private setTileView(Lcom/android/systemui/people/PeopleSpaceTileView;Landroid/app/people/PeopleSpaceTile;)V
-    .locals 3
-
-    :try_start_0
-    invoke-virtual {p2}, Landroid/app/people/PeopleSpaceTile;->getUserName()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p2}, Landroid/app/people/PeopleSpaceTile;->getUserName()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/people/PeopleSpaceTileView;->setName(Ljava/lang/String;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mContext:Landroid/content/Context;
-
-    sget v1, Lcom/android/systemui/R$dimen;->avatar_size_for_medium:I
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v2
-
-    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
-
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/people/PeopleTileViewHelper;->getSizeInDp(Landroid/content/Context;IF)I
-
-    move-result v1
-
-    invoke-static {v0, p2, v1}, Lcom/android/systemui/people/PeopleTileViewHelper;->getPersonIconBitmap(Landroid/content/Context;Landroid/app/people/PeopleSpaceTile;I)Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/people/PeopleSpaceTileView;->setPersonIcon(Landroid/graphics/Bitmap;)V
-
-    new-instance v0, Lcom/android/systemui/people/widget/PeopleTileKey;
-
-    invoke-direct {v0, p2}, Lcom/android/systemui/people/widget/PeopleTileKey;-><init>(Landroid/app/people/PeopleSpaceTile;)V
-
-    new-instance v1, Lcom/android/systemui/people/PeopleSpaceActivity$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/android/systemui/people/PeopleSpaceActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/people/PeopleSpaceActivity;Landroid/app/people/PeopleSpaceTile;Lcom/android/systemui/people/widget/PeopleTileKey;)V
-
-    invoke-virtual {p1, v1}, Lcom/android/systemui/people/PeopleSpaceTileView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "PeopleSpaceActivity"
-
-    const-string p2, "Couldn\'t retrieve shortcut information"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method private setTileViews(IILjava/util/List;)V
-    .locals 7
+.method public final setTileViews(IILjava/util/List;)V
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(II",
@@ -314,7 +267,7 @@
 
     invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->setClipToOutline(Z)V
 
-    iget-object v0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mViewOutlineProvider:Landroid/view/ViewOutlineProvider;
+    iget-object v0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mViewOutlineProvider:Lcom/android/systemui/people/PeopleSpaceActivity$1;
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
@@ -327,7 +280,7 @@
 
     move-result v2
 
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_3
 
     invoke-interface {p3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -361,76 +314,94 @@
     :goto_1
     invoke-direct {v3, v4, p1, v5, v6}, Lcom/android/systemui/people/PeopleSpaceTileView;-><init>(Landroid/content/Context;Landroid/view/ViewGroup;Ljava/lang/String;Z)V
 
-    invoke-direct {p0, v3, v2}, Lcom/android/systemui/people/PeopleSpaceActivity;->setTileView(Lcom/android/systemui/people/PeopleSpaceTileView;Landroid/app/people/PeopleSpaceTile;)V
+    :try_start_0
+    invoke-virtual {v2}, Landroid/app/people/PeopleSpaceTile;->getUserName()Ljava/lang/CharSequence;
 
+    move-result-object v4
+
+    if-eqz v4, :cond_2
+
+    invoke-virtual {v2}, Landroid/app/people/PeopleSpaceTile;->getUserName()Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, v3, Lcom/android/systemui/people/PeopleSpaceTileView;->mNameView:Landroid/widget/TextView;
+
+    invoke-virtual {v5, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_2
+    iget-object v4, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mContext:Landroid/content/Context;
+
+    const v5, 0x7f0700a9
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v6
+
+    iget v6, v6, Landroid/util/DisplayMetrics;->density:F
+
+    sget-object v7, Lcom/android/systemui/people/PeopleTileViewHelper;->DOUBLE_EXCLAMATION_PATTERN:Ljava/util/regex/Pattern;
+
+    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v5}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v5
+
+    div-float/2addr v5, v6
+
+    float-to-int v5, v5
+
+    invoke-static {v2}, Lcom/android/systemui/people/PeopleTileViewHelper;->getHasNewStory(Landroid/app/people/PeopleSpaceTile;)Z
+
+    move-result v6
+
+    invoke-static {v4, v2, v5, v6}, Lcom/android/systemui/people/PeopleTileViewHelper;->getPersonIconBitmap(Landroid/content/Context;Landroid/app/people/PeopleSpaceTile;IZ)Landroid/graphics/Bitmap;
+
+    move-result-object v4
+
+    iget-object v5, v3, Lcom/android/systemui/people/PeopleSpaceTileView;->mPersonIconView:Landroid/widget/ImageView;
+
+    invoke-virtual {v5, v4}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    new-instance v4, Lcom/android/systemui/people/widget/PeopleTileKey;
+
+    invoke-direct {v4, v2}, Lcom/android/systemui/people/widget/PeopleTileKey;-><init>(Landroid/app/people/PeopleSpaceTile;)V
+
+    new-instance v5, Lcom/android/systemui/people/PeopleSpaceActivity$$ExternalSyntheticLambda0;
+
+    invoke-direct {v5, p0, v2, v4}, Lcom/android/systemui/people/PeopleSpaceActivity$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/people/PeopleSpaceActivity;Landroid/app/people/PeopleSpaceTile;Lcom/android/systemui/people/widget/PeopleTileKey;)V
+
+    invoke-virtual {v3, v5}, Lcom/android/systemui/people/PeopleSpaceTileView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v2
+
+    const-string v3, "PeopleSpaceActivity"
+
+    const-string v4, "Couldn\'t retrieve shortcut information"
+
+    invoke-static {v3, v4, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_2
-    return-void
-.end method
-
-.method private storeWidgetConfiguration(Landroid/app/people/PeopleSpaceTile;Lcom/android/systemui/people/widget/PeopleTileKey;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mPeopleSpaceWidgetManager:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-
-    iget v0, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mAppWidgetId:I
-
-    invoke-virtual {p1, v0, p2}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->addNewWidget(ILcom/android/systemui/people/widget/PeopleTileKey;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/people/PeopleSpaceActivity;->finishActivity()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public dismissActivity(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
-    return-void
-.end method
-
-.method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
-
-    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object p1
-
-    const-string v0, "appWidgetId"
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/people/PeopleSpaceActivity;->mAppWidgetId:I
-
-    invoke-virtual {p0, v1}, Landroid/app/Activity;->setResult(I)V
-
-    return-void
-.end method
-
-.method protected onResume()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/app/Activity;->onResume()V
-
-    invoke-direct {p0}, Lcom/android/systemui/people/PeopleSpaceActivity;->buildActivity()V
-
+    :cond_3
     return-void
 .end method

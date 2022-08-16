@@ -6,181 +6,276 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/screenshot/TakeScreenshotService;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final notificationsControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotNotificationsController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final screenshotControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final bgExecutorProvider:Ljavax/inject/Provider;
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final contextProvider:Ljavax/inject/Provider;
 
-.field private final userManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/os/UserManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final devicePolicyManagerProvider:Ljavax/inject/Provider;
+
+.field public final notificationsControllerProvider:Ljavax/inject/Provider;
+
+.field public final screenshotControllerProvider:Ljavax/inject/Provider;
+
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
+
+.field public final userManagerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ldagger/internal/Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/UserManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotNotificationsController;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p8, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->screenshotControllerProvider:Ljavax/inject/Provider;
 
     iput-object p2, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->userManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->devicePolicyManagerProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->notificationsControllerProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->notificationsControllerProvider:Ljavax/inject/Provider;
+
+    iput-object p6, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    iput-object p7, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/UserManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotNotificationsController;",
-            ">;)",
-            "Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;"
-        }
-    .end annotation
+.method public static create(Lcom/android/systemui/statusbar/policy/UserInfoControllerImpl_Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;
+    .locals 10
 
-    new-instance v0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;
+    new-instance v9, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    const/4 v8, 0x1
 
-    return-object v0
+    move-object v0, v9
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    move-object/from16 v7, p6
+
+    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;-><init>(Ldagger/internal/Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    return-object v9
 .end method
 
-.method public static newInstance(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/os/UserManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;)Lcom/android/systemui/screenshot/TakeScreenshotService;
-    .locals 1
+.method public static create$1(Lcom/android/systemui/screenshot/ScreenshotController_Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;
+    .locals 10
 
-    new-instance v0, Lcom/android/systemui/screenshot/TakeScreenshotService;
+    new-instance v9, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/screenshot/TakeScreenshotService;-><init>(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/os/UserManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;)V
+    const/4 v8, 0x0
 
-    return-object v0
+    move-object v0, v9
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    move-object v6, p5
+
+    move-object/from16 v7, p6
+
+    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;-><init>(Ldagger/internal/Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    return-object v9
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/screenshot/TakeScreenshotService;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 9
 
+    iget v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->screenshotControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/screenshot/ScreenshotController;
+    move-object v2, v0
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    check-cast v2, Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->userManagerProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Landroid/os/UserManager;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    move-object v3, v0
 
-    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    check-cast v3, Landroid/os/UserManager;
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->devicePolicyManagerProvider:Ljavax/inject/Provider;
 
-    check-cast v2, Lcom/android/internal/logging/UiEventLogger;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->notificationsControllerProvider:Ljavax/inject/Provider;
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Landroid/app/admin/DevicePolicyManager;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/internal/logging/UiEventLogger;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->notificationsControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Landroid/content/Context;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;
+    move-object v8, p0
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->newInstance(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/os/UserManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;)Lcom/android/systemui/screenshot/TakeScreenshotService;
+    check-cast v8, Ljava/util/concurrent/Executor;
+
+    new-instance p0, Lcom/android/systemui/screenshot/TakeScreenshotService;
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/screenshot/TakeScreenshotService;-><init>(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/os/UserManager;Landroid/app/admin/DevicePolicyManager;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;Landroid/content/Context;Ljava/util/concurrent/Executor;)V
+
+    return-object p0
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->screenshotControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Lcom/android/systemui/battery/BatteryMeterView;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->userManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->devicePolicyManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/tuner/TunerService;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->notificationsControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Landroid/content/ContentResolver;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
+    move-object v8, p0
+
+    check-cast v8, Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    new-instance p0, Lcom/android/systemui/battery/BatteryMeterViewController;
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/battery/BatteryMeterViewController;-><init>(Lcom/android/systemui/battery/BatteryMeterView;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;Landroid/content/ContentResolver;Lcom/android/systemui/statusbar/policy/BatteryController;)V
+
     return-object p0
-.end method
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/TakeScreenshotService_Factory;->get()Lcom/android/systemui/screenshot/TakeScreenshotService;
-
-    move-result-object p0
-
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

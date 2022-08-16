@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;
+.class public final Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;
 .super Ljava/lang/Object;
 .source "UdfpsEnrollDrawable.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;->this$0:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
@@ -34,29 +34,29 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable$1;->this$0:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->access$000(Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;)V
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->updateTipHintVisibility()V
 
     return-void
 .end method
 
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
+.method public final onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
 
     return-void

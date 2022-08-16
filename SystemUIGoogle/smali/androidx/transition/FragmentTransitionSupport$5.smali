@@ -1,4 +1,4 @@
-.class Landroidx/transition/FragmentTransitionSupport$5;
+.class public final Landroidx/transition/FragmentTransitionSupport$5;
 .super Ljava/lang/Object;
 .source "FragmentTransitionSupport.java"
 
@@ -6,30 +6,15 @@
 .implements Landroidx/transition/Transition$TransitionListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/transition/FragmentTransitionSupport;->setListenerForTransitionEnd(Landroidx/fragment/app/Fragment;Ljava/lang/Object;Landroidx/core/os/CancellationSignal;Ljava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/transition/FragmentTransitionSupport;
-
-.field final synthetic val$transitionCompleteRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$transitionCompleteRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/FragmentTransitionSupport;Ljava/lang/Runnable;)V
+.method public constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController$9;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/transition/FragmentTransitionSupport$5;->this$0:Landroidx/transition/FragmentTransitionSupport;
-
-    iput-object p2, p0, Landroidx/transition/FragmentTransitionSupport$5;->val$transitionCompleteRunnable:Ljava/lang/Runnable;
+    iput-object p1, p0, Landroidx/transition/FragmentTransitionSupport$5;->val$transitionCompleteRunnable:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,13 +23,13 @@
 
 
 # virtual methods
-.method public onTransitionCancel(Landroidx/transition/Transition;)V
+.method public final onTransitionCancel()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionEnd(Landroidx/transition/Transition;)V
+.method public final onTransitionEnd(Landroidx/transition/Transition;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/transition/FragmentTransitionSupport$5;->val$transitionCompleteRunnable:Ljava/lang/Runnable;
@@ -54,19 +39,19 @@
     return-void
 .end method
 
-.method public onTransitionPause(Landroidx/transition/Transition;)V
+.method public final onTransitionPause()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionResume(Landroidx/transition/Transition;)V
+.method public final onTransitionResume()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionStart(Landroidx/transition/Transition;)V
+.method public final onTransitionStart(Landroidx/transition/Transition;)V
     .locals 0
 
     return-void

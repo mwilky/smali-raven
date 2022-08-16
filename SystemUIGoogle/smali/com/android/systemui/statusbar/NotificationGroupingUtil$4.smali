@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationGroupingUtil$4;
+.class public final Lcom/android/systemui/statusbar/NotificationGroupingUtil$4;
 .super Ljava/lang/Object;
 .source "NotificationGroupingUtil.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,7 +28,7 @@
 
 
 # virtual methods
-.method public apply(Landroid/view/View;Landroid/view/View;ZZ)V
+.method public final apply(Landroid/view/View;Landroid/view/View;ZZ)V
     .locals 0
 
     const p0, 0x1020006

@@ -15,17 +15,15 @@
 
 
 # static fields
-.field static final ELEVATION_HIGH:F = 8.0f
+.field public static final ELEVATION_HIGH:F = 8.0f
 
-.field static final ELEVATION_LOW:F
+.field public static final ELEVATION_LOW:F
 
 
 # instance fields
-.field private mIsScrollWatcherAttached:Z
+.field public mIsScrollWatcherAttached:Z
 
-.field mScrollChangeWatcher:Lcom/android/settingslib/widget/ActionBarShadowController$ScrollChangeWatcher;
-
-.field private mScrollView:Landroid/view/View;
+.field public mScrollChangeWatcher:Lcom/android/settingslib/widget/ActionBarShadowController$ScrollChangeWatcher;
 
 
 # direct methods
@@ -46,32 +44,18 @@
 
     iput-boolean v0, p0, Lcom/android/settingslib/widget/ActionBarShadowController;->mIsScrollWatcherAttached:Z
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/ActionBarShadowController;->mScrollView:Landroid/view/View;
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/ActionBarShadowController;->mScrollChangeWatcher:Lcom/android/settingslib/widget/ActionBarShadowController$ScrollChangeWatcher;
-
-    invoke-virtual {v0, p0}, Landroid/view/View;->setOnScrollChangeListener(Landroid/view/View$OnScrollChangeListener;)V
-
     const/4 p0, 0x0
 
     throw p0
 .end method
 
 .method private detachScrollWatcher()V
-    .locals 2
+    .locals 0
     .annotation runtime Landroidx/lifecycle/OnLifecycleEvent;
         value = .enum Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
     .end annotation
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/ActionBarShadowController;->mScrollView:Landroid/view/View;
+    const/4 p0, 0x0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnScrollChangeListener(Landroid/view/View$OnScrollChangeListener;)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/settingslib/widget/ActionBarShadowController;->mIsScrollWatcherAttached:Z
-
-    return-void
+    throw p0
 .end method

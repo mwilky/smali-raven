@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.android.systemui.statusbar.phone.KeyguardStatusBarView android:gravity="center_vertical" android:id="@id/keyguard_header" android:layout_width="fill_parent" android:layout_height="@dimen/status_bar_header_height_keyguard" android:baselineAligned="false"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:systemui="http://schemas.android.com/apk/res-auto">
-    <LinearLayout android:gravity="end|center" android:id="@id/status_icon_area" android:paddingTop="@dimen/status_bar_padding_top" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentEnd="true">
-        <FrameLayout android:gravity="end|center" android:id="@id/system_icons_container" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginStart="@dimen/system_icons_super_container_margin_start" android:layout_marginEnd="@dimen/status_bar_padding_end">
+    <LinearLayout android:gravity="end|center" android:id="@id/status_icon_area" android:paddingTop="@dimen/status_bar_padding_top" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginStart="@dimen/system_icons_super_container_margin_start" android:layout_alignParentEnd="true">
+        <com.android.systemui.statusbar.phone.userswitcher.StatusBarUserSwitcherContainer android:gravity="center" android:orientation="horizontal" android:id="@id/user_switcher_container" android:background="@drawable/status_bar_user_chip_bg" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="8.0dip" android:paddingEnd="8.0dip">
+            <ImageView android:id="@id/current_user_avatar" android:layout_width="@dimen/multi_user_avatar_keyguard_size" android:layout_height="@dimen/multi_user_avatar_keyguard_size" android:scaleType="centerInside" android:paddingEnd="4.0dip" />
+            <TextView android:textAppearance="@style/TextAppearance.StatusBar.Clock" android:id="@id/current_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </com.android.systemui.statusbar.phone.userswitcher.StatusBarUserSwitcherContainer>
+        <FrameLayout android:gravity="end|center" android:id="@id/system_icons_container" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:layout_marginEnd="@dimen/status_bar_padding_end">
             <include layout="@layout/system_icons" />
         </FrameLayout>
         <ImageView android:layout_gravity="center" android:id="@id/multi_user_avatar" android:layout_width="@dimen/multi_user_avatar_keyguard_size" android:layout_height="@dimen/multi_user_avatar_keyguard_size" android:scaleType="centerInside" />

@@ -17,6 +17,7 @@
         <item>Tối đa 3 quá trình</item>
         <item>Tối đa 4 quá trình</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -209,13 +210,13 @@
         <item>8 MB</item>
     </string-array>
     <string-array name="select_logpersist_summaries">
-        <item>Tắt</item>
+        <item>Đang tắt</item>
         <item>Tất cả lần tải nhật ký</item>
         <item>Tất cả trừ lần tải nhật ký qua đài</item>
         <item>chỉ vùng đệm nhật ký kernel</item>
     </string-array>
     <string-array name="select_logpersist_titles">
-        <item>Tắt</item>
+        <item>Đang tắt</item>
         <item>Tất cả</item>
         <item>Tất cả trừ đài</item>
         <item>chỉ kernel</item>
@@ -257,6 +258,11 @@
     </string-array>
     <string-array name="tile_states_cell">
         <item>Không hoạt động</item>
+        <item>Đang tắt</item>
+        <item>Đang bật</item>
+    </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Không có</item>
         <item>Đang tắt</item>
         <item>Đang bật</item>
     </string-array>
@@ -306,6 +312,16 @@
         <item>Đang bật</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Không hoạt động</item>
+        <item>Đang tắt</item>
+        <item>Đang bật</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Không hoạt động</item>
+        <item>Đang tắt</item>
+        <item>Đang bật</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Không hoạt động</item>
         <item>Đang tắt</item>
         <item>Đang bật</item>
@@ -374,6 +390,12 @@
         <item>Nhanh</item>
         <item>Rất nhanh</item>
         <item>Nhanh nhất</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Di chuyển sang trái</item>
+        <item>Di chuyển xuống</item>
+        <item>Di chuyển sang phải</item>
+        <item>Di chuyển lên</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Đang sạc</item>

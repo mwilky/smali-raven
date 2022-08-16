@@ -17,6 +17,7 @@
         <item>Maksimalt 3 prosesser</item>
         <item>Maksimalt 4 prosesser</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Av</item>
         <item>På</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Utilgjengelig</item>
+        <item>Av</item>
+        <item>På</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Utilgjengelig</item>
         <item>Av</item>
@@ -306,6 +312,16 @@
         <item>På</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Utilgjengelig</item>
+        <item>Av</item>
+        <item>På</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Utilgjengelig</item>
+        <item>Av</item>
+        <item>På</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Utilgjengelig</item>
         <item>Av</item>
         <item>På</item>
@@ -374,6 +390,12 @@
         <item>Hurtig</item>
         <item>Veldig hurtig</item>
         <item>Raskest</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Flytt til venstre</item>
+        <item>Flytt ned</item>
+        <item>Flytt til høyre</item>
+        <item>Flytt opp</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Lader</item>

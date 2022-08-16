@@ -1,4 +1,4 @@
-.class Landroidx/transition/ViewUtils$1;
+.class public final Landroidx/transition/ViewUtils$1;
 .super Landroid/util/Property;
 .source "ViewUtils.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -24,20 +24,26 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 2
 
-    invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    const-class v0, Ljava/lang/Float;
+
+    const-string/jumbo v1, "translationAlpha"
+
+    invoke-direct {p0, v0, v1}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public get(Landroid/view/View;)Ljava/lang/Float;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    invoke-static {p1}, Landroidx/transition/ViewUtils;->getTransitionAlpha(Landroid/view/View;)F
+    check-cast p1, Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getTransitionAlpha()F
 
     move-result p0
 
@@ -48,38 +54,18 @@
     return-object p0
 .end method
 
-.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p1, Landroid/view/View;
-
-    invoke-virtual {p0, p1}, Landroidx/transition/ViewUtils$1;->get(Landroid/view/View;)Ljava/lang/Float;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public set(Landroid/view/View;Ljava/lang/Float;)V
-    .locals 0
-
-    invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
-
-    move-result p0
-
-    invoke-static {p1, p0}, Landroidx/transition/ViewUtils;->setTransitionAlpha(Landroid/view/View;F)V
-
-    return-void
-.end method
-
-.method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
+.method public final set(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Landroid/view/View;
 
     check-cast p2, Ljava/lang/Float;
 
-    invoke-virtual {p0, p1, p2}, Landroidx/transition/ViewUtils$1;->set(Landroid/view/View;Ljava/lang/Float;)V
+    invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
+
+    move-result p0
+
+    invoke-virtual {p1, p0}, Landroid/view/View;->setTransitionAlpha(F)V
 
     return-void
 .end method

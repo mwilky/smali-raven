@@ -15,63 +15,62 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nGhostedViewLaunchAnimatorController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 GhostedViewLaunchAnimatorController.kt\ncom/android/systemui/animation/GhostedViewLaunchAnimatorController\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,428:1\n1#2:429\n*E\n"
+    value = "SMAP\nGhostedViewLaunchAnimatorController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 GhostedViewLaunchAnimatorController.kt\ncom/android/systemui/animation/GhostedViewLaunchAnimatorController\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,462:1\n1#2:463\n*E\n"
 .end annotation
 
 
-# static fields
-.field public static final Companion:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;
-
-
 # instance fields
-.field private backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
+.field public final background:Landroid/graphics/drawable/Drawable;
 
-.field private final backgroundInsets$delegate:Lkotlin/Lazy;
+.field public backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
 
-.field private backgroundView:Landroid/widget/FrameLayout;
+.field public final backgroundInsets$delegate:Lkotlin/Lazy;
 
-.field private final cujType:Ljava/lang/Integer;
+.field public backgroundView:Landroid/widget/FrameLayout;
 
-.field private ghostView:Landroid/view/GhostView;
+.field public final cujType:Ljava/lang/Integer;
 
-.field private final ghostViewMatrix:Landroid/graphics/Matrix;
+.field public ghostView:Landroid/view/GhostView;
 
-.field private final ghostedView:Landroid/view/View;
+.field public final ghostViewMatrix:Landroid/graphics/Matrix;
 
-.field private final ghostedViewLocation:[I
+.field public final ghostedView:Landroid/view/View;
 
-.field private final ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
+.field public final ghostedViewLocation:[I
 
-.field private final initialGhostViewMatrixValues:[F
+.field public final ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
 
-.field private launchContainer:Landroid/view/ViewGroup;
+.field public final initialGhostViewMatrixValues:[F
 
-.field private final launchContainerLocation:[I
+.field public interactionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
-.field private startBackgroundAlpha:I
+.field public launchContainer:Landroid/view/ViewGroup;
+
+.field public final launchContainerLocation:[I
+
+.field public startBackgroundAlpha:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public synthetic constructor <init>(Landroid/view/View;Ljava/lang/Integer;I)V
+    .locals 1
 
-    new-instance v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;
+    and-int/lit8 p3, p3, 0x2
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    invoke-direct {v0, v1}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    if-eqz p3, :cond_0
 
-    sput-object v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->Companion:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;
+    move-object p2, v0
+
+    :cond_0
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;-><init>(Landroid/view/View;Ljava/lang/Integer;Lcom/android/internal/jank/InteractionJankMonitor;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/view/View;Ljava/lang/Integer;)V
+.method public constructor <init>(Landroid/view/View;Ljava/lang/Integer;Lcom/android/internal/jank/InteractionJankMonitor;)V
     .locals 9
-
-    const-string v0, "ghostedView"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -79,13 +78,13 @@
 
     iput-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->cujType:Ljava/lang/Integer;
 
+    iput-object p3, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->interactionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
+
     invoke-virtual {p1}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object p1
 
-    const-string p2, "null cannot be cast to non-null type android.view.ViewGroup"
-
-    invoke-static {p1, p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_5
 
     check-cast p1, Landroid/view/ViewGroup;
 
@@ -97,25 +96,27 @@
 
     iput-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
 
-    const/4 p2, 0x0
+    const/16 p2, 0x9
 
-    const/16 v0, 0x9
+    new-array p3, p2, [F
 
-    new-array v1, v0, [F
+    const/4 v0, 0x0
+
+    move v1, v0
 
     :goto_0
-    if-ge p2, v0, :cond_0
+    if-ge v1, p2, :cond_0
 
     const/4 v2, 0x0
 
-    aput v2, v1, p2
+    aput v2, p3, v1
 
-    add-int/lit8 p2, p2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    iput-object v1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->initialGhostViewMatrixValues:[F
+    iput-object p3, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->initialGhostViewMatrixValues:[F
 
     new-instance p2, Landroid/graphics/Matrix;
 
@@ -127,7 +128,7 @@
 
     invoke-direct {p2, p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$backgroundInsets$2;-><init>(Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;)V
 
-    invoke-static {p2}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    invoke-static {p2}, Lkotlin/LazyKt__LazyJVMKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
 
     move-result-object p2
 
@@ -143,8 +144,6 @@
 
     new-instance p1, Lcom/android/systemui/animation/LaunchAnimator$State;
 
-    const/4 v1, 0x0
-
     const/4 v2, 0x0
 
     const/4 v3, 0x0
@@ -155,72 +154,116 @@
 
     const/4 v6, 0x0
 
-    const/16 v7, 0x3f
+    const/4 v7, 0x0
 
-    const/4 v8, 0x0
+    const/16 v8, 0x3f
 
-    move-object v0, p1
+    move-object v1, p1
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/animation/LaunchAnimator$State;-><init>(IIIIFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/animation/LaunchAnimator$State;-><init>(IIIIFFI)V
 
     iput-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
 
+    iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p2
+
+    if-eqz p2, :cond_1
+
+    invoke-virtual {p1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    goto :goto_2
+
+    :cond_1
+    new-instance p2, Ljava/util/LinkedList;
+
+    invoke-direct {p2}, Ljava/util/LinkedList;-><init>()V
+
+    invoke-virtual {p2, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+
+    :cond_2
+    invoke-interface {p2}, Ljava/util/Collection;->isEmpty()Z
+
+    move-result p1
+
+    xor-int/lit8 p1, p1, 0x1
+
+    if-eqz p1, :cond_4
+
+    invoke-virtual {p2}, Ljava/util/LinkedList;->removeFirst()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p3
+
+    if-eqz p3, :cond_3
+
+    invoke-virtual {p1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    goto :goto_2
+
+    :cond_3
+    instance-of p3, p1, Landroid/view/ViewGroup;
+
+    if-eqz p3, :cond_2
+
+    check-cast p1, Landroid/view/ViewGroup;
+
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result p3
+
+    move v1, v0
+
+    :goto_1
+    if-ge v1, p3, :cond_2
+
+    add-int/lit8 v2, v1, 0x1
+
+    invoke-virtual {p1, v1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
+
+    move v1, v2
+
+    goto :goto_1
+
+    :cond_4
+    const/4 p1, 0x0
+
+    :goto_2
+    iput-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->background:Landroid/graphics/drawable/Drawable;
+
     return-void
-.end method
 
-.method public synthetic constructor <init>(Landroid/view/View;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    :cond_5
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    and-int/lit8 p3, p3, 0x2
+    const-string p1, "null cannot be cast to non-null type android.view.ViewGroup"
 
-    if-eqz p3, :cond_0
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    const/4 p2, 0x0
-
-    :cond_0
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;-><init>(Landroid/view/View;Ljava/lang/Integer;)V
-
-    return-void
-.end method
-
-.method private final getBackgroundInsets()Landroid/graphics/Insets;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundInsets$delegate:Lkotlin/Lazy;
-
-    invoke-interface {p0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/graphics/Insets;
-
-    return-object p0
-.end method
-
-.method private final getLaunchContainerOverlay()Landroid/view/ViewGroupOverlay;
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getLaunchContainer()Landroid/view/ViewGroup;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
-
-    move-result-object p0
-
-    const-string v0, "launchContainer.overlay"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    return-object p0
+    throw p0
 .end method
 
 
 # virtual methods
-.method public createAnimatorState()Lcom/android/systemui/animation/LaunchAnimator$State;
-    .locals 10
+.method public final createAnimatorState()Lcom/android/systemui/animation/LaunchAnimator$State;
+    .locals 9
 
-    new-instance v9, Lcom/android/systemui/animation/LaunchAnimator$State;
+    new-instance v8, Lcom/android/systemui/animation/LaunchAnimator$State;
 
     invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getCurrentTopCornerRadius()F
 
@@ -240,23 +283,17 @@
 
     const/16 v7, 0xf
 
-    const/4 v8, 0x0
+    move-object v0, v8
 
-    move-object v0, v9
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/animation/LaunchAnimator$State;-><init>(IIIIFFI)V
 
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/animation/LaunchAnimator$State;-><init>(IIIIFFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-virtual {p0, v8}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->fillGhostedViewState(Lcom/android/systemui/animation/LaunchAnimator$State;)V
 
-    invoke-virtual {p0, v9}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->fillGhostedViewState(Lcom/android/systemui/animation/LaunchAnimator$State;)V
-
-    return-object v9
+    return-object v8
 .end method
 
 .method public final fillGhostedViewState(Lcom/android/systemui/animation/LaunchAnimator$State;)V
-    .locals 4
-
-    const-string v0, "state"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
@@ -264,9 +301,13 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->getLocationOnScreen([I)V
 
-    invoke-direct {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getBackgroundInsets()Landroid/graphics/Insets;
+    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundInsets$delegate:Lkotlin/Lazy;
+
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Landroid/graphics/Insets;
 
     iget-object v1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewLocation:[I
 
@@ -274,15 +315,11 @@
 
     aget v1, v1, v2
 
-    iget v3, v0, Landroid/graphics/Insets;->top:I
+    iget v2, v0, Landroid/graphics/Insets;->top:I
 
-    add-int/2addr v1, v3
+    add-int/2addr v2, v1
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/animation/LaunchAnimator$State;->setTop(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewLocation:[I
-
-    aget v1, v1, v2
+    iput v2, p1, Lcom/android/systemui/animation/LaunchAnimator$State;->top:I
 
     iget-object v2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
@@ -290,13 +327,13 @@
 
     move-result v2
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
-    iget v2, v0, Landroid/graphics/Insets;->bottom:I
+    iget v1, v0, Landroid/graphics/Insets;->bottom:I
 
-    sub-int/2addr v1, v2
+    sub-int/2addr v2, v1
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/animation/LaunchAnimator$State;->setBottom(I)V
+    iput v2, p1, Lcom/android/systemui/animation/LaunchAnimator$State;->bottom:I
 
     iget-object v1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewLocation:[I
 
@@ -304,15 +341,11 @@
 
     aget v1, v1, v2
 
-    iget v3, v0, Landroid/graphics/Insets;->left:I
+    iget v2, v0, Landroid/graphics/Insets;->left:I
 
-    add-int/2addr v1, v3
+    add-int/2addr v2, v1
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/animation/LaunchAnimator$State;->setLeft(I)V
-
-    iget-object v1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewLocation:[I
-
-    aget v1, v1, v2
+    iput v2, p1, Lcom/android/systemui/animation/LaunchAnimator$State;->left:I
 
     iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
@@ -320,35 +353,21 @@
 
     move-result p0
 
-    add-int/2addr v1, p0
+    add-int/2addr p0, v1
 
-    iget p0, v0, Landroid/graphics/Insets;->right:I
+    iget v0, v0, Landroid/graphics/Insets;->right:I
 
-    sub-int/2addr v1, p0
+    sub-int/2addr p0, v0
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/animation/LaunchAnimator$State;->setRight(I)V
+    iput p0, p1, Lcom/android/systemui/animation/LaunchAnimator$State;->right:I
 
     return-void
 .end method
 
-.method protected getBackground()Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
-
-    invoke-virtual {p0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected getCurrentBottomCornerRadius()F
+.method public getCurrentBottomCornerRadius()F
     .locals 2
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->background:Landroid/graphics/drawable/Drawable;
 
     const/4 v0, 0x0
 
@@ -357,9 +376,7 @@
     return v0
 
     :cond_0
-    sget-object v1, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->Companion:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;
-
-    invoke-virtual {v1, p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;->findGradientDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/GradientDrawable;
+    invoke-static {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;->findGradientDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/GradientDrawable;
 
     move-result-object p0
 
@@ -405,12 +422,10 @@
     return p0
 .end method
 
-.method protected getCurrentTopCornerRadius()F
+.method public getCurrentTopCornerRadius()F
     .locals 2
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->background:Landroid/graphics/drawable/Drawable;
 
     const/4 v0, 0x0
 
@@ -419,9 +434,7 @@
     return v0
 
     :cond_0
-    sget-object v1, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->Companion:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;
-
-    invoke-virtual {v1, p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;->findGradientDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/GradientDrawable;
+    invoke-static {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$Companion;->findGradientDrawable(Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/GradientDrawable;
 
     move-result-object p0
 
@@ -467,7 +480,7 @@
     return p0
 .end method
 
-.method public getLaunchContainer()Landroid/view/ViewGroup;
+.method public final getLaunchContainer()Landroid/view/ViewGroup;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
@@ -475,23 +488,7 @@
     return-object p0
 .end method
 
-.method public onIntentStarted(Z)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$DefaultImpls;->onIntentStarted(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
-
-    return-void
-.end method
-
-.method public onLaunchAnimationCancelled()V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$DefaultImpls;->onLaunchAnimationCancelled(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
-
-    return-void
-.end method
-
-.method public onLaunchAnimationEnd(Z)V
+.method public final onLaunchAnimationEnd(Z)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostView:Landroid/view/GhostView;
@@ -512,32 +509,33 @@
 
     move-result p1
 
-    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->interactionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
-    move-result-object v0
+    if-nez v0, :cond_2
 
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {v0, p1}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
 
     :goto_0
     iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_3
 
     const/4 p1, 0x0
 
     goto :goto_1
 
-    :cond_2
-    invoke-virtual {p1}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;->getWrapped()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
+    :cond_3
+    iget-object p1, p1, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
 
     :goto_1
-    if-nez p1, :cond_3
+    if-nez p1, :cond_4
 
     goto :goto_2
 
-    :cond_3
+    :cond_4
     iget v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->startBackgroundAlpha:I
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
@@ -547,7 +545,9 @@
 
     invoke-static {p1}, Landroid/view/GhostView;->removeGhost(Landroid/view/View;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getLaunchContainerOverlay()Landroid/view/ViewGroupOverlay;
+    iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
 
     move-result-object p1
 
@@ -574,332 +574,335 @@
     return-void
 .end method
 
-.method public onLaunchAnimationProgress(Lcom/android/systemui/animation/LaunchAnimator$State;FF)V
-    .locals 11
+.method public final onLaunchAnimationProgress(Lcom/android/systemui/animation/LaunchAnimator$State;FF)V
+    .locals 17
 
-    const-string p2, "state"
+    move-object/from16 v0, p0
 
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v1, p1
 
-    iget-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostView:Landroid/view/GhostView;
+    iget-object v2, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostView:Landroid/view/GhostView;
 
-    if-nez p2, :cond_0
+    if-nez v2, :cond_0
 
     return-void
 
     :cond_0
-    iget-object p3, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundView:Landroid/widget/FrameLayout;
+    iget-object v3, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundView:Landroid/widget/FrameLayout;
 
-    invoke-static {p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getVisible()Z
+    iget-boolean v4, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->visible:Z
 
-    move-result v0
+    const/4 v5, 0x4
 
-    const/4 v1, 0x4
+    if-nez v4, :cond_2
 
-    if-nez v0, :cond_2
+    invoke-virtual {v2}, Landroid/view/GhostView;->getVisibility()I
 
-    invoke-virtual {p2}, Landroid/view/GhostView;->getVisibility()I
+    move-result v1
 
-    move-result p1
+    if-nez v1, :cond_1
 
-    if-nez p1, :cond_1
+    invoke-virtual {v2, v5}, Landroid/view/GhostView;->setVisibility(I)V
 
-    invoke-virtual {p2, v1}, Landroid/view/GhostView;->setVisibility(I)V
+    iget-object v0, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
-    iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
+    invoke-virtual {v0, v5}, Landroid/view/View;->setTransitionVisibility(I)V
 
-    invoke-virtual {p0, v1}, Landroid/view/View;->setTransitionVisibility(I)V
-
-    invoke-virtual {p3, v1}, Landroid/widget/FrameLayout;->setVisibility(I)V
+    invoke-virtual {v3, v5}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
     :cond_1
     return-void
 
     :cond_2
-    invoke-virtual {p2}, Landroid/view/GhostView;->getVisibility()I
+    invoke-virtual {v2}, Landroid/view/GhostView;->getVisibility()I
 
-    move-result v0
+    move-result v4
 
-    const/4 v2, 0x0
+    const/4 v6, 0x0
 
-    if-ne v0, v1, :cond_3
+    if-ne v4, v5, :cond_3
 
-    invoke-virtual {p2, v2}, Landroid/view/GhostView;->setVisibility(I)V
+    invoke-virtual {v2, v6}, Landroid/view/GhostView;->setVisibility(I)V
 
-    invoke-virtual {p3, v2}, Landroid/widget/FrameLayout;->setVisibility(I)V
+    invoke-virtual {v3, v6}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
     :cond_3
-    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
+    iget-object v4, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->fillGhostedViewState(Lcom/android/systemui/animation/LaunchAnimator$State;)V
+    invoke-virtual {v0, v4}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->fillGhostedViewState(Lcom/android/systemui/animation/LaunchAnimator$State;)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getLeft()I
+    iget v4, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->left:I
 
-    move-result v0
+    iget-object v7, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
 
-    iget-object v1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
+    iget v8, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->left:I
 
-    invoke-virtual {v1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getLeft()I
+    sub-int v9, v4, v8
 
-    move-result v1
+    iget v10, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->right:I
 
-    sub-int/2addr v0, v1
+    iget v11, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->right:I
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getRight()I
+    sub-int v12, v10, v11
 
-    move-result v1
+    iget v13, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->top:I
 
-    iget-object v3, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
+    iget v14, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->top:I
 
-    invoke-virtual {v3}, Lcom/android/systemui/animation/LaunchAnimator$State;->getRight()I
+    sub-int v15, v13, v14
 
-    move-result v3
+    iget v5, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->bottom:I
 
-    sub-int/2addr v1, v3
+    iget v7, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->bottom:I
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTop()I
+    sub-int v16, v5, v7
 
-    move-result v3
+    sub-int/2addr v10, v4
 
-    iget-object v4, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
+    int-to-float v4, v10
 
-    invoke-virtual {v4}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTop()I
+    sub-int/2addr v11, v8
 
-    move-result v4
+    int-to-float v8, v11
 
-    sub-int/2addr v3, v4
+    div-float/2addr v4, v8
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getBottom()I
-
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
-
-    invoke-virtual {v5}, Lcom/android/systemui/animation/LaunchAnimator$State;->getBottom()I
-
-    move-result v5
-
-    sub-int/2addr v4, v5
-
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getWidth()I
-
-    move-result v5
+    sub-int/2addr v5, v13
 
     int-to-float v5, v5
 
-    iget-object v6, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
-
-    invoke-virtual {v6}, Lcom/android/systemui/animation/LaunchAnimator$State;->getWidth()I
-
-    move-result v6
-
-    int-to-float v6, v6
-
-    div-float/2addr v5, v6
-
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getHeight()I
-
-    move-result v6
-
-    int-to-float v6, v6
-
-    iget-object v7, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
-
-    invoke-virtual {v7}, Lcom/android/systemui/animation/LaunchAnimator$State;->getHeight()I
-
-    move-result v7
+    sub-int/2addr v7, v14
 
     int-to-float v7, v7
 
-    div-float/2addr v6, v7
+    div-float/2addr v5, v7
 
-    invoke-static {v5, v6}, Ljava/lang/Math;->min(FF)F
-
-    move-result v5
-
-    iget-object v6, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
-
-    invoke-virtual {v6}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v6
-
-    instance-of v6, v6, Landroid/view/ViewGroup;
-
-    if-eqz v6, :cond_4
-
-    iget-object v6, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
-
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getLaunchContainer()Landroid/view/ViewGroup;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
-
-    invoke-static {v6, v7, v8}, Landroid/view/GhostView;->calculateMatrix(Landroid/view/View;Landroid/view/ViewGroup;Landroid/graphics/Matrix;)V
-
-    :cond_4
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getLaunchContainer()Landroid/view/ViewGroup;
-
-    move-result-object v6
-
-    iget-object v7, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
-
-    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->getLocationOnScreen([I)V
-
-    iget-object v6, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
-
-    iget-object v7, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
-
-    invoke-virtual {v7}, Lcom/android/systemui/animation/LaunchAnimator$State;->getCenterX()F
-
-    move-result v7
-
-    iget-object v8, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
-
-    aget v8, v8, v2
-
-    int-to-float v8, v8
-
-    sub-float/2addr v7, v8
-
-    iget-object v8, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
-
-    invoke-virtual {v8}, Lcom/android/systemui/animation/LaunchAnimator$State;->getCenterY()F
-
-    move-result v8
-
-    iget-object v9, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
-
-    const/4 v10, 0x1
-
-    aget v9, v9, v10
-
-    int-to-float v9, v9
-
-    sub-float/2addr v8, v9
-
-    invoke-virtual {v6, v5, v5, v7, v8}, Landroid/graphics/Matrix;->postScale(FFFF)Z
-
-    iget-object v5, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
-
-    add-int/2addr v0, v1
-
-    int-to-float v0, v0
-
-    const/high16 v1, 0x40000000    # 2.0f
-
-    div-float/2addr v0, v1
-
-    add-int/2addr v3, v4
-
-    int-to-float v3, v3
-
-    div-float/2addr v3, v1
-
-    invoke-virtual {v5, v0, v3}, Landroid/graphics/Matrix;->postTranslate(FF)Z
-
-    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
-
-    invoke-virtual {p2, v0}, Landroid/view/GhostView;->setAnimationMatrix(Landroid/graphics/Matrix;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getBackgroundInsets()Landroid/graphics/Insets;
-
-    move-result-object p2
-
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTop()I
-
-    move-result v0
-
-    iget v1, p2, Landroid/graphics/Insets;->top:I
-
-    sub-int/2addr v0, v1
-
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getLeft()I
-
-    move-result v1
-
-    iget v3, p2, Landroid/graphics/Insets;->left:I
-
-    sub-int/2addr v1, v3
-
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getRight()I
-
-    move-result v3
-
-    iget v4, p2, Landroid/graphics/Insets;->right:I
-
-    add-int/2addr v3, v4
-
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getBottom()I
+    invoke-static {v4, v5}, Ljava/lang/Math;->min(FF)F
 
     move-result v4
 
-    iget p2, p2, Landroid/graphics/Insets;->bottom:I
+    iget-object v5, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
-    add-int/2addr v4, p2
+    invoke-virtual {v5}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    iget-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+    move-result-object v5
 
-    aget p2, p2, v10
+    instance-of v5, v5, Landroid/view/ViewGroup;
 
-    sub-int/2addr v0, p2
+    if-eqz v5, :cond_4
 
-    invoke-virtual {p3, v0}, Landroid/widget/FrameLayout;->setTop(I)V
+    iget-object v5, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
-    iget-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+    iget-object v7, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
 
-    aget p2, p2, v10
+    iget-object v8, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
 
-    sub-int/2addr v4, p2
+    invoke-static {v5, v7, v8}, Landroid/view/GhostView;->calculateMatrix(Landroid/view/View;Landroid/view/ViewGroup;Landroid/graphics/Matrix;)V
 
-    invoke-virtual {p3, v4}, Landroid/widget/FrameLayout;->setBottom(I)V
+    :cond_4
+    iget-object v5, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
 
-    iget-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+    iget-object v7, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
 
-    aget p2, p2, v2
+    invoke-virtual {v5, v7}, Landroid/view/ViewGroup;->getLocationOnScreen([I)V
 
-    sub-int/2addr v1, p2
+    iget-object v5, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p3, v1}, Landroid/widget/FrameLayout;->setLeft(I)V
+    iget-object v7, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedViewState:Lcom/android/systemui/animation/LaunchAnimator$State;
 
-    iget-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+    iget v8, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->left:I
 
-    aget p2, p2, v2
+    int-to-float v10, v8
 
-    sub-int/2addr v3, p2
+    iget v11, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->right:I
 
-    invoke-virtual {p3, v3}, Landroid/widget/FrameLayout;->setRight(I)V
+    sub-int/2addr v11, v8
 
-    iget-object p2, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
+    int-to-float v8, v11
 
-    invoke-static {p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    const/high16 v11, 0x40000000    # 2.0f
 
-    invoke-virtual {p2}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;->getWrapped()Landroid/graphics/drawable/Drawable;
+    div-float/2addr v8, v11
 
-    move-result-object p2
+    add-float/2addr v8, v10
 
-    if-nez p2, :cond_5
+    iget-object v10, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+
+    aget v13, v10, v6
+
+    int-to-float v13, v13
+
+    sub-float/2addr v8, v13
+
+    iget v13, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->top:I
+
+    int-to-float v14, v13
+
+    iget v7, v7, Lcom/android/systemui/animation/LaunchAnimator$State;->bottom:I
+
+    sub-int/2addr v7, v13
+
+    int-to-float v7, v7
+
+    div-float/2addr v7, v11
+
+    add-float/2addr v7, v14
+
+    const/4 v13, 0x1
+
+    aget v10, v10, v13
+
+    int-to-float v10, v10
+
+    sub-float/2addr v7, v10
+
+    invoke-virtual {v5, v4, v4, v8, v7}, Landroid/graphics/Matrix;->postScale(FFFF)Z
+
+    iget-object v4, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
+
+    add-int/2addr v9, v12
+
+    int-to-float v5, v9
+
+    div-float/2addr v5, v11
+
+    add-int v15, v15, v16
+
+    int-to-float v7, v15
+
+    div-float/2addr v7, v11
+
+    invoke-virtual {v4, v5, v7}, Landroid/graphics/Matrix;->postTranslate(FF)Z
+
+    iget-object v4, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostViewMatrix:Landroid/graphics/Matrix;
+
+    invoke-virtual {v2, v4}, Landroid/view/GhostView;->setAnimationMatrix(Landroid/graphics/Matrix;)V
+
+    iget-object v2, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundInsets$delegate:Lkotlin/Lazy;
+
+    invoke-interface {v2}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/graphics/Insets;
+
+    iget v4, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->top:I
+
+    iget v5, v2, Landroid/graphics/Insets;->top:I
+
+    sub-int/2addr v4, v5
+
+    iget v5, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->left:I
+
+    iget v7, v2, Landroid/graphics/Insets;->left:I
+
+    sub-int/2addr v5, v7
+
+    iget v7, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->right:I
+
+    iget v8, v2, Landroid/graphics/Insets;->right:I
+
+    add-int/2addr v7, v8
+
+    iget v8, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->bottom:I
+
+    iget v2, v2, Landroid/graphics/Insets;->bottom:I
+
+    add-int/2addr v8, v2
+
+    iget-object v2, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+
+    aget v2, v2, v13
+
+    sub-int/2addr v4, v2
+
+    invoke-virtual {v3, v4}, Landroid/widget/FrameLayout;->setTop(I)V
+
+    iget-object v2, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+
+    aget v2, v2, v13
+
+    sub-int/2addr v8, v2
+
+    invoke-virtual {v3, v8}, Landroid/widget/FrameLayout;->setBottom(I)V
+
+    iget-object v2, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+
+    aget v2, v2, v6
+
+    sub-int/2addr v5, v2
+
+    invoke-virtual {v3, v5}, Landroid/widget/FrameLayout;->setLeft(I)V
+
+    iget-object v2, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainerLocation:[I
+
+    aget v2, v2, v6
+
+    sub-int/2addr v7, v2
+
+    invoke-virtual {v3, v7}, Landroid/widget/FrameLayout;->setRight(I)V
+
+    iget-object v2, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
+
+    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    iget-object v2, v2, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;->wrapped:Landroid/graphics/drawable/Drawable;
+
+    if-nez v2, :cond_5
 
     goto :goto_0
 
     :cond_5
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getTopCornerRadius()F
+    iget v2, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->topCornerRadius:F
 
-    move-result p3
+    iget v1, v1, Lcom/android/systemui/animation/LaunchAnimator$State;->bottomCornerRadius:F
 
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$State;->getBottomCornerRadius()F
+    iget-object v0, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
 
-    move-result p1
+    if-nez v0, :cond_6
 
-    invoke-virtual {p0, p2, p3, p1}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->setBackgroundCornerRadius(Landroid/graphics/drawable/Drawable;FF)V
+    goto :goto_0
+
+    :cond_6
+    iget-object v3, v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;->cornerRadii:[F
+
+    aput v2, v3, v6
+
+    aput v2, v3, v13
+
+    const/4 v4, 0x2
+
+    aput v2, v3, v4
+
+    const/4 v4, 0x3
+
+    aput v2, v3, v4
+
+    const/4 v2, 0x4
+
+    aput v1, v3, v2
+
+    const/4 v2, 0x5
+
+    aput v1, v3, v2
+
+    const/4 v2, 0x6
+
+    aput v1, v3, v2
+
+    const/4 v2, 0x7
+
+    aput v1, v3, v2
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     :goto_0
     return-void
 .end method
 
-.method public onLaunchAnimationStart(Z)V
+.method public final onLaunchAnimationStart(Z)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
@@ -923,9 +926,7 @@
     :cond_0
     new-instance p1, Landroid/widget/FrameLayout;
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getLaunchContainer()Landroid/view/ViewGroup;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
@@ -935,7 +936,9 @@
 
     iput-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundView:Landroid/widget/FrameLayout;
 
-    invoke-direct {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getLaunchContainerOverlay()Landroid/view/ViewGroupOverlay;
+    iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
+
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getOverlay()Landroid/view/ViewGroupOverlay;
 
     move-result-object p1
 
@@ -943,45 +946,43 @@
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroupOverlay;->add(Landroid/view/View;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->background:Landroid/graphics/drawable/Drawable;
 
     if-nez p1, :cond_1
 
-    const/16 v0, 0xff
+    const/16 p1, 0xff
 
     goto :goto_0
 
     :cond_1
     invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->getAlpha()I
 
-    move-result v0
+    move-result p1
 
     :goto_0
-    iput v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->startBackgroundAlpha:I
+    iput p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->startBackgroundAlpha:I
 
-    new-instance v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
+    new-instance p1, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
 
-    invoke-direct {v0, p1}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;-><init>(Landroid/graphics/drawable/Drawable;)V
+    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->background:Landroid/graphics/drawable/Drawable;
 
-    iput-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
+    invoke-direct {p1, v0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;-><init>(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundView:Landroid/widget/FrameLayout;
+    iput-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
 
-    if-nez p1, :cond_2
+    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundView:Landroid/widget/FrameLayout;
+
+    if-nez v0, :cond_2
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {p1, v0}, Landroid/widget/FrameLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, p1}, Landroid/widget/FrameLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     :goto_1
     iget-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->getLaunchContainer()Landroid/view/ViewGroup;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
 
     invoke-static {p1, v0}, Landroid/view/GhostView;->addGhost(Landroid/view/View;Landroid/view/ViewGroup;)Landroid/view/GhostView;
 
@@ -1021,10 +1022,13 @@
 
     move-result p1
 
-    invoke-static {}, Lcom/android/internal/jank/InteractionJankMonitor;->getInstance()Lcom/android/internal/jank/InteractionJankMonitor;
+    iget-object v0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->interactionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
-    move-result-object v0
+    if-nez v0, :cond_6
 
+    goto :goto_3
+
+    :cond_6
     iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->ghostedView:Landroid/view/View;
 
     invoke-virtual {v0, p0, p1}, Lcom/android/internal/jank/InteractionJankMonitor;->begin(Landroid/view/View;I)Z
@@ -1033,32 +1037,8 @@
     return-void
 .end method
 
-.method protected setBackgroundCornerRadius(Landroid/graphics/drawable/Drawable;FF)V
-    .locals 1
-
-    const-string v0, "background"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->backgroundDrawable:Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0, p2, p3}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController$WrappedDrawable;->setBackgroundRadius(FF)V
-
-    :goto_0
-    return-void
-.end method
-
-.method public setLaunchContainer(Landroid/view/ViewGroup;)V
-    .locals 1
-
-    const-string v0, "<set-?>"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final setLaunchContainer(Landroid/view/ViewGroup;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;->launchContainer:Landroid/view/ViewGroup;
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/CarrierTextManager$Builder;
+.class public final Lcom/android/keyguard/CarrierTextManager$Builder;
 .super Ljava/lang/Object;
 .source "CarrierTextManager.java"
 
@@ -15,27 +15,27 @@
 
 
 # instance fields
-.field private final mBgExecutor:Ljava/util/concurrent/Executor;
+.field public final mBgExecutor:Ljava/util/concurrent/Executor;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-.field private final mMainExecutor:Ljava/util/concurrent/Executor;
+.field public final mMainExecutor:Ljava/util/concurrent/Executor;
 
-.field private final mSeparator:Ljava/lang/String;
+.field public final mSeparator:Ljava/lang/String;
 
-.field private mShowAirplaneMode:Z
+.field public mShowAirplaneMode:Z
 
-.field private mShowMissingSim:Z
+.field public mShowMissingSim:Z
 
-.field private final mTelephonyListenerManager:Lcom/android/systemui/telephony/TelephonyListenerManager;
+.field public final mTelephonyListenerManager:Lcom/android/systemui/telephony/TelephonyListenerManager;
 
-.field private final mTelephonyManager:Landroid/telephony/TelephonyManager;
+.field public final mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-.field private final mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
+.field public final mWakefulnessLifecycle:Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
-.field private final mWifiManager:Landroid/net/wifi/WifiManager;
+.field public final mWifiManager:Landroid/net/wifi/WifiManager;
 
 
 # direct methods
@@ -46,7 +46,7 @@
 
     iput-object p1, p0, Lcom/android/keyguard/CarrierTextManager$Builder;->mContext:Landroid/content/Context;
 
-    const p1, 0x104046f
+    const p1, 0x10404b9
 
     invoke-virtual {p2, p1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -73,10 +73,10 @@
 
 
 # virtual methods
-.method public build()Lcom/android/keyguard/CarrierTextManager;
-    .locals 14
+.method public final build()Lcom/android/keyguard/CarrierTextManager;
+    .locals 13
 
-    new-instance v13, Lcom/android/keyguard/CarrierTextManager;
+    new-instance v12, Lcom/android/keyguard/CarrierTextManager;
 
     iget-object v1, p0, Lcom/android/keyguard/CarrierTextManager$Builder;->mContext:Landroid/content/Context;
 
@@ -100,27 +100,9 @@
 
     iget-object v11, p0, Lcom/android/keyguard/CarrierTextManager$Builder;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    const/4 v12, 0x0
+    move-object v0, v12
 
-    move-object v0, v13
+    invoke-direct/range {v0 .. v11}, Lcom/android/keyguard/CarrierTextManager;-><init>(Landroid/content/Context;Ljava/lang/String;ZZLandroid/net/wifi/WifiManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/keyguard/CarrierTextManager;-><init>(Landroid/content/Context;Ljava/lang/CharSequence;ZZLandroid/net/wifi/WifiManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/CarrierTextManager$1;)V
-
-    return-object v13
-.end method
-
-.method public setShowAirplaneMode(Z)Lcom/android/keyguard/CarrierTextManager$Builder;
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/keyguard/CarrierTextManager$Builder;->mShowAirplaneMode:Z
-
-    return-object p0
-.end method
-
-.method public setShowMissingSim(Z)Lcom/android/keyguard/CarrierTextManager$Builder;
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/keyguard/CarrierTextManager$Builder;->mShowMissingSim:Z
-
-    return-object p0
+    return-object v12
 .end method

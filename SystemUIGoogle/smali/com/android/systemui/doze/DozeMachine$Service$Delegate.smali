@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final mDelegate:Lcom/android/systemui/doze/DozeMachine$Service;
+.field public final mDelegate:Lcom/android/systemui/doze/DozeMachine$Service;
 
 
 # direct methods
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public finish()V
+.method public final finish()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeMachine$Service$Delegate;->mDelegate:Lcom/android/systemui/doze/DozeMachine$Service;
@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method public requestWakeUp()V
+.method public final requestWakeUp()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeMachine$Service$Delegate;->mDelegate:Lcom/android/systemui/doze/DozeMachine$Service;

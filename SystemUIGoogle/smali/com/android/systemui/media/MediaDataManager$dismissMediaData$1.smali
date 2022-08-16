@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaDataManager$dismissMediaData$1;
+.class public final Lcom/android/systemui/media/MediaDataManager$dismissMediaData$1;
 .super Ljava/lang/Object;
 .source "MediaDataManager.kt"
 
@@ -6,25 +6,14 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaDataManager;->dismissMediaData(Ljava/lang/String;J)Z
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $key:Ljava/lang/String;
+.field public final synthetic $key:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDataManager;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDataManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaDataManager;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaDataManager$dismissMediaData$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
@@ -43,9 +32,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDataManager$dismissMediaData$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaDataManager;->access$getMediaEntries$p(Lcom/android/systemui/media/MediaDataManager;)Ljava/util/LinkedHashMap;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/MediaDataManager;->mediaEntries:Ljava/util/LinkedHashMap;
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaDataManager$dismissMediaData$1;->$key:Ljava/lang/String;
 
@@ -57,41 +44,49 @@
 
     if-nez v0, :cond_0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager$dismissMediaData$1;->this$0:Lcom/android/systemui/media/MediaDataManager;
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaData;->isLocalSession()Z
+    iget v1, v0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
-    move-result v1
+    if-nez v1, :cond_1
 
-    if-eqz v1, :cond_2
-
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaData;->getToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-static {p0}, Lcom/android/systemui/media/MediaDataManager;->access$getMediaControllerFactory$p(Lcom/android/systemui/media/MediaDataManager;)Lcom/android/systemui/media/MediaControllerFactory;
+    const/4 v1, 0x0
 
-    move-result-object p0
+    :goto_0
+    if-eqz v1, :cond_3
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/media/MediaControllerFactory;->create(Landroid/media/session/MediaSession$Token;)Landroid/media/session/MediaController;
+    iget-object v0, v0, Lcom/android/systemui/media/MediaData;->token:Landroid/media/session/MediaSession$Token;
 
-    move-result-object p0
+    if-nez v0, :cond_2
 
-    invoke-virtual {p0}, Landroid/media/session/MediaController;->getTransportControls()Landroid/media/session/MediaController$TransportControls;
+    goto :goto_1
+
+    :cond_2
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDataManager;->mediaControllerFactory:Lcom/android/systemui/media/MediaControllerFactory;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v1, Landroid/media/session/MediaController;
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaControllerFactory;->mContext:Landroid/content/Context;
+
+    invoke-direct {v1, p0, v0}, Landroid/media/session/MediaController;-><init>(Landroid/content/Context;Landroid/media/session/MediaSession$Token;)V
+
+    invoke-virtual {v1}, Landroid/media/session/MediaController;->getTransportControls()Landroid/media/session/MediaController$TransportControls;
 
     move-result-object p0
 
     invoke-virtual {p0}, Landroid/media/session/MediaController$TransportControls;->stop()V
 
-    :cond_2
-    :goto_0
+    :cond_3
+    :goto_1
     return-void
 .end method

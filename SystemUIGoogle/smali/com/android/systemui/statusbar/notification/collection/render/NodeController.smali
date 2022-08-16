@@ -3,14 +3,6 @@
 .source "NodeController.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/statusbar/notification/collection/render/NodeController$DefaultImpls;
-    }
-.end annotation
-
-
 # virtual methods
 .method public abstract addChildAt(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;I)V
 .end method
@@ -28,6 +20,15 @@
 .end method
 
 .method public abstract moveChildTo(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;I)V
+.end method
+
+.method public abstract onViewAdded()V
+.end method
+
+.method public abstract onViewMoved()V
+.end method
+
+.method public abstract onViewRemoved()V
 .end method
 
 .method public abstract removeChild(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;Z)V

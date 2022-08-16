@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/ScreenDecorations$1;
+.class public final Lcom/android/systemui/ScreenDecorations$1;
 .super Ljava/lang/Object;
 .source "ScreenDecorations.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
+.field public final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/ScreenDecorations;)V
+.method public constructor <init>(Lcom/android/systemui/ScreenDecorations;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ScreenDecorations$1;->this$0:Lcom/android/systemui/ScreenDecorations;
@@ -34,16 +34,31 @@
 
 
 # virtual methods
-.method public onApplyCameraProtection(Landroid/graphics/Path;Landroid/graphics/Rect;)V
+.method public final onApplyCameraProtection(Landroid/graphics/Path;Landroid/graphics/Rect;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$1;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$000(Lcom/android/systemui/ScreenDecorations;)[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
+    iget-object v1, v0, Lcom/android/systemui/ScreenDecorations;->mScreenDecorHwcLayer:Lcom/android/systemui/ScreenDecorHwcLayer;
 
-    move-result-object v0
+    const/4 v2, 0x1
 
-    if-nez v0, :cond_0
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, p1, p2}, Lcom/android/systemui/DisplayCutoutBaseView;->setProtection(Landroid/graphics/Path;Landroid/graphics/Rect;)V
+
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$1;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations;->mScreenDecorHwcLayer:Lcom/android/systemui/ScreenDecorHwcLayer;
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/DisplayCutoutBaseView;->enableShowProtection(Z)V
+
+    return-void
+
+    :cond_0
+    iget-object p0, v0, Lcom/android/systemui/ScreenDecorations;->mCutoutViews:[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
+
+    if-nez p0, :cond_1
 
     const-string p0, "ScreenDecorations"
 
@@ -53,49 +68,50 @@
 
     return-void
 
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$1;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$000(Lcom/android/systemui/ScreenDecorations;)[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
-
-    move-result-object p0
-
+    :cond_1
     array-length v0, p0
 
     const/4 v1, 0x0
 
     :goto_0
-    if-ge v1, v0, :cond_2
+    if-ge v1, v0, :cond_3
 
-    aget-object v2, p0, v1
+    aget-object v3, p0, v1
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_2
 
-    invoke-virtual {v2, p1, p2}, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->setProtection(Landroid/graphics/Path;Landroid/graphics/Rect;)V
+    invoke-virtual {v3, p1, p2}, Lcom/android/systemui/DisplayCutoutBaseView;->setProtection(Landroid/graphics/Path;Landroid/graphics/Rect;)V
 
-    const/4 v3, 0x1
+    invoke-virtual {v3, v2}, Lcom/android/systemui/DisplayCutoutBaseView;->enableShowProtection(Z)V
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->setShowProtection(Z)V
-
-    :cond_1
+    :cond_2
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     return-void
 .end method
 
-.method public onHideCameraProtection()V
+.method public final onHideCameraProtection()V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$1;->this$0:Lcom/android/systemui/ScreenDecorations;
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$1;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$000(Lcom/android/systemui/ScreenDecorations;)[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations;->mScreenDecorHwcLayer:Lcom/android/systemui/ScreenDecorHwcLayer;
 
-    move-result-object v0
+    const/4 v1, 0x0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/DisplayCutoutBaseView;->enableShowProtection(Z)V
+
+    return-void
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations;->mCutoutViews:[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
+
+    if-nez p0, :cond_1
 
     const-string p0, "ScreenDecorations"
 
@@ -105,33 +121,25 @@
 
     return-void
 
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$1;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$000(Lcom/android/systemui/ScreenDecorations;)[Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;
-
-    move-result-object p0
-
+    :cond_1
     array-length v0, p0
-
-    const/4 v1, 0x0
 
     move v2, v1
 
     :goto_0
-    if-ge v2, v0, :cond_2
+    if-ge v2, v0, :cond_3
 
     aget-object v3, p0, v2
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
-    invoke-virtual {v3, v1}, Lcom/android/systemui/ScreenDecorations$DisplayCutoutView;->setShowProtection(Z)V
+    invoke-virtual {v3, v1}, Lcom/android/systemui/DisplayCutoutBaseView;->enableShowProtection(Z)V
 
-    :cond_1
+    :cond_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     return-void
 .end method

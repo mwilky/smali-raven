@@ -4,9 +4,7 @@
 
 
 # instance fields
-.field private mAnimating:Z
-
-.field private mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
+.field public mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
 
 
 # direct methods
@@ -18,40 +16,86 @@
     return-void
 .end method
 
-.method private updateAnimating()V
+
+# virtual methods
+.method public final onAttachedToWindow()V
     .locals 1
+
+    invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
 
     iget-object v0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getVisibility()I
 
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mAnimating:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedRotateDrawable;->start()V
-
-    goto :goto_0
-
-    :cond_0
     iget-object p0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
 
     invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedRotateDrawable;->stop()V
 
-    :cond_1
-    :goto_0
+    :cond_0
     return-void
 .end method
 
-.method private updateDrawable()V
+.method public final onDetachedFromWindow()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/ImageView;->onDetachedFromWindow()V
+
+    iget-object v0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->getVisibility()I
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedRotateDrawable;->stop()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onVisibilityChanged(Landroid/view/View;I)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onVisibilityChanged(Landroid/view/View;I)V
+
+    iget-object p1, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->getVisibility()I
+
+    iget-object p0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedRotateDrawable;->stop()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateDrawable()V
+
+    return-void
+.end method
+
+.method public final setImageResource(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    invoke-virtual {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateDrawable()V
+
+    return-void
+.end method
+
+.method public final updateDrawable()V
     .locals 2
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->isShown()Z
@@ -91,18 +135,6 @@
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->isShown()Z
 
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mAnimating:Z
-
-    if-eqz v0, :cond_2
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedRotateDrawable;->start()V
-
     goto :goto_0
 
     :cond_1
@@ -110,59 +142,6 @@
 
     iput-object v0, p0, Lcom/android/settingslib/widget/AnimatedImageView;->mDrawable:Landroid/graphics/drawable/AnimatedRotateDrawable;
 
-    :cond_2
     :goto_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public onAttachedToWindow()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
-
-    invoke-direct {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateAnimating()V
-
-    return-void
-.end method
-
-.method public onDetachedFromWindow()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/widget/ImageView;->onDetachedFromWindow()V
-
-    invoke-direct {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateAnimating()V
-
-    return-void
-.end method
-
-.method protected onVisibilityChanged(Landroid/view/View;I)V
-    .locals 0
-
-    invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onVisibilityChanged(Landroid/view/View;I)V
-
-    invoke-direct {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateAnimating()V
-
-    return-void
-.end method
-
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-direct {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateDrawable()V
-
-    return-void
-.end method
-
-.method public setImageResource(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    invoke-direct {p0}, Lcom/android/settingslib/widget/AnimatedImageView;->updateDrawable()V
-
     return-void
 .end method

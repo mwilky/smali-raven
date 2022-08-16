@@ -15,15 +15,5 @@
 
 
 # virtual methods
-.method public abstract isAllowed(I[F)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "rgb",
-            "hsl"
-        }
-    .end annotation
+.method public abstract isAllowed([F)Z
 .end method

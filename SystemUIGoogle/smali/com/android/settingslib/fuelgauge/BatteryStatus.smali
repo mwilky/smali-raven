@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/fuelgauge/BatteryStatus;
+.class public final Lcom/android/settingslib/fuelgauge/BatteryStatus;
 .super Ljava/lang/Object;
 .source "BatteryStatus.java"
 
@@ -18,22 +18,28 @@
 
 
 # direct methods
-.method public constructor <init>(IIIIIZ)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->status:I
+    const/4 v0, 0x1
 
-    iput p2, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->level:I
+    iput v0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->status:I
 
-    iput p3, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->plugged:I
+    const/16 v1, 0x64
 
-    iput p4, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->health:I
+    iput v1, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->level:I
 
-    iput p5, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->maxChargingWattage:I
+    const/4 v1, 0x0
 
-    iput-boolean p6, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->present:Z
+    iput v1, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->plugged:I
+
+    iput v1, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->health:I
+
+    iput v1, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->maxChargingWattage:I
+
+    iput-boolean v0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->present:Z
 
     return-void
 .end method
@@ -43,7 +49,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const-string v0, "status"
+    const-string/jumbo v0, "status"
 
     const/4 v1, 0x1
 
@@ -53,7 +59,7 @@
 
     iput v0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->status:I
 
-    const-string v0, "plugged"
+    const-string/jumbo v0, "plugged"
 
     const/4 v2, 0x0
 
@@ -79,7 +85,7 @@
 
     iput v0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->health:I
 
-    const-string v0, "present"
+    const-string/jumbo v0, "present"
 
     invoke-virtual {p1, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
@@ -112,9 +118,9 @@
 
     div-int/lit16 p1, p1, 0x3e8
 
-    mul-int/2addr v0, p1
+    mul-int/2addr p1, v0
 
-    iput v0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->maxChargingWattage:I
+    iput p1, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->maxChargingWattage:I
 
     goto :goto_0
 
@@ -134,7 +140,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/settingslib/R$integer;->config_chargingSlowlyThreshold:I
+    const v1, 0x7f0c0019
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -144,7 +150,7 @@
 
     move-result-object p1
 
-    sget v1, Lcom/android/settingslib/R$integer;->config_chargingFastThreshold:I
+    const v1, 0x7f0c0018
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -179,7 +185,7 @@
     return p0
 .end method
 
-.method public isCharged()Z
+.method public final isCharged()Z
     .locals 2
 
     iget v0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->status:I
@@ -209,27 +215,7 @@
     return p0
 .end method
 
-.method public isOverheated()Z
-    .locals 1
-
-    iget p0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->health:I
-
-    const/4 v0, 0x3
-
-    if-ne p0, v0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isPluggedIn()Z
+.method public final isPluggedIn()Z
     .locals 2
 
     iget p0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->plugged:I
@@ -244,28 +230,9 @@
 
     const/4 v1, 0x4
 
-    if-ne p0, v1, :cond_0
+    if-eq p0, v1, :cond_1
 
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :cond_1
-    :goto_0
-    return v0
-.end method
-
-.method public isPluggedInWired()Z
-    .locals 2
-
-    iget p0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->plugged:I
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_1
-
-    const/4 v1, 0x2
+    const/16 v1, 0x8
 
     if-ne p0, v1, :cond_0
 
@@ -279,36 +246,14 @@
     return v0
 .end method
 
-.method public isPluggedInWireless()Z
-    .locals 1
-
-    iget p0, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->plugged:I
-
-    const/4 v0, 0x4
-
-    if-ne p0, v0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "BatteryStatus{status="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "BatteryStatus{status="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/settingslib/fuelgauge/BatteryStatus;->status:I
 

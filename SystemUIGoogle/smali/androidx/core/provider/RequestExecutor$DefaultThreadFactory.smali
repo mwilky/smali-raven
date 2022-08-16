@@ -1,4 +1,4 @@
-.class Landroidx/core/provider/RequestExecutor$DefaultThreadFactory;
+.class public final Landroidx/core/provider/RequestExecutor$DefaultThreadFactory;
 .super Ljava/lang/Object;
 .source "RequestExecutor.java"
 
@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/provider/RequestExecutor;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "DefaultThreadFactory"
-.end annotation
-
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroidx/core/provider/RequestExecutor$DefaultThreadFactory$ProcessPriorityThread;
@@ -24,46 +15,32 @@
 
 
 # instance fields
-.field private mPriority:I
+.field public mPriority:I
 
-.field private mThreadName:Ljava/lang/String;
+.field public mThreadName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "threadName",
-            "priority"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory;->mThreadName:Ljava/lang/String;
+    const-string v0, "fonts-androidx"
 
-    iput p2, p0, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory;->mPriority:I
+    iput-object v0, p0, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory;->mThreadName:Ljava/lang/String;
+
+    const/16 v0, 0xa
+
+    iput v0, p0, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory;->mPriority:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
+.method public final newThread(Ljava/lang/Runnable;)Ljava/lang/Thread;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "runnable"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory$ProcessPriorityThread;
 

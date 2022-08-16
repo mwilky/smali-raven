@@ -1,20 +1,12 @@
-.class public Lcom/android/systemui/settings/CurrentUserObservable;
+.class public final Lcom/android/systemui/settings/CurrentUserObservable;
 .super Ljava/lang/Object;
 .source "CurrentUserObservable.java"
 
 
 # instance fields
-.field private final mCurrentUser:Landroidx/lifecycle/MutableLiveData;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroidx/lifecycle/MutableLiveData<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mCurrentUser:Lcom/android/systemui/settings/CurrentUserObservable$1;
 
-.field private final mTracker:Lcom/android/systemui/settings/CurrentUserTracker;
+.field public final mTracker:Lcom/android/systemui/settings/CurrentUserObservable$2;
 
 
 # direct methods
@@ -27,47 +19,23 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/settings/CurrentUserObservable$1;-><init>(Lcom/android/systemui/settings/CurrentUserObservable;)V
 
-    iput-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Landroidx/lifecycle/MutableLiveData;
+    iput-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Lcom/android/systemui/settings/CurrentUserObservable$1;
 
     new-instance v0, Lcom/android/systemui/settings/CurrentUserObservable$2;
 
     invoke-direct {v0, p0, p1}, Lcom/android/systemui/settings/CurrentUserObservable$2;-><init>(Lcom/android/systemui/settings/CurrentUserObservable;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
 
-    iput-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mTracker:Lcom/android/systemui/settings/CurrentUserTracker;
+    iput-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mTracker:Lcom/android/systemui/settings/CurrentUserObservable$2;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/settings/CurrentUserObservable;)Lcom/android/systemui/settings/CurrentUserTracker;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mTracker:Lcom/android/systemui/settings/CurrentUserTracker;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/settings/CurrentUserObservable;)Landroidx/lifecycle/MutableLiveData;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Landroidx/lifecycle/MutableLiveData;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public getCurrentUser()Landroidx/lifecycle/LiveData;
+.method public final getCurrentUser()Lcom/android/systemui/settings/CurrentUserObservable$1;
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroidx/lifecycle/LiveData<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
 
-    iget-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Landroidx/lifecycle/MutableLiveData;
+    iget-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Lcom/android/systemui/settings/CurrentUserObservable$1;
 
     invoke-virtual {v0}, Landroidx/lifecycle/LiveData;->getValue()Ljava/lang/Object;
 
@@ -75,13 +43,13 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Landroidx/lifecycle/MutableLiveData;
+    iget-object v0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Lcom/android/systemui/settings/CurrentUserObservable$1;
 
-    iget-object v1, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mTracker:Lcom/android/systemui/settings/CurrentUserTracker;
+    iget-object v1, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mTracker:Lcom/android/systemui/settings/CurrentUserObservable$2;
 
-    invoke-virtual {v1}, Lcom/android/systemui/settings/CurrentUserTracker;->getCurrentUserId()I
+    iget-object v1, v1, Lcom/android/systemui/settings/CurrentUserTracker;->mUserReceiver:Lcom/android/systemui/settings/CurrentUserTracker$UserReceiver;
 
-    move-result v1
+    iget v1, v1, Lcom/android/systemui/settings/CurrentUserTracker$UserReceiver;->mCurrentUserId:I
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -90,7 +58,7 @@
     invoke-virtual {v0, v1}, Landroidx/lifecycle/MutableLiveData;->setValue(Ljava/lang/Object;)V
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Landroidx/lifecycle/MutableLiveData;
+    iget-object p0, p0, Lcom/android/systemui/settings/CurrentUserObservable;->mCurrentUser:Lcom/android/systemui/settings/CurrentUserObservable$1;
 
     return-object p0
 .end method

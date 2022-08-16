@@ -14,5 +14,7 @@
     <FrameLayout android:id="@android:id/customPanel" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="48.0dip" android:paddingStart="@dimen/dialog_side_padding" android:paddingEnd="@dimen/dialog_side_padding">
         <FrameLayout android:id="@android:id/custom" android:layout_width="fill_parent" android:layout_height="wrap_content" />
     </FrameLayout>
-    <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/alert_dialog_button_bar_systemui" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:paddingStart="@dimen/dialog_side_padding" android:paddingEnd="@dimen/dialog_side_padding">
+        <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/alert_dialog_button_bar_systemui" />
+    </FrameLayout>
 </com.android.internal.widget.AlertDialogLayout>

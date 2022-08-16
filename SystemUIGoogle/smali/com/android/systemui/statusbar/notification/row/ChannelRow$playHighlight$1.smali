@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/notification/row/ChannelRow$playHighlight$1;
+.class public final Lcom/android/systemui/statusbar/notification/row/ChannelRow$playHighlight$1;
 .super Ljava/lang/Object;
 .source "ChannelEditorListView.kt"
 
@@ -6,23 +6,12 @@
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/row/ChannelRow;->playHighlight()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ChannelRow;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ChannelRow;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ChannelRow;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ChannelRow;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelRow$playHighlight$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ChannelRow;
@@ -35,7 +24,7 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 1
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelRow$playHighlight$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ChannelRow;
 
@@ -43,9 +32,7 @@
 
     move-result-object p1
 
-    const-string v0, "null cannot be cast to non-null type kotlin.Int"
-
-    invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     check-cast p1, Ljava/lang/Integer;
 
@@ -56,4 +43,13 @@
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Int"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

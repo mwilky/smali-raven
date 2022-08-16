@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;
+.class public final Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;
 .super Landroidx/recyclerview/widget/RecyclerView$Adapter;
 .source "AccessibilityTargetAdapter.java"
 
@@ -22,11 +22,11 @@
 
 
 # instance fields
-.field private mIconWidthHeight:I
+.field public mIconWidthHeight:I
 
-.field private mItemPadding:I
+.field public mItemPadding:I
 
-.field private final mTargets:Ljava/util/List;
+.field public final mTargets:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -38,24 +38,8 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Se3-v07gvUakgpo-GgiJtmYU4Mg(Lcom/android/internal/accessibility/dialog/AccessibilityTarget;Landroid/view/View;)V
+.method public constructor <init>(Ljava/util/ArrayList;)V
     .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->lambda$onBindViewHolder$0(Lcom/android/internal/accessibility/dialog/AccessibilityTarget;Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/internal/accessibility/dialog/AccessibilityTarget;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;-><init>()V
 
@@ -64,17 +48,9 @@
     return-void
 .end method
 
-.method private static synthetic lambda$onBindViewHolder$0(Lcom/android/internal/accessibility/dialog/AccessibilityTarget;Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/internal/accessibility/dialog/AccessibilityTarget;->onSelected()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getItemCount()I
+.method public final getItemCount()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->mTargets:Ljava/util/List;
@@ -86,7 +62,7 @@
     return p0
 .end method
 
-.method public getItemViewType(I)I
+.method public final getItemViewType(I)I
     .locals 1
 
     if-nez p1, :cond_0
@@ -114,18 +90,10 @@
     return v0
 .end method
 
-.method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
+.method public final onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+    .locals 3
 
     check-cast p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->onBindViewHolder(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;I)V
-
-    return-void
-.end method
-
-.method public onBindViewHolder(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;I)V
-    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->mTargets:Ljava/util/List;
 
@@ -145,8 +113,28 @@
 
     iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->mIconWidthHeight:I
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;->updateIconWidthHeight(I)V
+    iget-object v1, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;->mIconView:Landroid/view/View;
 
+    invoke-virtual {v1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    iget v2, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    if-ne v2, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iput v0, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    iput v0, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    iget-object v0, p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;->mIconView:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :goto_0
     iget v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->mItemPadding:I
 
     invoke-virtual {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->getItemCount()I
@@ -157,9 +145,11 @@
 
     iget-object p0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    new-instance v0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda26;
 
-    invoke-direct {v0, p2}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$$ExternalSyntheticLambda0;-><init>(Lcom/android/internal/accessibility/dialog/AccessibilityTarget;)V
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1, p2}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda26;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p0, v0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -183,11 +173,11 @@
 
     move-result p0
 
-    const/4 p2, 0x0
+    const/4 p2, 0x2
 
-    const/4 v0, 0x2
+    const/4 v0, 0x0
 
-    if-ne p0, v0, :cond_0
+    if-ne p0, p2, :cond_1
 
     iget-object p0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
@@ -195,41 +185,31 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$string;->accessibility_floating_button_action_double_tap_to_toggle:I
+    const p2, 0x7f130071
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
-    move-object p0, p2
+    :cond_1
+    move-object p0, v0
 
-    :goto_0
+    :goto_1
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    sget-object v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_CLICK:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+    sget-object p2, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;->ACTION_CLICK:Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    invoke-static {p1, v0, p0, p2}, Landroidx/core/view/ViewCompat;->replaceAccessibilityAction(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/CharSequence;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V
+    invoke-static {p1, p2, p0, v0}, Landroidx/core/view/ViewCompat;->replaceAccessibilityAction(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;Ljava/lang/String;Landroidx/core/view/accessibility/AccessibilityViewCommand;)V
 
     return-void
 .end method
 
-.method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;
+.method public final onCreateViewHolder(ILandroidx/recyclerview/widget/RecyclerView;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .locals 2
 
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    invoke-virtual {p2}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
@@ -237,53 +217,38 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$layout;->accessibility_floating_menu_item:I
+    const v0, 0x7f0e0030
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, v0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p0, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p0
 
-    if-nez p2, :cond_0
+    if-nez p1, :cond_0
 
     new-instance p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$TopViewHolder;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$TopViewHolder;-><init>(Landroid/view/View;)V
 
-    return-object p1
+    goto :goto_0
 
     :cond_0
-    const/4 p1, 0x2
+    const/4 p2, 0x2
 
-    if-ne p2, p1, :cond_1
+    if-ne p1, p2, :cond_1
 
     new-instance p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$BottomViewHolder;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$BottomViewHolder;-><init>(Landroid/view/View;)V
 
-    return-object p1
+    goto :goto_0
 
     :cond_1
     new-instance p1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter$ViewHolder;-><init>(Landroid/view/View;)V
 
+    :goto_0
     return-object p1
-.end method
-
-.method public setIconWidthHeight(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->mIconWidthHeight:I
-
-    return-void
-.end method
-
-.method public setItemPadding(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityTargetAdapter;->mItemPadding:I
-
-    return-void
 .end method

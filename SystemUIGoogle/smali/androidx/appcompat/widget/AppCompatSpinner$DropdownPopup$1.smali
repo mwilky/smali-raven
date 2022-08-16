@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$1;
+.class public final Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$1;
 .super Ljava/lang/Object;
 .source "AppCompatSpinner.java"
 
@@ -6,30 +6,15 @@
 .implements Landroid/widget/AdapterView$OnItemClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;-><init>(Landroidx/appcompat/widget/AppCompatSpinner;Landroid/content/Context;Landroid/util/AttributeSet;I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$1:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
-
-.field final synthetic val$this$0:Landroidx/appcompat/widget/AppCompatSpinner;
+.field public final synthetic this$1:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;Landroidx/appcompat/widget/AppCompatSpinner;)V
+.method public constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$1;->this$1:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
-
-    iput-object p2, p0, Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup$1;->val$this$0:Landroidx/appcompat/widget/AppCompatSpinner;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +23,7 @@
 
 
 # virtual methods
-.method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+.method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {

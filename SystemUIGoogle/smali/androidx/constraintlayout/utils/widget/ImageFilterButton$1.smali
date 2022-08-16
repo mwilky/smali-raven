@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/utils/widget/ImageFilterButton$1;
+.class public final Landroidx/constraintlayout/utils/widget/ImageFilterButton$1;
 .super Landroid/view/ViewOutlineProvider;
 .source "ImageFilterButton.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/constraintlayout/utils/widget/ImageFilterButton;
+.field public final synthetic this$0:Landroidx/constraintlayout/utils/widget/ImageFilterButton;
 
 
 # direct methods
-.method constructor <init>(Landroidx/constraintlayout/utils/widget/ImageFilterButton;)V
+.method public constructor <init>(Landroidx/constraintlayout/utils/widget/ImageFilterButton;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton$1;->this$0:Landroidx/constraintlayout/utils/widget/ImageFilterButton;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
+.method public final getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 6
 
     iget-object p1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton$1;->this$0:Landroidx/constraintlayout/utils/widget/ImageFilterButton;
@@ -54,9 +54,7 @@
 
     iget-object p0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton$1;->this$0:Landroidx/constraintlayout/utils/widget/ImageFilterButton;
 
-    invoke-static {p0}, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->access$000(Landroidx/constraintlayout/utils/widget/ImageFilterButton;)F
-
-    move-result p0
+    iget p0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterButton;->mRoundPercent:F
 
     mul-float/2addr p1, p0
 

@@ -8,11 +8,11 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/KeyguardMediaController;->attachSinglePaneContainer(Lcom/android/systemui/statusbar/notification/stack/MediaHeaderView;)V
+    value = Lcom/android/systemui/media/KeyguardMediaController;->attachSinglePaneContainer(Lcom/android/systemui/statusbar/notification/stack/MediaContainerView;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/KeyguardMediaController;)V
+.method public constructor <init>(Lcom/android/systemui/media/KeyguardMediaController;)V
     .locals 7
 
     const-class v3, Lcom/android/systemui/media/KeyguardMediaController;
@@ -52,7 +52,7 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Ljava/lang/Boolean;
@@ -61,21 +61,34 @@
 
     move-result p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/media/KeyguardMediaController$attachSinglePaneContainer$1;->invoke(Z)V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke(Z)V
-    .locals 0
-
     iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
 
     check-cast p0, Lcom/android/systemui/media/KeyguardMediaController;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/media/KeyguardMediaController;->access$onMediaHostVisibilityChanged(Lcom/android/systemui/media/KeyguardMediaController;Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/KeyguardMediaController;->refreshMediaPosition()V
 
-    return-void
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/media/KeyguardMediaController;->mediaHost:Lcom/android/systemui/media/MediaHost;
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost;->getHostView()Lcom/android/systemui/util/animation/UniqueObjectHostView;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p0
+
+    const/4 p1, -0x2
+
+    iput p1, p0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    const/4 p1, -0x1
+
+    iput p1, p0, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    :cond_0
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

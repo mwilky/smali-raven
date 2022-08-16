@@ -20,6 +20,3 @@
 
 .method public abstract requestDisallowLongPressAndDismiss()V
 .end method
-
-.method public abstract setRemoteInputActive(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
-.end method

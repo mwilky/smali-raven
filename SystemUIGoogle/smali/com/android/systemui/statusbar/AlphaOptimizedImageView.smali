@@ -44,7 +44,7 @@
 
 
 # virtual methods
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     const/4 p0, 0x0

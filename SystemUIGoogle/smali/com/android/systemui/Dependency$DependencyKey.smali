@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field private final mDisplayName:Ljava/lang/String;
+.field public final mDisplayName:Ljava/lang/String;
 
 
 # direct methods
@@ -40,7 +40,7 @@
 
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/Dependency$DependencyKey;->mDisplayName:Ljava/lang/String;

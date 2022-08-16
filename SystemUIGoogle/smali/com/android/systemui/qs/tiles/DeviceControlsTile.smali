@@ -14,60 +14,18 @@
 
 
 # instance fields
-.field private final controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
+.field public final controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
-.field private hasControlsApps:Ljava/util/concurrent/atomic/AtomicBoolean;
+.field public hasControlsApps:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-.field private final icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+.field public final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-.field private final listingCallback:Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
+.field public final listingCallback:Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/controls/dagger/ControlsComponent;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
-    .locals 1
-
-    const-string v0, "host"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "backgroundLooper"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "mainHandler"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "falsingManager"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "metricsLogger"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "statusBarStateController"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "activityStarter"
-
-    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "qsLogger"
-
-    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "controlsComponent"
-
-    invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "keyguardStateController"
-
-    invoke-static {p10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
 
@@ -82,14 +40,6 @@
     invoke-direct {p1, p2}, Ljava/util/concurrent/atomic/AtomicBoolean;-><init>(Z)V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->hasControlsApps:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    sget p1, Lcom/android/systemui/R$drawable;->controls_icon:I
-
-    invoke-static {p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     new-instance p1, Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
 
@@ -110,33 +60,15 @@
     return-void
 .end method
 
-.method public static final synthetic access$getHasControlsApps$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Ljava/util/concurrent/atomic/AtomicBoolean;
+.method public static synthetic getIcon$annotations()V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->hasControlsApps:Ljava/util/concurrent/atomic/AtomicBoolean;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getListingCallback$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->listingCallback:Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getMActivityStarter$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/plugins/ActivityStarter;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-    return-object p0
+    return-void
 .end method
 
 
 # virtual methods
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 0
 
     const/4 p0, 0x0
@@ -144,7 +76,7 @@
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/4 p0, 0x0
@@ -152,30 +84,30 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
+.method public final getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->quick_controls_title:I
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    iget-object p0, p0, Lcom/android/systemui/controls/dagger/ControlsComponent;->controlsTileResourceConfiguration:Lcom/android/systemui/controls/controller/ControlsTileResourceConfiguration;
+
+    invoke-interface {p0}, Lcom/android/systemui/controls/controller/ControlsTileResourceConfiguration;->getTileTitleId()I
+
+    move-result p0
+
+    invoke-virtual {v0, p0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
-
-    const-string v0, "mContext.getText(R.string.quick_controls_title)"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-object p0
 .end method
 
-.method protected handleClick(Landroid/view/View;)V
+.method public final handleClick(Landroid/view/View;)V
     .locals 4
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
     iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
@@ -208,49 +140,82 @@
 
     invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
-    if-nez p1, :cond_1
+    const/4 v1, 0x0
 
-    const/4 p1, 0x0
+    if-nez p1, :cond_1
 
     goto :goto_0
 
     :cond_1
-    sget-object v1, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->Companion:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;
-
     const/16 v2, 0x20
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-virtual {v1, p1, v2}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;->fromView(Landroid/view/View;Ljava/lang/Integer;)Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v3
+
+    instance-of v3, v3, Landroid/view/ViewGroup;
+
+    if-nez v3, :cond_2
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Skipping animation as view "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p1, " is not attached to a ViewGroup"
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
+    new-instance v2, Ljava/lang/Exception;
+
+    invoke-direct {v2}, Ljava/lang/Exception;-><init>()V
+
+    const-string v3, "ActivityLaunchAnimator"
+
+    invoke-static {v3, p1, v2}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v1, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;
+
+    const/4 v3, 0x4
+
+    invoke-direct {v1, p1, v2, v3}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;-><init>(Landroid/view/View;Ljava/lang/Integer;I)V
+
     :goto_0
-    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mUiHandler:Landroid/os/Handler;
+    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mUiHandler:Landroid/os/Handler;
 
     new-instance v2, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;
 
-    invoke-direct {v2, p0, v0, p1}, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;-><init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;Landroid/content/Intent;Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
+    invoke-direct {v2, p0, v0, v1}, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;-><init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;Landroid/content/Intent;Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;)V
 
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method protected handleLongClick(Landroid/view/View;)V
+.method public final handleLongClick(Landroid/view/View;)V
     .locals 0
 
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
+.method public final handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 1
-
-    const-string p2, "state"
-
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->getTileLabel()Ljava/lang/CharSequence;
 
@@ -260,17 +225,25 @@
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
 
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+    iget-object p2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
+
+    iget-object p2, p2, Lcom/android/systemui/controls/dagger/ControlsComponent;->controlsTileResourceConfiguration:Lcom/android/systemui/controls/controller/ControlsTileResourceConfiguration;
+
+    invoke-interface {p2}, Lcom/android/systemui/controls/controller/ControlsTileResourceConfiguration;->getTileImageId()I
+
+    move-result p2
+
+    invoke-static {p2}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    move-result-object p2
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
     iget-object p2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
-    invoke-virtual {p2}, Lcom/android/systemui/controls/dagger/ControlsComponent;->isEnabled()Z
+    iget-boolean p2, p2, Lcom/android/systemui/controls/dagger/ControlsComponent;->featureEnabled:Z
 
-    move-result p2
-
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     iget-object p2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->hasControlsApps:Ljava/util/concurrent/atomic/AtomicBoolean;
 
@@ -278,7 +251,7 @@
 
     move-result p2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     iget-object p2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
@@ -288,44 +261,55 @@
 
     sget-object v0, Lcom/android/systemui/controls/dagger/ControlsComponent$Visibility;->AVAILABLE:Lcom/android/systemui/controls/dagger/ControlsComponent$Visibility;
 
-    if-ne p2, v0, :cond_0
+    if-ne p2, v0, :cond_1
 
-    const/4 p2, 0x2
+    iget-object p2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
-    iput p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+    invoke-virtual {p2}, Lcom/android/systemui/controls/dagger/ControlsComponent;->getControlsController()Ljava/util/Optional;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
+    move-result-object p2
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/dagger/ControlsComponent;->getControlsController()Ljava/util/Optional;
+    invoke-virtual {p2}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/systemui/controls/controller/ControlsController;
+
+    invoke-interface {p2}, Lcom/android/systemui/controls/controller/ControlsController;->getPreferredStructure()Lcom/android/systemui/controls/controller/StructureInfo;
+
+    move-result-object p2
+
+    iget-object p2, p2, Lcom/android/systemui/controls/controller/StructureInfo;->structure:Ljava/lang/CharSequence;
+
+    const/4 v0, 0x2
+
+    iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->getTileLabel()Ljava/lang/CharSequence;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result-object p0
+    move-result p0
 
-    check-cast p0, Lcom/android/systemui/controls/controller/ControlsController;
+    if-eqz p0, :cond_0
 
-    invoke-interface {p0}, Lcom/android/systemui/controls/controller/ControlsController;->getPreferredStructure()Lcom/android/systemui/controls/controller/StructureInfo;
+    const/4 p2, 0x0
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/StructureInfo;->getStructure()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    iput-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
+    :cond_0
+    iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 p2, 0x1
 
     iput p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget p2, Lcom/android/systemui/R$string;->controls_tile_locked:I
+    const p2, 0x7f13025f
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -340,7 +324,7 @@
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     const/4 p0, 0x0
 
     iput p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
@@ -349,7 +333,7 @@
     return-void
 .end method
 
-.method public isAvailable()Z
+.method public final isAvailable()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->controlsComponent:Lcom/android/systemui/controls/dagger/ControlsComponent;
@@ -365,7 +349,7 @@
     return p0
 .end method
 
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
     new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$State;

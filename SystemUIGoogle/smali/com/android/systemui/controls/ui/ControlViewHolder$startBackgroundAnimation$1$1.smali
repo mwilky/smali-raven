@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;
+.class public final Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;
 .super Ljava/lang/Object;
 .source "ControlViewHolder.kt"
 
@@ -6,35 +6,24 @@
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/ControlViewHolder;->startBackgroundAnimation(Landroid/graphics/drawable/Drawable;III)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $clipDrawable:Landroid/graphics/drawable/Drawable;
+.field public final synthetic $clipDrawable:Landroid/graphics/drawable/Drawable;
 
-.field final synthetic $newBaseColor:I
+.field public final synthetic $newBaseColor:I
 
-.field final synthetic $newClipColor:I
+.field public final synthetic $newClipColor:I
 
-.field final synthetic $oldAlpha:F
+.field public final synthetic $oldAlpha:F
 
-.field final synthetic $oldBaseColor:I
+.field public final synthetic $oldBaseColor:I
 
-.field final synthetic $oldClipColor:I
+.field public final synthetic $oldClipColor:I
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
 
 # direct methods
-.method constructor <init>(IIIIFLcom/android/systemui/controls/ui/ControlViewHolder;Landroid/graphics/drawable/Drawable;)V
+.method public constructor <init>(IIIIFLcom/android/systemui/controls/ui/ControlViewHolder;Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$oldClipColor:I
@@ -59,63 +48,89 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 7
+    .locals 5
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 
     move-result-object v0
 
-    const-string v1, "null cannot be cast to non-null type kotlin.Int"
-
-    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz v0, :cond_1
 
     check-cast v0, Ljava/lang/Integer;
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v3
+    move-result v0
 
-    iget v0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$oldClipColor:I
+    iget v1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$oldClipColor:I
 
-    iget v1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$newClipColor:I
+    iget v2, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$newClipColor:I
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
 
-    move-result v2
+    move-result v3
 
-    invoke-static {v0, v1, v2}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
+    invoke-static {v1, v2, v3}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
+
+    move-result v1
+
+    iget v2, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$oldBaseColor:I
+
+    iget v3, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$newBaseColor:I
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
 
     move-result v4
 
-    iget v0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$oldBaseColor:I
-
-    iget v1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$newBaseColor:I
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+    invoke-static {v2, v3, v4}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
 
     move-result v2
 
-    invoke-static {v0, v1, v2}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
+    iget v3, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$oldAlpha:F
 
-    move-result v5
-
-    iget v0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$oldAlpha:F
-
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 v4, 0x3f800000    # 1.0f
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
 
     move-result p1
 
-    invoke-static {v0, v1, p1}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v3, v4, p1}, Landroid/util/MathUtils;->lerp(FFF)F
 
-    move-result v6
+    move-result p1
 
-    iget-object v1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
+    iget-object v3, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-    iget-object v2, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$clipDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$startBackgroundAnimation$1$1;->$clipDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/controls/ui/ControlViewHolder;->access$applyBackgroundChange(Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/graphics/drawable/Drawable;IIIF)V
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p0, v0}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    instance-of v0, p0, Landroid/graphics/drawable/GradientDrawable;
+
+    if-eqz v0, :cond_0
+
+    check-cast p0, Landroid/graphics/drawable/GradientDrawable;
+
+    invoke-virtual {p0, v1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    :cond_0
+    iget-object p0, v3, Lcom/android/systemui/controls/ui/ControlViewHolder;->baseLayer:Landroid/graphics/drawable/GradientDrawable;
+
+    invoke-virtual {p0, v2}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    iget-object p0, v3, Lcom/android/systemui/controls/ui/ControlViewHolder;->layout:Landroid/view/ViewGroup;
+
+    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setAlpha(F)V
 
     return-void
+
+    :cond_1
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Int"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

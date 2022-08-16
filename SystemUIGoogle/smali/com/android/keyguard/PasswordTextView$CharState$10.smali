@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/PasswordTextView$CharState$10;
+.class public final Lcom/android/keyguard/PasswordTextView$CharState$10;
 .super Ljava/lang/Object;
 .source "PasswordTextView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/keyguard/PasswordTextView$CharState;
+.field public final synthetic this$1:Lcom/android/keyguard/PasswordTextView$CharState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/PasswordTextView$CharState;)V
+.method public constructor <init>(Lcom/android/keyguard/PasswordTextView$CharState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/PasswordTextView$CharState$10;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;
@@ -34,12 +34,18 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public final run()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/PasswordTextView$CharState$10;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;
 
-    invoke-static {v0}, Lcom/android/keyguard/PasswordTextView$CharState;->access$600(Lcom/android/keyguard/PasswordTextView$CharState;)V
+    const-wide/16 v1, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/PasswordTextView$CharState;->startTextDisappearAnimation(J)V
+
+    const-wide/16 v1, 0x1e
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/keyguard/PasswordTextView$CharState;->startDotAppearAnimation(J)V
 
     iget-object p0, p0, Lcom/android/keyguard/PasswordTextView$CharState$10;->this$1:Lcom/android/keyguard/PasswordTextView$CharState;
 

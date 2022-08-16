@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "RowInflationFinishedListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onInflationFinished(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-.end method

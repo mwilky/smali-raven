@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final biometricUnlockControllerProvider:Ljavax/inject/Provider;
+.field public final biometricUnlockControllerLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
+.field public final featureFlagsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final keyguardViewControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardViewControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final keyguardViewMediatorProvider:Ljavax/inject/Provider;
+.field public final keyguardViewMediatorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,11 +78,21 @@
     .end annotation
 .end field
 
-.field private final smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+.field public final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
             ">;"
         }
     .end annotation
@@ -90,7 +100,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,13 +118,16 @@
             "Lcom/android/keyguard/KeyguardViewController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;)V"
         }
     .end annotation
@@ -129,17 +142,19 @@
 
     iput-object p4, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->keyguardViewControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->biometricUnlockControllerLazyProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
+    iput-object p7, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+
+    iput-object p8, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
-    .locals 9
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -156,63 +171,24 @@
             "Lcom/android/keyguard/KeyguardViewController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;)",
             "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;"
         }
     .end annotation
 
-    new-instance v8, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
+    new-instance v9, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;
 
-    move-object v0, v8
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    move-object v7, p6
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v8
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-    .locals 9
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/keyguard/KeyguardViewMediator;",
-            ">;",
-            "Lcom/android/keyguard/KeyguardViewController;",
-            "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
-            ")",
-            "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;"
-        }
-    .end annotation
-
-    new-instance v8, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-
-    move-object v0, v8
+    move-object v0, v9
 
     move-object v1, p0
 
@@ -226,17 +202,19 @@
 
     move-object v6, p5
 
-    move-object v7, p6
+    move-object/from16 v7, p6
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)V
+    move-object/from16 v8, p7
 
-    return-object v8
+    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v9
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-    .locals 8
+.method public final get()Ljava/lang/Object;
+    .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -244,9 +222,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
@@ -254,15 +232,15 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v3, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->keyguardViewMediatorProvider:Ljavax/inject/Provider;
 
     invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v3
+    move-result-object v4
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->keyguardViewControllerProvider:Ljavax/inject/Provider;
 
@@ -270,19 +248,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
-
-    check-cast v4, Lcom/android/keyguard/KeyguardViewController;
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->smartspaceTransitionControllerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
     move-object v5, v0
 
-    check-cast v5, Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+    check-cast v5, Lcom/android/keyguard/KeyguardViewController;
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
@@ -294,29 +262,37 @@
 
     check-cast v6, Lcom/android/systemui/flags/FeatureFlags;
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->biometricUnlockControllerLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v7
+
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v8, v0
+
+    check-cast v8, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v7, p0
+    move-object v9, p0
 
-    check-cast v7, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
+    check-cast v9, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
+    new-instance p0, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController_Factory;->get()Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/flags/FeatureFlags;Ldagger/Lazy;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;)V
 
     return-object p0
 .end method

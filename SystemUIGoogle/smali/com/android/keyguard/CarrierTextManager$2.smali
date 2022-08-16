@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/CarrierTextManager$2;
+.class public final Lcom/android/keyguard/CarrierTextManager$2;
 .super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "CarrierTextManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/CarrierTextManager;
+.field public final synthetic this$0:Lcom/android/keyguard/CarrierTextManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/CarrierTextManager;)V
+.method public constructor <init>(Lcom/android/keyguard/CarrierTextManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
@@ -31,28 +31,22 @@
 
 
 # virtual methods
-.method public onRefreshCarrierInfo()V
+.method public final onRefreshCarrierInfo()V
     .locals 2
 
-    invoke-static {}, Lcom/android/keyguard/CarrierTextManager;->access$100()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "onRefreshCarrierInfo(), mTelephonyCapable: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "onRefreshCarrierInfo(), mTelephonyCapable: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {v1}, Lcom/android/keyguard/CarrierTextManager;->access$200(Lcom/android/keyguard/CarrierTextManager;)Z
-
-    move-result v1
+    iget-boolean v1, v1, Lcom/android/keyguard/CarrierTextManager;->mTelephonyCapable:Z
 
     invoke-static {v1}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
@@ -76,7 +70,7 @@
     return-void
 .end method
 
-.method public onSimStateChanged(III)V
+.method public final onSimStateChanged(III)V
     .locals 2
 
     const-string p1, "CarrierTextController"
@@ -85,32 +79,26 @@
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {v0}, Lcom/android/keyguard/CarrierTextManager;->access$300(Lcom/android/keyguard/CarrierTextManager;)I
-
-    move-result v0
+    iget v0, v0, Lcom/android/keyguard/CarrierTextManager;->mSimSlotsNumber:I
 
     if-lt p2, v0, :cond_0
 
     goto :goto_1
 
     :cond_0
-    invoke-static {}, Lcom/android/keyguard/CarrierTextManager;->access$100()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
 
     if-eqz v0, :cond_1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "onSimStateChanged: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "onSimStateChanged: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {v1, p3}, Lcom/android/keyguard/CarrierTextManager;->access$400(Lcom/android/keyguard/CarrierTextManager;I)Lcom/android/keyguard/CarrierTextManager$StatusMode;
+    invoke-virtual {v1, p3}, Lcom/android/keyguard/CarrierTextManager;->getStatusForIccState(I)Lcom/android/keyguard/CarrierTextManager$StatusMode;
 
     move-result-object v1
 
@@ -125,7 +113,7 @@
     :cond_1
     iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {p1, p3}, Lcom/android/keyguard/CarrierTextManager;->access$400(Lcom/android/keyguard/CarrierTextManager;I)Lcom/android/keyguard/CarrierTextManager$StatusMode;
+    invoke-virtual {p1, p3}, Lcom/android/keyguard/CarrierTextManager;->getStatusForIccState(I)Lcom/android/keyguard/CarrierTextManager$StatusMode;
 
     move-result-object p1
 
@@ -133,44 +121,30 @@
 
     if-ne p1, p3, :cond_2
 
-    iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
+    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {p1}, Lcom/android/keyguard/CarrierTextManager;->access$500(Lcom/android/keyguard/CarrierTextManager;)[Z
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager;->mSimErrorState:[Z
 
     const/4 p3, 0x1
 
     aput-boolean p3, p1, p2
-
-    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
     invoke-virtual {p0}, Lcom/android/keyguard/CarrierTextManager;->updateCarrierText()V
 
     goto :goto_0
 
     :cond_2
-    iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
+    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {p1}, Lcom/android/keyguard/CarrierTextManager;->access$500(Lcom/android/keyguard/CarrierTextManager;)[Z
+    iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager;->mSimErrorState:[Z
 
-    move-result-object p1
+    aget-boolean p3, p1, p2
 
-    aget-boolean p1, p1, p2
-
-    if-eqz p1, :cond_3
-
-    iget-object p1, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
-
-    invoke-static {p1}, Lcom/android/keyguard/CarrierTextManager;->access$500(Lcom/android/keyguard/CarrierTextManager;)[Z
-
-    move-result-object p1
+    if-eqz p3, :cond_3
 
     const/4 p3, 0x0
 
     aput-boolean p3, p1, p2
-
-    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
     invoke-virtual {p0}, Lcom/android/keyguard/CarrierTextManager;->updateCarrierText()V
 
@@ -180,33 +154,25 @@
 
     :cond_4
     :goto_1
-    new-instance p3, Ljava/lang/StringBuilder;
+    const-string/jumbo p3, "onSimStateChanged() - slotId invalid: "
 
-    invoke-direct {p3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, " mTelephonyCapable: "
 
-    const-string v0, "onSimStateChanged() - slotId invalid: "
+    invoke-static {p3, p2, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline0;->m(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p2, " mTelephonyCapable: "
-
-    invoke-virtual {p3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {p0}, Lcom/android/keyguard/CarrierTextManager;->access$200(Lcom/android/keyguard/CarrierTextManager;)Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/keyguard/CarrierTextManager;->mTelephonyCapable:Z
 
     invoke-static {p0}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
@@ -215,22 +181,18 @@
     return-void
 .end method
 
-.method public onTelephonyCapable(Z)V
+.method public final onTelephonyCapable(Z)V
     .locals 2
 
-    invoke-static {}, Lcom/android/keyguard/CarrierTextManager;->access$100()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/keyguard/CarrierTextManager;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "onTelephonyCapable() mTelephonyCapable: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "onTelephonyCapable() mTelephonyCapable: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-static {p1}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
 
@@ -247,11 +209,9 @@
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
-
-    invoke-static {v0, p1}, Lcom/android/keyguard/CarrierTextManager;->access$202(Lcom/android/keyguard/CarrierTextManager;Z)Z
-
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$2;->this$0:Lcom/android/keyguard/CarrierTextManager;
+
+    iput-boolean p1, p0, Lcom/android/keyguard/CarrierTextManager;->mTelephonyCapable:Z
 
     invoke-virtual {p0}, Lcom/android/keyguard/CarrierTextManager;->updateCarrierText()V
 

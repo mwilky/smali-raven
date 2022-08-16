@@ -1,4 +1,4 @@
-.class abstract Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;
+.class public abstract Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;
 .super Ljava/lang/Object;
 .source "AbstractResolvableFuture.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x40a
+    accessFlags = 0x409
     name = "AtomicHelper"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,17 +23,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroidx/concurrent/futures/AbstractResolvableFuture$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method abstract casListeners(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;)Z
+.method public abstract casListeners(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;)Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,7 +38,7 @@
     .end annotation
 .end method
 
-.method abstract casValue(Landroidx/concurrent/futures/AbstractResolvableFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
+.method public abstract casValue(Landroidx/concurrent/futures/AbstractResolvableFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -59,7 +51,7 @@
     .end annotation
 .end method
 
-.method abstract casWaiters(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)Z
+.method public abstract casWaiters(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)Z
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -72,8 +64,8 @@
     .end annotation
 .end method
 
-.method abstract putNext(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)V
+.method public abstract putNext(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)V
 .end method
 
-.method abstract putThread(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Ljava/lang/Thread;)V
+.method public abstract putThread(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Ljava/lang/Thread;)V
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/screenshot/TiledImageDrawable$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/screenshot/ImageTileSet$OnContentChangedListener;
@@ -23,11 +24,26 @@
 
 # virtual methods
 .method public final onContentChanged()V
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/TiledImageDrawable$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/screenshot/TiledImageDrawable;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/TiledImageDrawable;->$r8$lambda$KhzbsUgtwhd3nEmZQ4XI3l7-jgI(Lcom/android/systemui/screenshot/TiledImageDrawable;)V
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TiledImageDrawable;->mNode:Landroid/graphics/RenderNode;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/graphics/RenderNode;->hasDisplayList()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/TiledImageDrawable;->mNode:Landroid/graphics/RenderNode;
+
+    invoke-virtual {v0}, Landroid/graphics/RenderNode;->discardDisplayList()V
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     return-void
 .end method

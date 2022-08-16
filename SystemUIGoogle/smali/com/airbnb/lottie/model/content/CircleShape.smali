@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/content/CircleShape;
+.class public final Lcom/airbnb/lottie/model/content/CircleShape;
 .super Ljava/lang/Object;
 .source "CircleShape.java"
 
@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field private final hidden:Z
+.field public final hidden:Z
 
-.field private final isReversed:Z
+.field public final isReversed:Z
 
-.field private final name:Ljava/lang/String;
+.field public final name:Ljava/lang/String;
 
-.field private final position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
+.field public final position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/model/animatable/AnimatableValue<",
@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field private final size:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
+.field public final size:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
 
 
 # direct methods
@@ -60,56 +60,7 @@
 
 
 # virtual methods
-.method public getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/CircleShape;->name:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getPosition()Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/airbnb/lottie/model/animatable/AnimatableValue<",
-            "Landroid/graphics/PointF;",
-            "Landroid/graphics/PointF;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/CircleShape;->position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-
-    return-object p0
-.end method
-
-.method public getSize()Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/CircleShape;->size:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
-
-    return-object p0
-.end method
-
-.method public isHidden()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/CircleShape;->hidden:Z
-
-    return p0
-.end method
-
-.method public isReversed()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/CircleShape;->isReversed:Z
-
-    return p0
-.end method
-
-.method public toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
+.method public final toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
     .locals 1
 
     new-instance v0, Lcom/airbnb/lottie/animation/content/EllipseContent;

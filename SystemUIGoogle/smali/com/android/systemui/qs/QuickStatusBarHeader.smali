@@ -3,68 +3,72 @@
 .source "QuickStatusBarHeader.java"
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
+.field public mAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-.field private mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+.field public mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
 
-.field private mClockContainer:Landroid/view/ViewGroup;
+.field public mClockContainer:Landroid/view/ViewGroup;
 
-.field private mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
+.field public mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
-.field private mClockIconsSeparator:Landroid/view/View;
+.field public mClockIconsSeparator:Landroid/view/View;
 
-.field private mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+.field public mClockView:Lcom/android/systemui/statusbar/policy/Clock;
 
-.field private mConfigShowBatteryEstimate:Z
+.field public mConfigShowBatteryEstimate:Z
 
-.field private mContainer:Landroid/view/View;
+.field public mContainer:Landroid/view/View;
 
-.field private mCutOutPaddingLeft:I
+.field public mCutOutPaddingLeft:I
 
-.field private mCutOutPaddingRight:I
+.field public mCutOutPaddingRight:I
 
-.field private mDateContainer:Landroid/view/View;
+.field public mDateContainer:Landroid/view/View;
 
-.field private mDatePrivacySeparator:Landroid/widget/Space;
+.field public mDatePrivacySeparator:Landroid/widget/Space;
 
-.field private mDatePrivacyView:Landroid/view/View;
+.field public mDatePrivacyView:Landroid/view/View;
 
-.field private mDateView:Landroid/view/View;
+.field public mDateView:Landroid/view/View;
 
-.field private mExpanded:Z
+.field public mExpanded:Z
 
-.field private mHasCenterCutout:Z
+.field public mHasCenterCutout:Z
 
-.field protected mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+.field public mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
 
-.field private mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+.field public mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
-.field private mIconsAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
+.field public mIconsAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-.field private mIconsAlphaAnimatorFixed:Lcom/android/systemui/qs/TouchAnimator;
+.field public mIconsAlphaAnimatorFixed:Lcom/android/systemui/qs/TouchAnimator;
 
-.field private mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
+.field public mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
 
-.field private mIsSingleCarrier:Z
+.field public mIsSingleCarrier:Z
 
-.field private mKeyguardExpansionFraction:F
+.field public mKeyguardExpansionFraction:F
 
-.field private mPrivacyChip:Landroid/view/View;
+.field public mPrivacyChip:Landroid/view/View;
 
-.field private mPrivacyContainer:Landroid/view/View;
+.field public mPrivacyContainer:Landroid/view/View;
 
-.field private mQSCarriers:Landroid/view/View;
+.field public mQSCarriers:Landroid/view/View;
 
-.field private mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
+.field public mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-.field private mQsDisabled:Z
+.field public mQsDisabled:Z
 
-.field private mRightLayout:Landroid/view/View;
+.field public mRightLayout:Landroid/view/View;
 
-.field private mRoundedCornerPadding:I
+.field public mRoundedCornerPadding:I
 
-.field private mRssiIgnoredSlots:Ljava/util/List;
+.field public mRssiIgnoredSlots:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -74,42 +78,24 @@
     .end annotation
 .end field
 
-.field private mSecurityHeaderView:Landroid/view/View;
+.field public mShowClockIconsSeparator:Z
 
-.field private mShowClockIconsSeparator:Z
+.field public mStatusIconsView:Landroid/view/View;
 
-.field private mStatusIconsView:Landroid/view/View;
+.field public mTextColorPrimary:I
 
-.field private mTextColorPrimary:I
+.field public mTintedIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
-.field private mTintedIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
+.field public mTopViewMeasureHeight:I
 
-.field private mTopViewMeasureHeight:I
+.field public mTranslationAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
-.field private mTranslationAnimator:Lcom/android/systemui/qs/TouchAnimator;
+.field public mUseCombinedQSHeader:Z
 
-.field private mUseCombinedQSHeader:Z
-
-.field private mWaterfallTopInset:I
+.field public mWaterfallTopInset:I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$5iY7OvdvqQZzZKLQ956waMXDU1M(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAnimators()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$jfxpiBbHcWts__YTTSLpACq44xM(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->lambda$updateEverything$0()V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
@@ -121,88 +107,550 @@
 
     iput p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
 
-    return-void
-.end method
+    invoke-static {}, Ljava/util/List;->of()Ljava/util/List;
 
-.method static synthetic access$000(Lcom/android/systemui/qs/QuickStatusBarHeader;)Z
-    .locals 0
+    move-result-object p1
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIsSingleCarrier:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/qs/QuickStatusBarHeader;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRssiIgnoredSlots:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/policy/VariableDateView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/qs/QuickStatusBarHeader;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSeparatorVisibility(Z)V
+    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRssiIgnoredSlots:Ljava/util/List;
 
     return-void
 .end method
 
-.method static synthetic access$500(Lcom/android/systemui/qs/QuickStatusBarHeader;)Z
-    .locals 0
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mShowClockIconsSeparator:Z
+# virtual methods
+.method public final onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    .locals 9
 
-    return p0
-.end method
+    invoke-virtual {p1}, Landroid/view/WindowInsets;->getDisplayCutout()Landroid/view/DisplayCutout;
 
-.method private synthetic lambda$updateEverything$0()V
-    .locals 1
+    move-result-object v0
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mExpanded:Z
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
 
-    xor-int/lit8 v0, v0, 0x1
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;->getStatusBarContentInsetsForCurrentRotation()Landroid/util/Pair;
 
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setClickable(Z)V
+    move-result-object v1
 
-    return-void
-.end method
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
 
-.method private setContentMargins(Landroid/view/View;II)V
-    .locals 0
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;->currentRotationHasCornerCutout()Z
 
-    invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    iget-object v4, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v4, Ljava/lang/Integer;
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    iget-object v5, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v5, Ljava/lang/Integer;
+
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v3, v4, v6, v5, v6}, Landroid/view/View;->setPadding(IIII)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    iget-object v4, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v4, Ljava/lang/Integer;
+
+    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
+
+    move-result v4
+
+    iget-object v5, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v5, Ljava/lang/Integer;
+
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    invoke-virtual {v3, v4, v6, v5, v6}, Landroid/view/View;->setPadding(IIII)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
+
+    invoke-virtual {v3}, Landroid/widget/Space;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/LinearLayout$LayoutParams;
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockIconsSeparator:Landroid/view/View;
+
+    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/LinearLayout$LayoutParams;
+
+    const/4 v5, 0x1
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getBoundingRectTop()Landroid/graphics/Rect;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->isEmpty()Z
+
+    move-result v8
+
+    if-nez v8, :cond_2
+
+    if-eqz v2, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v2
+
+    iput v2, v3, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
+
+    invoke-virtual {v2, v6}, Landroid/widget/Space;->setVisibility(I)V
+
+    invoke-virtual {v7}, Landroid/graphics/Rect;->width()I
+
+    move-result v2
+
+    iput v2, v4, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    iput-boolean v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mShowClockIconsSeparator:Z
+
+    iget v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mKeyguardExpansionFraction:F
+
+    const/4 v7, 0x0
+
+    cmpl-float v2, v2, v7
+
+    if-nez v2, :cond_1
+
+    move v2, v5
+
+    goto :goto_0
+
+    :cond_1
+    move v2, v6
+
+    :goto_0
+    invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSeparatorVisibility(Z)V
+
+    iput-boolean v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHasCenterCutout:Z
+
+    goto :goto_2
+
+    :cond_2
+    :goto_1
+    iput v6, v3, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
+
+    const/16 v7, 0x8
+
+    invoke-virtual {v2, v7}, Landroid/widget/Space;->setVisibility(I)V
+
+    iput v6, v4, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSeparatorVisibility(Z)V
+
+    iput-boolean v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mShowClockIconsSeparator:Z
+
+    iput-boolean v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHasCenterCutout:Z
+
+    :cond_3
+    :goto_2
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
+
+    invoke-virtual {v2, v3}, Landroid/widget/Space;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockIconsSeparator:Landroid/view/View;
+
+    invoke-virtual {v2, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v2, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
+
+    check-cast v2, Ljava/lang/Integer;
+
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingLeft:I
+
+    iget-object v1, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingRight:I
+
+    if-nez v0, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getWaterfallInsets()Landroid/graphics/Insets;
+
+    move-result-object v0
+
+    iget v6, v0, Landroid/graphics/Insets;->top:I
+
+    :goto_3
+    iput v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mWaterfallTopInset:I
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mConfigShowBatteryEstimate:Z
+
+    if-eqz v0, :cond_5
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHasCenterCutout:Z
+
+    if-nez v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
+
+    goto :goto_4
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    invoke-virtual {v0, v5}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
+
+    :goto_4
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateHeadersPadding()V
+
+    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
 
     move-result-object p0
 
-    check-cast p0, Landroid/view/ViewGroup$MarginLayoutParams;
+    return-object p0
+.end method
 
-    invoke-virtual {p0, p2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 1
 
-    invoke-virtual {p0, p3}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
+    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    invoke-virtual {p1, p0}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
+
+    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v0, 0x2
+
+    if-ne p1, v0, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p1, 0x0
+
+    :goto_0
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setDatePrivacyContainersWidth(Z)V
 
     return-void
 .end method
 
-.method private setDatePrivacyContainersWidth(Z)V
+.method public final onFinishInflate()V
+    .locals 5
+
+    invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
+
+    const v0, 0x7f0b0533
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+
+    const v0, 0x7f0b0537
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    const v0, 0x7f0b0534
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    const v0, 0x7f0b0166
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQSCarriers:Landroid/view/View;
+
+    const v0, 0x7f0b0526
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContainer:Landroid/view/View;
+
+    const v0, 0x7f0b0634
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    const v0, 0x7f0b0508
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mPrivacyChip:Landroid/view/View;
+
+    const v0, 0x7f0b01e2
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Landroid/view/View;
+
+    const v0, 0x7f0b01e3
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/VariableDateView;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
+
+    const v0, 0x7f0b05e1
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockIconsSeparator:Landroid/view/View;
+
+    const v0, 0x7f0b055c
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRightLayout:Landroid/view/View;
+
+    const v0, 0x7f0b01e4
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateContainer:Landroid/view/View;
+
+    const v0, 0x7f0b0509
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mPrivacyContainer:Landroid/view/View;
+
+    const v0, 0x7f0b0195
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockContainer:Landroid/view/ViewGroup;
+
+    const v0, 0x7f0b0194
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/policy/Clock;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+
+    const v0, 0x7f0b0618
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/Space;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
+
+    const v0, 0x7f0b00f3
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/battery/BatteryMeterView;
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
+
+    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setDatePrivacyContainersWidth(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
+
+    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$Builder;
+
+    invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    new-array v3, v1, [F
+
+    fill-array-data v3, :array_0
+
+    const-string v4, "alpha"
+
+    invoke-virtual {v0, v2, v4, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    new-array v1, v1, [F
+
+    fill-array-data v1, :array_1
+
+    invoke-virtual {v0, v2, v4, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)V
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconsAlphaAnimatorFixed:Lcom/android/systemui/qs/TouchAnimator;
+
+    return-void
+
+    :array_0
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+.end method
+
+.method public final onMeasure(II)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result p1
+
+    iget p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTopViewMeasureHeight:I
+
+    if-eq p1, p2, :cond_0
+
+    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTopViewMeasureHeight:I
+
+    new-instance p1, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda0;
+
+    const/4 p2, 0x0
+
+    invoke-direct {p1, p2, p0}, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onRtlPropertiesChanged(I)V
+    .locals 0
+
+    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onRtlPropertiesChanged(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
+
+    return-void
+.end method
+
+.method public final setDatePrivacyContainersWidth(Z)V
     .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateContainer:Landroid/view/View;
@@ -284,27 +732,7 @@
     return-void
 .end method
 
-.method private setSecurityHeaderContainerVisibility(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSecurityHeaderView:Landroid/view/View;
-
-    if-eqz p1, :cond_0
-
-    const/4 p1, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    const/16 p1, 0x8
-
-    :goto_0
-    invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
-
-    return-void
-.end method
-
-.method private setSeparatorVisibility(Z)V
+.method public final setSeparatorVisibility(Z)V
     .locals 6
 
     const/16 v0, 0x8
@@ -435,8 +863,8 @@
     return-void
 .end method
 
-.method private updateAlphaAnimator()V
-    .locals 6
+.method public final updateAlphaAnimator()V
+    .locals 5
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mUseCombinedQSHeader:Z
 
@@ -453,9 +881,9 @@
 
     invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSecurityHeaderView:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Landroid/view/View;
 
-    const/4 v2, 0x2
+    const/4 v2, 0x3
 
     new-array v3, v2, [F
 
@@ -463,49 +891,31 @@
 
     const-string v4, "alpha"
 
-    invoke-virtual {v0, v1, v4, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Landroid/view/View;
-
-    const/4 v3, 0x3
-
-    new-array v5, v3, [F
-
-    fill-array-data v5, :array_1
-
-    invoke-virtual {v0, v1, v4, v5}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object v0
+    invoke-virtual {v0, v1, v4, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)V
 
     iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
-    new-array v3, v3, [F
+    new-array v2, v2, [F
 
-    fill-array-data v3, :array_2
+    fill-array-data v2, :array_1
 
-    invoke-virtual {v0, v1, v4, v3}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object v0
+    invoke-virtual {v0, v1, v4, v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)V
 
     iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQSCarriers:Landroid/view/View;
 
+    const/4 v2, 0x2
+
     new-array v2, v2, [F
 
-    fill-array-data v2, :array_3
+    fill-array-data v2, :array_2
 
-    invoke-virtual {v0, v1, v4, v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object v0
+    invoke-virtual {v0, v1, v4, v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)V
 
     new-instance v1, Lcom/android/systemui/qs/QuickStatusBarHeader$1;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/QuickStatusBarHeader$1;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setListener(Lcom/android/systemui/qs/TouchAnimator$Listener;)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object v0
+    iput-object v1, v0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
     invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
@@ -520,31 +930,25 @@
     :array_0
     .array-data 4
         0x0
+        0x0
         0x3f800000    # 1.0f
     .end array-data
 
     :array_1
     .array-data 4
-        0x0
-        0x0
         0x3f800000    # 1.0f
+        0x0
+        0x0
     .end array-data
 
     :array_2
-    .array-data 4
-        0x3f800000    # 1.0f
-        0x0
-        0x0
-    .end array-data
-
-    :array_3
     .array-data 4
         0x0
         0x3f800000    # 1.0f
     .end array-data
 .end method
 
-.method private updateAnimators()V
+.method public final updateAnimators()V
     .locals 7
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mUseCombinedQSHeader:Z
@@ -558,7 +962,7 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAlphaAnimator()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAlphaAnimator()V
 
     iget v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTopViewMeasureHeight:I
 
@@ -584,26 +988,22 @@
 
     aput v0, v4, v5
 
-    const-string v0, "translationY"
+    const-string/jumbo v0, "translationY"
 
-    invoke-virtual {v2, v3, v0, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    invoke-virtual {v2, v3, v0, v4}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)V
 
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
+    if-eqz v0, :cond_1
 
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Landroid/view/animation/Interpolator;
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->getYInterpolator()Lcom/android/systemui/qs/PathInterpolatorBuilder$PathInterpolator;
 
     move-result-object v1
 
     :cond_1
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/TouchAnimator$Builder;->setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
+    iput-object v1, v2, Lcom/android/systemui/qs/TouchAnimator$Builder;->mInterpolator:Landroid/view/animation/Interpolator;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
+    invoke-virtual {v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
 
     move-result-object v0
 
@@ -612,38 +1012,110 @@
     return-void
 .end method
 
-.method private updateBatteryMode()V
-    .locals 1
+.method public final updateHeadersPadding()V
+    .locals 5
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mConfigShowBatteryEstimate:Z
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHasCenterCutout:Z
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+    const/4 v2, 0x0
 
-    const/4 v0, 0x3
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginStart(I)V
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup$MarginLayoutParams;->setMarginEnd(I)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
+
+    iget v1, v0, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
+
+    iget v0, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
+
+    iget v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingLeft:I
+
+    if-lez v3, :cond_0
+
+    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRoundedCornerPadding:I
+
+    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v3
+
+    sub-int/2addr v3, v1
+
+    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
+    move v1, v2
 
     :goto_0
+    iget v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingRight:I
+
+    if-lez v3, :cond_1
+
+    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRoundedCornerPadding:I
+
+    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v3
+
+    sub-int/2addr v3, v0
+
+    invoke-static {v3, v2}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
+    goto :goto_1
+
+    :cond_1
+    move v0, v2
+
+    :goto_1
+    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mWaterfallTopInset:I
+
+    invoke-virtual {v3, v1, v4, v0, v2}, Landroid/view/View;->setPadding(IIII)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    iget p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mWaterfallTopInset:I
+
+    invoke-virtual {v3, v1, p0, v0, v2}, Landroid/view/View;->setPadding(IIII)V
+
     return-void
 .end method
 
-.method private updateClockDatePadding()V
-    .locals 5
+.method public final updateResources()V
+    .locals 8
 
     iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
@@ -651,7 +1123,272 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->status_bar_left_clock_starting_padding:I
+    const v1, 0x7f050043
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-nez v1, :cond_1
+
+    iget-boolean v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mUseCombinedQSHeader:Z
+
+    if-nez v4, :cond_1
+
+    iget-boolean v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsDisabled:Z
+
+    if-eqz v4, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v4, v2
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v4, v3
+
+    :goto_1
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    const/16 v6, 0x8
+
+    if-eqz v4, :cond_2
+
+    move v7, v6
+
+    goto :goto_2
+
+    :cond_2
+    move v7, v2
+
+    :goto_2
+    invoke-virtual {v5, v7}, Landroid/view/View;->setVisibility(I)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    if-eqz v4, :cond_3
+
+    move v2, v6
+
+    :cond_3
+    invoke-virtual {v5, v2}, Landroid/view/View;->setVisibility(I)V
+
+    const v2, 0x7f050030
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mConfigShowBatteryEstimate:Z
+
+    const v2, 0x7f0706f8
+
+    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRoundedCornerPadding:I
+
+    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/internal/policy/SystemBarUtils;->getQuickQsOffsetHeight(Landroid/content/Context;)I
+
+    move-result v0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    invoke-virtual {v4}, Landroid/view/View;->getMinimumHeight()I
+
+    move-result v4
+
+    invoke-static {v0, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v4
+
+    iput v4, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    invoke-virtual {v4}, Landroid/view/View;->getMinimumHeight()I
+
+    move-result v4
+
+    invoke-static {v0, v4}, Ljava/lang/Math;->max(II)I
+
+    move-result v4
+
+    iput v4, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    iget-boolean v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsDisabled:Z
+
+    if-eqz v4, :cond_4
+
+    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
+
+    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v4
+
+    iget v4, v4, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    iput v4, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    goto :goto_3
+
+    :cond_4
+    const/4 v4, -0x2
+
+    iput v4, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    :goto_3
+    invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    const v4, 0x1010036
+
+    invoke-static {v2, v4}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v2
+
+    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
+
+    if-eq v2, v4, :cond_6
+
+    iget-object v4, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    const v5, 0x1010038
+
+    invoke-static {v4, v5}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v4
+
+    iput v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+
+    invoke-virtual {v5, v2}, Landroid/widget/TextView;->setTextColor(I)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTintedIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
+
+    if-eqz v5, :cond_5
+
+    invoke-virtual {v5, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setTint(I)V
+
+    :cond_5
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    iget v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
+
+    invoke-virtual {v2, v5, v4, v5}, Lcom/android/systemui/battery/BatteryMeterView;->updateColors(III)V
+
+    :cond_6
+    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+
+    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/view/ViewGroup$MarginLayoutParams;
+
+    if-nez v1, :cond_7
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mUseCombinedQSHeader:Z
+
+    if-nez v1, :cond_8
+
+    :cond_7
+    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f070694
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    :cond_8
+    iput v0, v2, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mConfigShowBatteryEstimate:Z
+
+    if-eqz v0, :cond_9
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHasCenterCutout:Z
+
+    if-nez v0, :cond_9
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    const/4 v1, 0x3
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
+
+    goto :goto_4
+
+    :cond_9
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
+
+    :goto_4
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateHeadersPadding()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAnimators()V
+
+    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f07077f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -663,7 +1400,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->status_bar_left_clock_end_padding:I
+    const v2, 0x7f07077e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -696,1136 +1433,6 @@
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
-.end method
-
-.method private updateHeadersPadding()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    const/4 v1, 0x0
-
-    invoke-direct {p0, v0, v1, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setContentMargins(Landroid/view/View;II)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    invoke-direct {p0, v0, v1, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setContentMargins(Landroid/view/View;II)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
-
-    iget v2, v0, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
-
-    iget v0, v0, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
-
-    iget v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingLeft:I
-
-    if-lez v3, :cond_0
-
-    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRoundedCornerPadding:I
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    sub-int/2addr v3, v2
-
-    invoke-static {v3, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v2
-
-    goto :goto_0
-
-    :cond_0
-    move v2, v1
-
-    :goto_0
-    iget v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingRight:I
-
-    if-lez v3, :cond_1
-
-    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRoundedCornerPadding:I
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    sub-int/2addr v3, v0
-
-    invoke-static {v3, v1}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    goto :goto_1
-
-    :cond_1
-    move v0, v1
-
-    :goto_1
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mWaterfallTopInset:I
-
-    invoke-virtual {v3, v2, v4, v0, v1}, Landroid/view/View;->setPadding(IIII)V
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    iget p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mWaterfallTopInset:I
-
-    invoke-virtual {v3, v2, p0, v0, v1}, Landroid/view/View;->setPadding(IIII)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public disable(IIZ)V
-    .locals 0
-
-    const/4 p1, 0x1
-
-    and-int/2addr p2, p1
-
-    const/4 p3, 0x0
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    move p1, p3
-
-    :goto_0
-    iget-boolean p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsDisabled:Z
-
-    if-ne p1, p2, :cond_1
-
-    return-void
-
-    :cond_1
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsDisabled:Z
-
-    iget-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
-
-    invoke-virtual {p2, p1}, Lcom/android/systemui/qs/QuickQSPanel;->setDisabledByPolicy(Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    iget-boolean p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsDisabled:Z
-
-    if-eqz p2, :cond_2
-
-    const/16 p3, 0x8
-
-    :cond_2
-    invoke-virtual {p1, p3}, Landroid/view/View;->setVisibility(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
-
-    return-void
-.end method
-
-.method public getOffsetTranslation()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTopViewMeasureHeight:I
-
-    return p0
-.end method
-
-.method public onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-    .locals 8
-
-    invoke-virtual {p1}, Landroid/view/WindowInsets;->getDisplayCutout()Landroid/view/DisplayCutout;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;->getStatusBarContentInsetsForCurrentRotation()Landroid/util/Pair;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;->currentRotationHasCornerCutout()Z
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    iget-object v4, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v4, Ljava/lang/Integer;
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    iget-object v5, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v5
-
-    const/4 v6, 0x0
-
-    invoke-virtual {v3, v4, v6, v5, v6}, Landroid/view/View;->setPadding(IIII)V
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    iget-object v4, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v4, Ljava/lang/Integer;
-
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-
-    move-result v4
-
-    iget-object v5, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v5, Ljava/lang/Integer;
-
-    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
-
-    move-result v5
-
-    invoke-virtual {v3, v4, v6, v5, v6}, Landroid/view/View;->setPadding(IIII)V
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
-
-    invoke-virtual {v3}, Landroid/widget/Space;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/LinearLayout$LayoutParams;
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockIconsSeparator:Landroid/view/View;
-
-    invoke-virtual {v4}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/LinearLayout$LayoutParams;
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getBoundingRectTop()Landroid/graphics/Rect;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->isEmpty()Z
-
-    move-result v7
-
-    if-nez v7, :cond_2
-
-    if-eqz v2, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v2
-
-    iput v2, v3, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
-
-    invoke-virtual {v2, v6}, Landroid/widget/Space;->setVisibility(I)V
-
-    invoke-virtual {v5}, Landroid/graphics/Rect;->width()I
-
-    move-result v2
-
-    iput v2, v4, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    const/4 v2, 0x1
-
-    iput-boolean v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mShowClockIconsSeparator:Z
-
-    iget v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mKeyguardExpansionFraction:F
-
-    const/4 v7, 0x0
-
-    cmpl-float v5, v5, v7
-
-    if-nez v5, :cond_1
-
-    move v5, v2
-
-    goto :goto_0
-
-    :cond_1
-    move v5, v6
-
-    :goto_0
-    invoke-direct {p0, v5}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSeparatorVisibility(Z)V
-
-    iput-boolean v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHasCenterCutout:Z
-
-    goto :goto_2
-
-    :cond_2
-    :goto_1
-    iput v6, v3, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
-
-    const/16 v5, 0x8
-
-    invoke-virtual {v2, v5}, Landroid/widget/Space;->setVisibility(I)V
-
-    iput v6, v4, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    invoke-direct {p0, v6}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSeparatorVisibility(Z)V
-
-    iput-boolean v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mShowClockIconsSeparator:Z
-
-    iput-boolean v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHasCenterCutout:Z
-
-    :cond_3
-    :goto_2
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
-
-    invoke-virtual {v2, v3}, Landroid/widget/Space;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockIconsSeparator:Landroid/view/View;
-
-    invoke-virtual {v2, v4}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v2, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
-
-    check-cast v2, Ljava/lang/Integer;
-
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    iput v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingLeft:I
-
-    iget-object v1, v1, Landroid/util/Pair;->second:Ljava/lang/Object;
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCutOutPaddingRight:I
-
-    if-nez v0, :cond_4
-
-    goto :goto_3
-
-    :cond_4
-    invoke-virtual {v0}, Landroid/view/DisplayCutout;->getWaterfallInsets()Landroid/graphics/Insets;
-
-    move-result-object v0
-
-    iget v6, v0, Landroid/graphics/Insets;->top:I
-
-    :goto_3
-    iput v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mWaterfallTopInset:I
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateBatteryMode()V
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateHeadersPadding()V
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onApplyWindowInsets(Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method onAttach(Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Ljava/util/List;ZLcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;",
-            "Lcom/android/systemui/qs/QSExpansionPathInterpolator;",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;Z",
-            "Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;",
-            ")V"
-        }
-    .end annotation
-
-    iput-boolean p4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mUseCombinedQSHeader:Z
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTintedIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
-
-    iput-object p3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRssiIgnoredSlots:Ljava/util/List;
-
-    iput-object p5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
-
-    move-result-object p3
-
-    const p4, 0x1010036
-
-    invoke-static {p3, p4}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result p3
-
-    invoke-virtual {p1, p3}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setTint(I)V
-
-    iput-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQSExpansionPathInterpolator:Lcom/android/systemui/qs/QSExpansionPathInterpolator;
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAnimators()V
-
-    return-void
-.end method
-
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 4
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
-
-    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x2
-
-    if-ne v0, v3, :cond_0
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v2
-
-    :goto_0
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setDatePrivacyContainersWidth(Z)V
-
-    iget p1, p1, Landroid/content/res/Configuration;->orientation:I
-
-    if-ne p1, v3, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v1, v2
-
-    :goto_1
-    invoke-direct {p0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSecurityHeaderContainerVisibility(Z)V
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
-    .locals 5
-
-    invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
-
-    sget v0, Lcom/android/systemui/R$id;->quick_qs_panel:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/qs/QuickQSPanel;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
-
-    sget v0, Lcom/android/systemui/R$id;->quick_status_bar_date_privacy:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->quick_qs_status_icons:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->carrier_group:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQSCarriers:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->qs_container:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContainer:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->statusIcons:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    sget v0, Lcom/android/systemui/R$id;->privacy_chip:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mPrivacyChip:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->date:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->date_clock:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/policy/VariableDateView;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
-
-    sget v0, Lcom/android/systemui/R$id;->header_text_container:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mSecurityHeaderView:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->separator:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockIconsSeparator:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->rightLayout:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRightLayout:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->date_container:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateContainer:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->privacy_container:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mPrivacyContainer:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->clock_container:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/view/ViewGroup;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockContainer:Landroid/view/ViewGroup;
-
-    sget v0, Lcom/android/systemui/R$id;->clock:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/policy/Clock;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
-
-    sget v0, Lcom/android/systemui/R$id;->space:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/Space;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacySeparator:Landroid/widget/Space;
-
-    sget v0, Lcom/android/systemui/R$id;->batteryRemainingIcon:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/battery/BatteryMeterView;
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
-
-    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v0
-
-    iget v1, v0, Landroid/content/res/Configuration;->orientation:I
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x2
-
-    if-ne v1, v4, :cond_0
-
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_0
-    move v1, v3
-
-    :goto_0
-    invoke-direct {p0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setDatePrivacyContainersWidth(Z)V
-
-    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
-
-    if-ne v0, v4, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v2, v3
-
-    :goto_1
-    invoke-direct {p0, v2}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSecurityHeaderContainerVisibility(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
-
-    const/4 v1, 0x3
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentShowMode(I)V
-
-    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    new-array v2, v4, [F
-
-    fill-array-data v2, :array_0
-
-    const-string v3, "alpha"
-
-    invoke-virtual {v0, v1, v3, v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
-
-    new-array v2, v4, [F
-
-    fill-array-data v2, :array_1
-
-    invoke-virtual {v0, v1, v3, v2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->build()Lcom/android/systemui/qs/TouchAnimator;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconsAlphaAnimatorFixed:Lcom/android/systemui/qs/TouchAnimator;
-
-    return-void
-
-    :array_0
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
-
-    :array_1
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
-.end method
-
-.method protected onMeasure(II)V
-    .locals 0
-
-    invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result p1
-
-    iget p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTopViewMeasureHeight:I
-
-    if-eq p1, p2, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTopViewMeasureHeight:I
-
-    new-instance p1, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda0;
-
-    invoke-direct {p1, p0}, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
-
-    :cond_0
-    return-void
-.end method
-
-.method public onRtlPropertiesChanged(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onRtlPropertiesChanged(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
-
-    return-void
-.end method
-
-.method public setCallback(Lcom/android/systemui/qs/QSDetail$Callback;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSPanel;->setCallback(Lcom/android/systemui/qs/QSDetail$Callback;)V
-
-    return-void
-.end method
-
-.method setChipVisibility(Z)V
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconsAlphaAnimatorFixed:Lcom/android/systemui/qs/TouchAnimator;
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconsAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
-
-    iget p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mKeyguardExpansionFraction:F
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconsAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    :goto_0
-    return-void
-.end method
-
-.method public setExpanded(ZLcom/android/systemui/qs/QuickQSPanelController;)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mExpanded:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mExpanded:Z
-
-    invoke-virtual {p2, p1}, Lcom/android/systemui/qs/QSPanelControllerBase;->setExpanded(Z)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateEverything()V
-
-    return-void
-.end method
-
-.method public setExpandedScrollAmount(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    invoke-virtual {v0, p1}, Landroid/view/View;->setScrollY(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->setScrollY(I)V
-
-    return-void
-.end method
-
-.method public setExpansion(ZFF)V
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    const/high16 p2, 0x3f800000    # 1.0f
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0, p2}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTranslationAnimator:Lcom/android/systemui/qs/TouchAnimator;
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0, p2}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconsAlphaAnimator:Lcom/android/systemui/qs/TouchAnimator;
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0, p2}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
-
-    :cond_3
-    if-eqz p1, :cond_4
-
-    invoke-virtual {p0, p3}, Landroid/widget/FrameLayout;->setTranslationY(F)V
-
-    goto :goto_0
-
-    :cond_4
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setTranslationY(F)V
-
-    :goto_0
-    iput p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mKeyguardExpansionFraction:F
-
-    return-void
-.end method
-
-.method setIsSingleCarrier(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIsSingleCarrier:Z
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAlphaAnimator()V
-
-    return-void
-.end method
-
-.method public updateEverything()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method updateResources()V
-    .locals 7
-
-    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$bool;->config_use_split_notification_shade:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    if-nez v1, :cond_1
-
-    iget-boolean v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mUseCombinedQSHeader:Z
-
-    if-nez v3, :cond_1
-
-    iget-boolean v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsDisabled:Z
-
-    if-eqz v3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    move v3, v2
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 v3, 0x1
-
-    :goto_1
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    const/16 v5, 0x8
-
-    if-eqz v3, :cond_2
-
-    move v6, v5
-
-    goto :goto_2
-
-    :cond_2
-    move v6, v2
-
-    :goto_2
-    invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    if-eqz v3, :cond_3
-
-    move v2, v5
-
-    :cond_3
-    invoke-virtual {v4, v2}, Landroid/view/View;->setVisibility(I)V
-
-    sget v2, Lcom/android/systemui/R$bool;->config_showBatteryEstimateQSBH:I
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
-
-    move-result v2
-
-    iput-boolean v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mConfigShowBatteryEstimate:Z
-
-    sget v2, Lcom/android/systemui/R$dimen;->rounded_corner_content_padding:I
-
-    invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRoundedCornerPadding:I
-
-    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/internal/policy/SystemBarUtils;->getQuickQsOffsetHeight(Landroid/content/Context;)I
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    invoke-virtual {v3}, Landroid/view/View;->getMinimumHeight()I
-
-    move-result v3
-
-    invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    invoke-virtual {v3}, Landroid/view/View;->getMinimumHeight()I
-
-    move-result v3
-
-    invoke-static {v0, v3}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsDisabled:Z
-
-    if-eqz v3, :cond_4
-
-    iget-object v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
-
-    invoke-virtual {v3}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v3
-
-    iget v3, v3, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    goto :goto_3
-
-    :cond_4
-    const/4 v3, -0x2
-
-    iput v3, v2, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    :goto_3
-    invoke-virtual {p0, v2}, Landroid/widget/FrameLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v2, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    const v3, 0x1010036
-
-    invoke-static {v2, v3}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result v2
-
-    iget v3, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
-
-    if-eq v2, v3, :cond_6
-
-    iget-object v3, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    const v4, 0x1010038
-
-    invoke-static {v3, v4}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result v3
-
-    iput v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
-
-    invoke-virtual {v4, v2}, Landroid/widget/TextView;->setTextColor(I)V
-
-    iget-object v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTintedIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
-
-    if-eqz v4, :cond_5
-
-    invoke-virtual {v4, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setTint(I)V
-
-    :cond_5
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/battery/BatteryMeterView;
-
-    iget v4, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mTextColorPrimary:I
-
-    invoke-virtual {v2, v4, v3, v4}, Lcom/android/systemui/battery/BatteryMeterView;->updateColors(III)V
-
-    :cond_6
-    iget-object v2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
-
-    invoke-virtual {v2}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/view/ViewGroup$MarginLayoutParams;
-
-    if-nez v1, :cond_7
-
-    iget-boolean v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mUseCombinedQSHeader:Z
-
-    if-nez v1, :cond_8
-
-    :cond_7
-    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$dimen;->qqs_layout_margin_top:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    :cond_8
-    iput v0, v2, Landroid/view/ViewGroup$MarginLayoutParams;->topMargin:I
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
-
-    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateBatteryMode()V
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateHeadersPadding()V
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAnimators()V
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateClockDatePadding()V
 
     return-void
 .end method

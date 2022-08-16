@@ -17,6 +17,7 @@
         <item>Ko‘pi bilan 3 ta jarayon</item>
         <item>Ko‘pi bilan 4 ta jarayon</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Oʻchiq</item>
         <item>Yoniq</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Ishlamaydi</item>
+        <item>Yoqilmagan</item>
+        <item>Yoniq</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Ishlamaydi</item>
         <item>Oʻchiq</item>
@@ -306,6 +312,16 @@
         <item>Yoniq</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Ishlamaydi</item>
+        <item>Oʻchiq</item>
+        <item>Yoniq</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Ishlamaydi</item>
+        <item>Oʻchiq</item>
+        <item>Yoniq</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Ishlamaydi</item>
         <item>Oʻchiq</item>
         <item>Yoniq</item>
@@ -374,6 +390,12 @@
         <item>Tez</item>
         <item>Juda tez</item>
         <item>Eng tez</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Chapga siljitish</item>
+        <item>Pastga siljitish</item>
+        <item>Oʻngga siljitish</item>
+        <item>Tepaga siljitish</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Quvvat olmoqda</item>

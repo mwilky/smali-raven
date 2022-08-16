@@ -1,6 +1,9 @@
-.class public Lcom/android/systemui/accessibility/ModeSwitchesController;
+.class public final Lcom/android/systemui/accessibility/ModeSwitchesController;
 .super Ljava/lang/Object;
 .source "ModeSwitchesController.java"
+
+# interfaces
+.implements Lcom/android/systemui/accessibility/MagnificationModeSwitch$SwitchListener;
 
 
 # annotations
@@ -12,7 +15,9 @@
 
 
 # instance fields
-.field private final mSwitchSupplier:Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
+.field public mSwitchListenerDelegate:Lcom/android/systemui/accessibility/MagnificationModeSwitch$SwitchListener;
+
+.field public final mSwitchSupplier:Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/systemui/accessibility/DisplayIdIndexSupplier<",
@@ -24,16 +29,8 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Y3XYtT8fK3CeAEwRrS5Ab9HwxxA(ILcom/android/systemui/accessibility/MagnificationModeSwitch;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/accessibility/ModeSwitchesController;->lambda$onConfigurationChanged$0(ILcom/android/systemui/accessibility/MagnificationModeSwitch;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,14 +44,18 @@
 
     check-cast v1, Landroid/hardware/display/DisplayManager;
 
-    invoke-direct {v0, p1, v1}, Lcom/android/systemui/accessibility/ModeSwitchesController$SwitchSupplier;-><init>(Landroid/content/Context;Landroid/hardware/display/DisplayManager;)V
+    new-instance v2, Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;-><init>(Ljava/lang/Object;)V
+
+    invoke-direct {v0, p1, v1, v2}, Lcom/android/systemui/accessibility/ModeSwitchesController$SwitchSupplier;-><init>(Landroid/content/Context;Landroid/hardware/display/DisplayManager;Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;)V
 
     iput-object v0, p0, Lcom/android/systemui/accessibility/ModeSwitchesController;->mSwitchSupplier:Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
 
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;)V
+.method public constructor <init>(Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;)V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -75,68 +76,17 @@
     return-void
 .end method
 
-.method private static synthetic lambda$onConfigurationChanged$0(ILcom/android/systemui/accessibility/MagnificationModeSwitch;)V
-    .locals 0
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->onConfigurationChanged(I)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method onConfigurationChanged(I)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/ModeSwitchesController;->mSwitchSupplier:Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
-
-    new-instance v0, Lcom/android/systemui/accessibility/ModeSwitchesController$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p1}, Lcom/android/systemui/accessibility/ModeSwitchesController$$ExternalSyntheticLambda0;-><init>(I)V
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;->forEach(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method removeButton(I)V
+.method public final onSwitch(II)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/accessibility/ModeSwitchesController;->mSwitchSupplier:Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
+    iget-object p0, p0, Lcom/android/systemui/accessibility/ModeSwitchesController;->mSwitchListenerDelegate:Lcom/android/systemui/accessibility/MagnificationModeSwitch$SwitchListener;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;->get(I)Ljava/lang/Object;
+    if-eqz p0, :cond_0
 
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch;
-
-    if-nez p0, :cond_0
-
-    return-void
+    invoke-interface {p0, p1, p2}, Lcom/android/systemui/accessibility/MagnificationModeSwitch$SwitchListener;->onSwitch(II)V
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->removeButton()V
-
-    return-void
-.end method
-
-.method showButton(II)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/ModeSwitchesController;->mSwitchSupplier:Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;->get(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch;
-
-    if-nez p0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0, p2}, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->showButton(I)V
-
     return-void
 .end method

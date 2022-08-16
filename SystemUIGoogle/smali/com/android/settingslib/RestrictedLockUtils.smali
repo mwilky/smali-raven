@@ -12,66 +12,40 @@
 
 
 # direct methods
-.method public static getShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
-    .locals 2
+.method public static getShowAdminSupportDetailsIntent(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
+    .locals 3
 
-    new-instance p0, Landroid/content/Intent;
+    new-instance v0, Landroid/content/Intent;
 
-    const-string v0, "android.settings.SHOW_ADMIN_SUPPORT_DETAILS"
+    const-string v1, "android.settings.SHOW_ADMIN_SUPPORT_DETAILS"
 
-    invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    if-eqz p1, :cond_1
+    if-eqz p0, :cond_1
 
-    iget-object v0, p1, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->component:Landroid/content/ComponentName;
+    iget-object v1, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->component:Landroid/content/ComponentName;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const-string v1, "android.app.extra.DEVICE_ADMIN"
+    const-string v2, "android.app.extra.DEVICE_ADMIN"
 
-    invoke-virtual {p0, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     :cond_0
-    iget-object p1, p1, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->user:Landroid/os/UserHandle;
+    iget-object p0, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->user:Landroid/os/UserHandle;
 
-    const-string v0, "android.intent.extra.USER"
+    const-string v1, "android.intent.extra.USER"
 
-    invoke-virtual {p0, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     :cond_1
-    return-object p0
-.end method
-
-.method public static isCurrentUserOrProfile(Landroid/content/Context;I)Z
-    .locals 1
-
-    const-class v0, Landroid/os/UserManager;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/os/UserManager;
-
-    invoke-virtual {p0}, Landroid/os/UserManager;->getUserProfiles()Ljava/util/List;
-
-    move-result-object p0
-
-    invoke-static {p1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
-
-    move-result-object p1
-
-    invoke-interface {p0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    return p0
+    return-object v0
 .end method
 
 .method public static sendShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
-    .locals 3
+    .locals 4
 
-    invoke-static {p0, p1}, Lcom/android/settingslib/RestrictedLockUtils;->getShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
+    invoke-static {p1}, Lcom/android/settingslib/RestrictedLockUtils;->getShowAdminSupportDetailsIntent(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
 
     move-result-object v0
 
@@ -89,7 +63,23 @@
 
     move-result v2
 
-    invoke-static {p0, v2}, Lcom/android/settingslib/RestrictedLockUtils;->isCurrentUserOrProfile(Landroid/content/Context;I)Z
+    const-class v3, Landroid/os/UserManager;
+
+    invoke-virtual {p0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/os/UserManager;
+
+    invoke-virtual {v3}, Landroid/os/UserManager;->getUserProfiles()Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-static {v2}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object v2
+
+    invoke-interface {v3, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result v2
 

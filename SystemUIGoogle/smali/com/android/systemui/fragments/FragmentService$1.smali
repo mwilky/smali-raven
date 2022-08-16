@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/fragments/FragmentService$1;
+.class public final Lcom/android/systemui/fragments/FragmentService$1;
 .super Ljava/lang/Object;
 .source "FragmentService.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/fragments/FragmentService;
+.field public final synthetic this$0:Lcom/android/systemui/fragments/FragmentService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/fragments/FragmentService;)V
+.method public constructor <init>(Lcom/android/systemui/fragments/FragmentService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/fragments/FragmentService$1;->this$0:Lcom/android/systemui/fragments/FragmentService;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 1
+.method public final onConfigChanged(Landroid/content/res/Configuration;)V
+    .locals 4
 
     iget-object p0, p0, Lcom/android/systemui/fragments/FragmentService$1;->this$0:Lcom/android/systemui/fragments/FragmentService;
 
-    invoke-static {p0}, Lcom/android/systemui/fragments/FragmentService;->access$000(Lcom/android/systemui/fragments/FragmentService;)Landroid/util/ArrayMap;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/fragments/FragmentService;->mHosts:Landroid/util/ArrayMap;
 
     invoke-virtual {p0}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
 
@@ -64,7 +62,17 @@
 
     check-cast v0, Lcom/android/systemui/fragments/FragmentService$FragmentHostState;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/fragments/FragmentService$FragmentHostState;->sendConfigurationChange(Landroid/content/res/Configuration;)V
+    iget-object v1, v0, Lcom/android/systemui/fragments/FragmentService$FragmentHostState;->this$0:Lcom/android/systemui/fragments/FragmentService;
+
+    iget-object v1, v1, Lcom/android/systemui/fragments/FragmentService;->mHandler:Landroid/os/Handler;
+
+    new-instance v2, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda0;
+
+    const/4 v3, 0x1
+
+    invoke-direct {v2, v3, v0, p1}, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 

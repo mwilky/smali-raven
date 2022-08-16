@@ -1,4 +1,4 @@
-.class Landroidx/core/view/WindowInsetsCompat$Impl28;
+.class public Landroidx/core/view/WindowInsetsCompat$Impl28;
 .super Landroidx/core/view/WindowInsetsCompat$Impl21;
 .source "WindowInsetsCompat.java"
 
@@ -9,52 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Impl28"
 .end annotation
 
 
 # direct methods
-.method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
+.method public constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "host",
-            "insets"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroidx/core/view/WindowInsetsCompat$Impl21;-><init>(Landroidx/core/view/WindowInsetsCompat;Landroid/view/WindowInsets;)V
 
     return-void
 .end method
 
-.method constructor <init>(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat$Impl28;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "host",
-            "other"
-        }
-    .end annotation
-
-    invoke-direct {p0, p1, p2}, Landroidx/core/view/WindowInsetsCompat$Impl21;-><init>(Landroidx/core/view/WindowInsetsCompat;Landroidx/core/view/WindowInsetsCompat$Impl21;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method consumeDisplayCutout()Landroidx/core/view/WindowInsetsCompat;
-    .locals 0
+.method public consumeDisplayCutout()Landroidx/core/view/WindowInsetsCompat;
+    .locals 1
 
     iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$Impl20;->mPlatformInsets:Landroid/view/WindowInsets;
 
@@ -62,7 +34,9 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Landroidx/core/view/WindowInsetsCompat;->toWindowInsetsCompat(Landroid/view/WindowInsets;)Landroidx/core/view/WindowInsetsCompat;
+    const/4 v0, 0x0
+
+    invoke-static {v0, p0}, Landroidx/core/view/WindowInsetsCompat;->toWindowInsetsCompat(Landroid/view/View;Landroid/view/WindowInsets;)Landroidx/core/view/WindowInsetsCompat;
 
     move-result-object p0
 
@@ -71,14 +45,6 @@
 
 .method public equals(Ljava/lang/Object;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -127,8 +93,8 @@
     return v0
 .end method
 
-.method getDisplayCutout()Landroidx/core/view/DisplayCutoutCompat;
-    .locals 0
+.method public getDisplayCutout()Landroidx/core/view/DisplayCutoutCompat;
+    .locals 1
 
     iget-object p0, p0, Landroidx/core/view/WindowInsetsCompat$Impl20;->mPlatformInsets:Landroid/view/WindowInsets;
 
@@ -136,10 +102,20 @@
 
     move-result-object p0
 
-    invoke-static {p0}, Landroidx/core/view/DisplayCutoutCompat;->wrap(Ljava/lang/Object;)Landroidx/core/view/DisplayCutoutCompat;
+    if-nez p0, :cond_0
 
-    move-result-object p0
+    const/4 p0, 0x0
 
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Landroidx/core/view/DisplayCutoutCompat;
+
+    invoke-direct {v0, p0}, Landroidx/core/view/DisplayCutoutCompat;-><init>(Landroid/view/DisplayCutout;)V
+
+    move-object p0, v0
+
+    :goto_0
     return-object p0
 .end method
 

@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/applications/ApplicationsState$MainHandler;
+.class public final Lcom/android/settingslib/applications/ApplicationsState$MainHandler;
 .super Landroid/os/Handler;
 .source "ApplicationsState.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "MainHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/applications/ApplicationsState;
+.field public final synthetic this$0:Lcom/android/settingslib/applications/ApplicationsState;
 
 
 # direct methods
@@ -31,18 +31,27 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public final handleMessage(Landroid/os/Message;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
 
-    invoke-virtual {v0}, Lcom/android/settingslib/applications/ApplicationsState;->rebuildActiveSessions()V
+    iget-object v0, v0, Lcom/android/settingslib/applications/ApplicationsState;->mEntriesMap:Landroid/util/SparseArray;
+
+    monitor-enter v0
+
+    :try_start_0
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     iget v0, p1, Landroid/os/Message;->what:I
 
+    const/4 v1, 0x0
+
     packed-switch v0, :pswitch_data_0
 
-    goto/16 :goto_9
+    goto/16 :goto_8
 
     :pswitch_0
     iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
@@ -53,7 +62,6 @@
 
     move-result-object p0
 
-    :cond_0
     :goto_0
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -73,13 +81,12 @@
 
     check-cast p1, Lcom/android/settingslib/applications/ApplicationsState$Session;
 
-    if-eqz p1, :cond_0
-
-    iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
-
-    invoke-interface {p1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onLoadEntriesCompleted()V
+    if-nez p1, :cond_0
 
     goto :goto_0
+
+    :cond_0
+    throw v1
 
     :pswitch_1
     iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
@@ -90,7 +97,6 @@
 
     move-result-object p0
 
-    :cond_1
     :goto_1
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -110,13 +116,12 @@
 
     check-cast p1, Lcom/android/settingslib/applications/ApplicationsState$Session;
 
-    if-eqz p1, :cond_1
-
-    iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
-
-    invoke-interface {p1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onLauncherInfoChanged()V
+    if-nez p1, :cond_1
 
     goto :goto_1
+
+    :cond_1
+    throw v1
 
     :pswitch_2
     iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
@@ -127,57 +132,7 @@
 
     move-result-object p0
 
-    :cond_2
     :goto_2
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_9
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settingslib/applications/ApplicationsState$Session;
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, v0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
-
-    iget v1, p1, Landroid/os/Message;->arg1:I
-
-    if-eqz v1, :cond_3
-
-    const/4 v1, 0x1
-
-    goto :goto_3
-
-    :cond_3
-    const/4 v1, 0x0
-
-    :goto_3
-    invoke-interface {v0, v1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onRunningStateChanged(Z)V
-
-    goto :goto_2
-
-    :pswitch_3
-    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
-
-    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mActiveSessions:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_4
-    :goto_4
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result p1
@@ -196,13 +151,47 @@
 
     check-cast p1, Lcom/android/settingslib/applications/ApplicationsState$Session;
 
-    if-eqz p1, :cond_4
+    if-nez p1, :cond_2
 
-    iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
+    goto :goto_2
 
-    invoke-interface {p1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onAllSizesComputed()V
+    :cond_2
+    throw v1
 
-    goto :goto_4
+    :pswitch_3
+    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
+
+    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mActiveSessions:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_3
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_9
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settingslib/applications/ApplicationsState$Session;
+
+    if-nez p1, :cond_3
+
+    goto :goto_3
+
+    :cond_3
+    throw v1
 
     :pswitch_4
     iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
@@ -213,8 +202,7 @@
 
     move-result-object p0
 
-    :cond_5
-    :goto_5
+    :goto_4
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
@@ -233,17 +221,16 @@
 
     check-cast v0, Lcom/android/settingslib/applications/ApplicationsState$Session;
 
-    if-eqz v0, :cond_5
+    if-nez v0, :cond_4
 
-    iget-object v0, v0, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
+    goto :goto_4
 
-    iget-object v1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+    :cond_4
+    iget-object p0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    check-cast v1, Ljava/lang/String;
+    check-cast p0, Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onPackageSizeChanged(Ljava/lang/String;)V
-
-    goto :goto_5
+    throw v1
 
     :pswitch_5
     iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
@@ -254,7 +241,41 @@
 
     move-result-object p0
 
-    :cond_6
+    :goto_5
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_9
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/ref/WeakReference;
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settingslib/applications/ApplicationsState$Session;
+
+    if-nez p1, :cond_5
+
+    goto :goto_5
+
+    :cond_5
+    throw v1
+
+    :pswitch_6
+    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
+
+    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mActiveSessions:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
     :goto_6
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
@@ -274,50 +295,12 @@
 
     check-cast p1, Lcom/android/settingslib/applications/ApplicationsState$Session;
 
-    if-eqz p1, :cond_6
-
-    iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
-
-    invoke-interface {p1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onPackageIconChanged()V
+    if-nez p1, :cond_6
 
     goto :goto_6
 
-    :pswitch_6
-    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState$MainHandler;->this$0:Lcom/android/settingslib/applications/ApplicationsState;
-
-    iget-object p0, p0, Lcom/android/settingslib/applications/ApplicationsState;->mActiveSessions:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_7
-    :goto_7
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_9
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settingslib/applications/ApplicationsState$Session;
-
-    if-eqz p1, :cond_7
-
-    iget-object p1, p1, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
-
-    invoke-interface {p1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onPackageListChanged()V
-
-    goto :goto_7
+    :cond_6
+    throw v1
 
     :pswitch_7
     iget-object p1, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
@@ -332,8 +315,8 @@
 
     move-result-object p0
 
-    :cond_8
-    :goto_8
+    :cond_7
+    :goto_7
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
@@ -352,21 +335,33 @@
 
     check-cast v0, Lcom/android/settingslib/applications/ApplicationsState$Session;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_7
 
-    if-ne v0, p1, :cond_8
+    if-eq v0, p1, :cond_8
 
-    iget-object v0, p1, Lcom/android/settingslib/applications/ApplicationsState$Session;->mCallbacks:Lcom/android/settingslib/applications/ApplicationsState$Callbacks;
+    goto :goto_7
 
-    iget-object v1, p1, Lcom/android/settingslib/applications/ApplicationsState$Session;->mLastAppList:Ljava/util/ArrayList;
+    :cond_8
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-interface {v0, v1}, Lcom/android/settingslib/applications/ApplicationsState$Callbacks;->onRebuildComplete(Ljava/util/ArrayList;)V
-
-    goto :goto_8
+    throw v1
 
     :cond_9
-    :goto_9
+    :goto_8
     return-void
+
+    :goto_9
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
+
+    :catchall_0
+    move-exception p0
+
+    goto :goto_9
 
     :pswitch_data_0
     .packed-switch 0x1

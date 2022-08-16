@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -49,73 +49,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideOptionalTelecomManagerFactory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;)",
-            "Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideOptionalTelecomManagerFactory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideOptionalTelecomManagerFactory;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideOptionalTelecomManagerFactory;-><init>(Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static provideOptionalTelecomManager(Landroid/content/Context;)Ljava/util/Optional;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            ")",
-            "Ljava/util/Optional<",
-            "Landroid/telecom/TelecomManager;",
-            ">;"
-        }
-    .end annotation
-
-    invoke-static {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule;->provideOptionalTelecomManager(Landroid/content/Context;)Ljava/util/Optional;
-
-    move-result-object p0
-
-    invoke-static {p0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/util/Optional;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideOptionalTelecomManagerFactory;->get()Ljava/util/Optional;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public get()Ljava/util/Optional;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Optional<",
-            "Landroid/telecom/TelecomManager;",
-            ">;"
-        }
-    .end annotation
+.method public final get()Ljava/lang/Object;
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideOptionalTelecomManagerFactory;->contextProvider:Ljavax/inject/Provider;
 
@@ -125,9 +62,19 @@
 
     check-cast p0, Landroid/content/Context;
 
-    invoke-static {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideOptionalTelecomManagerFactory;->provideOptionalTelecomManager(Landroid/content/Context;)Ljava/util/Optional;
+    const-class v0, Landroid/telecom/TelecomManager;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p0
+
+    check-cast p0, Landroid/telecom/TelecomManager;
+
+    invoke-static {p0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object p0
+
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object p0
 .end method

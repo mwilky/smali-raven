@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationBar$6;
+.class public final Lcom/android/systemui/navigationbar/NavigationBar$6;
 .super Ljava/lang/Object;
 .source "NavigationBar.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBar$6;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
@@ -34,20 +34,18 @@
 
 
 # virtual methods
-.method public onUserSetupChanged()V
+.method public final onUserSetupChanged()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$6;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$2000(Lcom/android/systemui/navigationbar/NavigationBar;)Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
     invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;->isCurrentUserSetup()Z
 
     move-result v0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$1302(Lcom/android/systemui/navigationbar/NavigationBar;Z)Z
+    iput-boolean v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mIsCurrentUserSetup:Z
 
     return-void
 .end method

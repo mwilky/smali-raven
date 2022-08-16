@@ -18,7 +18,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,20 +28,8 @@
 
 
 # virtual methods
-.method public onServicesUpdated(Ljava/util/List;)V
+.method public final onServicesUpdated(Ljava/util/ArrayList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlsServiceInfo;",
-            ">;)V"
-        }
-    .end annotation
-
-    const-string p0, "serviceInfos"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-void
 .end method

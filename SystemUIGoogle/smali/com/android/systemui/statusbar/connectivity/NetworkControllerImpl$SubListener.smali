@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$SubListener;
+.class public final Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$SubListener;
 .super Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
 .source "NetworkControllerImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SubListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$SubListener;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
@@ -31,12 +31,12 @@
 
 
 # virtual methods
-.method public onSubscriptionsChanged()V
+.method public final onSubscriptionsChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$SubListener;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$1600(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->updateMobileControllers()V
 
     return-void
 .end method

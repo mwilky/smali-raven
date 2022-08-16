@@ -15,52 +15,28 @@
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
+.method public static getProgress(Lcom/android/systemui/animation/LaunchAnimator$Timings;FJJ)F
+    .locals 2
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iget-wide v0, p0, Lcom/android/systemui/animation/LaunchAnimator$Timings;->totalDuration:J
 
-    return-void
-.end method
+    long-to-float p0, v0
 
-.method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    mul-float/2addr p1, p0
 
-    invoke-direct {p0}, Lcom/android/systemui/animation/LaunchAnimator$Companion;-><init>()V
+    long-to-float p0, p2
 
-    return-void
-.end method
+    sub-float/2addr p1, p0
 
+    long-to-float p0, p4
 
-# virtual methods
-.method public final getProgress(Lcom/android/systemui/animation/LaunchAnimator$Timings;FJJ)F
-    .locals 0
-
-    const-string p0, "timings"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/android/systemui/animation/LaunchAnimator$Timings;->getTotalDuration()J
-
-    move-result-wide p0
-
-    long-to-float p0, p0
-
-    mul-float/2addr p2, p0
-
-    long-to-float p0, p3
-
-    sub-float/2addr p2, p0
-
-    long-to-float p0, p5
-
-    div-float/2addr p2, p0
+    div-float/2addr p1, p0
 
     const/4 p0, 0x0
 
-    const/high16 p1, 0x3f800000    # 1.0f
+    const/high16 p2, 0x3f800000    # 1.0f
 
-    invoke-static {p2, p0, p1}, Landroid/util/MathUtils;->constrain(FFF)F
+    invoke-static {p1, p0, p2}, Landroid/util/MathUtils;->constrain(FFF)F
 
     move-result p0
 

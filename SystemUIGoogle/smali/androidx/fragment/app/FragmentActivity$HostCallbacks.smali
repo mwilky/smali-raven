@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/FragmentActivity$HostCallbacks;
+.class public final Landroidx/fragment/app/FragmentActivity$HostCallbacks;
 .super Landroidx/fragment/app/FragmentHostCallback;
 .source "FragmentActivity.java"
 
@@ -6,6 +6,7 @@
 .implements Landroidx/lifecycle/ViewModelStoreOwner;
 .implements Landroidx/activity/OnBackPressedDispatcherOwner;
 .implements Landroidx/activity/result/ActivityResultRegistryOwner;
+.implements Landroidx/savedstate/SavedStateRegistryOwner;
 .implements Landroidx/fragment/app/FragmentOnAttachListener;
 
 
@@ -15,7 +16,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "HostCallbacks"
 .end annotation
 
@@ -27,13 +28,14 @@
         "Landroidx/lifecycle/ViewModelStoreOwner;",
         "Landroidx/activity/OnBackPressedDispatcherOwner;",
         "Landroidx/activity/result/ActivityResultRegistryOwner;",
+        "Landroidx/savedstate/SavedStateRegistryOwner;",
         "Landroidx/fragment/app/FragmentOnAttachListener;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/FragmentActivity;
+.field public final synthetic this$0:Landroidx/fragment/app/FragmentActivity;
 
 
 # direct methods
@@ -49,19 +51,17 @@
 
 
 # virtual methods
-.method public getActivityResultRegistry()Landroidx/activity/result/ActivityResultRegistry;
+.method public final getActivityResultRegistry()Landroidx/activity/result/ActivityResultRegistry;
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
 
-    invoke-virtual {p0}, Landroidx/activity/ComponentActivity;->getActivityResultRegistry()Landroidx/activity/result/ActivityResultRegistry;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/activity/ComponentActivity;->mActivityResultRegistry:Landroidx/activity/ComponentActivity$2;
 
     return-object p0
 .end method
 
-.method public getLifecycle()Landroidx/lifecycle/Lifecycle;
+.method public final getLifecycle()Landroidx/lifecycle/Lifecycle;
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -71,19 +71,29 @@
     return-object p0
 .end method
 
-.method public getOnBackPressedDispatcher()Landroidx/activity/OnBackPressedDispatcher;
+.method public final getOnBackPressedDispatcher()Landroidx/activity/OnBackPressedDispatcher;
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
 
-    invoke-virtual {p0}, Landroidx/activity/ComponentActivity;->getOnBackPressedDispatcher()Landroidx/activity/OnBackPressedDispatcher;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/activity/ComponentActivity;->mOnBackPressedDispatcher:Landroidx/activity/OnBackPressedDispatcher;
 
     return-object p0
 .end method
 
-.method public getViewModelStore()Landroidx/lifecycle/ViewModelStore;
+.method public final getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
+    .locals 0
+
+    iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
+
+    iget-object p0, p0, Landroidx/activity/ComponentActivity;->mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
+
+    iget-object p0, p0, Landroidx/savedstate/SavedStateRegistryController;->mRegistry:Landroidx/savedstate/SavedStateRegistry;
+
+    return-object p0
+.end method
+
+.method public final getViewModelStore()Landroidx/lifecycle/ViewModelStore;
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -95,17 +105,17 @@
     return-object p0
 .end method
 
-.method public onAttachFragment(Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
+.method public final onAttachFragment$1()V
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
 
-    invoke-virtual {p0, p2}, Landroidx/fragment/app/FragmentActivity;->onAttachFragment(Landroidx/fragment/app/Fragment;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-void
 .end method
 
-.method public onFindViewById(I)Landroid/view/View;
+.method public final onFindViewById(I)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -117,7 +127,7 @@
     return-object p0
 .end method
 
-.method public onGetHost()Landroidx/fragment/app/FragmentActivity;
+.method public final onGetHost$1()Landroidx/fragment/app/FragmentActivity;
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -125,17 +135,7 @@
     return-object p0
 .end method
 
-.method public bridge synthetic onGetHost()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->onGetHost()Landroidx/fragment/app/FragmentActivity;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onGetLayoutInflater()Landroid/view/LayoutInflater;
+.method public final onGetLayoutInflater()Landroid/view/LayoutInflater;
     .locals 1
 
     iget-object v0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -153,7 +153,7 @@
     return-object p0
 .end method
 
-.method public onHasView()Z
+.method public final onHasView()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
@@ -181,21 +181,7 @@
     return p0
 .end method
 
-.method public onShouldSaveFragmentState(Landroidx/fragment/app/Fragment;)Z
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;
-
-    invoke-virtual {p0}, Landroid/app/Activity;->isFinishing()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
-    return p0
-.end method
-
-.method public onSupportInvalidateOptionsMenu()V
+.method public final onSupportInvalidateOptionsMenu()V
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentActivity$HostCallbacks;->this$0:Landroidx/fragment/app/FragmentActivity;

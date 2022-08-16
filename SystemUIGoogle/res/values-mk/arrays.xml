@@ -17,6 +17,7 @@
         <item>Најмногу 3 процеси</item>
         <item>Најмногу 4 процеси</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Исклучено</item>
         <item>Вклучено</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Недостапна</item>
+        <item>Исклучена</item>
+        <item>Вклучена</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Недостапно</item>
         <item>Исклучено</item>
@@ -309,6 +315,16 @@
         <item>Недостапно</item>
         <item>Исклучено</item>
         <item>Вклучено</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Недостапен</item>
+        <item>Исклучен</item>
+        <item>Вклучен</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Недостапен</item>
+        <item>Исклучен</item>
+        <item>Вклучен</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>Недостапно</item>
@@ -374,6 +390,12 @@
         <item>Рапидно</item>
         <item>Многу рапидно</item>
         <item>Најбрзо</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Премести налево</item>
+        <item>Премести надолу</item>
+        <item>Премести надесно</item>
+        <item>Премести нагоре</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Се полни</item>

@@ -7,7 +7,12 @@
     <Constraint android:id="@id/date">
         <Layout android:layout_width="wrap_content" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toStartOf="@id/carrier_group" app:layout_constraintHorizontal_bias="0.0" app:layout_constraintStart_toEndOf="@id/clock" app:layout_constraintTop_toTopOf="parent" />
     </Constraint>
+    <Constraint android:id="@id/statusIcons" />
+    <Constraint android:id="@id/batteryRemainingIcon" />
     <Constraint android:id="@id/carrier_group">
         <CustomAttribute app:attributeName="alpha" app:customFloatValue="0.0" />
+    </Constraint>
+    <Constraint android:id="@id/privacy_container">
+        <Layout android:layout_width="wrap_content" android:layout_height="0.0dip" app:layout_constraintBottom_toBottomOf="@id/date" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="@id/date" />
     </Constraint>
 </ConstraintSet>

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Lcom/android/systemui/statusbar/policy/BatteryController$EstimateFetchCompletion;
 
 
 # instance fields
@@ -22,14 +23,63 @@
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 0
+.method public final onBatteryRemainingEstimateRetrieved(Ljava/lang/String;)V
+    .locals 5
 
     iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/battery/BatteryMeterView;
 
-    invoke-static {p0}, Lcom/android/systemui/battery/BatteryMeterView;->$r8$lambda$6OR6WApuW1ekt9-a3EpDlNP55Rw(Lcom/android/systemui/battery/BatteryMeterView;)Ljava/lang/Integer;
+    iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
 
-    move-result-object p0
+    if-nez v0, :cond_0
 
-    return-object p0
+    goto :goto_0
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    iget v1, p0, Lcom/android/systemui/battery/BatteryMeterView;->mShowPercentMode:I
+
+    const/4 v2, 0x3
+
+    if-ne v1, v2, :cond_1
+
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x7f130045
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    iget v4, p0, Lcom/android/systemui/battery/BatteryMeterView;->mLevel:I
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v2, v3
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/battery/BatteryMeterView;->setPercentTextAtCurrentLevel()V
+
+    :goto_0
+    return-void
 .end method

@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/KeyguardPinViewController;
+.class public final Lcom/android/keyguard/KeyguardPinViewController;
 .super Lcom/android/keyguard/KeyguardPinBasedInputViewController;
 .source "KeyguardPinViewController.java"
 
@@ -14,31 +14,15 @@
 
 
 # instance fields
-.field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-.field private final mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+.field public final mPostureCallback:Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda1;
 
-.field private final mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
+.field public final mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$2bDHH20eFLR9VylhwTp8EepRQaQ(Lcom/android/keyguard/KeyguardPinViewController;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPinViewController;->lambda$onViewAttached$1(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$HXoGmbJopctUdV2R-DF_dy2JqOY(Lcom/android/keyguard/KeyguardPinViewController;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPinViewController;->lambda$new$0(I)V
-
-    return-void
-.end method
-
-.method protected constructor <init>(Lcom/android/keyguard/KeyguardPINView;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/KeyguardMessageAreaController$Factory;Lcom/android/internal/util/LatencyTracker;Lcom/android/keyguard/LiftToActivateListener;Lcom/android/keyguard/EmergencyButtonController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/policy/DevicePostureController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardPINView;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/KeyguardMessageAreaController$Factory;Lcom/android/internal/util/LatencyTracker;Lcom/android/keyguard/LiftToActivateListener;Lcom/android/keyguard/EmergencyButtonController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/statusbar/policy/DevicePostureController;)V
     .locals 0
 
     invoke-direct/range {p0 .. p10}, Lcom/android/keyguard/KeyguardPinBasedInputViewController;-><init>(Lcom/android/keyguard/KeyguardPinBasedInputView;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/KeyguardMessageAreaController$Factory;Lcom/android/internal/util/LatencyTracker;Lcom/android/keyguard/LiftToActivateListener;Lcom/android/keyguard/EmergencyButtonController;Lcom/android/systemui/classifier/FalsingCollector;)V
@@ -47,7 +31,7 @@
 
     invoke-direct {p1, p0}, Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda1;-><init>(Lcom/android/keyguard/KeyguardPinViewController;)V
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureCallback:Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda1;
 
     iput-object p2, p0, Lcom/android/keyguard/KeyguardPinViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
@@ -56,39 +40,9 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$0(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/keyguard/KeyguardPINView;
-
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardPINView;->onDevicePostureChanged(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onViewAttached$1(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->reset()V
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Lcom/android/keyguard/KeyguardSecurityCallback;->onCancelClicked()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method protected onViewAttached()V
+.method public final onViewAttached()V
     .locals 2
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputViewController;->onViewAttached()V
@@ -97,7 +51,7 @@
 
     check-cast v0, Lcom/android/keyguard/KeyguardPINView;
 
-    sget v1, Lcom/android/systemui/R$id;->cancel_button:I
+    const v1, 0x7f0b015b
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -114,28 +68,28 @@
     :cond_0
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureCallback:Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda1;
 
     invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method protected onViewDetached()V
+.method public final onViewDetached()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputViewController;->onViewDetached()V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureController:Lcom/android/systemui/statusbar/policy/DevicePostureController;
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureCallback:Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController;->mPostureCallback:Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda1;
 
     invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->removeCallback(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public reloadColors()V
+.method public final reloadColors()V
     .locals 0
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->reloadColors()V
@@ -149,10 +103,16 @@
     return-void
 .end method
 
-.method resetState()V
-    .locals 1
+.method public final resetState()V
+    .locals 2
 
-    invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputViewController;->resetState()V
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/keyguard/KeyguardPinBasedInputView;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->setPasswordEntryEnabled(Z)V
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->mMessageAreaController:Lcom/android/keyguard/KeyguardMessageAreaController;
 
@@ -163,22 +123,66 @@
     return-void
 .end method
 
-.method public startDisappearAnimation(Ljava/lang/Runnable;)Z
-    .locals 1
+.method public final startDisappearAnimation(Ljava/lang/Runnable;)Z
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast v0, Lcom/android/keyguard/KeyguardPINView;
+    move-object v1, v0
+
+    check-cast v1, Lcom/android/keyguard/KeyguardPINView;
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->needsSlowUnlockTransition()Z
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mNeedsSlowUnlockTransition:Z
 
-    move-result p0
+    const/4 v0, 0x0
 
-    invoke-virtual {v0, p0, p1}, Lcom/android/keyguard/KeyguardPINView;->startDisappearAnimation(ZLjava/lang/Runnable;)Z
+    invoke-virtual {v1, v0}, Lcom/android/keyguard/KeyguardPINView;->enableClipping(Z)V
 
-    move-result p0
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setTranslationY(F)V
+
+    if-eqz p0, :cond_0
+
+    iget-object p0, v1, Lcom/android/keyguard/KeyguardPINView;->mDisappearAnimationUtilsLocked:Lcom/android/settingslib/animation/DisappearAnimationUtils;
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, v1, Lcom/android/keyguard/KeyguardPINView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
+
+    :goto_0
+    const-wide/16 v2, 0x0
+
+    const-wide/16 v4, 0xc8
+
+    iget v6, v1, Lcom/android/keyguard/KeyguardPINView;->mDisappearYTranslation:I
+
+    int-to-float v6, v6
+
+    const/4 v7, 0x0
+
+    iget-object v8, v1, Lcom/android/keyguard/KeyguardPINView;->mDisappearAnimationUtils:Lcom/android/settingslib/animation/DisappearAnimationUtils;
+
+    iget-object v8, v8, Lcom/android/settingslib/animation/AppearAnimationUtils;->mInterpolator:Landroid/view/animation/Interpolator;
+
+    new-instance v9, Lcom/android/keyguard/KeyguardPINView$$ExternalSyntheticLambda0;
+
+    invoke-direct {v9, v0, v1, p1}, Lcom/android/keyguard/KeyguardPINView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    const/16 p1, 0x16
+
+    new-instance v10, Lcom/android/keyguard/KeyguardInputView$1;
+
+    invoke-direct {v10, v1, p1}, Lcom/android/keyguard/KeyguardInputView$1;-><init>(Lcom/android/keyguard/KeyguardInputView;I)V
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static/range {v1 .. v10}, Lcom/android/settingslib/animation/AppearAnimationUtils;->createAnimation(Landroid/view/View;JJFZLandroid/view/animation/Interpolator;Ljava/lang/Runnable;Lcom/android/keyguard/KeyguardInputView$1;)V
+
+    const/4 p0, 0x1
 
     return p0
 .end method

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final bgHandlerProvider:Ljavax/inject/Provider;
+.field public final bgHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,45 +78,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;)",
-            "Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)Lcom/android/systemui/settings/brightness/BrightnessController$Factory;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/settings/brightness/BrightnessController$Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/settings/brightness/BrightnessController$Factory;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/settings/brightness/BrightnessController$Factory;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -142,19 +107,9 @@
 
     check-cast p0, Landroid/os/Handler;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)Lcom/android/systemui/settings/brightness/BrightnessController$Factory;
+    new-instance v2, Lcom/android/systemui/settings/brightness/BrightnessController$Factory;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/settings/brightness/BrightnessController$Factory;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/os/Handler;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;->get()Lcom/android/systemui/settings/brightness/BrightnessController$Factory;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v2
 .end method

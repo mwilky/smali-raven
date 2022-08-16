@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/CastTile$Callback;
+.class public final Lcom/android/systemui/qs/tiles/CastTile$Callback;
 .super Ljava/lang/Object;
 .source "CastTile.java"
 
@@ -13,17 +13,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Callback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/CastTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/CastTile;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/qs/tiles/CastTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/CastTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/CastTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
@@ -33,32 +33,28 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/CastTile;Lcom/android/systemui/qs/tiles/CastTile$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/CastTile$Callback;-><init>(Lcom/android/systemui/qs/tiles/CastTile;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onCastDevicesChanged()V
-    .locals 0
+.method public final onCastDevicesChanged()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public onKeyguardShowingChanged()V
-    .locals 0
+.method public final onKeyguardShowingChanged()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -27,7 +27,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;
 
 .field public static final enum ACTION_AMBIENT_GESTURE_PICKUP:Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;
 
@@ -37,24 +37,20 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
+.method public static constructor <clinit>()V
+    .locals 3
 
     new-instance v0, Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;
 
-    const-string v1, "ACTION_AMBIENT_GESTURE_PICKUP"
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x1cb
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0}, Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;-><init>()V
 
     sput-object v0, Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;->ACTION_AMBIENT_GESTURE_PICKUP:Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;
 
     const/4 v1, 0x1
 
     new-array v1, v1, [Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;
+
+    const/4 v2, 0x0
 
     aput-object v0, v1, v2
 
@@ -63,17 +59,18 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)V"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 2
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    const-string v0, "ACTION_AMBIENT_GESTURE_PICKUP"
 
-    iput p3, p0, Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;->mId:I
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, v1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+
+    const/16 v0, 0x1cb
+
+    iput v0, p0, Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;->mId:I
 
     return-void
 .end method
@@ -108,7 +105,7 @@
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/doze/DozeSensors$DozeSensorsUiEvent;->mId:I

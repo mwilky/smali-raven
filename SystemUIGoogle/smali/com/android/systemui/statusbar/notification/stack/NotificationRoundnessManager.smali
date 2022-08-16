@@ -1,10 +1,10 @@
-.class public Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
+.class public final Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 .super Ljava/lang/Object;
 .source "NotificationRoundnessManager.java"
 
 
 # instance fields
-.field private mAnimatedChildren:Ljava/util/HashSet;
+.field public mAnimatedChildren:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet<",
@@ -14,37 +14,35 @@
     .end annotation
 .end field
 
-.field private mAppearFraction:F
+.field public mAppearFraction:F
 
-.field private final mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+.field public mExpanded:Z
 
-.field private mExpanded:Z
+.field public final mFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private final mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+.field public mIsClearAllInProgress:Z
 
-.field private final mFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public final mLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private mIsDismissAllInProgress:Z
+.field public mRoundForPulsingViews:Z
 
-.field private final mLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public mRoundingChangedCallback:Ljava/lang/Runnable;
 
-.field private mRoundingChangedCallback:Ljava/lang/Runnable;
+.field public mSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private mSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public final mTmpFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private final mTmpFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public final mTmpLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private final mTmpLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-.field private mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+.field public mViewAfterSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private mViewAfterSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-.field private mViewBeforeSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public mViewBeforeSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/flags/FeatureFlags;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -57,35 +55,35 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewAfterSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;->getNotificationBuckets()[I
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;->getNumberOfBuckets()I
+    move-result-object p1
 
-    move-result p2
+    array-length p1, p1
 
-    new-array p3, p2, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    new-array v0, p1, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    new-array p3, p2, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    new-array v0, p1, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    new-array p3, p2, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    new-array v0, p1, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    new-array p2, p2, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    new-array p1, p1, [Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     return-void
 .end method
 
-.method private getRoundness(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
-    .locals 2
+
+# virtual methods
+.method public final getRoundnessFraction(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
+    .locals 3
 
     if-nez p1, :cond_0
 
@@ -98,84 +96,107 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eq p1, v0, :cond_8
+    if-eq p1, v0, :cond_a
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    if-eq p1, v0, :cond_8
+    if-eq p1, v0, :cond_a
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewAfterSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     if-ne p1, v0, :cond_1
 
-    goto :goto_0
+    goto/16 :goto_1
 
     :cond_1
     instance-of v0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
     move-object v0, p1
 
     check-cast v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->canViewBeDismissed()Z
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    move-result v0
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isClearable()Z
 
-    if-eqz v0, :cond_2
+    move-result v2
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mIsDismissAllInProgress:Z
+    if-eqz v2, :cond_3
 
-    if-eqz v0, :cond_2
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->shouldShowPublic()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mSensitiveHiddenInGeneral:Z
+
+    if-nez v0, :cond_3
+
+    :cond_2
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_4
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mIsClearAllInProgress:Z
+
+    if-eqz v0, :cond_4
 
     return v1
 
-    :cond_2
+    :cond_4
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->isPinned()Z
 
     move-result v0
 
-    if-nez v0, :cond_8
+    if-nez v0, :cond_a
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->isHeadsUpAnimatingAway()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_5
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mExpanded:Z
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
-    goto :goto_0
-
-    :cond_3
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    if-eqz p2, :cond_4
-
-    return v1
-
-    :cond_4
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    if-nez p2, :cond_5
-
-    return v1
+    goto :goto_1
 
     :cond_5
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    if-eqz p2, :cond_6
+
+    return v1
+
+    :cond_6
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    if-nez p2, :cond_7
+
+    return v1
+
+    :cond_7
     iget-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    if-ne p1, p2, :cond_6
+    if-ne p1, p2, :cond_8
 
     iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mAppearFraction:F
 
@@ -187,35 +208,31 @@
 
     return p0
 
-    :cond_6
+    :cond_8
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->showingPulsing()Z
 
     move-result p2
 
-    if-eqz p2, :cond_7
+    if-eqz p2, :cond_9
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mRoundForPulsingViews:Z
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
-
-    move-result p0
-
-    if-nez p0, :cond_7
+    if-eqz p0, :cond_9
 
     return v1
 
-    :cond_7
+    :cond_9
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    sget p1, Lcom/android/systemui/R$dimen;->notification_corner_radius_small:I
+    const p1, 0x7f0705b8
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result p1
 
-    sget p2, Lcom/android/systemui/R$dimen;->notification_corner_radius:I
+    const p2, 0x7f0705b7
 
     invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -225,12 +242,12 @@
 
     return p1
 
-    :cond_8
-    :goto_0
+    :cond_a
+    :goto_1
     return v1
 .end method
 
-.method private handleAddedNewViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
+.method public final handleAddedNewViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
     .locals 9
 
     array-length v0, p1
@@ -248,16 +265,12 @@
 
     if-eqz p3, :cond_0
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->getFirstVisibleChild()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->mFirstVisibleChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     goto :goto_1
 
     :cond_0
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->getLastVisibleChild()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->mLastVisibleChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     :goto_1
     const/4 v5, 0x1
@@ -325,7 +338,7 @@
     return v3
 .end method
 
-.method private handleRemovedOldViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
+.method public final handleRemovedOldViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
     .locals 9
 
     array-length v0, p2
@@ -356,35 +369,27 @@
 
     if-eqz p3, :cond_0
 
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->getFirstVisibleChild()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    move-result-object v8
+    iget-object v8, v8, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->mFirstVisibleChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     goto :goto_2
 
     :cond_0
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->getLastVisibleChild()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    move-result-object v8
+    iget-object v8, v8, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->mLastVisibleChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     :goto_2
     if-ne v8, v4, :cond_3
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->isFirstInSection()Z
+    iget-boolean v6, v4, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mFirstInSection:Z
 
-    move-result v6
-
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
 
     move-result v7
 
     if-ne v6, v7, :cond_2
 
-    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->isLastInSection()Z
+    iget-boolean v6, v4, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mLastInSection:Z
 
-    move-result v6
-
-    invoke-direct {p0, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
 
     move-result v7
 
@@ -446,7 +451,7 @@
     return v3
 .end method
 
-.method private isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+.method public final isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
     .locals 4
 
     const/4 v0, 0x0
@@ -477,7 +482,7 @@
     return v0
 .end method
 
-.method private isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+.method public final isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
@@ -510,135 +515,9 @@
     return p0
 .end method
 
-
-# virtual methods
-.method public isViewAffectedBySwipe(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
-    .locals 1
-
-    if-eqz p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    if-eq p1, v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewBeforeSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    if-eq p1, v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewAfterSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    if-ne p1, p0, :cond_1
-
-    :cond_0
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public setAnimatedChildren(Ljava/util/HashSet;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/HashSet<",
-            "Lcom/android/systemui/statusbar/notification/row/ExpandableView;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mAnimatedChildren:Ljava/util/HashSet;
-
-    return-void
-.end method
-
-.method setDismissAllInProgress(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mIsDismissAllInProgress:Z
-
-    return-void
-.end method
-
-.method public setExpanded(FF)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    cmpl-float p1, p1, v0
-
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_0
-
-    const/4 p1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    move p1, v0
-
-    :goto_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mExpanded:Z
-
-    iput p2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mAppearFraction:F
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p1, :cond_1
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->updateView(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
-
-    :cond_1
-    return-void
-.end method
-
-.method public setOnRoundingChangedCallback(Ljava/lang/Runnable;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mRoundingChangedCallback:Ljava/lang/Runnable;
-
-    return-void
-.end method
-
-.method public setTrackingHeadsUp(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz v0, :cond_0
-
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->updateView(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method setViewsAffectedBySwipe(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+.method public final setViewsAffectedBySwipe(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mFeatureFlags:Lcom/android/systemui/flags/FeatureFlags;
-
-    sget-object v1, Lcom/android/systemui/flags/Flags;->NOTIFICATION_UPDATES:Lcom/android/systemui/flags/BooleanFlag;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/flags/FeatureFlags;->isEnabled(Lcom/android/systemui/flags/BooleanFlag;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewBeforeSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewBeforeSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
@@ -647,33 +526,33 @@
 
     const/4 v2, 0x1
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundness(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundnessFraction(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
 
     move-result v3
 
     invoke-virtual {v0, v3, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setBottomRoundness(FZ)Z
 
-    :cond_1
+    :cond_0
     const/high16 v0, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1, v0, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setBottomRoundness(FZ)Z
 
-    :cond_2
+    :cond_1
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_2
 
-    invoke-direct {p0, p1, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundness(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
+    invoke-virtual {p0, p1, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundnessFraction(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
 
     move-result v1
 
-    invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundness(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
+    invoke-virtual {p0, p1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundnessFraction(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
 
     move-result v3
 
@@ -681,131 +560,36 @@
 
     invoke-virtual {p1, v1, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setBottomRoundness(FZ)Z
 
-    :cond_3
-    if-eqz p2, :cond_4
+    :cond_2
+    if-eqz p2, :cond_3
 
     invoke-virtual {p2, v0, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setTopRoundness(FZ)Z
 
     invoke-virtual {p2, v0, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setBottomRoundness(FZ)Z
 
-    :cond_4
+    :cond_3
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewAfterSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mViewAfterSwipedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_4
 
-    invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundness(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
+    invoke-virtual {p0, p1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundnessFraction(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
 
     move-result p0
 
     invoke-virtual {p1, p0, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setTopRoundness(FZ)Z
 
-    :cond_5
-    if-eqz p3, :cond_6
+    :cond_4
+    if-eqz p3, :cond_5
 
     invoke-virtual {p3, v0, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setTopRoundness(FZ)Z
 
-    :cond_6
+    :cond_5
     return-void
 .end method
 
-.method public updateRoundedChildren([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;)V
-    .locals 5
-
-    const/4 v0, 0x0
-
-    move v1, v0
-
-    :goto_0
-    array-length v2, p1
-
-    if-ge v1, v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    aget-object v4, v3, v1
-
-    aput-object v4, v2, v1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    aget-object v4, v4, v1
-
-    aput-object v4, v2, v1
-
-    aget-object v2, p1, v1
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->getFirstVisibleChild()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    move-result-object v2
-
-    aput-object v2, v3, v1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    aget-object v3, p1, v1
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationSection;->getLastVisibleChild()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    move-result-object v3
-
-    aput-object v3, v2, v1
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    const/4 v2, 0x1
-
-    invoke-direct {p0, p1, v1, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->handleRemovedOldViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
-
-    move-result v1
-
-    or-int/2addr v1, v0
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    invoke-direct {p0, p1, v3, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->handleRemovedOldViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
-
-    move-result v3
-
-    or-int/2addr v1, v3
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpFirstInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    invoke-direct {p0, p1, v3, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->handleAddedNewViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
-
-    move-result v2
-
-    or-int/2addr v1, v2
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTmpLastInSectionViews:[Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    invoke-direct {p0, p1, v2, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->handleAddedNewViews([Lcom/android/systemui/statusbar/notification/stack/NotificationSection;[Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
-
-    move-result p1
-
-    or-int/2addr p1, v1
-
-    if-eqz p1, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mRoundingChangedCallback:Ljava/lang/Runnable;
-
-    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
-
-    :cond_1
-    return-void
-.end method
-
-.method public updateView(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
+.method public final updateView(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Z)V
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->updateViewWithoutCallback(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
@@ -822,7 +606,7 @@
     return-void
 .end method
 
-.method updateViewWithoutCallback(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
+.method public final updateViewWithoutCallback(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)Z
     .locals 4
 
     const/4 v0, 0x0
@@ -842,11 +626,11 @@
     :cond_0
     const/4 v1, 0x1
 
-    invoke-direct {p0, p1, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundness(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
+    invoke-virtual {p0, p1, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundnessFraction(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
 
     move-result v2
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundness(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->getRoundnessFraction(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)F
 
     move-result v3
 
@@ -858,17 +642,17 @@
 
     move-result p2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isFirstInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
 
     move-result v3
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->isLastInSection(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
 
     move-result p0
 
-    invoke-virtual {p1, v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setFirstInSection(Z)V
+    iput-boolean v3, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mFirstInSection:Z
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setLastInSection(Z)V
+    iput-boolean p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mLastInSection:Z
 
     if-nez v3, :cond_1
 

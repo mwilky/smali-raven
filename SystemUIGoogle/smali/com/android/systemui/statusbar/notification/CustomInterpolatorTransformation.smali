@@ -4,101 +4,136 @@
 
 
 # instance fields
-.field private final mViewType:I
+.field public final mViewType:I
 
 
 # direct methods
-.method public constructor <init>(I)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;-><init>()V
 
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;->mViewType:I
+    const/4 v0, 0x1
+
+    iput v0, p0, Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;->mViewType:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected abstract hasCustomTransformation()Z
-.end method
+.method public final transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+    .locals 4
 
-.method public transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
-    .locals 2
+    move-object v0, p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;->hasCustomTransformation()Z
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper$1;
 
-    move-result v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper$1;->this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;
 
-    const/4 v1, 0x0
+    iget-boolean v1, v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mIsLowPriority:Z
 
-    if-nez v0, :cond_0
+    const/4 v2, 0x1
 
-    return v1
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mTransformLowPriorityTitle:Z
+
+    if-eqz v0, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
 
     :cond_0
+    move v0, v3
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    return v3
+
+    :cond_1
     iget v0, p0, Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;->mViewType:I
 
     invoke-interface {p2, v0}, Lcom/android/systemui/statusbar/TransformableView;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
 
     move-result-object p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2
 
-    return v1
+    return v3
 
-    :cond_1
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/TransformState;->getTransformedView()Landroid/view/View;
+    :cond_2
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
-    move-result-object v0
+    invoke-static {v0, p3, v2}, Landroidx/leanback/R$style;->fadeIn(Landroid/view/View;FZ)V
 
-    const/4 v1, 0x1
+    const/16 v0, 0x11
 
-    invoke-static {v0, p3, v1}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeIn(Landroid/view/View;FZ)V
-
-    invoke-virtual {p1, p2, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFullyFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
+    invoke-virtual {p1, p2, v0, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFrom(Lcom/android/systemui/statusbar/notification/TransformState;ILcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
 
-    return v1
+    return v2
 .end method
 
-.method public transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
-    .locals 2
+.method public final transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+    .locals 4
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;->hasCustomTransformation()Z
+    move-object v0, p0
 
-    move-result v0
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper$1;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper$1;->this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;
 
-    if-nez v0, :cond_0
+    iget-boolean v1, v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mIsLowPriority:Z
 
-    return v1
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v0, v0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mTransformLowPriorityTitle:Z
+
+    if-eqz v0, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
 
     :cond_0
+    move v0, v3
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    return v3
+
+    :cond_1
     iget v0, p0, Lcom/android/systemui/statusbar/notification/CustomInterpolatorTransformation;->mViewType:I
 
     invoke-interface {p2, v0}, Lcom/android/systemui/statusbar/TransformableView;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
 
     move-result-object p2
 
-    if-nez p2, :cond_1
+    if-nez p2, :cond_2
 
-    return v1
+    return v3
 
-    :cond_1
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/TransformState;->getTransformedView()Landroid/view/View;
+    :cond_2
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
-    move-result-object v0
+    invoke-static {v0, p3, v2}, Landroidx/leanback/R$style;->fadeOut(Landroid/view/View;FZ)V
 
-    invoke-static {v0, p3}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeOut(Landroid/view/View;F)V
+    const/16 v0, 0x11
 
-    invoke-virtual {p1, p2, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFullyTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
+    invoke-virtual {p1, p2, v0, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewTo(Lcom/android/systemui/statusbar/notification/TransformState;ILcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
 
-    const/4 p0, 0x1
-
-    return p0
+    return v2
 .end method

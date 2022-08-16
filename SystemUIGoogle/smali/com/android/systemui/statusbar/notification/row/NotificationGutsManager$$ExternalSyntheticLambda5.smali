@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/statusbar/notification/row/NotificationInfo$OnSettingsClickListener;
@@ -38,8 +39,8 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;Landroid/app/NotificationChannel;I)V
-    .locals 8
+.method public final onClick(Landroid/app/NotificationChannel;I)V
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda5;->f$0:Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
 
@@ -49,15 +50,27 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda5;->f$3:Ljava/lang/String;
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda5;->f$4:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda5;->f$4:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    move-object v5, p1
+    iget-object v4, v0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-    move-object v6, p2
+    const/16 v5, 0xcd
 
-    move v7, p3
+    invoke-virtual {v4, v5}, Lcom/android/internal/logging/MetricsLogger;->action(I)V
 
-    invoke-static/range {v0 .. v7}, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;->$r8$lambda$lBEd8fHj5CBTNgvFeA5GrPr_xS8(Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/row/NotificationGuts;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Landroid/view/View;Landroid/app/NotificationChannel;I)V
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/NotificationGuts;->resetFalsingCheck()V
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;->mOnSettingsClickListener:Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$OnSettingsClickListener;
+
+    invoke-virtual {v2}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object v2
+
+    check-cast v1, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter$3;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter$3;->onSettingsClick(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v3, p2, p1, p0}, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;->startAppNotificationSettingsActivity(Ljava/lang/String;ILandroid/app/NotificationChannel;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 
     return-void
 .end method

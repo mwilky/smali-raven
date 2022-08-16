@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;
+.class public final Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;
 .super Ljava/lang/Object;
 .source "StackScrollAlgorithm.java"
 
@@ -17,11 +17,9 @@
 # instance fields
 .field public firstViewInShelf:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private mCurrentExpandedYPosition:I
+.field public mCurrentExpandedYPosition:F
 
-.field private mCurrentYPosition:I
-
-.field public scrollY:I
+.field public mCurrentYPosition:F
 
 .field public final visibleChildren:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
@@ -47,80 +45,4 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->visibleChildren:Ljava/util/ArrayList;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentYPosition:I
-
-    return p0
-.end method
-
-.method static synthetic access$002(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentYPosition:I
-
-    return p1
-.end method
-
-.method static synthetic access$016(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;F)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentYPosition:I
-
-    int-to-float v0, v0
-
-    add-float/2addr v0, p1
-
-    float-to-int p1, v0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentYPosition:I
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentExpandedYPosition:I
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentExpandedYPosition:I
-
-    return p1
-.end method
-
-.method static synthetic access$112(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;I)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentExpandedYPosition:I
-
-    add-int/2addr v0, p1
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentExpandedYPosition:I
-
-    return v0
-.end method
-
-.method static synthetic access$116(Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;F)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentExpandedYPosition:I
-
-    int-to-float v0, v0
-
-    add-float/2addr v0, p1
-
-    float-to-int p1, v0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$StackScrollAlgorithmState;->mCurrentExpandedYPosition:I
-
-    return p1
 .end method

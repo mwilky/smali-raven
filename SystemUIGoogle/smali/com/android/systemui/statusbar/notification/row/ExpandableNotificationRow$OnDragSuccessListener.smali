@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnDragSuccessListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onDragSuccess(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-.end method

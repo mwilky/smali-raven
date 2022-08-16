@@ -1,27 +1,16 @@
-.class Landroidx/appcompat/widget/AppCompatSpinner$1;
+.class public final Landroidx/appcompat/widget/AppCompatSpinner$1;
 .super Landroidx/appcompat/widget/ForwardingListener;
 .source "AppCompatSpinner.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/AppCompatSpinner;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IILandroid/content/res/Resources$Theme;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/AppCompatSpinner;
+.field public final synthetic this$0:Landroidx/appcompat/widget/AppCompatSpinner;
 
-.field final synthetic val$popup:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
+.field public final synthetic val$popup:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner;Landroid/view/View;Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;)V
+.method public constructor <init>(Landroidx/appcompat/widget/AppCompatSpinner;Landroid/view/View;Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/AppCompatSpinner$1;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
@@ -35,7 +24,7 @@
 
 
 # virtual methods
-.method public getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
+.method public final getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$1;->val$popup:Landroidx/appcompat/widget/AppCompatSpinner$DropdownPopup;
@@ -43,8 +32,8 @@
     return-object p0
 .end method
 
-.method public onForwardingStarted()Z
-    .locals 1
+.method public final onForwardingStarted()Z
+    .locals 2
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "SyntheticAccessor"
@@ -65,7 +54,17 @@
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatSpinner$1;->this$0:Landroidx/appcompat/widget/AppCompatSpinner;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatSpinner;->showPopup()V
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatSpinner;->mPopup:Landroidx/appcompat/widget/AppCompatSpinner$SpinnerPopup;
+
+    invoke-virtual {p0}, Landroid/widget/Spinner;->getTextDirection()I
+
+    move-result v1
+
+    invoke-virtual {p0}, Landroid/widget/Spinner;->getTextAlignment()I
+
+    move-result p0
+
+    invoke-interface {v0, v1, p0}, Landroidx/appcompat/widget/AppCompatSpinner$SpinnerPopup;->show(II)V
 
     :cond_0
     const/4 p0, 0x1

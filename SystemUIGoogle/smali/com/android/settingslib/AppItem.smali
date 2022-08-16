@@ -32,8 +32,6 @@
 
 
 # instance fields
-.field public category:I
-
 .field public final key:I
 
 .field public total:J
@@ -42,7 +40,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/settingslib/AppItem$1;
@@ -55,21 +53,11 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 p0, 0x0
 
-    new-instance v0, Landroid/util/SparseBooleanArray;
-
-    invoke-direct {v0}, Landroid/util/SparseBooleanArray;-><init>()V
-
-    iput-object v0, p0, Lcom/android/settingslib/AppItem;->uids:Landroid/util/SparseBooleanArray;
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/settingslib/AppItem;->key:I
-
-    return-void
+    throw p0
 .end method
 
 .method public constructor <init>(Landroid/os/Parcel;)V
@@ -106,14 +94,16 @@
 
 
 # virtual methods
-.method public compareTo(Lcom/android/settingslib/AppItem;)I
+.method public final compareTo(Ljava/lang/Object;)I
     .locals 2
 
-    iget v0, p0, Lcom/android/settingslib/AppItem;->category:I
+    check-cast p1, Lcom/android/settingslib/AppItem;
 
-    iget v1, p1, Lcom/android/settingslib/AppItem;->category:I
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v0, v1}, Ljava/lang/Integer;->compare(II)I
+    const/4 v0, 0x0
+
+    invoke-static {v0, v0}, Ljava/lang/Integer;->compare(II)I
 
     move-result v0
 
@@ -131,19 +121,7 @@
     return v0
 .end method
 
-.method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
-
-    check-cast p1, Lcom/android/settingslib/AppItem;
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/AppItem;->compareTo(Lcom/android/settingslib/AppItem;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -151,7 +129,7 @@
     return p0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
     iget p2, p0, Lcom/android/settingslib/AppItem;->key:I

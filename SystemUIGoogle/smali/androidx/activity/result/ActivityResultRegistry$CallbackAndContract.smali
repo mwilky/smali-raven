@@ -1,4 +1,4 @@
-.class Landroidx/activity/result/ActivityResultRegistry$CallbackAndContract;
+.class public final Landroidx/activity/result/ActivityResultRegistry$CallbackAndContract;
 .super Ljava/lang/Object;
 .source "ActivityResultRegistry.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "CallbackAndContract"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field final mCallback:Landroidx/activity/result/ActivityResultCallback;
+.field public final mCallback:Landroidx/activity/result/ActivityResultCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/activity/result/ActivityResultCallback<",
@@ -33,7 +33,7 @@
     .end annotation
 .end field
 
-.field final mContract:Landroidx/activity/result/contract/ActivityResultContract;
+.field public final mContract:Landroidx/activity/result/contract/ActivityResultContract;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/activity/result/contract/ActivityResultContract<",
@@ -44,7 +44,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroidx/activity/result/ActivityResultCallback;Landroidx/activity/result/contract/ActivityResultContract;)V
+.method public constructor <init>(Landroidx/activity/result/ActivityResultCallback;Landroidx/activity/result/contract/ActivityResultContract;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

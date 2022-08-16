@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;
@@ -27,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/accessibility/SystemActions;
 
-    invoke-static {p0, p1, p2, p3, p4}, Lcom/android/systemui/accessibility/SystemActions;->$r8$lambda$pLoygYw5_ul-CAL-YKCnnm7W8Zo(Lcom/android/systemui/accessibility/SystemActions;ZZZZ)V
+    invoke-virtual {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerOrUnregisterDismissNotificationShadeAction()V
 
     return-void
 .end method

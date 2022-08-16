@@ -2,24 +2,22 @@
 .super Landroid/widget/RadioButton;
 .source "AppCompatRadioButton.java"
 
-# interfaces
-.implements Landroidx/core/widget/TintableCompoundButton;
-.implements Landroidx/core/view/TintableBackgroundView;
-
 
 # instance fields
-.field private final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+.field public mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-.field private final mCompoundButtonHelper:Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;
+.field public final mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
 
-.field private final mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
+.field public final mCompoundButtonHelper:Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;
+
+.field public final mTextHelper:Landroidx/appcompat/widget/AppCompatTextHelper;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    sget v0, Landroidx/appcompat/R$attr;->radioButtonStyle:I
+    const/4 v0, 0x0
 
     invoke-direct {p0, p1, p2, v0}, Landroidx/appcompat/widget/AppCompatRadioButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -29,9 +27,9 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
 
-    invoke-static {p1}, Landroidx/appcompat/widget/TintContextWrapper;->wrap(Landroid/content/Context;)Landroid/content/Context;
+    invoke-static {p1}, Landroidx/appcompat/widget/TintContextWrapper;->wrap(Landroid/content/Context;)V
 
-    move-result-object p1
+    const p3, 0x7f040432
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/RadioButton;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -39,7 +37,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/view/View;Landroid/content/Context;)V
+    invoke-static {p1, p0}, Landroidx/appcompat/widget/ThemeUtils;->checkAppCompatTheme(Landroid/content/Context;Landroid/view/View;)V
 
     new-instance p1, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;
 
@@ -65,12 +63,27 @@
 
     invoke-virtual {p1, p2, p3}, Landroidx/appcompat/widget/AppCompatTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
 
+    iget-object p1, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    if-nez p1, :cond_0
+
+    new-instance p1, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    invoke-direct {p1, p0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;-><init>(Landroid/widget/TextView;)V
+
+    iput-object p1, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    :cond_0
+    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
+
+    invoke-virtual {p0, p2, p3}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->loadFromAttributes(Landroid/util/AttributeSet;I)V
+
     return-void
 .end method
 
 
 # virtual methods
-.method protected drawableStateChanged()V
+.method public final drawableStateChanged()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/RadioButton;->drawableStateChanged()V
@@ -92,7 +105,7 @@
     return-void
 .end method
 
-.method public getCompoundPaddingLeft()I
+.method public final getCompoundPaddingLeft()I
     .locals 1
 
     invoke-super {p0}, Landroid/widget/RadioButton;->getCompoundPaddingLeft()I
@@ -103,75 +116,36 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0, v0}, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->getCompoundPaddingLeft(I)I
-
-    move-result v0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     :cond_0
     return v0
 .end method
 
-.method public getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
-    .locals 0
+.method public final setAllCaps(Z)V
+    .locals 1
 
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+    invoke-super {p0, p1}, Landroid/widget/RadioButton;->setAllCaps(Z)V
 
-    if-eqz p0, :cond_0
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintList()Landroid/content/res/ColorStateList;
+    if-nez v0, :cond_0
 
-    move-result-object p0
+    new-instance v0, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    goto :goto_0
+    invoke-direct {v0, p0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;-><init>(Landroid/widget/TextView;)V
 
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
-.method public getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->getSupportBackgroundTintMode()Landroid/graphics/PorterDuff$Mode;
-
-    move-result-object p0
-
-    goto :goto_0
+    iput-object v0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     :cond_0
-    const/4 p0, 0x0
+    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    :goto_0
-    return-object p0
+    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->setAllCaps(Z)V
+
+    return-void
 .end method
 
-.method public getSupportButtonTintList()Landroid/content/res/ColorStateList;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mCompoundButtonHelper:Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->getSupportButtonTintList()Landroid/content/res/ColorStateList;
-
-    move-result-object p0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
-.method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+.method public final setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/RadioButton;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
@@ -180,13 +154,13 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->onSetBackgroundDrawable()V
 
     :cond_0
     return-void
 .end method
 
-.method public setBackgroundResource(I)V
+.method public final setBackgroundResource(I)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/RadioButton;->setBackgroundResource(I)V
@@ -201,7 +175,7 @@
     return-void
 .end method
 
-.method public setButtonDrawable(I)V
+.method public final setButtonDrawable(I)V
     .locals 1
 
     invoke-virtual {p0}, Landroid/widget/RadioButton;->getContext()Landroid/content/Context;
@@ -217,69 +191,58 @@
     return-void
 .end method
 
-.method public setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
+.method public final setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/RadioButton;->setButtonDrawable(Landroid/graphics/drawable/Drawable;)V
 
     iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mCompoundButtonHelper:Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->onSetButtonDrawable()V
+    iget-boolean p1, p0, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->mSkipNextApply:Z
+
+    if-eqz p1, :cond_0
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->mSkipNextApply:Z
+
+    goto :goto_0
 
     :cond_0
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->mSkipNextApply:Z
+
+    invoke-virtual {p0}, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->applyButtonTint()V
+
+    :cond_1
+    :goto_0
     return-void
 .end method
 
-.method public setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+.method public final setFilters([Landroid/text/InputFilter;)V
+    .locals 1
 
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    if-eqz p0, :cond_0
+    if-nez v0, :cond_0
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintList(Landroid/content/res/ColorStateList;)V
+    new-instance v0, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-    :cond_0
-    return-void
-.end method
+    invoke-direct {v0, p0}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;-><init>(Landroid/widget/TextView;)V
 
-.method public setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mBackgroundTintHelper:Landroidx/appcompat/widget/AppCompatBackgroundHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatBackgroundHelper;->setSupportBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+    iput-object v0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
     :cond_0
-    return-void
-.end method
+    iget-object v0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mAppCompatEmojiTextHelper:Landroidx/appcompat/widget/AppCompatEmojiTextHelper;
 
-.method public setSupportButtonTintList(Landroid/content/res/ColorStateList;)V
-    .locals 0
+    invoke-virtual {v0, p1}, Landroidx/appcompat/widget/AppCompatEmojiTextHelper;->getFilters([Landroid/text/InputFilter;)[Landroid/text/InputFilter;
 
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mCompoundButtonHelper:Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;
+    move-result-object p1
 
-    if-eqz p0, :cond_0
+    invoke-super {p0, p1}, Landroid/widget/RadioButton;->setFilters([Landroid/text/InputFilter;)V
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->setSupportButtonTintList(Landroid/content/res/ColorStateList;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setSupportButtonTintMode(Landroid/graphics/PorterDuff$Mode;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/widget/AppCompatRadioButton;->mCompoundButtonHelper:Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/AppCompatCompoundButtonHelper;->setSupportButtonTintMode(Landroid/graphics/PorterDuff$Mode;)V
-
-    :cond_0
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/LightSourceDrawable$active$1$1;
+.class public final Lcom/android/systemui/media/LightSourceDrawable$active$1$1;
 .super Ljava/lang/Object;
 .source "LightSourceDrawable.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/LightSourceDrawable;
+.field public final synthetic this$0:Lcom/android/systemui/media/LightSourceDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/LightSourceDrawable;)V
+.method public constructor <init>(Lcom/android/systemui/media/LightSourceDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable$active$1$1;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
@@ -35,7 +35,7 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/LightSourceDrawable$active$1$1;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
 
@@ -47,9 +47,7 @@
 
     move-result-object p1
 
-    const-string v1, "null cannot be cast to non-null type kotlin.Float"
-
-    invoke-static {p1, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_0
 
     check-cast p1, Ljava/lang/Float;
 
@@ -57,11 +55,20 @@
 
     move-result p1
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/media/RippleData;->setAlpha(F)V
+    iput p1, v0, Lcom/android/systemui/media/RippleData;->alpha:F
 
     iget-object p0, p0, Lcom/android/systemui/media/LightSourceDrawable$active$1$1;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     return-void
+
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Float"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

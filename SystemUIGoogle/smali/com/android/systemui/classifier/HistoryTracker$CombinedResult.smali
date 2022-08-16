@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;
+.class public final Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;
 .super Ljava/lang/Object;
 .source "HistoryTracker.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "CombinedResult"
 .end annotation
 
 
 # instance fields
-.field private final mExpiryMs:J
+.field public final mExpiryMs:J
 
-.field private final mScore:D
+.field public final mScore:D
 
-.field final synthetic this$0:Lcom/android/systemui/classifier/HistoryTracker;
+.field public final synthetic this$0:Lcom/android/systemui/classifier/HistoryTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/HistoryTracker;JD)V
+.method public constructor <init>(Lcom/android/systemui/classifier/HistoryTracker;JD)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->this$0:Lcom/android/systemui/classifier/HistoryTracker;
@@ -46,20 +46,10 @@
 
 
 # virtual methods
-.method public bridge synthetic compareTo(Ljava/lang/Object;)I
-    .locals 0
+.method public final compareTo(Ljava/lang/Object;)I
+    .locals 3
 
     check-cast p1, Ljava/util/concurrent/Delayed;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->compareTo(Ljava/util/concurrent/Delayed;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public compareTo(Ljava/util/concurrent/Delayed;)I
-    .locals 3
 
     sget-object v0, Ljava/util/concurrent/TimeUnit;->MILLISECONDS:Ljava/util/concurrent/TimeUnit;
 
@@ -78,54 +68,14 @@
     return p0
 .end method
 
-.method getDecayedScore(J)D
-    .locals 6
-
-    iget-wide v0, p0, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->mExpiryMs:J
-
-    sub-long/2addr v0, p1
-
-    const-wide/16 p1, 0x2710
-
-    sub-long/2addr p1, v0
-
-    long-to-double p1, p1
-
-    const-wide/high16 v0, 0x4059000000000000L    # 100.0
-
-    div-double/2addr p1, v0
-
-    iget-wide v0, p0, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->mScore:D
-
-    const-wide/high16 v2, 0x3fe0000000000000L    # 0.5
-
-    sub-double/2addr v0, v2
-
-    invoke-static {}, Lcom/android/systemui/classifier/HistoryTracker;->access$000()D
-
-    move-result-wide v4
-
-    invoke-static {v4, v5, p1, p2}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide p0
-
-    mul-double/2addr v0, p0
-
-    add-double/2addr v0, v2
-
-    return-wide v0
-.end method
-
-.method public getDelay(Ljava/util/concurrent/TimeUnit;)J
+.method public final getDelay(Ljava/util/concurrent/TimeUnit;)J
     .locals 4
 
     iget-wide v0, p0, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->mExpiryMs:J
 
     iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->this$0:Lcom/android/systemui/classifier/HistoryTracker;
 
-    invoke-static {p0}, Lcom/android/systemui/classifier/HistoryTracker;->access$100(Lcom/android/systemui/classifier/HistoryTracker;)Lcom/android/systemui/util/time/SystemClock;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
     invoke-interface {p0}, Lcom/android/systemui/util/time/SystemClock;->uptimeMillis()J
 
@@ -140,12 +90,4 @@
     move-result-wide p0
 
     return-wide p0
-.end method
-
-.method getScore()D
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->mScore:D
-
-    return-wide v0
 .end method

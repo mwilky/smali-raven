@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardUpdateMonitor$6;
+.class public final Lcom/android/keyguard/KeyguardUpdateMonitor$6;
 .super Ljava/lang/Object;
 .source "KeyguardUpdateMonitor.java"
 
@@ -7,33 +7,25 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardUpdateMonitor;->reportSuccessfulBiometricUnlock(ZI)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/keyguard/KeyguardUpdateMonitor;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-.field final synthetic val$isStrongBiometric:Z
-
-.field final synthetic val$userId:I
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;ZI)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    iput-boolean p2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->val$isStrongBiometric:Z
-
-    iput p3, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,20 +34,69 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public final run()V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+    const-string v0, "Retrying fingerprint after HW unavailable, attempt "
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->access$600(Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/internal/widget/LockPatternUtils;
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->val$isStrongBiometric:Z
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iget p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->val$userId:I
+    iget v1, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFingerprintUnavailableRetryCount:I
 
-    invoke-virtual {v0, v1, p0}, Lcom/android/internal/widget/LockPatternUtils;->reportSuccessfulBiometricUnlock(ZI)V
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "KeyguardUpdateMonitor"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFpm:Landroid/hardware/fingerprint/FingerprintManager;
+
+    invoke-virtual {v0}, Landroid/hardware/fingerprint/FingerprintManager;->isHardwareDetected()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    const/4 v0, 0x2
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$6;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFingerprintUnavailableRetryCount:I
+
+    const/16 v1, 0x14
+
+    if-ge v0, v1, :cond_1
+
+    add-int/lit8 v0, v0, 0x1
+
+    iput v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHardwareFingerprintUnavailableRetryCount:I
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Lcom/android/keyguard/KeyguardUpdateMonitor$14;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mRetryFingerprintAuthentication:Lcom/android/keyguard/KeyguardUpdateMonitor$6;
+
+    const-wide/16 v1, 0x1f4
+
+    invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_1
+    :goto_0
     return-void
 .end method

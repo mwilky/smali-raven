@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/ViewTransformationHelper;
+.class public final Lcom/android/systemui/statusbar/ViewTransformationHelper;
 .super Ljava/lang/Object;
 .source "ViewTransformationHelper.java"
 
@@ -15,12 +15,8 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG_CONTAINS_TRANSFORMED_VIEW:I
-
-
 # instance fields
-.field private mCustomTransformations:Landroid/util/ArrayMap;
+.field public mCustomTransformations:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -31,7 +27,7 @@
     .end annotation
 .end field
 
-.field private mKeysTransformingToSimilar:Landroid/util/ArraySet;
+.field public mKeysTransformingToSimilar:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -41,7 +37,7 @@
     .end annotation
 .end field
 
-.field private mTransformedViews:Landroid/util/ArrayMap;
+.field public mTransformedViews:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -52,63 +48,11 @@
     .end annotation
 .end field
 
-.field private mViewTransformationAnimation:Landroid/animation/ValueAnimator;
+.field public mViewTransformationAnimation:Landroid/animation/ValueAnimator;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$0S3YJ7QLfQAko2JyDztLOcIyc50(Lcom/android/systemui/statusbar/ViewTransformationHelper;Lcom/android/systemui/statusbar/TransformableView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->lambda$transformTo$0(Lcom/android/systemui/statusbar/TransformableView;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$jBXAKfDcUZvWuEB_7GKSa7QVmZM(Lcom/android/systemui/statusbar/ViewTransformationHelper;Lcom/android/systemui/statusbar/TransformableView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->lambda$transformFrom$1(Lcom/android/systemui/statusbar/TransformableView;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$id;->contains_transformed_view:I
-
-    sput v0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->TAG_CONTAINS_TRANSFORMED_VIEW:I
-
-    return-void
-.end method
-
-.method public constructor <init>()V
-    .locals 1
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Landroid/util/ArrayMap;
-
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    new-instance v0, Landroid/util/ArraySet;
-
-    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mKeysTransformingToSimilar:Landroid/util/ArraySet;
-
-    new-instance v0, Landroid/util/ArrayMap;
-
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mCustomTransformations:Landroid/util/ArrayMap;
-
-    return-void
-.end method
-
-.method private abortTransformations()V
+.method public static -$$Nest$mabortTransformations(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
@@ -155,198 +99,35 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/systemui/statusbar/ViewTransformationHelper;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    return-object p1
-.end method
+    new-instance v0, Landroid/util/ArrayMap;
 
-.method static synthetic access$100(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
-    .locals 0
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->abortTransformations()V
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
 
-    return-void
-.end method
+    new-instance v0, Landroid/util/ArraySet;
 
-.method private synthetic lambda$transformFrom$1(Lcom/android/systemui/statusbar/TransformableView;Landroid/animation/ValueAnimator;)V
-    .locals 0
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    invoke-virtual {p2}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mKeysTransformingToSimilar:Landroid/util/ArraySet;
 
-    move-result p2
+    new-instance v0, Landroid/util/ArrayMap;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->transformFrom(Lcom/android/systemui/statusbar/TransformableView;F)V
+    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    return-void
-.end method
-
-.method private synthetic lambda$transformTo$0(Lcom/android/systemui/statusbar/TransformableView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p2}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
-
-    move-result p2
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->transformTo(Lcom/android/systemui/statusbar/TransformableView;F)V
+    iput-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mCustomTransformations:Landroid/util/ArrayMap;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public addRemainingTransformTypes(Landroid/view/View;)V
-    .locals 6
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    move v2, v1
-
-    :goto_0
-    if-ge v2, v0, :cond_1
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    invoke-virtual {v3, v2}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/View;
-
-    :goto_1
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v4
-
-    if-eq v3, v4, :cond_0
-
-    sget v4, Lcom/android/systemui/statusbar/ViewTransformationHelper;->TAG_CONTAINS_TRANSFORMED_VIEW:I
-
-    sget-object v5, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
-
-    invoke-virtual {v3, v4, v5}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
-
-    invoke-virtual {v3}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/view/View;
-
-    goto :goto_1
-
-    :cond_0
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    new-instance v0, Ljava/util/Stack;
-
-    invoke-direct {v0}, Ljava/util/Stack;-><init>()V
-
-    invoke-virtual {v0, p1}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_2
-    :goto_2
-    invoke-virtual {v0}, Ljava/util/Stack;->isEmpty()Z
-
-    move-result p1
-
-    if-nez p1, :cond_4
-
-    invoke-virtual {v0}, Ljava/util/Stack;->pop()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/view/View;
-
-    sget v2, Lcom/android/systemui/statusbar/ViewTransformationHelper;->TAG_CONTAINS_TRANSFORMED_VIEW:I
-
-    invoke-virtual {p1, v2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/Boolean;
-
-    if-nez v3, :cond_3
-
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v3
-
-    const/4 v4, -0x1
-
-    if-eq v3, v4, :cond_3
-
-    invoke-virtual {p0, v3, p1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
-
-    goto :goto_2
-
-    :cond_3
-    const/4 v3, 0x0
-
-    invoke-virtual {p1, v2, v3}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
-
-    instance-of v2, p1, Landroid/view/ViewGroup;
-
-    if-eqz v2, :cond_2
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    invoke-virtual {v2, p1}, Landroid/util/ArrayMap;->containsValue(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    check-cast p1, Landroid/view/ViewGroup;
-
-    move v2, v1
-
-    :goto_3
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v3
-
-    if-ge v2, v3, :cond_2
-
-    invoke-virtual {p1, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v3
-
-    invoke-virtual {v0, v3}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_3
-
-    :cond_4
-    return-void
-.end method
-
-.method public addTransformedView(ILandroid/view/View;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
-.end method
-
-.method public addTransformedView(Landroid/view/View;)V
+.method public final addTransformedView(Landroid/view/View;)V
     .locals 2
 
     invoke-virtual {p1}, Landroid/view/View;->getId()I
@@ -357,7 +138,7 @@
 
     if-eq v0, v1, :cond_0
 
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(Landroid/view/View;I)V
 
     return-void
 
@@ -371,36 +152,42 @@
     throw p0
 .end method
 
-.method public addViewTransformingToSimilar(ILandroid/view/View;)V
+.method public final addTransformedView(Landroid/view/View;I)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
+    iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
+
+    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p2
+
+    invoke-virtual {p0, p2, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    return-void
+.end method
+
+.method public final addViewTransformingToSimilar(Landroid/view/View;)V
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
+
+    move-result v0
+
+    const/4 v1, -0x1
+
+    if-eq v0, v1, :cond_0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(Landroid/view/View;I)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mKeysTransformingToSimilar:Landroid/util/ArraySet;
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p1
 
     invoke-virtual {p0, p1}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
-.end method
-
-.method public addViewTransformingToSimilar(Landroid/view/View;)V
-    .locals 2
-
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addViewTransformingToSimilar(ILandroid/view/View;)V
-
-    return-void
 
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
@@ -412,31 +199,7 @@
     throw p0
 .end method
 
-.method public getAllTransformingViews()Landroid/util/ArraySet;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Landroid/util/ArraySet<",
-            "Landroid/view/View;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Landroid/util/ArraySet;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    invoke-virtual {p0}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
-
-    move-result-object p0
-
-    invoke-direct {v0, p0}, Landroid/util/ArraySet;-><init>(Ljava/util/Collection;)V
-
-    return-object v0
-.end method
-
-.method public getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
+.method public final getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
@@ -479,7 +242,7 @@
 
     const/4 p0, 0x1
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/notification/TransformState;->setIsSameAsAnyView(Z)V
+    iput-boolean p0, v0, Lcom/android/systemui/statusbar/notification/TransformState;->mSameAsAny:Z
 
     :cond_0
     return-object v0
@@ -490,7 +253,7 @@
     return-object p0
 .end method
 
-.method public isAnimating()Z
+.method public final isAnimating()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
@@ -514,51 +277,7 @@
     return p0
 .end method
 
-.method public reset()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->clear()V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mKeysTransformingToSimilar:Landroid/util/ArraySet;
-
-    invoke-virtual {p0}, Landroid/util/ArraySet;->clear()V
-
-    return-void
-.end method
-
-.method public resetTransformedView(Landroid/view/View;)V
-    .locals 0
-
-    invoke-static {p1, p0}, Lcom/android/systemui/statusbar/notification/TransformState;->createFrom(Landroid/view/View;Lcom/android/systemui/statusbar/notification/TransformState$TransformInfo;)Lcom/android/systemui/statusbar/notification/TransformState;
-
-    move-result-object p0
-
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1, p1}, Lcom/android/systemui/statusbar/notification/TransformState;->setVisible(ZZ)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
-
-    return-void
-.end method
-
-.method public setCustomTransformation(Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mCustomTransformations:Landroid/util/ArrayMap;
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    invoke-virtual {p0, p2, p1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
-.end method
-
-.method public setVisible(Z)V
+.method public final setVisible(Z)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
@@ -614,7 +333,93 @@
     return-void
 .end method
 
-.method public transformFrom(Lcom/android/systemui/statusbar/TransformableView;)V
+.method public final transformFrom(FLcom/android/systemui/statusbar/TransformableView;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Integer;
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mCustomTransformations:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v3, v2, p2, p1}, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;->transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    invoke-interface {p2, v1}, Lcom/android/systemui/statusbar/TransformableView;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v2, v1, p1}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFrom(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {v2, p1, p2}, Lcom/android/systemui/statusbar/notification/TransformState;->appear(FLcom/android/systemui/statusbar/TransformableView;)V
+
+    :goto_1
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
+
+    goto :goto_0
+
+    :cond_3
+    return-void
+.end method
+
+.method public final transformFrom(Lcom/android/systemui/statusbar/TransformableView;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
@@ -652,7 +457,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
 
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
+    sget-object v0, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/LinearInterpolator;
 
     invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -677,7 +482,7 @@
     .end array-data
 .end method
 
-.method public transformFrom(Lcom/android/systemui/statusbar/TransformableView;F)V
+.method public final transformTo(FLcom/android/systemui/statusbar/TransformableView;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
@@ -724,7 +529,7 @@
 
     if-eqz v3, :cond_1
 
-    invoke-virtual {v3, v2, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;->transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+    invoke-virtual {v3, v2, p2, p1}, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;->transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
 
     move-result v3
 
@@ -739,20 +544,20 @@
 
     move-result v1
 
-    invoke-interface {p1, v1}, Lcom/android/systemui/statusbar/TransformableView;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
+    invoke-interface {p2, v1}, Lcom/android/systemui/statusbar/TransformableView;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
 
     move-result-object v1
 
     if-eqz v1, :cond_2
 
-    invoke-virtual {v2, v1, p2}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFrom(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+    invoke-virtual {v2, v1, p1}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewTo(Lcom/android/systemui/statusbar/notification/TransformState;F)Z
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
 
     goto :goto_1
 
     :cond_2
-    invoke-virtual {v2, p2, p1}, Lcom/android/systemui/statusbar/notification/TransformState;->appear(FLcom/android/systemui/statusbar/TransformableView;)V
+    invoke-virtual {v2, p1, p2}, Lcom/android/systemui/statusbar/notification/TransformState;->disappear(FLcom/android/systemui/statusbar/TransformableView;)V
 
     :goto_1
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
@@ -763,93 +568,7 @@
     return-void
 .end method
 
-.method public transformTo(Lcom/android/systemui/statusbar/TransformableView;F)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
-
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_0
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Integer;
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v2
-
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_0
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mCustomTransformations:Landroid/util/ArrayMap;
-
-    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;
-
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v3, v2, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;->transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    invoke-interface {p1, v1}, Lcom/android/systemui/statusbar/TransformableView;->getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    invoke-virtual {v2, v1, p2}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewTo(Lcom/android/systemui/statusbar/notification/TransformState;F)Z
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
-
-    goto :goto_1
-
-    :cond_2
-    invoke-virtual {v2, p2, p1}, Lcom/android/systemui/statusbar/notification/TransformState;->disappear(FLcom/android/systemui/statusbar/TransformableView;)V
-
-    :goto_1
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
-
-    goto :goto_0
-
-    :cond_3
-    return-void
-.end method
-
-.method public transformTo(Lcom/android/systemui/statusbar/TransformableView;Ljava/lang/Runnable;)V
+.method public final transformTo(Lcom/android/systemui/statusbar/TransformableView;Ljava/lang/Runnable;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
@@ -879,7 +598,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
 
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
+    sget-object v0, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/LinearInterpolator;
 
     invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 

@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation runtime Lcom/android/systemui/plugins/annotations/ProvidesInterface;
-    version = 0x1
+    version = 0x2
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -22,7 +22,7 @@
 # static fields
 .field public static final DEFAULT_ICON_TINT:I = -0x1
 
-.field public static final VERSION:I = 0x1
+.field public static final VERSION:I = 0x2
 
 .field public static final sTmpInt2:[I
 
@@ -48,27 +48,20 @@
     return-void
 .end method
 
-.method public static getDarkIntensity(Landroid/graphics/Rect;Landroid/view/View;F)F
+.method public static getTint(Ljava/util/ArrayList;Landroid/view/View;I)I
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList<",
+            "Landroid/graphics/Rect;",
+            ">;",
+            "Landroid/view/View;",
+            "I)I"
+        }
+    .end annotation
 
-    invoke-static {p0, p1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    return p2
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public static getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
+    invoke-static {p0, p1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInAreas(Ljava/util/ArrayList;Landroid/view/View;)Z
 
     move-result p0
 
@@ -118,11 +111,11 @@
 
     move-result v4
 
-    add-int/2addr v0, v4
+    add-int/2addr v4, v0
 
-    iget v4, p0, Landroid/graphics/Rect;->right:I
+    iget v0, p0, Landroid/graphics/Rect;->right:I
 
-    invoke-static {v0, v4}, Ljava/lang/Math;->min(II)I
+    invoke-static {v4, v0}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
@@ -173,6 +166,61 @@
     return v1
 .end method
 
+.method public static isInAreas(Ljava/util/ArrayList;Landroid/view/View;)Z
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList<",
+            "Landroid/graphics/Rect;",
+            ">;",
+            "Landroid/view/View;",
+            ")Z"
+        }
+    .end annotation
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/graphics/Rect;
+
+    invoke-static {v0, p1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    return v1
+
+    :cond_2
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
 
 # virtual methods
 .method public abstract addDarkReceiver(Landroid/widget/ImageView;)V
@@ -190,5 +238,13 @@
 .method public abstract removeDarkReceiver(Lcom/android/systemui/plugins/DarkIconDispatcher$DarkReceiver;)V
 .end method
 
-.method public abstract setIconsDarkArea(Landroid/graphics/Rect;)V
+.method public abstract setIconsDarkArea(Ljava/util/ArrayList;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList<",
+            "Landroid/graphics/Rect;",
+            ">;)V"
+        }
+    .end annotation
 .end method

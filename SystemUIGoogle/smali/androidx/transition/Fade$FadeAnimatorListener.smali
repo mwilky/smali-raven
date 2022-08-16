@@ -1,4 +1,4 @@
-.class Landroidx/transition/Fade$FadeAnimatorListener;
+.class public final Landroidx/transition/Fade$FadeAnimatorListener;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "Fade.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FadeAnimatorListener"
 .end annotation
 
 
 # instance fields
-.field private mLayerTypeChanged:Z
+.field public mLayerTypeChanged:Z
 
-.field private final mView:Landroid/view/View;
+.field public final mView:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -37,14 +37,16 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Landroidx/transition/Fade$FadeAnimatorListener;->mView:Landroid/view/View;
 
+    sget-object v0, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsApi29;
+
     const/high16 v0, 0x3f800000    # 1.0f
 
-    invoke-static {p1, v0}, Landroidx/transition/ViewUtils;->setTransitionAlpha(Landroid/view/View;F)V
+    invoke-virtual {p1, v0}, Landroid/view/View;->setTransitionAlpha(F)V
 
     iget-boolean p1, p0, Landroidx/transition/Fade$FadeAnimatorListener;->mLayerTypeChanged:Z
 
@@ -62,12 +64,14 @@
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Landroidx/transition/Fade$FadeAnimatorListener;->mView:Landroid/view/View;
 
-    invoke-static {p1}, Landroidx/core/view/ViewCompat;->hasOverlappingRendering(Landroid/view/View;)Z
+    sget-object v0, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {p1}, Landroidx/core/view/ViewCompat$Api16Impl;->hasOverlappingRendering(Landroid/view/View;)Z
 
     move-result p1
 

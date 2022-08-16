@@ -4,22 +4,14 @@
 
 
 # instance fields
-.field private mDetails:Landroid/widget/TextView;
+.field public mDetails:Landroid/widget/TextView;
 
-.field private mIcon:Landroid/widget/ImageView;
+.field public mIcon:Landroid/widget/ImageView;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/slice/widget/SliceChildView;-><init>(Landroid/content/Context;)V
 
@@ -28,7 +20,7 @@
 
 
 # virtual methods
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
@@ -56,40 +48,14 @@
     return-void
 .end method
 
-.method public resetView()V
-    .locals 0
+.method public final setSliceItem(Landroidx/slice/widget/SliceContent;ZII)V
+    .locals 7
 
-    return-void
-.end method
-
-.method public setSliceItem(Landroidx/slice/widget/SliceContent;ZIILandroidx/slice/widget/SliceView$OnSliceActionListener;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "content",
-            "isHeader",
-            "index",
-            "rowCount",
-            "observer"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroidx/slice/widget/SliceContent;->getSliceItem()Landroidx/slice/SliceItem;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p5}, Landroidx/slice/widget/SliceChildView;->setSliceActionListener(Landroidx/slice/widget/SliceView$OnSliceActionListener;)V
+    iget-object p1, p1, Landroidx/slice/widget/SliceContent;->mSliceItem:Landroidx/slice/SliceItem;
 
     const-string p2, "image"
 
-    const-string p3, "source"
+    const-string/jumbo p3, "source"
 
     invoke-static {p1, p2, p3}, Landroidx/slice/core/SliceQuery;->findSubtype(Landroidx/slice/SliceItem;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -97,15 +63,11 @@
 
     if-eqz p2, :cond_0
 
-    invoke-virtual {p2}, Landroidx/slice/SliceItem;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
+    iget-object p2, p2, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
 
-    move-result-object p3
+    check-cast p2, Landroidx/core/graphics/drawable/IconCompat;
 
-    if-eqz p3, :cond_0
-
-    invoke-virtual {p2}, Landroidx/slice/SliceItem;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object p2
+    if-eqz p2, :cond_0
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
@@ -117,23 +79,23 @@
 
     if-eqz p2, :cond_0
 
-    const/4 p3, 0x1
-
-    const/high16 p4, 0x41c00000    # 24.0f
+    const/high16 p3, 0x41c00000    # 24.0f
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    move-result-object p5
+    move-result-object p4
 
-    invoke-virtual {p5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p5
+    move-result-object p4
 
-    invoke-virtual {p5}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    invoke-virtual {p4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
-    move-result-object p5
+    move-result-object p4
 
-    invoke-static {p3, p4, p5}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+    const/4 v0, 0x1
+
+    invoke-static {v0, p3, p4}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
 
     move-result p3
 
@@ -145,21 +107,91 @@
 
     move-result-object p4
 
-    new-instance p5, Landroid/graphics/Canvas;
+    new-instance v1, Landroid/graphics/Canvas;
 
-    invoke-direct {p5, p4}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+    invoke-direct {v1, p4}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
-    const/4 v0, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {p2, v0, v0, p3, p3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {p2, v2, v2, p3, p3}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    invoke-virtual {p2, p5}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+    invoke-virtual {p2, v1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
 
     iget-object p2, p0, Landroidx/slice/widget/MessageView;->mIcon:Landroid/widget/ImageView;
 
-    invoke-static {p4}, Landroidx/slice/widget/SliceViewUtil;->getCircularBitmap(Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    invoke-virtual {p4}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result p3
+
+    invoke-virtual {p4}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v1
+
+    sget-object v3, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    invoke-static {p3, v1, v3}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
 
     move-result-object p3
+
+    new-instance v1, Landroid/graphics/Canvas;
+
+    invoke-direct {v1, p3}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
+
+    new-instance v3, Landroid/graphics/Paint;
+
+    invoke-direct {v3}, Landroid/graphics/Paint;-><init>()V
+
+    new-instance v4, Landroid/graphics/Rect;
+
+    invoke-virtual {p4}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v5
+
+    invoke-virtual {p4}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v6
+
+    invoke-direct {v4, v2, v2, v5, v6}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+
+    invoke-virtual {v1, v2, v2, v2, v2}, Landroid/graphics/Canvas;->drawARGB(IIII)V
+
+    invoke-virtual {p4}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    int-to-float v0, v0
+
+    invoke-virtual {p4}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v2
+
+    div-int/lit8 v2, v2, 0x2
+
+    int-to-float v2, v2
+
+    invoke-virtual {p4}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v5
+
+    div-int/lit8 v5, v5, 0x2
+
+    int-to-float v5, v5
+
+    invoke-virtual {v1, v0, v2, v5, v3}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+
+    new-instance v0, Landroid/graphics/PorterDuffXfermode;
+
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-direct {v0, v2}, Landroid/graphics/PorterDuffXfermode;-><init>(Landroid/graphics/PorterDuff$Mode;)V
+
+    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setXfermode(Landroid/graphics/Xfermode;)Landroid/graphics/Xfermode;
+
+    invoke-virtual {v1, p4, v4, v4, v3}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Paint;)V
 
     invoke-virtual {p2, p3}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
@@ -168,13 +200,15 @@
 
     invoke-direct {p2}, Landroid/text/SpannableStringBuilder;-><init>()V
 
-    const-string p3, "text"
+    const/4 p3, 0x0
 
-    invoke-static {p1, p3}, Landroidx/slice/core/SliceQuery;->findAll(Landroidx/slice/SliceItem;Ljava/lang/String;)Ljava/util/List;
+    const-string/jumbo p4, "text"
+
+    invoke-static {p1, p4, p3, p3}, Landroidx/slice/core/SliceQuery;->findAll(Landroidx/slice/SliceItem;Ljava/lang/String;[Ljava/lang/String;[Ljava/lang/String;)Ljava/util/ArrayList;
 
     move-result-object p1
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 

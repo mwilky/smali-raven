@@ -4,78 +4,36 @@
 
 
 # instance fields
-.field private final averageTimeToDischargeMillis:J
+.field public final averageTimeToDischargeMillis:J
 
-.field private final batteryLevel:I
+.field public final batteryLevel:I
 
-.field private final batteryStatus:I
+.field public final batteryStatus:I
 
-.field private final bucket:I
+.field public final bucket:I
 
-.field private final isBasedOnUsage:Z
+.field public final isBasedOnUsage:Z
 
-.field private isHybrid:Z
+.field public isHybrid:Z
 
-.field private final isLowWarningEnabled:Z
+.field public final isLowWarningEnabled:Z
 
-.field private final isPowerSaver:Z
+.field public final isPowerSaver:Z
 
-.field private final lowLevelThreshold:I
+.field public final lowLevelThreshold:I
 
-.field private final lowThresholdMillis:J
+.field public final lowThresholdMillis:J
 
-.field private final plugged:Z
+.field public final plugged:Z
 
-.field private final severeLevelThreshold:I
+.field public final severeLevelThreshold:I
 
-.field private final severeThresholdMillis:J
+.field public final severeThresholdMillis:J
 
-.field private final timeRemainingMillis:J
+.field public final timeRemainingMillis:J
 
 
 # direct methods
-.method public constructor <init>(IZZIIII)V
-    .locals 18
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, p1
-
-    move/from16 v2, p2
-
-    move/from16 v3, p3
-
-    move/from16 v4, p4
-
-    move/from16 v5, p5
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    const-wide/16 v8, -0x1
-
-    const-wide/16 v10, -0x1
-
-    const-wide/16 v12, -0x1
-
-    const-wide/16 v14, -0x1
-
-    const/16 v16, 0x0
-
-    const/16 v17, 0x1
-
-    invoke-direct/range {v0 .. v17}, Lcom/android/systemui/power/BatteryStateSnapshot;-><init>(IZZIIIIJJJJZZ)V
-
-    const/4 v0, 0x0
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/systemui/power/BatteryStateSnapshot;->isHybrid:Z
-
-    return-void
-.end method
-
 .method public constructor <init>(IZZIIIIJJJJZZ)V
     .locals 3
 
@@ -144,7 +102,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 7
 
     const/4 v0, 0x1
@@ -293,87 +251,7 @@
     return v0
 .end method
 
-.method public final getAverageTimeToDischargeMillis()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->averageTimeToDischargeMillis:J
-
-    return-wide v0
-.end method
-
-.method public final getBatteryLevel()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->batteryLevel:I
-
-    return p0
-.end method
-
-.method public final getBatteryStatus()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->batteryStatus:I
-
-    return p0
-.end method
-
-.method public final getBucket()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->bucket:I
-
-    return p0
-.end method
-
-.method public final getLowLevelThreshold()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->lowLevelThreshold:I
-
-    return p0
-.end method
-
-.method public final getLowThresholdMillis()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->lowThresholdMillis:J
-
-    return-wide v0
-.end method
-
-.method public final getPlugged()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->plugged:Z
-
-    return p0
-.end method
-
-.method public final getSevereLevelThreshold()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->severeLevelThreshold:I
-
-    return p0
-.end method
-
-.method public final getSevereThresholdMillis()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->severeThresholdMillis:J
-
-    return-wide v0
-.end method
-
-.method public final getTimeRemainingMillis()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->timeRemainingMillis:J
-
-    return-wide v0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 5
 
     iget v0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->batteryLevel:I
@@ -410,43 +288,29 @@
 
     iget v1, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->bucket:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v3, 0x1f
 
-    move-result v1
+    invoke-static {v1, v0, v3}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget v1, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->batteryStatus:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v1, v0, v3}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget v1, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->severeLevelThreshold:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v1, v0, v3}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget v1, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->lowLevelThreshold:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v1, v0, v3}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-wide v3, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->timeRemainingMillis:J
 
@@ -454,15 +318,15 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget-wide v3, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->averageTimeToDischargeMillis:J
 
     invoke-static {v3, v4}, Ljava/lang/Long;->hashCode(J)I
 
-    move-result v1
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -474,15 +338,15 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget-wide v3, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->lowThresholdMillis:J
 
     invoke-static {v3, v4}, Ljava/lang/Long;->hashCode(J)I
 
-    move-result v1
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -514,48 +378,14 @@
     return v0
 .end method
 
-.method public final isBasedOnUsage()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->isBasedOnUsage:Z
-
-    return p0
-.end method
-
-.method public final isHybrid()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->isHybrid:Z
-
-    return p0
-.end method
-
-.method public final isLowWarningEnabled()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->isLowWarningEnabled:Z
-
-    return p0
-.end method
-
-.method public final isPowerSaver()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->isPowerSaver:Z
-
-    return p0
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "BatteryStateSnapshot(batteryLevel="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "BatteryStateSnapshot(batteryLevel="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->batteryLevel:I
 
@@ -655,13 +485,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/power/BatteryStateSnapshot;->isLowWarningEnabled:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

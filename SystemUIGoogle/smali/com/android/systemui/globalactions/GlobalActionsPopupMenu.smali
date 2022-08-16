@@ -1,24 +1,26 @@
-.class public Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;
 .super Landroid/widget/ListPopupWindow;
 .source "GlobalActionsPopupMenu.java"
 
 
 # instance fields
-.field private mAdapter:Landroid/widget/ListAdapter;
+.field public mAdapter:Landroid/widget/ListAdapter;
 
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field private mGlobalActionsSidePadding:I
+.field public mGlobalActionsSidePadding:I
 
-.field private mIsDropDownMode:Z
+.field public mIsDropDownMode:Z
 
-.field private mMenuVerticalPadding:I
+.field public mMaximumWidthThresholdDp:I
 
-.field private mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
+.field public mMenuVerticalPadding:I
+
+.field public mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Z)V
+.method public constructor <init>(Landroid/view/ContextThemeWrapper;Z)V
     .locals 2
 
     invoke-direct {p0, p1}, Landroid/widget/ListPopupWindow;-><init>(Landroid/content/Context;)V
@@ -29,17 +31,21 @@
 
     iput v0, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mGlobalActionsSidePadding:I
 
+    const/16 v0, 0x320
+
+    iput v0, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mMaximumWidthThresholdDp:I
+
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$drawable;->global_actions_popup_bg:I
-
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
     move-result-object p1
+
+    const v1, 0x7f080449
 
     invoke-virtual {v0, v1, p1}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -57,7 +63,7 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/ListPopupWindow;->setModal(Z)V
 
-    sget p1, Lcom/android/systemui/R$dimen;->global_actions_side_margin:I
+    const p1, 0x7f070261
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -67,7 +73,7 @@
 
     if-nez p2, :cond_0
 
-    sget p1, Lcom/android/systemui/R$dimen;->control_menu_vertical_padding:I
+    const p1, 0x7f07017f
 
     invoke-virtual {v0, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -81,7 +87,7 @@
 
 
 # virtual methods
-.method public setAdapter(Landroid/widget/ListAdapter;)V
+.method public final setAdapter(Landroid/widget/ListAdapter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mAdapter:Landroid/widget/ListAdapter;
@@ -91,16 +97,8 @@
     return-void
 .end method
 
-.method public setOnItemLongClickListener(Landroid/widget/AdapterView$OnItemLongClickListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mOnItemLongClickListener:Landroid/widget/AdapterView$OnItemLongClickListener;
-
-    return-void
-.end method
-
-.method public show()V
-    .locals 9
+.method public final show()V
+    .locals 10
 
     invoke-super {p0}, Landroid/widget/ListPopupWindow;->show()V
 
@@ -145,7 +143,7 @@
 
     if-eqz v2, :cond_1
 
-    sget v2, Lcom/android/systemui/R$dimen;->control_list_divider:I
+    const v2, 0x7f07017b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -153,7 +151,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setDividerHeight(I)V
 
-    sget v2, Lcom/android/systemui/R$drawable;->controls_list_divider_inset:I
+    const v2, 0x7f080418
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -161,7 +159,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setDivider(Landroid/graphics/drawable/Drawable;)V
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mAdapter:Landroid/widget/ListAdapter;
@@ -181,73 +179,96 @@
 
     iget v1, v1, Landroid/util/DisplayMetrics;->widthPixels:I
 
+    invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
+
+    int-to-float v3, v1
+
+    div-float/2addr v3, v2
+
     int-to-double v1, v1
 
-    const-wide v3, 0x3feccccccccccccdL    # 0.9
+    const-wide v4, 0x3feccccccccccccdL    # 0.9
 
-    mul-double/2addr v3, v1
+    mul-double/2addr v4, v1
 
-    double-to-int v3, v3
+    double-to-int v4, v4
 
-    const/high16 v4, -0x80000000
+    const/high16 v5, -0x80000000
 
-    invoke-static {v3, v4}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {v4, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
-    move-result v3
+    move-result v4
 
-    const/4 v4, 0x0
-
-    move v5, v4
+    const/4 v5, 0x0
 
     move v6, v5
 
+    move v7, v6
+
     :goto_0
-    iget-object v7, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mAdapter:Landroid/widget/ListAdapter;
+    iget-object v8, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mAdapter:Landroid/widget/ListAdapter;
 
-    invoke-interface {v7}, Landroid/widget/ListAdapter;->getCount()I
+    invoke-interface {v8}, Landroid/widget/ListAdapter;->getCount()I
+
+    move-result v8
+
+    if-ge v6, v8, :cond_3
+
+    iget-object v8, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mAdapter:Landroid/widget/ListAdapter;
+
+    const/4 v9, 0x0
+
+    invoke-interface {v8, v6, v9, v0}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v4, v5}, Landroid/view/View;->measure(II)V
+
+    invoke-virtual {v8}, Landroid/view/View;->getMeasuredWidth()I
+
+    move-result v8
+
+    invoke-static {v8, v7}, Ljava/lang/Math;->max(II)I
 
     move-result v7
 
-    if-ge v5, v7, :cond_3
-
-    iget-object v7, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mAdapter:Landroid/widget/ListAdapter;
-
-    const/4 v8, 0x0
-
-    invoke-interface {v7, v5, v8, v0}, Landroid/widget/ListAdapter;->getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v3, v4}, Landroid/view/View;->measure(II)V
-
-    invoke-virtual {v7}, Landroid/view/View;->getMeasuredWidth()I
-
-    move-result v7
-
-    invoke-static {v7, v6}, Ljava/lang/Math;->max(II)I
-
-    move-result v6
-
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :cond_3
-    const-wide/high16 v7, 0x3fe0000000000000L    # 0.5
+    iget v4, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mMaximumWidthThresholdDp:I
 
-    mul-double/2addr v1, v7
+    int-to-float v4, v4
+
+    cmpg-float v3, v3, v4
+
+    if-gez v3, :cond_4
+
+    const-wide/high16 v3, 0x3fe0000000000000L    # 0.5
+
+    mul-double/2addr v1, v3
 
     double-to-int v1, v1
 
-    invoke-static {v6, v1}, Ljava/lang/Math;->max(II)I
+    invoke-static {v7, v1}, Ljava/lang/Math;->max(II)I
 
-    move-result v1
+    move-result v7
 
-    iget v2, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mMenuVerticalPadding:I
+    :cond_4
+    iget v1, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mMenuVerticalPadding:I
 
-    invoke-virtual {v0, v4, v2, v4, v2}, Landroid/widget/ListView;->setPadding(IIII)V
+    invoke-virtual {v0, v5, v1, v5, v1}, Landroid/widget/ListView;->setPadding(IIII)V
 
-    invoke-virtual {p0, v1}, Landroid/widget/ListPopupWindow;->setWidth(I)V
+    invoke-virtual {p0, v7}, Landroid/widget/ListPopupWindow;->setWidth(I)V
 
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->getAnchorView()Landroid/view/View;
 
@@ -257,7 +278,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     invoke-virtual {p0}, Landroid/widget/ListPopupWindow;->getAnchorView()Landroid/view/View;
 
@@ -267,17 +288,17 @@
 
     move-result v0
 
-    iget v2, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mGlobalActionsSidePadding:I
-
-    sub-int/2addr v0, v2
+    iget v1, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mGlobalActionsSidePadding:I
 
     sub-int/2addr v0, v1
+
+    sub-int/2addr v0, v7
 
     invoke-virtual {p0, v0}, Landroid/widget/ListPopupWindow;->setHorizontalOffset(I)V
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     iget v0, p0, Lcom/android/systemui/globalactions/GlobalActionsPopupMenu;->mGlobalActionsSidePadding:I
 
     invoke-virtual {p0, v0}, Landroid/widget/ListPopupWindow;->setHorizontalOffset(I)V

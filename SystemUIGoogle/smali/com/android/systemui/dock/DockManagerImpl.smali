@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/dock/DockManagerImpl;
+.class public final Lcom/android/systemui/dock/DockManagerImpl;
 .super Ljava/lang/Object;
 .source "DockManagerImpl.java"
 
@@ -17,19 +17,19 @@
 
 
 # virtual methods
-.method public addAlignmentStateListener(Lcom/android/systemui/dock/DockManager$AlignmentStateListener;)V
+.method public final addAlignmentStateListener(Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;)V
     .locals 0
 
     return-void
 .end method
 
-.method public addListener(Lcom/android/systemui/dock/DockManager$DockEventListener;)V
+.method public final addListener(Lcom/android/systemui/dock/DockManager$DockEventListener;)V
     .locals 0
 
     return-void
 .end method
 
-.method public isDocked()Z
+.method public final isDocked()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -37,7 +37,7 @@
     return p0
 .end method
 
-.method public isHidden()Z
+.method public final isHidden()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -45,7 +45,7 @@
     return p0
 .end method
 
-.method public removeListener(Lcom/android/systemui/dock/DockManager$DockEventListener;)V
+.method public final removeListener(Lcom/android/systemui/dock/DockManager$DockEventListener;)V
     .locals 0
 
     return-void

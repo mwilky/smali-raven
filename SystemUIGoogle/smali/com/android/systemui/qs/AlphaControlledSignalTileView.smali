@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/AlphaControlledSignalTileView;
+.class public final Lcom/android/systemui/qs/AlphaControlledSignalTileView;
 .super Lcom/android/systemui/qs/SignalTileView;
 .source "AlphaControlledSignalTileView.java"
 
@@ -23,7 +23,7 @@
 
 
 # virtual methods
-.method protected createSlashImageView(Landroid/content/Context;)Lcom/android/systemui/qs/tileimpl/SlashImageView;
+.method public final createSlashImageView(Landroid/content/Context;)Lcom/android/systemui/qs/tileimpl/SlashImageView;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/qs/AlphaControlledSignalTileView$AlphaControlledSlashImageView;

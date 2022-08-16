@@ -16,6 +16,10 @@
         <item quantity="other">[%s çöñţŕöļš åððéð. one two three]</item>
         <item quantity="one">[%s çöñţŕöļ åððéð. one two three]</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">[%s åþþš åŕé åçţîVé one two three]</item>
+        <item quantity="one">[%s åþþ îš åçţîVé one two three]</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">[Éñţéŕ ŠÎḾ ÞÎÑ. Ýöû ĥåVé %d ŕéḿåîñîñĝ åţţéḿþţš. one two three four five]</item>
         <item quantity="one">[Éñţéŕ ŠÎḾ ÞÎÑ. Ýöû ĥåVé %d ŕéḿåîñîñĝ åţţéḿþţ ɓéƒöŕé ýöû ḿûšţ çöñţåçţ ýöûŕ çåŕŕîéŕ ţö ûñļöçķ ýöûŕ ðéVîçé. one two three four five six seven eight nine ten eleven]</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">[Îñçöŕŕéçţ ŠÎḾ ÞÛĶ çöðé, ýöû ĥåVé %d ŕéḿåîñîñĝ åţţéḿþţš ɓéƒöŕé ŠÎḾ ɓéçöḿéš þéŕḿåñéñţļý ûñûšåɓļé. one two three four five six seven eight nine ten]</item>
         <item quantity="one">[Îñçöŕŕéçţ ŠÎḾ ÞÛĶ çöðé, ýöû ĥåVé %d ŕéḿåîñîñĝ åţţéḿþţ ɓéƒöŕé ŠÎḾ ɓéçöḿéš þéŕḿåñéñţļý ûñûšåɓļé. one two three four five six seven eight nine ten]</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">[Ţŕý åĝåîñ îñ %d šéçöñðš. one two three]</item>
-        <item quantity="one">[Ţŕý åĝåîñ îñ 1 šéçöñð. one two three]</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">[%d ñéŵ ñöţîƒîçåţîöñš one two three]</item>
@@ -70,9 +70,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">[Ýöû çåñ åðð ûþ ţö %d ûšéŕš. one two three]</item>
         <item quantity="one">[Öñļý öñé ûšéŕ çåñ ɓé çŕéåţéð. one two three four]</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">[»%1$d« ðéVîçéš çöññéçţéð one two three]</item>
-        <item quantity="one">[»%1$d« ðéVîçé çöññéçţéð one two three]</item>
     </plurals>
 </resources>

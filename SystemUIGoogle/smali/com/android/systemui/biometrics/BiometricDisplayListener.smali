@@ -15,15 +15,15 @@
 
 
 # instance fields
-.field private final context:Landroid/content/Context;
+.field public final context:Landroid/content/Context;
 
-.field private final displayManager:Landroid/hardware/display/DisplayManager;
+.field public final displayManager:Landroid/hardware/display/DisplayManager;
 
-.field private final handler:Landroid/os/Handler;
+.field public final handler:Landroid/os/Handler;
 
-.field private lastRotation:I
+.field public lastRotation:I
 
-.field private final onChanged:Lkotlin/jvm/functions/Function0;
+.field public final onChanged:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function0<",
@@ -33,12 +33,12 @@
     .end annotation
 .end field
 
-.field private final sensorType:Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;
+.field public final sensorType:Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;Lkotlin/jvm/functions/Function0;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,26 +51,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "displayManager"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "handler"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "sensorType"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "onChanged"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -87,54 +67,6 @@
     return-void
 .end method
 
-.method private final didRotationChange()Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->context:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    :goto_0
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_1
-
-    return v1
-
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    iget v2, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->lastRotation:I
-
-    iput v0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->lastRotation:I
-
-    if-eq v2, v0, :cond_2
-
-    const/4 v1, 0x1
-
-    :cond_2
-    return v1
-.end method
-
 
 # virtual methods
 .method public final disable()V
@@ -148,7 +80,7 @@
 .end method
 
 .method public final enable()V
-    .locals 2
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->context:Landroid/content/Context;
 
@@ -174,49 +106,90 @@
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->handler:Landroid/os/Handler;
 
-    invoke-virtual {v0, p0, v1}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;)V
+    const-wide/16 v2, 0x4
+
+    invoke-virtual {v0, p0, v1, v2, v3}, Landroid/hardware/display/DisplayManager;->registerDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;Landroid/os/Handler;J)V
 
     return-void
 .end method
 
-.method public onDisplayAdded(I)V
+.method public final onDisplayAdded(I)V
     .locals 0
 
     return-void
 .end method
 
-.method public onDisplayChanged(I)V
-    .locals 1
+.method public final onDisplayChanged(I)V
+    .locals 2
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->didRotationChange()Z
+    iget-object p1, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->context:Landroid/content/Context;
 
-    move-result p1
+    invoke-virtual {p1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->sensorType:Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;
+    move-result-object p1
 
-    instance-of v0, v0, Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType$SideFingerprint;
+    if-nez p1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->onChanged:Lkotlin/jvm/functions/Function0;
-
-    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+    const/4 p1, 0x0
 
     goto :goto_0
 
     :cond_0
-    if-eqz p1, :cond_1
+    invoke-virtual {p1}, Landroid/view/Display;->getRotation()I
+
+    move-result p1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    :goto_0
+    const/4 v0, 0x0
+
+    if-nez p1, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    iget v1, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->lastRotation:I
+
+    iput p1, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->lastRotation:I
+
+    if-eq v1, p1, :cond_2
+
+    const/4 v0, 0x1
+
+    :cond_2
+    :goto_1
+    iget-object p1, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->sensorType:Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;
+
+    instance-of p1, p1, Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType$SideFingerprint;
+
+    if-eqz p1, :cond_3
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->onChanged:Lkotlin/jvm/functions/Function0;
 
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
-    :cond_1
-    :goto_0
+    goto :goto_2
+
+    :cond_3
+    if-eqz v0, :cond_4
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/BiometricDisplayListener;->onChanged:Lkotlin/jvm/functions/Function0;
+
+    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    :cond_4
+    :goto_2
     return-void
 .end method
 
-.method public onDisplayRemoved(I)V
+.method public final onDisplayRemoved(I)V
     .locals 0
 
     return-void

@@ -40,7 +40,7 @@
 .method public abstract cleanupInternal()V
 .end method
 
-.method public abstract dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+.method public abstract dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
 .end method
 
 .method public abstract isClassifierEnabled()Z

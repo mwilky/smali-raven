@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;
+.class public final Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;
 .super Ljava/lang/Object;
 .source "MobileSignalController.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private mRetryCount:I
+.field public mRetryCount:I
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
@@ -36,7 +36,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 4
 
     :try_start_0
@@ -48,35 +48,27 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$1200(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)Landroid/telephony/ims/ImsMmTelManager;
+    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mImsMmTelManager:Landroid/telephony/ims/ImsMmTelManager;
 
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mReceiverHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$1000(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)Landroid/os/Handler;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     new-instance v2, Landroidx/mediarouter/media/MediaRoute2Provider$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, v1}, Landroidx/mediarouter/media/MediaRoute2Provider$$ExternalSyntheticLambda0;-><init>(Landroid/os/Handler;)V
+    invoke-direct {v2, v0}, Landroidx/mediarouter/media/MediaRoute2Provider$$ExternalSyntheticLambda0;-><init>(Landroid/os/Handler;)V
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$1100(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)Landroid/telephony/ims/RegistrationManager$RegistrationCallback;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mRegistrationCallback:Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;
 
-    move-result-object v1
-
-    invoke-virtual {v0, v2, v1}, Landroid/telephony/ims/ImsMmTelManager;->registerImsRegistrationCallback(Ljava/util/concurrent/Executor;Landroid/telephony/ims/RegistrationManager$RegistrationCallback;)V
+    invoke-virtual {v1, v2, v0}, Landroid/telephony/ims/ImsMmTelManager;->registerImsRegistrationCallback(Ljava/util/concurrent/Executor;Landroid/telephony/ims/RegistrationManager$RegistrationCallback;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mTag:Ljava/lang/String;
 
-    const-string v1, "registerImsRegistrationCallback succeeded"
+    const-string/jumbo v1, "registerImsRegistrationCallback succeeded"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
@@ -116,17 +108,11 @@
 
     invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$1000(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)Landroid/os/Handler;
-
-    move-result-object v0
-
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$1300(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mReceiverHandler:Landroid/os/Handler;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mTryRegisterIms:Lcom/android/systemui/statusbar/connectivity/MobileSignalController$4;
 
     const-wide/16 v1, 0x1388
 

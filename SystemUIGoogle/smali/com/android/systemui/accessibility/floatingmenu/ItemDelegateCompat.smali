@@ -1,10 +1,10 @@
-.class final Lcom/android/systemui/accessibility/floatingmenu/ItemDelegateCompat;
+.class public final Lcom/android/systemui/accessibility/floatingmenu/ItemDelegateCompat;
 .super Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;
 .source "ItemDelegateCompat.java"
 
 
 # instance fields
-.field private final mMenuViewRef:Ljava/lang/ref/WeakReference;
+.field public final mMenuViewRef:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)V
+.method public constructor <init>(Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;-><init>(Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;)V
@@ -32,7 +32,7 @@
 
 
 # virtual methods
-.method public onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
+.method public final onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
     .locals 3
 
     invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate$ItemDelegate;->onInitializeAccessibilityNodeInfo(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;)V
@@ -62,102 +62,118 @@
 
     new-instance v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    sget v1, Lcom/android/systemui/R$id;->action_move_top_left:I
+    const v1, 0x7f0b006f
 
-    sget v2, Lcom/android/systemui/R$string;->accessibility_floating_button_action_move_top_left:I
+    const v2, 0x7f130076
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
+    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/String;)V
 
     invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
 
     new-instance v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    sget v1, Lcom/android/systemui/R$id;->action_move_top_right:I
+    const v1, 0x7f0b0070
 
-    sget v2, Lcom/android/systemui/R$string;->accessibility_floating_button_action_move_top_right:I
+    const v2, 0x7f130077
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
+    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/String;)V
 
     invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
 
     new-instance v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    sget v1, Lcom/android/systemui/R$id;->action_move_bottom_left:I
+    const v1, 0x7f0b0066
 
-    sget v2, Lcom/android/systemui/R$string;->accessibility_floating_button_action_move_bottom_left:I
+    const v2, 0x7f130072
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
+    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/String;)V
 
     invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
 
     new-instance v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
-    sget v1, Lcom/android/systemui/R$id;->action_move_bottom_right:I
+    const v1, 0x7f0b0067
 
-    sget v2, Lcom/android/systemui/R$string;->accessibility_floating_button_action_move_bottom_right:I
+    const v2, 0x7f130073
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
+    invoke-direct {v0, v1, v2}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/String;)V
 
     invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->isOvalShape()Z
+    iget p0, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->mShapeType:I
 
-    move-result v0
+    const/4 v0, 0x1
 
-    if-eqz v0, :cond_1
+    const/4 v1, 0x0
 
-    sget v0, Lcom/android/systemui/R$id;->action_move_to_edge_and_hide:I
+    if-nez p0, :cond_1
+
+    move v2, v0
 
     goto :goto_0
 
     :cond_1
-    sget v0, Lcom/android/systemui/R$id;->action_move_out_edge_and_show:I
+    move v2, v1
 
     :goto_0
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->isOvalShape()Z
+    if-eqz v2, :cond_2
 
-    move-result p0
-
-    if-eqz p0, :cond_2
-
-    sget p0, Lcom/android/systemui/R$string;->accessibility_floating_button_action_move_to_edge_and_hide_to_half:I
+    const v2, 0x7f0b006e
 
     goto :goto_1
 
     :cond_2
-    sget p0, Lcom/android/systemui/R$string;->accessibility_floating_button_action_move_out_edge_and_show:I
+    const v2, 0x7f0b0068
 
     :goto_1
-    new-instance v1, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
+    if-nez p0, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move v0, v1
+
+    :goto_2
+    if-eqz v0, :cond_4
+
+    const p0, 0x7f130075
+
+    goto :goto_3
+
+    :cond_4
+    const p0, 0x7f130074
+
+    :goto_3
+    new-instance v0, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;
 
     invoke-virtual {p1, p0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-direct {v1, v0, p0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/CharSequence;)V
+    invoke-direct {v0, v2, p0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;-><init>(ILjava/lang/String;)V
 
-    invoke-virtual {p2, v1}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
+    invoke-virtual {p2, v0}, Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat;->addAction(Landroidx/core/view/accessibility/AccessibilityNodeInfoCompat$AccessibilityActionCompat;)V
 
     return-void
 .end method
 
-.method public performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
+.method public final performAccessibilityAction(Landroid/view/View;ILandroid/os/Bundle;)Z
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/ItemDelegateCompat;->mMenuViewRef:Ljava/lang/ref/WeakReference;
@@ -189,7 +205,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$id;->action_move_top_left:I
+    const v2, 0x7f0b006f
 
     const/4 v3, 0x0
 
@@ -208,7 +224,7 @@
     return v4
 
     :cond_1
-    sget v2, Lcom/android/systemui/R$id;->action_move_top_right:I
+    const v2, 0x7f0b0070
 
     if-ne p2, v2, :cond_2
 
@@ -223,7 +239,7 @@
     return v4
 
     :cond_2
-    sget v2, Lcom/android/systemui/R$id;->action_move_bottom_left:I
+    const v2, 0x7f0b0066
 
     if-ne p2, v2, :cond_3
 
@@ -238,7 +254,7 @@
     return v4
 
     :cond_3
-    sget v2, Lcom/android/systemui/R$id;->action_move_bottom_right:I
+    const v2, 0x7f0b0067
 
     if-ne p2, v2, :cond_4
 
@@ -253,7 +269,7 @@
     return v4
 
     :cond_4
-    sget v1, Lcom/android/systemui/R$id;->action_move_to_edge_and_hide:I
+    const v1, 0x7f0b006e
 
     if-ne p2, v1, :cond_5
 
@@ -262,7 +278,7 @@
     return v4
 
     :cond_5
-    sget v1, Lcom/android/systemui/R$id;->action_move_out_edge_and_show:I
+    const v1, 0x7f0b0068
 
     if-ne p2, v1, :cond_6
 

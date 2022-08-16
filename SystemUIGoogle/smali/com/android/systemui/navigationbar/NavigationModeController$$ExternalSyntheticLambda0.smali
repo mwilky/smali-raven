@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationModeController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -27,13 +28,25 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationModeController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/navigationbar/NavigationModeController;
 
     iget p0, p0, Lcom/android/systemui/navigationbar/NavigationModeController$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/systemui/navigationbar/NavigationModeController;->$r8$lambda$C9GKvhPovG6F7vnqVz_RXQIMWQE(Lcom/android/systemui/navigationbar/NavigationModeController;I)V
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationModeController;->mCurrentUserContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    const-string v1, "navigation_mode"
+
+    invoke-static {v0, v1, p0}, Landroid/provider/Settings$Secure;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
     return-void
 .end method

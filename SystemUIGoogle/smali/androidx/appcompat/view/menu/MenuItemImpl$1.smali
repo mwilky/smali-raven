@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/MenuItemImpl$1;
+.class public final Landroidx/appcompat/view/menu/MenuItemImpl$1;
 .super Ljava/lang/Object;
 .source "MenuItemImpl.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/view/menu/MenuItemImpl;
+.field public final synthetic this$0:Landroidx/appcompat/view/menu/MenuItemImpl;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/view/menu/MenuItemImpl;)V
+.method public constructor <init>(Landroidx/appcompat/view/menu/MenuItemImpl;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/MenuItemImpl$1;->this$0:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -34,14 +34,18 @@
 
 
 # virtual methods
-.method public onActionProviderVisibilityChanged(Z)V
-    .locals 0
+.method public final onActionProviderVisibilityChanged()V
+    .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuItemImpl$1;->this$0:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    iget-object p1, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
+    iget-object p0, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
-    invoke-virtual {p1, p0}, Landroidx/appcompat/view/menu/MenuBuilder;->onItemVisibleChanged(Landroidx/appcompat/view/menu/MenuItemImpl;)V
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/appcompat/view/menu/MenuBuilder;->mIsVisibleItemsStale:Z
+
+    invoke-virtual {p0, v0}, Landroidx/appcompat/view/menu/MenuBuilder;->onItemsChanged(Z)V
 
     return-void
 .end method

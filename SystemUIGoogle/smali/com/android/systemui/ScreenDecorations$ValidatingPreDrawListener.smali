@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;
+.class public final Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;
 .super Ljava/lang/Object;
 .source "ScreenDecorations.java"
 
@@ -12,15 +12,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ValidatingPreDrawListener"
 .end annotation
 
 
 # instance fields
-.field private final mView:Landroid/view/View;
+.field public final mView:Landroid/view/View;
 
-.field final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
+.field public final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
 
 
 # direct methods
@@ -38,36 +38,53 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
-    .locals 2
+.method public final onPreDraw()Z
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    iget-object v0, v0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    iget-object v0, v0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/Display;->getRotation()I
-
-    move-result v0
-
     iget-object v1, p0, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {v1}, Lcom/android/systemui/ScreenDecorations;->access$100(Lcom/android/systemui/ScreenDecorations;)I
+    iget-object v1, v1, Lcom/android/systemui/ScreenDecorations;->mDisplayInfo:Landroid/view/DisplayInfo;
 
-    move-result v1
-
-    if-eq v0, v1, :cond_0
+    invoke-virtual {v0, v1}, Landroid/view/Display;->getDisplayInfo(Landroid/view/DisplayInfo;)Z
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$200(Lcom/android/systemui/ScreenDecorations;)Z
+    iget-object v0, v0, Lcom/android/systemui/ScreenDecorations;->mDisplayInfo:Landroid/view/DisplayInfo;
+
+    iget v1, v0, Landroid/view/DisplayInfo;->rotation:I
+
+    invoke-virtual {v0}, Landroid/view/DisplayInfo;->getMode()Landroid/view/Display$Mode;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    iget v3, v2, Lcom/android/systemui/ScreenDecorations;->mRotation:I
+
+    if-ne v1, v3, :cond_0
+
+    iget-object v1, v2, Lcom/android/systemui/ScreenDecorations;->mDisplayMode:Landroid/view/Display$Mode;
+
+    invoke-static {v1, v0}, Lcom/android/systemui/ScreenDecorations;->displayModeChanged(Landroid/view/Display$Mode;Landroid/view/Display$Mode;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    iget-boolean v0, v0, Lcom/android/systemui/ScreenDecorations;->mPendingConfigChange:Z
+
+    if-nez v0, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$ValidatingPreDrawListener;->mView:Landroid/view/View;
 
@@ -77,7 +94,7 @@
 
     return p0
 
-    :cond_0
+    :cond_1
     const/4 p0, 0x1
 
     return p0

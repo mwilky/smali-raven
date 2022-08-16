@@ -2,12 +2,12 @@
 <resources>
     <string-array name="animator_duration_scale_entries">
         <item>アニメーションオフ</item>
-        <item>アニメーションスケール.5x</item>
-        <item>アニメーションスケール1x</item>
-        <item>アニメーションスケール1.5x</item>
-        <item>アニメーションスケール2x</item>
-        <item>アニメーションスケール5x</item>
-        <item>アニメーションスケール10x</item>
+        <item>アニメーション スケール .5x</item>
+        <item>アニメーション スケール 1x</item>
+        <item>アニメーション スケール 1.5x</item>
+        <item>アニメーション スケール 2x</item>
+        <item>アニメーション スケール 5x</item>
+        <item>アニメーション スケール 10x</item>
     </string-array>
     <string-array name="app_process_limit_entries">
         <item>標準の上限</item>
@@ -17,6 +17,7 @@
         <item>プロセスの上限: 3</item>
         <item>プロセスの上限: 4</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>OFF</item>
         <item>ON</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>使用不可</item>
+        <item>OFF</item>
+        <item>ON</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>使用不可</item>
         <item>OFF</item>
@@ -306,6 +312,16 @@
         <item>ON</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>使用不可</item>
+        <item>OFF</item>
+        <item>ON</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>使用不可</item>
+        <item>OFF</item>
+        <item>ON</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>使用不可</item>
         <item>OFF</item>
         <item>ON</item>
@@ -357,12 +373,12 @@
     </string-array>
     <string-array name="transition_animation_scale_entries">
         <item>アニメーションオフ</item>
-        <item>アニメーションスケール.5x</item>
-        <item>アニメーションスケール1x</item>
-        <item>アニメーションスケール1.5x</item>
-        <item>アニメーションスケール2x</item>
-        <item>アニメーションスケール5x</item>
-        <item>アニメーションスケール10x</item>
+        <item>アニメーション スケール .5x</item>
+        <item>アニメーション スケール 1x</item>
+        <item>アニメーション スケール 1.5x</item>
+        <item>アニメーション スケール 2x</item>
+        <item>アニメーション スケール 5x</item>
+        <item>アニメーション スケール 10x</item>
     </string-array>
     <string-array name="tts_rate_entries">
         <item>非常に遅い</item>
@@ -374,6 +390,12 @@
         <item>高速</item>
         <item>非常に高速</item>
         <item>最高速</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>左に移動</item>
+        <item>下に移動</item>
+        <item>右に移動</item>
+        <item>上に移動</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>充電</item>
@@ -427,11 +449,11 @@
     </string-array>
     <string-array name="window_animation_scale_entries">
         <item>アニメーションオフ</item>
-        <item>アニメーションスケール.5x</item>
-        <item>アニメーションスケール1x</item>
-        <item>アニメーションスケール1.5x</item>
-        <item>アニメーションスケール2x</item>
-        <item>アニメーションスケール5x</item>
-        <item>アニメーションスケール10x</item>
+        <item>アニメーション スケール .5x</item>
+        <item>アニメーション スケール 1x</item>
+        <item>アニメーション スケール 1.5x</item>
+        <item>アニメーション スケール 2x</item>
+        <item>アニメーション スケール 5x</item>
+        <item>アニメーション スケール 10x</item>
     </string-array>
 </resources>

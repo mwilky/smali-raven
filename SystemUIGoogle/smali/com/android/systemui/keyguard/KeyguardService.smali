@@ -4,347 +4,30 @@
 
 
 # static fields
-.field private static final sEnableRemoteKeyguardAnimation:I
-
 .field public static sEnableRemoteKeyguardGoingAwayAnimation:Z
 
 .field public static sEnableRemoteKeyguardOccludeAnimation:Z
 
 
 # instance fields
-.field private final mBinder:Lcom/android/internal/policy/IKeyguardService$Stub;
+.field public final mBinder:Lcom/android/systemui/keyguard/KeyguardService$5;
 
-.field private final mExitAnimationRunner:Landroid/view/IRemoteAnimationRunner$Stub;
+.field public final mExitAnimationRunner:Lcom/android/systemui/keyguard/KeyguardService$2;
 
-.field private final mKeyguardLifecyclesDispatcher:Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
+.field public final mKeyguardLifecyclesDispatcher:Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
 
-.field private final mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+.field public final mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-.field final mOccludeAnimation:Landroid/window/IRemoteTransition;
+.field public final mOccludeAnimation:Lcom/android/systemui/keyguard/KeyguardService$3;
 
-.field private final mOccludeAnimationRunner:Landroid/view/IRemoteAnimationRunner$Stub;
+.field public final mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-.field private final mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
-
-.field final mUnoccludeAnimation:Landroid/window/IRemoteTransition;
+.field public final mUnoccludeAnimation:Lcom/android/systemui/keyguard/KeyguardService$4;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
-
-    const-string v0, "persist.wm.enable_remote_keyguard_animation"
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
-
-    move-result v0
-
-    sput v0, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardAnimation:I
-
-    const/4 v2, 0x0
-
-    if-lt v0, v1, :cond_0
-
-    move v3, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v3, v2
-
-    :goto_0
-    sput-boolean v3, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
-
-    const/4 v3, 0x2
-
-    if-lt v0, v3, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v1, v2
-
-    :goto_1
-    sput-boolean v1, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardOccludeAnimation:Z
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;)V
-    .locals 8
-
-    invoke-direct {p0}, Landroid/app/Service;-><init>()V
-
-    new-instance v1, Lcom/android/systemui/keyguard/KeyguardService$2;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/keyguard/KeyguardService$2;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
-
-    iput-object v1, p0, Lcom/android/systemui/keyguard/KeyguardService;->mExitAnimationRunner:Landroid/view/IRemoteAnimationRunner$Stub;
-
-    new-instance v6, Lcom/android/systemui/keyguard/KeyguardService$3;
-
-    invoke-direct {v6, p0}, Lcom/android/systemui/keyguard/KeyguardService$3;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
-
-    iput-object v6, p0, Lcom/android/systemui/keyguard/KeyguardService;->mOccludeAnimationRunner:Landroid/view/IRemoteAnimationRunner$Stub;
-
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$4;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$4;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mOccludeAnimation:Landroid/window/IRemoteTransition;
-
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$5;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$5;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mUnoccludeAnimation:Landroid/window/IRemoteTransition;
-
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$6;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$6;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
-
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mBinder:Lcom/android/internal/policy/IKeyguardService$Stub;
-
-    iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardLifecyclesDispatcher:Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    iput-object p3, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
-
-    if-eqz p3, :cond_0
-
-    sget-boolean p0, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    new-instance p0, Landroid/view/RemoteAnimationDefinition;
-
-    invoke-direct {p0}, Landroid/view/RemoteAnimationDefinition;-><init>()V
-
-    sget-boolean p1, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
-
-    if-eqz p1, :cond_1
-
-    new-instance p1, Landroid/view/RemoteAnimationAdapter;
-
-    const-wide/16 v2, 0x0
-
-    const-wide/16 v4, 0x0
-
-    move-object v0, p1
-
-    invoke-direct/range {v0 .. v5}, Landroid/view/RemoteAnimationAdapter;-><init>(Landroid/view/IRemoteAnimationRunner;JJ)V
-
-    const/16 p2, 0x14
-
-    invoke-virtual {p0, p2, p1}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
-
-    const/16 p2, 0x15
-
-    invoke-virtual {p0, p2, p1}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
-
-    :cond_1
-    sget-boolean p1, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardOccludeAnimation:Z
-
-    if-eqz p1, :cond_2
-
-    new-instance p1, Landroid/view/RemoteAnimationAdapter;
-
-    const-wide/16 v4, 0x0
-
-    const-wide/16 p2, 0x0
-
-    move-object v2, p1
-
-    move-object v3, v6
-
-    move-wide v6, p2
-
-    invoke-direct/range {v2 .. v7}, Landroid/view/RemoteAnimationAdapter;-><init>(Landroid/view/IRemoteAnimationRunner;JJ)V
-
-    const/16 p2, 0x16
-
-    invoke-virtual {p0, p2, p1}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
-
-    const/16 p2, 0x17
-
-    invoke-virtual {p0, p2, p1}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
-
-    :cond_2
-    invoke-static {}, Landroid/app/ActivityTaskManager;->getInstance()Landroid/app/ActivityTaskManager;
-
-    move-result-object p1
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2, p0}, Landroid/app/ActivityTaskManager;->registerRemoteAnimationsForDisplay(ILandroid/view/RemoteAnimationDefinition;)V
-
-    :goto_0
-    return-void
-.end method
-
-.method static synthetic access$000(Landroid/window/TransitionInfo;Z)[Landroid/view/RemoteAnimationTarget;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/keyguard/KeyguardService;->wrap(Landroid/window/TransitionInfo;Z)[Landroid/view/RemoteAnimationTarget;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(II[Landroid/view/RemoteAnimationTarget;)I
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardService;->getTransitionOldType(II[Landroid/view/RemoteAnimationTarget;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/internal/policy/IKeyguardService$Stub;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mBinder:Lcom/android/internal/policy/IKeyguardService$Stub;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardLifecyclesDispatcher:Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
-
-    return-object p0
-.end method
-
-.method private static getTransitionOldType(II[Landroid/view/RemoteAnimationTarget;)I
-    .locals 1
-
-    const/4 v0, 0x7
-
-    if-eq p0, v0, :cond_3
-
-    and-int/lit16 p1, p1, 0x100
-
-    if-eqz p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/16 p1, 0x8
-
-    if-ne p0, p1, :cond_1
-
-    const/16 p0, 0x16
-
-    return p0
-
-    :cond_1
-    const/16 p1, 0x9
-
-    if-ne p0, p1, :cond_2
-
-    const/16 p0, 0x17
-
-    return p0
-
-    :cond_2
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p2, "Unexpected transit type: "
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "KeyguardService"
-
-    invoke-static {p1, p0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_3
-    :goto_0
-    array-length p0, p2
-
-    if-nez p0, :cond_4
-
-    const/16 p0, 0x15
-
-    goto :goto_1
-
-    :cond_4
-    const/16 p0, 0x14
-
-    :goto_1
-    return p0
-.end method
-
-.method private static newModeToLegacyMode(I)I
-    .locals 3
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_1
-
-    const/4 v1, 0x2
-
-    if-eq p0, v1, :cond_0
-
-    const/4 v2, 0x3
-
-    if-eq p0, v2, :cond_1
-
-    const/4 v2, 0x4
-
-    if-eq p0, v2, :cond_0
-
-    return v1
-
-    :cond_0
-    return v0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method private static wrap(Landroid/view/IRemoteAnimationRunner;)Landroid/window/IRemoteTransition;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$1;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$1;-><init>(Landroid/view/IRemoteAnimationRunner;)V
-
-    return-object v0
-.end method
-
-.method private static wrap(Landroid/window/TransitionInfo;Z)[Landroid/view/RemoteAnimationTarget;
-    .locals 23
+.method public static -$$Nest$smwrap(Landroid/window/TransitionInfo;Z)[Landroid/view/RemoteAnimationTarget;
+    .locals 24
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -363,7 +46,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_7
+    if-ge v2, v3, :cond_9
 
     invoke-virtual/range {p0 .. p0}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
 
@@ -379,219 +62,246 @@
 
     move-result v3
 
-    and-int/lit8 v3, v3, 0x2
+    const/4 v4, 0x2
 
-    const/4 v4, 0x1
+    and-int/2addr v3, v4
+
+    const/4 v5, 0x1
 
     if-eqz v3, :cond_0
 
     move/from16 v3, p1
 
-    move v5, v4
+    move v6, v5
 
     goto :goto_1
 
     :cond_0
     move/from16 v3, p1
 
-    move v5, v1
+    move v6, v1
 
     :goto_1
-    if-eq v3, v5, :cond_1
+    if-eq v3, v6, :cond_1
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_1
     invoke-virtual/range {p0 .. p0}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-interface {v5, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/window/TransitionInfo$Change;
-
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
-
-    move-result-object v21
-
-    if-eqz v21, :cond_2
-
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+    invoke-interface {v6, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v6
 
-    iget v6, v6, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
+    check-cast v6, Landroid/window/TransitionInfo$Change;
+
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v22
+
+    if-eqz v22, :cond_2
+
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+
+    move-result-object v7
+
+    iget v7, v7, Landroid/app/ActivityManager$RunningTaskInfo;->taskId:I
 
     goto :goto_2
 
     :cond_2
-    const/4 v6, -0x1
+    const/4 v7, -0x1
 
     :goto_2
-    move v7, v6
+    move v8, v7
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    if-eqz v21, :cond_4
+    if-eqz v22, :cond_4
 
-    invoke-virtual/range {v21 .. v21}, Landroid/app/ActivityManager$RunningTaskInfo;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual/range {v22 .. v22}, Landroid/app/ActivityManager$RunningTaskInfo;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-eqz v8, :cond_3
+    if-eqz v9, :cond_3
 
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Landroid/app/ActivityManager$RunningTaskInfo;->getConfiguration()Landroid/content/res/Configuration;
+    invoke-virtual {v7}, Landroid/app/ActivityManager$RunningTaskInfo;->getConfiguration()Landroid/content/res/Configuration;
 
-    move-result-object v6
+    move-result-object v7
 
-    iget-object v6, v6, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
+    iget-object v7, v7, Landroid/content/res/Configuration;->windowConfiguration:Landroid/app/WindowConfiguration;
 
     :cond_3
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getTaskInfo()Landroid/app/ActivityManager$RunningTaskInfo;
 
-    move-result-object v8
+    move-result-object v9
 
-    iget-boolean v8, v8, Landroid/app/ActivityManager$RunningTaskInfo;->isRunning:Z
+    iget-boolean v9, v9, Landroid/app/ActivityManager$RunningTaskInfo;->isRunning:Z
 
-    xor-int/2addr v8, v4
+    xor-int/2addr v9, v5
 
-    move-object/from16 v17, v6
+    move-object/from16 v18, v7
 
-    move/from16 v18, v8
+    move/from16 v19, v9
 
     goto :goto_3
 
     :cond_4
-    move/from16 v18, v4
+    move/from16 v19, v5
 
-    move-object/from16 v17, v6
+    move-object/from16 v18, v7
 
     :goto_3
-    new-instance v15, Landroid/graphics/Rect;
+    new-instance v11, Landroid/graphics/Rect;
 
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getEndAbsBounds()Landroid/graphics/Rect;
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getEndAbsBounds()Landroid/graphics/Rect;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-direct {v15, v6}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+    invoke-direct {v11, v7}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getEndRelOffset()Landroid/graphics/Point;
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getEndRelOffset()Landroid/graphics/Point;
 
-    move-result-object v6
+    move-result-object v7
 
-    iget v6, v6, Landroid/graphics/Point;->x:I
+    iget v7, v7, Landroid/graphics/Point;->x:I
 
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getEndRelOffset()Landroid/graphics/Point;
-
-    move-result-object v8
-
-    iget v8, v8, Landroid/graphics/Point;->y:I
-
-    invoke-virtual {v15, v6, v8}, Landroid/graphics/Rect;->offsetTo(II)V
-
-    new-instance v10, Landroid/view/RemoteAnimationTarget;
-
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getMode()I
-
-    move-result v6
-
-    invoke-static {v6}, Lcom/android/systemui/keyguard/KeyguardService;->newModeToLegacyMode(I)I
-
-    move-result v8
-
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getLeash()Landroid/view/SurfaceControl;
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getEndRelOffset()Landroid/graphics/Point;
 
     move-result-object v9
 
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getFlags()I
+    iget v9, v9, Landroid/graphics/Point;->y:I
 
-    move-result v6
+    invoke-virtual {v11, v7, v9}, Landroid/graphics/Rect;->offsetTo(II)V
 
-    and-int/lit8 v6, v6, 0x4
+    new-instance v10, Landroid/view/RemoteAnimationTarget;
 
-    if-nez v6, :cond_6
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getMode()I
 
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getFlags()I
+    move-result v7
 
-    move-result v6
+    const/4 v9, 0x4
 
-    and-int/2addr v6, v4
+    if-eq v7, v5, :cond_6
 
-    if-eqz v6, :cond_5
+    if-eq v7, v4, :cond_5
+
+    const/4 v12, 0x3
+
+    if-eq v7, v12, :cond_6
+
+    if-eq v7, v9, :cond_5
 
     goto :goto_4
 
     :cond_5
-    move v4, v1
+    move v4, v5
+
+    goto :goto_4
 
     :cond_6
+    move v4, v1
+
     :goto_4
-    const/4 v11, 0x0
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getLeash()Landroid/view/SurfaceControl;
 
-    new-instance v6, Landroid/graphics/Rect;
+    move-result-object v16
 
-    move-object v12, v6
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getFlags()I
 
-    invoke-direct {v6, v1, v1, v1, v1}, Landroid/graphics/Rect;-><init>(IIII)V
+    move-result v7
+
+    and-int/2addr v7, v9
+
+    if-nez v7, :cond_8
+
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getFlags()I
+
+    move-result v7
+
+    and-int/2addr v7, v5
+
+    if-eqz v7, :cond_7
+
+    goto :goto_5
+
+    :cond_7
+    move v5, v1
+
+    :cond_8
+    :goto_5
+    const/4 v12, 0x0
+
+    new-instance v7, Landroid/graphics/Rect;
+
+    move-object v13, v7
+
+    invoke-direct {v7, v1, v1, v1, v1}, Landroid/graphics/Rect;-><init>(IIII)V
 
     invoke-virtual/range {p0 .. p0}, Landroid/window/TransitionInfo;->getChanges()Ljava/util/List;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-interface {v6}, Ljava/util/List;->size()I
+    invoke-interface {v7}, Ljava/util/List;->size()I
 
-    move-result v6
+    move-result v7
 
-    sub-int v13, v6, v2
+    sub-int v14, v7, v2
 
-    new-instance v6, Landroid/graphics/Point;
+    new-instance v7, Landroid/graphics/Point;
 
-    move-object v14, v6
+    move-object v15, v7
 
-    invoke-direct {v6}, Landroid/graphics/Point;-><init>()V
+    invoke-direct {v7}, Landroid/graphics/Point;-><init>()V
 
-    new-instance v6, Landroid/graphics/Rect;
+    new-instance v7, Landroid/graphics/Rect;
+
+    move-object/from16 v17, v7
+
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getEndAbsBounds()Landroid/graphics/Rect;
+
+    move-result-object v9
+
+    invoke-direct {v7, v9}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
+
+    const/16 v20, 0x0
+
+    invoke-virtual {v6}, Landroid/window/TransitionInfo$Change;->getStartAbsBounds()Landroid/graphics/Rect;
+
+    move-result-object v21
+
+    const/16 v23, 0x0
+
+    move-object v7, v10
+
+    move v9, v4
+
+    move-object v4, v10
+
+    move-object/from16 v10, v16
+
+    move-object v6, v11
+
+    move v11, v5
 
     move-object/from16 v16, v6
 
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getEndAbsBounds()Landroid/graphics/Rect;
+    invoke-direct/range {v7 .. v23}, Landroid/view/RemoteAnimationTarget;-><init>(IILandroid/view/SurfaceControl;ZLandroid/graphics/Rect;Landroid/graphics/Rect;ILandroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/app/WindowConfiguration;ZLandroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/app/ActivityManager$RunningTaskInfo;Z)V
 
-    move-result-object v1
+    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {v6, v1}, Landroid/graphics/Rect;-><init>(Landroid/graphics/Rect;)V
-
-    const/16 v19, 0x0
-
-    invoke-virtual {v5}, Landroid/window/TransitionInfo$Change;->getStartAbsBounds()Landroid/graphics/Rect;
-
-    move-result-object v20
-
-    const/16 v22, 0x0
-
-    move-object v6, v10
-
-    move-object v1, v10
-
-    move v10, v4
-
-    invoke-direct/range {v6 .. v22}, Landroid/view/RemoteAnimationTarget;-><init>(IILandroid/view/SurfaceControl;ZLandroid/graphics/Rect;Landroid/graphics/Rect;ILandroid/graphics/Point;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/app/WindowConfiguration;ZLandroid/view/SurfaceControl;Landroid/graphics/Rect;Landroid/app/ActivityManager$RunningTaskInfo;Z)V
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :goto_5
+    :goto_6
     add-int/lit8 v2, v2, 0x1
-
-    const/4 v1, 0x0
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_9
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
@@ -607,9 +317,84 @@
     return-object v0
 .end method
 
+.method public static constructor <clinit>()V
+    .locals 5
+
+    const-string/jumbo v0, "persist.wm.enable_remote_keyguard_animation"
+
+    const/4 v1, 0x2
+
+    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-lt v0, v3, :cond_0
+
+    move v4, v3
+
+    goto :goto_0
+
+    :cond_0
+    move v4, v2
+
+    :goto_0
+    sput-boolean v4, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
+
+    if-lt v0, v1, :cond_1
+
+    move v2, v3
+
+    :cond_1
+    sput-boolean v2, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardOccludeAnimation:Z
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;)V
+    .locals 1
+
+    invoke-direct {p0}, Landroid/app/Service;-><init>()V
+
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$2;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$2;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
+
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mExitAnimationRunner:Lcom/android/systemui/keyguard/KeyguardService$2;
+
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$3;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$3;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
+
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mOccludeAnimation:Lcom/android/systemui/keyguard/KeyguardService$3;
+
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$4;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$4;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
+
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mUnoccludeAnimation:Lcom/android/systemui/keyguard/KeyguardService$4;
+
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService$5;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardService$5;-><init>(Lcom/android/systemui/keyguard/KeyguardService;)V
+
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mBinder:Lcom/android/systemui/keyguard/KeyguardService$5;
+
+    iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+
+    iput-object p2, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardLifecyclesDispatcher:Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;
+
+    iput-object p3, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
+
+    return-void
+.end method
+
 
 # virtual methods
-.method checkPermission()V
+.method public final checkPermission()V
     .locals 3
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
@@ -638,13 +423,11 @@
     return-void
 
     :cond_1
-    new-instance p0, Ljava/lang/StringBuilder;
+    const-string p0, "Caller needs permission \'android.permission.CONTROL_KEYGUARD\' to call "
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Caller needs permission \'android.permission.CONTROL_KEYGUARD\' to call "
-
-    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
     invoke-static {}, Landroid/os/Debug;->getCaller()Ljava/lang/String;
 
@@ -662,13 +445,11 @@
 
     new-instance p0, Ljava/lang/SecurityException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "Access denied to process: "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "Access denied to process: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-static {}, Landroid/os/Binder;->getCallingPid()I
 
@@ -691,16 +472,16 @@
     throw p0
 .end method
 
-.method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+.method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mBinder:Lcom/android/internal/policy/IKeyguardService$Stub;
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mBinder:Lcom/android/systemui/keyguard/KeyguardService$5;
 
     return-object p0
 .end method
 
-.method public onCreate()V
-    .locals 9
+.method public final onCreate()V
+    .locals 10
 
     invoke-virtual {p0}, Landroid/app/Service;->getApplication()Landroid/app/Application;
 
@@ -712,7 +493,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-    if-eqz v0, :cond_2
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_3
 
     sget-boolean v0, Lcom/android/wm/shell/transition/Transitions;->ENABLE_SHELL_TRANSITIONS:Z
 
@@ -723,39 +506,39 @@
     :cond_0
     sget-boolean v0, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
 
-    const-string v1, "KeyguardService"
+    const-string v2, "KeyguardService"
 
     if-eqz v0, :cond_1
 
     const-string v0, "KeyguardService registerRemote: TRANSIT_KEYGUARD_GOING_AWAY"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Landroid/window/TransitionFilter;
 
     invoke-direct {v0}, Landroid/window/TransitionFilter;-><init>()V
 
-    const/16 v2, 0x100
+    const/16 v3, 0x100
 
-    iput v2, v0, Landroid/window/TransitionFilter;->mFlags:I
+    iput v3, v0, Landroid/window/TransitionFilter;->mFlags:I
 
-    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
+    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-    new-instance v3, Landroid/window/RemoteTransition;
+    new-instance v4, Landroid/window/RemoteTransition;
 
-    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardService;->mExitAnimationRunner:Landroid/view/IRemoteAnimationRunner$Stub;
+    iget-object v5, p0, Lcom/android/systemui/keyguard/KeyguardService;->mExitAnimationRunner:Lcom/android/systemui/keyguard/KeyguardService$2;
 
-    invoke-static {v4}, Lcom/android/systemui/keyguard/KeyguardService;->wrap(Landroid/view/IRemoteAnimationRunner;)Landroid/window/IRemoteTransition;
+    new-instance v6, Lcom/android/systemui/keyguard/KeyguardService$1;
 
-    move-result-object v4
+    invoke-direct {v6, v5}, Lcom/android/systemui/keyguard/KeyguardService$1;-><init>(Lcom/android/systemui/keyguard/KeyguardService$2;)V
 
     invoke-virtual {p0}, Landroid/app/Service;->getIApplicationThread()Landroid/app/IApplicationThread;
 
     move-result-object v5
 
-    invoke-direct {v3, v4, v5}, Landroid/window/RemoteTransition;-><init>(Landroid/window/IRemoteTransition;Landroid/app/IApplicationThread;)V
+    invoke-direct {v4, v6, v5}, Landroid/window/RemoteTransition;-><init>(Landroid/window/IRemoteTransition;Landroid/app/IApplicationThread;)V
 
-    invoke-interface {v2, v0, v3}, Lcom/android/wm/shell/transition/ShellTransitions;->registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
+    invoke-interface {v3, v0, v4}, Lcom/android/wm/shell/transition/ShellTransitions;->registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
 
     :cond_1
     sget-boolean v0, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardOccludeAnimation:Z
@@ -764,151 +547,125 @@
 
     const-string v0, "KeyguardService registerRemote: TRANSIT_KEYGUARD_(UN)OCCLUDE"
 
-    invoke-static {v1, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v0}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Landroid/window/TransitionFilter;
 
     invoke-direct {v0}, Landroid/window/TransitionFilter;-><init>()V
 
-    const/16 v1, 0x40
+    const/16 v2, 0x40
 
-    iput v1, v0, Landroid/window/TransitionFilter;->mFlags:I
+    iput v2, v0, Landroid/window/TransitionFilter;->mFlags:I
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    new-array v3, v2, [Landroid/window/TransitionFilter$Requirement;
+    new-array v4, v3, [Landroid/window/TransitionFilter$Requirement;
 
-    new-instance v4, Landroid/window/TransitionFilter$Requirement;
+    new-instance v5, Landroid/window/TransitionFilter$Requirement;
 
-    invoke-direct {v4}, Landroid/window/TransitionFilter$Requirement;-><init>()V
+    invoke-direct {v5}, Landroid/window/TransitionFilter$Requirement;-><init>()V
 
-    const/4 v5, 0x0
+    aput-object v5, v4, v1
 
-    aput-object v4, v3, v5
+    new-instance v5, Landroid/window/TransitionFilter$Requirement;
 
-    new-instance v4, Landroid/window/TransitionFilter$Requirement;
-
-    invoke-direct {v4}, Landroid/window/TransitionFilter$Requirement;-><init>()V
+    invoke-direct {v5}, Landroid/window/TransitionFilter$Requirement;-><init>()V
 
     const/4 v6, 0x1
 
-    aput-object v4, v3, v6
+    aput-object v5, v4, v6
 
-    iput-object v3, v0, Landroid/window/TransitionFilter;->mRequirements:[Landroid/window/TransitionFilter$Requirement;
+    iput-object v4, v0, Landroid/window/TransitionFilter;->mRequirements:[Landroid/window/TransitionFilter$Requirement;
 
-    aget-object v4, v3, v5
+    aget-object v4, v4, v1
 
-    iput-boolean v5, v4, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
+    iput-boolean v1, v4, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
 
-    aget-object v4, v3, v5
+    iput v2, v4, Landroid/window/TransitionFilter$Requirement;->mFlags:I
 
-    iput v1, v4, Landroid/window/TransitionFilter$Requirement;->mFlags:I
-
-    aget-object v4, v3, v5
-
-    new-array v7, v2, [I
+    new-array v7, v3, [I
 
     fill-array-data v7, :array_0
 
     iput-object v7, v4, Landroid/window/TransitionFilter$Requirement;->mModes:[I
 
-    aget-object v4, v3, v6
+    iput-boolean v6, v5, Landroid/window/TransitionFilter$Requirement;->mNot:Z
 
-    iput-boolean v6, v4, Landroid/window/TransitionFilter$Requirement;->mNot:Z
+    iput-boolean v1, v5, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
 
-    aget-object v4, v3, v6
+    iput v2, v5, Landroid/window/TransitionFilter$Requirement;->mFlags:I
 
-    iput-boolean v5, v4, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
-
-    aget-object v4, v3, v6
-
-    iput v1, v4, Landroid/window/TransitionFilter$Requirement;->mFlags:I
-
-    aget-object v3, v3, v6
-
-    new-array v4, v2, [I
+    new-array v4, v3, [I
 
     fill-array-data v4, :array_1
 
-    iput-object v4, v3, Landroid/window/TransitionFilter$Requirement;->mModes:[I
+    iput-object v4, v5, Landroid/window/TransitionFilter$Requirement;->mModes:[I
 
-    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-    new-instance v4, Landroid/window/RemoteTransition;
+    new-instance v5, Landroid/window/RemoteTransition;
 
-    iget-object v7, p0, Lcom/android/systemui/keyguard/KeyguardService;->mOccludeAnimation:Landroid/window/IRemoteTransition;
+    iget-object v7, p0, Lcom/android/systemui/keyguard/KeyguardService;->mOccludeAnimation:Lcom/android/systemui/keyguard/KeyguardService$3;
 
     invoke-virtual {p0}, Landroid/app/Service;->getIApplicationThread()Landroid/app/IApplicationThread;
 
     move-result-object v8
 
-    invoke-direct {v4, v7, v8}, Landroid/window/RemoteTransition;-><init>(Landroid/window/IRemoteTransition;Landroid/app/IApplicationThread;)V
+    invoke-direct {v5, v7, v8}, Landroid/window/RemoteTransition;-><init>(Landroid/window/IRemoteTransition;Landroid/app/IApplicationThread;)V
 
-    invoke-interface {v3, v0, v4}, Lcom/android/wm/shell/transition/ShellTransitions;->registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
+    invoke-interface {v4, v0, v5}, Lcom/android/wm/shell/transition/ShellTransitions;->registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
 
     new-instance v0, Landroid/window/TransitionFilter;
 
     invoke-direct {v0}, Landroid/window/TransitionFilter;-><init>()V
 
-    iput v1, v0, Landroid/window/TransitionFilter;->mFlags:I
+    iput v2, v0, Landroid/window/TransitionFilter;->mFlags:I
 
-    new-array v3, v2, [Landroid/window/TransitionFilter$Requirement;
+    new-array v4, v3, [Landroid/window/TransitionFilter$Requirement;
 
-    new-instance v4, Landroid/window/TransitionFilter$Requirement;
+    new-instance v5, Landroid/window/TransitionFilter$Requirement;
 
-    invoke-direct {v4}, Landroid/window/TransitionFilter$Requirement;-><init>()V
+    invoke-direct {v5}, Landroid/window/TransitionFilter$Requirement;-><init>()V
 
-    aput-object v4, v3, v5
+    aput-object v5, v4, v1
 
-    new-instance v4, Landroid/window/TransitionFilter$Requirement;
+    new-instance v5, Landroid/window/TransitionFilter$Requirement;
 
-    invoke-direct {v4}, Landroid/window/TransitionFilter$Requirement;-><init>()V
+    invoke-direct {v5}, Landroid/window/TransitionFilter$Requirement;-><init>()V
 
-    aput-object v4, v3, v6
+    aput-object v5, v4, v6
 
-    iput-object v3, v0, Landroid/window/TransitionFilter;->mRequirements:[Landroid/window/TransitionFilter$Requirement;
+    iput-object v4, v0, Landroid/window/TransitionFilter;->mRequirements:[Landroid/window/TransitionFilter$Requirement;
 
-    aget-object v4, v3, v6
+    iput-boolean v1, v5, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
 
-    iput-boolean v5, v4, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
-
-    aget-object v4, v3, v6
-
-    new-array v7, v2, [I
+    new-array v7, v3, [I
 
     fill-array-data v7, :array_2
 
-    iput-object v7, v4, Landroid/window/TransitionFilter$Requirement;->mModes:[I
+    iput-object v7, v5, Landroid/window/TransitionFilter$Requirement;->mModes:[I
 
-    aget-object v4, v3, v6
+    iput-boolean v6, v5, Landroid/window/TransitionFilter$Requirement;->mMustBeTask:Z
 
-    iput-boolean v6, v4, Landroid/window/TransitionFilter$Requirement;->mMustBeTask:Z
-
-    aget-object v4, v3, v5
+    aget-object v4, v4, v1
 
     iput-boolean v6, v4, Landroid/window/TransitionFilter$Requirement;->mNot:Z
 
-    aget-object v4, v3, v5
+    iput-boolean v1, v4, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
 
-    iput-boolean v5, v4, Landroid/window/TransitionFilter$Requirement;->mMustBeIndependent:Z
+    iput v2, v4, Landroid/window/TransitionFilter$Requirement;->mFlags:I
 
-    aget-object v4, v3, v5
+    new-array v1, v3, [I
 
-    iput v1, v4, Landroid/window/TransitionFilter$Requirement;->mFlags:I
+    fill-array-data v1, :array_3
 
-    aget-object v1, v3, v5
-
-    new-array v2, v2, [I
-
-    fill-array-data v2, :array_3
-
-    iput-object v2, v1, Landroid/window/TransitionFilter$Requirement;->mModes:[I
+    iput-object v1, v4, Landroid/window/TransitionFilter$Requirement;->mModes:[I
 
     iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
     new-instance v2, Landroid/window/RemoteTransition;
 
-    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardService;->mUnoccludeAnimation:Landroid/window/IRemoteTransition;
+    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardService;->mUnoccludeAnimation:Lcom/android/systemui/keyguard/KeyguardService$4;
 
     invoke-virtual {p0}, Landroid/app/Service;->getIApplicationThread()Landroid/app/IApplicationThread;
 
@@ -919,7 +676,86 @@
     invoke-interface {v1, v0, v2}, Lcom/android/wm/shell/transition/ShellTransitions;->registerRemote(Landroid/window/TransitionFilter;Landroid/window/RemoteTransition;)V
 
     :cond_2
+    return-void
+
+    :cond_3
     :goto_0
+    new-instance v0, Landroid/view/RemoteAnimationDefinition;
+
+    invoke-direct {v0}, Landroid/view/RemoteAnimationDefinition;-><init>()V
+
+    sget-boolean v2, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardGoingAwayAnimation:Z
+
+    if-eqz v2, :cond_4
+
+    new-instance v2, Landroid/view/RemoteAnimationAdapter;
+
+    iget-object v4, p0, Lcom/android/systemui/keyguard/KeyguardService;->mExitAnimationRunner:Lcom/android/systemui/keyguard/KeyguardService$2;
+
+    const-wide/16 v5, 0x0
+
+    const-wide/16 v7, 0x0
+
+    move-object v3, v2
+
+    invoke-direct/range {v3 .. v8}, Landroid/view/RemoteAnimationAdapter;-><init>(Landroid/view/IRemoteAnimationRunner;JJ)V
+
+    const/16 v3, 0x14
+
+    invoke-virtual {v0, v3, v2}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
+
+    const/16 v3, 0x15
+
+    invoke-virtual {v0, v3, v2}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
+
+    :cond_4
+    sget-boolean v2, Lcom/android/systemui/keyguard/KeyguardService;->sEnableRemoteKeyguardOccludeAnimation:Z
+
+    if-eqz v2, :cond_5
+
+    new-instance v2, Landroid/view/RemoteAnimationAdapter;
+
+    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+
+    iget-object v4, v3, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mOccludeAnimationRunner:Lcom/android/systemui/keyguard/KeyguardViewMediator$OccludeActivityLaunchRemoteAnimationRunner;
+
+    const-wide/16 v5, 0x0
+
+    const-wide/16 v7, 0x0
+
+    move-object v3, v2
+
+    invoke-direct/range {v3 .. v8}, Landroid/view/RemoteAnimationAdapter;-><init>(Landroid/view/IRemoteAnimationRunner;JJ)V
+
+    const/16 v3, 0x16
+
+    invoke-virtual {v0, v3, v2}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
+
+    new-instance v2, Landroid/view/RemoteAnimationAdapter;
+
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
+
+    iget-object v5, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mUnoccludeAnimationRunner:Lcom/android/systemui/keyguard/KeyguardViewMediator$6;
+
+    const-wide/16 v6, 0x0
+
+    const-wide/16 v8, 0x0
+
+    move-object v4, v2
+
+    invoke-direct/range {v4 .. v9}, Landroid/view/RemoteAnimationAdapter;-><init>(Landroid/view/IRemoteAnimationRunner;JJ)V
+
+    const/16 p0, 0x17
+
+    invoke-virtual {v0, p0, v2}, Landroid/view/RemoteAnimationDefinition;->addRemoteAnimation(ILandroid/view/RemoteAnimationAdapter;)V
+
+    :cond_5
+    invoke-static {}, Landroid/app/ActivityTaskManager;->getInstance()Landroid/app/ActivityTaskManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1, v0}, Landroid/app/ActivityTaskManager;->registerRemoteAnimationsForDisplay(ILandroid/view/RemoteAnimationDefinition;)V
+
     return-void
 
     :array_0

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/connectivity/WifiSignalController;
+.class public final Lcom/android/systemui/statusbar/connectivity/WifiSignalController;
 .super Lcom/android/systemui/statusbar/connectivity/SignalController;
 .source "WifiSignalController.java"
 
@@ -20,31 +20,27 @@
 .end annotation
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private final mCarrierMergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+.field public final mBgHandler:Landroid/os/Handler;
 
-.field private final mHasMobileDataFeature:Z
+.field public final mCarrierMergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
-.field private final mProviderModelSetting:Z
+.field public final mHasMobileDataFeature:Z
 
-.field private final mUnmergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+.field public final mUnmergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
 
-.field private final mWifiManager:Landroid/net/wifi/WifiManager;
+.field public final mWifiManager:Landroid/net/wifi/WifiManager;
 
-.field private final mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
+.field public final mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$43RmIPQqx4RoFlVDiUc6juR_r0A(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->handleStatusUpdated()V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;ZLcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Landroid/net/wifi/WifiManager;Landroid/net/ConnectivityManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/flags/FeatureFlags;)V
-    .locals 6
+.method public constructor <init>(Landroid/content/Context;ZLcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Landroid/net/wifi/WifiManager;Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;Landroid/os/Handler;)V
+    .locals 8
 
     const-string v1, "WifiSignalController"
 
@@ -68,31 +64,69 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mCarrierMergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
 
+    iput-object p7, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mBgHandler:Landroid/os/Handler;
+
     iput-object p5, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    new-instance v5, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda9;
+
+    const/4 p4, 0x2
+
+    invoke-direct {v5, p4, p0}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda9;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p6}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     new-instance p4, Lcom/android/settingslib/wifi/WifiStatusTracker;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mContext:Landroid/content/Context;
+    iget-object v1, p6, Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;->mContext:Landroid/content/Context;
 
-    new-instance v5, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$$ExternalSyntheticLambda0;
+    iget-object v2, p6, Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    invoke-direct {v5, p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;)V
+    iget-object v3, p6, Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;->mNetworkScoreManager:Landroid/net/NetworkScoreManager;
+
+    iget-object v4, p6, Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    iget-object v6, p6, Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;->mMainHandler:Landroid/os/Handler;
 
     move-object v0, p4
 
-    move-object v2, p5
+    move-object v7, p7
 
-    move-object v3, p7
-
-    move-object v4, p6
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/settingslib/wifi/WifiStatusTracker;-><init>(Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Landroid/net/ConnectivityManager;Ljava/lang/Runnable;)V
+    invoke-direct/range {v0 .. v7}, Lcom/android/settingslib/wifi/WifiStatusTracker;-><init>(Landroid/content/Context;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Landroid/net/ConnectivityManager;Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda9;Landroid/os/Handler;Landroid/os/Handler;)V
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
-    const/4 p6, 0x1
+    iget-object p6, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mNetworkScoreManager:Landroid/net/NetworkScoreManager;
 
-    invoke-virtual {p4, p6}, Lcom/android/settingslib/wifi/WifiStatusTracker;->setListening(Z)V
+    iget-object p7, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiNetworkScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p6, v0, p7, v0}, Landroid/net/NetworkScoreManager;->registerNetworkScoreCache(ILandroid/net/INetworkScoreCache;I)V
+
+    iget-object p6, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mWifiNetworkScoreCache:Landroid/net/wifi/WifiNetworkScoreCache;
+
+    iget-object p7, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mCacheListener:Lcom/android/settingslib/wifi/WifiStatusTracker$3;
+
+    invoke-virtual {p6, p7}, Landroid/net/wifi/WifiNetworkScoreCache;->registerListener(Landroid/net/wifi/WifiNetworkScoreCache$CacheListener;)V
+
+    iget-object p6, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    iget-object p7, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mNetworkRequest:Landroid/net/NetworkRequest;
+
+    iget-object v0, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mNetworkCallback:Lcom/android/settingslib/wifi/WifiStatusTracker$1;
+
+    iget-object v1, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p6, p7, v0, v1}, Landroid/net/ConnectivityManager;->registerNetworkCallback(Landroid/net/NetworkRequest;Landroid/net/ConnectivityManager$NetworkCallback;Landroid/os/Handler;)V
+
+    iget-object p6, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    iget-object p7, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mDefaultNetworkCallback:Lcom/android/settingslib/wifi/WifiStatusTracker$2;
+
+    iget-object p4, p4, Lcom/android/settingslib/wifi/WifiStatusTracker;->mHandler:Landroid/os/Handler;
+
+    invoke-virtual {p6, p7, p4}, Landroid/net/ConnectivityManager;->registerDefaultNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;Landroid/os/Handler;)V
 
     iput-boolean p2, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mHasMobileDataFeature:Z
 
@@ -104,9 +138,7 @@
 
     new-instance p2, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;
 
-    const/4 p4, 0x0
-
-    invoke-direct {p2, p0, p4}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;-><init>(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;Lcom/android/systemui/statusbar/connectivity/WifiSignalController$1;)V
+    invoke-direct {p2, p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;-><init>(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;)V
 
     invoke-virtual {p5, p1, p2}, Landroid/net/wifi/WifiManager;->registerTrafficStateCallback(Ljava/util/concurrent/Executor;Landroid/net/wifi/WifiManager$TrafficStateCallback;)V
 
@@ -115,132 +147,306 @@
 
     check-cast p1, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mLastState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mLastState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    check-cast p2, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    check-cast p0, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    iput-object p3, p2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
 
     iput-object p3, p1, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
-
-    invoke-virtual {p8}, Lcom/android/systemui/flags/FeatureFlags;->isProviderModelSettingEnabled()Z
-
-    move-result p1
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mProviderModelSetting:Z
 
     return-void
 .end method
 
-.method private copyWifiStates()V
-    .locals 4
+
+# virtual methods
+.method public final cleanState()Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+    .locals 0
+
+    new-instance p0, Lcom/android/systemui/statusbar/connectivity/WifiState;
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/connectivity/WifiState;-><init>()V
+
+    return-object p0
+.end method
+
+.method public final copyWifiStates()V
+    .locals 7
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mBgHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/os/Looper;->isCurrentThread()Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/internal/util/Preconditions;->checkState(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    iget-boolean v3, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->enabled:Z
-
-    iput-boolean v3, v1, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v3, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->isDefaultNetwork:Z
-
-    iput-boolean v3, v1, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v3, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->connected:Z
-
-    iput-boolean v3, v1, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-object v3, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
-
-    iput-object v3, v1, Lcom/android/systemui/statusbar/connectivity/WifiState;->ssid:Ljava/lang/String;
-
     check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    iget v1, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->rssi:I
+    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
-    iput v1, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->rssi:I
+    iget-boolean v2, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->enabled:Z
 
-    iget v0, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->level:I
+    iput-boolean v2, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->notifyWifiLevelChangeIfNecessary(I)V
+    iget-boolean v2, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->isDefaultNetwork:Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+    iput-boolean v2, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
 
-    move-object v1, v0
+    iget-boolean v2, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->connected:Z
 
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    iput-boolean v2, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
+    iget-object v2, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->ssid:Ljava/lang/String;
 
-    iget v3, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->level:I
+    iput-object v2, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->ssid:Ljava/lang/String;
 
-    iput v3, v1, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->level:I
+    iget v2, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->rssi:I
 
-    move-object v1, v0
+    iput v2, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->rssi:I
 
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    iget v2, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->level:I
 
-    iget-object v3, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->statusLabel:Ljava/lang/String;
+    iget v3, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->level:I
 
-    iput-object v3, v1, Lcom/android/systemui/statusbar/connectivity/WifiState;->statusLabel:Ljava/lang/String;
+    const/4 v4, 0x1
 
-    move-object v1, v0
+    const/4 v5, 0x0
 
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    if-eq v2, v3, :cond_0
 
-    iget-boolean v3, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->isCarrierMerged:Z
-
-    iput-boolean v3, v1, Lcom/android/systemui/statusbar/connectivity/WifiState;->isCarrierMerged:Z
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget v2, v2, Lcom/android/settingslib/wifi/WifiStatusTracker;->subId:I
-
-    iput v2, v1, Lcom/android/systemui/statusbar/connectivity/WifiState;->subId:I
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->isCarrierMerged:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mCarrierMergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+    move v2, v4
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mUnmergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+    move v2, v5
 
     :goto_0
-    iput-object p0, v1, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+    iput v3, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->level:I
+
+    iget-object v6, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->statusLabel:Ljava/lang/String;
+
+    iput-object v6, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->statusLabel:Ljava/lang/String;
+
+    iget-boolean v6, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->isCarrierMerged:Z
+
+    iput-boolean v6, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->isCarrierMerged:Z
+
+    iget v1, v1, Lcom/android/settingslib/wifi/WifiStatusTracker;->subId:I
+
+    iput v1, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->subId:I
+
+    if-eqz v6, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mCarrierMergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mUnmergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+
+    :goto_1
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+
+    if-eqz v2, :cond_4
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+
+    :goto_2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mMobileSignalControllers:Landroid/util/SparseArray;
+
+    invoke-virtual {v0}, Landroid/util/SparseArray;->size()I
+
+    move-result v0
+
+    if-ge v5, v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mMobileSignalControllers:Landroid/util/SparseArray;
+
+    invoke-virtual {v0, v5}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+
+    iget-boolean v1, v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mProviderModelBehavior:Z
+
+    if-nez v1, :cond_2
+
+    goto :goto_3
+
+    :cond_2
+    iput v3, v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWlanLevel:I
+
+    iget v1, v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mImsType:I
+
+    const/4 v2, 0x2
+
+    if-eq v1, v2, :cond_3
+
+    goto :goto_3
+
+    :cond_3
+    new-instance v1, Lcom/android/systemui/statusbar/connectivity/IconState;
+
+    invoke-static {v3, v4}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthIcon(IZ)I
+
+    move-result v2
+
+    invoke-virtual {v0, v3, v4}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthDescription(IZ)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-direct {v1, v2, v6, v4}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
+
+    invoke-virtual {v2}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
+
+    :goto_3
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_2
+
+    :cond_4
+    return-void
+.end method
+
+.method public final doInBackground(Ljava/lang/Runnable;)V
+    .locals 2
+
+    invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mBgHandler:Landroid/os/Handler;
+
+    invoke-virtual {v1}, Landroid/os/Handler;->getLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/os/Looper;->getThread()Ljava/lang/Thread;
+
+    move-result-object v1
+
+    if-eq v0, v1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mBgHandler:Landroid/os/Handler;
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_0
+
+    :cond_0
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
+    :goto_0
+    return-void
+.end method
+
+.method public final dump(Ljava/io/PrintWriter;)V
+    .locals 7
+
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalController;->dump(Ljava/io/PrintWriter;)V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const-string v1, "  - WiFi Network History ------"
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    :goto_0
+    const/16 v3, 0x20
+
+    if-ge v1, v3, :cond_1
+
+    iget-object v3, v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mHistory:[Ljava/lang/String;
+
+    aget-object v3, v3, v1
+
+    if-eqz v3, :cond_0
+
+    add-int/lit8 v2, v2, 0x1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget v1, v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mHistoryIndex:I
+
+    add-int/2addr v1, v3
+
+    :goto_1
+    add-int/lit8 v1, v1, -0x1
+
+    iget v4, v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mHistoryIndex:I
+
+    add-int/2addr v4, v3
+
+    sub-int/2addr v4, v2
+
+    if-lt v1, v4, :cond_2
+
+    const-string v4, "  Previous WiFiNetwork("
+
+    invoke-static {v4}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mHistoryIndex:I
+
+    add-int/2addr v5, v3
+
+    sub-int/2addr v5, v1
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v5, "): "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v5, v0, Lcom/android/settingslib/wifi/WifiStatusTracker;->mHistory:[Ljava/lang/String;
+
+    and-int/lit8 v6, v1, 0x1f
+
+    aget-object v5, v5, v6
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v4}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalController;->dumpTableData(Ljava/io/PrintWriter;)V
 
     return-void
 .end method
 
-.method private getCurrentIconIdForCarrierWifi()I
+.method public final getCurrentIconIdForCarrierWifi()I
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
@@ -261,11 +467,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    move-object v3, p0
+    check-cast p0, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget v3, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
+    iget v3, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
 
     const/4 v4, 0x0
 
@@ -277,258 +481,265 @@
     move v2, v4
 
     :goto_0
-    move-object v3, p0
-
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v3, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
-
-    if-eqz v3, :cond_1
-
-    invoke-static {v0, v1, v2}, Lcom/android/settingslib/graph/SignalDrawable;->getState(IIZ)I
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    check-cast p0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
-
-    if-eqz p0, :cond_2
-
-    invoke-static {v1}, Lcom/android/settingslib/graph/SignalDrawable;->getEmptyState(I)I
-
-    move-result p0
-
-    return p0
-
-    :cond_2
-    return v4
-.end method
-
-.method private getQsCurrentIconIdForCarrierWifi()I
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->getCurrentIconIdForCarrierWifi()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private handleStatusUpdated()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->copyWifiStates()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyListenersIfNecessary()V
-
-    return-void
-.end method
-
-.method private notifyListenersForCarrierWifi(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
-    .locals 17
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mCarrierMergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getContentDescription()I
-
-    move-result v2
-
-    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getTextIfExists(I)Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    iget v3, v1, Lcom/android/settingslib/SignalIcon$MobileIconGroup;->dataContentDescription:I
-
-    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getTextIfExists(I)Ljava/lang/CharSequence;
-
-    move-result-object v12
-
-    invoke-interface {v12}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    invoke-static {v3, v4}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v5, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    check-cast v5, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget v5, v5, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
-
-    if-nez v5, :cond_0
-
-    iget-object v3, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mContext:Landroid/content/Context;
-
-    sget v5, Lcom/android/systemui/R$string;->data_connection_no_internet:I
-
-    invoke-virtual {v3, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    :cond_0
-    move-object v11, v3
-
-    iget-object v3, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    move-object v5, v3
-
-    check-cast v5, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v5, v5, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
-
-    if-eqz v5, :cond_1
-
-    move-object v5, v3
-
-    check-cast v5, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v5, v5, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
-
-    if-eqz v5, :cond_1
-
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v3, v3, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
-
-    if-eqz v3, :cond_1
-
-    const/4 v3, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    move v3, v4
-
-    :goto_0
-    new-instance v5, Lcom/android/systemui/statusbar/connectivity/IconState;
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->getCurrentIconIdForCarrierWifi()I
-
-    move-result v6
-
-    invoke-direct {v5, v3, v6, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
     if-eqz v3, :cond_2
 
-    iget v6, v1, Lcom/android/settingslib/SignalIcon$MobileIconGroup;->dataType:I
+    sget p0, Lcom/android/settingslib/graph/SignalDrawable;->$r8$clinit:I
 
-    move v7, v6
+    if-eqz v2, :cond_1
 
-    goto :goto_1
+    const/4 v4, 0x2
+
+    :cond_1
+    shl-int/lit8 p0, v4, 0x10
+
+    shl-int/lit8 v1, v1, 0x8
+
+    or-int/2addr p0, v1
+
+    or-int/2addr p0, v0
+
+    return p0
 
     :cond_2
-    move v7, v4
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
 
-    :goto_1
-    const/4 v6, 0x0
+    if-eqz p0, :cond_3
 
-    if-eqz v3, :cond_3
+    sget p0, Lcom/android/settingslib/graph/SignalDrawable;->$r8$clinit:I
 
-    iget v1, v1, Lcom/android/settingslib/SignalIcon$MobileIconGroup;->dataType:I
+    const/high16 p0, 0x20000
 
-    new-instance v3, Lcom/android/systemui/statusbar/connectivity/IconState;
+    shl-int/lit8 v0, v1, 0x8
 
-    iget-object v4, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+    or-int/2addr p0, v0
 
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    or-int/2addr p0, v4
 
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->getQsCurrentIconIdForCarrierWifi()I
-
-    move-result v6
-
-    invoke-direct {v3, v4, v6, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
-
-    move v8, v1
-
-    move-object v6, v3
-
-    goto :goto_2
+    return p0
 
     :cond_3
-    move v8, v4
-
-    :goto_2
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    check-cast v2, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget v2, v2, Lcom/android/systemui/statusbar/connectivity/WifiState;->subId:I
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->getNetworkNameForCarrierWiFi(I)Ljava/lang/String;
-
-    move-result-object v13
-
-    new-instance v1, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    move-object v2, v0
-
-    check-cast v2, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v9, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityIn:Z
-
-    move-object v2, v0
-
-    check-cast v2, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v10, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityOut:Z
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget v14, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->subId:I
-
-    const/4 v15, 0x0
-
-    const/16 v16, 0x1
-
-    move-object v4, v1
-
-    invoke-direct/range {v4 .. v16}, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;-><init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZ)V
-
-    move-object/from16 v0, p1
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
-
-    return-void
+    return v4
 .end method
 
-.method private notifyListenersForNonCarrierWifi(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
-    .locals 17
+.method public final notifyListeners(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
+    .locals 22
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+
+    check-cast v2, Lcom/android/systemui/statusbar/connectivity/WifiState;
+
+    iget-boolean v3, v2, Lcom/android/systemui/statusbar/connectivity/WifiState;->isCarrierMerged:Z
+
+    const v4, 0x7f13027b
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x1
+
+    if-eqz v3, :cond_6
+
+    iget-boolean v2, v2, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
+
+    if-nez v2, :cond_0
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+
+    iget-boolean v2, v2, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mAirplaneMode:Z
+
+    xor-int/2addr v2, v7
+
+    if-nez v2, :cond_14
+
+    :cond_0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mCarrierMergedWifiIconGroup:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getContentDescription()I
+
+    move-result v3
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getTextIfExists(I)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    iget v8, v2, Lcom/android/settingslib/SignalIcon$MobileIconGroup;->dataContentDescription:I
+
+    invoke-virtual {v0, v8}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getTextIfExists(I)Ljava/lang/CharSequence;
+
+    move-result-object v17
+
+    invoke-interface/range {v17 .. v17}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v8, v6}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    iget-object v9, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+
+    check-cast v9, Lcom/android/systemui/statusbar/connectivity/WifiState;
+
+    iget v9, v9, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
+
+    if-nez v9, :cond_1
+
+    iget-object v8, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    move-object/from16 v16, v4
+
+    goto :goto_0
+
+    :cond_1
+    move-object/from16 v16, v8
+
+    :goto_0
+    iget-object v4, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+
+    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
+
+    iget-boolean v8, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
+
+    if-eqz v8, :cond_2
+
+    iget-boolean v8, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
+
+    if-eqz v8, :cond_2
+
+    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
+
+    if-eqz v4, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    move v7, v6
+
+    :goto_1
+    new-instance v10, Lcom/android/systemui/statusbar/connectivity/IconState;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->getCurrentIconIdForCarrierWifi()I
+
+    move-result v4
+
+    invoke-direct {v10, v4, v3, v7}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
+
+    if-eqz v7, :cond_3
+
+    iget v4, v2, Lcom/android/settingslib/SignalIcon$MobileIconGroup;->dataType:I
+
+    move v12, v4
+
+    goto :goto_2
+
+    :cond_3
+    move v12, v6
+
+    :goto_2
+    if-eqz v7, :cond_4
+
+    iget v6, v2, Lcom/android/settingslib/SignalIcon$MobileIconGroup;->dataType:I
+
+    new-instance v5, Lcom/android/systemui/statusbar/connectivity/IconState;
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+
+    check-cast v2, Lcom/android/systemui/statusbar/connectivity/WifiState;
+
+    iget-boolean v2, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->getCurrentIconIdForCarrierWifi()I
+
+    move-result v4
+
+    invoke-direct {v5, v4, v3, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
+
+    :cond_4
+    move-object v11, v5
+
+    move v13, v6
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+
+    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
+
+    iget v3, v3, Lcom/android/systemui/statusbar/connectivity/WifiState;->subId:I
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->getControllerWithSubId(I)Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_5
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mPhone:Landroid/telephony/TelephonyManager;
+
+    invoke-virtual {v2}, Landroid/telephony/TelephonyManager;->getSimOperatorName()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_3
+
+    :cond_5
+    const-string v2, ""
+
+    :goto_3
+    move-object/from16 v18, v2
+
+    new-instance v2, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+
+    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
+
+    iget-boolean v14, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityIn:Z
+
+    iget-boolean v15, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityOut:Z
+
+    iget v0, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->subId:I
+
+    const/16 v20, 0x0
+
+    const/16 v21, 0x1
+
+    move-object v9, v2
+
+    move/from16 v19, v0
+
+    invoke-direct/range {v9 .. v21}, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;-><init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZ)V
+
+    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
+
+    goto/16 :goto_d
+
+    :cond_6
     iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    sget v3, Lcom/android/systemui/R$bool;->config_showWifiIndicatorWhenEnabled:I
+    const v3, 0x7f050039
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -536,133 +747,97 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    move-object v4, v3
+    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    iget-boolean v8, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
 
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
+    if-eqz v8, :cond_9
 
-    const/4 v5, 0x0
+    iget-boolean v8, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
-    const/4 v6, 0x1
+    if-eqz v8, :cond_7
 
-    if-eqz v4, :cond_2
+    iget v8, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
 
-    move-object v4, v3
+    if-eq v8, v7, :cond_8
 
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    :cond_7
+    iget-boolean v8, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mHasMobileDataFeature:Z
 
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
+    if-eqz v8, :cond_8
 
-    if-eqz v4, :cond_0
+    iget-boolean v8, v3, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
 
-    move-object v4, v3
+    if-nez v8, :cond_8
 
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    if-eqz v2, :cond_9
 
-    iget v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
+    :cond_8
+    move v2, v7
 
-    if-eq v4, v6, :cond_1
+    goto :goto_4
 
-    :cond_0
-    iget-boolean v4, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mHasMobileDataFeature:Z
-
-    if-eqz v4, :cond_1
-
-    move-object v4, v3
-
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
-
-    if-nez v4, :cond_1
-
-    if-eqz v2, :cond_2
-
-    :cond_1
+    :cond_9
     move v2, v6
 
-    goto :goto_0
+    :goto_4
+    iget-boolean v8, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
-    :cond_2
-    move v2, v5
+    if-eqz v8, :cond_a
 
-    :goto_0
-    move-object v4, v3
+    iget-object v8, v3, Lcom/android/systemui/statusbar/connectivity/WifiState;->ssid:Ljava/lang/String;
 
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    move-object v15, v8
 
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
+    goto :goto_5
 
-    const/4 v7, 0x0
+    :cond_a
+    move-object v15, v5
 
-    if-eqz v4, :cond_3
-
-    move-object v4, v3
-
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-object v4, v4, Lcom/android/systemui/statusbar/connectivity/WifiState;->ssid:Ljava/lang/String;
-
-    move-object v14, v4
-
-    goto :goto_1
-
-    :cond_3
-    move-object v14, v7
-
-    :goto_1
-    if-eqz v2, :cond_4
-
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    :goto_5
+    if-eqz v2, :cond_b
 
     iget-object v3, v3, Lcom/android/systemui/statusbar/connectivity/WifiState;->ssid:Ljava/lang/String;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_b
 
+    move v3, v7
+
+    goto :goto_6
+
+    :cond_b
     move v3, v6
 
-    goto :goto_2
-
-    :cond_4
-    move v3, v5
-
-    :goto_2
+    :goto_6
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getContentDescription()I
 
-    move-result v4
+    move-result v8
 
-    invoke-virtual {v0, v4}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getTextIfExists(I)Ljava/lang/CharSequence;
+    invoke-virtual {v0, v8}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getTextIfExists(I)Ljava/lang/CharSequence;
 
-    move-result-object v4
+    move-result-object v8
 
-    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v8}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v8
 
-    iget-object v8, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+    iget-object v9, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    check-cast v8, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    check-cast v9, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    iget v8, v8, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
+    iget v9, v9, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
 
-    if-nez v8, :cond_5
+    if-nez v9, :cond_c
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    const-string v9, ","
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v8, v9}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v8
 
-    const-string v4, ","
+    iget-object v9, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mContext:Landroid/content/Context;
-
-    sget v9, Lcom/android/systemui/R$string;->data_connection_no_internet:I
-
-    invoke-virtual {v4, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v9, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
@@ -670,20 +845,16 @@
 
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v8
 
-    :cond_5
-    iget-boolean v8, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mProviderModelSetting:Z
-
-    if-eqz v8, :cond_b
-
-    new-instance v10, Lcom/android/systemui/statusbar/connectivity/IconState;
+    :cond_c
+    new-instance v11, Lcom/android/systemui/statusbar/connectivity/IconState;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getCurrentIconId()I
 
-    move-result v8
+    move-result v4
 
-    invoke-direct {v10, v2, v8, v4}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v11, v4, v8, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
@@ -691,402 +862,153 @@
 
     iget-boolean v2, v2, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_e
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->isRadioOn()Z
+    iget-boolean v4, v2, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mAirplaneMode:Z
+
+    xor-int/2addr v4, v7
+
+    if-nez v4, :cond_d
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mConnectedTransports:Ljava/util/BitSet;
+
+    const/4 v4, 0x3
+
+    invoke-virtual {v2, v4}, Ljava/util/BitSet;->get(I)Z
 
     move-result v2
 
-    if-nez v2, :cond_6
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->isEthernetDefault()Z
-
-    move-result v2
-
-    if-nez v2, :cond_6
-
-    goto :goto_4
-
-    :cond_6
-    :goto_3
-    move-object v11, v7
-
-    goto :goto_6
-
-    :cond_7
-    :goto_4
-    new-instance v7, Lcom/android/systemui/statusbar/connectivity/IconState;
-
-    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    check-cast v2, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v2, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
-
-    iget-object v8, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    iget-boolean v8, v8, Lcom/android/settingslib/wifi/WifiStatusTracker;->isCaptivePortal:Z
-
-    if-eqz v8, :cond_8
-
-    sget v8, Lcom/android/systemui/R$drawable;->ic_qs_wifi_disconnected:I
-
-    goto :goto_5
-
-    :cond_8
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getQsCurrentIconId()I
-
-    move-result v8
-
-    :goto_5
-    invoke-direct {v7, v2, v8, v4}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
-
-    goto :goto_3
-
-    :goto_6
-    new-instance v2, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    move-object v4, v0
-
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v9, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
-
-    if-eqz v3, :cond_9
-
-    move-object v4, v0
-
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityIn:Z
-
-    if-eqz v4, :cond_9
-
-    move v12, v6
-
-    goto :goto_7
-
-    :cond_9
-    move v12, v5
-
-    :goto_7
-    if-eqz v3, :cond_a
-
-    move-object v3, v0
-
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v3, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityOut:Z
-
-    if-eqz v3, :cond_a
-
-    move v13, v6
+    if-nez v2, :cond_d
 
     goto :goto_8
 
-    :cond_a
-    move v13, v5
+    :cond_d
+    :goto_7
+    move-object v12, v5
 
+    goto :goto_a
+
+    :cond_e
     :goto_8
-    move-object v3, v0
-
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v15, v3, Lcom/android/systemui/statusbar/connectivity/WifiState;->isTransient:Z
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->statusLabel:Ljava/lang/String;
-
-    move-object v8, v2
-
-    move-object/from16 v16, v0
-
-    invoke-direct/range {v8 .. v16}, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;-><init>(ZLcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;ZZLjava/lang/String;ZLjava/lang/String;)V
-
-    invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
-
-    goto :goto_c
-
-    :cond_b
-    new-instance v10, Lcom/android/systemui/statusbar/connectivity/IconState;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getCurrentIconId()I
-
-    move-result v7
-
-    invoke-direct {v10, v2, v7, v4}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
-
-    new-instance v11, Lcom/android/systemui/statusbar/connectivity/IconState;
+    new-instance v5, Lcom/android/systemui/statusbar/connectivity/IconState;
 
     iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    check-cast v2, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    move-object v4, v2
 
-    iget-boolean v2, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
+    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    iget-object v7, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
+    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
-    iget-boolean v7, v7, Lcom/android/settingslib/wifi/WifiStatusTracker;->isCaptivePortal:Z
+    iget-object v9, v0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
-    if-eqz v7, :cond_c
+    iget-boolean v9, v9, Lcom/android/settingslib/wifi/WifiStatusTracker;->isCaptivePortal:Z
 
-    sget v7, Lcom/android/systemui/R$drawable;->ic_qs_wifi_disconnected:I
+    if-eqz v9, :cond_f
+
+    const v2, 0x7f08064e
 
     goto :goto_9
 
-    :cond_c
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getQsCurrentIconId()I
+    :cond_f
+    iget-boolean v9, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
-    move-result v7
+    if-eqz v9, :cond_10
+
+    iget-object v9, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+
+    iget-object v9, v9, Lcom/android/settingslib/SignalIcon$IconGroup;->qsIcons:[[I
+
+    iget v10, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
+
+    aget-object v9, v9, v10
+
+    iget v2, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->level:I
+
+    aget v2, v9, v2
+
+    goto :goto_9
+
+    :cond_10
+    iget-boolean v9, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
+
+    if-eqz v9, :cond_11
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+
+    iget v2, v2, Lcom/android/settingslib/SignalIcon$IconGroup;->qsDiscState:I
+
+    goto :goto_9
+
+    :cond_11
+    iget-object v2, v2, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
+
+    iget v2, v2, Lcom/android/settingslib/SignalIcon$IconGroup;->qsNullState:I
 
     :goto_9
-    invoke-direct {v11, v2, v7, v4}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v5, v2, v8, v4}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
 
+    goto :goto_7
+
+    :goto_a
     new-instance v2, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    move-object v4, v0
+    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    iget-boolean v10, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
 
-    iget-boolean v9, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->enabled:Z
+    if-eqz v3, :cond_12
 
-    if-eqz v3, :cond_d
+    iget-boolean v4, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityIn:Z
 
-    move-object v4, v0
+    if-eqz v4, :cond_12
 
-    check-cast v4, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v4, v4, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityIn:Z
-
-    if-eqz v4, :cond_d
-
-    move v12, v6
-
-    goto :goto_a
-
-    :cond_d
-    move v12, v5
-
-    :goto_a
-    if-eqz v3, :cond_e
-
-    move-object v3, v0
-
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v3, v3, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityOut:Z
-
-    if-eqz v3, :cond_e
-
-    move v13, v6
+    move v13, v7
 
     goto :goto_b
 
-    :cond_e
-    move v13, v5
+    :cond_12
+    move v13, v6
 
     :goto_b
-    move-object v3, v0
+    if-eqz v3, :cond_13
 
-    check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    iget-boolean v3, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->activityOut:Z
 
-    iget-boolean v15, v3, Lcom/android/systemui/statusbar/connectivity/WifiState;->isTransient:Z
+    if-eqz v3, :cond_13
 
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
+    move v14, v7
+
+    goto :goto_c
+
+    :cond_13
+    move v14, v6
+
+    :goto_c
+    iget-boolean v3, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->isTransient:Z
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->statusLabel:Ljava/lang/String;
 
-    move-object v8, v2
+    move-object v9, v2
 
-    move-object/from16 v16, v0
+    move/from16 v16, v3
 
-    invoke-direct/range {v8 .. v16}, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;-><init>(ZLcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;ZZLjava/lang/String;ZLjava/lang/String;)V
+    move-object/from16 v17, v0
+
+    invoke-direct/range {v9 .. v17}, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;-><init>(ZLcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;ZZLjava/lang/String;ZLjava/lang/String;)V
 
     invoke-interface {v1, v2}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
 
-    :goto_c
+    :cond_14
+    :goto_d
     return-void
 .end method
 
-
-# virtual methods
-.method protected bridge synthetic cleanState()Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->cleanState()Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected cleanState()Lcom/android/systemui/statusbar/connectivity/WifiState;
-    .locals 0
-
-    new-instance p0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/connectivity/WifiState;-><init>()V
-
-    return-object p0
-.end method
-
-.method public dump(Ljava/io/PrintWriter;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalController;->dump(Ljava/io/PrintWriter;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->dump(Ljava/io/PrintWriter;)V
-
-    return-void
-.end method
-
-.method public fetchInitialState()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->fetchInitialState()V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->copyWifiStates()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyListenersIfNecessary()V
-
-    return-void
-.end method
-
-.method public handleBroadcast(Landroid/content/Intent;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-virtual {v0, p1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->handleBroadcast(Landroid/content/Intent;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->copyWifiStates()V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyListenersIfNecessary()V
-
-    return-void
-.end method
-
-.method isCarrierMergedWifi(I)Z
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    move-object v0, p0
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
-
-    if-eqz v0, :cond_0
-
-    move-object v0, p0
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->isCarrierMerged:Z
-
-    if-eqz v0, :cond_0
-
-    check-cast p0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiState;->subId:I
-
-    if-ne p0, p1, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public notifyListeners(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v1, v1, Lcom/android/systemui/statusbar/connectivity/WifiState;->isCarrierMerged:Z
-
-    if-eqz v1, :cond_1
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/WifiState;->isDefault:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->isRadioOn()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    :cond_0
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->notifyListenersForCarrierWifi(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
-
-    goto :goto_0
-
-    :cond_1
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->notifyListenersForNonCarrierWifi(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
-
-    :cond_2
-    :goto_0
-    return-void
-.end method
-
-.method notifyWifiLevelChangeIfNecessary(I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/WifiState;
-
-    iget v0, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->level:I
-
-    if-eq p1, v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mNetworkController:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->notifyWifiLevelChange(I)V
-
-    :cond_0
-    return-void
-.end method
-
-.method refreshLocale()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController;->mWifiTracker:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->refreshLocale()V
-
-    return-void
-.end method
-
-.method setActivity(I)V
+.method public setActivity(I)V
     .locals 6
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation

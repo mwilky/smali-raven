@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieAnimationView$4;
+.class public final Lcom/airbnb/lottie/LottieAnimationView$4;
 .super Lcom/airbnb/lottie/value/LottieValueCallback;
 .source "LottieAnimationView.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -22,18 +22,14 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieAnimationView;
-
-.field final synthetic val$callback:Lcom/airbnb/lottie/value/SimpleLottieValueCallback;
+.field public final synthetic val$callback:Lcom/airbnb/lottie/value/SimpleLottieValueCallback;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieAnimationView;Lcom/airbnb/lottie/value/SimpleLottieValueCallback;)V
+.method public constructor <init>(Lcom/airbnb/lottie/value/SimpleLottieValueCallback;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/airbnb/lottie/LottieAnimationView$4;->this$0:Lcom/airbnb/lottie/LottieAnimationView;
-
-    iput-object p2, p0, Lcom/airbnb/lottie/LottieAnimationView$4;->val$callback:Lcom/airbnb/lottie/value/SimpleLottieValueCallback;
+    iput-object p1, p0, Lcom/airbnb/lottie/LottieAnimationView$4;->val$callback:Lcom/airbnb/lottie/value/SimpleLottieValueCallback;
 
     invoke-direct {p0}, Lcom/airbnb/lottie/value/LottieValueCallback;-><init>()V
 
@@ -42,7 +38,7 @@
 
 
 # virtual methods
-.method public getValue(Lcom/airbnb/lottie/value/LottieFrameInfo;)Ljava/lang/Object;
+.method public final getValue(Lcom/airbnb/lottie/value/LottieFrameInfo;)Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +50,7 @@
 
     iget-object p0, p0, Lcom/airbnb/lottie/LottieAnimationView$4;->val$callback:Lcom/airbnb/lottie/value/SimpleLottieValueCallback;
 
-    invoke-interface {p0, p1}, Lcom/airbnb/lottie/value/SimpleLottieValueCallback;->getValue(Lcom/airbnb/lottie/value/LottieFrameInfo;)Ljava/lang/Object;
+    invoke-interface {p0}, Lcom/airbnb/lottie/value/SimpleLottieValueCallback;->getValue()Landroid/graphics/PorterDuffColorFilter;
 
     move-result-object p0
 

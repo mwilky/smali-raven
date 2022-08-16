@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final activityManagerProvider:Ljavax/inject/Provider;
+.field public final activityManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,17 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final broadcastSenderProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/broadcast/BroadcastSender;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final imageExporterProvider:Ljavax/inject/Provider;
+.field public final imageExporterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final longScreenshotHolderProvider:Ljavax/inject/Provider;
+.field public final longScreenshotHolderProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final mainExecutorProvider:Ljavax/inject/Provider;
+.field public final mainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final screenshotNotificationsControllerProvider:Ljavax/inject/Provider;
+.field public final screenshotNotificationsControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final screenshotSmartActionsProvider:Ljavax/inject/Provider;
+.field public final screenshotSmartActionsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final scrollCaptureClientProvider:Ljavax/inject/Provider;
+.field public final scrollCaptureClientProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +108,7 @@
     .end annotation
 .end field
 
-.field private final scrollCaptureControllerProvider:Ljavax/inject/Provider;
+.field public final scrollCaptureControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +118,17 @@
     .end annotation
 .end field
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+.field public final timeoutHandlerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/screenshot/TimeoutHandler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -120,43 +140,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/BootCompleteCacheImpl_Factory;Ljavax/inject/Provider;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotSmartActions;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotNotificationsController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScrollCaptureClient;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ImageExporter;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScrollCaptureController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/LongScreenshotData;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/app/ActivityManager;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -180,59 +165,27 @@
 
     iput-object p10, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
 
+    iput-object p11, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->timeoutHandlerProvider:Ljavax/inject/Provider;
+
+    iput-object p12, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->broadcastSenderProvider:Ljavax/inject/Provider;
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/screenshot/ScreenshotController_Factory;
-    .locals 12
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotSmartActions;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotNotificationsController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScrollCaptureClient;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ImageExporter;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScrollCaptureController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/LongScreenshotData;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/app/ActivityManager;",
-            ">;)",
-            "Lcom/android/systemui/screenshot/ScreenshotController_Factory;"
-        }
-    .end annotation
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/BootCompleteCacheImpl_Factory;Ljavax/inject/Provider;)Lcom/android/systemui/screenshot/ScreenshotController_Factory;
+    .locals 14
 
-    new-instance v11, Lcom/android/systemui/screenshot/ScreenshotController_Factory;
+    new-instance v13, Lcom/android/systemui/screenshot/ScreenshotController_Factory;
 
-    move-object v0, v11
+    move-object v0, v13
 
     move-object v1, p0
 
     move-object v2, p1
 
-    move-object v3, p2
+    move-object/from16 v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
     move-object/from16 v5, p4
 
@@ -246,49 +199,19 @@
 
     move-object/from16 v10, p9
 
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/screenshot/ScreenshotController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v11, p10
 
-    return-object v11
-.end method
+    move-object/from16 v12, p11
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/screenshot/ScreenshotSmartActions;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;Lcom/android/systemui/screenshot/ScrollCaptureClient;Lcom/android/internal/logging/UiEventLogger;Ljava/lang/Object;Ljava/util/concurrent/Executor;Lcom/android/systemui/screenshot/ScrollCaptureController;Lcom/android/systemui/screenshot/LongScreenshotData;Landroid/app/ActivityManager;)Lcom/android/systemui/screenshot/ScreenshotController;
-    .locals 12
+    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/screenshot/ScreenshotController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/BootCompleteCacheImpl_Factory;Ljavax/inject/Provider;)V
 
-    new-instance v11, Lcom/android/systemui/screenshot/ScreenshotController;
-
-    move-object/from16 v6, p5
-
-    check-cast v6, Lcom/android/systemui/screenshot/ImageExporter;
-
-    move-object v0, v11
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object/from16 v5, p4
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/screenshot/ScreenshotController;-><init>(Landroid/content/Context;Lcom/android/systemui/screenshot/ScreenshotSmartActions;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;Lcom/android/systemui/screenshot/ScrollCaptureClient;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/screenshot/ImageExporter;Ljava/util/concurrent/Executor;Lcom/android/systemui/screenshot/ScrollCaptureController;Lcom/android/systemui/screenshot/LongScreenshotData;Landroid/app/ActivityManager;)V
-
-    return-object v11
+    return-object v13
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/screenshot/ScreenshotController;
-    .locals 11
+.method public final get()Ljava/lang/Object;
+    .locals 14
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -296,9 +219,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->screenshotSmartActionsProvider:Ljavax/inject/Provider;
 
@@ -306,9 +229,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/screenshot/ScreenshotSmartActions;
+    check-cast v3, Lcom/android/systemui/screenshot/ScreenshotSmartActions;
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->screenshotNotificationsControllerProvider:Ljavax/inject/Provider;
 
@@ -316,9 +239,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;
+    check-cast v4, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->scrollCaptureClientProvider:Ljavax/inject/Provider;
 
@@ -326,9 +249,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/screenshot/ScrollCaptureClient;
+    check-cast v5, Lcom/android/systemui/screenshot/ScrollCaptureClient;
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
@@ -336,69 +259,85 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/internal/logging/UiEventLogger;
+    check-cast v6, Lcom/android/internal/logging/UiEventLogger;
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->imageExporterProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v6
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
     move-result-object v0
 
-    move-object v7, v0
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
-    check-cast v7, Ljava/util/concurrent/Executor;
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->scrollCaptureControllerProvider:Ljavax/inject/Provider;
+    move-result-object v1
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-object v8, v1
 
-    move-result-object v0
+    check-cast v8, Ljava/util/concurrent/Executor;
 
-    move-object v8, v0
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->scrollCaptureControllerProvider:Ljavax/inject/Provider;
 
-    check-cast v8, Lcom/android/systemui/screenshot/ScrollCaptureController;
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->longScreenshotHolderProvider:Ljavax/inject/Provider;
+    move-result-object v1
 
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-object v9, v1
 
-    move-result-object v0
+    check-cast v9, Lcom/android/systemui/screenshot/ScrollCaptureController;
 
-    move-object v9, v0
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->longScreenshotHolderProvider:Ljavax/inject/Provider;
 
-    check-cast v9, Lcom/android/systemui/screenshot/LongScreenshotData;
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
+    move-result-object v1
+
+    move-object v10, v1
+
+    check-cast v10, Lcom/android/systemui/screenshot/LongScreenshotData;
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->activityManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v11, v1
+
+    check-cast v11, Landroid/app/ActivityManager;
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->timeoutHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v12, v1
+
+    check-cast v12, Lcom/android/systemui/screenshot/TimeoutHandler;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->broadcastSenderProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v10, p0
+    move-object v13, p0
 
-    check-cast v10, Landroid/app/ActivityManager;
+    check-cast v13, Lcom/android/systemui/broadcast/BroadcastSender;
 
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/screenshot/ScreenshotSmartActions;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;Lcom/android/systemui/screenshot/ScrollCaptureClient;Lcom/android/internal/logging/UiEventLogger;Ljava/lang/Object;Ljava/util/concurrent/Executor;Lcom/android/systemui/screenshot/ScrollCaptureController;Lcom/android/systemui/screenshot/LongScreenshotData;Landroid/app/ActivityManager;)Lcom/android/systemui/screenshot/ScreenshotController;
+    new-instance p0, Lcom/android/systemui/screenshot/ScreenshotController;
 
-    move-result-object p0
+    move-object v7, v0
 
-    return-object p0
-.end method
+    check-cast v7, Lcom/android/systemui/screenshot/ImageExporter;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    move-object v1, p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotController_Factory;->get()Lcom/android/systemui/screenshot/ScreenshotController;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v13}, Lcom/android/systemui/screenshot/ScreenshotController;-><init>(Landroid/content/Context;Lcom/android/systemui/screenshot/ScreenshotSmartActions;Lcom/android/systemui/screenshot/ScreenshotNotificationsController;Lcom/android/systemui/screenshot/ScrollCaptureClient;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/screenshot/ImageExporter;Ljava/util/concurrent/Executor;Lcom/android/systemui/screenshot/ScrollCaptureController;Lcom/android/systemui/screenshot/LongScreenshotData;Landroid/app/ActivityManager;Lcom/android/systemui/screenshot/TimeoutHandler;Lcom/android/systemui/broadcast/BroadcastSender;)V
 
     return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/ViewState$1;
+.class public final Lcom/android/systemui/statusbar/notification/stack/ViewState$1;
 .super Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 .source "ViewState.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.field public mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;-><init>()V
@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method public getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.method public final getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$1;->mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;

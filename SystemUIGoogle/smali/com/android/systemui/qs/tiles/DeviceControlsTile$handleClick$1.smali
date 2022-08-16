@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;
+.class public final Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;
 .super Ljava/lang/Object;
 .source "DeviceControlsTile.kt"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $animationController:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+.field public final synthetic $animationController:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
-.field final synthetic $intent:Landroid/content/Intent;
+.field public final synthetic $intent:Landroid/content/Intent;
 
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;Landroid/content/Intent;Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;Landroid/content/Intent;Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
@@ -47,37 +47,31 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
+    iget-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    move-result-object v0
-
-    iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
-
-    const/4 v1, 0x1
+    iget v1, v1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_0
+    const/4 v3, 0x1
 
-    move v0, v1
+    if-ne v1, v2, :cond_0
+
+    move v1, v3
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
+    iget-object v0, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getMActivityStarter$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/plugins/ActivityStarter;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$intent:Landroid/content/Intent;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$intent:Landroid/content/Intent;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$handleClick$1;->$animationController:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
-    invoke-interface {v2, v3, v1, p0, v0}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
+    invoke-interface {v0, v2, v3, p0, v1}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
 
     return-void
 .end method

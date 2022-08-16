@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final bgExecutorProvider:Ljavax/inject/Provider;
+.field public final bgExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+.field public final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final mainExecutorProvider:Ljavax/inject/Provider;
+.field public final mainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final resourcesProvider:Ljavax/inject/Provider;
+.field public final resourcesProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final telephonyListenerManagerProvider:Ljavax/inject/Provider;
+.field public final telephonyListenerManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final telephonyManagerProvider:Ljavax/inject/Provider;
+.field public final telephonyManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final wakefulnessLifecycleProvider:Ljavax/inject/Provider;
+.field public final wakefulnessLifecycleProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final wifiManagerProvider:Ljavax/inject/Provider;
+.field public final wifiManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -231,40 +231,10 @@
     return-object v10
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/content/res/Resources;Landroid/net/wifi/WifiManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/keyguard/CarrierTextManager$Builder;
-    .locals 11
-
-    new-instance v10, Lcom/android/keyguard/CarrierTextManager$Builder;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/keyguard/CarrierTextManager$Builder;-><init>(Landroid/content/Context;Landroid/content/res/Resources;Landroid/net/wifi/WifiManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
-
-    return-object v10
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/keyguard/CarrierTextManager$Builder;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -272,9 +242,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->resourcesProvider:Ljavax/inject/Provider;
 
@@ -282,9 +252,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Landroid/content/res/Resources;
+    check-cast v3, Landroid/content/res/Resources;
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->wifiManagerProvider:Ljavax/inject/Provider;
 
@@ -292,9 +262,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Landroid/net/wifi/WifiManager;
+    check-cast v4, Landroid/net/wifi/WifiManager;
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->telephonyManagerProvider:Ljavax/inject/Provider;
 
@@ -302,9 +272,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Landroid/telephony/TelephonyManager;
+    check-cast v5, Landroid/telephony/TelephonyManager;
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
 
@@ -312,9 +282,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/telephony/TelephonyListenerManager;
+    check-cast v6, Lcom/android/systemui/telephony/TelephonyListenerManager;
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->wakefulnessLifecycleProvider:Ljavax/inject/Provider;
 
@@ -322,21 +292,11 @@
 
     move-result-object v0
 
-    move-object v6, v0
-
-    check-cast v6, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
-
-    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
     move-object v7, v0
 
-    check-cast v7, Ljava/util/concurrent/Executor;
+    check-cast v7, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
 
-    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -346,29 +306,31 @@
 
     check-cast v8, Ljava/util/concurrent/Executor;
 
+    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Ljava/util/concurrent/Executor;
+
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    check-cast v10, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->newInstance(Landroid/content/Context;Landroid/content/res/Resources;Landroid/net/wifi/WifiManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/keyguard/KeyguardUpdateMonitor;)Lcom/android/keyguard/CarrierTextManager$Builder;
+    new-instance p0, Lcom/android/keyguard/CarrierTextManager$Builder;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/CarrierTextManager_Builder_Factory;->get()Lcom/android/keyguard/CarrierTextManager$Builder;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/keyguard/CarrierTextManager$Builder;-><init>(Landroid/content/Context;Landroid/content/res/Resources;Landroid/net/wifi/WifiManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
 
     return-object p0
 .end method

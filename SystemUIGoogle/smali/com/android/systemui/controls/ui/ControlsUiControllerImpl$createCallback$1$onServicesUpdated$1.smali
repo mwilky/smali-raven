@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$createCallback$1$onServicesUpdated$1;
+.class public final Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$createCallback$1$onServicesUpdated$1;
 .super Ljava/lang/Object;
 .source "ControlsUiControllerImpl.kt"
 
@@ -6,19 +6,8 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$createCallback$1;->onServicesUpdated(Ljava/util/List;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $lastItems:Ljava/util/List;
+.field public final synthetic $lastItems:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -28,7 +17,7 @@
     .end annotation
 .end field
 
-.field final synthetic $onResult:Lkotlin/jvm/functions/Function1;
+.field public final synthetic $onResult:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function1<",
@@ -41,28 +30,12 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Ljava/util/ArrayList;Lkotlin/jvm/functions/Function1;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ui/SelectionItem;",
-            ">;",
-            "Lkotlin/jvm/functions/Function1<",
-            "-",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ui/SelectionItem;",
-            ">;",
-            "Lkotlin/Unit;",
-            ">;)V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$createCallback$1$onServicesUpdated$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
@@ -82,12 +55,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$createCallback$1$onServicesUpdated$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getParent$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)Landroid/view/ViewGroup;
+    iget-object v0, v0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->parent:Landroid/view/ViewGroup;
 
-    move-result-object v0
+    if-nez v0, :cond_0
 
-    if-eqz v0, :cond_1
+    const/4 v0, 0x0
 
+    :cond_0
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$createCallback$1$onServicesUpdated$1;->$lastItems:Ljava/util/List;
@@ -96,7 +70,7 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$createCallback$1$onServicesUpdated$1;->$onResult:Lkotlin/jvm/functions/Function1;
 
@@ -104,15 +78,6 @@
 
     invoke-interface {v0, p0}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_0
-    return-void
-
     :cond_1
-    const-string p0, "parent"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
+    return-void
 .end method

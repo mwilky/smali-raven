@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4;
+.class public final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4;
 .super Ljava/lang/Object;
 .source "ChallengeDialogs.kt"
 
@@ -6,27 +6,16 @@
 .implements Landroid/content/DialogInterface$OnShowListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/ChallengeDialogs;->createPinDialog(Lcom/android/systemui/controls/ui/ControlViewHolder;ZZLkotlin/jvm/functions/Function0;)Landroid/app/Dialog;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $instructions:I
+.field public final synthetic $instructions:I
 
-.field final synthetic $this_apply:Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;
+.field public final synthetic $this_apply:Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;
 
-.field final synthetic $useAlphaNumeric:Z
+.field public final synthetic $useAlphaNumeric:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;IZ)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;IZ)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4;->$this_apply:Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;
@@ -43,11 +32,11 @@
 
 # virtual methods
 .method public final onShow(Landroid/content/DialogInterface;)V
-    .locals 4
+    .locals 3
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4;->$this_apply:Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;
 
-    sget v0, Lcom/android/systemui/R$id;->controls_pin_input:I
+    const v0, 0x7f0b01c5
 
     invoke-virtual {p1, v0}, Landroid/app/AlertDialog;->requireViewById(I)Landroid/view/View;
 
@@ -61,7 +50,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4;->$this_apply:Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;
 
-    sget v1, Lcom/android/systemui/R$id;->controls_pin_use_alpha:I
+    const v1, 0x7f0b01c6
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->requireViewById(I)Landroid/view/View;
 
@@ -73,18 +62,24 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    sget-object v2, Lcom/android/systemui/controls/ui/ChallengeDialogs;->INSTANCE:Lcom/android/systemui/controls/ui/ChallengeDialogs;
-
-    const-string v3, "editText"
-
-    invoke-static {p1, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
-    move-result v3
+    move-result v2
 
-    invoke-static {v2, p1, v3}, Lcom/android/systemui/controls/ui/ChallengeDialogs;->access$setInputType(Lcom/android/systemui/controls/ui/ChallengeDialogs;Landroid/widget/EditText;Z)V
+    if-eqz v2, :cond_0
 
+    const/16 v2, 0x81
+
+    invoke-virtual {p1, v2}, Landroid/widget/EditText;->setInputType(I)V
+
+    goto :goto_0
+
+    :cond_0
+    const/16 v2, 0x12
+
+    invoke-virtual {p1, v2}, Landroid/widget/EditText;->setInputType(I)V
+
+    :goto_0
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4;->$this_apply:Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$1;
 
     invoke-virtual {p0, v1}, Landroid/app/AlertDialog;->requireViewById(I)Landroid/view/View;

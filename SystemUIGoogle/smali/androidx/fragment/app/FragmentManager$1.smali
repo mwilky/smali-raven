@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/FragmentManager$1;
+.class public final Landroidx/fragment/app/FragmentManager$1;
 .super Landroidx/activity/OnBackPressedCallback;
 .source "FragmentManager.java"
 
@@ -9,34 +9,52 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/FragmentManager;
+.field public final synthetic this$0:Landroidx/fragment/app/FragmentManager;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/FragmentManager;Z)V
+.method public constructor <init>(Landroidx/fragment/app/FragmentManager;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/FragmentManager$1;->this$0:Landroidx/fragment/app/FragmentManager;
 
-    invoke-direct {p0, p2}, Landroidx/activity/OnBackPressedCallback;-><init>(Z)V
+    invoke-direct {p0}, Landroidx/activity/OnBackPressedCallback;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleOnBackPressed()V
-    .locals 0
+.method public final handleOnBackPressed()V
+    .locals 1
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentManager$1;->this$0:Landroidx/fragment/app/FragmentManager;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/FragmentManager;->handleOnBackPressed()V
+    const/4 v0, 0x1
 
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentManager;->execPendingActions(Z)Z
+
+    iget-object v0, p0, Landroidx/fragment/app/FragmentManager;->mOnBackPressedCallback:Landroidx/fragment/app/FragmentManager$1;
+
+    iget-boolean v0, v0, Landroidx/activity/OnBackPressedCallback;->mEnabled:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/FragmentManager;->popBackStackImmediate$1()Z
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Landroidx/fragment/app/FragmentManager;->mOnBackPressedDispatcher:Landroidx/activity/OnBackPressedDispatcher;
+
+    invoke-virtual {p0}, Landroidx/activity/OnBackPressedDispatcher;->onBackPressed()V
+
+    :goto_0
     return-void
 .end method

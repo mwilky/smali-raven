@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/SnapHelper$1;
+.class public final Landroidx/recyclerview/widget/SnapHelper$1;
 .super Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;
 .source "SnapHelper.java"
 
@@ -9,28 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field mScrolled:Z
+.field public mScrolled:Z
 
-.field final synthetic this$0:Landroidx/recyclerview/widget/SnapHelper;
+.field public final synthetic this$0:Landroidx/recyclerview/widget/SnapHelper;
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/SnapHelper;)V
+.method public constructor <init>(Landroidx/recyclerview/widget/SnapHelper;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/SnapHelper$1;->this$0:Landroidx/recyclerview/widget/SnapHelper;
 
@@ -45,22 +37,10 @@
 
 
 # virtual methods
-.method public onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
+.method public final onScrollStateChanged(ILandroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "newState"
-        }
-    .end annotation
 
-    invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$OnScrollListener;->onScrollStateChanged(Landroidx/recyclerview/widget/RecyclerView;I)V
-
-    if-nez p2, :cond_0
+    if-nez p1, :cond_0
 
     iget-boolean p1, p0, Landroidx/recyclerview/widget/SnapHelper$1;->mScrolled:Z
 
@@ -78,20 +58,8 @@
     return-void
 .end method
 
-.method public onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
+.method public final onScrolled(Landroidx/recyclerview/widget/RecyclerView;II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "recyclerView",
-            "dx",
-            "dy"
-        }
-    .end annotation
 
     if-nez p2, :cond_0
 

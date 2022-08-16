@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/MagnifierView$1;
+.class public final Lcom/android/systemui/screenshot/MagnifierView$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "MagnifierView.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/screenshot/MagnifierView;
+.field public final synthetic this$0:Lcom/android/systemui/screenshot/MagnifierView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/screenshot/MagnifierView;)V
+.method public constructor <init>(Lcom/android/systemui/screenshot/MagnifierView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/MagnifierView$1;->this$0:Lcom/android/systemui/screenshot/MagnifierView;
@@ -31,26 +31,26 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/MagnifierView$1;->this$0:Lcom/android/systemui/screenshot/MagnifierView;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/screenshot/MagnifierView;->access$002(Lcom/android/systemui/screenshot/MagnifierView;Landroid/view/ViewPropertyAnimator;)Landroid/view/ViewPropertyAnimator;
+    iput-object p1, p0, Lcom/android/systemui/screenshot/MagnifierView;->mTranslationAnimator:Landroid/view/ViewPropertyAnimator;
 
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/MagnifierView$1;->this$0:Lcom/android/systemui/screenshot/MagnifierView;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/screenshot/MagnifierView;->access$002(Lcom/android/systemui/screenshot/MagnifierView;Landroid/view/ViewPropertyAnimator;)Landroid/view/ViewPropertyAnimator;
+    iput-object p1, p0, Lcom/android/systemui/screenshot/MagnifierView;->mTranslationAnimator:Landroid/view/ViewPropertyAnimator;
 
     return-void
 .end method

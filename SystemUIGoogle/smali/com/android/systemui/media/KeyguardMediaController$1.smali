@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/KeyguardMediaController;
+.field public final synthetic this$0:Lcom/android/systemui/media/KeyguardMediaController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/KeyguardMediaController;)V
+.method public constructor <init>(Lcom/android/systemui/media/KeyguardMediaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/KeyguardMediaController$1;->this$0:Lcom/android/systemui/media/KeyguardMediaController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onStateChanged(I)V
+.method public final onStateChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/KeyguardMediaController$1;->this$0:Lcom/android/systemui/media/KeyguardMediaController;

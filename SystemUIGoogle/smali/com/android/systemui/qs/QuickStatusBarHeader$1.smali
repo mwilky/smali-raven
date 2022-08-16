@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QuickStatusBarHeader$1;
+.class public final Lcom/android/systemui/qs/QuickStatusBarHeader$1;
 .super Lcom/android/systemui/qs/TouchAnimator$ListenerAdapter;
 .source "QuickStatusBarHeader.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
@@ -31,39 +31,25 @@
 
 
 # virtual methods
-.method public onAnimationAtEnd()V
+.method public final onAnimationAtEnd()V
     .locals 2
 
-    invoke-super {p0}, Lcom/android/systemui/qs/TouchAnimator$ListenerAdapter;->onAnimationAtEnd()V
-
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$000(Lcom/android/systemui/qs/QuickStatusBarHeader;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIsSingleCarrier:Z
 
-    move-result v0
+    if-nez v1, :cond_0
 
-    if-nez v0, :cond_0
+    iget-object v1, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
+    iget-object v0, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRssiIgnoredSlots:Ljava/util/List;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$200(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$100(Lcom/android/systemui/qs/QuickStatusBarHeader;)Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlots(Ljava/util/List;)V
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlots(Ljava/util/List;)V
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$300(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/policy/VariableDateView;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
     const/16 v0, 0x8
 
@@ -72,62 +58,42 @@
     return-void
 .end method
 
-.method public onAnimationAtStart()V
+.method public final onAnimationAtStart()V
     .locals 2
-
-    invoke-super {p0}, Lcom/android/systemui/qs/TouchAnimator$ListenerAdapter;->onAnimationAtStart()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$300(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/policy/VariableDateView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/VariableDateView;->setFreezeSwitching(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$300(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/policy/VariableDateView;
-
-    move-result-object v0
+    iput-boolean v1, v0, Lcom/android/systemui/statusbar/policy/VariableDateView;->freezeSwitching:Z
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$500(Lcom/android/systemui/qs/QuickStatusBarHeader;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mShowClockIconsSeparator:Z
 
-    move-result v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$400(Lcom/android/systemui/qs/QuickStatusBarHeader;Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$200(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSeparatorVisibility(Z)V
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$100(Lcom/android/systemui/qs/QuickStatusBarHeader;)Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRssiIgnoredSlots:Ljava/util/List;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlots(Ljava/util/List;)V
 
     return-void
 .end method
 
-.method public onAnimationStarted()V
-    .locals 3
+.method public final onAnimationStarted()V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$300(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/policy/VariableDateView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
     const/4 v1, 0x0
 
@@ -135,37 +101,23 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$300(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/policy/VariableDateView;
+    iget-object v2, v0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockDateView:Lcom/android/systemui/statusbar/policy/VariableDateView;
 
-    move-result-object v0
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
+    iput-boolean v3, v2, Lcom/android/systemui/statusbar/policy/VariableDateView;->freezeSwitching:Z
 
-    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/policy/VariableDateView;->setFreezeSwitching(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-static {v0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$400(Lcom/android/systemui/qs/QuickStatusBarHeader;Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$000(Lcom/android/systemui/qs/QuickStatusBarHeader;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$200(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    move-result-object v0
+    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSeparatorVisibility(Z)V
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader$1;->this$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->access$100(Lcom/android/systemui/qs/QuickStatusBarHeader;)Ljava/util/List;
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIsSingleCarrier:Z
 
-    move-result-object p0
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRssiIgnoredSlots:Ljava/util/List;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlots(Ljava/util/List;)V
 

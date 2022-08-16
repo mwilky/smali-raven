@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/screenrecord/RecordingController;
+.class public final Lcom/android/systemui/screenrecord/RecordingController;
 .super Ljava/lang/Object;
 .source "RecordingController.java"
 
@@ -24,15 +24,15 @@
 
 
 # instance fields
-.field private mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+.field public mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.field private mCountDownTimer:Landroid/os/CountDownTimer;
+.field public mCountDownTimer:Lcom/android/systemui/screenrecord/RecordingController$3;
 
-.field private mIsRecording:Z
+.field public mIsRecording:Z
 
-.field private mIsStarting:Z
+.field public mIsStarting:Z
 
-.field private mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
+.field public mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/CopyOnWriteArrayList<",
@@ -42,19 +42,19 @@
     .end annotation
 .end field
 
-.field protected final mStateChangeReceiver:Landroid/content/BroadcastReceiver;
+.field public final mStateChangeReceiver:Landroid/content/BroadcastReceiver;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mStopIntent:Landroid/app/PendingIntent;
+.field public mStopIntent:Landroid/app/PendingIntent;
 
-.field protected final mUserChangeReceiver:Landroid/content/BroadcastReceiver;
+.field public final mUserChangeReceiver:Landroid/content/BroadcastReceiver;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
+.field public mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
 
 
 # direct methods
@@ -65,7 +65,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mCountDownTimer:Landroid/os/CountDownTimer;
+    iput-object v0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mCountDownTimer:Lcom/android/systemui/screenrecord/RecordingController$3;
 
     new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
@@ -92,42 +92,12 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/screenrecord/RecordingController;)Ljava/util/concurrent/CopyOnWriteArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    return-object p0
-.end method
-
-.method static synthetic access$102(Lcom/android/systemui/screenrecord/RecordingController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/screenrecord/RecordingController;->mIsStarting:Z
-
-    return p1
-.end method
-
-.method static synthetic access$202(Lcom/android/systemui/screenrecord/RecordingController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/screenrecord/RecordingController;->mIsRecording:Z
-
-    return p1
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/screenrecord/RecordingController;)Lcom/android/systemui/broadcast/BroadcastDispatcher;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public addCallback(Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;)V
+.method public final addCallback(Ljava/lang/Object;)V
     .locals 0
+
+    check-cast p1, Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;
 
     iget-object p0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
@@ -136,110 +106,10 @@
     return-void
 .end method
 
-.method public bridge synthetic addCallback(Ljava/lang/Object;)V
+.method public final removeCallback(Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenrecord/RecordingController;->addCallback(Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;)V
-
-    return-void
-.end method
-
-.method public cancelCountdown()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mCountDownTimer:Landroid/os/CountDownTimer;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/os/CountDownTimer;->cancel()V
-
-    goto :goto_0
-
-    :cond_0
-    const-string v0, "RecordingController"
-
-    const-string v1, "Timer was null"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mIsStarting:Z
-
-    iget-object p0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
-
-    invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_1
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;
-
-    invoke-interface {v0}, Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;->onCountdownEnd()V
-
-    goto :goto_1
-
-    :cond_1
-    return-void
-.end method
-
-.method public createScreenRecordDialog(Landroid/content/Context;Ljava/lang/Runnable;)Lcom/android/systemui/screenrecord/ScreenRecordDialog;
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;
-
-    iget-object v1, p0, Lcom/android/systemui/screenrecord/RecordingController;->mUserContextProvider:Lcom/android/systemui/settings/UserContextProvider;
-
-    invoke-direct {v0, p1, p0, v1, p2}, Lcom/android/systemui/screenrecord/ScreenRecordDialog;-><init>(Landroid/content/Context;Lcom/android/systemui/screenrecord/RecordingController;Lcom/android/systemui/settings/UserContextProvider;Ljava/lang/Runnable;)V
-
-    return-object v0
-.end method
-
-.method public declared-synchronized isRecording()Z
-    .locals 1
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-boolean v0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mIsRecording:Z
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method public isStarting()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mIsStarting:Z
-
-    return p0
-.end method
-
-.method public removeCallback(Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;)V
-    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mListeners:Ljava/util/concurrent/CopyOnWriteArrayList;
 
@@ -248,48 +118,8 @@
     return-void
 .end method
 
-.method public bridge synthetic removeCallback(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenrecord/RecordingController;->removeCallback(Lcom/android/systemui/screenrecord/RecordingController$RecordingStateChangeCallback;)V
-
-    return-void
-.end method
-
-.method public startCountdown(JJLandroid/app/PendingIntent;Landroid/app/PendingIntent;)V
-    .locals 8
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/screenrecord/RecordingController;->mIsStarting:Z
-
-    iput-object p6, p0, Lcom/android/systemui/screenrecord/RecordingController;->mStopIntent:Landroid/app/PendingIntent;
-
-    new-instance p6, Lcom/android/systemui/screenrecord/RecordingController$3;
-
-    move-object v1, p6
-
-    move-object v2, p0
-
-    move-wide v3, p1
-
-    move-wide v5, p3
-
-    move-object v7, p5
-
-    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/screenrecord/RecordingController$3;-><init>(Lcom/android/systemui/screenrecord/RecordingController;JJLandroid/app/PendingIntent;)V
-
-    iput-object p6, p0, Lcom/android/systemui/screenrecord/RecordingController;->mCountDownTimer:Landroid/os/CountDownTimer;
-
-    invoke-virtual {p6}, Landroid/os/CountDownTimer;->start()Landroid/os/CountDownTimer;
-
-    return-void
-.end method
-
-.method public stopRecording()V
-    .locals 3
+.method public final stopRecording()V
+    .locals 2
 
     const-string v0, "RecordingController"
 
@@ -319,13 +149,11 @@
     :catch_0
     move-exception p0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "Error stopping: "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "Error stopping: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {p0}, Landroid/app/PendingIntent$CanceledException;->getMessage()Ljava/lang/String;
 
@@ -343,7 +171,7 @@
     return-void
 .end method
 
-.method public declared-synchronized updateState(Z)V
+.method public final declared-synchronized updateState(Z)V
     .locals 2
 
     monitor-enter p0

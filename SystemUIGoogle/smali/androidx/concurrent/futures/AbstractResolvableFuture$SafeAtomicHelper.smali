@@ -1,4 +1,4 @@
-.class final Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper;
+.class public final Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper;
 .super Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;
 .source "AbstractResolvableFuture.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "SafeAtomicHelper"
 .end annotation
 
 
 # instance fields
-.field final listenersUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+.field public final listenersUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<",
@@ -26,7 +26,7 @@
     .end annotation
 .end field
 
-.field final valueUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+.field public final valueUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<",
@@ -37,7 +37,7 @@
     .end annotation
 .end field
 
-.field final waiterNextUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+.field public final waiterNextUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field final waiterThreadUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+.field public final waiterThreadUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<",
@@ -59,7 +59,7 @@
     .end annotation
 .end field
 
-.field final waitersUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
+.field public final waitersUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater<",
@@ -72,8 +72,8 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;)V
-    .locals 1
+.method public constructor <init>(Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -100,9 +100,7 @@
         }
     .end annotation
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;-><init>(Landroidx/concurrent/futures/AbstractResolvableFuture$1;)V
+    invoke-direct {p0}, Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;-><init>()V
 
     iput-object p1, p0, Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper;->waiterThreadUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
 
@@ -119,7 +117,7 @@
 
 
 # virtual methods
-.method casListeners(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;)Z
+.method public final casListeners(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;Landroidx/concurrent/futures/AbstractResolvableFuture$Listener;)Z
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -141,7 +139,7 @@
     return p0
 .end method
 
-.method casValue(Landroidx/concurrent/futures/AbstractResolvableFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
+.method public final casValue(Landroidx/concurrent/futures/AbstractResolvableFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -163,7 +161,7 @@
     return p0
 .end method
 
-.method casWaiters(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)Z
+.method public final casWaiters(Landroidx/concurrent/futures/AbstractResolvableFuture;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)Z
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -185,7 +183,7 @@
     return p0
 .end method
 
-.method putNext(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)V
+.method public final putNext(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper;->waiterNextUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;
@@ -195,7 +193,7 @@
     return-void
 .end method
 
-.method putThread(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Ljava/lang/Thread;)V
+.method public final putThread(Landroidx/concurrent/futures/AbstractResolvableFuture$Waiter;Ljava/lang/Thread;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/concurrent/futures/AbstractResolvableFuture$SafeAtomicHelper;->waiterThreadUpdater:Ljava/util/concurrent/atomic/AtomicReferenceFieldUpdater;

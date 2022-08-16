@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
@@ -31,16 +31,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiController;)V
     .locals 7
 
     const-class v3, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
     const/4 v1, 0x1
 
-    const-string v4, "showInitialSetupView"
+    const-string/jumbo v4, "showInitialSetupView"
 
-    const-string v5, "showInitialSetupView(Ljava/util/List;)V"
+    const-string/jumbo v5, "showInitialSetupView(Ljava/util/List;)V"
 
     const/4 v6, 0x0
 
@@ -55,38 +55,55 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 3
 
     check-cast p1, Ljava/util/List;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$show$2;->invoke(Ljava/util/List;)V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke(Ljava/util/List;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ui/SelectionItem;",
-            ">;)V"
-        }
-    .end annotation
-
-    const-string v0, "p0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
 
     check-cast p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$showInitialSetupView(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Ljava/util/List;)V
+    sget-object p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->EMPTY_COMPONENT:Landroid/content/ComponentName;
 
-    return-void
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance p1, Landroid/content/Intent;
+
+    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->activityContext:Landroid/content/Context;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    move-object v0, v1
+
+    :cond_0
+    const-class v2, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
+
+    invoke-direct {p1, v0, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+    const/4 v0, 0x1
+
+    const-string v2, "back_should_exit"
+
+    invoke-virtual {p1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->startActivity(Landroid/content/Intent;)V
+
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->onDismiss:Ljava/lang/Runnable;
+
+    if-nez p0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    move-object v1, p0
+
+    :goto_0
+    invoke-interface {v1}, Ljava/lang/Runnable;->run()V
+
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

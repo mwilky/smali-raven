@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData$ActionTransition;
+.class public final Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData$ActionTransition;
 .super Ljava/lang/Object;
 .source "ScreenshotController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ActionTransition"
 .end annotation
 
@@ -19,11 +19,11 @@
 
 .field public bundle:Landroid/os/Bundle;
 
-.field public onCancelRunnable:Ljava/lang/Runnable;
+.field public onCancelRunnable:Lcom/android/wm/shell/pip/phone/PipTouchHandler$$ExternalSyntheticLambda0;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

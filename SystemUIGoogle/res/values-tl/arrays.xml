@@ -17,6 +17,7 @@
         <item>3 proseso sa pinakamarami</item>
         <item>4 na proseso sa pinakamarami</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -152,7 +153,7 @@
     </string-array>
     <string-array name="hdcp_checking_summaries">
         <item>Huwag kailanman gumamit ng pagsusuring HDCP</item>
-        <item>Gamitin lang ang pagsusuring HDCP para sa nilalamang DRM</item>
+        <item>Gamitin ang pagsusuring HDCP para sa content na DRM lang</item>
         <item>Palaging gumamit ng pagsusuring HDCP</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
@@ -260,6 +261,11 @@
         <item>Naka-off</item>
         <item>Naka-on</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Hindi available</item>
+        <item>Naka-off</item>
+        <item>Naka-on</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Hindi available</item>
         <item>Naka-off</item>
@@ -307,6 +313,16 @@
     </string-array>
     <string-array name="tile_states_night">
         <item>Hindi available</item>
+        <item>Naka-off</item>
+        <item>Naka-on</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Hindi available</item>
+        <item>Naka-off</item>
+        <item>Naka-on</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Hindi Available</item>
         <item>Naka-off</item>
         <item>Naka-on</item>
     </string-array>
@@ -374,6 +390,12 @@
         <item>Matulin</item>
         <item>Napakatulin</item>
         <item>Pinakamabilis</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Ilipat pakaliwa</item>
+        <item>Ibaba</item>
+        <item>Ilipat pakanan</item>
+        <item>Itaas</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Nagcha-charge</item>

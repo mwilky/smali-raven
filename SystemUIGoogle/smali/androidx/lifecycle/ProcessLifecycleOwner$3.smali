@@ -1,34 +1,15 @@
-.class Landroidx/lifecycle/ProcessLifecycleOwner$3;
+.class public final Landroidx/lifecycle/ProcessLifecycleOwner$3;
 .super Landroidx/lifecycle/EmptyActivityLifecycleCallbacks;
 .source "ProcessLifecycleOwner.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/lifecycle/ProcessLifecycleOwner;->attach(Landroid/content/Context;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
+.field public final synthetic this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
 
 # direct methods
-.method constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
+.method public constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
@@ -40,68 +21,38 @@
 
 # virtual methods
 .method public onActivityCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "activity",
-            "savedInstanceState"
-        }
-    .end annotation
+    .locals 0
 
-    sget p2, Landroid/os/Build$VERSION;->SDK_INT:I
+    return-void
+.end method
 
-    const/16 v0, 0x1d
-
-    if-ge p2, v0, :cond_0
-
-    invoke-static {p1}, Landroidx/lifecycle/ReportFragment;->get(Landroid/app/Activity;)Landroidx/lifecycle/ReportFragment;
-
-    move-result-object p1
+.method public onActivityPaused(Landroid/app/Activity;)V
+    .locals 2
 
     iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
-    iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mInitializationListener:Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;
+    iget p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mResumedCounter:I
 
-    invoke-virtual {p1, p0}, Landroidx/lifecycle/ReportFragment;->setProcessListener(Landroidx/lifecycle/ReportFragment$ActivityInitializationListener;)V
+    add-int/lit8 p1, p1, -0x1
+
+    iput p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mResumedCounter:I
+
+    if-nez p1, :cond_0
+
+    iget-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mHandler:Landroid/os/Handler;
+
+    iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mDelayedPauseRunnable:Landroidx/lifecycle/ProcessLifecycleOwner$1;
+
+    const-wide/16 v0, 0x2bc
+
+    invoke-virtual {p1, p0, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_0
     return-void
 .end method
 
-.method public onActivityPaused(Landroid/app/Activity;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "activity"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
-
-    invoke-virtual {p0}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityPaused()V
-
-    return-void
-.end method
-
 .method public onActivityPreCreated(Landroid/app/Activity;Landroid/os/Bundle;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "activity",
-            "savedInstanceState"
-        }
-    .end annotation
 
     new-instance p2, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;
 
@@ -113,19 +64,32 @@
 .end method
 
 .method public onActivityStopped(Landroid/app/Activity;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "activity"
-        }
-    .end annotation
+    .locals 1
 
     iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
-    invoke-virtual {p0}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityStopped()V
+    iget p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStartedCounter:I
 
+    add-int/lit8 p1, p1, -0x1
+
+    iput p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStartedCounter:I
+
+    if-nez p1, :cond_0
+
+    iget-boolean p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mPauseSent:Z
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mRegistry:Landroidx/lifecycle/LifecycleRegistry;
+
+    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStopSent:Z
+
+    :cond_0
     return-void
 .end method

@@ -5,16 +5,20 @@
         <item quantity="one">%d ημ. πριν</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d λεπ. πριν</item>
-        <item quantity="one">%d λεπ. πριν</item>
+        <item quantity="other">%d λ. πριν</item>
+        <item quantity="one">%d λ. πριν</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d χρ. πριν</item>
-        <item quantity="one">%d χρ. πριν</item>
+        <item quantity="other">%d έτη πριν</item>
+        <item quantity="one">%d έτος πριν</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">Προστέθηκαν %s στοιχεία ελέγχου.</item>
         <item quantity="one">Προστέθηκε %s στοιχείο ελέγχου.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s εφαρμογές είναι ενεργές</item>
+        <item quantity="one">%s εφαρμογή είναι ενεργή</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Εισαγάγετε τον αριθμό PIN της κάρτας SIM. Απομένουν άλλες %d προσπάθειες.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένουν άλλες %d προσπάθειες προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
         <item quantity="one">Λανθασμένος κωδικός PUK κάρτας SIM. Απομένει άλλη %d προσπάθεια προτού να μην είναι πλέον δυνατή η χρήση της κάρτας SIM.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Δοκιμάστε ξανά σε %d δευτερόλεπτα.</item>
-        <item quantity="one">Δοκιμάστε ξανά σε 1 δευτερόλεπτο.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d νέες ειδοποιήσεις</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Μπορείτε να προσθέσετε έως %d χρήστες.</item>
         <item quantity="one">Είναι δυνατή η δημιουργία μόνο ενός χρήστη.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d συσκευές συνδέθηκαν</item>
-        <item quantity="one">%1$d συσκευή συνδέθηκε</item>
     </plurals>
 </resources>

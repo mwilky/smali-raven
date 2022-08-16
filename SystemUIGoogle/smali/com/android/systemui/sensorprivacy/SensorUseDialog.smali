@@ -3,37 +3,11 @@
 .source "SensorUseDialog.kt"
 
 
-# instance fields
-.field private final clickListener:Landroid/content/DialogInterface$OnClickListener;
-
-.field private final dismissListener:Landroid/content/DialogInterface$OnDismissListener;
-
-.field private final sensor:I
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroid/content/DialogInterface$OnClickListener;Landroid/content/DialogInterface$OnDismissListener;)V
     .locals 8
 
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "clickListener"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dismissListener"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
-
-    iput p2, p0, Lcom/android/systemui/sensorprivacy/SensorUseDialog;->sensor:I
-
-    iput-object p3, p0, Lcom/android/systemui/sensorprivacy/SensorUseDialog;->clickListener:Landroid/content/DialogInterface$OnClickListener;
-
-    iput-object p4, p0, Lcom/android/systemui/sensorprivacy/SensorUseDialog;->dismissListener:Landroid/content/DialogInterface$OnDismissListener;
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
@@ -57,7 +31,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$layout;->sensor_use_started_title:I
+    const v1, 0x7f0e020d
 
     const/4 v2, 0x0
 
@@ -65,7 +39,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$id;->sensor_use_started_title_message:I
+    const v1, 0x7f0b05de
 
     invoke-virtual {v0, v1}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -92,22 +66,22 @@
     goto :goto_0
 
     :cond_0
-    sget v6, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_camera_dialog_title:I
+    const v6, 0x7f130682
 
     goto :goto_0
 
     :cond_1
-    sget v6, Lcom/android/systemui/R$string;->sensor_privacy_start_use_camera_dialog_title:I
+    const v6, 0x7f13067c
 
     goto :goto_0
 
     :cond_2
-    sget v6, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_dialog_title:I
+    const v6, 0x7f130684
 
     :goto_0
     invoke-virtual {v1, v6}, Lcom/android/internal/widget/DialogTitle;->setText(I)V
 
-    sget v1, Lcom/android/systemui/R$id;->sensor_use_microphone_icon:I
+    const v1, 0x7f0b05dd
 
     invoke-virtual {v0, v1}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -135,7 +109,7 @@
     :goto_2
     invoke-virtual {v1, v7}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    sget v1, Lcom/android/systemui/R$id;->sensor_use_camera_icon:I
+    const v1, 0x7f0b05dc
 
     invoke-virtual {v0, v1}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -166,17 +140,17 @@
     goto :goto_3
 
     :cond_7
-    sget p2, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_camera_dialog_content:I
+    const p2, 0x7f130681
 
     goto :goto_3
 
     :cond_8
-    sget p2, Lcom/android/systemui/R$string;->sensor_privacy_start_use_camera_dialog_content:I
+    const p2, 0x7f13067b
 
     goto :goto_3
 
     :cond_9
-    sget p2, Lcom/android/systemui/R$string;->sensor_privacy_start_use_mic_dialog_content:I
+    const p2, 0x7f130683
 
     :goto_3
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
@@ -191,7 +165,7 @@
 
     const/4 p2, -0x1
 
-    const v0, 0x10407cc
+    const v0, 0x1040841
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

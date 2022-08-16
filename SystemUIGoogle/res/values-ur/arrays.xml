@@ -17,6 +17,7 @@
         <item>زیادہ سے زیادہ 3 پروسیسز</item>
         <item>زیادہ سے زیادہ 4 پروسیسز</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>آف ہے</item>
         <item>آن ہے</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>غیر دستیاب</item>
+        <item>آف</item>
+        <item>آن</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>دستیاب نہیں ہے</item>
         <item>آف ہے</item>
@@ -309,6 +315,16 @@
         <item>دستیاب نہیں ہے</item>
         <item>آف ہے</item>
         <item>آن ہے</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>غیر دستیاب</item>
+        <item>آف</item>
+        <item>آن</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>غیر دستیاب</item>
+        <item>آف</item>
+        <item>آن</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>دستیاب نہیں ہے</item>
@@ -374,6 +390,12 @@
         <item>تیز</item>
         <item>کافی تیز</item>
         <item>تیز ترین</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>دائیں منتقل کریں</item>
+        <item>نیچے منتقل کریں</item>
+        <item>بائیں منتقل کریں</item>
+        <item>اوپر منتقل کریں</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>چارجنگ</item>

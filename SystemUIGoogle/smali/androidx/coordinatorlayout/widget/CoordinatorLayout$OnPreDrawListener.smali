@@ -1,4 +1,4 @@
-.class Landroidx/coordinatorlayout/widget/CoordinatorLayout$OnPreDrawListener;
+.class public final Landroidx/coordinatorlayout/widget/CoordinatorLayout$OnPreDrawListener;
 .super Ljava/lang/Object;
 .source "CoordinatorLayout.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "OnPreDrawListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
+.field public final synthetic this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
 
 
 # direct methods
-.method constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V
+.method public constructor <init>(Landroidx/coordinatorlayout/widget/CoordinatorLayout;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$OnPreDrawListener;->this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
+.method public final onPreDraw()Z
     .locals 1
 
     iget-object p0, p0, Landroidx/coordinatorlayout/widget/CoordinatorLayout$OnPreDrawListener;->this$0:Landroidx/coordinatorlayout/widget/CoordinatorLayout;

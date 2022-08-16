@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ElevationSet;
+.class public final Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ElevationSet;
 .super Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;
 .source "TimeCycleSplineSet.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ElevationSet"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;-><init>()V
@@ -25,32 +25,15 @@
 
 
 # virtual methods
-.method public setProperty(Landroid/view/View;FJLandroidx/constraintlayout/motion/widget/KeyCache;)Z
-    .locals 6
+.method public final setProperty(FJLandroid/view/View;Landroidx/constraintlayout/motion/widget/KeyCache;)Z
+    .locals 0
 
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+    invoke-virtual/range {p0 .. p5}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->get(FJLandroid/view/View;Landroidx/constraintlayout/motion/widget/KeyCache;)F
 
-    const/16 v1, 0x15
+    move-result p1
 
-    if-lt v0, v1, :cond_0
+    invoke-virtual {p4, p1}, Landroid/view/View;->setElevation(F)V
 
-    move-object v0, p0
-
-    move v1, p2
-
-    move-wide v2, p3
-
-    move-object v4, p1
-
-    move-object v5, p5
-
-    invoke-virtual/range {v0 .. v5}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->get(FJLandroid/view/View;Landroidx/constraintlayout/motion/widget/KeyCache;)F
-
-    move-result p2
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->setElevation(F)V
-
-    :cond_0
     iget-boolean p0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mContinue:Z
 
     return p0

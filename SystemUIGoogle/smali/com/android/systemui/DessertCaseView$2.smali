@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/DessertCaseView$2;
+.class public final Lcom/android/systemui/DessertCaseView$2;
 .super Ljava/lang/Object;
 .source "DessertCaseView.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/DessertCaseView;
+.field public final synthetic this$0:Lcom/android/systemui/DessertCaseView;
 
-.field final synthetic val$v:Landroid/widget/ImageView;
+.field public final synthetic val$v:Landroid/widget/ImageView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/DessertCaseView;Landroid/widget/ImageView;)V
+.method public constructor <init>(Lcom/android/systemui/DessertCaseView;Landroid/widget/ImageView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/DessertCaseView$2;->this$0:Lcom/android/systemui/DessertCaseView;
@@ -38,16 +38,58 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 3
+.method public final onClick(Landroid/view/View;)V
+    .locals 7
 
     iget-object p1, p0, Lcom/android/systemui/DessertCaseView$2;->this$0:Lcom/android/systemui/DessertCaseView;
 
     iget-object v0, p0, Lcom/android/systemui/DessertCaseView$2;->val$v:Landroid/widget/ImageView;
 
-    const/4 v1, 0x1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {p1, v0, v1}, Lcom/android/systemui/DessertCaseView;->place(Landroid/view/View;Z)V
+    new-instance v1, Landroid/graphics/Point;
+
+    iget v2, p1, Lcom/android/systemui/DessertCaseView;->mColumns:I
+
+    const/4 v3, 0x0
+
+    int-to-float v3, v3
+
+    int-to-float v2, v2
+
+    invoke-static {}, Ljava/lang/Math;->random()D
+
+    move-result-wide v4
+
+    double-to-float v4, v4
+
+    invoke-static {v2, v3, v4, v3}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
+
+    move-result v2
+
+    float-to-int v2, v2
+
+    iget v4, p1, Lcom/android/systemui/DessertCaseView;->mRows:I
+
+    int-to-float v4, v4
+
+    invoke-static {}, Ljava/lang/Math;->random()D
+
+    move-result-wide v5
+
+    double-to-float v5, v5
+
+    invoke-static {v4, v3, v5, v3}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
+
+    move-result v3
+
+    float-to-int v3, v3
+
+    invoke-direct {v1, v2, v3}, Landroid/graphics/Point;-><init>(II)V
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/systemui/DessertCaseView;->place(Landroid/view/View;Landroid/graphics/Point;Z)V
 
     iget-object p1, p0, Lcom/android/systemui/DessertCaseView$2;->this$0:Lcom/android/systemui/DessertCaseView;
 

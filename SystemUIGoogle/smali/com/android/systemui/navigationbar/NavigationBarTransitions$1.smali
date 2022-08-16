@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;
+.class public final Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;
 .super Landroid/view/IWallpaperVisibilityListener$Stub;
 .source "NavigationBarTransitions.java"
 
@@ -9,25 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$eVFl9hmigiA_aJSiK1RQcSPTynE(Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;->lambda$onWallpaperVisibilityChanged$0()V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationBarTransitions;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationBarTransitions;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
@@ -37,24 +29,10 @@
     return-void
 .end method
 
-.method private synthetic lambda$onWallpaperVisibilityChanged$0()V
-    .locals 2
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    invoke-static {p0, v0, v1}, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->access$200(Lcom/android/systemui/navigationbar/NavigationBarTransitions;ZZ)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onWallpaperVisibilityChanged(ZI)V
-    .locals 0
+.method public final onWallpaperVisibilityChanged(ZI)V
+    .locals 1
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -63,17 +41,15 @@
 
     iget-object p2, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
 
-    invoke-static {p2, p1}, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->access$002(Lcom/android/systemui/navigationbar/NavigationBarTransitions;Z)Z
+    iput-boolean p1, p2, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mWallpaperVisible:Z
 
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
+    iget-object p1, p2, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mHandler:Landroid/os/Handler;
 
-    invoke-static {p1}, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->access$100(Lcom/android/systemui/navigationbar/NavigationBarTransitions;)Landroid/os/Handler;
+    new-instance p2, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda0;
 
-    move-result-object p1
+    const/4 v0, 0x1
 
-    new-instance p2, Lcom/android/systemui/navigationbar/NavigationBarTransitions$1$$ExternalSyntheticLambda0;
-
-    invoke-direct {p2, p0}, Lcom/android/systemui/navigationbar/NavigationBarTransitions$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/navigationbar/NavigationBarTransitions$1;)V
+    invoke-direct {p2, v0, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

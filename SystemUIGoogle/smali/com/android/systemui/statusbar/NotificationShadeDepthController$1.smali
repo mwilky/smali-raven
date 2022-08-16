@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/NotificationShadeDepthController$1;
+.class public final Lcom/android/systemui/statusbar/NotificationShadeDepthController$1;
 .super Ljava/lang/Object;
 .source "NotificationShadeDepthController.kt"
 
@@ -8,30 +8,31 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/NotificationShadeDepthController;-><init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)V
+    value = Lcom/android/systemui/statusbar/NotificationShadeDepthController;-><init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/content/Context;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
+        "<T:",
         "Ljava/lang/Object;",
-        "Ljava/util/function/Consumer<",
-        "Ljava/lang/Integer;",
-        ">;"
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Consumer;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$1;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
@@ -43,8 +44,10 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Integer;)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 1
+
+    check-cast p1, Ljava/lang/Integer;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$1;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
@@ -70,17 +73,19 @@
     const/4 p1, 0x0
 
     :goto_1
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->access$setScrimsVisible(Lcom/android/systemui/statusbar/NotificationShadeDepthController;Z)V
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scrimsVisible:Z
 
-    return-void
-.end method
+    if-ne v0, p1, :cond_2
 
-.method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
+    goto :goto_2
 
-    check-cast p1, Ljava/lang/Integer;
+    :cond_2
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scrimsVisible:Z
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController$1;->accept(Ljava/lang/Integer;)V
+    const/4 p1, 0x0
 
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate(Landroid/view/View;)V
+
+    :goto_2
     return-void
 .end method

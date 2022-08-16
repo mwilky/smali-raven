@@ -18,13 +18,13 @@
 
 
 # instance fields
-.field final synthetic $context:Landroid/content/Context;
+.field public final synthetic $context:Landroid/content/Context;
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/PulseExpansionHandler;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/PulseExpansionHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/PulseExpansionHandler;Landroid/content/Context;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/PulseExpansionHandler;Landroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler$1;->this$0:Lcom/android/systemui/statusbar/PulseExpansionHandler;
@@ -38,14 +38,34 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+.method public final onConfigChanged(Landroid/content/res/Configuration;)V
+    .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler$1;->this$0:Lcom/android/systemui/statusbar/PulseExpansionHandler;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler$1;->$context:Landroid/content/Context;
 
-    invoke-static {p1, p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->access$initResources(Lcom/android/systemui/statusbar/PulseExpansionHandler;Landroid/content/Context;)V
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0702a4
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    invoke-static {p0}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
+
+    move-result p0
+
+    int-to-float p0, p0
+
+    iput p0, p1, Lcom/android/systemui/statusbar/PulseExpansionHandler;->touchSlop:F
 
     return-void
 .end method

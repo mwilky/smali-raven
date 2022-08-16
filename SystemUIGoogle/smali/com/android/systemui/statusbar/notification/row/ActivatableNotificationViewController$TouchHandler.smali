@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;
+.class public final Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;
 .super Ljava/lang/Object;
 .source "ActivatableNotificationViewController.java"
 
@@ -13,19 +13,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "TouchHandler"
 .end annotation
 
 
 # instance fields
-.field private mBlockNextTouch:Z
-
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;
@@ -37,7 +35,7 @@
 
 
 # virtual methods
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
     const/4 p0, 0x0
@@ -45,92 +43,77 @@
     return p0
 .end method
 
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
-    .locals 5
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 4
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;->mBlockNextTouch:Z
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-eqz v0, :cond_0
-
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;->mBlockNextTouch:Z
-
-    return v2
-
-    :cond_0
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    if-ne v0, v2, :cond_1
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;->access$100(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v3
+    move-result-wide v2
 
-    invoke-virtual {v0, v3, v4}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->setLastActionUpTime(J)V
+    iput-wide v2, v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mLastActionUpTime:J
 
-    :cond_1
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;->access$200(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    const/4 v2, 0x0
 
-    return v1
+    if-eqz v0, :cond_1
 
-    :cond_2
+    return v2
+
+    :cond_1
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result p2
 
-    if-ne p2, v2, :cond_4
+    if-ne p2, v1, :cond_3
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController$TouchHandler;->this$0:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;->access$300(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;)Lcom/android/systemui/plugins/FalsingManager;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationViewController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    move-result-object p0
-
-    invoke-interface {p0, v2}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
+    invoke-interface {p0, v1}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTap(I)Z
 
     move-result p0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_2
 
     instance-of p2, p1, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_2
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->onTap()V
 
-    :cond_3
+    :cond_2
     return p0
 
-    :cond_4
-    return v1
+    :cond_3
+    return v2
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
     const/4 p0, 0x0

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$7;
+.class public final Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$7;
 .super Landroid/os/AsyncTask;
 .source "NetworkControllerImpl.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -25,13 +25,13 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
-.field final synthetic val$enabled:Z
+.field public final synthetic val$enabled:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Z)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$7;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
@@ -45,26 +45,14 @@
 
 
 # virtual methods
-.method protected bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+.method public final doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, [Ljava/lang/Void;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$7;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-    .locals 0
-
     iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$7;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$800(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)Landroid/net/wifi/WifiManager;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$7;->val$enabled:Z
 

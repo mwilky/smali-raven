@@ -1,168 +1,77 @@
-.class Landroidx/core/view/ViewCompat$4;
+.class public final Landroidx/core/view/ViewCompat$4;
 .super Landroidx/core/view/ViewCompat$AccessibilityViewProperty;
 .source "ViewCompat.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/core/view/ViewCompat;->stateDescriptionProperty()Landroidx/core/view/ViewCompat$AccessibilityViewProperty;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroidx/core/view/ViewCompat$AccessibilityViewProperty<",
-        "Ljava/lang/CharSequence;",
+        "Ljava/lang/Boolean;",
         ">;"
     }
 .end annotation
 
 
 # direct methods
-.method constructor <init>(ILjava/lang/Class;II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "tagKey",
-            "type",
-            "contentChangeType",
-            "frameworkMinimumSdk"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 4
 
-    invoke-direct {p0, p1, p2, p3, p4}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;-><init>(ILjava/lang/Class;II)V
+    const-class v0, Ljava/lang/Boolean;
+
+    const v1, 0x7f0b068a
+
+    const/4 v2, 0x0
+
+    const/16 v3, 0x1c
+
+    invoke-direct {p0, v1, v0, v2, v3}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;-><init>(ILjava/lang/Class;II)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method frameworkGet(Landroid/view/View;)Ljava/lang/CharSequence;
+.method public final frameworkGet(Landroid/view/View;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
-    invoke-virtual {p1}, Landroid/view/View;->getStateDescription()Ljava/lang/CharSequence;
+    invoke-static {p1}, Landroidx/core/view/ViewCompat$Api28Impl;->isAccessibilityHeading(Landroid/view/View;)Z
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method bridge synthetic frameworkGet(Landroid/view/View;)Ljava/lang/Object;
+.method public final frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
-    invoke-virtual {p0, p1}, Landroidx/core/view/ViewCompat$4;->frameworkGet(Landroid/view/View;)Ljava/lang/CharSequence;
+    check-cast p2, Ljava/lang/Boolean;
 
-    move-result-object p0
+    invoke-virtual {p2}, Ljava/lang/Boolean;->booleanValue()Z
 
-    return-object p0
-.end method
+    move-result p0
 
-.method frameworkSet(Landroid/view/View;Ljava/lang/CharSequence;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
-
-    invoke-virtual {p1, p2}, Landroid/view/View;->setStateDescription(Ljava/lang/CharSequence;)V
+    invoke-static {p1, p0}, Landroidx/core/view/ViewCompat$Api28Impl;->setAccessibilityHeading(Landroid/view/View;Z)V
 
     return-void
 .end method
 
-.method bridge synthetic frameworkSet(Landroid/view/View;Ljava/lang/Object;)V
+.method public final shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "view",
-            "value"
-        }
-    .end annotation
 
-    check-cast p2, Ljava/lang/CharSequence;
+    check-cast p1, Ljava/lang/Boolean;
 
-    invoke-virtual {p0, p1, p2}, Landroidx/core/view/ViewCompat$4;->frameworkSet(Landroid/view/View;Ljava/lang/CharSequence;)V
+    check-cast p2, Ljava/lang/Boolean;
 
-    return-void
-.end method
-
-.method shouldUpdate(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "oldValue",
-            "newValue"
-        }
-    .end annotation
-
-    invoke-static {p1, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {p1, p2}, Landroidx/core/view/ViewCompat$AccessibilityViewProperty;->booleanNullToFalseEquals(Ljava/lang/Boolean;Ljava/lang/Boolean;)Z
 
     move-result p0
 
     xor-int/lit8 p0, p0, 0x1
-
-    return p0
-.end method
-
-.method bridge synthetic shouldUpdate(Ljava/lang/Object;Ljava/lang/Object;)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "oldValue",
-            "newValue"
-        }
-    .end annotation
-
-    check-cast p1, Ljava/lang/CharSequence;
-
-    check-cast p2, Ljava/lang/CharSequence;
-
-    invoke-virtual {p0, p1, p2}, Landroidx/core/view/ViewCompat$4;->shouldUpdate(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result p0
 
     return p0
 .end method

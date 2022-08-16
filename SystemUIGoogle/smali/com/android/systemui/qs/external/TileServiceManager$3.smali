@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/external/TileServiceManager$3;
+.class public final Lcom/android/systemui/qs/external/TileServiceManager$3;
 .super Landroid/content/BroadcastReceiver;
 .source "TileServiceManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/external/TileServiceManager;
+.field public final synthetic this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
+.method public constructor <init>(Lcom/android/systemui/qs/external/TileServiceManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileServiceManager$3;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 4
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -59,11 +59,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServiceManager$3;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/external/TileServiceManager;->access$500(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileLifecycleManager;
+    iget-object v1, v1, Lcom/android/systemui/qs/external/TileServiceManager;->mStateManager:Lcom/android/systemui/qs/external/TileLifecycleManager;
 
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/qs/external/TileLifecycleManager;->mIntent:Landroid/content/Intent;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/external/TileLifecycleManager;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v1
 
@@ -80,11 +80,11 @@
     return-void
 
     :cond_1
-    const-string v2, "android.intent.extra.REPLACING"
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const-string v3, "android.intent.extra.REPLACING"
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result p2
 
@@ -92,9 +92,9 @@
 
     new-instance p2, Landroid/content/Intent;
 
-    const-string v2, "android.service.quicksettings.action.QS_TILE"
+    const-string v3, "android.service.quicksettings.action.QS_TILE"
 
-    invoke-direct {p2, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {p2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -104,15 +104,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServiceManager$3;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServiceManager;->access$600(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/settings/UserTracker;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/external/TileServiceManager;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
     invoke-interface {v0}, Lcom/android/systemui/settings/UserTracker;->getUserId()I
 
     move-result v0
 
-    invoke-virtual {p1, p2, v3, v0}, Landroid/content/pm/PackageManager;->queryIntentServicesAsUser(Landroid/content/Intent;II)Ljava/util/List;
+    invoke-virtual {p1, p2, v2, v0}, Landroid/content/pm/PackageManager;->queryIntentServicesAsUser(Landroid/content/Intent;II)Ljava/util/List;
 
     move-result-object p1
 
@@ -166,13 +164,9 @@
     :cond_3
     iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager$3;->this$0:Lcom/android/systemui/qs/external/TileServiceManager;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/external/TileServiceManager;->access$400(Lcom/android/systemui/qs/external/TileServiceManager;)Lcom/android/systemui/qs/external/TileServices;
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServiceManager;->mServices:Lcom/android/systemui/qs/external/TileServices;
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/external/TileServices;->getHost()Lcom/android/systemui/qs/QSTileHost;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/qs/QSTileHost;->removeTile(Landroid/content/ComponentName;)V
 

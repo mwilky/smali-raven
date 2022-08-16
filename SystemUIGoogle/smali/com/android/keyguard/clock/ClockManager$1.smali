@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/clock/ClockManager$1;
+.class public final Lcom/android/keyguard/clock/ClockManager$1;
 .super Landroid/database/ContentObserver;
 .source "ClockManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/clock/ClockManager;
+.field public final synthetic this$0:Lcom/android/keyguard/clock/ClockManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/clock/ClockManager;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/keyguard/clock/ClockManager;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/clock/ClockManager$1;->this$0:Lcom/android/keyguard/clock/ClockManager;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onChange(ZLjava/util/Collection;II)V
+.method public final onChange(ZLjava/util/Collection;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -48,11 +48,9 @@
 
     iget-object p2, p0, Lcom/android/keyguard/clock/ClockManager$1;->this$0:Lcom/android/keyguard/clock/ClockManager;
 
-    invoke-static {p2}, Lcom/android/keyguard/clock/ClockManager;->access$000(Lcom/android/keyguard/clock/ClockManager;)Lcom/android/systemui/settings/CurrentUserObservable;
+    iget-object p2, p2, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObservable:Lcom/android/systemui/settings/CurrentUserObservable;
 
-    move-result-object p2
-
-    invoke-virtual {p2}, Lcom/android/systemui/settings/CurrentUserObservable;->getCurrentUser()Landroidx/lifecycle/LiveData;
+    invoke-virtual {p2}, Lcom/android/systemui/settings/CurrentUserObservable;->getCurrentUser()Lcom/android/systemui/settings/CurrentUserObservable$1;
 
     move-result-object p2
 
@@ -68,7 +66,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager$1;->this$0:Lcom/android/keyguard/clock/ClockManager;
 
-    invoke-static {p0}, Lcom/android/keyguard/clock/ClockManager;->access$100(Lcom/android/keyguard/clock/ClockManager;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/clock/ClockManager;->reload()V
 
     :cond_0
     return-void

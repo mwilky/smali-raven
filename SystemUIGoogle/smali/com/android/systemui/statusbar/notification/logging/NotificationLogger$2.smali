@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;
+.class public final Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;
 .super Ljava/lang/Object;
 .source "NotificationLogger.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private final mTmpCurrentlyVisibleNotifications:Landroid/util/ArraySet;
+.field public final mTmpCurrentlyVisibleNotifications:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final mTmpNewlyVisibleNotifications:Landroid/util/ArraySet;
+.field public final mTmpNewlyVisibleNotifications:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final mTmpNoLongerVisibleNotifications:Landroid/util/ArraySet;
+.field public final mTmpNoLongerVisibleNotifications:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -48,11 +48,11 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
@@ -82,7 +82,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
@@ -91,17 +91,21 @@
 
     move-result-wide v1
 
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$002(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;J)J
+    iput-wide v1, v0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mLastVisibilityReportUptimeMs:J
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$100(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mNotifLiveDataStore:Lcom/android/systemui/statusbar/notification/collection/NotifLiveDataStore;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/notification/collection/NotifLiveDataStore;->getActiveNotifList()Lcom/android/systemui/statusbar/notification/collection/NotifLiveDataImpl;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getVisibleNotifications()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotifLiveDataImpl;->getValue()Ljava/lang/Object;
 
     move-result-object v0
+
+    check-cast v0, Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
@@ -118,9 +122,7 @@
 
     check-cast v3, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v4
+    iget-object v4, v3, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
@@ -128,9 +130,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v5}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$200(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-
-    move-result-object v5
+    iget-object v5, v5, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
     invoke-interface {v5, v3}, Lcom/android/systemui/statusbar/notification/VisibilityLocationProvider;->isInVisibleLocation(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 
@@ -146,9 +146,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v4}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$300(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Landroid/util/ArraySet;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 
     invoke-virtual {v4, v3}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
@@ -182,9 +180,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$300(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Landroid/util/ArraySet;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 
     invoke-virtual {v0, v2}, Landroid/util/ArraySet;->addAll(Landroid/util/ArraySet;)V
 
@@ -200,21 +196,17 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->mTmpNoLongerVisibleNotifications:Landroid/util/ArraySet;
 
-    invoke-static {v0, v2, v3}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$400(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;Ljava/util/Collection;Ljava/util/Collection;)V
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->logNotificationVisibilityChanges(Ljava/util/Collection;Landroid/util/ArraySet;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$300(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Landroid/util/ArraySet;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 
-    move-result-object v2
-
-    invoke-static {v0, v2}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$500(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;Landroid/util/ArraySet;)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->recycleAllVisibilityObjects(Landroid/util/ArraySet;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$300(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Landroid/util/ArraySet;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->mTmpCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 
@@ -222,9 +214,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$600(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$ExpansionStateLogger;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mExpansionStateLogger:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$ExpansionStateLogger;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->mTmpCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 
@@ -238,9 +228,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$300(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)Landroid/util/ArraySet;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 
     invoke-virtual {v0}, Landroid/util/ArraySet;->size()I
 
@@ -254,7 +242,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->mTmpNoLongerVisibleNotifications:Landroid/util/ArraySet;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$500(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;Landroid/util/ArraySet;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->recycleAllVisibilityObjects(Landroid/util/ArraySet;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$2;->mTmpCurrentlyVisibleNotifications:Landroid/util/ArraySet;
 

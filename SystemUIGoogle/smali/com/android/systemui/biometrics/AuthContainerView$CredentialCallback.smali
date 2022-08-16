@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/biometrics/AuthContainerView$CredentialCallback;
+.class public final Lcom/android/systemui/biometrics/AuthContainerView$CredentialCallback;
 .super Ljava/lang/Object;
 .source "AuthContainerView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "CredentialCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/AuthContainerView;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/AuthContainerView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/AuthContainerView;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/AuthContainerView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthContainerView$CredentialCallback;->this$0:Lcom/android/systemui/biometrics/AuthContainerView;
@@ -34,8 +34,8 @@
 
 
 # virtual methods
-.method public onCredentialMatched([B)V
-    .locals 0
+.method public final onCredentialMatched([B)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthContainerView$CredentialCallback;->this$0:Lcom/android/systemui/biometrics/AuthContainerView;
 
@@ -43,7 +43,9 @@
 
     const/4 p1, 0x7
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthContainerView;->animateAway(I)V
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/biometrics/AuthContainerView;->animateAway(IZ)V
 
     return-void
 .end method

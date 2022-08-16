@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaCarouselScrollHandler$onFling$2;
+.class public final Lcom/android/systemui/media/MediaCarouselScrollHandler$onFling$2;
 .super Ljava/lang/Object;
 .source "MediaCarouselScrollHandler.kt"
 
@@ -6,25 +6,14 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaCarouselScrollHandler;->onFling(FF)Z
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $view:Landroid/view/View;
+.field public final synthetic $view:Landroid/view/View;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaCarouselScrollHandler;Landroid/view/View;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaCarouselScrollHandler;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onFling$2;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
@@ -43,9 +32,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onFling$2;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->access$getScrollView$p(Lcom/android/systemui/media/MediaCarouselScrollHandler;)Lcom/android/systemui/media/MediaScrollView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/MediaCarouselScrollHandler;->scrollView:Lcom/android/systemui/media/MediaScrollView;
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onFling$2;->$view:Landroid/view/View;
 
@@ -55,9 +42,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onFling$2;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->access$getScrollView$p(Lcom/android/systemui/media/MediaCarouselScrollHandler;)Lcom/android/systemui/media/MediaScrollView;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler;->scrollView:Lcom/android/systemui/media/MediaScrollView;
 
     invoke-virtual {p0}, Landroid/widget/HorizontalScrollView;->getScrollY()I
 

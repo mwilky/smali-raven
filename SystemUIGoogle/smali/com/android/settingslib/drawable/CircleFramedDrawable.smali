@@ -1,20 +1,24 @@
-.class public Lcom/android/settingslib/drawable/CircleFramedDrawable;
+.class public final Lcom/android/settingslib/drawable/CircleFramedDrawable;
 .super Landroid/graphics/drawable/Drawable;
 .source "CircleFramedDrawable.java"
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private final mBitmap:Landroid/graphics/Bitmap;
+.field public final mBitmap:Landroid/graphics/Bitmap;
 
-.field private mDstRect:Landroid/graphics/RectF;
+.field public mDstRect:Landroid/graphics/RectF;
 
-.field private mIconPaint:Landroid/graphics/Paint;
+.field public mIconPaint:Landroid/graphics/Paint;
 
-.field private mScale:F
+.field public mScale:F
 
-.field private final mSize:I
+.field public final mSize:I
 
-.field private mSrcRect:Landroid/graphics/Rect;
+.field public mSrcRect:Landroid/graphics/Rect;
 
 
 # direct methods
@@ -140,31 +144,9 @@
     return-void
 .end method
 
-.method public static getInstance(Landroid/content/Context;Landroid/graphics/Bitmap;)Lcom/android/settingslib/drawable/CircleFramedDrawable;
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    sget v0, Lcom/android/settingslib/R$dimen;->circle_avatar_size:I
-
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result p0
-
-    new-instance v0, Lcom/android/settingslib/drawable/CircleFramedDrawable;
-
-    float-to-int p0, p0
-
-    invoke-direct {v0, p1, p0}, Lcom/android/settingslib/drawable/CircleFramedDrawable;-><init>(Landroid/graphics/Bitmap;I)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 4
 
     iget v0, p0, Lcom/android/settingslib/drawable/CircleFramedDrawable;->mScale:F
@@ -208,7 +190,7 @@
     return-void
 .end method
 
-.method public getIntrinsicHeight()I
+.method public final getIntrinsicHeight()I
     .locals 0
 
     iget p0, p0, Lcom/android/settingslib/drawable/CircleFramedDrawable;->mSize:I
@@ -216,7 +198,7 @@
     return p0
 .end method
 
-.method public getIntrinsicWidth()I
+.method public final getIntrinsicWidth()I
     .locals 0
 
     iget p0, p0, Lcom/android/settingslib/drawable/CircleFramedDrawable;->mSize:I
@@ -224,7 +206,7 @@
     return p0
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, -0x3
@@ -232,13 +214,13 @@
     return p0
 .end method
 
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 0
 
     return-void
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/drawable/CircleFramedDrawable;->mIconPaint:Landroid/graphics/Paint;

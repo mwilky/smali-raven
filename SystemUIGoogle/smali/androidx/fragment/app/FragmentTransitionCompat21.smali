@@ -1,10 +1,10 @@
-.class Landroidx/fragment/app/FragmentTransitionCompat21;
+.class public final Landroidx/fragment/app/FragmentTransitionCompat21;
 .super Landroidx/fragment/app/FragmentTransitionImpl;
 .source "FragmentTransitionCompat21.java"
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/fragment/app/FragmentTransitionImpl;-><init>()V
@@ -12,7 +12,7 @@
     return-void
 .end method
 
-.method private static hasSimpleTarget(Landroid/transition/Transition;)Z
+.method public static hasSimpleTarget(Landroid/transition/Transition;)Z
     .locals 1
 
     invoke-virtual {p0}, Landroid/transition/Transition;->getTargetIds()Ljava/util/List;
@@ -62,20 +62,17 @@
 
 
 # virtual methods
-.method public addTarget(Ljava/lang/Object;Landroid/view/View;)V
+.method public final addTarget(Landroid/view/View;Ljava/lang/Object;)V
     .locals 0
 
-    if-eqz p1, :cond_0
+    check-cast p2, Landroid/transition/Transition;
 
-    check-cast p1, Landroid/transition/Transition;
+    invoke-virtual {p2, p1}, Landroid/transition/Transition;->addTarget(Landroid/view/View;)Landroid/transition/Transition;
 
-    invoke-virtual {p1, p2}, Landroid/transition/Transition;->addTarget(Landroid/view/View;)Landroid/transition/Transition;
-
-    :cond_0
     return-void
 .end method
 
-.method public addTargets(Ljava/lang/Object;Ljava/util/ArrayList;)V
+.method public final addTargets(Ljava/lang/Object;Ljava/util/ArrayList;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -159,7 +156,7 @@
     return-void
 .end method
 
-.method public beginDelayedTransition(Landroid/view/ViewGroup;Ljava/lang/Object;)V
+.method public final beginDelayedTransition(Landroid/view/ViewGroup;Ljava/lang/Object;)V
     .locals 0
 
     check-cast p2, Landroid/transition/Transition;
@@ -169,7 +166,7 @@
     return-void
 .end method
 
-.method public canHandle(Ljava/lang/Object;)Z
+.method public final canHandle(Ljava/lang/Object;)Z
     .locals 0
 
     instance-of p0, p1, Landroid/transition/Transition;
@@ -177,7 +174,7 @@
     return p0
 .end method
 
-.method public cloneTransition(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final cloneTransition(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     if-eqz p1, :cond_0
@@ -197,7 +194,7 @@
     return-object p0
 .end method
 
-.method public mergeTransitionsInSequence(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final mergeTransitionsInSequence(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Landroid/transition/Transition;
@@ -265,7 +262,7 @@
     return-object p1
 .end method
 
-.method public mergeTransitionsTogether(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final mergeTransitionsTogether(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     new-instance p0, Landroid/transition/TransitionSet;
@@ -279,37 +276,14 @@
     invoke-virtual {p0, p1}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
     :cond_0
-    if-eqz p2, :cond_1
-
     check-cast p2, Landroid/transition/Transition;
 
     invoke-virtual {p0, p2}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
 
-    :cond_1
-    if-eqz p3, :cond_2
-
-    check-cast p3, Landroid/transition/Transition;
-
-    invoke-virtual {p0, p3}, Landroid/transition/TransitionSet;->addTransition(Landroid/transition/Transition;)Landroid/transition/TransitionSet;
-
-    :cond_2
     return-object p0
 .end method
 
-.method public removeTarget(Ljava/lang/Object;Landroid/view/View;)V
-    .locals 0
-
-    if-eqz p1, :cond_0
-
-    check-cast p1, Landroid/transition/Transition;
-
-    invoke-virtual {p1, p2}, Landroid/transition/Transition;->removeTarget(Landroid/view/View;)Landroid/transition/Transition;
-
-    :cond_0
-    return-void
-.end method
-
-.method public replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+.method public final replaceTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -411,9 +385,9 @@
 
     move-result p0
 
+    :goto_2
     add-int/lit8 p0, p0, -0x1
 
-    :goto_2
     if-ltz p0, :cond_3
 
     invoke-virtual {p2, p0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
@@ -424,16 +398,14 @@
 
     invoke-virtual {p1, p3}, Landroid/transition/Transition;->removeTarget(Landroid/view/View;)Landroid/transition/Transition;
 
-    add-int/lit8 p0, p0, -0x1
-
     goto :goto_2
 
     :cond_3
     return-void
 .end method
 
-.method public scheduleHideFragmentView(Ljava/lang/Object;Landroid/view/View;Ljava/util/ArrayList;)V
-    .locals 1
+.method public final scheduleHideFragmentView(Ljava/lang/Object;Landroid/view/View;Ljava/util/ArrayList;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -447,120 +419,93 @@
 
     check-cast p1, Landroid/transition/Transition;
 
-    new-instance v0, Landroidx/fragment/app/FragmentTransitionCompat21$2;
+    new-instance p0, Landroidx/fragment/app/FragmentTransitionCompat21$2;
 
-    invoke-direct {v0, p0, p2, p3}, Landroidx/fragment/app/FragmentTransitionCompat21$2;-><init>(Landroidx/fragment/app/FragmentTransitionCompat21;Landroid/view/View;Ljava/util/ArrayList;)V
+    invoke-direct {p0, p2, p3}, Landroidx/fragment/app/FragmentTransitionCompat21$2;-><init>(Landroid/view/View;Ljava/util/ArrayList;)V
 
-    invoke-virtual {p1, v0}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
-
-    return-void
-.end method
-
-.method public scheduleRemoveTargets(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-    .locals 10
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Object;",
-            "Ljava/lang/Object;",
-            "Ljava/util/ArrayList<",
-            "Landroid/view/View;",
-            ">;",
-            "Ljava/lang/Object;",
-            "Ljava/util/ArrayList<",
-            "Landroid/view/View;",
-            ">;",
-            "Ljava/lang/Object;",
-            "Ljava/util/ArrayList<",
-            "Landroid/view/View;",
-            ">;)V"
-        }
-    .end annotation
-
-    move-object v0, p1
-
-    check-cast v0, Landroid/transition/Transition;
-
-    new-instance v9, Landroidx/fragment/app/FragmentTransitionCompat21$3;
-
-    move-object v1, v9
-
-    move-object v2, p0
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    invoke-direct/range {v1 .. v8}, Landroidx/fragment/app/FragmentTransitionCompat21$3;-><init>(Landroidx/fragment/app/FragmentTransitionCompat21;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
-
-    invoke-virtual {v0, v9}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
 
     return-void
 .end method
 
-.method public setEpicenter(Ljava/lang/Object;Landroid/graphics/Rect;)V
-    .locals 1
+.method public final scheduleRemoveTargets(Ljava/lang/Object;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
+    .locals 7
+
+    check-cast p1, Landroid/transition/Transition;
+
+    new-instance v6, Landroidx/fragment/app/FragmentTransitionCompat21$3;
+
+    move-object v0, v6
+
+    move-object v1, p0
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    invoke-direct/range {v0 .. v5}, Landroidx/fragment/app/FragmentTransitionCompat21$3;-><init>(Landroidx/fragment/app/FragmentTransitionCompat21;Ljava/lang/Object;Ljava/util/ArrayList;Ljava/lang/Object;Ljava/util/ArrayList;)V
+
+    invoke-virtual {p1, v6}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
+    return-void
+.end method
+
+.method public final setEpicenter(Landroid/view/View;Ljava/lang/Object;)V
+    .locals 0
 
     if-eqz p1, :cond_0
 
-    check-cast p1, Landroid/transition/Transition;
-
-    new-instance v0, Landroidx/fragment/app/FragmentTransitionCompat21$5;
-
-    invoke-direct {v0, p0, p2}, Landroidx/fragment/app/FragmentTransitionCompat21$5;-><init>(Landroidx/fragment/app/FragmentTransitionCompat21;Landroid/graphics/Rect;)V
-
-    invoke-virtual {p1, v0}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setEpicenter(Ljava/lang/Object;Landroid/view/View;)V
-    .locals 1
-
-    if-eqz p2, :cond_0
-
-    check-cast p1, Landroid/transition/Transition;
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    invoke-virtual {p0, p2, v0}, Landroidx/fragment/app/FragmentTransitionImpl;->getBoundsOnScreen(Landroid/view/View;Landroid/graphics/Rect;)V
-
-    new-instance p2, Landroidx/fragment/app/FragmentTransitionCompat21$1;
-
-    invoke-direct {p2, p0, v0}, Landroidx/fragment/app/FragmentTransitionCompat21$1;-><init>(Landroidx/fragment/app/FragmentTransitionCompat21;Landroid/graphics/Rect;)V
-
-    invoke-virtual {p1, p2}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setListenerForTransitionEnd(Landroidx/fragment/app/Fragment;Ljava/lang/Object;Landroidx/core/os/CancellationSignal;Ljava/lang/Runnable;)V
-    .locals 0
-
     check-cast p2, Landroid/transition/Transition;
 
-    new-instance p1, Landroidx/fragment/app/FragmentTransitionCompat21$4;
+    new-instance p0, Landroid/graphics/Rect;
 
-    invoke-direct {p1, p0, p4}, Landroidx/fragment/app/FragmentTransitionCompat21$4;-><init>(Landroidx/fragment/app/FragmentTransitionCompat21;Ljava/lang/Runnable;)V
+    invoke-direct {p0}, Landroid/graphics/Rect;-><init>()V
 
-    invoke-virtual {p2, p1}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+    invoke-static {p0, p1}, Landroidx/fragment/app/FragmentTransitionImpl;->getBoundsOnScreen(Landroid/graphics/Rect;Landroid/view/View;)V
+
+    new-instance p1, Landroidx/fragment/app/FragmentTransitionCompat21$1;
+
+    invoke-direct {p1, p0}, Landroidx/fragment/app/FragmentTransitionCompat21$1;-><init>(Landroid/graphics/Rect;)V
+
+    invoke-virtual {p2, p1}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final setEpicenter(Ljava/lang/Object;Landroid/graphics/Rect;)V
+    .locals 0
+
+    check-cast p1, Landroid/transition/Transition;
+
+    new-instance p0, Landroidx/fragment/app/FragmentTransitionCompat21$5;
+
+    invoke-direct {p0, p2}, Landroidx/fragment/app/FragmentTransitionCompat21$5;-><init>(Landroid/graphics/Rect;)V
+
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
 
     return-void
 .end method
 
-.method public setSharedElementTargets(Ljava/lang/Object;Landroid/view/View;Ljava/util/ArrayList;)V
+.method public final setListenerForTransitionEnd(Ljava/lang/Object;Landroidx/core/os/CancellationSignal;Landroidx/fragment/app/DefaultSpecialEffectsController$9;)V
+    .locals 0
+
+    check-cast p1, Landroid/transition/Transition;
+
+    new-instance p0, Landroidx/fragment/app/FragmentTransitionCompat21$4;
+
+    invoke-direct {p0, p3}, Landroidx/fragment/app/FragmentTransitionCompat21$4;-><init>(Landroidx/fragment/app/DefaultSpecialEffectsController$9;)V
+
+    invoke-virtual {p1, p0}, Landroid/transition/Transition;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
+    return-void
+.end method
+
+.method public final setSharedElementTargets(Ljava/lang/Object;Landroid/view/View;Ljava/util/ArrayList;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -612,7 +557,7 @@
     return-void
 .end method
 
-.method public swapSharedElementTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+.method public final swapSharedElementTargets(Ljava/lang/Object;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -649,7 +594,7 @@
     return-void
 .end method
 
-.method public wrapTransitionInSet(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final wrapTransitionInSet(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     if-nez p1, :cond_0

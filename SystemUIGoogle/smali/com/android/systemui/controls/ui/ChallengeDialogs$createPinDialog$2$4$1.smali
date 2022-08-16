@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4$1;
+.class public final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4$1;
 .super Ljava/lang/Object;
 .source "ChallengeDialogs.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $editText:Landroid/widget/EditText;
+.field public final synthetic $editText:Landroid/widget/EditText;
 
-.field final synthetic $useAlphaCheckBox:Landroid/widget/CheckBox;
+.field public final synthetic $useAlphaCheckBox:Landroid/widget/CheckBox;
 
 
 # direct methods
-.method constructor <init>(Landroid/widget/EditText;Landroid/widget/CheckBox;)V
+.method public constructor <init>(Landroid/widget/EditText;Landroid/widget/CheckBox;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4$1;->$editText:Landroid/widget/EditText;
@@ -39,15 +39,9 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 0
 
-    sget-object p1, Lcom/android/systemui/controls/ui/ChallengeDialogs;->INSTANCE:Lcom/android/systemui/controls/ui/ChallengeDialogs;
-
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4$1;->$editText:Landroid/widget/EditText;
-
-    const-string v1, "editText"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4$1;->$editText:Landroid/widget/EditText;
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$4$1;->$useAlphaCheckBox:Landroid/widget/CheckBox;
 
@@ -55,7 +49,19 @@
 
     move-result p0
 
-    invoke-static {p1, v0, p0}, Lcom/android/systemui/controls/ui/ChallengeDialogs;->access$setInputType(Lcom/android/systemui/controls/ui/ChallengeDialogs;Landroid/widget/EditText;Z)V
+    if-eqz p0, :cond_0
 
+    const/16 p0, 0x81
+
+    invoke-virtual {p1, p0}, Landroid/widget/EditText;->setInputType(I)V
+
+    goto :goto_0
+
+    :cond_0
+    const/16 p0, 0x12
+
+    invoke-virtual {p1, p0}, Landroid/widget/EditText;->setInputType(I)V
+
+    :goto_0
     return-void
 .end method

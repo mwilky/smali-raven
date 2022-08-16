@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/TextKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/TextKeyframeAnimation;
 .super Lcom/airbnb/lottie/animation/keyframe/KeyframeAnimation;
 .source "TextKeyframeAnimation.java"
 
@@ -33,31 +33,12 @@
 
 
 # virtual methods
-.method getValue(Lcom/airbnb/lottie/value/Keyframe;F)Lcom/airbnb/lottie/model/DocumentData;
+.method public final getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/value/Keyframe<",
-            "Lcom/airbnb/lottie/model/DocumentData;",
-            ">;F)",
-            "Lcom/airbnb/lottie/model/DocumentData;"
-        }
-    .end annotation
 
     iget-object p0, p1, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
 
     check-cast p0, Lcom/airbnb/lottie/model/DocumentData;
-
-    return-object p0
-.end method
-
-.method bridge synthetic getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2}, Lcom/airbnb/lottie/animation/keyframe/TextKeyframeAnimation;->getValue(Lcom/airbnb/lottie/value/Keyframe;F)Lcom/airbnb/lottie/model/DocumentData;
-
-    move-result-object p0
 
     return-object p0
 .end method

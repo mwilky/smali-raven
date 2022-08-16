@@ -12,27 +12,3 @@
     accessFlags = 0x609
     name = "PolicyChangeListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onMaxHeightChanged(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newNewHeight"
-        }
-    .end annotation
-.end method
-
-.method public abstract onMaxSmallChanged(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newMaxSmallHeight"
-        }
-    .end annotation
-.end method

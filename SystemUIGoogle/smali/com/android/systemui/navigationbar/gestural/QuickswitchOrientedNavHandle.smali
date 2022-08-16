@@ -1,14 +1,14 @@
-.class public Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;
+.class public final Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;
 .super Lcom/android/systemui/navigationbar/gestural/NavigationHandle;
 .source "QuickswitchOrientedNavHandle.java"
 
 
 # instance fields
-.field private mDeltaRotation:I
+.field public mDeltaRotation:I
 
-.field private final mTmpBoundsRectF:Landroid/graphics/RectF;
+.field public final mTmpBoundsRectF:Landroid/graphics/RectF;
 
-.field private final mWidth:I
+.field public final mWidth:I
 
 
 # direct methods
@@ -27,7 +27,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$dimen;->navigation_home_handle_width:I
+    const v0, 0x7f0705a8
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -40,181 +40,186 @@
 
 
 # virtual methods
-.method public computeHomeHandleBounds()Landroid/graphics/RectF;
+.method public final computeHomeHandleBounds()Landroid/graphics/RectF;
     .locals 7
 
-    iget v0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:I
+    iget v0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:F
 
-    mul-int/lit8 v0, v0, 0x2
+    const/high16 v1, 0x40000000    # 2.0f
+
+    mul-float/2addr v0, v1
 
     invoke-virtual {p0}, Landroid/view/View;->getLocationOnScreen()[I
 
-    move-result-object v1
+    move-result-object v2
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    aget v1, v1, v2
+    aget v2, v2, v3
 
-    iget v3, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mDeltaRotation:I
+    iget v4, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mDeltaRotation:I
 
-    if-eq v3, v2, :cond_1
+    if-eq v4, v3, :cond_1
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    if-eq v3, v2, :cond_0
+    if-eq v4, v3, :cond_0
 
-    iget v0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:I
+    iget v0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:F
 
-    mul-int/lit8 v0, v0, 0x2
+    mul-float/2addr v0, v1
 
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
-
-    move-result v1
-
-    div-int/lit8 v1, v1, 0x2
-
-    iget v2, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mWidth:I
-
-    div-int/lit8 v2, v2, 0x2
-
-    sub-int/2addr v1, v2
-
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v2
 
-    iget v3, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:I
+    int-to-float v2, v2
 
-    sub-int/2addr v2, v3
+    div-float/2addr v2, v1
 
-    sub-int/2addr v2, v0
+    iget v3, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mWidth:I
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    int-to-float v3, v3
+
+    div-float/2addr v3, v1
+
+    sub-float/2addr v2, v3
+
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v3
 
-    div-int/lit8 v3, v3, 0x2
+    int-to-float v3, v3
 
-    iget v4, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mWidth:I
+    iget v4, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:F
 
-    div-int/lit8 v4, v4, 0x2
+    sub-float/2addr v3, v4
 
-    add-int/2addr v3, v4
+    sub-float/2addr v3, v0
 
-    add-int/2addr v0, v2
+    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
-    goto :goto_0
+    move-result v4
+
+    int-to-float v4, v4
+
+    div-float/2addr v4, v1
+
+    iget v5, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mWidth:I
+
+    int-to-float v5, v5
+
+    div-float/2addr v5, v1
+
+    add-float/2addr v5, v4
+
+    add-float/2addr v0, v3
+
+    goto :goto_1
 
     :cond_0
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
-    move-result v2
+    move-result v3
 
-    iget v3, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:I
+    int-to-float v3, v3
 
-    sub-int v3, v2, v3
+    iget v4, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:F
 
-    sub-int v0, v3, v0
+    sub-float v5, v3, v4
+
+    sub-float v0, v5, v0
 
     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
-    move-result v2
+    move-result v3
 
-    div-int/lit8 v2, v2, 0x2
+    int-to-float v3, v3
+
+    div-float/2addr v3, v1
 
     iget v4, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mWidth:I
 
-    div-int/lit8 v5, v4, 0x2
+    int-to-float v6, v4
 
-    sub-int/2addr v2, v5
+    div-float/2addr v6, v1
 
-    div-int/lit8 v1, v1, 0x2
+    sub-float/2addr v3, v6
 
-    sub-int/2addr v2, v1
+    int-to-float v2, v2
 
-    add-int v1, v2, v4
+    div-float/2addr v2, v1
 
-    move v6, v1
+    sub-float/2addr v3, v2
 
-    move v1, v0
+    int-to-float v1, v4
 
-    move v0, v6
+    add-float/2addr v1, v3
+
+    move v2, v0
 
     goto :goto_0
 
     :cond_1
-    iget v2, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:I
+    iget v3, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:F
 
-    add-int v3, v2, v0
+    add-float v5, v3, v0
 
     invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
     move-result v0
 
-    div-int/lit8 v0, v0, 0x2
+    int-to-float v0, v0
+
+    div-float/2addr v0, v1
 
     iget v4, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mWidth:I
 
-    div-int/lit8 v5, v4, 0x2
+    int-to-float v6, v4
 
-    sub-int/2addr v0, v5
+    div-float/2addr v6, v1
 
-    div-int/lit8 v1, v1, 0x2
-
-    sub-int/2addr v0, v1
-
-    add-int v1, v0, v4
-
-    move v6, v2
-
-    move v2, v0
-
-    move v0, v1
-
-    move v1, v6
-
-    :goto_0
-    iget-object v4, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mTmpBoundsRectF:Landroid/graphics/RectF;
-
-    int-to-float v1, v1
+    sub-float/2addr v0, v6
 
     int-to-float v2, v2
 
-    int-to-float v3, v3
+    div-float/2addr v2, v1
 
-    int-to-float v0, v0
+    sub-float/2addr v0, v2
 
-    invoke-virtual {v4, v1, v2, v3, v0}, Landroid/graphics/RectF;->set(FFFF)V
+    int-to-float v1, v4
+
+    add-float/2addr v1, v0
+
+    move v2, v3
+
+    move v3, v0
+
+    :goto_0
+    move v0, v1
+
+    :goto_1
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mTmpBoundsRectF:Landroid/graphics/RectF;
+
+    invoke-virtual {v1, v2, v3, v5, v0}, Landroid/graphics/RectF;->set(FFFF)V
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mTmpBoundsRectF:Landroid/graphics/RectF;
 
     return-object p0
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 3
+.method public final onDraw(Landroid/graphics/Canvas;)V
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->computeHomeHandleBounds()Landroid/graphics/RectF;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:I
-
-    int-to-float v2, v1
-
-    int-to-float v1, v1
+    iget v1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:F
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mPaint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v0, v2, v1, p0}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
-
-    return-void
-.end method
-
-.method public setDeltaRotation(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/navigationbar/gestural/QuickswitchOrientedNavHandle;->mDeltaRotation:I
+    invoke-virtual {p1, v0, v1, v1, p0}, Landroid/graphics/Canvas;->drawRoundRect(Landroid/graphics/RectF;FFLandroid/graphics/Paint;)V
 
     return-void
 .end method

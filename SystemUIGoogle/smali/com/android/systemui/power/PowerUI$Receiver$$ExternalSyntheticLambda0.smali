@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/power/PowerUI$Receiver$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -23,11 +24,26 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerUI$Receiver$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/power/PowerUI$Receiver;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerUI$Receiver;->$r8$lambda$kLNEfjeZS_vcKL6a9dUt9KPdf_4(Lcom/android/systemui/power/PowerUI$Receiver;)V
+    iget-object v0, p0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
 
+    iget-object v0, v0, Lcom/android/systemui/power/PowerUI;->mPowerManager:Landroid/os/PowerManager;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager;->isPowerSaveMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI$Receiver;->this$0:Lcom/android/systemui/power/PowerUI;
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
+
+    invoke-interface {p0}, Lcom/android/systemui/power/PowerUI$WarningsUI;->dismissLowBatteryWarning()V
+
+    :cond_0
     return-void
 .end method

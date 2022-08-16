@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;
 .super Ljava/lang/Object;
 .source "NotificationMenuRow.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
-.field final synthetic val$fromLeft:Z
+.field public final synthetic val$fromLeft:Z
 
-.field final synthetic val$notiThreshold:F
+.field public final synthetic val$notiThreshold:F
 
-.field final synthetic val$transX:F
+.field public final synthetic val$transX:F
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;FZF)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;FZF)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
@@ -46,7 +46,7 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 4
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;->val$transX:F
@@ -87,15 +87,11 @@
     :goto_0
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->access$500(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;)Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->mMenuFadedIn:Z
 
     if-nez v0, :cond_3
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
 

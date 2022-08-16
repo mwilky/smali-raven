@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/management/ControlHolder$bindData$1;
+.class public final Lcom/android/systemui/controls/management/ControlHolder$bindData$1;
 .super Ljava/lang/Object;
 .source "ControlAdapter.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $wrapper:Lcom/android/systemui/controls/management/ElementWrapper;
+.field public final synthetic $wrapper:Lcom/android/systemui/controls/management/ElementWrapper;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlHolder;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlHolder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlHolder;Lcom/android/systemui/controls/management/ElementWrapper;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlHolder;Lcom/android/systemui/controls/management/ElementWrapper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder$bindData$1;->this$0:Lcom/android/systemui/controls/management/ControlHolder;
@@ -43,9 +43,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder$bindData$1;->this$0:Lcom/android/systemui/controls/management/ControlHolder;
 
-    invoke-static {p1}, Lcom/android/systemui/controls/management/ControlHolder;->access$getFavorite$p(Lcom/android/systemui/controls/management/ControlHolder;)Landroid/widget/CheckBox;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/android/systemui/controls/management/ControlHolder;->favorite:Landroid/widget/CheckBox;
 
     invoke-virtual {v0}, Landroid/widget/CheckBox;->isChecked()Z
 
@@ -57,9 +55,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder$bindData$1;->this$0:Lcom/android/systemui/controls/management/ControlHolder;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/management/ControlHolder;->getFavoriteCallback()Lkotlin/jvm/functions/Function2;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/management/ControlHolder;->favoriteCallback:Lkotlin/jvm/functions/Function2;
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlHolder$bindData$1;->$wrapper:Lcom/android/systemui/controls/management/ElementWrapper;
 
@@ -71,9 +67,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder$bindData$1;->this$0:Lcom/android/systemui/controls/management/ControlHolder;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlHolder;->access$getFavorite$p(Lcom/android/systemui/controls/management/ControlHolder;)Landroid/widget/CheckBox;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->favorite:Landroid/widget/CheckBox;
 
     invoke-virtual {p0}, Landroid/widget/CheckBox;->isChecked()Z
 

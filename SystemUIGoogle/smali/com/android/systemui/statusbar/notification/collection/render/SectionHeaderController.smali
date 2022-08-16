@@ -13,5 +13,5 @@
 .method public abstract setClearSectionEnabled(Z)V
 .end method
 
-.method public abstract setOnClearSectionClickListener(Landroid/view/View$OnClickListener;)V
+.method public abstract setOnClearSectionClickListener(Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView$$ExternalSyntheticLambda6;)V
 .end method

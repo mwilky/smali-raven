@@ -1,4 +1,4 @@
-.class Landroidx/transition/Transition$AnimationInfo;
+.class public final Landroidx/transition/Transition$AnimationInfo;
 .super Ljava/lang/Object;
 .source "Transition.java"
 
@@ -9,25 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AnimationInfo"
 .end annotation
 
 
 # instance fields
-.field mName:Ljava/lang/String;
+.field public mName:Ljava/lang/String;
 
-.field mTransition:Landroidx/transition/Transition;
+.field public mTransition:Landroidx/transition/Transition;
 
-.field mValues:Landroidx/transition/TransitionValues;
+.field public mValues:Landroidx/transition/TransitionValues;
 
-.field mView:Landroid/view/View;
+.field public mView:Landroid/view/View;
 
-.field mWindowId:Landroidx/transition/WindowIdImpl;
+.field public mWindowId:Landroidx/transition/WindowIdImpl;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;Ljava/lang/String;Landroidx/transition/Transition;Landroidx/transition/WindowIdImpl;Landroidx/transition/TransitionValues;)V
+.method public constructor <init>(Landroid/view/View;Ljava/lang/String;Landroidx/transition/Transition;Landroidx/transition/WindowIdApi18;Landroidx/transition/TransitionValues;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

@@ -44,7 +44,7 @@
 
 
 # virtual methods
-.method public getDrawingRect(Landroid/graphics/Rect;)V
+.method public final getDrawingRect(Landroid/graphics/Rect;)V
     .locals 2
 
     invoke-super {p0, p1}, Landroid/widget/Button;->getDrawingRect(Landroid/graphics/Rect;)V

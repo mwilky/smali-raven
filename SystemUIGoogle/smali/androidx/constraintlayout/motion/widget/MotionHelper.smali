@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field private mUseOnHide:Z
+.field public mUseOnHide:Z
 
-.field private mUseOnShow:Z
+.field public mUseOnShow:Z
 
 
 # direct methods
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method protected init(Landroid/util/AttributeSet;)V
+.method public final init(Landroid/util/AttributeSet;)V
     .locals 4
 
     invoke-super {p0, p1}, Landroidx/constraintlayout/widget/ConstraintHelper;->init(Landroid/util/AttributeSet;)V
@@ -61,7 +61,7 @@
 
     move-result v2
 
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MotionHelper_onShow:I
+    const/4 v3, 0x1
 
     if-ne v2, v3, :cond_0
 
@@ -76,9 +76,7 @@
     goto :goto_1
 
     :cond_0
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MotionHelper_onHide:I
-
-    if-ne v2, v3, :cond_1
+    if-nez v2, :cond_1
 
     iget-boolean v3, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnHide:Z
 
@@ -98,41 +96,25 @@
     return-void
 .end method
 
-.method public isUseOnHide()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnHide:Z
-
-    return p0
-.end method
-
-.method public isUsedOnShow()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/constraintlayout/motion/widget/MotionHelper;->mUseOnShow:Z
-
-    return p0
-.end method
-
-.method public onTransitionChange(Landroidx/constraintlayout/motion/widget/MotionLayout;IIF)V
+.method public final onTransitionChange()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionCompleted(Landroidx/constraintlayout/motion/widget/MotionLayout;I)V
+.method public final onTransitionCompleted()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionStarted(Landroidx/constraintlayout/motion/widget/MotionLayout;II)V
+.method public final onTransitionStarted()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionTrigger(Landroidx/constraintlayout/motion/widget/MotionLayout;IZF)V
+.method public final onTransitionTrigger()V
     .locals 0
 
     return-void

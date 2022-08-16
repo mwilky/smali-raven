@@ -70,19 +70,21 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Z)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    iput-boolean p2, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mTooNew:Z
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mTooNew:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getActualVersion()I
+.method public final getActualVersion()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mActual:I
@@ -90,7 +92,7 @@
     return p0
 .end method
 
-.method public getExpectedVersion()I
+.method public final getExpectedVersion()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mExpected:I
@@ -98,7 +100,7 @@
     return p0
 .end method
 
-.method public isTooNew()Z
+.method public final isTooNew()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;->mTooNew:Z

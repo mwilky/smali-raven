@@ -1,64 +1,36 @@
-.class public Lcom/android/systemui/biometrics/AuthPanelController;
+.class public final Lcom/android/systemui/biometrics/AuthPanelController;
 .super Landroid/view/ViewOutlineProvider;
 .source "AuthPanelController.java"
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mContainerHeight:I
+.field public mContainerHeight:I
 
-.field private mContainerWidth:I
+.field public mContainerWidth:I
 
-.field private mContentHeight:I
+.field public mContentHeight:I
 
-.field private mContentWidth:I
+.field public mContentWidth:I
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mCornerRadius:F
+.field public mCornerRadius:F
 
-.field private mMargin:I
+.field public mMargin:I
 
-.field private final mPanelView:Landroid/view/View;
+.field public final mPanelView:Landroid/view/View;
 
-.field private mPosition:I
+.field public mPosition:I
 
-.field private mUseFullScreen:Z
+.field public mUseFullScreen:Z
 
 
 # direct methods
-.method public static synthetic $r8$lambda$IdZLzrepYfUqxEEq4TkSMVyXaVE(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$0(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Sa1F1wJ3gLG9zxl4DJc-WLwNHGg(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$2(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$bqvcZaXlv1g34WNwZHupKRr_oAw(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$3(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$gwVceKNQ2nk712ldx2z8yz5JG98(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->lambda$updateForContentDimensions$1(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Landroid/view/View;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
     .locals 3
 
     invoke-direct {p0}, Landroid/view/ViewOutlineProvider;-><init>()V
@@ -75,7 +47,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->biometric_dialog_corner_size:I
+    const v2, 0x7f0700bb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -87,7 +59,7 @@
 
     move-result-object p1
 
-    sget v1, Lcom/android/systemui/R$dimen;->biometric_dialog_border_padding:I
+    const v1, 0x7f0700b8
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -104,7 +76,9 @@
     return-void
 .end method
 
-.method private getLeftBound(I)I
+
+# virtual methods
+.method public final getLeftBound(I)I
     .locals 3
 
     const/4 v0, 0x2
@@ -137,7 +111,7 @@
 
     invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/biometrics/AuthPanelController;->getLeftBound(I)I
+    invoke-virtual {p0, v1}, Lcom/android/systemui/biometrics/AuthPanelController;->getLeftBound(I)I
 
     move-result p0
 
@@ -173,7 +147,49 @@
     return p1
 .end method
 
-.method private getTopBound(I)I
+.method public final getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
+    .locals 6
+
+    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mPosition:I
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->getLeftBound(I)I
+
+    move-result v1
+
+    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContentWidth:I
+
+    add-int v3, v1, p1
+
+    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mPosition:I
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->getTopBound(I)I
+
+    move-result v2
+
+    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContentHeight:I
+
+    add-int/2addr p1, v2
+
+    iget v0, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerHeight:I
+
+    iget v4, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mMargin:I
+
+    sub-int/2addr v0, v4
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
+
+    move-result v4
+
+    iget v5, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mCornerRadius:F
+
+    move-object v0, p2
+
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
+
+    return-void
+.end method
+
+.method public final getTopBound(I)I
     .locals 3
 
     const/4 v0, 0x1
@@ -206,7 +222,7 @@
 
     invoke-static {v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/biometrics/AuthPanelController;->getTopBound(I)I
+    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthPanelController;->getTopBound(I)I
 
     move-result p0
 
@@ -247,169 +263,7 @@
     return p0
 .end method
 
-.method private synthetic lambda$updateForContentDimensions$0(Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Integer;
-
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mMargin:I
-
-    return-void
-.end method
-
-.method private synthetic lambda$updateForContentDimensions$1(Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mCornerRadius:F
-
-    return-void
-.end method
-
-.method private synthetic lambda$updateForContentDimensions$2(Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Integer;
-
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContentHeight:I
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mPanelView:Landroid/view/View;
-
-    invoke-virtual {p0}, Landroid/view/View;->invalidateOutline()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$updateForContentDimensions$3(Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Integer;
-
-    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContentWidth:I
-
-    return-void
-.end method
-
-
-# virtual methods
-.method getContainerHeight()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerHeight:I
-
-    return p0
-.end method
-
-.method getContainerWidth()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerWidth:I
-
-    return p0
-.end method
-
-.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
-    .locals 6
-
-    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mPosition:I
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->getLeftBound(I)I
-
-    move-result v1
-
-    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContentWidth:I
-
-    add-int v3, v1, p1
-
-    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mPosition:I
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->getTopBound(I)I
-
-    move-result v2
-
-    iget p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContentHeight:I
-
-    add-int/2addr p1, v2
-
-    iget v0, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerHeight:I
-
-    iget v4, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mMargin:I
-
-    sub-int/2addr v0, v4
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->min(II)I
-
-    move-result v4
-
-    iget v5, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mCornerRadius:F
-
-    move-object v0, p2
-
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Outline;->setRoundRect(IIIIF)V
-
-    return-void
-.end method
-
-.method public setContainerDimensions(II)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerWidth:I
-
-    iput p2, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerHeight:I
-
-    return-void
-.end method
-
-.method public setPosition(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mPosition:I
-
-    return-void
-.end method
-
-.method public setUseFullScreen(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mUseFullScreen:Z
-
-    return-void
-.end method
-
-.method public updateForContentDimensions(III)V
+.method public final updateForContentDimensions(III)V
     .locals 8
 
     iget v0, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerWidth:I
@@ -440,7 +294,7 @@
 
     move-result-object v0
 
-    sget v2, Lcom/android/systemui/R$dimen;->biometric_dialog_border_padding:I
+    const v2, 0x7f0700b8
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -464,7 +318,7 @@
 
     move-result-object v2
 
-    sget v3, Lcom/android/systemui/R$dimen;->biometric_dialog_corner_size:I
+    const v3, 0x7f0700bb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -489,9 +343,9 @@
 
     move-result-object v0
 
-    new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;
+    new-instance v4, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda10;
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/AuthPanelController;)V
+    invoke-direct {v4, v5, p0}, Lcom/android/systemui/volume/VolumeDialogImpl$$ExternalSyntheticLambda10;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -507,9 +361,9 @@
 
     move-result-object v2
 
-    new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda3;
+    new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/biometrics/AuthPanelController;)V
+    invoke-direct {v4, v1, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v2, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -527,7 +381,7 @@
 
     new-instance v4, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v4, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/biometrics/AuthPanelController;)V
+    invoke-direct {v4, v1, p0}, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p2, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 

@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$animateExitAndFinish$1;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$animateExitAndFinish$1;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;

@@ -16,38 +16,14 @@
     name = "AnimatedBoundsLayoutListener"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$Companion;
-    }
-.end annotation
-
-
-# static fields
-.field public static final Companion:Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$Companion;
-
 
 # instance fields
-.field private currentAnimator:Landroid/animation/ValueAnimator;
+.field public currentAnimator:Landroid/animation/ValueAnimator;
 
-.field private lastBounds:Landroid/graphics/Rect;
+.field public lastBounds:Landroid/graphics/Rect;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;->Companion:Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$Companion;
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -56,20 +32,12 @@
     return-void
 .end method
 
-.method public static final synthetic access$setCurrentAnimator$p(Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;->currentAnimator:Landroid/animation/ValueAnimator;
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 16
+.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
+    .locals 15
 
-    move-object/from16 v0, p0
+    move-object v0, p0
 
     move-object/from16 v11, p1
 
@@ -79,19 +47,15 @@
 
     move/from16 v3, p8
 
-    move/from16 v4, p9
+    move/from16 v4, p2
 
-    const-string/jumbo v5, "view"
-
-    invoke-static {v11, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    move/from16 v5, p2
+    move/from16 v5, p9
 
     move/from16 v6, p3
 
     move/from16 v8, p4
 
-    if-ne v5, v1, :cond_1
+    if-ne v4, v1, :cond_1
 
     if-ne v6, v2, :cond_1
 
@@ -99,7 +63,7 @@
 
     if-ne v8, v3, :cond_2
 
-    if-ne v10, v4, :cond_2
+    if-ne v10, v5, :cond_2
 
     iget-object v0, v0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;->lastBounds:Landroid/graphics/Rect;
 
@@ -137,7 +101,7 @@
 
     new-instance v7, Landroid/graphics/Rect;
 
-    invoke-direct {v7, v1, v2, v3, v4}, Landroid/graphics/Rect;-><init>(IIII)V
+    invoke-direct {v7, v1, v2, v3, v5}, Landroid/graphics/Rect;-><init>(IIII)V
 
     iput-object v7, v0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;->lastBounds:Landroid/graphics/Rect;
 
@@ -148,11 +112,11 @@
 
     iget v3, v2, Landroid/graphics/Rect;->left:I
 
-    iget v7, v2, Landroid/graphics/Rect;->top:I
+    iget v5, v2, Landroid/graphics/Rect;->top:I
 
-    iget v9, v2, Landroid/graphics/Rect;->right:I
+    iget v7, v2, Landroid/graphics/Rect;->right:I
 
-    iget v12, v2, Landroid/graphics/Rect;->bottom:I
+    iget v9, v2, Landroid/graphics/Rect;->bottom:I
 
     iget-object v1, v0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;->currentAnimator:Landroid/animation/ValueAnimator;
 
@@ -176,37 +140,31 @@
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
-    move-result-object v13
+    move-result-object v12
 
-    const-wide/16 v14, 0x1f4
+    const-wide/16 v13, 0x1f4
 
-    invoke-virtual {v13, v14, v15}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {v12, v13, v14}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    sget-object v1, Lcom/android/systemui/animation/Interpolators;->STANDARD:Landroid/view/animation/Interpolator;
+    sget-object v1, Lcom/android/systemui/animation/Interpolators;->STANDARD:Landroid/view/animation/PathInterpolator;
 
-    invoke-virtual {v13, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v12, v1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     new-instance v1, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$1;
 
-    invoke-direct {v1, v0}, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$1;-><init>(Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$1;-><init>(Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;)V
 
-    invoke-virtual {v13, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v12, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    new-instance v14, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$2;
+    new-instance v13, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$2;
 
-    move-object v1, v14
+    move-object v1, v13
 
     move/from16 v4, p2
 
-    move v5, v7
-
     move/from16 v6, p3
 
-    move v7, v9
-
     move/from16 v8, p4
-
-    move v9, v12
 
     move/from16 v10, p5
 
@@ -214,11 +172,11 @@
 
     invoke-direct/range {v1 .. v11}, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$2;-><init>(Landroid/graphics/Rect;IIIIIIIILandroid/view/View;)V
 
-    invoke-virtual {v13, v14}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v12, v13}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    iput-object v13, v0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;->currentAnimator:Landroid/animation/ValueAnimator;
+    iput-object v12, v0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener;->currentAnimator:Landroid/animation/ValueAnimator;
 
-    invoke-virtual {v13}, Landroid/animation/ValueAnimator;->start()V
+    invoke-virtual {v12}, Landroid/animation/ValueAnimator;->start()V
 
     return-void
 

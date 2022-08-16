@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/settings/brightness/BrightnessController$3;
+.class public final Lcom/android/systemui/settings/brightness/BrightnessController$3;
 .super Ljava/lang/Object;
 .source "BrightnessController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
+.field public final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessController;)V
+.method public constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
@@ -34,48 +34,30 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$900(Lcom/android/systemui/settings/brightness/BrightnessController;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mListening:Z
 
-    move-result v0
-
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
-
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$902(Lcom/android/systemui/settings/brightness/BrightnessController;Z)Z
+    iput-boolean v1, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mListening:Z
 
-    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
+    iget-object v1, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mVrManager:Landroid/service/vr/IVrManager;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1000(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/service/vr/IVrManager;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
+    iget-object v0, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mVrStateCallbacks:Lcom/android/systemui/settings/brightness/BrightnessController$6;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1000(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/service/vr/IVrManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
-
-    invoke-static {v1}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1100(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/service/vr/IVrStateCallbacks;
-
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Landroid/service/vr/IVrManager;->unregisterListener(Landroid/service/vr/IVrStateCallbacks;)V
+    invoke-interface {v1, v0}, Landroid/service/vr/IVrManager;->unregisterListener(Landroid/service/vr/IVrStateCallbacks;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -84,7 +66,7 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "StatusBar.BrightnessController"
+    const-string v1, "CentralSurfaces.BrightnessController"
 
     const-string v2, "Failed to unregister VR mode state listener: "
 
@@ -94,25 +76,35 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1300(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;
+    iget-object v0, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBrightnessObserver:Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;
 
-    move-result-object v0
+    iget-object v1, v0, Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;->stopObserving()V
+    iget-object v1, v1, Lcom/android/systemui/settings/brightness/BrightnessController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    iget-object v0, v0, Lcom/android/systemui/settings/brightness/BrightnessController$BrightnessObserver;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
+
+    iget-object v1, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mDisplayManager:Landroid/hardware/display/DisplayManager;
+
+    iget-object v0, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mDisplayListener:Lcom/android/systemui/settings/brightness/BrightnessController$1;
+
+    invoke-virtual {v1, v0}, Landroid/hardware/display/DisplayManager;->unregisterDisplayListener(Landroid/hardware/display/DisplayManager$DisplayListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {v0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$1400(Lcom/android/systemui/settings/brightness/BrightnessController;)Lcom/android/systemui/settings/CurrentUserTracker;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/settings/brightness/BrightnessController;->mUserTracker:Lcom/android/systemui/settings/brightness/BrightnessController$8;
 
     invoke-virtual {v0}, Lcom/android/systemui/settings/CurrentUserTracker;->stopTracking()V
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$3;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$700(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/os/Handler;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mHandler:Lcom/android/systemui/settings/brightness/BrightnessController$7;
 
     const/4 v0, 0x3
 

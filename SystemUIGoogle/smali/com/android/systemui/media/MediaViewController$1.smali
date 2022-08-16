@@ -8,11 +8,11 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaViewController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/MediaHostStatesManager;)V
+    value = Lcom/android/systemui/media/MediaViewController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/MediaHostStatesManager;Lcom/android/systemui/media/MediaViewLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -29,11 +29,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaViewController;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaViewController;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaViewController$1;->this$0:Lcom/android/systemui/media/MediaViewController;
@@ -47,7 +47,7 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Ljava/lang/Number;
@@ -62,31 +62,25 @@
 
     move-result p2
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/media/MediaViewController$1;->invoke(II)V
+    iget-object p0, p0, Lcom/android/systemui/media/MediaViewController$1;->this$0:Lcom/android/systemui/media/MediaViewController;
+
+    iput p1, p0, Lcom/android/systemui/media/MediaViewController;->currentWidth:I
+
+    iput p2, p0, Lcom/android/systemui/media/MediaViewController;->currentHeight:I
+
+    iget-object p0, p0, Lcom/android/systemui/media/MediaViewController;->sizeChangedListener:Lkotlin/jvm/functions/Function0;
+
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p0
-.end method
-
-.method public final invoke(II)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaViewController$1;->this$0:Lcom/android/systemui/media/MediaViewController;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/media/MediaViewController;->setCurrentWidth(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/media/MediaViewController$1;->this$0:Lcom/android/systemui/media/MediaViewController;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/media/MediaViewController;->setCurrentHeight(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaViewController$1;->this$0:Lcom/android/systemui/media/MediaViewController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaViewController;->getSizeChangedListener()Lkotlin/jvm/functions/Function0;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-
-    return-void
 .end method

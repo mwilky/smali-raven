@@ -25,10 +25,7 @@
 .method public abstract extendPulse(I)V
 .end method
 
-.method public abstract isBlockingDoze()Z
-.end method
-
-.method public abstract isDozeSuppressed()Z
+.method public abstract isAlwaysOnSuppressed()Z
 .end method
 
 .method public abstract isPowerSaveActive()Z
@@ -46,10 +43,10 @@
 .method public abstract onSlpiTap(FF)V
 .end method
 
-.method public abstract prepareForGentleSleep(Ljava/lang/Runnable;)V
+.method public abstract prepareForGentleSleep(Lcom/android/systemui/doze/DozeScreenState$$ExternalSyntheticLambda1;)V
 .end method
 
-.method public abstract pulseWhileDozing(Lcom/android/systemui/doze/DozeHost$PulseCallback;I)V
+.method public abstract pulseWhileDozing(Lcom/android/systemui/doze/DozeUi$2;I)V
 .end method
 
 .method public abstract removeCallback(Lcom/android/systemui/doze/DozeHost$Callback;)V

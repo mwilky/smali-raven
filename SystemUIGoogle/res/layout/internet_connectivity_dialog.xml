@@ -37,9 +37,10 @@
                     </FrameLayout>
                 </LinearLayout>
                 <LinearLayout android:gravity="center" android:id="@id/turn_on_wifi_layout" android:focusable="false" android:clickable="false" android:layout_height="@dimen/internet_dialog_wifi_network_height" style="@style/InternetDialog.Network">
-                    <FrameLayout android:orientation="vertical" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
-                        <TextView android:textAppearance="@style/TextAppearance.InternetDialog" android:gravity="start|center" android:id="@id/wifi_toggle_title" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/turn_on_wifi" />
-                    </FrameLayout>
+                    <LinearLayout android:gravity="start|center" android:orientation="vertical" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_weight="1.0">
+                        <TextView android:textAppearance="@style/TextAppearance.InternetDialog" android:gravity="start|center" android:id="@id/wifi_toggle_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/turn_on_wifi" />
+                        <TextView android:textAppearance="@style/TextAppearance.InternetDialog.Secondary" android:gravity="start|center" android:id="@id/wifi_toggle_summary" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifitrackerlib_admin_restricted_network" />
+                    </LinearLayout>
                     <FrameLayout android:layout_width="@dimen/settingslib_switch_track_width" android:layout_height="48.0dip" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip">
                         <Switch android:theme="@style/MainSwitch.Settingslib" android:layout_gravity="center" android:id="@id/wifi_toggle" android:layout_width="@dimen/settingslib_switch_track_width" android:layout_height="fill_parent" android:thumb="@drawable/settingslib_thumb_selector" android:contentDescription="@string/turn_on_wifi" android:track="@drawable/settingslib_track_selector" android:switchMinWidth="@dimen/settingslib_switch_track_width" />
                     </FrameLayout>

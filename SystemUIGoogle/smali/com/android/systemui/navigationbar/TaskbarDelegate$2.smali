@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/TaskbarDelegate$2;
+.class public final Lcom/android/systemui/navigationbar/TaskbarDelegate$2;
 .super Ljava/lang/Object;
 .source "TaskbarDelegate.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$2;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
@@ -34,25 +34,38 @@
 
 
 # virtual methods
-.method public hide()V
-    .locals 0
+.method public final hide()V
+    .locals 1
 
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$2;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
+
+    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate;->mTaskbarTransientShowing:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate;->mTaskbarTransientShowing:Z
+
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate;->mEdgeBackGestureHandler:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+
+    iput-boolean v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mIsNavBarShownTransiently:Z
+
+    :cond_0
     return-void
 .end method
 
-.method public isVisible()Z
+.method public final isVisible()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$2;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/TaskbarDelegate;->access$200(Lcom/android/systemui/navigationbar/TaskbarDelegate;)Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate;->mTaskbarTransientShowing:Z
 
     return p0
 .end method
 
-.method public synchronizeState()V
+.method public final synchronizeState()V
     .locals 0
 
     return-void

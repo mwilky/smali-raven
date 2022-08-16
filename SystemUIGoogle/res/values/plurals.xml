@@ -16,6 +16,10 @@
         <item quantity="other">%s controls added.</item>
         <item quantity="one">%s control added.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s apps are active</item>
+        <item quantity="one">%s app is active</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Enter SIM PIN. You have %d remaining attempts.</item>
         <item quantity="one">Enter SIM PIN. You have %d remaining attempt before you must contact your carrier to unlock your device.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Incorrect SIM PUK code, you have %d remaining attempts before SIM becomes permanently unusable.</item>
         <item quantity="one">Incorrect SIM PUK code, you have %d remaining attempt before SIM becomes permanently unusable.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Try again in %d seconds.</item>
-        <item quantity="one">Try again in 1 second.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d new notifications</item>
@@ -70,9 +70,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">You can add up to %d users.</item>
         <item quantity="one">Only one user can be created.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d devices connected</item>
-        <item quantity="one">%1$d device connected</item>
     </plurals>
 </resources>

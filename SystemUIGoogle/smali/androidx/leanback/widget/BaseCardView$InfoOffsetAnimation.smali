@@ -1,4 +1,4 @@
-.class final Landroidx/leanback/widget/BaseCardView$InfoOffsetAnimation;
+.class public final Landroidx/leanback/widget/BaseCardView$InfoOffsetAnimation;
 .super Landroidx/leanback/widget/BaseCardView$AnimationBase;
 .source "BaseCardView.java"
 
@@ -9,34 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "InfoOffsetAnimation"
 .end annotation
 
 
 # instance fields
-.field private mDelta:F
+.field public mDelta:F
 
-.field private mStartValue:F
+.field public mStartValue:F
 
-.field final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
+.field public final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
 
 
 # direct methods
 .method public constructor <init>(Landroidx/leanback/widget/BaseCardView;FF)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "start",
-            "end"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/BaseCardView$InfoOffsetAnimation;->this$0:Landroidx/leanback/widget/BaseCardView;
 
@@ -53,18 +41,8 @@
 
 
 # virtual methods
-.method protected applyTransformation(FLandroid/view/animation/Transformation;)V
+.method public final applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "interpolatedTime",
-            "t"
-        }
-    .end annotation
 
     iget-object p2, p0, Landroidx/leanback/widget/BaseCardView$InfoOffsetAnimation;->this$0:Landroidx/leanback/widget/BaseCardView;
 
@@ -74,9 +52,9 @@
 
     mul-float/2addr p1, p0
 
-    add-float/2addr v0, p1
+    add-float/2addr p1, v0
 
-    iput v0, p2, Landroidx/leanback/widget/BaseCardView;->mInfoOffset:F
+    iput p1, p2, Landroidx/leanback/widget/BaseCardView;->mInfoOffset:F
 
     invoke-virtual {p2}, Landroid/widget/FrameLayout;->requestLayout()V
 

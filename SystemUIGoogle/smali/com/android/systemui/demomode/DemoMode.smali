@@ -7,25 +7,9 @@
 
 
 # static fields
-.field public static final COMMANDS:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public static final COMMANDS:Ljava/util/ArrayList;
 
-.field public static final NO_COMMANDS:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public static final NO_COMMANDS:Ljava/util/ArrayList;
 
 
 # direct methods
@@ -36,7 +20,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    sput-object v0, Lcom/android/systemui/demomode/DemoMode;->NO_COMMANDS:Ljava/util/List;
+    sput-object v0, Lcom/android/systemui/demomode/DemoMode;->NO_COMMANDS:Ljava/util/ArrayList;
 
     const-string v1, "bars"
 
@@ -48,9 +32,9 @@
 
     const-string v5, "notifications"
 
-    const-string v6, "operator"
+    const-string/jumbo v6, "operator"
 
-    const-string v7, "status"
+    const-string/jumbo v7, "status"
 
     const-string/jumbo v8, "volume"
 
@@ -62,7 +46,7 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/android/systemui/demomode/DemoMode;->COMMANDS:Ljava/util/List;
+    sput-object v0, Lcom/android/systemui/demomode/DemoMode;->COMMANDS:Ljava/util/ArrayList;
 
     return-void
 .end method
@@ -80,7 +64,7 @@
         }
     .end annotation
 
-    sget-object p0, Lcom/android/systemui/demomode/DemoMode;->NO_COMMANDS:Ljava/util/List;
+    sget-object p0, Lcom/android/systemui/demomode/DemoMode;->NO_COMMANDS:Ljava/util/ArrayList;
 
     return-object p0
 .end method

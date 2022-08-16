@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/WorkModeTile;
+.class public final Lcom/android/systemui/qs/tiles/WorkModeTile;
 .super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "WorkModeTile.java"
 
@@ -18,9 +18,9 @@
 
 
 # instance fields
-.field private final mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+.field public final mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-.field private final mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
+.field public final mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
 
-    sget p1, Lcom/android/systemui/R$drawable;->stat_sys_managed_profile_status:I
+    const p1, 0x7f080816
 
     invoke-static {p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -39,9 +39,7 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getLifecycle()Landroidx/lifecycle/Lifecycle;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mLifecycle:Landroidx/lifecycle/LifecycleRegistry;
 
     invoke-interface {p9, p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/Lifecycle;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -50,7 +48,7 @@
 
 
 # virtual methods
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 1
 
     new-instance p0, Landroid/content/Intent;
@@ -62,7 +60,7 @@
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/16 p0, 0x101
@@ -70,21 +68,37 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
-    .locals 1
+.method public final getTileLabel()Ljava/lang/CharSequence;
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->quick_settings_work_mode_label:I
+    const-class v1, Landroid/app/admin/DevicePolicyManager;
 
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/WorkModeTile$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/WorkModeTile$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/tiles/WorkModeTile;)V
+
+    const-string p0, "SystemUi.QS_WORK_PROFILE_LABEL"
+
+    invoke-virtual {v0, p0, v1}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public handleClick(Landroid/view/View;)V
+.method public final handleClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
@@ -102,8 +116,10 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+.method public final handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 2
+
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WorkModeTile;->isAvailable()Z
 
@@ -201,17 +217,7 @@
     return-void
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/WorkModeTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public isAvailable()Z
+.method public final isAvailable()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
@@ -223,7 +229,7 @@
     return p0
 .end method
 
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
@@ -233,17 +239,7 @@
     return-object p0
 .end method
 
-.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/WorkModeTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onManagedProfileChanged()V
+.method public final onManagedProfileChanged()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/WorkModeTile;->mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
@@ -261,22 +257,18 @@
     return-void
 .end method
 
-.method public onManagedProfileRemoved()V
+.method public final onManagedProfileRemoved()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHost:Lcom/android/systemui/qs/QSHost;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getTileSpec()Ljava/lang/String;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mTileSpec:Ljava/lang/String;
 
     invoke-interface {v0, v1}, Lcom/android/systemui/qs/QSHost;->removeTile(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHost:Lcom/android/systemui/qs/QSHost;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getTileSpec()Ljava/lang/String;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mTileSpec:Ljava/lang/String;
 
     invoke-interface {v0, p0}, Lcom/android/systemui/qs/QSHost;->unmarkTileAsAutoAdded(Ljava/lang/String;)V
 

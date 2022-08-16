@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/systemui/qs/tiles/MicrophoneToggleTile$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Supplier;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/qs/tiles/MicrophoneToggleTile$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/MicrophoneToggleTile$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/systemui/qs/tiles/MicrophoneToggleTile$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/qs/tiles/MicrophoneToggleTile$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/qs/tiles/MicrophoneToggleTile$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,9 +18,19 @@
 
 # virtual methods
 .method public final get()Ljava/lang/Object;
-    .locals 0
+    .locals 2
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/MicrophoneToggleTile;->$r8$lambda$j1O7iq4x5I67ASFS50WSfnHKPa8()Ljava/lang/Boolean;
+    const/4 p0, 0x1
+
+    const-string/jumbo v0, "privacy"
+
+    const-string v1, "mic_toggle_enabled"
+
+    invoke-static {v0, v1, p0}, Landroid/provider/DeviceConfig;->getBoolean(Ljava/lang/String;Ljava/lang/String;Z)Z
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
 

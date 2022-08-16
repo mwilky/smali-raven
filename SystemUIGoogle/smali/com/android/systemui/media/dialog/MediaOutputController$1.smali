@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/media/dialog/MediaOutputController$1;
+.class public final Lcom/android/systemui/media/dialog/MediaOutputController$1;
 .super Landroid/media/session/MediaController$Callback;
 .source "MediaOutputController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/dialog/MediaOutputController;
+.field public final synthetic this$0:Lcom/android/systemui/media/dialog/MediaOutputController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/dialog/MediaOutputController;)V
+.method public constructor <init>(Lcom/android/systemui/media/dialog/MediaOutputController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputController$1;->this$0:Lcom/android/systemui/media/dialog/MediaOutputController;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onMetadataChanged(Landroid/media/MediaMetadata;)V
+.method public final onMetadataChanged(Landroid/media/MediaMetadata;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputController$1;->this$0:Lcom/android/systemui/media/dialog/MediaOutputController;
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method public onPlaybackStateChanged(Landroid/media/session/PlaybackState;)V
+.method public final onPlaybackStateChanged(Landroid/media/session/PlaybackState;)V
     .locals 1
 
     invoke-virtual {p1}, Landroid/media/session/PlaybackState;->getState()I

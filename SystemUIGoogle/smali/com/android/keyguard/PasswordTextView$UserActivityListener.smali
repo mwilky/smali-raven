@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "UserActivityListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onUserActivity()V
-.end method

@@ -1,10 +1,14 @@
-.class public Lcom/android/systemui/recents/TriangleShape;
+.class public final Lcom/android/systemui/recents/TriangleShape;
 .super Landroid/graphics/drawable/shapes/PathShape;
 .source "TriangleShape.java"
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mTriangularPath:Landroid/graphics/Path;
+.field public mTriangularPath:Landroid/graphics/Path;
 
 
 # direct methods
@@ -16,50 +20,6 @@
     iput-object p1, p0, Lcom/android/systemui/recents/TriangleShape;->mTriangularPath:Landroid/graphics/Path;
 
     return-void
-.end method
-
-.method public static create(FFZ)Lcom/android/systemui/recents/TriangleShape;
-    .locals 3
-
-    new-instance v0, Landroid/graphics/Path;
-
-    invoke-direct {v0}, Landroid/graphics/Path;-><init>()V
-
-    const/high16 v1, 0x40000000    # 2.0f
-
-    const/4 v2, 0x0
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {v0, v2, p1}, Landroid/graphics/Path;->moveTo(FF)V
-
-    invoke-virtual {v0, p0, p1}, Landroid/graphics/Path;->lineTo(FF)V
-
-    div-float p2, p0, v1
-
-    invoke-virtual {v0, p2, v2}, Landroid/graphics/Path;->lineTo(FF)V
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->close()V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v0, v2, v2}, Landroid/graphics/Path;->moveTo(FF)V
-
-    div-float p2, p0, v1
-
-    invoke-virtual {v0, p2, p1}, Landroid/graphics/Path;->lineTo(FF)V
-
-    invoke-virtual {v0, p0, v2}, Landroid/graphics/Path;->lineTo(FF)V
-
-    invoke-virtual {v0}, Landroid/graphics/Path;->close()V
-
-    :goto_0
-    new-instance p2, Lcom/android/systemui/recents/TriangleShape;
-
-    invoke-direct {p2, v0, p0, p1}, Lcom/android/systemui/recents/TriangleShape;-><init>(Landroid/graphics/Path;FF)V
-
-    return-object p2
 .end method
 
 .method public static createHorizontal(FFZ)Lcom/android/systemui/recents/TriangleShape;
@@ -108,7 +68,7 @@
 
 
 # virtual methods
-.method public getOutline(Landroid/graphics/Outline;)V
+.method public final getOutline(Landroid/graphics/Outline;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/recents/TriangleShape;->mTriangularPath:Landroid/graphics/Path;

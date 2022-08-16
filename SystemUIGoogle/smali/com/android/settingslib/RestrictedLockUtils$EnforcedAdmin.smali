@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
+.class public final Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 .super Ljava/lang/Object;
 .source "RestrictedLockUtils.java"
 
@@ -14,10 +14,6 @@
 .end annotation
 
 
-# static fields
-.field public static final MULTIPLE_ENFORCED_ADMIN:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-
 # instance fields
 .field public component:Landroid/content/ComponentName;
 
@@ -27,18 +23,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-    invoke-direct {v0}, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;-><init>()V
-
-    sput-object v0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->MULTIPLE_ENFORCED_ADMIN:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -56,17 +40,9 @@
 .end method
 
 .method public constructor <init>(Landroid/content/ComponentName;Ljava/lang/String;Landroid/os/UserHandle;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->component:Landroid/content/ComponentName;
-
-    iput-object v0, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->enforcedRestriction:Ljava/lang/String;
-
-    iput-object v0, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->user:Landroid/os/UserHandle;
 
     iput-object p1, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->component:Landroid/content/ComponentName;
 
@@ -77,21 +53,9 @@
     return-void
 .end method
 
-.method public static createDefaultEnforcedAdminWithRestriction(Ljava/lang/String;)Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-    .locals 1
-
-    new-instance v0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-    invoke-direct {v0}, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;-><init>()V
-
-    iput-object p0, v0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->enforcedRestriction:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -161,7 +125,7 @@
     return v1
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 3
 
     const/4 v0, 0x3
@@ -193,16 +157,14 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "EnforcedAdmin{component="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "EnforcedAdmin{component="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;->component:Landroid/content/ComponentName;
 

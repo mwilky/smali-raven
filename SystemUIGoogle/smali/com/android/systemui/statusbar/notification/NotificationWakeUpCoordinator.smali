@@ -16,66 +16,56 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nNotificationWakeUpCoordinator.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationWakeUpCoordinator.kt\ncom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,430:1\n1819#2,2:431\n*E\n*S KotlinDebug\n*F\n+ 1 NotificationWakeUpCoordinator.kt\ncom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator\n*L\n372#1,2:431\n*E\n"
+    value = "SMAP\nNotificationWakeUpCoordinator.kt\nKotlin\n*S Kotlin\n*F\n+ 1 NotificationWakeUpCoordinator.kt\ncom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,429:1\n1849#2,2:430\n*S KotlinDebug\n*F\n+ 1 NotificationWakeUpCoordinator.kt\ncom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator\n*L\n371#1:430,2\n*E\n"
 .end annotation
 
 
 # instance fields
-.field private final bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+.field public final bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-.field private collapsedEnoughToHide:Z
+.field public collapsedEnoughToHide:Z
 
-.field private final dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
+.field public final dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-.field private fullyAwake:Z
+.field public fullyAwake:Z
 
-.field private mDozeAmount:F
+.field public mDozeAmount:F
 
-.field private final mEntrySetToClearWhenFinished:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mEntrySetToClearWhenFinished:Ljava/util/LinkedHashSet;
 
-.field private final mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+.field public final mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-.field private mLinearDozeAmount:F
+.field public mLinearDozeAmount:F
 
-.field private mLinearVisibilityAmount:F
+.field public mLinearVisibilityAmount:F
 
-.field private final mNotificationVisibility:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$mNotificationVisibility$1;
+.field public final mNotificationVisibility:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$mNotificationVisibility$1;
 
-.field private mNotificationVisibleAmount:F
+.field public mNotificationsVisible:Z
 
-.field private mNotificationsVisible:Z
+.field public mNotificationsVisibleForExpansion:Z
 
-.field private mNotificationsVisibleForExpansion:Z
+.field public mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-.field private mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+.field public mVisibilityAmount:F
 
-.field private mVisibilityAmount:F
+.field public mVisibilityAnimator:Landroid/animation/ObjectAnimator;
 
-.field private mVisibilityAnimator:Landroid/animation/ObjectAnimator;
+.field public mVisibilityInterpolator:Landroid/view/animation/PathInterpolator;
 
-.field private mVisibilityInterpolator:Landroid/view/animation/Interpolator;
+.field public notificationsFullyHidden:Z
 
-.field private notificationsFullyHidden:Z
+.field public pulseExpanding:Z
 
-.field private pulseExpanding:Z
+.field public pulsing:Z
 
-.field private pulsing:Z
+.field public final screenOffAnimationController:Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;
 
-.field private state:I
+.field public state:I
 
-.field private final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+.field public final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-.field private final unlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-
-.field private final wakeUpListeners:Ljava/util/ArrayList;
+.field public final wakeUpListeners:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -85,34 +75,14 @@
     .end annotation
 .end field
 
-.field private wakingUp:Z
+.field public wakingUp:Z
 
-.field private willWakeUp:Z
+.field public willWakeUp:Z
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;)V
-    .locals 1
-
-    const-string v0, "mHeadsUpManager"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "statusBarStateController"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "bypassController"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dozeParameters"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "unlockedScreenOffAnimationController"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -124,7 +94,7 @@
 
     iput-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->unlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->screenOffAnimationController:Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;
 
     new-instance p3, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$mNotificationVisibility$1;
 
@@ -132,15 +102,15 @@
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationVisibility:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$mNotificationVisibility$1;
 
-    sget-object p3, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN_REVERSE:Landroid/view/animation/Interpolator;
+    sget-object p3, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN_REVERSE:Landroid/view/animation/PathInterpolator;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityInterpolator:Landroid/view/animation/Interpolator;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityInterpolator:Landroid/view/animation/PathInterpolator;
 
     new-instance p3, Ljava/util/LinkedHashSet;
 
     invoke-direct {p3}, Ljava/util/LinkedHashSet;-><init>()V
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/Set;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/LinkedHashSet;
 
     new-instance p3, Ljava/util/ArrayList;
 
@@ -148,9 +118,9 @@
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakeUpListeners:Ljava/util/ArrayList;
 
-    const/4 p3, 0x1
+    const/4 p4, 0x1
 
-    iput p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->state:I
+    iput p4, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->state:I
 
     invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->addListener(Lcom/android/systemui/statusbar/policy/OnHeadsUpChangedListener;)V
 
@@ -160,615 +130,13 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$1;-><init>(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;)V
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->addListener(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$WakeUpListener;)V
-
-    return-void
-.end method
-
-.method public static final synthetic access$getMLinearVisibilityAmount$p(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
-
-    return p0
-.end method
-
-.method public static final synthetic access$getMNotificationsVisibleForExpansion$p(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisibleForExpansion:Z
-
-    return p0
-.end method
-
-.method public static final synthetic access$getPulseExpanding$p(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->pulseExpanding:Z
-
-    return p0
-.end method
-
-.method public static final synthetic access$getWakeUpListeners$p(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;)Ljava/util/ArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakeUpListeners:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$setPulseExpanding$p(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->pulseExpanding:Z
-
-    return-void
-.end method
-
-.method public static final synthetic access$setVisibilityAmount(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setVisibilityAmount(F)V
-
-    return-void
-.end method
-
-.method private final handleAnimationFinished()V
-    .locals 4
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearDozeAmount:F
-
-    const/4 v1, 0x0
-
-    cmpg-float v0, v0, v1
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    if-nez v0, :cond_0
-
-    move v0, v2
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v3
-
-    :goto_0
-    if-nez v0, :cond_2
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
-
-    cmpg-float v0, v0, v1
-
-    if-nez v0, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v2, v3
-
-    :goto_1
-    if-eqz v2, :cond_4
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/Set;
-
-    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_2
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    invoke-virtual {v1, v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setHeadsUpAnimatingAway(Z)V
-
-    goto :goto_2
-
-    :cond_3
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/Set;
-
-    invoke-interface {p0}, Ljava/util/Set;->clear()V
-
-    :cond_4
-    return-void
-.end method
-
-.method private final notifyAnimationStart(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    if-eqz p0, :cond_0
-
-    xor-int/lit8 p1, p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->notifyHideAnimationStart(Z)V
-
-    return-void
-
-    :cond_0
-    const-string p0, "mStackScrollerController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method private final overrideDozeAmountIfAnimatingScreenOff(F)Z
-    .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->unlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;->isScreenOffAnimationPlaying()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    const/high16 p1, 0x3f800000    # 1.0f
-
-    invoke-virtual {p0, p1, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setDozeAmount(FF)V
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method private final overrideDozeAmountIfBypass()Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    invoke-interface {v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    invoke-interface {v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_1
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :cond_1
-    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setDozeAmount(FF)V
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_2
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method private final setNotificationsFullyHidden(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notificationsFullyHidden:Z
-
-    if-eq v0, p1, :cond_0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notificationsFullyHidden:Z
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakeUpListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$WakeUpListener;
-
-    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$WakeUpListener;->onFullyHiddenChanged(Z)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private final setNotificationsVisible(ZZZ)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAnimator:Landroid/animation/ObjectAnimator;
-
-    if-nez v0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
-
-    :goto_0
-    if-eqz p2, :cond_2
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notifyAnimationStart(Z)V
-
-    invoke-direct {p0, p3}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->startVisibilityAnimation(Z)V
-
-    goto :goto_2
-
-    :cond_2
-    if-eqz p1, :cond_3
-
-    const/high16 p1, 0x3f800000    # 1.0f
-
-    goto :goto_1
-
-    :cond_3
-    const/4 p1, 0x0
-
-    :goto_1
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setVisibilityAmount(F)V
-
-    :goto_2
-    return-void
-.end method
-
-.method private final setVisibilityAmount(F)V
-    .locals 1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityInterpolator:Landroid/view/animation/Interpolator;
-
-    invoke-interface {v0, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAmount:F
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->handleAnimationFinished()V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateHideAmount()V
-
-    return-void
-.end method
-
-.method private final shouldAnimateVisibility()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getDisplayNeedsBlanking()Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method private final startVisibilityAnimation(Z)V
-    .locals 6
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationVisibleAmount:F
-
-    const/4 v1, 0x0
-
-    cmpg-float v2, v0, v1
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    if-nez v2, :cond_0
-
-    move v2, v3
-
-    goto :goto_0
-
-    :cond_0
-    move v2, v4
-
-    :goto_0
-    const/high16 v5, 0x3f800000    # 1.0f
-
-    if-nez v2, :cond_2
-
-    cmpg-float v0, v0, v5
-
-    if-nez v0, :cond_1
-
-    move v0, v3
-
-    goto :goto_1
-
-    :cond_1
-    move v0, v4
-
-    :goto_1
-    if-eqz v0, :cond_4
-
-    :cond_2
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
-
-    if-eqz v0, :cond_3
-
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->TOUCH_RESPONSE:Landroid/view/animation/Interpolator;
-
-    goto :goto_2
-
-    :cond_3
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN_REVERSE:Landroid/view/animation/Interpolator;
-
-    :goto_2
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityInterpolator:Landroid/view/animation/Interpolator;
-
-    :cond_4
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
-
-    if-eqz v0, :cond_5
-
-    move v1, v5
-
-    :cond_5
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationVisibility:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$mNotificationVisibility$1;
-
-    new-array v2, v3, [F
-
-    aput v1, v2, v4
-
-    invoke-static {p0, v0, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const-wide/16 v1, 0x1f4
-
-    if-eqz p1, :cond_6
-
-    long-to-float p1, v1
-
-    const/high16 v1, 0x3fc00000    # 1.5f
-
-    div-float/2addr p1, v1
-
-    float-to-long v1, p1
-
-    :cond_6
-    invoke-virtual {v0, v1, v2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAnimator:Landroid/animation/ObjectAnimator;
-
-    return-void
-.end method
-
-.method private final updateHideAmount()V
-    .locals 4
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    sub-float v0, v1, v0
-
-    iget v2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearDozeAmount:F
-
-    invoke-static {v0, v2}, Ljava/lang/Math;->min(FF)F
-
-    move-result v0
-
-    iget v2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAmount:F
-
-    sub-float v2, v1, v2
-
-    iget v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mDozeAmount:F
-
-    invoke-static {v2, v3}, Ljava/lang/Math;->min(FF)F
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    if-eqz v3, :cond_1
-
-    invoke-virtual {v3, v0, v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->setHideAmount(FF)V
-
-    cmpg-float v0, v0, v1
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsFullyHidden(Z)V
-
-    return-void
-
-    :cond_1
-    const-string p0, "mStackScrollerController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method private final updateNotificationVisibility(ZZ)V
-    .locals 5
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisibleForExpansion:Z
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->hasNotifications()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v1
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    move v0, v2
-
-    :goto_1
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    move v0, v2
-
-    goto :goto_2
-
-    :cond_2
-    move v0, v1
-
-    :goto_2
-    if-nez v0, :cond_5
-
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
-
-    if-eqz v3, :cond_5
-
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakingUp:Z
-
-    if-nez v3, :cond_3
-
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->willWakeUp:Z
-
-    if-eqz v3, :cond_5
-
-    :cond_3
-    iget v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mDozeAmount:F
-
-    const/4 v4, 0x0
-
-    cmpg-float v3, v3, v4
-
-    if-nez v3, :cond_4
-
-    move v1, v2
-
-    :cond_4
-    if-nez v1, :cond_5
-
-    return-void
-
-    :cond_5
-    invoke-direct {p0, v0, p1, p2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
+    invoke-virtual {p3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final addListener(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$WakeUpListener;)V
-    .locals 1
-
-    const-string v0, "listener"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakeUpListeners:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
 .method public final getCanShowPulsingHuns()Z
     .locals 3
 
@@ -831,41 +199,67 @@
     return v0
 .end method
 
-.method public final getNotificationsFullyHidden()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notificationsFullyHidden:Z
-
-    return p0
-.end method
-
-.method public final isPulseExpanding()Z
-    .locals 0
+.method public final notifyAnimationStart(Z)V
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isPulseExpanding()Z
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    const-string p0, "mStackScrollerController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    if-nez p0, :cond_0
 
     const/4 p0, 0x0
 
-    throw p0
+    :cond_0
+    xor-int/lit8 p1, p1, 0x1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mInterpolatedHideAmount:F
+
+    const/4 v1, 0x0
+
+    cmpl-float v1, v0, v1
+
+    if-eqz v1, :cond_1
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    cmpl-float v0, v0, v1
+
+    if-nez v0, :cond_4
+
+    :cond_1
+    if-eqz p1, :cond_2
+
+    const v0, 0x3fe66666    # 1.8f
+
+    goto :goto_0
+
+    :cond_2
+    const/high16 v0, 0x3fc00000    # 1.5f
+
+    :goto_0
+    iput v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mBackgroundXFactor:F
+
+    if-eqz p1, :cond_3
+
+    sget-object p1, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN_REVERSE:Landroid/view/animation/PathInterpolator;
+
+    goto :goto_1
+
+    :cond_3
+    sget-object p1, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
+
+    :goto_1
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mHideXInterpolator:Landroid/view/animation/PathInterpolator;
+
+    :cond_4
+    return-void
 .end method
 
-.method public onDozeAmountChanged(FF)V
+.method public final onDozeAmountChanged(FF)V
     .locals 5
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfAnimatingScreenOff(F)Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfAnimatingScreenOff()Z
 
     move-result v0
 
@@ -874,7 +268,7 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfBypass()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfBypass()Z
 
     move-result v0
 
@@ -960,7 +354,7 @@
     move v2, v3
 
     :goto_4
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notifyAnimationStart(Z)V
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notifyAnimationStart(Z)V
 
     :cond_8
     invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setDozeAmount(FF)V
@@ -968,33 +362,29 @@
     return-void
 .end method
 
-.method public onDozingChanged(Z)V
+.method public final onDozingChanged(Z)V
     .locals 0
 
     if-eqz p1, :cond_0
 
     const/4 p1, 0x0
 
-    invoke-direct {p0, p1, p1, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
+    invoke-virtual {p0, p1, p1, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
 
     :cond_0
     return-void
 .end method
 
-.method public onHeadsUpStateChanged(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
+.method public final onHeadsUpStateChanged(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
     .locals 4
 
-    const-string v0, "entry"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->shouldAnimateVisibility()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->shouldAnimateVisibility()Z
 
     move-result v0
 
     const/4 v1, 0x0
 
-    if-nez p2, :cond_3
+    if-nez p2, :cond_4
 
     iget p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearDozeAmount:F
 
@@ -1014,7 +404,7 @@
     move p2, v1
 
     :goto_0
-    if-nez p2, :cond_4
+    if-nez p2, :cond_5
 
     iget p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
 
@@ -1030,7 +420,7 @@
     move p2, v1
 
     :goto_1
-    if-nez p2, :cond_4
+    if-nez p2, :cond_5
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isRowDismissed()Z
 
@@ -1045,54 +435,65 @@
     :cond_2
     iget-boolean p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakingUp:Z
 
-    if-nez p2, :cond_4
+    if-nez p2, :cond_5
 
     iget-boolean p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->willWakeUp:Z
 
-    if-nez p2, :cond_4
+    if-nez p2, :cond_5
 
-    invoke-virtual {p1, v3}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setHeadsUpAnimatingAway(Z)V
+    iget-object p2, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/Set;
+    if-eqz p2, :cond_3
+
+    invoke-virtual {p2, v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setHeadsUpAnimatingAway(Z)V
+
+    :cond_3
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/LinkedHashSet;
 
     invoke-interface {p2, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     goto :goto_2
 
-    :cond_3
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/Set;
+    :cond_4
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/LinkedHashSet;
 
     invoke-interface {p2, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result p2
 
-    if-eqz p2, :cond_4
+    if-eqz p2, :cond_5
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/Set;
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/LinkedHashSet;
 
     invoke-interface {p2, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setHeadsUpAnimatingAway(Z)V
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    :cond_4
+    if-eqz p1, :cond_5
+
+    invoke-virtual {p1, v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setHeadsUpAnimatingAway(Z)V
+
+    :cond_5
     :goto_2
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
 
     return-void
 .end method
 
-.method public onPanelExpansionChanged(FZZ)V
-    .locals 0
+.method public final onPanelExpansionChanged(Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionChangeEvent;)V
+    .locals 2
 
-    const p2, 0x3f666666    # 0.9f
+    iget p1, p1, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionChangeEvent;->fraction:F
 
-    cmpg-float p1, p1, p2
+    const v0, 0x3f666666    # 0.9f
 
-    const/4 p2, 0x1
+    cmpg-float p1, p1, v0
+
+    const/4 v0, 0x1
 
     if-gtz p1, :cond_0
 
-    move p1, p2
+    move p1, v0
 
     goto :goto_0
 
@@ -1100,17 +501,17 @@
     const/4 p1, 0x0
 
     :goto_0
-    iget-boolean p3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->collapsedEnoughToHide:Z
+    iget-boolean v1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->collapsedEnoughToHide:Z
 
-    if-eq p1, p3, :cond_1
+    if-eq p1, v1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
 
-    move-result p3
+    move-result v1
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->collapsedEnoughToHide:Z
 
-    if-eqz p3, :cond_1
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
 
@@ -1118,7 +519,7 @@
 
     if-nez p1, :cond_1
 
-    invoke-direct {p0, p2, p2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
+    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
@@ -1128,30 +529,12 @@
     return-void
 .end method
 
-.method public onStateChanged(I)V
+.method public final onStateChanged(I)V
     .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->shouldControlUnlockedScreenOff()Z
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->unlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;->isScreenOffAnimationPlaying()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->state:I
 
-    if-ne v0, v1, :cond_0
+    if-nez v0, :cond_0
 
     if-nez p1, :cond_0
 
@@ -1160,9 +543,7 @@
     invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setDozeAmount(FF)V
 
     :cond_0
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearDozeAmount:F
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfAnimatingScreenOff(F)Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfAnimatingScreenOff()Z
 
     move-result v0
 
@@ -1171,7 +552,7 @@
     return-void
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfBypass()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->overrideDozeAmountIfBypass()Z
 
     move-result v0
 
@@ -1188,34 +569,36 @@
 
     if-eqz v0, :cond_4
 
-    if-ne p1, v1, :cond_4
+    const/4 v0, 0x1
 
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->state:I
+    if-ne p1, v0, :cond_4
+
+    iget v1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->state:I
 
     const/4 v2, 0x2
 
-    if-ne v0, v2, :cond_4
+    if-ne v1, v2, :cond_4
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
+    invoke-interface {v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_3
+    if-eqz v1, :cond_3
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->shouldAnimateVisibility()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->shouldAnimateVisibility()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_4
+    if-eqz v1, :cond_4
 
     :cond_3
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-direct {p0, v1, v0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
+    invoke-virtual {p0, v0, v1, v1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
 
-    invoke-direct {p0, v0, v1, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
+    invoke-virtual {p0, v1, v0, v1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
 
     :cond_4
     iput p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->state:I
@@ -1223,22 +606,123 @@
     return-void
 .end method
 
-.method public final removeListener(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$WakeUpListener;)V
-    .locals 1
+.method public final overrideDozeAmountIfAnimatingScreenOff()Z
+    .locals 4
 
-    const-string v0, "listener"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->screenOffAnimationController:Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;->animations:Ljava/util/ArrayList;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakeUpListeners:Ljava/util/ArrayList;
+    instance-of v1, v0, Ljava/util/Collection;
 
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+    const/4 v2, 0x1
 
-    return-void
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_1
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/phone/ScreenOffAnimation;
+
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/phone/ScreenOffAnimation;->overrideNotificationsDozeAmount()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    move v0, v3
+
+    :goto_1
+    if-eqz v0, :cond_3
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setDozeAmount(FF)V
+
+    return v2
+
+    :cond_3
+    return v3
+.end method
+
+.method public final overrideDozeAmountIfBypass()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {v1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+
+    move-result v1
+
+    const/4 v2, 0x2
+
+    if-ne v1, v2, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :cond_1
+    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setDozeAmount(FF)V
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_2
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
 .method public final setDozeAmount(FF)V
-    .locals 4
+    .locals 7
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearDozeAmount:F
 
@@ -1266,50 +750,184 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    if-eqz v3, :cond_3
+    if-nez v3, :cond_1
 
-    invoke-virtual {v3, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->setDozeAmount(F)V
+    const/4 v3, 0x0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateHideAmount()V
+    :cond_1
+    iget-object v3, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    if-eqz v0, :cond_2
+    iget-object v4, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 
-    const/4 p2, 0x0
+    iget v5, v4, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
 
-    cmpg-float p1, p1, p2
+    cmpl-float v5, p2, v5
 
-    if-nez p1, :cond_1
+    const/4 v6, 0x0
+
+    if-eqz v5, :cond_3
+
+    iput p2, v4, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
+
+    cmpl-float v5, p2, v6
+
+    if-eqz v5, :cond_2
+
+    const/high16 v5, 0x3f800000    # 1.0f
+
+    cmpl-float p2, p2, v5
+
+    if-nez p2, :cond_3
+
+    :cond_2
+    const p2, 0x47c35000    # 100000.0f
+
+    iget v5, v4, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
+
+    cmpl-float v5, p2, v5
+
+    if-eqz v5, :cond_3
+
+    iput p2, v4, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
+
+    iget-object p2, v4, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOnPulseHeightChangedListener:Ljava/lang/Runnable;
+
+    if-eqz p2, :cond_3
+
+    invoke-interface {p2}, Ljava/lang/Runnable;->run()V
+
+    :cond_3
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->updateContinuousBackgroundDrawing()V
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->requestChildrenUpdate()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateHideAmount()V
+
+    if-eqz v0, :cond_5
+
+    cmpg-float p1, p1, v6
+
+    if-nez p1, :cond_4
 
     goto :goto_1
 
-    :cond_1
+    :cond_4
     move v1, v2
 
     :goto_1
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_5
 
-    invoke-direct {p0, v2, v2, v2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
+    invoke-virtual {p0, v2, v2, v2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
 
     invoke-virtual {p0, v2, v2, v2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisibleForExpansion(ZZZ)V
 
-    :cond_2
+    :cond_5
     return-void
-
-    :cond_3
-    const-string p0, "mStackScrollerController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
 .end method
 
-.method public final setFullyAwake(Z)V
-    .locals 0
+.method public final setNotificationsVisible(ZZZ)V
+    .locals 2
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->fullyAwake:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
 
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAnimator:Landroid/animation/ObjectAnimator;
+
+    if-nez v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->cancel()V
+
+    :goto_0
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    const/4 v1, 0x0
+
+    if-eqz p2, :cond_5
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notifyAnimationStart(Z)V
+
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
+
+    if-eqz p1, :cond_2
+
+    sget-object p2, Lcom/android/systemui/animation/Interpolators;->TOUCH_RESPONSE:Landroid/view/animation/PathInterpolator;
+
+    goto :goto_1
+
+    :cond_2
+    sget-object p2, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN_REVERSE:Landroid/view/animation/PathInterpolator;
+
+    :goto_1
+    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityInterpolator:Landroid/view/animation/PathInterpolator;
+
+    if-eqz p1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move v0, v1
+
+    :goto_2
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationVisibility:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$mNotificationVisibility$1;
+
+    const/4 p2, 0x1
+
+    new-array p2, p2, [F
+
+    const/4 v1, 0x0
+
+    aput v0, p2, v1
+
+    invoke-static {p0, p1, p2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object p1
+
+    sget-object p2, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/LinearInterpolator;
+
+    invoke-virtual {p1, p2}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    const-wide/16 v0, 0x1f4
+
+    if-eqz p3, :cond_4
+
+    long-to-float p2, v0
+
+    const/high16 p3, 0x3fc00000    # 1.5f
+
+    div-float/2addr p2, p3
+
+    float-to-long v0, p2
+
+    :cond_4
+    invoke-virtual {p1, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ObjectAnimator;->start()V
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAnimator:Landroid/animation/ObjectAnimator;
+
+    goto :goto_4
+
+    :cond_5
+    if-eqz p1, :cond_6
+
+    goto :goto_3
+
+    :cond_6
+    move v0, v1
+
+    :goto_3
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setVisibilityAmount(F)V
+
+    :goto_4
     return-void
 .end method
 
@@ -1318,7 +936,7 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisibleForExpansion:Z
 
-    invoke-direct {p0, p2, p3}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
+    invoke-virtual {p0, p2, p3}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
 
     if-nez p1, :cond_0
 
@@ -1334,67 +952,113 @@
     return-void
 .end method
 
-.method public final setPulsing(Z)V
-    .locals 1
+.method public final setVisibilityAmount(F)V
+    .locals 3
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->pulsing:Z
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
 
-    if-eqz p1, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityInterpolator:Landroid/view/animation/PathInterpolator;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->shouldAnimateVisibility()Z
+    invoke-interface {v0, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
 
     move-result p1
 
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAmount:F
+
+    iget p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearDozeAmount:F
+
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
+    cmpg-float p1, p1, v0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-nez p1, :cond_0
+
+    move p1, v1
+
+    goto :goto_0
 
     :cond_0
-    return-void
-.end method
+    move p1, v2
 
-.method public final setStackScroller(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)V
-    .locals 1
+    :goto_0
+    if-nez p1, :cond_2
 
-    const-string v0, "stackScrollerController"
+    iget p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    cmpg-float p1, p1, v0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    if-nez p1, :cond_1
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->isPulseExpanding()Z
+    goto :goto_1
+
+    :cond_1
+    move v1, v2
+
+    :goto_1
+    if-eqz v1, :cond_5
+
+    :cond_2
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/LinkedHashSet;
+
+    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object p1
+
+    :cond_3
+    :goto_2
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->pulseExpanding:Z
+    if-eqz v0, :cond_4
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$setStackScroller$1;
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$setStackScroller$1;-><init>(Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;)V
+    move-result-object v0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->setOnPulseHeightChangedListener(Ljava/lang/Runnable;)V
+    check-cast v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setHeadsUpAnimatingAway(Z)V
+
+    goto :goto_2
+
+    :cond_4
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mEntrySetToClearWhenFinished:Ljava/util/LinkedHashSet;
+
+    invoke-interface {p1}, Ljava/util/Set;->clear()V
+
+    :cond_5
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateHideAmount()V
 
     return-void
 .end method
 
 .method public final setWakingUp(Z)V
-    .locals 1
+    .locals 9
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakingUp:Z
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setWillWakeUp(Z)V
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->willWakeUp:Z
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_a
 
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_9
 
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisibleForExpansion:Z
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_9
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
@@ -1402,75 +1066,492 @@
 
     move-result p1
 
-    if-nez p1, :cond_1
+    if-nez p1, :cond_9
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->wakeUpFromPulse()V
+    const/4 p1, 0x0
+
+    :cond_0
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->getFirstChildWithBackground()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    iget-boolean v2, p1, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mKeyguardBypassEnabled:Z
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getHeadsUpHeightWithoutHeader()I
+
+    move-result v1
 
     goto :goto_0
 
-    :cond_0
-    const-string p0, "mStackScrollerController"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-
     :cond_1
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getCollapsedHeight()I
+
+    move-result v1
+
     :goto_0
+    int-to-float v1, v1
+
+    goto :goto_1
+
+    :cond_2
+    const/4 v1, 0x0
+
+    :goto_1
+    invoke-virtual {p1, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->setPulseHeight(F)F
+
+    const/high16 v1, -0x40800000    # -1.0f
+
+    invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    move v4, v0
+
+    move v5, v3
+
+    :goto_2
+    if-ge v4, v2, :cond_8
+
+    invoke-virtual {p1, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    invoke-virtual {v6}, Landroid/widget/FrameLayout;->getVisibility()I
+
+    move-result v7
+
+    const/16 v8, 0x8
+
+    if-ne v7, v8, :cond_3
+
+    goto :goto_4
+
+    :cond_3
+    iget-object v7, p1, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mShelf:Lcom/android/systemui/statusbar/NotificationShelf;
+
+    if-ne v6, v7, :cond_4
+
+    move v7, v3
+
+    goto :goto_3
+
+    :cond_4
+    move v7, v0
+
+    :goto_3
+    instance-of v8, v6, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-nez v8, :cond_5
+
+    if-nez v7, :cond_5
+
+    goto :goto_4
+
+    :cond_5
+    invoke-virtual {v6}, Landroid/widget/FrameLayout;->getVisibility()I
+
+    move-result v8
+
+    if-nez v8, :cond_6
+
+    if-nez v7, :cond_6
+
+    if-eqz v5, :cond_7
+
+    invoke-virtual {v6}, Landroid/widget/FrameLayout;->getTranslationY()F
+
+    move-result v1
+
+    iget v5, v6, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
+
+    int-to-float v5, v5
+
+    add-float/2addr v1, v5
+
+    iget-object v5, p1, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mShelf:Lcom/android/systemui/statusbar/NotificationShelf;
+
+    invoke-virtual {v5}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    sub-float/2addr v1, v5
+
+    move v5, v0
+
+    goto :goto_4
+
+    :cond_6
+    if-nez v5, :cond_7
+
+    invoke-virtual {v6, v1}, Landroid/widget/FrameLayout;->setTranslationY(F)V
+
+    :cond_7
+    :goto_4
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_2
+
+    :cond_8
+    iput-boolean v3, p1, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mDimmedNeedsAnimation:Z
+
+    :cond_9
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
 
     move-result p1
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_a
 
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
 
-    if-nez p1, :cond_2
+    if-nez p1, :cond_a
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->shouldAnimateVisibility()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->shouldAnimateVisibility()Z
 
     move-result p1
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->updateNotificationVisibility(ZZ)V
 
-    :cond_2
+    :cond_a
     return-void
 .end method
 
-.method public final setWillWakeUp(Z)V
-    .locals 2
+.method public final shouldAnimateVisibility()Z
+    .locals 1
 
-    if-eqz p1, :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mDozeAmount:F
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getAlwaysOn()Z
 
-    const/4 v1, 0x0
+    move-result v0
 
-    cmpg-float v0, v0, v1
+    if-eqz v0, :cond_0
 
-    if-nez v0, :cond_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->dozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    const/4 v0, 0x1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getDisplayNeedsBlanking()Z
+
+    move-result p0
+
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    if-nez v0, :cond_2
+    return p0
+.end method
+
+.method public final updateHideAmount()V
+    .locals 10
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearVisibilityAmount:F
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    sub-float v0, v1, v0
+
+    iget v2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mLinearDozeAmount:F
+
+    invoke-static {v0, v2}, Ljava/lang/Math;->min(FF)F
+
+    move-result v0
+
+    iget v2, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mVisibilityAmount:F
+
+    sub-float v2, v1, v2
+
+    iget v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mDozeAmount:F
+
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(FF)F
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mStackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    if-nez v3, :cond_0
+
+    const/4 v3, 0x0
+
+    :cond_0
+    iget-object v3, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+
+    iput v0, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mLinearHideAmount:F
+
+    iput v2, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mInterpolatedHideAmount:F
+
+    iget-object v4, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isFullyHidden()Z
+
+    move-result v4
+
+    iget-object v5, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isHiddenAtAll()Z
+
+    move-result v5
+
+    iget-object v6, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+
+    cmpl-float v7, v2, v1
+
+    if-nez v7, :cond_1
+
+    iget v7, v6, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
+
+    cmpl-float v7, v7, v2
+
+    if-eqz v7, :cond_1
+
+    const v7, 0x47c35000    # 100000.0f
+
+    iget v8, v6, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
+
+    cmpl-float v8, v7, v8
+
+    if-eqz v8, :cond_1
+
+    iput v7, v6, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
+
+    iget-object v7, v6, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOnPulseHeightChangedListener:Ljava/lang/Runnable;
+
+    if-eqz v7, :cond_1
+
+    invoke-interface {v7}, Ljava/lang/Runnable;->run()V
 
     :cond_1
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->willWakeUp:Z
+    iput v2, v6, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
+
+    iget-object v2, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isFullyHidden()Z
+
+    move-result v2
+
+    iget-object v6, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+
+    invoke-virtual {v6}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isHiddenAtAll()Z
+
+    move-result v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x1
+
+    if-eq v2, v4, :cond_5
+
+    iget-object v9, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAmbientState:Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+
+    invoke-virtual {v9}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isFullyHidden()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->onKeyguard()Z
+
+    move-result v9
+
+    if-nez v9, :cond_2
+
+    goto :goto_0
 
     :cond_2
+    move v9, v7
+
+    goto :goto_1
+
+    :cond_3
+    :goto_0
+    move v9, v8
+
+    :goto_1
+    if-eqz v9, :cond_4
+
+    move v9, v7
+
+    goto :goto_2
+
+    :cond_4
+    const/4 v9, 0x4
+
+    :goto_2
+    invoke-virtual {v3, v9}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    :cond_5
+    if-nez v5, :cond_6
+
+    if-eqz v6, :cond_6
+
+    iget-object v9, v3, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mSwipeHelper:Lcom/android/systemui/statusbar/notification/stack/NotificationSwipeHelper;
+
+    invoke-virtual {v9, v8, v8}, Lcom/android/systemui/statusbar/notification/stack/NotificationSwipeHelper;->resetExposedMenuView(ZZ)V
+
+    :cond_6
+    if-ne v2, v4, :cond_7
+
+    if-eq v5, v6, :cond_8
+
+    :cond_7
+    invoke-virtual {v3}, Landroid/view/ViewGroup;->invalidateOutline()V
+
+    :cond_8
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->updateAlgorithmHeightAndPadding()V
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->updateBackgroundDimming()V
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->requestChildrenUpdate()V
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->updateOwnTranslationZ()V
+
+    cmpg-float v0, v0, v1
+
+    if-nez v0, :cond_9
+
+    move v7, v8
+
+    :cond_9
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notificationsFullyHidden:Z
+
+    if-eq v0, v7, :cond_a
+
+    iput-boolean v7, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->notificationsFullyHidden:Z
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakeUpListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_3
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$WakeUpListener;
+
+    invoke-interface {v0, v7}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator$WakeUpListener;->onFullyHiddenChanged(Z)V
+
+    goto :goto_3
+
+    :cond_a
+    return-void
+.end method
+
+.method public final updateNotificationVisibility(ZZ)V
+    .locals 5
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisibleForExpansion:Z
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mHeadsUpManager:Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
+
+    move-result v0
+
+    xor-int/2addr v0, v1
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v0, v1
+
+    :goto_1
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v0, v1
+
+    goto :goto_2
+
+    :cond_2
+    move v0, v2
+
+    :goto_2
+    if-nez v0, :cond_5
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mNotificationsVisible:Z
+
+    if-eqz v3, :cond_5
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->wakingUp:Z
+
+    if-nez v3, :cond_3
+
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->willWakeUp:Z
+
+    if-eqz v3, :cond_5
+
+    :cond_3
+    iget v3, p0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mDozeAmount:F
+
+    const/4 v4, 0x0
+
+    cmpg-float v3, v3, v4
+
+    if-nez v3, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    move v1, v2
+
+    :goto_3
+    if-nez v1, :cond_5
+
+    return-void
+
+    :cond_5
+    invoke-virtual {p0, v0, p1, p2}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisible(ZZZ)V
+
     return-void
 .end method

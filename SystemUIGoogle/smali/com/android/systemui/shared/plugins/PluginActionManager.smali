@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/shared/plugins/PluginActionManager;
+.class public final Lcom/android/systemui/shared/plugins/PluginActionManager;
 .super Ljava/lang/Object;
 .source "PluginActionManager.java"
 
@@ -22,17 +22,17 @@
 
 
 # instance fields
-.field private final mAction:Ljava/lang/String;
+.field public final mAction:Ljava/lang/String;
 
-.field private final mAllowMultiple:Z
+.field public final mAllowMultiple:Z
 
-.field private final mBgExecutor:Ljava/util/concurrent/Executor;
+.field public final mBgExecutor:Ljava/util/concurrent/Executor;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mIsDebuggable:Z
+.field public final mIsDebuggable:Z
 
-.field private final mListener:Lcom/android/systemui/plugins/PluginListener;
+.field public final mListener:Lcom/android/systemui/plugins/PluginListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/systemui/plugins/PluginListener<",
@@ -41,11 +41,11 @@
     .end annotation
 .end field
 
-.field private final mMainExecutor:Ljava/util/concurrent/Executor;
+.field public final mMainExecutor:Ljava/util/concurrent/Executor;
 
-.field private final mNotificationManager:Landroid/app/NotificationManager;
+.field public final mNotificationManager:Landroid/app/NotificationManager;
 
-.field private final mPluginClass:Ljava/lang/Class;
+.field public final mPluginClass:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -54,9 +54,9 @@
     .end annotation
 .end field
 
-.field private final mPluginEnabler:Lcom/android/systemui/shared/plugins/PluginEnabler;
+.field public final mPluginEnabler:Lcom/android/systemui/shared/plugins/PluginEnabler;
 
-.field private final mPluginInstanceFactory:Lcom/android/systemui/shared/plugins/PluginInstance$Factory;
+.field public final mPluginInstanceFactory:Lcom/android/systemui/shared/plugins/PluginInstance$Factory;
 
 .field private final mPluginInstances:Ljava/util/ArrayList;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -71,9 +71,9 @@
     .end annotation
 .end field
 
-.field private final mPm:Landroid/content/pm/PackageManager;
+.field public final mPm:Landroid/content/pm/PackageManager;
 
-.field private final mPrivilegedPlugins:Landroid/util/ArraySet;
+.field public final mPrivilegedPlugins:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -85,86 +85,86 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$1J013yPjqW1h78J0FyIon-FoVCQ(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
+.method public static $r8$lambda$kBZKG6dtfbpWOlthMBUiG2NGTM4(Lcom/android/systemui/shared/plugins/PluginActionManager;)V
+    .locals 5
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->lambda$removePkg$4(Lcom/android/systemui/shared/plugins/PluginInstance;)V
+    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
 
-    return-void
-.end method
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-.method public static synthetic $r8$lambda$8TM7K2rxqRKfAu55Vw3Zcf26ozs(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
+    move-result v0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->lambda$handleQueryPlugins$5(Lcom/android/systemui/shared/plugins/PluginInstance;)V
+    :goto_0
+    add-int/lit8 v0, v0, -0x1
 
-    return-void
-.end method
+    if-ltz v0, :cond_0
 
-.method public static synthetic $r8$lambda$UWzagWxnH7QoNH7ZAC9-VqRJxlg(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
+    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->lambda$queryAll$3(Lcom/android/systemui/shared/plugins/PluginInstance;)V
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    return-void
-.end method
+    move-result-object v1
 
-.method public static synthetic $r8$lambda$kBZKG6dtfbpWOlthMBUiG2NGTM4(Lcom/android/systemui/shared/plugins/PluginActionManager;)V
-    .locals 0
+    check-cast v1, Lcom/android/systemui/shared/plugins/PluginInstance;
 
-    invoke-direct {p0}, Lcom/android/systemui/shared/plugins/PluginActionManager;->queryAll()V
+    iget-object v2, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mMainExecutor:Ljava/util/concurrent/Executor;
 
-    return-void
-.end method
+    new-instance v3, Lcom/android/wm/shell/common/ExecutorUtils$$ExternalSyntheticLambda0;
 
-.method public static synthetic $r8$lambda$nTrqaXNoyZ9Ewe_oMzlt3sqKZco(Lcom/android/systemui/shared/plugins/PluginActionManager;Ljava/lang/String;)V
-    .locals 0
+    const/4 v4, 0x3
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->lambda$reloadPackage$2(Ljava/lang/String;)V
+    invoke-direct {v3, v4, p0, v1}, Lcom/android/wm/shell/common/ExecutorUtils$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
-    return-void
-.end method
+    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-.method public static synthetic $r8$lambda$pBQrwk3hQN6yH77r52dt5cnCyVw(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
+    goto :goto_0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->lambda$destroy$0(Lcom/android/systemui/shared/plugins/PluginInstance;)V
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/shared/plugins/PluginActionManager;->handleQueryPlugins(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public static synthetic $r8$lambda$tRQyi7k9O-R4crA50YERIw8utIE(Lcom/android/systemui/shared/plugins/PluginActionManager;Ljava/lang/String;)V
-    .locals 0
+.method public static $r8$lambda$nTrqaXNoyZ9Ewe_oMzlt3sqKZco(Lcom/android/systemui/shared/plugins/PluginActionManager;Ljava/lang/String;)V
+    .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->lambda$onPackageRemoved$1(Ljava/lang/String;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->removePkg(Ljava/lang/String;)V
 
+    iget-boolean v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mAllowMultiple:Z
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    invoke-virtual {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->handleQueryPlugins(Ljava/lang/String;)V
+
+    :cond_1
     return-void
 .end method
 
-.method private constructor <init>(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/lang/String;Lcom/android/systemui/plugins/PluginListener;Ljava/lang/Class;ZLjava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZLandroid/app/NotificationManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Ljava/util/List;Lcom/android/systemui/shared/plugins/PluginInstance$Factory;)V
+.method public constructor <init>()V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public constructor <init>(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/lang/String;Lcom/android/systemui/plugins/PluginListener;Ljava/lang/Class;ZLjava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZLandroid/app/NotificationManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Ljava/util/List;Lcom/android/systemui/shared/plugins/PluginInstance$Factory;)V
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Landroid/content/pm/PackageManager;",
-            "Ljava/lang/String;",
-            "Lcom/android/systemui/plugins/PluginListener<",
-            "TT;>;",
-            "Ljava/lang/Class<",
-            "TT;>;Z",
-            "Ljava/util/concurrent/Executor;",
-            "Ljava/util/concurrent/Executor;",
-            "Z",
-            "Landroid/app/NotificationManager;",
-            "Lcom/android/systemui/shared/plugins/PluginEnabler;",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;",
-            "Lcom/android/systemui/shared/plugins/PluginInstance$Factory;",
-            ")V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -209,15 +209,186 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/lang/String;Lcom/android/systemui/plugins/PluginListener;Ljava/lang/Class;ZLjava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZLandroid/app/NotificationManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Ljava/util/List;Lcom/android/systemui/shared/plugins/PluginInstance$Factory;Lcom/android/systemui/shared/plugins/PluginActionManager$1;)V
-    .locals 0
 
-    invoke-direct/range {p0 .. p13}, Lcom/android/systemui/shared/plugins/PluginActionManager;-><init>(Landroid/content/Context;Landroid/content/pm/PackageManager;Ljava/lang/String;Lcom/android/systemui/plugins/PluginListener;Ljava/lang/Class;ZLjava/util/concurrent/Executor;Ljava/util/concurrent/Executor;ZLandroid/app/NotificationManager;Lcom/android/systemui/shared/plugins/PluginEnabler;Ljava/util/List;Lcom/android/systemui/shared/plugins/PluginInstance$Factory;)V
+# virtual methods
+.method public final checkAndDisable(Ljava/lang/String;)Z
+    .locals 4
 
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    :cond_0
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/shared/plugins/PluginInstance;
+
+    iget-object v3, v2, Lcom/android/systemui/shared/plugins/PluginInstance;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v3, 0x3
+
+    invoke-virtual {p0, v2, v3}, Lcom/android/systemui/shared/plugins/PluginActionManager;->disable(Lcom/android/systemui/shared/plugins/PluginInstance;I)Z
+
+    move-result v2
+
+    or-int/2addr v1, v2
+
+    goto :goto_0
+
+    :cond_1
+    return v1
+.end method
+
+.method public final dependsOn(Lcom/android/systemui/plugins/Plugin;Ljava/lang/Class;)Z
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "<C:",
+            "Ljava/lang/Object;",
+            ">(",
+            "Lcom/android/systemui/plugins/Plugin;",
+            "Ljava/lang/Class<",
+            "TC;>;)Z"
+        }
+    .end annotation
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
+
+    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/shared/plugins/PluginInstance;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    iget-object v3, v0, Lcom/android/systemui/shared/plugins/PluginInstance;->mPlugin:Lcom/android/systemui/plugins/Plugin;
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object p0, v0, Lcom/android/systemui/shared/plugins/PluginInstance;->mVersionInfo:Lcom/android/systemui/shared/plugins/VersionInfo;
+
+    if-eqz p0, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mVersions:Landroid/util/ArrayMap;
+
+    invoke-virtual {p0, p2}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_1
+    return v1
+.end method
+
+.method public final destroy()V
+    .locals 5
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/shared/plugins/PluginInstance;
+
+    iget-object v2, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mMainExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v3, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda3;
+
+    const/4 v4, 0x1
+
+    invoke-direct {v3, v4, p0, v1}, Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 
-.method private disable(Lcom/android/systemui/shared/plugins/PluginInstance;I)Z
+.method public final disable(Lcom/android/systemui/shared/plugins/PluginInstance;I)Z
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -227,9 +398,7 @@
         }
     .end annotation
 
-    invoke-virtual {p1}, Lcom/android/systemui/shared/plugins/PluginInstance;->getComponentName()Landroid/content/ComponentName;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/shared/plugins/PluginInstance;->mComponentName:Landroid/content/ComponentName;
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->isPluginPrivileged(Landroid/content/ComponentName;)Z
 
@@ -242,13 +411,11 @@
     return p0
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Disabling plugin "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Disabling plugin "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
@@ -273,8 +440,50 @@
     return p0
 .end method
 
-.method private handleQueryPlugins(Ljava/lang/String;)V
-    .locals 3
+.method public final disableAll()Z
+    .locals 5
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
+
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    const/4 v1, 0x0
+
+    move v2, v1
+
+    :goto_0
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v3
+
+    if-ge v1, v3, :cond_0
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/shared/plugins/PluginInstance;
+
+    const/4 v4, 0x4
+
+    invoke-virtual {p0, v3, v4}, Lcom/android/systemui/shared/plugins/PluginActionManager;->disable(Lcom/android/systemui/shared/plugins/PluginInstance;I)Z
+
+    move-result v3
+
+    or-int/2addr v2, v3
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    return v2
+.end method
+
+.method public final handleQueryPlugins(Ljava/lang/String;)V
+    .locals 10
 
     new-instance v0, Landroid/content/Intent;
 
@@ -299,21 +508,21 @@
 
     move-result v0
 
-    const/4 v1, 0x1
+    const-string v2, "PluginInstanceManager"
 
-    if-le v0, v1, :cond_1
+    const/4 v3, 0x1
+
+    if-le v0, v3, :cond_1
 
     iget-boolean v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mAllowMultiple:Z
 
     if-nez v0, :cond_1
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "Multiple plugins found for "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "Multiple plugins found for "
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mAction:Ljava/lang/String;
 
@@ -323,9 +532,7 @@
 
     move-result-object p0
 
-    const-string p1, "PluginInstanceManager"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
@@ -340,7 +547,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_6
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -348,352 +555,257 @@
 
     check-cast v0, Landroid/content/pm/ResolveInfo;
 
-    new-instance v1, Landroid/content/ComponentName;
+    new-instance v4, Landroid/content/ComponentName;
 
     iget-object v0, v0, Landroid/content/pm/ResolveInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
-    iget-object v2, v0, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
+    iget-object v5, v0, Landroid/content/pm/ServiceInfo;->packageName:Ljava/lang/String;
 
     iget-object v0, v0, Landroid/content/pm/ServiceInfo;->name:Ljava/lang/String;
 
-    invoke-direct {v1, v2, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-direct {p0, v1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->loadPluginComponent(Landroid/content/ComponentName;)Lcom/android/systemui/shared/plugins/PluginInstance;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mMainExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v2, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda2;
-
-    invoke-direct {v2, p0, v0}, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
-
-    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    goto :goto_0
-
-    :cond_3
-    return-void
-.end method
-
-.method private synthetic lambda$destroy$0(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->onPluginDisconnected(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$handleQueryPlugins$5(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->onPluginConnected(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onPackageRemoved$1(Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->removePkg(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$queryAll$3(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->onPluginDisconnected(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$reloadPackage$2(Ljava/lang/String;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->removePkg(Ljava/lang/String;)V
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->queryPkg(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$removePkg$4(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->onPluginDisconnected(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-
-    return-void
-.end method
-
-.method private loadPluginComponent(Landroid/content/ComponentName;)Lcom/android/systemui/shared/plugins/PluginInstance;
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/ComponentName;",
-            ")",
-            "Lcom/android/systemui/shared/plugins/PluginInstance<",
-            "TT;>;"
-        }
-    .end annotation
+    invoke-direct {v4, v5, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-boolean v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mIsDebuggable:Z
 
-    const-string v1, "PluginInstanceManager"
+    const/4 v5, 0x0
 
-    const/4 v2, 0x0
+    if-nez v0, :cond_3
 
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->isPluginPrivileged(Landroid/content/ComponentName;)Z
+    invoke-virtual {p0, v4}, Lcom/android/systemui/shared/plugins/PluginActionManager;->isPluginPrivileged(Landroid/content/ComponentName;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_3
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "Plugin cannot be loaded on production build: "
+    const-string v6, "Plugin cannot be loaded on production build: "
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v2
+    goto :goto_1
 
-    :cond_0
+    :cond_3
     iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginEnabler:Lcom/android/systemui/shared/plugins/PluginEnabler;
 
-    invoke-interface {v0, p1}, Lcom/android/systemui/shared/plugins/PluginEnabler;->isEnabled(Landroid/content/ComponentName;)Z
+    invoke-interface {v0, v4}, Lcom/android/systemui/shared/plugins/PluginEnabler;->isEnabled(Landroid/content/ComponentName;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4
 
-    return-object v2
+    goto :goto_1
 
-    :cond_1
-    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    :cond_4
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v0
 
     :try_start_0
-    iget-object v3, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPm:Landroid/content/pm/PackageManager;
+    iget-object v6, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPm:Landroid/content/pm/PackageManager;
 
-    const-string v4, "com.android.systemui.permission.PLUGIN"
+    const-string v7, "com.android.systemui.permission.PLUGIN"
 
-    invoke-virtual {v3, v4, v0}, Landroid/content/pm/PackageManager;->checkPermission(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6, v7, v0}, Landroid/content/pm/PackageManager;->checkPermission(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v3
+    move-result v6
 
-    if-eqz v3, :cond_2
+    if-eqz v6, :cond_5
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p1, "Plugin doesn\'t have permission: "
+    const-string v6, "Plugin doesn\'t have permission: "
 
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v4
 
-    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v2
+    goto :goto_1
 
-    :cond_2
-    iget-object v3, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPm:Landroid/content/pm/PackageManager;
+    :cond_5
+    iget-object v6, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPm:Landroid/content/pm/PackageManager;
 
-    const/4 v4, 0x0
+    invoke-virtual {v6, v0, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v3, v0, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v3
+    move-result-object v6
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    iget-object v4, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstanceFactory:Lcom/android/systemui/shared/plugins/PluginInstance$Factory;
+    iget-object v7, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstanceFactory:Lcom/android/systemui/shared/plugins/PluginInstance$Factory;
 
-    iget-object v5, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mContext:Landroid/content/Context;
 
-    iget-object v6, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginClass:Ljava/lang/Class;
+    iget-object v9, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginClass:Ljava/lang/Class;
 
-    invoke-virtual {v4, v5, v3, p1, v6}, Lcom/android/systemui/shared/plugins/PluginInstance$Factory;->create(Landroid/content/Context;Landroid/content/pm/ApplicationInfo;Landroid/content/ComponentName;Ljava/lang/Class;)Lcom/android/systemui/shared/plugins/PluginInstance;
+    invoke-virtual {v7, v8, v6, v4, v9}, Lcom/android/systemui/shared/plugins/PluginInstance$Factory;->create(Landroid/content/Context;Landroid/content/pm/ApplicationInfo;Landroid/content/ComponentName;Ljava/lang/Class;)Lcom/android/systemui/shared/plugins/PluginInstance;
 
-    move-result-object p0
+    move-result-object v5
     :try_end_1
     .catch Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    return-object p0
+    goto :goto_1
 
     :catch_0
-    move-exception v3
+    move-exception v6
 
     :try_start_2
-    invoke-virtual {p1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-direct {p0, p1, v4, v3}, Lcom/android/systemui/shared/plugins/PluginActionManager;->reportInvalidVersion(Landroid/content/ComponentName;Ljava/lang/String;Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;)V
+    invoke-virtual {p0, v4, v7, v6}, Lcom/android/systemui/shared/plugins/PluginActionManager;->reportInvalidVersion(Landroid/content/ComponentName;Ljava/lang/String;Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    return-object v2
+    goto :goto_1
 
     :catchall_0
-    move-exception p0
+    move-exception v4
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Couldn\'t load plugin: "
+    const-string v7, "Couldn\'t load plugin: "
 
-    invoke-virtual {p1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-static {v1, p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v2, v0, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    return-object v2
-.end method
-
-.method private onPluginConnected(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/shared/plugins/PluginInstance<",
-            "TT;>;)V"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v0}, Lcom/android/systemui/shared/plugins/PluginPrefs;->setHasPlugins(Landroid/content/Context;)V
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mContext:Landroid/content/Context;
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mListener:Lcom/android/systemui/plugins/PluginListener;
-
-    invoke-virtual {p1, v0, p0}, Lcom/android/systemui/shared/plugins/PluginInstance;->onCreate(Landroid/content/Context;Lcom/android/systemui/plugins/PluginListener;)V
-
-    return-void
-.end method
-
-.method private onPluginDisconnected(Lcom/android/systemui/shared/plugins/PluginInstance;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/shared/plugins/PluginInstance<",
-            "TT;>;)V"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mListener:Lcom/android/systemui/plugins/PluginListener;
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/shared/plugins/PluginInstance;->onDestroy(Lcom/android/systemui/plugins/PluginListener;)V
-
-    return-void
-.end method
-
-.method private queryAll()V
-    .locals 4
+    :goto_1
+    if-eqz v5, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mMainExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v4, Lcom/android/systemui/qs/tiles/InternetTile$$ExternalSyntheticLambda0;
+
+    invoke-direct {v4, v3, p0, v5}, Lcom/android/systemui/qs/tiles/InternetTile$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-interface {v0, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    goto/16 :goto_0
+
+    :cond_6
+    return-void
+.end method
+
+.method public final isPluginPrivileged(Landroid/content/ComponentName;)Z
+    .locals 3
+
+    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPrivilegedPlugins:Landroid/util/ArraySet;
+
+    invoke-virtual {p0}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    add-int/lit8 v0, v0, -0x1
+    if-eqz v0, :cond_2
 
-    :goto_0
-    if-ltz v0, :cond_0
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
+    move-result-object v0
 
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    check-cast v0, Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/shared/plugins/PluginInstance;
+    const/4 v2, 0x1
 
-    iget-object v2, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mMainExecutor:Ljava/util/concurrent/Executor;
+    if-nez v1, :cond_1
 
-    new-instance v3, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda3;
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    invoke-direct {v3, p0, v1}, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
+    move-result-object v1
 
-    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/shared/plugins/PluginActionManager;->handleQueryPlugins(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private queryPkg(Ljava/lang/String;)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mAllowMultiple:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_0
 
-    :cond_0
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->handleQueryPlugins(Ljava/lang/String;)V
+    return v2
 
     :cond_1
+    invoke-virtual {v1, p1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v2
+
+    :cond_2
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public final onPluginDisconnected(Lcom/android/systemui/shared/plugins/PluginInstance;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/systemui/shared/plugins/PluginInstance<",
+            "TT;>;)V"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mListener:Lcom/android/systemui/plugins/PluginListener;
+
+    iget-object v0, p1, Lcom/android/systemui/shared/plugins/PluginInstance;->mPlugin:Lcom/android/systemui/plugins/Plugin;
+
+    invoke-interface {p0, v0}, Lcom/android/systemui/plugins/PluginListener;->onPluginDisconnected(Lcom/android/systemui/plugins/Plugin;)V
+
+    iget-object p0, p1, Lcom/android/systemui/shared/plugins/PluginInstance;->mPlugin:Lcom/android/systemui/plugins/Plugin;
+
+    instance-of p1, p0, Lcom/android/systemui/plugins/PluginFragment;
+
+    if-nez p1, :cond_0
+
+    invoke-interface {p0}, Lcom/android/systemui/plugins/Plugin;->onDestroy()V
+
+    :cond_0
     return-void
 .end method
 
-.method private removePkg(Ljava/lang/String;)V
-    .locals 4
+.method public final removePkg(Ljava/lang/String;)V
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
 
@@ -701,9 +813,10 @@
 
     move-result v0
 
+    :cond_0
+    :goto_0
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
     if-ltz v0, :cond_1
 
     iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
@@ -714,7 +827,9 @@
 
     check-cast v1, Lcom/android/systemui/shared/plugins/PluginInstance;
 
-    invoke-virtual {v1}, Lcom/android/systemui/shared/plugins/PluginInstance;->getPackage()Ljava/lang/String;
+    iget-object v2, v1, Lcom/android/systemui/shared/plugins/PluginInstance;->mComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -726,9 +841,11 @@
 
     iget-object v2, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mMainExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v3, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda1;
+    new-instance v3, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda10;
 
-    invoke-direct {v3, p0, v1}, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
+    const/4 v4, 0x3
+
+    invoke-direct {v3, v4, p0, v1}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda10;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
@@ -736,23 +853,20 @@
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    :cond_0
-    add-int/lit8 v0, v0, -0x1
-
     goto :goto_0
 
     :cond_1
     return-void
 .end method
 
-.method private reportInvalidVersion(Landroid/content/ComponentName;Ljava/lang/String;Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;)V
+.method public final reportInvalidVersion(Landroid/content/ComponentName;Ljava/lang/String;Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;)V
     .locals 5
 
     invoke-static {}, Landroid/content/res/Resources;->getSystem()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const-string v1, "stat_sys_warning"
+    const-string/jumbo v1, "stat_sys_warning"
 
     const-string v2, "drawable"
 
@@ -766,7 +880,7 @@
 
     move-result-object v1
 
-    const-string v2, "system_notification_accent_color"
+    const-string/jumbo v2, "system_notification_accent_color"
 
     const-string v4, "color"
 
@@ -870,13 +984,11 @@
 
     move-result-object p2
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "Contact plugin developer to get an updated version.\n"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "Contact plugin developer to get an updated version.\n"
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {p3}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
 
@@ -913,13 +1025,11 @@
 
     move-result-object p2
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "Check to see if an OTA is available.\n"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "Check to see if an OTA is available.\n"
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {p3}, Ljava/lang/RuntimeException;->getMessage()Ljava/lang/String;
 
@@ -940,13 +1050,11 @@
 
     invoke-direct {p2, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "package://"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "package://"
-
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
@@ -1033,324 +1141,14 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public checkAndDisable(Ljava/lang/String;)Z
-    .locals 4
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    :cond_0
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/shared/plugins/PluginInstance;
-
-    invoke-virtual {v2}, Lcom/android/systemui/shared/plugins/PluginInstance;->getPackage()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const/4 v3, 0x3
-
-    invoke-direct {p0, v2, v3}, Lcom/android/systemui/shared/plugins/PluginActionManager;->disable(Lcom/android/systemui/shared/plugins/PluginInstance;I)Z
-
-    move-result v2
-
-    or-int/2addr v1, v2
-
-    goto :goto_0
-
-    :cond_1
-    return v1
-.end method
-
-.method dependsOn(Lcom/android/systemui/plugins/Plugin;Ljava/lang/Class;)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<C:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lcom/android/systemui/plugins/Plugin;",
-            "Ljava/lang/Class<",
-            "TC;>;)Z"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
-
-    invoke-direct {v0, p0}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/shared/plugins/PluginInstance;
-
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Lcom/android/systemui/shared/plugins/PluginInstance;->containsPluginClass(Ljava/lang/Class;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/systemui/shared/plugins/PluginInstance;->getVersionInfo()Lcom/android/systemui/shared/plugins/VersionInfo;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {v0}, Lcom/android/systemui/shared/plugins/PluginInstance;->getVersionInfo()Lcom/android/systemui/shared/plugins/VersionInfo;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p2}, Lcom/android/systemui/shared/plugins/VersionInfo;->hasClass(Ljava/lang/Class;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_1
-    return v1
-.end method
-
-.method public destroy()V
-    .locals 4
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/shared/plugins/PluginInstance;
-
-    iget-object v2, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mMainExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v3, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda4;
-
-    invoke-direct {v3, p0, v1}, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/shared/plugins/PluginActionManager;Lcom/android/systemui/shared/plugins/PluginInstance;)V
-
-    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public disableAll()Z
-    .locals 5
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPluginInstances:Ljava/util/ArrayList;
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    const/4 v1, 0x0
-
-    move v2, v1
-
-    :goto_0
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v3
-
-    if-ge v1, v3, :cond_0
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/systemui/shared/plugins/PluginInstance;
-
-    const/4 v4, 0x4
-
-    invoke-direct {p0, v3, v4}, Lcom/android/systemui/shared/plugins/PluginActionManager;->disable(Lcom/android/systemui/shared/plugins/PluginInstance;I)Z
-
-    move-result v3
-
-    or-int/2addr v2, v3
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return v2
-.end method
-
-.method isPluginPrivileged(Landroid/content/ComponentName;)Z
-    .locals 3
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mPrivilegedPlugins:Landroid/util/ArraySet;
-
-    invoke-virtual {p0}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    if-nez v1, :cond_1
-
-    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return v2
-
-    :cond_1
-    invoke-virtual {v1, p1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return v2
-
-    :cond_2
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public loadAll()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mBgExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v1, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/shared/plugins/PluginActionManager;)V
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public onPackageRemoved(Ljava/lang/String;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mBgExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v1, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda6;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/shared/plugins/PluginActionManager;Ljava/lang/String;)V
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public reloadPackage(Ljava/lang/String;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager;->mBgExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v1, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda5;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/shared/plugins/PluginActionManager$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/shared/plugins/PluginActionManager;Ljava/lang/String;)V
-
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     const/4 v0, 0x3
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    const-class v1, Lcom/android/systemui/shared/plugins/PluginActionManager;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v1
+    const-string v1, "PluginActionManager"
 
     const/4 v2, 0x0
 

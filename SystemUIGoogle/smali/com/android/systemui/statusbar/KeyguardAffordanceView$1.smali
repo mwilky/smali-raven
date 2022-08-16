@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/KeyguardAffordanceView$1;
+.class public final Lcom/android/systemui/statusbar/KeyguardAffordanceView$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "KeyguardAffordanceView.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$1;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
@@ -31,14 +31,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$1;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->access$002(Lcom/android/systemui/statusbar/KeyguardAffordanceView;Landroid/animation/Animator;)Landroid/animation/Animator;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->mPreviewClipper:Landroid/animation/Animator;
 
     return-void
 .end method

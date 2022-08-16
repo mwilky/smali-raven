@@ -34,25 +34,13 @@
 .method public abstract keyguardGoingAway()V
 .end method
 
-.method public abstract notifyKeyguardAuthenticated(Z)V
+.method public abstract notifyKeyguardAuthenticated()V
 .end method
 
 .method public abstract onCancelClicked()V
 .end method
 
 .method public onFinishedGoingToSleep()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onScreenTurnedOn()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onScreenTurningOn()V
     .locals 0
 
     return-void
@@ -70,7 +58,13 @@
     return-void
 .end method
 
+.method public abstract registerCentralSurfaces(Lcom/android/systemui/statusbar/phone/CentralSurfaces;Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;)V
+.end method
+
 .method public abstract reset(Z)V
+.end method
+
+.method public abstract resetAlternateAuth(Z)V
 .end method
 
 .method public abstract setKeyguardGoingAwayState(Z)V
@@ -88,11 +82,11 @@
 .method public abstract shouldSubtleWindowAnimationsForUnlock()Z
 .end method
 
-.method public abstract show(Landroid/os/Bundle;)V
+.method public abstract show$2()V
 .end method
 
 .method public abstract showBouncer(Z)V
 .end method
 
-.method public abstract startPreHideAnimation(Ljava/lang/Runnable;)V
+.method public abstract startPreHideAnimation(Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;)V
 .end method

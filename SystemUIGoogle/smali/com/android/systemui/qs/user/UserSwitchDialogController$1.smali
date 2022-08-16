@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/user/UserSwitchDialogController;-><init>(Ljavax/inject/Provider;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/Lambda;",
@@ -32,7 +23,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/qs/user/UserSwitchDialogController$1;
@@ -44,7 +35,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     const/4 v0, 0x1
@@ -56,28 +47,14 @@
 
 
 # virtual methods
-.method public final invoke(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/SystemUIDialog;
-    .locals 0
-
-    const-string p0, "it"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p0, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
-
-    return-object p0
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Landroid/content/Context;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/user/UserSwitchDialogController$1;->invoke(Landroid/content/Context;)Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+    new-instance p0, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
-    move-result-object p0
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
     return-object p0
 .end method

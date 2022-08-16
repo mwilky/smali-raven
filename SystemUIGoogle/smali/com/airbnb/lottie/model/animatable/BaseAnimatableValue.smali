@@ -1,4 +1,4 @@
-.class abstract Lcom/airbnb/lottie/model/animatable/BaseAnimatableValue;
+.class public abstract Lcom/airbnb/lottie/model/animatable/BaseAnimatableValue;
 .super Ljava/lang/Object;
 .source "BaseAnimatableValue.java"
 
@@ -22,7 +22,7 @@
 
 
 # instance fields
-.field final keyframes:Ljava/util/List;
+.field public final keyframes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -34,28 +34,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Object;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TV;)V"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/airbnb/lottie/value/Keyframe;
-
-    invoke-direct {v0, p1}, Lcom/airbnb/lottie/value/Keyframe;-><init>(Ljava/lang/Object;)V
-
-    invoke-static {v0}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Lcom/airbnb/lottie/model/animatable/BaseAnimatableValue;-><init>(Ljava/util/List;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Ljava/util/List;)V
+.method public constructor <init>(Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -75,7 +54,7 @@
 
 
 # virtual methods
-.method public getKeyframes()Ljava/util/List;
+.method public final getKeyframes()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -91,7 +70,7 @@
     return-object p0
 .end method
 
-.method public isStatic()Z
+.method public final isStatic()Z
     .locals 3
 
     iget-object v0, p0, Lcom/airbnb/lottie/model/animatable/BaseAnimatableValue;->keyframes:Ljava/util/List;
@@ -135,7 +114,7 @@
     return v1
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;

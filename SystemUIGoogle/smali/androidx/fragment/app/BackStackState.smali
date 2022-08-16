@@ -27,29 +27,13 @@
 
 
 # instance fields
-.field final mFragments:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList<",
-            "Landroidx/fragment/app/FragmentState;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mFragments:Ljava/util/ArrayList;
 
-.field final mTransactions:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList<",
-            "Landroidx/fragment/app/BackStackRecordState;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mTransactions:Ljava/util/ArrayList;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroidx/fragment/app/BackStackState$1;
@@ -61,14 +45,12 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    sget-object v0, Landroidx/fragment/app/FragmentState;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-virtual {p1, v0}, Landroid/os/Parcel;->createTypedArrayList(Landroid/os/Parcelable$Creator;)Ljava/util/ArrayList;
+    invoke-virtual {p1}, Landroid/os/Parcel;->createStringArrayList()Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -87,7 +69,7 @@
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -95,12 +77,12 @@
     return p0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
 
     iget-object p2, p0, Landroidx/fragment/app/BackStackState;->mFragments:Ljava/util/ArrayList;
 
-    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeTypedList(Ljava/util/List;)V
+    invoke-virtual {p1, p2}, Landroid/os/Parcel;->writeStringList(Ljava/util/List;)V
 
     iget-object p0, p0, Landroidx/fragment/app/BackStackState;->mTransactions:Ljava/util/ArrayList;
 

@@ -17,6 +17,7 @@
         <item>৩টি প্রক্রিয়ার বেশি নয়</item>
         <item>৪টি প্রক্রিয়ার বেশি নয়</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>০%</item>
         <item>৫০%</item>
@@ -260,6 +261,11 @@
         <item>বন্ধ আছে</item>
         <item>চালু আছে</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>অনুপলভ্য</item>
+        <item>বন্ধ আছে</item>
+        <item>চালু আছে</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>উপলভ্য নেই</item>
         <item>বন্ধ আছে</item>
@@ -308,6 +314,16 @@
     <string-array name="tile_states_night">
         <item>উপলভ্য নেই</item>
         <item>বন্ধ আছে</item>
+        <item>চালু আছে</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>উপলভ্য নয়</item>
+        <item>বন্ধ আছে</item>
+        <item>চালু আছে</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>উপলভ্য নয়</item>
+        <item>বন্ধ করা আছে</item>
         <item>চালু আছে</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
@@ -374,6 +390,12 @@
         <item>দ্রুত</item>
         <item>খুব দ্রুত</item>
         <item>দ্রুততম</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>বাঁদিকে সরান</item>
+        <item>নিচে নামান</item>
+        <item>ডানদিকে সরান</item>
+        <item>উপরে তুলুন</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>চার্জ হচ্ছে</item>

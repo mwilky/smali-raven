@@ -1,59 +1,52 @@
 .class public final synthetic Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.implements Ljava/lang/Runnable;
 
 
 # instance fields
-.field public final synthetic f$0:F
+.field public final synthetic f$0:Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;
 
-.field public final synthetic f$1:F
+.field public final synthetic f$1:Landroid/widget/ImageView;
 
-.field public final synthetic f$2:F
+.field public final synthetic f$2:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-.field public final synthetic f$3:F
-
-.field public final synthetic f$4:Landroid/widget/ImageView;
+.field public final synthetic f$3:Z
 
 
 # direct methods
-.method public synthetic constructor <init>(FFFFLandroid/widget/ImageView;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$0:F
+    iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;
 
-    iput p2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$1:F
+    iput-object p2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$1:Landroid/widget/ImageView;
 
-    iput p3, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$2:F
+    iput-object p3, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$2:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    iput p4, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$3:F
-
-    iput-object p5, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$4:Landroid/widget/ImageView;
+    iput-boolean p4, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$3:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 6
+.method public final run()V
+    .locals 3
 
-    iget v0, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$0:F
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;
 
-    iget v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$1:F
+    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$1:Landroid/widget/ImageView;
 
-    iget v2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$2:F
+    iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$2:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    iget v3, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$3:F
+    iget-boolean p0, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$3:Z
 
-    iget-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$$ExternalSyntheticLambda0;->f$4:Landroid/widget/ImageView;
-
-    move-object v5, p1
-
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->$r8$lambda$96c8NZw5xcqGziIv122CYPh9Ra0(FFFFLandroid/widget/ImageView;Landroid/animation/ValueAnimator;)V
+    invoke-virtual {v0, v1, v2, p0}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->updateIcon(Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
 
     return-void
 .end method

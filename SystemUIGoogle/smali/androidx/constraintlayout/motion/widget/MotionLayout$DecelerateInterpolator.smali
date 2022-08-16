@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;
+.class public final Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;
 .super Landroidx/constraintlayout/motion/widget/MotionInterpolator;
 .source "MotionLayout.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "DecelerateInterpolator"
 .end annotation
 
 
 # instance fields
-.field currentP:F
+.field public currentP:F
 
-.field initalV:F
+.field public initalV:F
 
-.field maxA:F
+.field public maxA:F
 
-.field final synthetic this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
+.field public final synthetic this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
 
 
 # direct methods
-.method constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
+.method public constructor <init>(Landroidx/constraintlayout/motion/widget/MotionLayout;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;
@@ -43,19 +43,7 @@
 
 
 # virtual methods
-.method public config(FFF)V
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
-
-    iput p2, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->currentP:F
-
-    iput p3, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->maxA:F
-
-    return-void
-.end method
-
-.method public getInterpolation(F)F
+.method public final getInterpolation(F)F
     .locals 5
 
     iget v0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->initalV:F
@@ -99,7 +87,6 @@
 
     iget p0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->currentP:F
 
-    :goto_0
     add-float/2addr v0, p0
 
     return v0
@@ -136,14 +123,16 @@
 
     div-float/2addr v3, v2
 
-    add-float/2addr v0, v3
+    add-float/2addr v3, v0
 
     iget p0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->currentP:F
 
-    goto :goto_0
+    add-float/2addr v3, p0
+
+    return v3
 .end method
 
-.method public getVelocity()F
+.method public final getVelocity$1()F
     .locals 0
 
     iget-object p0, p0, Landroidx/constraintlayout/motion/widget/MotionLayout$DecelerateInterpolator;->this$0:Landroidx/constraintlayout/motion/widget/MotionLayout;

@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">před %d dny</item>
-        <item quantity="one">před %d dnem</item>
-        <item quantity="few">před %d dny</item>
-        <item quantity="many">před %d dne</item>
+        <item quantity="other">Před %d dny</item>
+        <item quantity="one">Před %d dnem</item>
+        <item quantity="few">Před %d dny</item>
+        <item quantity="many">Před %d dny</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">před %d min</item>
-        <item quantity="one">před %d min</item>
-        <item quantity="few">před %d min</item>
-        <item quantity="many">před %d min</item>
+        <item quantity="other">Před %d min</item>
+        <item quantity="one">Před %d min</item>
+        <item quantity="few">Před %d min</item>
+        <item quantity="many">Před %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">před %d lety</item>
-        <item quantity="one">před %d rokem</item>
-        <item quantity="few">před %d lety</item>
-        <item quantity="many">před %d roku</item>
+        <item quantity="other">Před %d r.</item>
+        <item quantity="one">Před %d r.</item>
+        <item quantity="few">Před %d r.</item>
+        <item quantity="many">Před %d r.</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">Bylo přidáno %s ovládacích prvků.</item>
         <item quantity="one">Byl přidán %s ovládací prvek.</item>
         <item quantity="few">Byly přidány %s ovládací prvky.</item>
         <item quantity="many">Bylo přidáno %s ovládacího prvku.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s aplikací je aktivních</item>
+        <item quantity="one">%s aplikace je aktivní</item>
+        <item quantity="few">%s aplikace jsou aktivní</item>
+        <item quantity="many">%s aplikace je aktivních</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Zadejte PIN SIM karty. Zbývá %d pokusů.</item>
@@ -47,12 +53,6 @@
         <item quantity="one">Nesprávný kód PUK SIM karty. Máte ještě %d pokus, poté bude SIM karta natrvalo zablokována.</item>
         <item quantity="few">Nesprávný kód PUK SIM karty. Máte ještě %d pokusy, poté bude SIM karta natrvalo zablokována.</item>
         <item quantity="many">Nesprávný kód PUK SIM karty. Máte ještě %d pokusu, poté bude SIM karta natrvalo zablokována.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Zkuste to znovu za %d sekund.</item>
-        <item quantity="one">Zkuste to znovu za 1 sekundu.</item>
-        <item quantity="few">Zkuste to znovu za %d sekundy.</item>
-        <item quantity="many">Zkuste to znovu za %d sekundy.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d nových oznámení</item>
@@ -101,11 +101,5 @@
         <item quantity="one">Lze vytvořit jen jednoho uživatele.</item>
         <item quantity="few">Lze přidat až %d uživatele.</item>
         <item quantity="many">Lze přidat až %d uživatele.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Připojeno %1$d zařízení</item>
-        <item quantity="one">Připojeno %1$d zařízení</item>
-        <item quantity="few">Připojena %1$d zařízení</item>
-        <item quantity="many">Připojeno %1$d zařízení</item>
     </plurals>
 </resources>

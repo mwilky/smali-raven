@@ -16,6 +16,10 @@
         <item quantity="other">%s कंट्रोल जोड़े गए.</item>
         <item quantity="one">%s कंट्रोल जोड़ा गया.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s ऐप्लिकेशन चालू हैं</item>
+        <item quantity="one">%s ऐप्लिकेशन चालू है</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">सिम का पिन डालें. आपके पास %d मौके बचे हैं.</item>
         <item quantity="one">सिम का पिन डालें. आपके पास %d मौके बचे हैं.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">SIM PUK कोड गलत है, SIM के हमेशा के लिए बेकार हो जाने से पहले आप %d बार और कोशिश कर सकते हैं.</item>
         <item quantity="one">SIM PUK कोड गलत है, SIM के हमेशा के लिए बेकार हो जाने से पहले आप %d बार और कोशिश कर सकते हैं.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d सेकंड में फिर से कोशिश करें.</item>
-        <item quantity="one">%d सेकंड में फिर से कोशिश करें.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d नई सूचनाएं</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">आप ज़्यादा से ज़्यादा %d उपयोगकर्ता जोड़ सकते हैं.</item>
         <item quantity="one">आप ज़्यादा से ज़्यादा %d उपयोगकर्ता जोड़ सकते हैं.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d डिवाइस जुड़े हैं</item>
-        <item quantity="one">%1$d डिवाइस जुड़ा है</item>
     </plurals>
 </resources>

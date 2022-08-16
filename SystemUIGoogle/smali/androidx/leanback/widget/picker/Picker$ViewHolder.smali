@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/picker/Picker$ViewHolder;
+.class public final Landroidx/leanback/widget/picker/Picker$ViewHolder;
 .super Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 .source "Picker.java"
 
@@ -9,28 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ViewHolder"
 .end annotation
 
 
 # instance fields
-.field final textView:Landroid/widget/TextView;
+.field public final textView:Landroid/widget/TextView;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;Landroid/widget/TextView;)V
+.method public constructor <init>(Landroid/view/View;Landroid/widget/TextView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "textView"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
 

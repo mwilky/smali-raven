@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field private cancelled:Z
+.field public cancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/media/LightSourceDrawable;
+.field public final synthetic this$0:Lcom/android/systemui/media/LightSourceDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/LightSourceDrawable;)V
+.method public constructor <init>(Lcom/android/systemui/media/LightSourceDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable$active$1$2;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-boolean p1, p0, Lcom/android/systemui/media/LightSourceDrawable$active$1$2;->cancelled:Z
@@ -61,7 +61,7 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/media/RippleData;->setProgress(F)V
+    iput v0, p1, Lcom/android/systemui/media/RippleData;->progress:F
 
     iget-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable$active$1$2;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
 
@@ -69,7 +69,7 @@
 
     move-result-object p1
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/media/RippleData;->setAlpha(F)V
+    iput v0, p1, Lcom/android/systemui/media/RippleData;->alpha:F
 
     iget-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable$active$1$2;->this$0:Lcom/android/systemui/media/LightSourceDrawable;
 

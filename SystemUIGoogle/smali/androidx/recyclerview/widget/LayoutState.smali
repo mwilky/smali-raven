@@ -1,30 +1,30 @@
-.class Landroidx/recyclerview/widget/LayoutState;
+.class public final Landroidx/recyclerview/widget/LayoutState;
 .super Ljava/lang/Object;
 .source "LayoutState.java"
 
 
 # instance fields
-.field mAvailable:I
+.field public mAvailable:I
 
-.field mCurrentPosition:I
+.field public mCurrentPosition:I
 
-.field mEndLine:I
+.field public mEndLine:I
 
-.field mInfinite:Z
+.field public mInfinite:Z
 
-.field mItemDirection:I
+.field public mItemDirection:I
 
-.field mLayoutDirection:I
+.field public mLayoutDirection:I
 
-.field mRecycle:Z
+.field public mRecycle:Z
 
-.field mStartLine:I
+.field public mStartLine:I
 
-.field mStopInFocusable:Z
+.field public mStopInFocusable:Z
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -44,76 +44,14 @@
 
 
 # virtual methods
-.method hasMore(Landroidx/recyclerview/widget/RecyclerView$State;)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "state"
-        }
-    .end annotation
-
-    iget p0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
-
-    if-ltz p0, :cond_0
-
-    invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$State;->getItemCount()I
-
-    move-result p1
-
-    if-ge p0, p1, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method next(Landroidx/recyclerview/widget/RecyclerView$Recycler;)Landroid/view/View;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recycler"
-        }
-    .end annotation
-
-    iget v0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
-
-    invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->getViewForPosition(I)Landroid/view/View;
-
-    move-result-object p1
-
-    iget v0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
-
-    iget v1, p0, Landroidx/recyclerview/widget/LayoutState;->mItemDirection:I
-
-    add-int/2addr v0, v1
-
-    iput v0, p0, Landroidx/recyclerview/widget/LayoutState;->mCurrentPosition:I
-
-    return-object p1
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "LayoutState{mAvailable="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "LayoutState{mAvailable="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Landroidx/recyclerview/widget/LayoutState;->mAvailable:I
 
@@ -157,13 +95,9 @@
 
     iget p0, p0, Landroidx/recyclerview/widget/LayoutState;->mEndLine:I
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v1, 0x7d
 
-    const/16 p0, 0x7d
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/core/graphics/Insets$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;IC)Ljava/lang/String;
 
     move-result-object p0
 

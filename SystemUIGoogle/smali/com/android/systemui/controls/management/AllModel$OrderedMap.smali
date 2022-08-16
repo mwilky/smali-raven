@@ -1,10 +1,10 @@
-.class final Lcom/android/systemui/controls/management/AllModel$OrderedMap;
+.class public final Lcom/android/systemui/controls/management/AllModel$OrderedMap;
 .super Ljava/lang/Object;
 .source "AllModel.kt"
 
 # interfaces
 .implements Ljava/util/Map;
-.implements Lkotlin/jvm/internal/markers/KMutableMap;
+.implements Lkotlin/jvm/internal/markers/KMappedMarker;
 
 
 # annotations
@@ -13,7 +13,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "OrderedMap"
 .end annotation
 
@@ -27,13 +27,13 @@
         "Ljava/lang/Object;",
         "Ljava/util/Map<",
         "TK;TV;>;",
-        "Lkotlin/jvm/internal/markers/KMutableMap;"
+        "Lkotlin/jvm/internal/markers/KMappedMarker;"
     }
 .end annotation
 
 
 # instance fields
-.field private final map:Ljava/util/Map;
+.field public final map:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -42,30 +42,12 @@
     .end annotation
 .end field
 
-.field private final orderedKeys:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "TK;>;"
-        }
-    .end annotation
-.end field
+.field public final orderedKeys:Ljava/util/ArrayList;
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/Map;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Map<",
-            "TK;TV;>;)V"
-        }
-    .end annotation
-
-    const-string v0, "map"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/util/ArrayMap;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -75,19 +57,19 @@
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/ArrayList;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public clear()V
+.method public final clear()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
 
@@ -96,7 +78,7 @@
     return-void
 .end method
 
-.method public containsKey(Ljava/lang/Object;)Z
+.method public final containsKey(Ljava/lang/Object;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
@@ -108,7 +90,7 @@
     return p0
 .end method
 
-.method public containsValue(Ljava/lang/Object;)Z
+.method public final containsValue(Ljava/lang/Object;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
@@ -120,44 +102,7 @@
     return p0
 .end method
 
-.method public final bridge entrySet()Ljava/util/Set;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Set<",
-            "Ljava/util/Map$Entry<",
-            "TK;TV;>;>;"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->getEntries()Ljava/util/Set;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Object;",
-            ")TV;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
-
-    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getEntries()Ljava/util/Set;
+.method public final entrySet()Ljava/util/Set;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -177,7 +122,38 @@
     return-object p0
 .end method
 
-.method public getKeys()Ljava/util/Set;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/Object;",
+            ")TV;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
+
+    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final isEmpty()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
+
+    invoke-interface {p0}, Ljava/util/Map;->isEmpty()Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public final keySet()Ljava/util/Set;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -196,82 +172,7 @@
     return-object p0
 .end method
 
-.method public final getOrderedKeys()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "TK;>;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method public getSize()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
-
-    invoke-interface {p0}, Ljava/util/Map;->size()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getValues()Ljava/util/Collection;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Collection<",
-            "TV;>;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
-
-    invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public isEmpty()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
-
-    invoke-interface {p0}, Ljava/util/Map;->isEmpty()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public final bridge keySet()Ljava/util/Set;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Set<",
-            "TK;>;"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->getKeys()Ljava/util/Set;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -287,9 +188,9 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/ArrayList;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
@@ -301,8 +202,8 @@
     return-object p0
 .end method
 
-.method public putAll(Ljava/util/Map;)V
-    .locals 1
+.method public final putAll(Ljava/util/Map;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -311,10 +212,6 @@
         }
     .end annotation
 
-    const-string v0, "from"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
 
     invoke-interface {p0, p1}, Ljava/util/Map;->putAll(Ljava/util/Map;)V
@@ -322,7 +219,7 @@
     return-void
 .end method
 
-.method public remove(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final remove(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -340,25 +237,27 @@
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->orderedKeys:Ljava/util/ArrayList;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     :cond_0
     return-object v0
 .end method
 
-.method public final bridge size()I
+.method public final size()I
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->getSize()I
+    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
+
+    invoke-interface {p0}, Ljava/util/Map;->size()I
 
     move-result p0
 
     return p0
 .end method
 
-.method public final bridge values()Ljava/util/Collection;
+.method public final values()Ljava/util/Collection;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -368,7 +267,9 @@
         }
     .end annotation
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->getValues()Ljava/util/Collection;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/AllModel$OrderedMap;->map:Ljava/util/Map;
+
+    invoke-interface {p0}, Ljava/util/Map;->values()Ljava/util/Collection;
 
     move-result-object p0
 

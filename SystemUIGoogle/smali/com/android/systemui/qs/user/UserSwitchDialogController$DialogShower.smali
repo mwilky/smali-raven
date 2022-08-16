@@ -18,5 +18,5 @@
 
 
 # virtual methods
-.method public abstract showDialog(Landroid/app/Dialog;)V
+.method public abstract showDialog(Lcom/android/systemui/statusbar/phone/SystemUIDialog;)V
 .end method

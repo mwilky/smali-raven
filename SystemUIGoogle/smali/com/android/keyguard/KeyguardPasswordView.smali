@@ -4,15 +4,9 @@
 
 
 # instance fields
-.field private final mDisappearYTranslation:I
+.field public mPasswordEntry:Landroid/widget/TextView;
 
-.field private mFastOutLinearInInterpolator:Landroid/view/animation/Interpolator;
-
-.field private mLinearOutSlowInInterpolator:Landroid/view/animation/Interpolator;
-
-.field private mPasswordEntry:Landroid/widget/TextView;
-
-.field private mPasswordEntryDisabler:Lcom/android/internal/widget/TextViewInputDisabler;
+.field public mPasswordEntryDisabler:Lcom/android/internal/widget/TextViewInputDisabler;
 
 
 # direct methods
@@ -27,76 +21,32 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardAbsKeyInputView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p2
+    move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$dimen;->disappear_y_translation:I
+    const p2, 0x7f0701fc
 
-    invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result p2
+    const p0, 0x10c000e
 
-    iput p2, p0, Lcom/android/keyguard/KeyguardPasswordView;->mDisappearYTranslation:I
+    invoke-static {p1, p0}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
-    const p2, 0x10c000e
+    const p0, 0x10c000f
 
-    invoke-static {p1, p2}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
-
-    move-result-object p2
-
-    iput-object p2, p0, Lcom/android/keyguard/KeyguardPasswordView;->mLinearOutSlowInInterpolator:Landroid/view/animation/Interpolator;
-
-    const p2, 0x10c000f
-
-    invoke-static {p1, p2}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardPasswordView;->mFastOutLinearInInterpolator:Landroid/view/animation/Interpolator;
+    invoke-static {p1, p0}, Landroid/view/animation/AnimationUtils;->loadInterpolator(Landroid/content/Context;I)Landroid/view/animation/Interpolator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public animateForIme(FZ)V
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->animate()Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getAlpha()F
-
-    move-result p2
-
-    invoke-static {p1, p2}, Ljava/lang/Math;->max(FF)F
-
-    move-result p1
-
-    goto :goto_0
-
-    :cond_0
-    const/high16 p2, 0x3f800000    # 1.0f
-
-    sub-float p1, p2, p1
-
-    :goto_0
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    return-void
-.end method
-
-.method protected getEnteredCredential()Lcom/android/internal/widget/LockscreenCredential;
+.method public final getEnteredCredential()Lcom/android/internal/widget/LockscreenCredential;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPasswordView;->mPasswordEntry:Landroid/widget/TextView;
@@ -112,82 +62,64 @@
     return-object p0
 .end method
 
-.method protected getPasswordTextViewId()I
+.method public final getPasswordTextViewId()I
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$id;->passwordEntry:I
+    const/4 p0, 0x0
 
-    return p0
+    throw p0
 .end method
 
-.method protected getPromptReasonStringRes(I)I
+.method public final getPromptReasonStringRes(I)I
     .locals 0
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_3
 
     const/4 p0, 0x1
 
-    if-eq p1, p0, :cond_4
-
-    const/4 p0, 0x2
-
-    if-eq p1, p0, :cond_3
+    if-eq p1, p0, :cond_2
 
     const/4 p0, 0x3
 
-    if-eq p1, p0, :cond_2
+    if-eq p1, p0, :cond_1
 
     const/4 p0, 0x4
 
-    if-eq p1, p0, :cond_1
-
-    const/4 p0, 0x6
-
     if-eq p1, p0, :cond_0
 
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_timeout_password:I
+    const p0, 0x7f1303d0
 
     return p0
 
     :cond_0
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_timeout_password:I
+    const p0, 0x7f1303d3
 
     return p0
 
     :cond_1
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_user_request:I
+    const p0, 0x7f1303cc
 
     return p0
 
     :cond_2
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_device_admin:I
+    const p0, 0x7f1303cd
 
     return p0
 
     :cond_3
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_timeout_password:I
-
-    return p0
-
-    :cond_4
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_restart_password:I
-
-    return p0
-
-    :cond_5
     const/4 p0, 0x0
 
     return p0
 .end method
 
-.method public getTitle()Ljava/lang/CharSequence;
+.method public final getTitle()Ljava/lang/String;
     .locals 1
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object p0
 
-    const v0, 0x104043a
+    const v0, 0x1040484
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -196,22 +128,20 @@
     return-object p0
 .end method
 
-.method public getWrongPasswordStringId()I
+.method public final getWrongPasswordStringId()I
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$string;->kg_wrong_password:I
+    const p0, 0x7f1303df
 
     return p0
 .end method
 
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 2
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->onFinishInflate()V
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPasswordView;->getPasswordTextViewId()I
-
-    move-result v0
+    const v0, 0x7f0b04da
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -232,7 +162,7 @@
     return-void
 .end method
 
-.method protected onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+.method public final onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPasswordView;->mPasswordEntry:Landroid/widget/TextView;
@@ -244,7 +174,7 @@
     return p0
 .end method
 
-.method protected resetPasswordText(ZZ)V
+.method public final resetPasswordText(ZZ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPasswordView;->mPasswordEntry:Landroid/widget/TextView;
@@ -256,7 +186,7 @@
     return-void
 .end method
 
-.method protected setPasswordEntryEnabled(Z)V
+.method public final setPasswordEntryEnabled(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPasswordView;->mPasswordEntry:Landroid/widget/TextView;
@@ -266,7 +196,7 @@
     return-void
 .end method
 
-.method protected setPasswordEntryInputEnabled(Z)V
+.method public final setPasswordEntryInputEnabled(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPasswordView;->mPasswordEntryDisabler:Lcom/android/internal/widget/TextViewInputDisabler;
@@ -276,7 +206,7 @@
     return-void
 .end method
 
-.method public startAppearAnimation()V
+.method public final startAppearAnimation()V
     .locals 4
 
     const/4 v0, 0x0
@@ -293,15 +223,9 @@
 
     move-result-object v1
 
-    const-wide/16 v2, 0x1f4
-
-    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
-
-    move-result-object v1
-
     const-wide/16 v2, 0x12c
 
-    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setStartDelay(J)Landroid/view/ViewPropertyAnimator;
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     move-result-object v1
 
@@ -312,7 +236,7 @@
     return-void
 .end method
 
-.method public startDisappearAnimation(Ljava/lang/Runnable;)Z
+.method public final startDisappearAnimation(Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;)Z
     .locals 7
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getWindowInsetsController()Landroid/view/WindowInsetsController;
@@ -323,11 +247,11 @@
 
     move-result v1
 
-    sget-object v4, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/Interpolator;
+    sget-object v4, Lcom/android/systemui/animation/Interpolators;->LINEAR:Landroid/view/animation/LinearInterpolator;
 
     new-instance v6, Lcom/android/keyguard/KeyguardPasswordView$1;
 
-    invoke-direct {v6, p0, p1}, Lcom/android/keyguard/KeyguardPasswordView$1;-><init>(Lcom/android/keyguard/KeyguardPasswordView;Ljava/lang/Runnable;)V
+    invoke-direct {v6, p0, p1}, Lcom/android/keyguard/KeyguardPasswordView$1;-><init>(Lcom/android/keyguard/KeyguardPasswordView;Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;)V
 
     const-wide/16 v2, 0x64
 

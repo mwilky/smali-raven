@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/NotificationClicker$1;
+.class public final Lcom/android/systemui/statusbar/notification/NotificationClicker$1;
 .super Ljava/lang/Object;
 .source "NotificationClicker.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/NotificationClicker;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/NotificationClicker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationClicker;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationClicker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationClicker$1;->this$0:Lcom/android/systemui/statusbar/notification/NotificationClicker;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onDragSuccess(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final onDragSuccess(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationClicker$1;->this$0:Lcom/android/systemui/statusbar/notification/NotificationClicker;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/NotificationClicker;->access$000(Lcom/android/systemui/statusbar/notification/NotificationClicker;)Lcom/android/systemui/statusbar/notification/NotificationActivityStarter;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationClicker;->mNotificationActivityStarter:Lcom/android/systemui/statusbar/notification/NotificationActivityStarter;
 
     invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationActivityStarter;->onDragSuccess(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 

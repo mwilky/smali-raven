@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/accessibility/SystemActions;
-.super Lcom/android/systemui/SystemUI;
+.super Lcom/android/systemui/CoreStartable;
 .source "SystemActions.java"
 
 
@@ -12,19 +12,30 @@
 
 
 # instance fields
-.field private final mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+.field public final mA11yManager:Landroid/view/accessibility/AccessibilityManager;
 
-.field private mDismissNotificationShadeActionRegistered:Z
+.field public final mCentralSurfacesOptionalLazy:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;"
+        }
+    .end annotation
+.end field
 
-.field private mLocale:Ljava/util/Locale;
+.field public mDismissNotificationShadeActionRegistered:Z
 
-.field private final mNotificationShadeCallback:Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;
+.field public mLocale:Ljava/util/Locale;
 
-.field private final mNotificationShadeController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+.field public final mNotificationShadeCallback:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda0;
 
-.field private final mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
+.field public final mNotificationShadeController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-.field private final mRecentsOptional:Ljava/util/Optional;
+.field public final mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
+
+.field public final mRecentsOptional:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -34,43 +45,8 @@
     .end annotation
 .end field
 
-.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
-.method public static synthetic $r8$lambda$AhKDiEkrf8Sz7fAC8CI8R3hxk9E(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/accessibility/SystemActions;->lambda$handleAccessibilityDismissNotificationShade$2(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$XVS7pfXEEgbUmsZ9En7pL5nA_tI(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/accessibility/SystemActions;->lambda$handleQuickSettings$1(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$pLoygYw5_ul-CAL-YKCnnm7W8Zo(Lcom/android/systemui/accessibility/SystemActions;ZZZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/accessibility/SystemActions;->lambda$new$0(ZZZZ)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Ldagger/Lazy;Ljava/util/Optional;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
@@ -80,7 +56,7 @@
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Ldagger/Lazy<",
             "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
             ">;>;",
             "Ljava/util/Optional<",
             "Lcom/android/systemui/recents/Recents;",
@@ -88,19 +64,17 @@
         }
     .end annotation
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/SystemUI;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/CoreStartable;-><init>(Landroid/content/Context;)V
 
     iput-object p4, p0, Lcom/android/systemui/accessibility/SystemActions;->mRecentsOptional:Ljava/util/Optional;
 
     new-instance p1, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
 
-    const/4 p4, 0x0
-
-    invoke-direct {p1, p0, p4}, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;-><init>(Lcom/android/systemui/accessibility/SystemActions;Lcom/android/systemui/accessibility/SystemActions$1;)V
+    invoke-direct {p1, p0}, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;-><init>(Lcom/android/systemui/accessibility/SystemActions;)V
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/SystemActions;->mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
 
-    iget-object p1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -122,7 +96,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/SystemActions;->mLocale:Ljava/util/Locale;
 
-    iget-object p1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
 
     const-string p4, "accessibility"
 
@@ -140,675 +114,42 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/accessibility/SystemActions;)V
 
-    iput-object p1, p0, Lcom/android/systemui/accessibility/SystemActions;->mNotificationShadeCallback:Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;
+    iput-object p1, p0, Lcom/android/systemui/accessibility/SystemActions;->mNotificationShadeCallback:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda0;
 
-    iput-object p3, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    return-void
-.end method
-
-.method static synthetic access$1000(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleTakeScreenshot()V
+    iput-object p3, p0, Lcom/android/systemui/accessibility/SystemActions;->mCentralSurfacesOptionalLazy:Ldagger/Lazy;
 
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleAccessibilityButton()V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleAccessibilityButtonChooser()V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleAccessibilityShortcut()V
-
-    return-void
-.end method
-
-.method static synthetic access$1400(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleAccessibilityDismissNotificationShade()V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleBack()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleHome()V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleRecents()V
-
-    return-void
-.end method
-
-.method static synthetic access$600(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleNotifications()V
-
-    return-void
-.end method
-
-.method static synthetic access$700(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleQuickSettings()V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handlePowerDialog()V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/systemui/accessibility/SystemActions;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->handleLockScreen()V
-
-    return-void
-.end method
-
-.method private createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-    .locals 4
-
-    new-instance v0, Landroid/app/RemoteAction;
-
-    iget-object v1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    const v2, 0x10800b4
-
-    invoke-static {v1, v2}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v3, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iget-object v3, p0, Lcom/android/systemui/accessibility/SystemActions;->mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
-
-    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-static {v3, p0, p2}, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;->access$200(Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;Landroid/content/Context;Ljava/lang/String;)Landroid/app/PendingIntent;
-
-    move-result-object p0
-
-    invoke-direct {v0, v1, v2, p1, p0}, Landroid/app/RemoteAction;-><init>(Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
-
-    return-object v0
-.end method
-
-.method private handleAccessibilityButton()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-static {p0}, Landroid/view/accessibility/AccessibilityManager;->getInstance(Landroid/content/Context;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object p0
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/view/accessibility/AccessibilityManager;->notifyAccessibilityButtonClicked(I)V
-
-    return-void
-.end method
-
-.method private handleAccessibilityButtonChooser()V
-    .locals 3
-
-    new-instance v0, Landroid/content/Intent;
-
-    const-string v1, "com.android.internal.intent.action.CHOOSE_ACCESSIBILITY_BUTTON"
-
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    const v1, 0x10008000
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    const-class v1, Lcom/android/internal/accessibility/dialog/AccessibilityButtonChooserActivity;
-
-    invoke-virtual {v1}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "android"
-
-    invoke-virtual {v0, v2, v1}, Landroid/content/Intent;->setClassName(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    sget-object v1, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
-
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
-
-    return-void
-.end method
-
-.method private handleAccessibilityDismissNotificationShade()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/util/Optional;
-
-    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda3;
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private handleAccessibilityShortcut()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityManager;->performAccessibilityShortcut()V
-
-    return-void
-.end method
-
-.method private handleBack()V
-    .locals 1
-
-    const/4 v0, 0x4
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/SystemActions;->sendDownAndUpKeyEvents(I)V
-
-    return-void
-.end method
-
-.method private handleHome()V
-    .locals 1
-
-    const/4 v0, 0x3
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/SystemActions;->sendDownAndUpKeyEvents(I)V
-
-    return-void
-.end method
-
-.method private handleLockScreen()V
-    .locals 5
-
-    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    const-class v1, Landroid/os/PowerManager;
-
-    invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/os/PowerManager;
+.method public static sendDownAndUpKeyEvents(I)V
+    .locals 8
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v1
+    move-result-wide v6
 
-    const/4 v3, 0x7
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
+    move-wide v0, v6
 
-    invoke-virtual {p0, v1, v2, v3, v4}, Landroid/os/PowerManager;->goToSleep(JII)V
+    move-wide v2, v6
 
-    const/4 p0, 0x0
+    move v4, p0
 
-    :try_start_0
-    invoke-interface {v0, p0}, Landroid/view/IWindowManager;->lockNow(Landroid/os/Bundle;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    const-string p0, "SystemActions"
-
-    const-string v0, "failed to lock screen."
-
-    invoke-static {p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method private handleNotifications()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/util/Optional;
-
-    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda2;
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private handlePowerDialog()V
-    .locals 1
-
-    invoke-static {}, Landroid/view/WindowManagerGlobal;->getWindowManagerService()Landroid/view/IWindowManager;
-
-    move-result-object p0
-
-    :try_start_0
-    invoke-interface {p0}, Landroid/view/IWindowManager;->showGlobalActions()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    const-string p0, "SystemActions"
-
-    const-string v0, "failed to display power dialog."
-
-    invoke-static {p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method private handleQuickSettings()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/util/Optional;
-
-    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda4;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda4;
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private handleRecents()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mRecentsOptional:Ljava/util/Optional;
-
-    sget-object v0, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private handleTakeScreenshot()V
-    .locals 7
-
-    new-instance v0, Lcom/android/internal/util/ScreenshotHelper;
-
-    iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, p0}, Lcom/android/internal/util/ScreenshotHelper;-><init>(Landroid/content/Context;)V
-
-    new-instance v5, Landroid/os/Handler;
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object p0
-
-    invoke-direct {v5, p0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x4
-
-    const/4 v6, 0x0
-
-    invoke-virtual/range {v0 .. v6}, Lcom/android/internal/util/ScreenshotHelper;->takeScreenshot(IZZILandroid/os/Handler;Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$handleAccessibilityDismissNotificationShade$2(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateCollapsePanels(IZ)V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$handleQuickSettings$1(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->animateExpandSettingsPanel(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$new$0(ZZZZ)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerOrUnregisterDismissNotificationShadeAction()V
-
-    return-void
-.end method
-
-.method private registerActions()V
-    .locals 11
-
-    const v0, 0x10400ed
-
-    const-string v1, "SYSTEM_ACTION_BACK"
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v0
-
-    const v1, 0x10400f0
-
-    const-string v2, "SYSTEM_ACTION_HOME"
-
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v1
-
-    const v2, 0x10400f7
-
-    const-string v3, "SYSTEM_ACTION_RECENTS"
-
-    invoke-direct {p0, v2, v3}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v2
-
-    const v3, 0x10400f2
-
-    const-string v4, "SYSTEM_ACTION_NOTIFICATIONS"
-
-    invoke-direct {p0, v3, v4}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v3
-
-    const v4, 0x10400f6
-
-    const-string v5, "SYSTEM_ACTION_QUICK_SETTINGS"
-
-    invoke-direct {p0, v4, v5}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v4
-
-    const v5, 0x10400f5
-
-    const-string v6, "SYSTEM_ACTION_POWER_DIALOG"
-
-    invoke-direct {p0, v5, v6}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v5
-
-    const v6, 0x10400f1
-
-    const-string v7, "SYSTEM_ACTION_LOCK_SCREEN"
-
-    invoke-direct {p0, v6, v7}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v6
-
-    const v7, 0x10400f8
-
-    const-string v8, "SYSTEM_ACTION_TAKE_SCREENSHOT"
-
-    invoke-direct {p0, v7, v8}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v7
-
-    const v8, 0x10400ef
-
-    const-string v9, "SYSTEM_ACTION_ACCESSIBILITY_SHORTCUT"
-
-    invoke-direct {p0, v8, v9}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v8
-
-    iget-object v9, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v9, v0, v10}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/4 v9, 0x2
-
-    invoke-virtual {v0, v1, v9}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/4 v1, 0x3
-
-    invoke-virtual {v0, v2, v1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/4 v1, 0x4
-
-    invoke-virtual {v0, v3, v1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/4 v1, 0x5
-
-    invoke-virtual {v0, v4, v1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/4 v1, 0x6
-
-    invoke-virtual {v0, v5, v1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v6, v1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/16 v1, 0x9
-
-    invoke-virtual {v0, v7, v1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const/16 v1, 0xd
-
-    invoke-virtual {v0, v8, v1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerOrUnregisterDismissNotificationShadeAction()V
-
-    return-void
-.end method
-
-.method private registerOrUnregisterDismissNotificationShadeAction()V
-    .locals 4
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Optional;
-
-    sget-object v1, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda5;
-
-    invoke-virtual {v0, v1}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
-
-    move-result-object v1
-
-    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
-
-    invoke-virtual {v1, v2}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Boolean;
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v1
-
-    const/16 v2, 0xf
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->isKeyguardShowing()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    const v1, 0x10400ee
-
-    const-string v3, "SYSTEM_ACTION_ACCESSIBILITY_DISMISS_NOTIFICATION_SHADE"
-
-    invoke-direct {p0, v1, v3}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
-
-    goto :goto_0
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-virtual {v0, v2}, Landroid/view/accessibility/AccessibilityManager;->unregisterSystemAction(I)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method private sendDownAndUpKeyEvents(I)V
-    .locals 9
+    invoke-static/range {v0 .. v5}, Lcom/android/systemui/accessibility/SystemActions;->sendKeyEventIdentityCleared(JJII)V
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v7
+    move-result-wide v2
 
-    const/4 v2, 0x0
+    const/4 v5, 0x1
 
-    move-object v0, p0
-
-    move v1, p1
-
-    move-wide v3, v7
-
-    move-wide v5, v7
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/accessibility/SystemActions;->sendKeyEventIdentityCleared(IIJJ)V
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v5
-
-    const/4 v2, 0x1
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/accessibility/SystemActions;->sendKeyEventIdentityCleared(IIJJ)V
+    invoke-static/range {v0 .. v5}, Lcom/android/systemui/accessibility/SystemActions;->sendKeyEventIdentityCleared(JJII)V
 
     return-void
 .end method
 
-.method private sendKeyEventIdentityCleared(IIJJ)V
+.method public static sendKeyEventIdentityCleared(JJII)V
     .locals 13
 
     const/4 v6, 0x0
@@ -825,13 +166,13 @@
 
     const/4 v12, 0x0
 
-    move-wide/from16 v0, p3
+    move-wide v0, p0
 
-    move-wide/from16 v2, p5
+    move-wide v2, p2
 
-    move v4, p2
+    move/from16 v4, p5
 
-    move v5, p1
+    move/from16 v5, p4
 
     invoke-static/range {v0 .. v12}, Landroid/view/KeyEvent;->obtain(JJIIIIIIIILjava/lang/String;)Landroid/view/KeyEvent;
 
@@ -852,12 +193,417 @@
 
 
 # virtual methods
-.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+.method public final createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+    .locals 6
+
+    new-instance v0, Landroid/app/RemoteAction;
+
+    iget-object v1, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
+
+    const v2, 0x10800b4
+
+    invoke-static {v1, v2}, Landroid/graphics/drawable/Icon;->createWithResource(Landroid/content/Context;I)Landroid/graphics/drawable/Icon;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p1
+
+    iget-object v3, p0, Lcom/android/systemui/accessibility/SystemActions;->mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
+
+    iget-object p0, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
+
+    sget v4, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;->$r8$clinit:I
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    const/4 v4, 0x0
+
+    const/4 v5, -0x1
+
+    sparse-switch v3, :sswitch_data_0
+
+    goto/16 :goto_0
+
+    :sswitch_0
+    const-string v3, "SYSTEM_ACTION_DPAD_LEFT"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    goto/16 :goto_0
+
+    :cond_0
+    const/16 v5, 0x11
+
+    goto/16 :goto_0
+
+    :sswitch_1
+    const-string v3, "SYSTEM_ACTION_DPAD_DOWN"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    goto/16 :goto_0
+
+    :cond_1
+    const/16 v5, 0x10
+
+    goto/16 :goto_0
+
+    :sswitch_2
+    const-string v3, "SYSTEM_ACTION_ACCESSIBILITY_DISMISS_NOTIFICATION_SHADE"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_2
+
+    goto/16 :goto_0
+
+    :cond_2
+    const/16 v5, 0xf
+
+    goto/16 :goto_0
+
+    :sswitch_3
+    const-string v3, "SYSTEM_ACTION_DPAD_RIGHT"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
+    goto/16 :goto_0
+
+    :cond_3
+    const/16 v5, 0xe
+
+    goto/16 :goto_0
+
+    :sswitch_4
+    const-string v3, "SYSTEM_ACTION_QUICK_SETTINGS"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_4
+
+    goto/16 :goto_0
+
+    :cond_4
+    const/16 v5, 0xd
+
+    goto/16 :goto_0
+
+    :sswitch_5
+    const-string v3, "SYSTEM_ACTION_TAKE_SCREENSHOT"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_5
+
+    goto/16 :goto_0
+
+    :cond_5
+    const/16 v5, 0xc
+
+    goto/16 :goto_0
+
+    :sswitch_6
+    const-string v3, "SYSTEM_ACTION_HEADSET_HOOK"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    goto/16 :goto_0
+
+    :cond_6
+    const/16 v5, 0xb
+
+    goto/16 :goto_0
+
+    :sswitch_7
+    const-string v3, "SYSTEM_ACTION_ACCESSIBILITY_BUTTON"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_7
+
+    goto/16 :goto_0
+
+    :cond_7
+    const/16 v5, 0xa
+
+    goto/16 :goto_0
+
+    :sswitch_8
+    const-string v3, "SYSTEM_ACTION_DPAD_UP"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    goto/16 :goto_0
+
+    :cond_8
+    const/16 v5, 0x9
+
+    goto/16 :goto_0
+
+    :sswitch_9
+    const-string v3, "SYSTEM_ACTION_DPAD_CENTER"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_9
+
+    goto/16 :goto_0
+
+    :cond_9
+    const/16 v5, 0x8
+
+    goto/16 :goto_0
+
+    :sswitch_a
+    const-string v3, "SYSTEM_ACTION_ACCESSIBILITY_BUTTON_MENU"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_a
+
+    goto :goto_0
+
+    :cond_a
+    const/4 v5, 0x7
+
+    goto :goto_0
+
+    :sswitch_b
+    const-string v3, "SYSTEM_ACTION_RECENTS"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_b
+
+    goto :goto_0
+
+    :cond_b
+    const/4 v5, 0x6
+
+    goto :goto_0
+
+    :sswitch_c
+    const-string v3, "SYSTEM_ACTION_LOCK_SCREEN"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    goto :goto_0
+
+    :cond_c
+    const/4 v5, 0x5
+
+    goto :goto_0
+
+    :sswitch_d
+    const-string v3, "SYSTEM_ACTION_ACCESSIBILITY_SHORTCUT"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_d
+
+    goto :goto_0
+
+    :cond_d
+    const/4 v5, 0x4
+
+    goto :goto_0
+
+    :sswitch_e
+    const-string v3, "SYSTEM_ACTION_NOTIFICATIONS"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_e
+
+    goto :goto_0
+
+    :cond_e
+    const/4 v5, 0x3
+
+    goto :goto_0
+
+    :sswitch_f
+    const-string v3, "SYSTEM_ACTION_POWER_DIALOG"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_f
+
+    goto :goto_0
+
+    :cond_f
+    const/4 v5, 0x2
+
+    goto :goto_0
+
+    :sswitch_10
+    const-string v3, "SYSTEM_ACTION_HOME"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_10
+
+    goto :goto_0
+
+    :cond_10
+    const/4 v5, 0x1
+
+    goto :goto_0
+
+    :sswitch_11
+    const-string v3, "SYSTEM_ACTION_BACK"
+
+    invoke-virtual {p2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_11
+
+    goto :goto_0
+
+    :cond_11
+    move v5, v4
+
+    :goto_0
+    packed-switch v5, :pswitch_data_0
+
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :pswitch_0
+    new-instance v3, Landroid/content/Intent;
+
+    invoke-direct {v3, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {v3, p2}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const/high16 p2, 0x4000000
+
+    invoke-static {p0, v4, v3, p2}, Landroid/app/PendingIntent;->getBroadcast(Landroid/content/Context;ILandroid/content/Intent;I)Landroid/app/PendingIntent;
+
+    move-result-object p0
+
+    :goto_1
+    invoke-direct {v0, v1, v2, p1, p0}, Landroid/app/RemoteAction;-><init>(Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/app/PendingIntent;)V
+
+    return-object v0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x41cad4c0 -> :sswitch_11
+        -0x41c7e4c8 -> :sswitch_10
+        -0x2af1b8c5 -> :sswitch_f
+        -0x1fe56d71 -> :sswitch_e
+        -0xacfbdb0 -> :sswitch_d
+        -0x9247679 -> :sswitch_c
+        0x289985f -> :sswitch_b
+        0x1f693002 -> :sswitch_a
+        0x291b586c -> :sswitch_9
+        0x309b4632 -> :sswitch_8
+        0x4a438bbc -> :sswitch_7
+        0x5903ea39 -> :sswitch_6
+        0x5e2ce025 -> :sswitch_5
+        0x6379b96e -> :sswitch_4
+        0x65415305 -> :sswitch_3
+        0x70f16138 -> :sswitch_2
+        0x76dace79 -> :sswitch_1
+        0x76de49de -> :sswitch_0
+    .end sparse-switch
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+    .end packed-switch
+.end method
+
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/systemui/SystemUI;->onConfigurationChanged(Landroid/content/res/Configuration;)V
-
-    iget-object p1, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
+    iget-object p1, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -887,169 +633,431 @@
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/SystemActions;->mLocale:Ljava/util/Locale;
 
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerActions()V
+    invoke-virtual {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerActions()V
 
     :cond_0
     return-void
 .end method
 
-.method public register(I)V
-    .locals 3
+.method public final registerActions()V
+    .locals 18
 
-    packed-switch p1, :pswitch_data_0
+    move-object/from16 v0, p0
 
-    :pswitch_0
-    return-void
+    const v1, 0x10400f4
 
-    :pswitch_1
-    const v0, 0x10400ee
+    const-string v2, "SYSTEM_ACTION_BACK"
 
-    const-string v1, "SYSTEM_ACTION_ACCESSIBILITY_DISMISS_NOTIFICATION_SHADE"
+    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
 
-    goto :goto_0
+    move-result-object v1
 
-    :pswitch_2
-    const v0, 0x10400ef
+    const v2, 0x10400fd
 
-    const-string v1, "SYSTEM_ACTION_ACCESSIBILITY_SHORTCUT"
+    const-string v3, "SYSTEM_ACTION_HOME"
 
-    goto :goto_0
-
-    :pswitch_3
-    const v0, 0x10400f3
-
-    const-string v1, "SYSTEM_ACTION_ACCESSIBILITY_BUTTON_MENU"
-
-    goto :goto_0
-
-    :pswitch_4
-    const v0, 0x10400f4
-
-    const-string v1, "SYSTEM_ACTION_ACCESSIBILITY_BUTTON"
-
-    goto :goto_0
-
-    :pswitch_5
-    const v0, 0x10400f8
-
-    const-string v1, "SYSTEM_ACTION_TAKE_SCREENSHOT"
-
-    goto :goto_0
-
-    :pswitch_6
-    const v0, 0x10400f1
-
-    const-string v1, "SYSTEM_ACTION_LOCK_SCREEN"
-
-    goto :goto_0
-
-    :pswitch_7
-    const v0, 0x10400f5
-
-    const-string v1, "SYSTEM_ACTION_POWER_DIALOG"
-
-    goto :goto_0
-
-    :pswitch_8
-    const v0, 0x10400f6
-
-    const-string v1, "SYSTEM_ACTION_QUICK_SETTINGS"
-
-    goto :goto_0
-
-    :pswitch_9
-    const v0, 0x10400f2
-
-    const-string v1, "SYSTEM_ACTION_NOTIFICATIONS"
-
-    goto :goto_0
-
-    :pswitch_a
-    const v0, 0x10400f7
-
-    const-string v1, "SYSTEM_ACTION_RECENTS"
-
-    goto :goto_0
-
-    :pswitch_b
-    const v0, 0x10400f0
-
-    const-string v1, "SYSTEM_ACTION_HOME"
-
-    goto :goto_0
-
-    :pswitch_c
-    const v0, 0x10400ed
-
-    const-string v1, "SYSTEM_ACTION_BACK"
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
-
-    move-result-object p0
-
-    invoke-virtual {v2, p0, p1}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
-
-    return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_c
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_0
-        :pswitch_6
-        :pswitch_5
-        :pswitch_0
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
-.end method
-
-.method public start()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mNotificationShadeController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/SystemActions;->mNotificationShadeCallback:Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->registerCallback(Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;)V
-
-    iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/SystemActions;->mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
-
-    invoke-static {v1}, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;->access$100(Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;)Landroid/content/IntentFilter;
+    invoke-virtual {v0, v2, v3}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
 
     move-result-object v2
 
-    const-string v3, "com.android.systemui.permission.SELF"
+    const v3, 0x1040104
 
-    const/4 v4, 0x0
+    const-string v4, "SYSTEM_ACTION_RECENTS"
 
-    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/Context;->registerReceiverForAllUsers(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual {v0, v3, v4}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
 
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerActions()V
+    move-result-object v3
+
+    const v4, 0x10400ff
+
+    const-string v5, "SYSTEM_ACTION_NOTIFICATIONS"
+
+    invoke-virtual {v0, v4, v5}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v4
+
+    const v5, 0x1040103
+
+    const-string v6, "SYSTEM_ACTION_QUICK_SETTINGS"
+
+    invoke-virtual {v0, v5, v6}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v5
+
+    const v6, 0x1040102
+
+    const-string v7, "SYSTEM_ACTION_POWER_DIALOG"
+
+    invoke-virtual {v0, v6, v7}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v6
+
+    const v7, 0x10400fe
+
+    const-string v8, "SYSTEM_ACTION_LOCK_SCREEN"
+
+    invoke-virtual {v0, v7, v8}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v7
+
+    const v8, 0x1040105
+
+    const-string v9, "SYSTEM_ACTION_TAKE_SCREENSHOT"
+
+    invoke-virtual {v0, v8, v9}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v8
+
+    const v9, 0x10400fc
+
+    const-string v10, "SYSTEM_ACTION_HEADSET_HOOK"
+
+    invoke-virtual {v0, v9, v10}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v9
+
+    const v10, 0x10400fb
+
+    const-string v11, "SYSTEM_ACTION_ACCESSIBILITY_SHORTCUT"
+
+    invoke-virtual {v0, v10, v11}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v10
+
+    const v11, 0x10400fa
+
+    const-string v12, "SYSTEM_ACTION_DPAD_UP"
+
+    invoke-virtual {v0, v11, v12}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v11
+
+    const v12, 0x10400f7
+
+    const-string v13, "SYSTEM_ACTION_DPAD_DOWN"
+
+    invoke-virtual {v0, v12, v13}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v12
+
+    const v13, 0x10400f8
+
+    const-string v14, "SYSTEM_ACTION_DPAD_LEFT"
+
+    invoke-virtual {v0, v13, v14}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v13
+
+    const v14, 0x10400f9
+
+    const-string v15, "SYSTEM_ACTION_DPAD_RIGHT"
+
+    invoke-virtual {v0, v14, v15}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v14
+
+    const v15, 0x10400f6
+
+    move-object/from16 v16, v14
+
+    const-string v14, "SYSTEM_ACTION_DPAD_CENTER"
+
+    invoke-virtual {v0, v15, v14}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v14
+
+    iget-object v15, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    move-object/from16 v17, v14
+
+    const/4 v14, 0x1
+
+    invoke-virtual {v15, v1, v14}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/4 v14, 0x2
+
+    invoke-virtual {v1, v2, v14}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/4 v2, 0x3
+
+    invoke-virtual {v1, v3, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v4, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/4 v2, 0x5
+
+    invoke-virtual {v1, v5, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/4 v2, 0x6
+
+    invoke-virtual {v1, v6, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0x8
+
+    invoke-virtual {v1, v7, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0x9
+
+    invoke-virtual {v1, v8, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0xa
+
+    invoke-virtual {v1, v9, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0xd
+
+    invoke-virtual {v1, v10, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0x10
+
+    invoke-virtual {v1, v11, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0x11
+
+    invoke-virtual {v1, v12, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0x12
+
+    invoke-virtual {v1, v13, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0x13
+
+    move-object/from16 v3, v16
+
+    invoke-virtual {v1, v3, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    iget-object v1, v0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const/16 v2, 0x14
+
+    move-object/from16 v3, v17
+
+    invoke-virtual {v1, v3, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/accessibility/SystemActions;->registerOrUnregisterDismissNotificationShadeAction()V
 
     return-void
 .end method
 
-.method public unregister(I)V
-    .locals 0
+.method public final registerOrUnregisterDismissNotificationShadeAction()V
+    .locals 4
 
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
-    invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityManager;->unregisterSystemAction(I)V
+    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mCentralSurfacesOptionalLazy:Ldagger/Lazy;
+
+    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/util/Optional;
+
+    new-instance v1, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda1;-><init>()V
+
+    invoke-virtual {v0, v1}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
+
+    move-result-object v1
+
+    sget-object v2, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+
+    invoke-virtual {v1, v2}, Ljava/util/Optional;->orElse(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Boolean;
+
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    const/16 v2, 0xf
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->isKeyguardShowing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    const v1, 0x10400f5
+
+    const-string v3, "SYSTEM_ACTION_ACCESSIBILITY_DISMISS_NOTIFICATION_SHADE"
+
+    invoke-virtual {p0, v1, v3}, Lcom/android/systemui/accessibility/SystemActions;->createRemoteAction(ILjava/lang/String;)Landroid/app/RemoteAction;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/accessibility/AccessibilityManager;->registerSystemAction(Landroid/app/RemoteAction;I)V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
+
+    goto :goto_0
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mA11yManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {v0, v2}, Landroid/view/accessibility/AccessibilityManager;->unregisterSystemAction(I)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mDismissNotificationShadeActionRegistered:Z
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method public final start()V
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/SystemActions;->mNotificationShadeController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+
+    iget-object v1, p0, Lcom/android/systemui/accessibility/SystemActions;->mNotificationShadeCallback:Lcom/android/systemui/accessibility/SystemActions$$ExternalSyntheticLambda0;
+
+    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->registerCallback(Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;)V
+
+    iget-object v2, p0, Lcom/android/systemui/CoreStartable;->mContext:Landroid/content/Context;
+
+    iget-object v3, p0, Lcom/android/systemui/accessibility/SystemActions;->mReceiver:Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;
+
+    sget v0, Lcom/android/systemui/accessibility/SystemActions$SystemActionsBroadcastReceiver;->$r8$clinit:I
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v4, Landroid/content/IntentFilter;
+
+    invoke-direct {v4}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string v0, "SYSTEM_ACTION_BACK"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_HOME"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_RECENTS"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_NOTIFICATIONS"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_QUICK_SETTINGS"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_POWER_DIALOG"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_LOCK_SCREEN"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_TAKE_SCREENSHOT"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_HEADSET_HOOK"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_ACCESSIBILITY_BUTTON"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_ACCESSIBILITY_BUTTON_MENU"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_ACCESSIBILITY_SHORTCUT"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_ACCESSIBILITY_DISMISS_NOTIFICATION_SHADE"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_DPAD_UP"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_DPAD_DOWN"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_DPAD_LEFT"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_DPAD_RIGHT"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v0, "SYSTEM_ACTION_DPAD_CENTER"
+
+    invoke-virtual {v4, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string v5, "com.android.systemui.permission.SELF"
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x2
+
+    invoke-virtual/range {v2 .. v7}, Landroid/content/Context;->registerReceiverForAllUsers(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
+
+    invoke-virtual {p0}, Lcom/android/systemui/accessibility/SystemActions;->registerActions()V
 
     return-void
 .end method

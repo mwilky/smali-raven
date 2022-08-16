@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/graph/SignalDrawable$1;
+.class public final Lcom/android/settingslib/graph/SignalDrawable$1;
 .super Ljava/lang/Object;
 .source "SignalDrawable.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/graph/SignalDrawable;
+.field public final synthetic this$0:Lcom/android/settingslib/graph/SignalDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/graph/SignalDrawable;)V
+.method public constructor <init>(Lcom/android/settingslib/graph/SignalDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/graph/SignalDrawable$1;->this$0:Lcom/android/settingslib/graph/SignalDrawable;
@@ -34,41 +34,33 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/settingslib/graph/SignalDrawable$1;->this$0:Lcom/android/settingslib/graph/SignalDrawable;
 
-    invoke-static {v0}, Lcom/android/settingslib/graph/SignalDrawable;->access$004(Lcom/android/settingslib/graph/SignalDrawable;)I
+    iget v1, v0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
 
-    move-result v0
+    add-int/lit8 v1, v1, 0x1
 
-    const/4 v1, 0x3
+    iput v1, v0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
 
-    if-ne v0, v1, :cond_0
+    const/4 v2, 0x3
 
-    iget-object v0, p0, Lcom/android/settingslib/graph/SignalDrawable$1;->this$0:Lcom/android/settingslib/graph/SignalDrawable;
+    if-ne v1, v2, :cond_0
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/graph/SignalDrawable;->access$002(Lcom/android/settingslib/graph/SignalDrawable;I)I
+    iput v1, v0, Lcom/android/settingslib/graph/SignalDrawable;->mCurrentDot:I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/graph/SignalDrawable$1;->this$0:Lcom/android/settingslib/graph/SignalDrawable;
-
     invoke-virtual {v0}, Landroid/graphics/drawable/DrawableWrapper;->invalidateSelf()V
-
-    iget-object v0, p0, Lcom/android/settingslib/graph/SignalDrawable$1;->this$0:Lcom/android/settingslib/graph/SignalDrawable;
-
-    invoke-static {v0}, Lcom/android/settingslib/graph/SignalDrawable;->access$200(Lcom/android/settingslib/graph/SignalDrawable;)Landroid/os/Handler;
-
-    move-result-object v0
 
     iget-object p0, p0, Lcom/android/settingslib/graph/SignalDrawable$1;->this$0:Lcom/android/settingslib/graph/SignalDrawable;
 
-    invoke-static {p0}, Lcom/android/settingslib/graph/SignalDrawable;->access$100(Lcom/android/settingslib/graph/SignalDrawable;)Ljava/lang/Runnable;
+    iget-object v0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mHandler:Landroid/os/Handler;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/settingslib/graph/SignalDrawable;->mChangeDot:Lcom/android/settingslib/graph/SignalDrawable$1;
 
     const-wide/16 v1, 0x3e8
 

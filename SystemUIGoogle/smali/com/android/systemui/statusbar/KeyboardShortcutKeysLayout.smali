@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mLineHeight:I
+.field public mLineHeight:I
 
 
 # direct methods
@@ -38,7 +38,17 @@
     return-void
 .end method
 
-.method private getHorizontalVerticalSpacing()I
+
+# virtual methods
+.method public final checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
+    .locals 0
+
+    instance-of p0, p1, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
+
+    return p0
+.end method
+
+.method public final generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
     .locals 2
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getResources()Landroid/content/res/Resources;
@@ -59,10 +69,42 @@
 
     float-to-int p0, p0
 
-    return p0
+    new-instance v0, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
+
+    invoke-direct {v0, p0, p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;-><init>(II)V
+
+    return-object v0
 .end method
 
-.method private isRTL()Z
+.method public final generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
+    .locals 2
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object p0
+
+    const/4 v0, 0x1
+
+    const/high16 v1, 0x40800000    # 4.0f
+
+    invoke-static {v0, v1, p0}, Landroid/util/TypedValue;->applyDimension(IFLandroid/util/DisplayMetrics;)F
+
+    move-result p0
+
+    float-to-int p0, p0
+
+    new-instance v0, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
+
+    invoke-direct {v0, p0, p0, p1}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;-><init>(IILandroid/view/ViewGroup$LayoutParams;)V
+
+    return-object v0
+.end method
+
+.method public final isRTL()Z
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->mContext:Landroid/content/Context;
@@ -92,10 +134,10 @@
     return v0
 .end method
 
-.method private layoutChildrenOnRow(IIIIII)V
+.method public final layoutChildrenOnRow(IIIIII)V
     .locals 5
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
 
     move-result v0
 
@@ -131,7 +173,7 @@
 
     check-cast v2, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
 
     move-result v3
 
@@ -164,7 +206,7 @@
 
     invoke-virtual {v0, p4, p5, v3, v4}, Landroid/view/View;->layout(IIII)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
 
     move-result v0
 
@@ -203,7 +245,9 @@
 
     add-int/2addr v1, v0
 
-    add-int/2addr p4, v1
+    add-int/2addr v1, p4
+
+    move p4, v1
 
     :goto_2
     add-int/lit8 p6, p6, 0x1
@@ -214,65 +258,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method protected checkLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Z
-    .locals 0
-
-    instance-of p0, p1, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
-
-    return p0
-.end method
-
-.method protected bridge synthetic generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->generateDefaultLayoutParams()Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected generateDefaultLayoutParams()Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->getHorizontalVerticalSpacing()I
-
-    move-result p0
-
-    new-instance v0, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
-
-    invoke-direct {v0, p0, p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;-><init>(II)V
-
-    return-object v0
-.end method
-
-.method protected bridge synthetic generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Landroid/view/ViewGroup$LayoutParams;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected generateLayoutParams(Landroid/view/ViewGroup$LayoutParams;)Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->getHorizontalVerticalSpacing()I
-
-    move-result p0
-
-    new-instance v0, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
-
-    invoke-direct {v0, p0, p0, p1}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;-><init>(IILandroid/view/ViewGroup$LayoutParams;)V
-
-    return-object v0
-.end method
-
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 10
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
@@ -281,7 +267,7 @@
 
     sub-int p1, p4, p2
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
 
     move-result p2
 
@@ -340,7 +326,7 @@
 
     check-cast p5, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
 
     move-result v1
 
@@ -381,9 +367,9 @@
 
     move v8, p3
 
-    invoke-direct/range {v3 .. v9}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->layoutChildrenOnRow(IIIIII)V
+    invoke-virtual/range {v3 .. v9}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->layoutChildrenOnRow(IIIIII)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
 
     move-result v1
 
@@ -412,7 +398,7 @@
     move v4, p2
 
     :cond_4
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->isRTL()Z
 
     move-result v1
 
@@ -456,13 +442,13 @@
 
     move v6, v9
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->layoutChildrenOnRow(IIIIII)V
+    invoke-virtual/range {v0 .. v6}, Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout;->layoutChildrenOnRow(IIIIII)V
 
     :cond_8
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 12
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -591,7 +577,9 @@
 
     add-int/2addr v10, v8
 
-    add-int/2addr v2, v10
+    add-int/2addr v10, v2
+
+    move v2, v10
 
     :cond_2
     add-int/lit8 v6, v6, 0x1

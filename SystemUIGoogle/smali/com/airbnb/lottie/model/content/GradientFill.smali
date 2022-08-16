@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/content/GradientFill;
+.class public final Lcom/airbnb/lottie/model/content/GradientFill;
 .super Ljava/lang/Object;
 .source "GradientFill.java"
 
@@ -7,29 +7,25 @@
 
 
 # instance fields
-.field private final endPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
+.field public final endPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
 
-.field private final fillType:Landroid/graphics/Path$FillType;
+.field public final fillType:Landroid/graphics/Path$FillType;
 
-.field private final gradientColor:Lcom/airbnb/lottie/model/animatable/AnimatableGradientColorValue;
+.field public final gradientColor:Lcom/airbnb/lottie/model/animatable/AnimatableGradientColorValue;
 
-.field private final gradientType:Lcom/airbnb/lottie/model/content/GradientType;
+.field public final gradientType:Lcom/airbnb/lottie/model/content/GradientType;
 
-.field private final hidden:Z
+.field public final hidden:Z
 
-.field private final highlightAngle:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final name:Ljava/lang/String;
 
-.field private final highlightLength:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
 
-.field private final name:Ljava/lang/String;
-
-.field private final opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-
-.field private final startPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
+.field public final startPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Lcom/airbnb/lottie/model/content/GradientType;Landroid/graphics/Path$FillType;Lcom/airbnb/lottie/model/animatable/AnimatableGradientColorValue;Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;Z)V
+.method public constructor <init>(Ljava/lang/String;Lcom/airbnb/lottie/model/content/GradientType;Landroid/graphics/Path$FillType;Lcom/airbnb/lottie/model/animatable/AnimatableGradientColorValue;Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;Z)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -48,82 +44,14 @@
 
     iput-object p1, p0, Lcom/airbnb/lottie/model/content/GradientFill;->name:Ljava/lang/String;
 
-    iput-object p8, p0, Lcom/airbnb/lottie/model/content/GradientFill;->highlightLength:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    iput-object p9, p0, Lcom/airbnb/lottie/model/content/GradientFill;->highlightAngle:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    iput-boolean p10, p0, Lcom/airbnb/lottie/model/content/GradientFill;->hidden:Z
+    iput-boolean p8, p0, Lcom/airbnb/lottie/model/content/GradientFill;->hidden:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getEndPoint()Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->endPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
-
-    return-object p0
-.end method
-
-.method public getFillType()Landroid/graphics/Path$FillType;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->fillType:Landroid/graphics/Path$FillType;
-
-    return-object p0
-.end method
-
-.method public getGradientColor()Lcom/airbnb/lottie/model/animatable/AnimatableGradientColorValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->gradientColor:Lcom/airbnb/lottie/model/animatable/AnimatableGradientColorValue;
-
-    return-object p0
-.end method
-
-.method public getGradientType()Lcom/airbnb/lottie/model/content/GradientType;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->gradientType:Lcom/airbnb/lottie/model/content/GradientType;
-
-    return-object p0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->name:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-
-    return-object p0
-.end method
-
-.method public getStartPoint()Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->startPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePointValue;
-
-    return-object p0
-.end method
-
-.method public isHidden()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/GradientFill;->hidden:Z
-
-    return p0
-.end method
-
-.method public toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
+.method public final toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
     .locals 1
 
     new-instance v0, Lcom/airbnb/lottie/animation/content/GradientFillContent;

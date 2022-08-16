@@ -99,7 +99,7 @@
     return p1
 .end method
 
-.method protected toStringBuilder()Ljava/lang/StringBuilder;
+.method public toStringBuilder()Ljava/lang/StringBuilder;
     .locals 4
 
     invoke-super {p0}, Lcom/android/systemui/plugins/qs/QSTile$State;->toStringBuilder()Ljava/lang/StringBuilder;
@@ -112,13 +112,11 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, ",value="
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ",value="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     iget-boolean v3, p0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
@@ -136,13 +134,11 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, ",forceExpandIcon="
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, ",forceExpandIcon="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     iget-boolean p0, p0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->forceExpandIcon:Z
 

@@ -3,21 +3,17 @@
 .source "DeleteScreenshotReceiver.java"
 
 
-# instance fields
-.field private final mBackgroundExecutor:Ljava/util/concurrent/Executor;
+# static fields
+.field public static final synthetic $r8$clinit:I
 
-.field private final mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
+
+# instance fields
+.field public final mBackgroundExecutor:Ljava/util/concurrent/Executor;
+
+.field public final mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$CEZI5sqJSK54hW_kaFE5KM0z6bY(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/screenshot/DeleteScreenshotReceiver;->lambda$onReceive$0(Landroid/content/Context;Landroid/net/Uri;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/screenshot/ScreenshotSmartActions;Ljava/util/concurrent/Executor;)V
     .locals 0
 
@@ -30,24 +26,10 @@
     return-void
 .end method
 
-.method private static synthetic lambda$onReceive$0(Landroid/content/Context;Landroid/net/Uri;)V
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p0
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0, v0}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 7
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
 
     const-string v0, "android:screenshot_uri_id"
 
@@ -70,39 +52,39 @@
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/DeleteScreenshotReceiver;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
-    new-instance v2, Lcom/android/systemui/screenshot/DeleteScreenshotReceiver$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/wm/shell/draganddrop/DragAndDropController$$ExternalSyntheticLambda0;
 
-    invoke-direct {v2, p1, v0}, Lcom/android/systemui/screenshot/DeleteScreenshotReceiver$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;Landroid/net/Uri;)V
+    const/4 v3, 0x2
+
+    invoke-direct {v2, v3, p1, v0}, Lcom/android/wm/shell/draganddrop/DragAndDropController$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    const/4 v0, 0x0
+    const-string v0, "android:smart_actions_enabled"
 
-    const-string v1, "android:smart_actions_enabled"
+    const/4 v1, 0x0
 
-    invoke-virtual {p2, v1, v0}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p2, v0, v1}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/DeleteScreenshotReceiver;->mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/DeleteScreenshotReceiver;->mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
 
-    const-string p0, "android:screenshot_id"
+    const-string v0, "android:screenshot_id"
 
-    invoke-virtual {p2, p0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object p2
 
-    const/4 v5, 0x0
+    const/4 v0, 0x0
 
-    const/4 v6, 0x0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    const-string v4, "Delete"
+    const-string p0, "Delete"
 
-    move-object v2, p1
-
-    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/screenshot/ScreenshotSmartActions;->notifyScreenshotAction(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ZLandroid/content/Intent;)V
+    invoke-static {p1, p2, p0, v1, v0}, Lcom/android/systemui/screenshot/ScreenshotSmartActions;->notifyScreenshotAction(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ZLandroid/content/Intent;)V
 
     :cond_1
     return-void

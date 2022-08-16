@@ -10,5 +10,5 @@
 .method public abstract getDropDownViewTheme()Landroid/content/res/Resources$Theme;
 .end method
 
-.method public abstract setDropDownViewTheme(Landroid/content/res/Resources$Theme;)V
+.method public abstract setDropDownViewTheme()V
 .end method

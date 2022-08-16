@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$Sort;,
         Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ProgressSet;,
         Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$CustomSet;,
         Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$TranslationZset;,
@@ -24,39 +23,29 @@
 .end annotation
 
 
-# static fields
-.field private static VAL_2PI:F = 6.2831855f
-
-
 # instance fields
-.field private count:I
+.field public count:I
 
-.field last_cycle:F
+.field public last_cycle:F
 
-.field last_time:J
+.field public last_time:J
 
-.field private mCache:[F
+.field public mCache:[F
 
-.field protected mContinue:Z
+.field public mContinue:Z
 
-.field protected mCurveFit:Landroidx/constraintlayout/motion/utils/CurveFit;
+.field public mCurveFit:Landroidx/constraintlayout/motion/utils/CurveFit;
 
-.field protected mTimePoints:[I
+.field public mTimePoints:[I
 
-.field private mType:Ljava/lang/String;
+.field public mType:Ljava/lang/String;
 
-.field protected mValues:[[F
+.field public mValues:[[F
 
-.field protected mWaveShape:I
+.field public mWaveShape:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 3
 
@@ -109,374 +98,22 @@
     .end array-data
 .end method
 
-.method static makeCustomSpline(Ljava/lang/String;Landroid/util/SparseArray;)Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Landroid/util/SparseArray<",
-            "Landroidx/constraintlayout/widget/ConstraintAttribute;",
-            ">;)",
-            "Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;"
-        }
-    .end annotation
-
-    new-instance v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$CustomSet;
-
-    invoke-direct {v0, p0, p1}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$CustomSet;-><init>(Ljava/lang/String;Landroid/util/SparseArray;)V
-
-    return-object v0
-.end method
-
-.method static makeSpline(Ljava/lang/String;J)Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;
-    .locals 2
-
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    move-result v0
-
-    const/4 v1, -0x1
-
-    sparse-switch v0, :sswitch_data_0
-
-    goto/16 :goto_0
-
-    :sswitch_0
-    const-string v0, "alpha"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    goto/16 :goto_0
-
-    :cond_0
-    const/16 v1, 0xb
-
-    goto/16 :goto_0
-
-    :sswitch_1
-    const-string v0, "transitionPathRotate"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_1
-
-    goto/16 :goto_0
-
-    :cond_1
-    const/16 v1, 0xa
-
-    goto/16 :goto_0
-
-    :sswitch_2
-    const-string v0, "elevation"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_2
-
-    goto/16 :goto_0
-
-    :cond_2
-    const/16 v1, 0x9
-
-    goto/16 :goto_0
-
-    :sswitch_3
-    const-string v0, "rotation"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_3
-
-    goto/16 :goto_0
-
-    :cond_3
-    const/16 v1, 0x8
-
-    goto/16 :goto_0
-
-    :sswitch_4
-    const-string v0, "scaleY"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    const/4 v1, 0x7
-
-    goto :goto_0
-
-    :sswitch_5
-    const-string v0, "scaleX"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_5
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v1, 0x6
-
-    goto :goto_0
-
-    :sswitch_6
-    const-string v0, "progress"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_6
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v1, 0x5
-
-    goto :goto_0
-
-    :sswitch_7
-    const-string v0, "translationZ"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_7
-
-    goto :goto_0
-
-    :cond_7
-    const/4 v1, 0x4
-
-    goto :goto_0
-
-    :sswitch_8
-    const-string v0, "translationY"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_8
-
-    goto :goto_0
-
-    :cond_8
-    const/4 v1, 0x3
-
-    goto :goto_0
-
-    :sswitch_9
-    const-string v0, "translationX"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_9
-
-    goto :goto_0
-
-    :cond_9
-    const/4 v1, 0x2
-
-    goto :goto_0
-
-    :sswitch_a
-    const-string v0, "rotationY"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_a
-
-    goto :goto_0
-
-    :cond_a
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :sswitch_b
-    const-string v0, "rotationX"
-
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_b
-
-    goto :goto_0
-
-    :cond_b
-    const/4 v1, 0x0
-
-    :goto_0
-    packed-switch v1, :pswitch_data_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :pswitch_0
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$AlphaSet;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$AlphaSet;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_1
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$PathRotate;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$PathRotate;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_2
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ElevationSet;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ElevationSet;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_3
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$RotationSet;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$RotationSet;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_4
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ScaleYset;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ScaleYset;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_5
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ScaleXset;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ScaleXset;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_6
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ProgressSet;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$ProgressSet;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_7
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$TranslationZset;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$TranslationZset;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_8
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$TranslationYset;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$TranslationYset;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_9
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$TranslationXset;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$TranslationXset;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_a
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$RotationYset;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$RotationYset;-><init>()V
-
-    goto :goto_1
-
-    :pswitch_b
-    new-instance p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$RotationXset;
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$RotationXset;-><init>()V
-
-    :goto_1
-    invoke-virtual {p0, p1, p2}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setStartTime(J)V
-
-    return-object p0
-
-    :sswitch_data_0
-    .sparse-switch
-        -0x4a771f66 -> :sswitch_b
-        -0x4a771f65 -> :sswitch_a
-        -0x490b9c39 -> :sswitch_9
-        -0x490b9c38 -> :sswitch_8
-        -0x490b9c37 -> :sswitch_7
-        -0x3bab3dd3 -> :sswitch_6
-        -0x3621dfb2 -> :sswitch_5
-        -0x3621dfb1 -> :sswitch_4
-        -0x266f082 -> :sswitch_3
-        -0x42d1a3 -> :sswitch_2
-        0x2382115 -> :sswitch_1
-        0x589b15e -> :sswitch_0
-    .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
 
 # virtual methods
-.method protected calcWave(F)F
-    .locals 2
+.method public final calcWave(F)F
+    .locals 3
 
     iget p0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mWaveShape:I
 
-    const/high16 v0, 0x40000000    # 2.0f
+    const v0, 0x40c90fdb
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/high16 v1, 0x40000000    # 2.0f
+
+    const/high16 v2, 0x3f800000    # 1.0f
 
     packed-switch p0, :pswitch_data_0
 
-    sget p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->VAL_2PI:F
-
-    mul-float/2addr p1, p0
+    mul-float/2addr p1, v0
 
     float-to-double p0, p1
 
@@ -495,24 +132,22 @@
 
     rem-float/2addr p1, p0
 
-    sub-float/2addr p1, v0
+    sub-float/2addr p1, v1
 
     invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
     move-result p0
 
-    sub-float p0, v1, p0
+    sub-float p0, v2, p0
 
     mul-float/2addr p0, p0
 
-    sub-float/2addr v1, p0
+    sub-float/2addr v2, p0
 
-    return v1
+    return v2
 
     :pswitch_1
-    sget p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->VAL_2PI:F
-
-    mul-float/2addr p1, p0
+    mul-float/2addr p1, v0
 
     float-to-double p0, p1
 
@@ -525,24 +160,24 @@
     return p0
 
     :pswitch_2
-    mul-float/2addr p1, v0
+    mul-float/2addr p1, v1
 
-    add-float/2addr p1, v1
+    add-float/2addr p1, v2
 
-    rem-float/2addr p1, v0
+    rem-float/2addr p1, v1
 
-    sub-float/2addr v1, p1
+    sub-float/2addr v2, p1
 
-    return v1
+    return v2
 
     :pswitch_3
-    mul-float/2addr p1, v0
+    mul-float/2addr p1, v1
 
-    add-float/2addr p1, v1
+    add-float/2addr p1, v2
 
-    rem-float/2addr p1, v0
+    rem-float/2addr p1, v1
 
-    sub-float/2addr p1, v1
+    sub-float/2addr p1, v2
 
     return p1
 
@@ -551,22 +186,18 @@
 
     move-result p0
 
-    sub-float/2addr v1, p0
+    sub-float/2addr v2, p0
 
-    return v1
+    return v2
 
     :pswitch_5
-    sget p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->VAL_2PI:F
-
-    mul-float/2addr p1, p0
+    mul-float/2addr p1, v0
 
     invoke-static {p1}, Ljava/lang/Math;->signum(F)F
 
     move-result p0
 
     return p0
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -579,7 +210,7 @@
     .end packed-switch
 .end method
 
-.method public get(FJLandroid/view/View;Landroidx/constraintlayout/motion/widget/KeyCache;)F
+.method public final get(FJLandroid/view/View;Landroidx/constraintlayout/motion/widget/KeyCache;)F
     .locals 18
 
     move-object/from16 v0, p0
@@ -629,25 +260,65 @@
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4
 
     iget-object v5, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mType:Ljava/lang/String;
 
-    invoke-virtual {v4, v3, v5, v11}, Landroidx/constraintlayout/motion/widget/KeyCache;->getFloatValue(Ljava/lang/Object;Ljava/lang/String;I)F
+    iget-object v12, v4, Landroidx/constraintlayout/motion/widget/KeyCache;->map:Ljava/util/HashMap;
+
+    invoke-virtual {v12, v3}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    const/high16 v13, 0x7fc00000    # Float.NaN
+
+    if-nez v12, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v12, v4, Landroidx/constraintlayout/motion/widget/KeyCache;->map:Ljava/util/HashMap;
+
+    invoke-virtual {v12, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v12
+
+    check-cast v12, Ljava/util/HashMap;
+
+    invoke-virtual {v12, v5}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v14
+
+    if-nez v14, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v12, v5}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, [F
+
+    array-length v12, v5
+
+    if-lez v12, :cond_3
+
+    aget v13, v5, v11
+
+    :cond_3
+    :goto_0
+    iput v13, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_cycle:F
+
+    invoke-static {v13}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v5
 
-    iput v5, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_cycle:F
-
-    invoke-static {v5}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4
 
     iput v8, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_cycle:F
 
-    :cond_1
+    :cond_4
     iget-wide v12, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_time:J
 
     sub-long v12, v1, v12
@@ -662,24 +333,96 @@
 
     mul-double v12, v12, v16
 
-    float-to-double v6, v7
+    move v5, v9
 
-    mul-double/2addr v12, v6
+    float-to-double v8, v7
 
-    add-double/2addr v14, v12
+    mul-double/2addr v12, v8
 
-    const-wide/high16 v5, 0x3ff0000000000000L    # 1.0
+    add-double/2addr v12, v14
 
-    rem-double/2addr v14, v5
+    const-wide/high16 v7, 0x3ff0000000000000L    # 1.0
 
-    double-to-float v5, v14
+    rem-double/2addr v12, v7
 
-    iput v5, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_cycle:F
+    double-to-float v7, v12
 
-    iget-object v6, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mType:Ljava/lang/String;
+    iput v7, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_cycle:F
 
-    invoke-virtual {v4, v3, v6, v11, v5}, Landroidx/constraintlayout/motion/widget/KeyCache;->setFloatValue(Ljava/lang/Object;Ljava/lang/String;IF)V
+    iget-object v8, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mType:Ljava/lang/String;
 
+    iget-object v9, v4, Landroidx/constraintlayout/motion/widget/KeyCache;->map:Ljava/util/HashMap;
+
+    invoke-virtual {v9, v3}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_5
+
+    new-instance v9, Ljava/util/HashMap;
+
+    invoke-direct {v9}, Ljava/util/HashMap;-><init>()V
+
+    new-array v12, v6, [F
+
+    aput v7, v12, v11
+
+    invoke-virtual {v9, v8, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, v4, Landroidx/constraintlayout/motion/widget/KeyCache;->map:Ljava/util/HashMap;
+
+    invoke-virtual {v4, v3, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :cond_5
+    iget-object v9, v4, Landroidx/constraintlayout/motion/widget/KeyCache;->map:Ljava/util/HashMap;
+
+    invoke-virtual {v9, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Ljava/util/HashMap;
+
+    invoke-virtual {v9, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_6
+
+    new-array v12, v6, [F
+
+    aput v7, v12, v11
+
+    invoke-virtual {v9, v8, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v4, v4, Landroidx/constraintlayout/motion/widget/KeyCache;->map:Ljava/util/HashMap;
+
+    invoke-virtual {v4, v3, v9}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :cond_6
+    invoke-virtual {v9, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, [F
+
+    array-length v4, v3
+
+    if-gtz v4, :cond_7
+
+    invoke-static {v3, v6}, Ljava/util/Arrays;->copyOf([FI)[F
+
+    move-result-object v3
+
+    :cond_7
+    aput v7, v3, v11
+
+    invoke-virtual {v9, v8, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :goto_1
     iput-wide v1, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_time:J
 
     iget-object v1, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mCache:[F
@@ -700,108 +443,83 @@
 
     add-float/2addr v2, v3
 
-    cmpl-float v1, v1, v8
+    const/4 v3, 0x0
 
-    if-nez v1, :cond_3
+    cmpl-float v1, v1, v3
 
-    if-eqz v9, :cond_2
+    if-nez v1, :cond_9
 
-    goto :goto_0
+    if-eqz v5, :cond_8
 
-    :cond_2
+    goto :goto_2
+
+    :cond_8
     move v6, v11
 
-    goto :goto_1
-
-    :cond_3
-    :goto_0
-    const/4 v6, 0x1
-
-    :goto_1
+    :cond_9
+    :goto_2
     iput-boolean v6, v0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mContinue:Z
 
     return v2
 .end method
 
-.method public setPoint(IFFIF)V
-    .locals 3
+.method public setPoint$1(FFFII)V
+    .locals 2
 
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
 
     iget v1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
 
-    aput p1, v0, v1
+    aput p4, v0, v1
 
-    iget-object p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mValues:[[F
+    iget-object p4, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mValues:[[F
 
-    aget-object v0, p1, v1
+    aget-object p4, p4, v1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    aput p2, v0, v2
+    aput p1, p4, v0
 
-    aget-object p2, p1, v1
+    const/4 p1, 0x1
 
-    const/4 v0, 0x1
-
-    aput p3, p2, v0
-
-    aget-object p1, p1, v1
+    aput p2, p4, p1
 
     const/4 p2, 0x2
 
-    aput p5, p1, p2
+    aput p3, p4, p2
 
-    iget p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mWaveShape:I
+    iget p2, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mWaveShape:I
 
-    invoke-static {p1, p4}, Ljava/lang/Math;->max(II)I
+    invoke-static {p2, p5}, Ljava/lang/Math;->max(II)I
 
-    move-result p1
+    move-result p2
 
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mWaveShape:I
+    iput p2, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mWaveShape:I
 
-    iget p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
+    iget p2, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
 
-    add-int/2addr p1, v0
+    add-int/2addr p2, p1
 
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
-
-    return-void
-.end method
-
-.method public abstract setProperty(Landroid/view/View;FJLandroidx/constraintlayout/motion/widget/KeyCache;)Z
-.end method
-
-.method protected setStartTime(J)V
-    .locals 0
-
-    iput-wide p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->last_time:J
+    iput p2, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
 
     return-void
 .end method
 
-.method public setType(Ljava/lang/String;)V
-    .locals 0
-
-    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mType:Ljava/lang/String;
-
-    return-void
+.method public abstract setProperty(FJLandroid/view/View;Landroidx/constraintlayout/motion/widget/KeyCache;)Z
 .end method
 
 .method public setup(I)V
-    .locals 11
+    .locals 14
 
     iget v0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
 
     if-nez v0, :cond_0
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "Error no points added to "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "Error no points added to "
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget-object p0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mType:Ljava/lang/String;
 
@@ -826,84 +544,182 @@
 
     sub-int/2addr v0, v3
 
-    const/4 v4, 0x0
+    array-length v4, v1
 
-    invoke-static {v1, v2, v4, v0}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$Sort;->doubleQuickSort([I[[FII)V
+    add-int/lit8 v4, v4, 0xa
 
-    move v0, v3
+    new-array v4, v4, [I
 
-    move v1, v4
+    const/4 v5, 0x0
 
-    :goto_0
-    iget-object v2, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
+    aput v0, v4, v5
 
-    array-length v5, v2
+    aput v5, v4, v3
 
-    if-ge v0, v5, :cond_2
+    const/4 v0, 0x2
 
-    aget v5, v2, v0
-
-    add-int/lit8 v6, v0, -0x1
-
-    aget v2, v2, v6
-
-    if-eq v5, v2, :cond_1
-
-    add-int/lit8 v1, v1, 0x1
+    move v6, v0
 
     :cond_1
-    add-int/lit8 v0, v0, 0x1
+    :goto_0
+    if-lez v6, :cond_4
+
+    add-int/lit8 v6, v6, -0x1
+
+    aget v7, v4, v6
+
+    add-int/lit8 v6, v6, -0x1
+
+    aget v8, v4, v6
+
+    if-ge v7, v8, :cond_1
+
+    aget v9, v1, v8
+
+    move v10, v7
+
+    move v11, v10
+
+    :goto_1
+    if-ge v10, v8, :cond_3
+
+    aget v12, v1, v10
+
+    if-gt v12, v9, :cond_2
+
+    aget v13, v1, v11
+
+    aput v12, v1, v11
+
+    aput v13, v1, v10
+
+    aget-object v12, v2, v11
+
+    aget-object v13, v2, v10
+
+    aput-object v13, v2, v11
+
+    aput-object v12, v2, v10
+
+    add-int/lit8 v11, v11, 0x1
+
+    :cond_2
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    aget v9, v1, v11
+
+    aget v10, v1, v8
+
+    aput v10, v1, v11
+
+    aput v9, v1, v8
+
+    aget-object v9, v2, v11
+
+    aget-object v10, v2, v8
+
+    aput-object v10, v2, v11
+
+    aput-object v9, v2, v8
+
+    add-int/lit8 v9, v6, 0x1
+
+    add-int/lit8 v10, v11, -0x1
+
+    aput v10, v4, v6
+
+    add-int/lit8 v6, v9, 0x1
+
+    aput v7, v4, v9
+
+    add-int/lit8 v7, v6, 0x1
+
+    aput v8, v4, v6
+
+    add-int/lit8 v6, v7, 0x1
+
+    add-int/lit8 v11, v11, 0x1
+
+    aput v11, v4, v7
 
     goto :goto_0
 
-    :cond_2
-    new-array v0, v1, [D
+    :cond_4
+    move v1, v3
 
-    const/4 v2, 0x3
+    move v2, v5
 
-    const/4 v5, 0x2
+    :goto_2
+    iget-object v4, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
 
-    new-array v6, v5, [I
+    array-length v6, v4
 
-    aput v2, v6, v3
+    if-ge v1, v6, :cond_6
 
-    aput v1, v6, v4
+    aget v6, v4, v1
 
-    const-class v1, D
+    add-int/lit8 v7, v1, -0x1
 
-    invoke-static {v1, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+    aget v4, v4, v7
 
-    move-result-object v1
+    if-eq v6, v4, :cond_5
 
-    check-cast v1, [[D
+    add-int/lit8 v2, v2, 0x1
 
-    move v2, v4
-
-    move v6, v2
-
-    :goto_1
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
-
-    if-ge v2, v7, :cond_4
-
-    if-lez v2, :cond_3
-
-    iget-object v7, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
-
-    aget v8, v7, v2
-
-    add-int/lit8 v9, v2, -0x1
-
-    aget v7, v7, v9
-
-    if-ne v8, v7, :cond_3
+    :cond_5
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_2
 
-    :cond_3
+    :cond_6
+    new-array v1, v2, [D
+
+    const/4 v4, 0x3
+
+    new-array v6, v0, [I
+
+    aput v4, v6, v3
+
+    aput v2, v6, v5
+
+    const-class v2, D
+
+    invoke-static {v2, v6}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, [[D
+
+    move v4, v5
+
+    move v6, v4
+
+    :goto_3
+    iget v7, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->count:I
+
+    if-ge v4, v7, :cond_8
+
+    if-lez v4, :cond_7
+
     iget-object v7, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
 
-    aget v7, v7, v2
+    aget v8, v7, v4
+
+    add-int/lit8 v9, v4, -0x1
+
+    aget v7, v7, v9
+
+    if-ne v8, v7, :cond_7
+
+    goto :goto_4
+
+    :cond_7
+    iget-object v7, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
+
+    aget v7, v7, v4
 
     int-to-double v7, v7
 
@@ -911,49 +727,41 @@
 
     mul-double/2addr v7, v9
 
-    aput-wide v7, v0, v6
+    aput-wide v7, v1, v6
 
-    aget-object v7, v1, v6
+    aget-object v7, v2, v6
 
     iget-object v8, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mValues:[[F
 
-    aget-object v9, v8, v2
+    aget-object v8, v8, v4
 
-    aget v9, v9, v4
+    aget v9, v8, v5
 
     float-to-double v9, v9
 
-    aput-wide v9, v7, v4
+    aput-wide v9, v7, v5
 
-    aget-object v7, v1, v6
-
-    aget-object v9, v8, v2
-
-    aget v9, v9, v3
+    aget v9, v8, v3
 
     float-to-double v9, v9
 
     aput-wide v9, v7, v3
 
-    aget-object v7, v1, v6
-
-    aget-object v8, v8, v2
-
-    aget v8, v8, v5
+    aget v8, v8, v0
 
     float-to-double v8, v8
 
-    aput-wide v8, v7, v5
+    aput-wide v8, v7, v0
 
     add-int/lit8 v6, v6, 0x1
 
-    :goto_2
-    add-int/lit8 v2, v2, 0x1
+    :goto_4
+    add-int/lit8 v4, v4, 0x1
 
-    goto :goto_1
+    goto :goto_3
 
-    :cond_4
-    invoke-static {p1, v0, v1}, Landroidx/constraintlayout/motion/utils/CurveFit;->get(I[D[[D)Landroidx/constraintlayout/motion/utils/CurveFit;
+    :cond_8
+    invoke-static {p1, v1, v2}, Landroidx/constraintlayout/motion/utils/CurveFit;->get(I[D[[D)Landroidx/constraintlayout/motion/utils/CurveFit;
 
     move-result-object p1
 
@@ -962,7 +770,7 @@
     return-void
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 4
 
     iget-object v0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mType:Ljava/lang/String;
@@ -980,41 +788,37 @@
 
     if-ge v2, v3, :cond_0
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    const-string v3, "["
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "["
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
-
-    aget v0, v0, v2
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v0, " , "
-
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v0, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mValues:[[F
-
-    aget-object v0, v0, v2
-
-    invoke-virtual {v1, v0}, Ljava/text/DecimalFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v3}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v3, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mTimePoints:[I
 
-    const-string v0, "] "
+    aget v3, v3, v2
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v3, " , "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v3, p0, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->mValues:[[F
+
+    aget-object v3, v3, v2
+
+    invoke-virtual {v1, v3}, Ljava/text/DecimalFormat;->format(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "] "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/ViewState$7;
+.class public final Lcom/android/systemui/statusbar/notification/stack/ViewState$7;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ViewState.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/ViewState;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/ViewState;
 
-.field final synthetic val$child:Landroid/view/View;
+.field public final synthetic val$child:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/ViewState;Landroid/view/View;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/ViewState;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$7;->this$0:Lcom/android/systemui/statusbar/notification/stack/ViewState;
@@ -35,20 +35,12 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$7;->val$child:Landroid/view/View;
 
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/policy/HeadsUpUtil;->setNeedsHeadsUpDisappearAnimationAfterClick(Landroid/view/View;Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$7;->val$child:Landroid/view/View;
-
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->access$900()I
-
-    move-result v0
+    const v0, 0x7f0b0324
 
     const/4 v1, 0x0
 
@@ -56,17 +48,19 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$7;->val$child:Landroid/view/View;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->access$1000()I
-
-    move-result v0
+    sget v0, Lcom/android/systemui/statusbar/notification/stack/ViewState;->TAG_ANIMATOR_TRANSLATION_Y:I
 
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$7;->val$child:Landroid/view/View;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->access$1100()I
+    sget v0, Lcom/android/systemui/statusbar/notification/stack/ViewState;->TAG_START_TRANSLATION_Y:I
 
-    move-result v0
+    invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$7;->val$child:Landroid/view/View;
+
+    sget v0, Lcom/android/systemui/statusbar/notification/stack/ViewState;->TAG_END_TRANSLATION_Y:I
 
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 

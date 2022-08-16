@@ -1,4 +1,4 @@
-.class abstract Landroidx/leanback/transition/SlideKitkat$CalculateSlideVertical;
+.class public abstract Landroidx/leanback/transition/SlideKitkat$CalculateSlideVertical;
 .super Ljava/lang/Object;
 .source "SlideKitkat.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x40a
+    accessFlags = 0x409
     name = "CalculateSlideVertical"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -28,16 +28,8 @@
 
 
 # virtual methods
-.method public getHere(Landroid/view/View;)F
+.method public final getHere(Landroid/view/View;)F
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getTranslationY()F
 
@@ -46,7 +38,7 @@
     return p0
 .end method
 
-.method public getProperty()Landroid/util/Property;
+.method public final getProperty()Landroid/util/Property;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

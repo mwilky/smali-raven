@@ -3,30 +3,24 @@
 .source "SignalTileView.java"
 
 
-# static fields
-.field private static final DEFAULT_DURATION:J
-
-.field private static final SHORT_DURATION:J
-
-
 # instance fields
-.field protected mIconFrame:Landroid/widget/FrameLayout;
+.field public mIconFrame:Landroid/widget/FrameLayout;
 
-.field private mIn:Landroid/widget/ImageView;
+.field public mIn:Landroid/widget/ImageView;
 
-.field private mOut:Landroid/widget/ImageView;
+.field public mOut:Landroid/widget/ImageView;
 
-.field private mOverlay:Landroid/widget/ImageView;
+.field public mOverlay:Landroid/widget/ImageView;
 
-.field protected mSignal:Landroid/widget/ImageView;
+.field public mSignal:Lcom/android/systemui/qs/tileimpl/SlashImageView;
 
-.field private mSignalIndicatorToIconFrameSpacing:I
+.field public mSignalIndicatorToIconFrameSpacing:I
 
-.field private mWideOverlayIconStartPadding:I
+.field public mWideOverlayIconStartPadding:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     new-instance v0, Landroid/animation/ValueAnimator;
@@ -37,37 +31,51 @@
 
     move-result-wide v0
 
-    sput-wide v0, Lcom/android/systemui/qs/SignalTileView;->DEFAULT_DURATION:J
-
     const-wide/16 v2, 0x3
 
     div-long/2addr v0, v2
-
-    sput-wide v0, Lcom/android/systemui/qs/SignalTileView;->SHORT_DURATION:J
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;-><init>(Landroid/content/Context;)V
 
-    sget v0, Lcom/android/systemui/R$drawable;->ic_qs_signal_in:I
+    new-instance v0, Landroid/widget/ImageView;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/SignalTileView;->addTrafficView(I)Landroid/widget/ImageView;
+    iget-object v1, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
 
-    move-result-object v0
+    invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+
+    const v1, 0x7f08064a
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
 
     iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mIn:Landroid/widget/ImageView;
 
-    sget v0, Lcom/android/systemui/R$drawable;->ic_qs_signal_out:I
+    const v0, 0x7f08064b
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/SignalTileView;->addTrafficView(I)Landroid/widget/ImageView;
+    new-instance v2, Landroid/widget/ImageView;
 
-    move-result-object v0
+    iget-object v3, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
 
-    iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mOut:Landroid/widget/ImageView;
+    invoke-direct {v2, v3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setAlpha(F)V
+
+    invoke-virtual {p0, v2}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
+    iput-object v2, p0, Lcom/android/systemui/qs/SignalTileView;->mOut:Landroid/widget/ImageView;
 
     const/4 v0, 0x0
 
@@ -79,7 +87,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->wide_type_icon_start_padding_qs:I
+    const v1, 0x7f0708a6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -91,7 +99,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$dimen;->signal_indicator_to_icon_frame_spacing:I
+    const v0, 0x7f07074b
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -102,8 +110,30 @@
     return-void
 .end method
 
-.method private addTrafficView(I)Landroid/widget/ImageView;
-    .locals 2
+
+# virtual methods
+.method public final createIcon()Landroid/view/View;
+    .locals 3
+
+    new-instance v0, Landroid/widget/FrameLayout;
+
+    iget-object v1, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
+
+    iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
+
+    iget-object v0, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/SignalTileView;->createSlashImageView(Landroid/content/Context;)Lcom/android/systemui/qs/tileimpl/SlashImageView;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Lcom/android/systemui/qs/tileimpl/SlashImageView;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
+
+    invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
 
     new-instance v0, Landroid/widget/ImageView;
 
@@ -111,18 +141,38 @@
 
     invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
+    iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
 
-    const/4 p1, 0x0
+    iget-object v1, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setAlpha(F)V
+    const/4 v2, -0x2
 
-    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+    invoke-virtual {v1, v0, v2, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;II)V
 
-    return-object v0
+    iget-object p0, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
+
+    return-object p0
 .end method
 
-.method private layoutIndicator(Landroid/view/View;)V
+.method public createSlashImageView(Landroid/content/Context;)Lcom/android/systemui/qs/tileimpl/SlashImageView;
+    .locals 0
+
+    new-instance p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;
+
+    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/SlashImageView;-><init>(Landroid/content/Context;)V
+
+    return-object p0
+.end method
+
+.method public final getIconMeasureMode()I
+    .locals 0
+
+    const/high16 p0, -0x80000000
+
+    return p0
+.end method
+
+.method public final layoutIndicator(Landroid/widget/ImageView;)V
     .locals 4
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getLayoutDirection()I
@@ -196,85 +246,23 @@
     return-void
 .end method
 
-
-# virtual methods
-.method protected createIcon()Landroid/view/View;
-    .locals 3
-
-    new-instance v0, Landroid/widget/FrameLayout;
-
-    iget-object v1, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
-
-    iget-object v0, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/SignalTileView;->createSlashImageView(Landroid/content/Context;)Lcom/android/systemui/qs/tileimpl/SlashImageView;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
-
-    invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
-
-    new-instance v0, Landroid/widget/ImageView;
-
-    iget-object v1, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
-
-    invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mOverlay:Landroid/widget/ImageView;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
-
-    const/4 v2, -0x2
-
-    invoke-virtual {v1, v0, v2, v2}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;II)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/SignalTileView;->mIconFrame:Landroid/widget/FrameLayout;
-
-    return-object p0
-.end method
-
-.method protected createSlashImageView(Landroid/content/Context;)Lcom/android/systemui/qs/tileimpl/SlashImageView;
-    .locals 0
-
-    new-instance p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/SlashImageView;-><init>(Landroid/content/Context;)V
-
-    return-object p0
-.end method
-
-.method protected getIconMeasureMode()I
-    .locals 0
-
-    const/high16 p0, -0x80000000
-
-    return p0
-.end method
-
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->onLayout(ZIIII)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/SignalTileView;->mIn:Landroid/widget/ImageView;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/SignalTileView;->layoutIndicator(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/SignalTileView;->layoutIndicator(Landroid/widget/ImageView;)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/SignalTileView;->mOut:Landroid/widget/ImageView;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/SignalTileView;->layoutIndicator(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/SignalTileView;->layoutIndicator(Landroid/widget/ImageView;)V
 
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 1
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->onMeasure(II)V
@@ -314,12 +302,12 @@
     return-void
 .end method
 
-.method public setIcon(Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
+.method public final setIcon(Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
     .locals 3
 
     check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$SignalState;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Lcom/android/systemui/qs/tileimpl/SlashImageView;
 
     invoke-virtual {p0, v0, p1, p2}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->setIcon(Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
 
@@ -357,7 +345,7 @@
 
     if-eqz p1, :cond_1
 
-    iget-object p1, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
+    iget-object p1, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Lcom/android/systemui/qs/tileimpl/SlashImageView;
 
     iget v0, p0, Lcom/android/systemui/qs/SignalTileView;->mWideOverlayIconStartPadding:I
 
@@ -366,7 +354,7 @@
     goto :goto_1
 
     :cond_1
-    iget-object p1, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Landroid/widget/ImageView;
+    iget-object p1, p0, Lcom/android/systemui/qs/SignalTileView;->mSignal:Lcom/android/systemui/qs/tileimpl/SlashImageView;
 
     invoke-virtual {p1, v1, v1, v1, v1}, Landroid/widget/ImageView;->setPaddingRelative(IIII)V
 

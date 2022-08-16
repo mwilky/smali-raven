@@ -5,8 +5,8 @@
         <item quantity="one">%d ditë më parë</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d min më parë</item>
-        <item quantity="one">%d min më parë</item>
+        <item quantity="other">%d min. më parë</item>
+        <item quantity="one">%d min. më parë</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d vite më parë</item>
@@ -15,6 +15,10 @@
     <plurals name="controls_number_of_favorites">
         <item quantity="other">U shtuan %s kontrolle.</item>
         <item quantity="one">U shtua %s kontroll.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s aplikacione janë aktive</item>
+        <item quantity="one">%s aplikacion është aktiv</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Fut kodin PIN të kartës SIM. Të kanë mbetur edhe %d tentativa.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">PUK-u i kartës SIM është i pasaktë. Të kanë mbetur edhe %d tentativa para se karta SIM të bëhet e papërdorshme përgjithmonë.</item>
         <item quantity="one">PUK-u i kartës SIM është i pasaktë. Të ka mbetur edhe %d tentativë para se karta SIM të bëhet e papërdorshme përgjithmonë.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Provo sërish për %d sekonda.</item>
-        <item quantity="one">Provo sërish për 1 sekondë.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d njoftime të reja</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Mund të shtosh deri në %d përdorues.</item>
         <item quantity="one">Mund të krijohet vetëm një përdorues.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d pajisje të lidhura</item>
-        <item quantity="one">%1$d pajisje e lidhur</item>
     </plurals>
 </resources>

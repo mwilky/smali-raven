@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/doze/DozeSensors$2;
+.class public final Lcom/android/systemui/doze/DozeSensors$2;
 .super Ljava/lang/Object;
 .source "DozeSensors.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
+.field public final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;)V
+.method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeSensors$2;->this$0:Lcom/android/systemui/doze/DozeSensors;
@@ -32,14 +32,30 @@
     return-void
 .end method
 
-.method private updateUdfpsEnrolled()V
-    .locals 6
+
+# virtual methods
+.method public final onAllAuthenticatorsRegistered()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeSensors$2;->updateUdfpsEnrolled()V
+
+    return-void
+.end method
+
+.method public final onEnrollmentsChanged()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeSensors$2;->updateUdfpsEnrolled()V
+
+    return-void
+.end method
+
+.method public final updateUdfpsEnrolled()V
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$2;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {v0}, Lcom/android/systemui/doze/DozeSensors;->access$1500(Lcom/android/systemui/doze/DozeSensors;)Lcom/android/systemui/biometrics/AuthController;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/android/systemui/doze/DozeSensors;->mAuthController:Lcom/android/systemui/biometrics/AuthController;
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
@@ -49,7 +65,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/doze/DozeSensors;->access$1402(Lcom/android/systemui/doze/DozeSensors;Z)Z
+    iput-boolean v1, v0, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeSensors$2;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
@@ -59,64 +75,107 @@
 
     const/4 v2, 0x0
 
+    move v3, v2
+
     :goto_0
-    if-ge v2, v1, :cond_2
+    if-ge v3, v1, :cond_7
 
-    aget-object v3, v0, v2
+    aget-object v4, v0, v3
 
-    const/16 v4, 0xb
+    const/16 v5, 0xb
 
-    iget v5, v3, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mPulseReason:I
+    iget v6, v4, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mPulseReason:I
 
-    if-ne v4, v5, :cond_0
+    const/4 v7, 0x1
 
-    iget-object v4, p0, Lcom/android/systemui/doze/DozeSensors$2;->this$0:Lcom/android/systemui/doze/DozeSensors;
+    if-ne v5, v6, :cond_2
 
-    invoke-static {v4}, Lcom/android/systemui/doze/DozeSensors;->access$1600(Lcom/android/systemui/doze/DozeSensors;)Z
+    iget-object v5, p0, Lcom/android/systemui/doze/DozeSensors$2;->this$0:Lcom/android/systemui/doze/DozeSensors;
 
-    move-result v4
+    iget-boolean v6, v5, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
 
-    invoke-virtual {v3, v4}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->setConfigured(Z)V
+    if-eqz v6, :cond_0
+
+    iget-object v5, v5, Lcom/android/systemui/doze/DozeSensors;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v6
+
+    invoke-virtual {v5, v6}, Landroid/hardware/display/AmbientDisplayConfiguration;->quickPickupSensorEnabled(I)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
 
     goto :goto_1
 
     :cond_0
-    const/16 v4, 0xa
+    move v7, v2
 
-    if-ne v4, v5, :cond_1
+    :goto_1
+    iget-boolean v5, v4, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mConfigured:Z
 
-    iget-object v4, p0, Lcom/android/systemui/doze/DozeSensors$2;->this$0:Lcom/android/systemui/doze/DozeSensors;
+    if-ne v5, v7, :cond_1
 
-    invoke-static {v4}, Lcom/android/systemui/doze/DozeSensors;->access$1700(Lcom/android/systemui/doze/DozeSensors;)Z
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->setConfigured(Z)V
+    goto :goto_3
 
     :cond_1
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
+    iput-boolean v7, v4, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mConfigured:Z
+
+    invoke-virtual {v4}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->updateListening()V
+
+    goto :goto_3
+
+    :cond_2
+    const/16 v5, 0xa
+
+    if-ne v5, v6, :cond_6
+
+    iget-object v5, p0, Lcom/android/systemui/doze/DozeSensors$2;->this$0:Lcom/android/systemui/doze/DozeSensors;
+
+    iget-boolean v6, v5, Lcom/android/systemui/doze/DozeSensors;->mUdfpsEnrolled:Z
+
+    if-eqz v6, :cond_3
+
+    iget-object v6, v5, Lcom/android/systemui/doze/DozeSensors;->mConfig:Landroid/hardware/display/AmbientDisplayConfiguration;
+
+    const/4 v8, -0x2
+
+    invoke-virtual {v6, v8}, Landroid/hardware/display/AmbientDisplayConfiguration;->alwaysOnEnabled(I)Z
+
+    move-result v6
+
+    if-nez v6, :cond_4
+
+    iget-boolean v5, v5, Lcom/android/systemui/doze/DozeSensors;->mScreenOffUdfpsEnabled:Z
+
+    if-eqz v5, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move v7, v2
+
+    :cond_4
+    :goto_2
+    iget-boolean v5, v4, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mConfigured:Z
+
+    if-ne v5, v7, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    iput-boolean v7, v4, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->mConfigured:Z
+
+    invoke-virtual {v4}, Lcom/android/systemui/doze/DozeSensors$TriggerSensor;->updateListening()V
+
+    :cond_6
+    :goto_3
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_0
 
-    :cond_2
-    return-void
-.end method
-
-
-# virtual methods
-.method public onAllAuthenticatorsRegistered()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors$2;->updateUdfpsEnrolled()V
-
-    return-void
-.end method
-
-.method public onEnrollmentsChanged()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeSensors$2;->updateUdfpsEnrolled()V
-
+    :cond_7
     return-void
 .end method

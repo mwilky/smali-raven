@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/keyguard/LockIconViewController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/accessibility/AccessibilityManager$AccessibilityStateChangeListener;
 
 
 # instance fields
@@ -22,12 +23,38 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onAccessibilityStateChanged(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconViewController$$ExternalSyntheticLambda1;->f$0:Lcom/android/keyguard/LockIconViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/LockIconViewController;->$r8$lambda$h98ceOtiS5JD1Nfnu1Y0fyk_1uo(Lcom/android/keyguard/LockIconViewController;)V
+    iget-object p1, p0, Lcom/android/keyguard/LockIconViewController;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p1, Lcom/android/keyguard/LockIconView;
+
+    iget-object p0, p0, Lcom/android/keyguard/LockIconViewController;->mA11yClickListener:Lcom/android/keyguard/LockIconViewController$$ExternalSyntheticLambda0;
+
+    invoke-virtual {p1, p0}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/keyguard/LockIconView;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :goto_0
     return-void
 .end method

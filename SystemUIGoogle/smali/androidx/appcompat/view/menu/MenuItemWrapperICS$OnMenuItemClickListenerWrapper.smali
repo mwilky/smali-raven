@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnMenuItemClickListenerWrapper;
+.class public final Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnMenuItemClickListenerWrapper;
 .super Ljava/lang/Object;
 .source "MenuItemWrapperICS.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "OnMenuItemClickListenerWrapper"
 .end annotation
 
 
 # instance fields
-.field private final mObject:Landroid/view/MenuItem$OnMenuItemClickListener;
+.field public final mObject:Landroid/view/MenuItem$OnMenuItemClickListener;
 
-.field final synthetic this$0:Landroidx/appcompat/view/menu/MenuItemWrapperICS;
+.field public final synthetic this$0:Landroidx/appcompat/view/menu/MenuItemWrapperICS;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnMenuItemClickListener;)V
+.method public constructor <init>(Landroidx/appcompat/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnMenuItemClickListener;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnMenuItemClickListenerWrapper;->this$0:Landroidx/appcompat/view/menu/MenuItemWrapperICS;
@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method public onMenuItemClick(Landroid/view/MenuItem;)Z
+.method public final onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnMenuItemClickListenerWrapper;->mObject:Landroid/view/MenuItem$OnMenuItemClickListener;

@@ -18,10 +18,10 @@
 .method public abstract action(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlInfo;Landroid/service/controls/actions/ControlAction;)V
 .end method
 
-.method public abstract bindAndLoad(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlsBindingController$LoadCallback;)Ljava/lang/Runnable;
+.method public abstract bindAndLoad(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlsControllerImpl$loadForComponent$2;)Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$LoadSubscriber$loadCancel$1;
 .end method
 
-.method public abstract bindAndLoadSuggested(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlsBindingController$LoadCallback;)V
+.method public abstract bindAndLoadSuggested(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlsControllerImpl$startSeeding$1;)V
 .end method
 
 .method public abstract onComponentRemoved(Landroid/content/ComponentName;)V

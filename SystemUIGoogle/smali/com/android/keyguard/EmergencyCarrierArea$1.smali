@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/EmergencyCarrierArea$1;
+.class public final Lcom/android/keyguard/EmergencyCarrierArea$1;
 .super Ljava/lang/Object;
 .source "EmergencyCarrierArea.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/EmergencyCarrierArea;
+.field public final synthetic this$0:Lcom/android/keyguard/EmergencyCarrierArea;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/EmergencyCarrierArea;)V
+.method public constructor <init>(Lcom/android/keyguard/EmergencyCarrierArea;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/EmergencyCarrierArea$1;->this$0:Lcom/android/keyguard/EmergencyCarrierArea;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
 
     iget-object p1, p0, Lcom/android/keyguard/EmergencyCarrierArea$1;->this$0:Lcom/android/keyguard/EmergencyCarrierArea;
 
-    invoke-static {p1}, Lcom/android/keyguard/EmergencyCarrierArea;->access$000(Lcom/android/keyguard/EmergencyCarrierArea;)Lcom/android/keyguard/CarrierText;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/keyguard/EmergencyCarrierArea;->mCarrierText:Lcom/android/keyguard/CarrierText;
 
     invoke-virtual {p1}, Landroid/widget/TextView;->getVisibility()I
 
@@ -69,9 +67,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/keyguard/EmergencyCarrierArea$1;->this$0:Lcom/android/keyguard/EmergencyCarrierArea;
 
-    invoke-static {p0}, Lcom/android/keyguard/EmergencyCarrierArea;->access$000(Lcom/android/keyguard/EmergencyCarrierArea;)Lcom/android/keyguard/CarrierText;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mCarrierText:Lcom/android/keyguard/CarrierText;
 
     invoke-virtual {p0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -86,9 +82,7 @@
     :cond_2
     iget-object p0, p0, Lcom/android/keyguard/EmergencyCarrierArea$1;->this$0:Lcom/android/keyguard/EmergencyCarrierArea;
 
-    invoke-static {p0}, Lcom/android/keyguard/EmergencyCarrierArea;->access$000(Lcom/android/keyguard/EmergencyCarrierArea;)Lcom/android/keyguard/CarrierText;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mCarrierText:Lcom/android/keyguard/CarrierText;
 
     invoke-virtual {p0}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
 

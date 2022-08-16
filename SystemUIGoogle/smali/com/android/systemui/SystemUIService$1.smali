@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/SystemUIService$1;
+.class public final Lcom/android/systemui/SystemUIService$1;
 .super Ljava/lang/Object;
 .source "SystemUIService.java"
 
@@ -12,20 +12,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/systemui/SystemUIService;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/systemui/SystemUIService;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/SystemUIService$1;->this$0:Lcom/android/systemui/SystemUIService;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,22 +28,16 @@
 
 
 # virtual methods
-.method public onLimitReached(I)V
+.method public final onLimitReached(I)V
     .locals 1
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    const-string/jumbo p0, "uid "
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v0, " sent too many Binder proxies to uid "
 
-    const-string v0, "uid "
+    invoke-static {p0, p1, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline0;->m(Ljava/lang/String;ILjava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string p1, " sent too many Binder proxies to uid "
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 

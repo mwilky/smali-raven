@@ -1,50 +1,52 @@
-.class final Lcom/android/systemui/media/RippleData;
+.class public final Lcom/android/systemui/media/RippleData;
 .super Ljava/lang/Object;
 .source "LightSourceDrawable.kt"
 
 
 # instance fields
-.field private alpha:F
+.field public alpha:F
 
-.field private highlight:F
+.field public highlight:F
 
-.field private maxSize:F
+.field public maxSize:F
 
-.field private minSize:F
+.field public minSize:F
 
-.field private progress:F
+.field public progress:F
 
-.field private x:F
+.field public x:F
 
-.field private y:F
+.field public y:F
 
 
 # direct methods
-.method public constructor <init>(FFFFFFF)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->x:F
+    const/4 v0, 0x0
 
-    iput p2, p0, Lcom/android/systemui/media/RippleData;->y:F
+    iput v0, p0, Lcom/android/systemui/media/RippleData;->x:F
 
-    iput p3, p0, Lcom/android/systemui/media/RippleData;->alpha:F
+    iput v0, p0, Lcom/android/systemui/media/RippleData;->y:F
 
-    iput p4, p0, Lcom/android/systemui/media/RippleData;->progress:F
+    iput v0, p0, Lcom/android/systemui/media/RippleData;->alpha:F
 
-    iput p5, p0, Lcom/android/systemui/media/RippleData;->minSize:F
+    iput v0, p0, Lcom/android/systemui/media/RippleData;->progress:F
 
-    iput p6, p0, Lcom/android/systemui/media/RippleData;->maxSize:F
+    iput v0, p0, Lcom/android/systemui/media/RippleData;->minSize:F
 
-    iput p7, p0, Lcom/android/systemui/media/RippleData;->highlight:F
+    iput v0, p0, Lcom/android/systemui/media/RippleData;->maxSize:F
+
+    iput v0, p0, Lcom/android/systemui/media/RippleData;->highlight:F
 
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -215,55 +217,7 @@
     return v0
 .end method
 
-.method public final getAlpha()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/media/RippleData;->alpha:F
-
-    return p0
-.end method
-
-.method public final getMaxSize()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/media/RippleData;->maxSize:F
-
-    return p0
-.end method
-
-.method public final getMinSize()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/media/RippleData;->minSize:F
-
-    return p0
-.end method
-
-.method public final getProgress()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/media/RippleData;->progress:F
-
-    return p0
-.end method
-
-.method public final getX()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/media/RippleData;->x:F
-
-    return p0
-.end method
-
-.method public final getY()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/media/RippleData;->y:F
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget v0, p0, Lcom/android/systemui/media/RippleData;->x:F
@@ -280,15 +234,15 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget v1, p0, Lcom/android/systemui/media/RippleData;->alpha:F
+    iget v0, p0, Lcom/android/systemui/media/RippleData;->alpha:F
 
-    invoke-static {v1}, Ljava/lang/Float;->hashCode(F)I
+    invoke-static {v0}, Ljava/lang/Float;->hashCode(F)I
 
-    move-result v1
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -300,15 +254,15 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget v1, p0, Lcom/android/systemui/media/RippleData;->minSize:F
+    iget v0, p0, Lcom/android/systemui/media/RippleData;->minSize:F
 
-    invoke-static {v1}, Ljava/lang/Float;->hashCode(F)I
+    invoke-static {v0}, Ljava/lang/Float;->hashCode(F)I
 
-    move-result v1
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -320,9 +274,9 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget p0, p0, Lcom/android/systemui/media/RippleData;->highlight:F
 
@@ -330,77 +284,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v1
 
-    return v0
+    return p0
 .end method
 
-.method public final setAlpha(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->alpha:F
-
-    return-void
-.end method
-
-.method public final setHighlight(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->highlight:F
-
-    return-void
-.end method
-
-.method public final setMaxSize(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->maxSize:F
-
-    return-void
-.end method
-
-.method public final setMinSize(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->minSize:F
-
-    return-void
-.end method
-
-.method public final setProgress(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->progress:F
-
-    return-void
-.end method
-
-.method public final setX(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->x:F
-
-    return-void
-.end method
-
-.method public final setY(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/media/RippleData;->y:F
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "RippleData(x="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "RippleData(x="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/media/RippleData;->x:F
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onDismiss(Landroid/content/DialogInterface;)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->$r8$lambda$boN4KTlUPlRx7MXCH14MFcZqhEA(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/content/DialogInterface;)V
+    sget-object p1, Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;->SAVER_CONFIRM_CANCEL:Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->logEvent(Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;)V
 
     return-void
 .end method

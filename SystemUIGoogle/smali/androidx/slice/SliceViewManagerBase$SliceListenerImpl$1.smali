@@ -1,4 +1,4 @@
-.class Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$1;
+.class public final Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$1;
 .super Ljava/lang/Object;
 .source "SliceViewManagerBase.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
+.field public final synthetic this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;)V
+.method public constructor <init>(Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$1"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$1;->this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
@@ -42,13 +34,30 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public final run()V
+    .locals 4
 
     iget-object v0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$1;->this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
-    invoke-virtual {v0}, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->tryPin()V
+    iget-boolean v1, v0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mPinned:Z
 
+    if-nez v1, :cond_0
+
+    :try_start_0
+    iget-object v1, v0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->this$0:Landroidx/slice/SliceViewManagerBase;
+
+    iget-object v2, v0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mUri:Landroid/net/Uri;
+
+    invoke-virtual {v1, v2}, Landroidx/slice/SliceViewManager;->pinSlice(Landroid/net/Uri;)V
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mPinned:Z
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    :cond_0
     iget-object v0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$1;->this$1:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
     iget-object v1, v0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->this$0:Landroidx/slice/SliceViewManagerBase;
@@ -57,9 +66,25 @@
 
     iget-object v0, v0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mUri:Landroid/net/Uri;
 
-    sget-object v2, Landroidx/slice/widget/SliceLiveData;->SUPPORTED_SPECS:Ljava/util/Set;
+    sget-object v2, Landroidx/slice/widget/SliceLiveData;->SUPPORTED_SPECS:Landroidx/collection/ArraySet;
 
-    invoke-static {v1, v0, v2}, Landroidx/slice/Slice;->bindSlice(Landroid/content/Context;Landroid/net/Uri;Ljava/util/Set;)Landroidx/slice/Slice;
+    const-class v3, Landroid/app/slice/SliceManager;
+
+    invoke-virtual {v1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/app/slice/SliceManager;
+
+    invoke-static {v2}, Landroidx/slice/SliceConvert;->unwrap(Landroidx/collection/ArraySet;)Landroidx/collection/ArraySet;
+
+    move-result-object v2
+
+    invoke-virtual {v3, v0, v2}, Landroid/app/slice/SliceManager;->bindSlice(Landroid/net/Uri;Ljava/util/Set;)Landroid/app/slice/Slice;
+
+    move-result-object v0
+
+    invoke-static {v0, v1}, Landroidx/slice/SliceConvert;->wrap(Landroid/app/slice/Slice;Landroid/content/Context;)Landroidx/slice/Slice;
 
     move-result-object v0
 

@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;
+.class public final Landroidx/recyclerview/widget/DefaultItemAnimator$MoveInfo;
 .super Ljava/lang/Object;
 .source "DefaultItemAnimator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "MoveInfo"
 .end annotation
 
@@ -27,24 +27,8 @@
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIII)V
+.method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "holder",
-            "fromX",
-            "fromY",
-            "toX",
-            "toY"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

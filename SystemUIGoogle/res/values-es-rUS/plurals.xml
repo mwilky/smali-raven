@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">Hace %d días</item>
-        <item quantity="one">Hace %d día</item>
+        <item quantity="other">Hace %d días</item>
+        <item quantity="one">Hace %d día</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
         <item quantity="other">Hace %d min</item>
         <item quantity="one">Hace %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">Hace %d años</item>
-        <item quantity="one">Hace %d año</item>
+        <item quantity="other">Hace %d años</item>
+        <item quantity="one">Hace %d año</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">Se agregaron %s controles.</item>
         <item quantity="one">Se agregó %s control.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s apps están activas</item>
+        <item quantity="one">%s app está activa</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Ingresa el PIN de la SIM. Quedan %d intentos más.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">El código PUK de la tarjeta SIM es incorrecto. Tienes %d intentos más antes de que la tarjeta SIM quede inutilizable de manera permanente.</item>
         <item quantity="one">El código PUK de la tarjeta SIM es incorrecto. Tienes %d intento antes de que la tarjeta SIM quede inutilizable de manera permanente.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Vuelve a intentarlo en %d segundos.</item>
-        <item quantity="one">Vuelve a intentarlo en 1 segundo.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d notificaciones nuevas</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Puedes agregar hasta %d usuarios.</item>
         <item quantity="one">Solo se puede crear un usuario.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d dispositivos conectados</item>
-        <item quantity="one">%1$d dispositivo conectado</item>
     </plurals>
 </resources>

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;
+.class public final Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;
 .super Ljava/lang/Object;
 .source "SeekBarViewModel.kt"
 
@@ -13,34 +13,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "SeekBarTouchListener"
 .end annotation
 
 
 # instance fields
-.field private final bar:Landroid/widget/SeekBar;
+.field public final bar:Landroid/widget/SeekBar;
 
-.field private final detector:Landroidx/core/view/GestureDetectorCompat;
+.field public final detector:Landroidx/core/view/GestureDetectorCompat;
 
-.field private final flingVelocity:I
+.field public final flingVelocity:I
 
-.field private shouldGoToSeekBar:Z
+.field public shouldGoToSeekBar:Z
 
-.field private final viewModel:Lcom/android/systemui/media/SeekBarViewModel;
+.field public final viewModel:Lcom/android/systemui/media/SeekBarViewModel;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;Landroid/widget/SeekBar;)V
     .locals 1
-
-    const-string/jumbo v0, "viewModel"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "bar"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -79,12 +71,8 @@
 
 
 # virtual methods
-.method public onDown(Landroid/view/MotionEvent;)Z
+.method public final onDown(Landroid/view/MotionEvent;)Z
     .locals 10
-
-    const-string v0, "event"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;->bar:Landroid/widget/SeekBar;
 
@@ -168,7 +156,9 @@
 
     sub-double/2addr v8, v4
 
-    mul-double/2addr v6, v8
+    mul-double/2addr v8, v6
+
+    add-double/2addr v8, v0
 
     goto :goto_1
 
@@ -179,34 +169,34 @@
 
     mul-double/2addr v6, v4
 
+    add-double v8, v6, v0
+
     :goto_1
-    add-double/2addr v0, v6
+    iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;->bar:Landroid/widget/SeekBar;
 
-    iget-object v2, p0, Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;->bar:Landroid/widget/SeekBar;
+    invoke-virtual {v0}, Landroid/widget/SeekBar;->getHeight()I
 
-    invoke-virtual {v2}, Landroid/widget/SeekBar;->getHeight()I
+    move-result v0
 
-    move-result v2
+    div-int/lit8 v0, v0, 0x2
 
-    div-int/lit8 v2, v2, 0x2
+    invoke-static {v8, v9}, Ljava/lang/Math;->round(D)J
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->round(D)J
+    move-result-wide v1
 
-    move-result-wide v4
+    int-to-long v4, v0
 
-    int-to-long v6, v2
+    sub-long/2addr v1, v4
 
-    sub-long/2addr v4, v6
+    long-to-int v0, v1
 
-    long-to-int v2, v4
+    invoke-static {v8, v9}, Ljava/lang/Math;->round(D)J
 
-    invoke-static {v0, v1}, Ljava/lang/Math;->round(D)J
+    move-result-wide v1
 
-    move-result-wide v0
+    add-long/2addr v1, v4
 
-    add-long/2addr v0, v6
-
-    long-to-int v0, v0
+    long-to-int v1, v1
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
@@ -216,9 +206,9 @@
 
     move-result p1
 
-    if-lt p1, v2, :cond_2
+    if-lt p1, v0, :cond_2
 
-    if-gt p1, v0, :cond_2
+    if-gt p1, v1, :cond_2
 
     move p1, v3
 
@@ -252,16 +242,8 @@
     return p0
 .end method
 
-.method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
-    .locals 1
-
-    const-string v0, "eventStart"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "event"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+    .locals 0
 
     invoke-static {p3}, Ljava/lang/Math;->abs(F)F
 
@@ -290,7 +272,13 @@
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;->viewModel:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-virtual {p1}, Lcom/android/systemui/media/SeekBarViewModel;->onSeekFalse()V
+    iget-object p2, p1, Lcom/android/systemui/media/SeekBarViewModel;->bgExecutor:Lcom/android/systemui/util/concurrency/RepeatableExecutor;
+
+    new-instance p3, Lcom/android/systemui/media/SeekBarViewModel$onSeekFalse$1;
+
+    invoke-direct {p3, p1}, Lcom/android/systemui/media/SeekBarViewModel$onSeekFalse$1;-><init>(Lcom/android/systemui/media/SeekBarViewModel;)V
+
+    invoke-interface {p2, p3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     :cond_1
     iget-boolean p0, p0, Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;->shouldGoToSeekBar:Z
@@ -298,48 +286,28 @@
     return p0
 .end method
 
-.method public onLongPress(Landroid/view/MotionEvent;)V
+.method public final onLongPress(Landroid/view/MotionEvent;)V
     .locals 0
-
-    const-string p0, "event"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+.method public final onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 0
-
-    const-string p3, "eventStart"
-
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "event"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-boolean p0, p0, Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;->shouldGoToSeekBar:Z
 
     return p0
 .end method
 
-.method public onShowPress(Landroid/view/MotionEvent;)V
+.method public final onShowPress(Landroid/view/MotionEvent;)V
     .locals 0
-
-    const-string p0, "event"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public onSingleTapUp(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    const-string v0, "event"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onSingleTapUp(Landroid/view/MotionEvent;)Z
+    .locals 0
 
     const/4 p1, 0x1
 
@@ -348,16 +316,8 @@
     return p1
 .end method
 
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 1
-
-    const-string/jumbo v0, "view"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "event"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$SeekBarTouchListener;->bar:Landroid/widget/SeekBar;
 

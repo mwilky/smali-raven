@@ -8,7 +8,7 @@
 
 .field public duration:J
 
-.field private mAnimationEndAction:Ljava/util/function/Consumer;
+.field public mAnimationEndAction:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -18,7 +18,7 @@
     .end annotation
 .end field
 
-.field private mInterpolatorMap:Landroid/util/ArrayMap;
+.field public mInterpolatorMap:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -41,111 +41,36 @@
 
 
 # virtual methods
-.method public combineCustomInterpolators(Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;)V
-    .locals 1
+.method public getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    .locals 0
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
+    new-instance p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$1;
 
-    if-eqz p1, :cond_1
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$1;-><init>()V
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/util/ArrayMap;
-
-    invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
-
-    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->putAll(Landroid/util/ArrayMap;)V
-
-    :cond_1
-    return-void
+    return-object p0
 .end method
 
-.method public getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.method public getAnimationFinishListener(Landroid/util/Property;)Landroid/animation/AnimatorListenerAdapter;
     .locals 1
 
-    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$1;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mAnimationEndAction:Ljava/util/function/Consumer;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$1;-><init>(Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;)V
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x0
+
+    return-object p0
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$2;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$2;-><init>(Ljava/util/function/Consumer;Landroid/util/Property;)V
 
     return-object v0
 .end method
 
-.method public getAnimationFinishListener(Landroid/util/Property;)Landroid/animation/AnimatorListenerAdapter;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mAnimationEndAction:Ljava/util/function/Consumer;
-
-    if-nez v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    new-instance v1, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$2;
-
-    invoke-direct {v1, p0, v0, p1}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties$2;-><init>(Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;Ljava/util/function/Consumer;Landroid/util/Property;)V
-
-    return-object v1
-.end method
-
-.method public getCustomInterpolator(Landroid/view/View;Landroid/util/Property;)Landroid/view/animation/Interpolator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/view/animation/Interpolator;
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
-.method public resetCustomInterpolators()Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
-
-    return-object p0
-.end method
-
-.method public setAnimationEndAction(Ljava/util/function/Consumer;)Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Landroid/util/Property;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mAnimationEndAction:Ljava/util/function/Consumer;
-
-    return-object p0
-.end method
-
-.method public setCustomInterpolator(Landroid/util/Property;Landroid/view/animation/Interpolator;)Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
+.method public final setCustomInterpolator(Landroid/util/Property;Landroid/view/animation/PathInterpolator;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
@@ -159,27 +84,11 @@
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
 
-    invoke-virtual {v0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    return-object p0
-.end method
-
-.method public setDelay(J)Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->delay:J
-
-    return-object p0
-.end method
-
-.method public setDuration(J)Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
-    .locals 0
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->duration:J
-
-    return-object p0
+    return-void
 .end method
 
 .method public wasAdded(Landroid/view/View;)Z

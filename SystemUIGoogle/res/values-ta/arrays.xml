@@ -17,6 +17,7 @@
         <item>அதிகபட்சமாக 3 செயல்முறைகள்</item>
         <item>அதிகபட்சமாக 4 செயல்முறைகள்</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>முடக்கப்பட்டுள்ளது</item>
         <item>இயக்கப்பட்டுள்ளது</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>இல்லை</item>
+        <item>முடக்கப்பட்டுள்ளது</item>
+        <item>இயக்கப்பட்டுள்ளது</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>கிடைக்கவில்லை</item>
         <item>முடக்கப்பட்டுள்ளது</item>
@@ -309,6 +315,16 @@
         <item>கிடைக்கவில்லை</item>
         <item>முடக்கப்பட்டுள்ளது</item>
         <item>இயக்கப்பட்டுள்ளது</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>கிடைக்கவில்லை</item>
+        <item>முடக்கப்பட்டுள்ளது</item>
+        <item>இயக்கப்பட்டுள்ளது</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>கிடைக்கவில்லை</item>
+        <item>இயக்கு</item>
+        <item>முடக்கு</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>கிடைக்கவில்லை</item>
@@ -374,6 +390,12 @@
         <item>அதிக வேகமாக</item>
         <item>மிக அதிக வேகமாக</item>
         <item>அதிகபட்ச வேகம்</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>இடதுபுறம் நகர்த்துங்கள்</item>
+        <item>கீழே நகர்த்துங்கள்</item>
+        <item>வலதுபுறம் நகர்த்துங்கள்</item>
+        <item>மேலே நகர்த்துங்கள்</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>சார்ஜ் ஆகிறது</item>

@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/KeyguardConstants;
+.class public final Lcom/android/keyguard/KeyguardConstants;
 .super Ljava/lang/Object;
 .source "KeyguardConstants.java"
 
@@ -8,7 +8,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "Keyguard"

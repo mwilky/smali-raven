@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -29,9 +30,19 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->$r8$lambda$6Y9Oy47QcJ-cTN489A6Srsk1N_Y(ILjava/lang/Integer;)Z
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
-    move-result p0
+    move-result p1
 
+    if-ne p1, p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     return p0
 .end method

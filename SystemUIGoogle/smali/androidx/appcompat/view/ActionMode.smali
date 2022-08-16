@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private mTag:Ljava/lang/Object;
+.field public mTag:Ljava/lang/Object;
 
-.field private mTitleOptionalHint:Z
+.field public mTitleOptionalHint:Z
 
 
 # direct methods
@@ -34,7 +34,7 @@
 .method public abstract getCustomView()Landroid/view/View;
 .end method
 
-.method public abstract getMenu()Landroid/view/Menu;
+.method public abstract getMenu()Landroidx/appcompat/view/menu/MenuBuilder;
 .end method
 
 .method public abstract getMenuInflater()Landroid/view/MenuInflater;
@@ -43,23 +43,7 @@
 .method public abstract getSubtitle()Ljava/lang/CharSequence;
 .end method
 
-.method public getTag()Ljava/lang/Object;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/view/ActionMode;->mTag:Ljava/lang/Object;
-
-    return-object p0
-.end method
-
 .method public abstract getTitle()Ljava/lang/CharSequence;
-.end method
-
-.method public getTitleOptionalHint()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/appcompat/view/ActionMode;->mTitleOptionalHint:Z
-
-    return p0
 .end method
 
 .method public abstract invalidate()V
@@ -77,24 +61,11 @@
 .method public abstract setSubtitle(Ljava/lang/CharSequence;)V
 .end method
 
-.method public setTag(Ljava/lang/Object;)V
-    .locals 0
-
-    iput-object p1, p0, Landroidx/appcompat/view/ActionMode;->mTag:Ljava/lang/Object;
-
-    return-void
-.end method
-
 .method public abstract setTitle(I)V
 .end method
 
 .method public abstract setTitle(Ljava/lang/CharSequence;)V
 .end method
 
-.method public setTitleOptionalHint(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Landroidx/appcompat/view/ActionMode;->mTitleOptionalHint:Z
-
-    return-void
+.method public abstract setTitleOptionalHint(Z)V
 .end method

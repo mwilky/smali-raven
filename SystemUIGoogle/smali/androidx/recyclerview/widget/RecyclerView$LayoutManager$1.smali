@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;
+.class public final Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;
 .super Ljava/lang/Object;
 .source "RecyclerView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+.field public final synthetic this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
+.method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;->this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
@@ -42,16 +34,8 @@
 
 
 # virtual methods
-.method public getChildAt(I)Landroid/view/View;
+.method public final getChildAt(I)Landroid/view/View;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;->this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
@@ -62,16 +46,8 @@
     return-object p0
 .end method
 
-.method public getChildEnd(Landroid/view/View;)I
+.method public final getChildEnd(Landroid/view/View;)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -92,16 +68,8 @@
     return p0
 .end method
 
-.method public getChildStart(Landroid/view/View;)I
+.method public final getChildStart(Landroid/view/View;)I
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -122,16 +90,12 @@
     return p0
 .end method
 
-.method public getParentEnd()I
+.method public final getParentEnd()I
     .locals 1
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;->this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getWidth()I
-
-    move-result v0
-
     iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;->this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+
+    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->mWidth:I
 
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->getPaddingRight()I
 
@@ -142,7 +106,7 @@
     return v0
 .end method
 
-.method public getParentStart()I
+.method public final getParentStart()I
     .locals 0
 
     iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$LayoutManager$1;->this$0:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;

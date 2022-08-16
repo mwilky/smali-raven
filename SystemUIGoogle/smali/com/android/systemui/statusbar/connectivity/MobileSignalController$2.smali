@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;
+.class public final Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;
 .super Landroid/telephony/ims/RegistrationManager$RegistrationCallback;
 .source "MobileSignalController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onRegistered(Landroid/telephony/ims/ImsRegistrationAttributes;)V
+.method public final onRegistered(Landroid/telephony/ims/ImsRegistrationAttributes;)V
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
@@ -42,7 +42,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onRegistered: attributes="
+    const-string/jumbo v2, "onRegistered: attributes="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -70,41 +70,35 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {p1, v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$402(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;I)I
+    iput v2, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mImsType:I
 
-    new-instance p1, Lcom/android/systemui/statusbar/connectivity/IconState;
+    new-instance v0, Lcom/android/systemui/statusbar/connectivity/IconState;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+    iget p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWwanLevel:I
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$500(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
+    invoke-static {p1, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthIcon(IZ)I
 
-    move-result v3
-
-    invoke-static {v0, v3, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$600(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)I
-
-    move-result v0
+    move-result p1
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$500(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
+    iget v4, v3, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWwanLevel:I
 
-    move-result v4
-
-    invoke-static {v3, v4, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$700(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)Ljava/lang/String;
+    invoke-virtual {v3, v4, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthDescription(IZ)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p1, v2, v0, v1}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v0, p1, v1, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
 
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
 
     goto :goto_0
 
@@ -117,41 +111,35 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {p1, v3}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$402(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;I)I
+    iput v3, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mImsType:I
 
-    new-instance p1, Lcom/android/systemui/statusbar/connectivity/IconState;
+    new-instance v0, Lcom/android/systemui/statusbar/connectivity/IconState;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+    iget p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWlanLevel:I
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$800(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
+    invoke-static {p1, v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthIcon(IZ)I
 
-    move-result v1
-
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$600(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)I
-
-    move-result v0
+    move-result p1
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$800(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
+    iget v3, v1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWlanLevel:I
 
-    move-result v3
-
-    invoke-static {v1, v3, v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$700(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)Ljava/lang/String;
+    invoke-virtual {v1, v3, v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthDescription(IZ)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p1, v2, v0, v1}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v0, p1, v1, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
 
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
 
     goto :goto_0
 
@@ -162,48 +150,42 @@
 
     const/4 v0, 0x3
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$402(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;I)I
+    iput v0, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mImsType:I
 
-    new-instance p1, Lcom/android/systemui/statusbar/connectivity/IconState;
+    new-instance v0, Lcom/android/systemui/statusbar/connectivity/IconState;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+    iget p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWlanCrossSimLevel:I
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$900(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
+    invoke-static {p1, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthIcon(IZ)I
 
-    move-result v3
-
-    invoke-static {v0, v3, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$600(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)I
-
-    move-result v0
+    move-result p1
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$900(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
+    iget v4, v3, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWlanCrossSimLevel:I
 
-    move-result v4
-
-    invoke-static {v3, v4, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$700(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)Ljava/lang/String;
+    invoke-virtual {v3, v4, v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthDescription(IZ)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-direct {p1, v2, v0, v1}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v0, p1, v1, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
 
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
+    invoke-virtual {p0, v0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
 
     :cond_2
     :goto_0
     return-void
 .end method
 
-.method public onUnregistered(Landroid/telephony/ims/ImsReasonInfo;)V
+.method public final onUnregistered(Landroid/telephony/ims/ImsReasonInfo;)V
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
@@ -230,43 +212,37 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$402(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;I)I
+    iput v0, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mImsType:I
 
-    new-instance p1, Lcom/android/systemui/statusbar/connectivity/IconState;
+    new-instance v1, Lcom/android/systemui/statusbar/connectivity/IconState;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+    iget p1, p1, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWwanLevel:I
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$500(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
+    const/4 v2, 0x0
 
-    move-result v2
+    invoke-static {p1, v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthIcon(IZ)I
 
-    const/4 v3, 0x0
+    move-result p1
 
-    invoke-static {v1, v2, v3}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$600(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)I
+    iget-object v3, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    move-result v1
+    iget v4, v3, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mLastWwanLevel:I
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$500(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)I
-
-    move-result v4
-
-    invoke-static {v2, v4, v3}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$700(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;IZ)Ljava/lang/String;
+    invoke-virtual {v3, v4, v2}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->getCallStrengthDescription(IZ)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-direct {p1, v0, v1, v2}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v1, p1, v2, v0}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$2;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->mSubscriptionInfo:Landroid/telephony/SubscriptionInfo;
 
-    invoke-virtual {v0}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
+    invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSubscriptionId()I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
+    invoke-virtual {p0, v1, p1}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyCallStateChange(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
 
     return-void
 .end method

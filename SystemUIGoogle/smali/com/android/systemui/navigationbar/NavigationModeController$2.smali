@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationModeController$2;
+.class public final Lcom/android/systemui/navigationbar/NavigationModeController$2;
 .super Landroid/content/BroadcastReceiver;
 .source "NavigationModeController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationModeController;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationModeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationModeController;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationModeController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationModeController$2;->this$0:Lcom/android/systemui/navigationbar/NavigationModeController;
@@ -31,12 +31,10 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/navigationbar/NavigationModeController;->access$000()Ljava/lang/String;
-
-    move-result-object p1
+    const-string p1, "NavigationModeController"
 
     const-string p2, "ACTION_OVERLAY_CHANGED"
 

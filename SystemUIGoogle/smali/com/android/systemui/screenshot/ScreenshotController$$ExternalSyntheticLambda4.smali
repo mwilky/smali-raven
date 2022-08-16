@@ -1,33 +1,48 @@
 .class public final synthetic Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/systemui/screenshot/ScreenshotController$ActionsReadyListener;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
+.field public final synthetic f$1:Landroid/content/ComponentName;
+
+.field public final synthetic f$2:Ljava/util/function/Consumer;
+
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotController;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/content/ComponentName;Lcom/android/wm/shell/ShellCommandHandlerImpl$$ExternalSyntheticLambda0;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
+    iput-object p2, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;->f$1:Landroid/content/ComponentName;
+
+    iput-object p3, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;->f$2:Ljava/util/function/Consumer;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final onActionsReady(Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;)V
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/screenshot/ScreenshotController;
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/screenshot/ScreenshotController;->$r8$lambda$pIo-EcgYVCTGoWDtBJ9gT_xxCL8(Lcom/android/systemui/screenshot/ScreenshotController;Lcom/android/systemui/screenshot/ScreenshotController$SavedImageData;)V
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;->f$1:Landroid/content/ComponentName;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda4;->f$2:Ljava/util/function/Consumer;
+
+    check-cast p1, Landroid/graphics/Rect;
+
+    invoke-virtual {v0, v1, p0, p1}, Lcom/android/systemui/screenshot/ScreenshotController;->takeScreenshotInternal(Landroid/content/ComponentName;Ljava/util/function/Consumer;Landroid/graphics/Rect;)V
 
     return-void
 .end method

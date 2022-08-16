@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d дня таму</item>
-        <item quantity="one">%d дзень таму</item>
-        <item quantity="few">%d дні таму</item>
-        <item quantity="many">%d дзён таму</item>
+        <item quantity="other">%d дня таму</item>
+        <item quantity="one">%d дзень таму</item>
+        <item quantity="few">%d дні таму</item>
+        <item quantity="many">%d дзён таму</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d хвіліны таму</item>
-        <item quantity="one">%d хвіліну таму</item>
-        <item quantity="few">%d хвіліны таму</item>
-        <item quantity="many">%d хвілін таму</item>
+        <item quantity="other">%d хв таму</item>
+        <item quantity="one">%d хв таму</item>
+        <item quantity="few">%d хв таму</item>
+        <item quantity="many">%d хв таму</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d года таму</item>
-        <item quantity="one">%d год таму</item>
-        <item quantity="few">%d гады таму</item>
-        <item quantity="many">%d гадоў таму</item>
+        <item quantity="other">%d года таму</item>
+        <item quantity="one">%d год таму</item>
+        <item quantity="few">%d гады таму</item>
+        <item quantity="many">%d гадоў таму</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">Дададзена %s элемента кіравання.</item>
         <item quantity="one">Дададзены %s элемент кіравання.</item>
         <item quantity="few">Дададзена %s элементы кіравання.</item>
         <item quantity="many">Дададзена %s элементаў кіравання.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s праграмы актыўныя</item>
+        <item quantity="one">%s праграма актыўная</item>
+        <item quantity="few">%s праграмы актыўныя</item>
+        <item quantity="many">%s праграм актыўныя</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Увядзіце PIN-код SIM-карты. У вас засталося %d спробы.</item>
@@ -47,12 +53,6 @@
         <item quantity="one">Няправільны PUK-код SIM-карты, у вас засталася %d спроба перад тым, як SIM-карта перастане працаваць назаўжды.</item>
         <item quantity="few">Няправільны PUK-код SIM-карты, у вас засталіся %d спробы перад тым, як SIM-карта перастане працаваць назаўжды.</item>
         <item quantity="many">Няправільны PUK-код SIM-карты, у вас засталіся %d спроб перад тым, як SIM-карта перастане працаваць назаўжды.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Паўтарыце спробу праз %d секунды.</item>
-        <item quantity="one">Паўтарыце спробу праз %d секунду.</item>
-        <item quantity="few">Паўтарыце спробу праз %d секунды.</item>
-        <item quantity="many">Паўтарыце спробу праз %d секунд.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d новага апавяшчэння</item>
@@ -101,11 +101,5 @@
         <item quantity="one">Можна дадаць %d карыстальніка.</item>
         <item quantity="few">Можна дадаць %d карыстальнікаў.</item>
         <item quantity="many">Можна дадаць %d карыстальнікаў.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d прылады падключана</item>
-        <item quantity="one">%1$d прылада падключана</item>
-        <item quantity="few">%1$d прылады падключаны</item>
-        <item quantity="many">%1$d прылад падключана</item>
     </plurals>
 </resources>

@@ -1,4 +1,4 @@
-.class public Landroidx/constraintlayout/solver/widgets/analyzer/BasicMeasure$Measure;
+.class public final Landroidx/constraintlayout/solver/widgets/analyzer/BasicMeasure$Measure;
 .super Ljava/lang/Object;
 .source "BasicMeasure.java"
 

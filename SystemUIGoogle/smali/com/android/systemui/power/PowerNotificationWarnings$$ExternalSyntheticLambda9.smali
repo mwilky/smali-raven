@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda9;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/plugins/ActivityStarter$Callback;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onActivityStarted(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda9;->f$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->$r8$lambda$OAwUN_OHnSI9S6XRP6K-TTWkM94(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mUsbHighTempDialog:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
     return-void
 .end method

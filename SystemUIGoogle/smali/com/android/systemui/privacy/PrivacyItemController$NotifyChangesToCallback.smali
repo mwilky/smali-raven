@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/privacy/PrivacyItemController$NotifyChangesToCallback;
+.class public final Lcom/android/systemui/privacy/PrivacyItemController$NotifyChangesToCallback;
 .super Ljava/lang/Object;
 .source "PrivacyItemController.kt"
 
@@ -12,15 +12,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "NotifyChangesToCallback"
 .end annotation
 
 
 # instance fields
-.field private final callback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
+.field public final callback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
 
-.field private final list:Ljava/util/List;
+.field public final list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -33,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/privacy/PrivacyItemController$Callback;Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -43,10 +43,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "list"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -59,7 +55,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyItemController$NotifyChangesToCallback;->callback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;

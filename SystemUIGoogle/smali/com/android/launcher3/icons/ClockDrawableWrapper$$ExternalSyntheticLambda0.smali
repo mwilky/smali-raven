@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/launcher3/icons/ClockDrawableWrapper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/IntFunction;
@@ -33,7 +34,7 @@
 
     iget p0, p0, Lcom/android/launcher3/icons/ClockDrawableWrapper$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-static {v0, p0, p1}, Lcom/android/launcher3/icons/ClockDrawableWrapper;->$r8$lambda$Q1HtLR1f9w0IJqRnies4gHFROvo(Landroid/content/res/Resources;II)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v0, p1, p0}, Landroid/content/res/Resources;->getDrawableForDensity(II)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 

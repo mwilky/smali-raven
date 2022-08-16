@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="pip_edu_text_show_duration_ms">10500</integer>
+    <integer name="pip_edu_text_view_exit_animation_duration_ms">300</integer>
+    <integer name="pip_edu_text_window_exit_animation_duration_ms">1000</integer>
+    <integer name="pip_menu_fade_animation_duration">500</integer>
+</resources>

@@ -6,59 +6,28 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroidx/leanback/widget/BaseGridView$OnLayoutCompletedListener;,
-        Landroidx/leanback/widget/BaseGridView$OnUnhandledKeyListener;,
-        Landroidx/leanback/widget/BaseGridView$OnKeyInterceptListener;,
-        Landroidx/leanback/widget/BaseGridView$OnMotionInterceptListener;,
-        Landroidx/leanback/widget/BaseGridView$OnTouchInterceptListener;,
-        Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;
+        Landroidx/leanback/widget/BaseGridView$OnLayoutCompletedListener;
     }
 .end annotation
 
 
 # instance fields
-.field private mAnimateChildLayout:Z
+.field public mHasOverlappingRendering:Z
 
-.field private mHasOverlappingRendering:Z
+.field public mInitialPrefetchItemCount:I
 
-.field mInitialPrefetchItemCount:I
+.field public mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-.field final mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-.field private mOnKeyInterceptListener:Landroidx/leanback/widget/BaseGridView$OnKeyInterceptListener;
-
-.field private mOnMotionInterceptListener:Landroidx/leanback/widget/BaseGridView$OnMotionInterceptListener;
-
-.field private mOnTouchInterceptListener:Landroidx/leanback/widget/BaseGridView$OnTouchInterceptListener;
-
-.field private mOnUnhandledKeyListener:Landroidx/leanback/widget/BaseGridView$OnUnhandledKeyListener;
-
-.field private mPrivateFlag:I
-
-.field private mSmoothScrollByBehavior:Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;
+.field public mPrivateFlag:I
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyle"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/recyclerview/widget/RecyclerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     const/4 p1, 0x1
-
-    iput-boolean p1, p0, Landroidx/leanback/widget/BaseGridView;->mAnimateChildLayout:Z
 
     iput-boolean p1, p0, Landroidx/leanback/widget/BaseGridView;->mHasOverlappingRendering:Z
 
@@ -72,17 +41,17 @@
 
     iput-object p2, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
+    invoke-virtual {p0, p2}, Landroidx/leanback/widget/BaseGridView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
 
     const/4 p2, 0x0
 
-    invoke-virtual {p0, p2}, Landroidx/recyclerview/widget/RecyclerView;->setPreserveFocusAfterLayout(Z)V
+    iput-boolean p2, p0, Landroidx/recyclerview/widget/RecyclerView;->mPreserveFocusAfterLayout:Z
 
     const/high16 p3, 0x40000
 
     invoke-virtual {p0, p3}, Landroid/view/ViewGroup;->setDescendantFocusability(I)V
 
-    invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->setHasFixedSize(Z)V
+    iput-boolean p1, p0, Landroidx/recyclerview/widget/RecyclerView;->mHasFixedSize:Z
 
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setChildrenDrawingOrderEnabled(Z)V
 
@@ -92,51 +61,28 @@
 
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setOverScrollMode(I)V
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->getItemAnimator()Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;
-
-    move-result-object p1
+    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView;->mItemAnimator:Landroidx/recyclerview/widget/RecyclerView$ItemAnimator;
 
     check-cast p1, Landroidx/recyclerview/widget/SimpleItemAnimator;
 
-    invoke-virtual {p1, p2}, Landroidx/recyclerview/widget/SimpleItemAnimator;->setSupportsChangeAnimations(Z)V
+    iput-boolean p2, p1, Landroidx/recyclerview/widget/SimpleItemAnimator;->mSupportsChangeAnimations:Z
 
     new-instance p1, Landroidx/leanback/widget/BaseGridView$1;
 
     invoke-direct {p1, p0}, Landroidx/leanback/widget/BaseGridView$1;-><init>(Landroidx/leanback/widget/BaseGridView;)V
 
-    invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->addRecyclerListener(Landroidx/recyclerview/widget/RecyclerView$RecyclerListener;)V
+    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView;->mRecyclerListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected dispatchGenericFocusedEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
+.method public final dispatchGenericFocusedEvent(Landroid/view/MotionEvent;)Z
+    .locals 0
 
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mOnMotionInterceptListener:Landroidx/leanback/widget/BaseGridView$OnMotionInterceptListener;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p1}, Landroidx/leanback/widget/BaseGridView$OnMotionInterceptListener;->onInterceptMotionEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchGenericFocusedEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
@@ -144,86 +90,28 @@
     return p0
 .end method
 
-.method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
+.method public final dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 0
 
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mOnKeyInterceptListener:Landroidx/leanback/widget/BaseGridView$OnKeyInterceptListener;
-
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p1}, Landroidx/leanback/widget/BaseGridView$OnKeyInterceptListener;->onInterceptKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return v1
-
-    :cond_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    return v1
-
-    :cond_1
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mOnUnhandledKeyListener:Landroidx/leanback/widget/BaseGridView$OnUnhandledKeyListener;
-
-    if-eqz p0, :cond_2
-
-    invoke-interface {p0, p1}, Landroidx/leanback/widget/BaseGridView$OnUnhandledKeyListener;->onUnhandledKey(Landroid/view/KeyEvent;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_2
-
-    goto :goto_0
-
-    :cond_2
-    const/4 v1, 0x0
-
-    :goto_0
-    return v1
-.end method
-
-.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mOnTouchInterceptListener:Landroidx/leanback/widget/BaseGridView$OnTouchInterceptListener;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p1}, Landroidx/leanback/widget/BaseGridView$OnTouchInterceptListener;->onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
     const/4 p0, 0x1
 
     return p0
 
     :cond_0
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public final dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 0
+
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->dispatchTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
@@ -231,16 +119,8 @@
     return p0
 .end method
 
-.method public focusSearch(I)Landroid/view/View;
+.method public final focusSearch(I)Landroid/view/View;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->isFocused()Z
 
@@ -250,9 +130,7 @@
 
     iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {v0}, Landroidx/leanback/widget/GridLayoutManager;->getSelection()I
-
-    move-result v1
+    iget v1, v0, Landroidx/leanback/widget/GridLayoutManager;->mFocusPosition:I
 
     invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
 
@@ -274,53 +152,49 @@
     return-object p0
 .end method
 
-.method public getChildDrawingOrder(II)I
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "childCount",
-            "i"
-        }
-    .end annotation
+.method public final getChildDrawingOrder(II)I
+    .locals 2
 
     iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {v0, p0, p1, p2}, Landroidx/leanback/widget/GridLayoutManager;->getChildDrawingOrder(Landroidx/recyclerview/widget/RecyclerView;II)I
+    iget v1, v0, Landroidx/leanback/widget/GridLayoutManager;->mFocusPosition:I
+
+    invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
 
     move-result p0
 
-    return p0
+    if-ge p2, p0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    add-int/lit8 v0, p1, -0x1
+
+    if-ge p2, v0, :cond_2
+
+    add-int/2addr p0, p1
+
+    add-int/lit8 p0, p0, -0x1
+
+    sub-int/2addr p0, p2
+
+    :cond_2
+    move p2, p0
+
+    :goto_0
+    return p2
 .end method
 
-.method public getSelectedPosition()I
-    .locals 0
-
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/GridLayoutManager;->getSelection()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getVerticalSpacing()I
-    .locals 0
-
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/GridLayoutManager;->getVerticalSpacing()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     iget-boolean p0, p0, Landroidx/leanback/widget/BaseGridView;->mHasOverlappingRendering:Z
@@ -328,22 +202,11 @@
     return p0
 .end method
 
-.method initBaseGridViewAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 3
+.method public final initBaseGridViewAttributes(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    .locals 5
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "CustomViewStyleable"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
         }
     .end annotation
 
@@ -353,7 +216,7 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/leanback/R$styleable;->lbBaseGridView_focusOutFront:I
+    const/4 p2, 0x4
 
     const/4 v0, 0x0
 
@@ -361,7 +224,7 @@
 
     move-result p2
 
-    sget v1, Landroidx/leanback/R$styleable;->lbBaseGridView_focusOutEnd:I
+    const/4 v1, 0x3
 
     invoke-virtual {p1, v1, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
@@ -369,9 +232,37 @@
 
     iget-object v2, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {v2, p2, v1}, Landroidx/leanback/widget/GridLayoutManager;->setFocusOutAllowed(ZZ)V
+    iget v3, v2, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
 
-    sget p2, Landroidx/leanback/R$styleable;->lbBaseGridView_focusOutSideStart:I
+    and-int/lit16 v3, v3, -0x1801
+
+    if-eqz p2, :cond_0
+
+    const/16 p2, 0x800
+
+    goto :goto_0
+
+    :cond_0
+    move p2, v0
+
+    :goto_0
+    or-int/2addr p2, v3
+
+    if-eqz v1, :cond_1
+
+    const/16 v1, 0x1000
+
+    goto :goto_1
+
+    :cond_1
+    move v1, v0
+
+    :goto_1
+    or-int/2addr p2, v1
+
+    iput p2, v2, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
+
+    const/4 p2, 0x6
 
     const/4 v1, 0x1
 
@@ -379,69 +270,119 @@
 
     move-result p2
 
-    sget v2, Landroidx/leanback/R$styleable;->lbBaseGridView_focusOutSideEnd:I
+    const/4 v2, 0x5
 
     invoke-virtual {p1, v2, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v1
+    move-result v2
 
-    iget-object v2, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+    iget-object v3, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {v2, p2, v1}, Landroidx/leanback/widget/GridLayoutManager;->setFocusOutSideAllowed(ZZ)V
+    iget v4, v3, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
 
-    iget-object p2, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+    and-int/lit16 v4, v4, -0x6001
 
-    sget v1, Landroidx/leanback/R$styleable;->lbBaseGridView_android_verticalSpacing:I
+    if-eqz p2, :cond_2
 
-    sget v2, Landroidx/leanback/R$styleable;->lbBaseGridView_verticalMargin:I
+    const/16 p2, 0x2000
+
+    goto :goto_2
+
+    :cond_2
+    move p2, v0
+
+    :goto_2
+    or-int/2addr p2, v4
+
+    if-eqz v2, :cond_3
+
+    const/16 v2, 0x4000
+
+    goto :goto_3
+
+    :cond_3
+    move v2, v0
+
+    :goto_3
+    or-int/2addr p2, v2
+
+    iput p2, v3, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
+
+    const/4 p2, 0x2
+
+    const/16 v2, 0x8
 
     invoke-virtual {p1, v2, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result v2
 
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
-
-    move-result v1
-
-    invoke-virtual {p2, v1}, Landroidx/leanback/widget/GridLayoutManager;->setVerticalSpacing(I)V
-
-    iget-object p2, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    sget v1, Landroidx/leanback/R$styleable;->lbBaseGridView_android_horizontalSpacing:I
-
-    sget v2, Landroidx/leanback/R$styleable;->lbBaseGridView_horizontalMargin:I
-
-    invoke-virtual {p1, v2, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
-
-    move-result v2
-
-    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
-
-    move-result v1
-
-    invoke-virtual {p2, v1}, Landroidx/leanback/widget/GridLayoutManager;->setHorizontalSpacing(I)V
-
-    sget p2, Landroidx/leanback/R$styleable;->lbBaseGridView_android_gravity:I
-
-    invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->hasValue(I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {p1, p2, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result p2
 
-    invoke-virtual {p0, p2}, Landroidx/leanback/widget/BaseGridView;->setGravity(I)V
+    iget v2, v3, Landroidx/leanback/widget/GridLayoutManager;->mOrientation:I
 
-    :cond_0
+    if-ne v2, v1, :cond_4
+
+    iput p2, v3, Landroidx/leanback/widget/GridLayoutManager;->mVerticalSpacing:I
+
+    iput p2, v3, Landroidx/leanback/widget/GridLayoutManager;->mSpacingPrimary:I
+
+    goto :goto_4
+
+    :cond_4
+    iput p2, v3, Landroidx/leanback/widget/GridLayoutManager;->mVerticalSpacing:I
+
+    iput p2, v3, Landroidx/leanback/widget/GridLayoutManager;->mSpacingSecondary:I
+
+    :goto_4
+    iget-object p2, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+
+    const/4 v2, 0x7
+
+    invoke-virtual {p1, v2, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+
+    move-result v2
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+
+    move-result v1
+
+    iget v2, p2, Landroidx/leanback/widget/GridLayoutManager;->mOrientation:I
+
+    if-nez v2, :cond_5
+
+    iput v1, p2, Landroidx/leanback/widget/GridLayoutManager;->mSpacingPrimary:I
+
+    goto :goto_5
+
+    :cond_5
+    iput v1, p2, Landroidx/leanback/widget/GridLayoutManager;->mSpacingSecondary:I
+
+    :goto_5
+    invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->hasValue(I)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_6
+
+    invoke-virtual {p1, v0, v0}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result p2
+
+    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+
+    iput p2, v0, Landroidx/leanback/widget/GridLayoutManager;->mGravity:I
+
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->requestLayout()V
+
+    :cond_6
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
 .end method
 
-.method final isChildrenDrawingOrderEnabledInternal()Z
+.method public final isChildrenDrawingOrderEnabledInternal()Z
     .locals 0
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->isChildrenDrawingOrderEnabled()Z
@@ -451,42 +392,57 @@
     return p0
 .end method
 
-.method protected onFocusChanged(ZILandroid/graphics/Rect;)V
+.method public final onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "gainFocus",
-            "direction",
-            "previouslyFocusedRect"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3}, Landroid/view/ViewGroup;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
     iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {p0, p1, p2, p3}, Landroidx/leanback/widget/GridLayoutManager;->onFocusChanged(ZILandroid/graphics/Rect;)V
+    if-eqz p1, :cond_2
 
+    iget p1, p0, Landroidx/leanback/widget/GridLayoutManager;->mFocusPosition:I
+
+    :goto_0
+    invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
+
+    move-result-object p2
+
+    if-nez p2, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    invoke-virtual {p2}, Landroid/view/View;->getVisibility()I
+
+    move-result p3
+
+    if-nez p3, :cond_1
+
+    invoke-virtual {p2}, Landroid/view/View;->hasFocusable()Z
+
+    move-result p3
+
+    if-eqz p3, :cond_1
+
+    invoke-virtual {p2}, Landroid/view/View;->requestFocus()Z
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 p1, p1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    :goto_1
     return-void
 .end method
 
-.method public onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "direction",
-            "previouslyFocusedRect"
-        }
-    .end annotation
+.method public final onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+    .locals 3
 
     iget v0, p0, Landroidx/leanback/widget/BaseGridView;->mPrivateFlag:I
 
@@ -494,50 +450,102 @@
 
     and-int/2addr v0, v1
 
+    const/4 v2, 0x0
+
     if-ne v0, v1, :cond_0
 
-    const/4 p0, 0x0
-
-    return p0
+    return v2
 
     :cond_0
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {v0, p0, p1, p2}, Landroidx/leanback/widget/GridLayoutManager;->gridOnRequestFocusInDescendants(Landroidx/recyclerview/widget/RecyclerView;ILandroid/graphics/Rect;)Z
+    iget v0, p0, Landroidx/leanback/widget/GridLayoutManager;->mFocusPosition:I
 
-    move-result p0
+    invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$LayoutManager;->findViewByPosition(I)Landroid/view/View;
 
-    return p0
+    move-result-object p0
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0, p1, p2}, Landroid/view/View;->requestFocus(ILandroid/graphics/Rect;)Z
+
+    move-result v2
+
+    :cond_1
+    return v2
 .end method
 
-.method public onRtlPropertiesChanged(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "layoutDirection"
-        }
-    .end annotation
+.method public final onRtlPropertiesChanged(I)V
+    .locals 5
 
     iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/GridLayoutManager;->onRtlPropertiesChanged(I)V
+    if-eqz p0, :cond_4
 
+    iget v0, p0, Landroidx/leanback/widget/GridLayoutManager;->mOrientation:I
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-nez v0, :cond_0
+
+    if-ne p1, v2, :cond_1
+
+    const/high16 v0, 0x40000
+
+    goto :goto_0
+
+    :cond_0
+    if-ne p1, v2, :cond_1
+
+    const/high16 v0, 0x80000
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    :goto_0
+    iget v3, p0, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
+
+    const/high16 v4, 0xc0000
+
+    and-int/2addr v4, v3
+
+    if-ne v4, v0, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    const v4, -0xc0001
+
+    and-int/2addr v3, v4
+
+    or-int/2addr v0, v3
+
+    or-int/lit16 v0, v0, 0x100
+
+    iput v0, p0, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
+
+    iget-object p0, p0, Landroidx/leanback/widget/GridLayoutManager;->mWindowAlignment:Landroidx/leanback/widget/WindowAlignment;
+
+    iget-object p0, p0, Landroidx/leanback/widget/WindowAlignment;->horizontal:Landroidx/leanback/widget/WindowAlignment$Axis;
+
+    if-ne p1, v2, :cond_3
+
+    move v1, v2
+
+    :cond_3
+    iput-boolean v1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
+
+    :cond_4
+    :goto_1
     return-void
 .end method
 
-.method public removeView(Landroid/view/View;)V
+.method public final removeView(Landroid/view/View;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/view/View;->hasFocus()Z
 
@@ -586,16 +594,8 @@
     return-void
 .end method
 
-.method public removeViewAt(I)V
+.method public final removeViewAt(I)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
@@ -630,241 +630,125 @@
     return-void
 .end method
 
-.method public scrollToPosition(I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
+.method public final scrollToPosition(I)V
+    .locals 3
 
     iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {v0}, Landroidx/leanback/widget/GridLayoutManager;->isSlidingChildViews()Z
+    iget v1, v0, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
 
-    move-result v0
+    and-int/lit8 v1, v1, 0x40
 
-    if-eqz v0, :cond_0
+    const/4 v2, 0x0
 
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+    if-eqz v1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, p1, v0, v0}, Landroidx/leanback/widget/GridLayoutManager;->setSelectionWithSub(III)V
+    goto :goto_0
+
+    :cond_0
+    move v1, v2
+
+    :goto_0
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0, p1, v2}, Landroidx/leanback/widget/GridLayoutManager;->setSelection(IZ)V
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->scrollToPosition(I)V
 
     return-void
 .end method
 
-.method public setGravity(I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "gravity"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    invoke-virtual {v0, p1}, Landroidx/leanback/widget/GridLayoutManager;->setGravity(I)V
-
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->requestLayout()V
-
-    return-void
-.end method
-
-.method public setOnChildViewHolderSelectedListener(Landroidx/leanback/widget/OnChildViewHolderSelectedListener;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/GridLayoutManager;->setOnChildViewHolderSelectedListener(Landroidx/leanback/widget/OnChildViewHolderSelectedListener;)V
-
-    return-void
-.end method
-
-.method public setSelectedPosition(I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, v0}, Landroidx/leanback/widget/GridLayoutManager;->setSelection(II)V
-
-    return-void
-.end method
-
-.method public setSelectedPositionSmooth(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/GridLayoutManager;->setSelectionSmooth(I)V
-
-    return-void
-.end method
-
-.method public setWindowAlignment(I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "windowAlignment"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
-
-    invoke-virtual {v0, p1}, Landroidx/leanback/widget/GridLayoutManager;->setWindowAlignment(I)V
-
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView;->requestLayout()V
-
-    return-void
-.end method
-
-.method public smoothScrollBy(II)V
+.method public final setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy"
-        }
-    .end annotation
 
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mSmoothScrollByBehavior:Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p1, p2}, Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;->configSmoothScrollByInterpolator(II)Landroid/view/animation/Interpolator;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroidx/leanback/widget/BaseGridView;->mSmoothScrollByBehavior:Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;
-
-    invoke-interface {v1, p1, p2}, Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;->configSmoothScrollByDuration(II)I
-
-    move-result v1
-
-    invoke-virtual {p0, p1, p2, v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollBy(IILandroid/view/animation/Interpolator;I)V
-
-    goto :goto_0
-
-    :cond_0
     const/4 v0, 0x0
 
-    const/high16 v1, -0x80000000
+    if-nez p1, :cond_1
 
-    invoke-virtual {p0, p1, p2, v0, v1}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollBy(IILandroid/view/animation/Interpolator;I)V
+    invoke-super {p0, v0}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
 
-    :goto_0
-    return-void
-.end method
+    iget-object p1, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-.method public smoothScrollBy(IILandroid/view/animation/Interpolator;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "dx",
-            "dy",
-            "interpolator"
-        }
-    .end annotation
+    if-eqz p1, :cond_0
 
-    iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mSmoothScrollByBehavior:Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;
+    iput-object v0, p1, Landroidx/leanback/widget/GridLayoutManager;->mBaseGridView:Landroidx/leanback/widget/BaseGridView;
 
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p1, p2}, Landroidx/leanback/widget/BaseGridView$SmoothScrollByBehavior;->configSmoothScrollByDuration(II)I
-
-    move-result v0
-
-    invoke-virtual {p0, p1, p2, p3, v0}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollBy(IILandroid/view/animation/Interpolator;I)V
-
-    goto :goto_0
+    iput-object v0, p1, Landroidx/leanback/widget/GridLayoutManager;->mGrid:Landroidx/leanback/widget/Grid;
 
     :cond_0
-    const/high16 v0, -0x80000000
+    iput-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {p0, p1, p2, p3, v0}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollBy(IILandroid/view/animation/Interpolator;I)V
+    return-void
 
-    :goto_0
+    :cond_1
+    move-object v1, p1
+
+    check-cast v1, Landroidx/leanback/widget/GridLayoutManager;
+
+    iput-object v1, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+
+    iput-object p0, v1, Landroidx/leanback/widget/GridLayoutManager;->mBaseGridView:Landroidx/leanback/widget/BaseGridView;
+
+    iput-object v0, v1, Landroidx/leanback/widget/GridLayoutManager;->mGrid:Landroidx/leanback/widget/Grid;
+
+    invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
+
     return-void
 .end method
 
-.method public smoothScrollToPosition(I)V
+.method public final smoothScrollBy(II)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "position"
-        }
-    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, v0}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollBy$1(IIZ)V
+
+    return-void
+.end method
+
+.method public final smoothScrollBy$1(II)V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, v0}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollBy$1(IIZ)V
+
+    return-void
+.end method
+
+.method public final smoothScrollToPosition(I)V
+    .locals 3
 
     iget-object v0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    invoke-virtual {v0}, Landroidx/leanback/widget/GridLayoutManager;->isSlidingChildViews()Z
+    iget v1, v0, Landroidx/leanback/widget/GridLayoutManager;->mFlag:I
 
-    move-result v0
+    and-int/lit8 v1, v1, 0x40
 
-    if-eqz v0, :cond_0
+    const/4 v2, 0x0
 
-    iget-object p0, p0, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
+    if-eqz v1, :cond_0
 
-    const/4 v0, 0x0
+    const/4 v1, 0x1
 
-    invoke-virtual {p0, p1, v0, v0}, Landroidx/leanback/widget/GridLayoutManager;->setSelectionWithSub(III)V
+    goto :goto_0
+
+    :cond_0
+    move v1, v2
+
+    :goto_0
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0, p1, v2}, Landroidx/leanback/widget/GridLayoutManager;->setSelection(IZ)V
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-super {p0, p1}, Landroidx/recyclerview/widget/RecyclerView;->smoothScrollToPosition(I)V
 
     return-void

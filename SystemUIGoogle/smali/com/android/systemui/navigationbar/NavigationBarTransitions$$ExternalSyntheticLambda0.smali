@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationBarTransitions$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnLayoutChangeListener;
@@ -23,31 +24,30 @@
 
 # virtual methods
 .method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 10
+    .locals 0
 
-    move-object v0, p0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
 
-    iget-object v0, v0, Lcom/android/systemui/navigationbar/NavigationBarTransitions$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mView:Lcom/android/systemui/navigationbar/NavigationBarView;
 
-    move-object v1, p1
+    iget-object p1, p1, Lcom/android/systemui/navigationbar/NavigationBarView;->mCurrentView:Landroid/view/View;
 
-    move v2, p2
+    if-eqz p1, :cond_0
 
-    move v3, p3
+    const p2, 0x7f0b047b
 
-    move v4, p4
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move v5, p5
+    move-result-object p1
 
-    move/from16 v6, p6
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mNavButtons:Landroid/view/View;
 
-    move/from16 v7, p7
+    const/4 p1, 0x0
 
-    move/from16 v8, p8
+    const/4 p2, 0x1
 
-    move/from16 v9, p9
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->applyLightsOut(ZZ)V
 
-    invoke-static/range {v0 .. v9}, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->$r8$lambda$WqcjeFaJhsVtAPdB0RrO5uOtEHo(Lcom/android/systemui/navigationbar/NavigationBarTransitions;Landroid/view/View;IIIIIIII)V
-
+    :cond_0
     return-void
 .end method

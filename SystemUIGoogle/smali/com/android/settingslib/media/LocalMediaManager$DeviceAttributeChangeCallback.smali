@@ -15,17 +15,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "DeviceAttributeChangeCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/media/LocalMediaManager;
+.field public final synthetic this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/media/LocalMediaManager;)V
+.method public constructor <init>(Lcom/android/settingslib/media/LocalMediaManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
@@ -37,28 +37,18 @@
 
 
 # virtual methods
-.method public onDeviceAttributesChanged()V
-    .locals 2
+.method public final onDeviceAttributesChanged()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
-
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-
-    move-result-object v0
-
     check-cast v0, Lcom/android/settingslib/media/BluetoothMediaDevice;
 
-    invoke-virtual {v0}, Lcom/android/settingslib/media/BluetoothMediaDevice;->getCachedDevice()Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/media/BluetoothMediaDevice;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isBusy()Z
 
@@ -68,9 +58,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
 
     invoke-virtual {v0}, Lcom/android/settingslib/media/MediaDevice;->isConnected()Z
 
@@ -80,30 +68,71 @@
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/media/LocalMediaManager;->access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
+    iget-object v1, v0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
+
+    const/4 v2, 0x3
+
+    iput v2, v1, Lcom/android/settingslib/media/MediaDevice;->mState:I
+
+    const/4 v1, 0x0
+
+    iput-object v1, v0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0}, Lcom/android/settingslib/media/LocalMediaManager;->getCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
 
     move-result-object v0
 
-    const/4 v1, 0x3
+    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/media/MediaDevice;->setState(I)V
+    move-result-object v0
 
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    const/4 v1, 0x0
+    move-result v2
 
-    invoke-static {v0, v1}, Lcom/android/settingslib/media/LocalMediaManager;->access$302(Lcom/android/settingslib/media/LocalMediaManager;Lcom/android/settingslib/media/MediaDevice;)Lcom/android/settingslib/media/MediaDevice;
+    if-eqz v2, :cond_0
 
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    const/4 v1, 0x0
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/media/LocalMediaManager;->dispatchOnRequestFailed(I)V
+    check-cast v2, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;
+
+    invoke-interface {v2, v1}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onRequestFailed(I)V
+
+    goto :goto_0
 
     :cond_0
     iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;->this$0:Lcom/android/settingslib/media/LocalMediaManager;
 
-    invoke-virtual {p0}, Lcom/android/settingslib/media/LocalMediaManager;->dispatchDeviceAttributesChanged()V
+    invoke-virtual {p0}, Lcom/android/settingslib/media/LocalMediaManager;->getCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
 
+    move-result-object p0
+
+    invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;
+
+    invoke-interface {v0}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onDeviceAttributesChanged()V
+
+    goto :goto_1
+
+    :cond_1
     return-void
 .end method

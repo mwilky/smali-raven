@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/DeviceControlsTile$1;
+.class public final Lcom/android/systemui/qs/tiles/DeviceControlsTile$1;
 .super Ljava/lang/Object;
 .source "DeviceControlsTile.kt"
 
@@ -12,26 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
+        "<T:",
         "Ljava/lang/Object;",
-        "Ljava/util/function/Consumer<",
-        "Lcom/android/systemui/controls/management/ControlsListingController;",
-        ">;"
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Consumer;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
@@ -43,30 +44,16 @@
 
 
 # virtual methods
-.method public final accept(Lcom/android/systemui/controls/management/ControlsListingController;)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 1
-
-    const-string v0, "it"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
-
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getListingCallback$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
-
-    move-result-object v0
-
-    invoke-interface {p1, p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
-.end method
-
-.method public bridge synthetic accept(Ljava/lang/Object;)V
-    .locals 0
 
     check-cast p1, Lcom/android/systemui/controls/management/ControlsListingController;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/DeviceControlsTile$1;->accept(Lcom/android/systemui/controls/management/ControlsListingController;)V
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->listingCallback:Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;
+
+    invoke-interface {p1, p0, v0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)V
 
     return-void
 .end method

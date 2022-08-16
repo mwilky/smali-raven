@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$ProgressSet;
+.class public final Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$ProgressSet;
 .super Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;
 .source "KeyCycleOscillator.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ProgressSet"
 .end annotation
 
 
 # instance fields
-.field mNoMethod:Z
+.field public mNoMethod:Z
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;-><init>()V
@@ -33,10 +33,10 @@
 
 
 # virtual methods
-.method public setProperty(Landroid/view/View;F)V
+.method public final setProperty(Landroid/view/View;F)V
     .locals 9
 
-    const-string v0, "unable to setProgress"
+    const-string/jumbo v0, "unable to setProgress"
 
     const-string v1, "KeyCycleOscillator"
 
@@ -73,7 +73,7 @@
 
     move-result-object v5
 
-    const-string v6, "setProgress"
+    const-string/jumbo v6, "setProgress"
 
     new-array v7, v4, [Ljava/lang/Class;
 

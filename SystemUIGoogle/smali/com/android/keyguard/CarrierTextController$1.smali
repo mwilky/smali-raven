@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/CarrierTextController$1;
+.class public final Lcom/android/keyguard/CarrierTextController$1;
 .super Ljava/lang/Object;
 .source "CarrierTextController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/CarrierTextController;
+.field public final synthetic this$0:Lcom/android/keyguard/CarrierTextController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/CarrierTextController;)V
+.method public constructor <init>(Lcom/android/keyguard/CarrierTextController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/CarrierTextController$1;->this$0:Lcom/android/keyguard/CarrierTextController;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public finishedWakingUp()V
+.method public final finishedWakingUp()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextController$1;->this$0:Lcom/android/keyguard/CarrierTextController;
 
-    invoke-static {p0}, Lcom/android/keyguard/CarrierTextController;->access$200(Lcom/android/keyguard/CarrierTextController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/keyguard/CarrierText;
 
@@ -52,14 +50,12 @@
     return-void
 .end method
 
-.method public startedGoingToSleep()V
+.method public final startedGoingToSleep()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextController$1;->this$0:Lcom/android/keyguard/CarrierTextController;
 
-    invoke-static {p0}, Lcom/android/keyguard/CarrierTextController;->access$100(Lcom/android/keyguard/CarrierTextController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/keyguard/CarrierText;
 
@@ -70,14 +66,12 @@
     return-void
 .end method
 
-.method public updateCarrierInfo(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;)V
+.method public final updateCarrierInfo(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallbackInfo;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextController$1;->this$0:Lcom/android/keyguard/CarrierTextController;
 
-    invoke-static {p0}, Lcom/android/keyguard/CarrierTextController;->access$000(Lcom/android/keyguard/CarrierTextController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/keyguard/CarrierText;
 

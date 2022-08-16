@@ -50,15 +50,13 @@
 .end method
 
 .method public toString()Ljava/lang/String;
-    .locals 2
+    .locals 1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "{PluginSensor type=\""
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "{PluginSensor type=\""
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget p0, p0, Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;->mType:I
 

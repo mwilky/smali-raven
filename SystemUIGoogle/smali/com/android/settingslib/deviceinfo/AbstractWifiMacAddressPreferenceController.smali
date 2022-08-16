@@ -4,17 +4,17 @@
 
 
 # static fields
-.field private static final CONNECTIVITY_INTENTS:[Ljava/lang/String;
+.field public static final CONNECTIVITY_INTENTS:[Ljava/lang/String;
 
-.field static final KEY_WIFI_MAC_ADDRESS:Ljava/lang/String; = "wifi_mac_address"
+.field public static final KEY_WIFI_MAC_ADDRESS:Ljava/lang/String; = "wifi_mac_address"
 
-.field static final OFF:I = 0x0
+.field public static final OFF:I = 0x0
 
-.field static final ON:I = 0x1
+.field public static final ON:I = 0x1
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const-string v0, "android.net.conn.CONNECTIVITY_CHANGE"
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method protected getConnectivityIntents()[Ljava/lang/String;
+.method public final getConnectivityIntents()[Ljava/lang/String;
     .locals 0
 
     sget-object p0, Lcom/android/settingslib/deviceinfo/AbstractWifiMacAddressPreferenceController;->CONNECTIVITY_INTENTS:[Ljava/lang/String;

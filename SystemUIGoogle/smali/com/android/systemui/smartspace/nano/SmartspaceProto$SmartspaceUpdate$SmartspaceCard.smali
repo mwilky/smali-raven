@@ -161,7 +161,7 @@
     return-object p0
 .end method
 
-.method protected computeSerializedSize()I
+.method public computeSerializedSize()I
     .locals 6
 
     invoke-super {p0}, Lcom/google/protobuf/nano/MessageNano;->computeSerializedSize()I
@@ -172,9 +172,9 @@
 
     if-eqz v1, :cond_0
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-static {v2, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(IZ)I
+    invoke-static {v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(I)I
 
     move-result v1
 
@@ -282,7 +282,7 @@
 
     const/16 v5, 0x9
 
-    invoke-static {v5, v1, v2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeInt64Size(IJ)I
+    invoke-static {v1, v2, v5}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeInt64Size(JI)I
 
     move-result v1
 
@@ -297,7 +297,7 @@
 
     const/16 v5, 0xa
 
-    invoke-static {v5, v1, v2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeInt64Size(IJ)I
+    invoke-static {v1, v2, v5}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeInt64Size(JI)I
 
     move-result v1
 
@@ -312,7 +312,7 @@
 
     const/16 v3, 0xb
 
-    invoke-static {v3, v1, v2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeInt64Size(IJ)I
+    invoke-static {v1, v2, v3}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeInt64Size(JI)I
 
     move-result v1
 
@@ -349,9 +349,9 @@
 
     if-eqz v1, :cond_d
 
-    const/16 v2, 0x11
+    const/16 v1, 0x11
 
-    invoke-static {v2, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(IZ)I
+    invoke-static {v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(I)I
 
     move-result v1
 
@@ -362,9 +362,9 @@
 
     if-eqz p0, :cond_e
 
-    const/16 v1, 0x12
+    const/16 p0, 0x12
 
-    invoke-static {v1, p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(IZ)I
+    invoke-static {p0}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(I)I
 
     move-result p0
 
@@ -390,13 +390,7 @@
 
     sparse-switch v0, :sswitch_data_0
 
-    invoke-static {p1, v0}, Lcom/google/protobuf/nano/WireFormatNano;->parseUnknownField(Lcom/google/protobuf/nano/CodedInputByteBufferNano;I)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-object p0
+    goto/16 :goto_1
 
     :sswitch_0
     invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readBool()Z
@@ -417,7 +411,7 @@
     goto :goto_0
 
     :sswitch_2
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -457,7 +451,7 @@
     goto :goto_0
 
     :sswitch_4
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt64()J
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint64()J
 
     move-result-wide v0
 
@@ -466,7 +460,7 @@
     goto :goto_0
 
     :sswitch_5
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt64()J
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint64()J
 
     move-result-wide v0
 
@@ -475,7 +469,7 @@
     goto :goto_0
 
     :sswitch_6
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt64()J
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint64()J
 
     move-result-wide v0
 
@@ -502,7 +496,7 @@
     goto :goto_0
 
     :sswitch_8
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -588,7 +582,7 @@
     goto/16 :goto_0
 
     :sswitch_d
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -606,6 +600,15 @@
     goto/16 :goto_0
 
     :sswitch_f
+    return-object p0
+
+    :goto_1
+    invoke-virtual {p1, v0}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->skipField(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     return-object p0
 
     :sswitch_data_0
@@ -745,7 +748,7 @@
 
     const/16 v4, 0x9
 
-    invoke-virtual {p1, v4, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeInt64(IJ)V
+    invoke-virtual {p1, v0, v1, v4}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeInt64(JI)V
 
     :cond_8
     iget-wide v0, p0, Lcom/android/systemui/smartspace/nano/SmartspaceProto$SmartspaceUpdate$SmartspaceCard;->eventTimeMillis:J
@@ -756,7 +759,7 @@
 
     const/16 v4, 0xa
 
-    invoke-virtual {p1, v4, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeInt64(IJ)V
+    invoke-virtual {p1, v0, v1, v4}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeInt64(JI)V
 
     :cond_9
     iget-wide v0, p0, Lcom/android/systemui/smartspace/nano/SmartspaceProto$SmartspaceUpdate$SmartspaceCard;->eventDurationMillis:J
@@ -767,7 +770,7 @@
 
     const/16 v2, 0xb
 
-    invoke-virtual {p1, v2, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeInt64(IJ)V
+    invoke-virtual {p1, v0, v1, v2}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeInt64(JI)V
 
     :cond_a
     iget-object v0, p0, Lcom/android/systemui/smartspace/nano/SmartspaceProto$SmartspaceUpdate$SmartspaceCard;->expiryCriteria:Lcom/android/systemui/smartspace/nano/SmartspaceProto$SmartspaceUpdate$SmartspaceCard$ExpiryCriteria;

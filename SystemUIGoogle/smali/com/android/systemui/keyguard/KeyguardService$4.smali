@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/keyguard/KeyguardService$4;
+.class public final Lcom/android/systemui/keyguard/KeyguardService$4;
 .super Landroid/window/IRemoteTransition$Stub;
 .source "KeyguardService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardService;
+.field public final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardService;)V
+.method public constructor <init>(Lcom/android/systemui/keyguard/KeyguardService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardService$4;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
@@ -31,13 +31,13 @@
 
 
 # virtual methods
-.method public mergeAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/os/IBinder;Landroid/window/IRemoteTransitionFinishedCallback;)V
+.method public final mergeAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/os/IBinder;Landroid/window/IRemoteTransitionFinishedCallback;)V
     .locals 0
 
     return-void
 .end method
 
-.method public startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/window/IRemoteTransitionFinishedCallback;)V
+.method public final startAnimation(Landroid/os/IBinder;Landroid/window/TransitionInfo;Landroid/view/SurfaceControl$Transaction;Landroid/window/IRemoteTransitionFinishedCallback;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -49,13 +49,13 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$4;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$300(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/internal/policy/IKeyguardService$Stub;
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mBinder:Lcom/android/systemui/keyguard/KeyguardService$5;
 
-    move-result-object p0
+    const/4 p1, 0x0
 
-    const/4 p1, 0x1
+    const/4 p2, 0x1
 
-    invoke-virtual {p0, p1, p1}, Lcom/android/internal/policy/IKeyguardService$Stub;->setOccluded(ZZ)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardService$5;->setOccluded(ZZ)V
 
     const/4 p0, 0x0
 

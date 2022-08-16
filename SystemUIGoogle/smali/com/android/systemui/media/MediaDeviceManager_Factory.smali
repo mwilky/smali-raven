@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final bgExecutorProvider:Ljavax/inject/Provider;
+.field public final bgExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,17 @@
     .end annotation
 .end field
 
-.field private final controllerFactoryProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final controllerFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final fgExecutorProvider:Ljavax/inject/Provider;
+.field public final fgExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final localMediaManagerFactoryProvider:Ljavax/inject/Provider;
+.field public final localMediaManagerFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final mr2managerProvider:Ljavax/inject/Provider;
+.field public final mr2managerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,9 +88,19 @@
     .end annotation
 .end field
 
+.field public final muteAwaitConnectionManagerFactoryProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/media/muteawait/MediaMuteAwaitConnectionManagerFactory;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,6 +113,12 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/media/MediaRouter2Manager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/media/muteawait/MediaMuteAwaitConnectionManagerFactory;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/concurrent/Executor;",
@@ -114,17 +140,21 @@
 
     iput-object p3, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->mr2managerProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->fgExecutorProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->muteAwaitConnectionManagerFactoryProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p6, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->fgExecutorProvider:Ljavax/inject/Provider;
+
+    iput-object p7, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    iput-object p8, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/MediaDeviceManager_Factory;
-    .locals 8
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/MediaDeviceManager_Factory;
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -136,6 +166,12 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/media/MediaRouter2Manager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/media/muteawait/MediaMuteAwaitConnectionManagerFactory;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/concurrent/Executor;",
@@ -150,33 +186,9 @@
         }
     .end annotation
 
-    new-instance v7, Lcom/android/systemui/media/MediaDeviceManager_Factory;
+    new-instance v9, Lcom/android/systemui/media/MediaDeviceManager_Factory;
 
-    move-object v0, v7
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/media/MediaDeviceManager_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v7
-.end method
-
-.method public static newInstance(Lcom/android/systemui/media/MediaControllerFactory;Lcom/android/systemui/media/LocalMediaManagerFactory;Landroid/media/MediaRouter2Manager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/media/MediaDeviceManager;
-    .locals 8
-
-    new-instance v7, Lcom/android/systemui/media/MediaDeviceManager;
-
-    move-object v0, v7
+    move-object v0, v9
 
     move-object v1, p0
 
@@ -190,15 +202,19 @@
 
     move-object v6, p5
 
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/media/MediaDeviceManager;-><init>(Lcom/android/systemui/media/MediaControllerFactory;Lcom/android/systemui/media/LocalMediaManagerFactory;Landroid/media/MediaRouter2Manager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/dump/DumpManager;)V
+    move-object/from16 v7, p6
 
-    return-object v7
+    move-object/from16 v8, p7
+
+    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/media/MediaDeviceManager_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v9
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/media/MediaDeviceManager;
-    .locals 7
+.method public final get()Ljava/lang/Object;
+    .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->controllerFactoryProvider:Ljavax/inject/Provider;
 
@@ -206,9 +222,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/media/MediaControllerFactory;
+    check-cast v2, Lcom/android/systemui/media/MediaControllerFactory;
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->localMediaManagerFactoryProvider:Ljavax/inject/Provider;
 
@@ -216,9 +232,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/media/LocalMediaManagerFactory;
+    check-cast v3, Lcom/android/systemui/media/LocalMediaManagerFactory;
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->mr2managerProvider:Ljavax/inject/Provider;
 
@@ -226,21 +242,11 @@
 
     move-result-object v0
 
-    move-object v3, v0
-
-    check-cast v3, Landroid/media/MediaRouter2Manager;
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->fgExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
     move-object v4, v0
 
-    check-cast v4, Ljava/util/concurrent/Executor;
+    check-cast v4, Landroid/media/MediaRouter2Manager;
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->muteAwaitConnectionManagerFactoryProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -248,7 +254,37 @@
 
     move-object v5, v0
 
-    check-cast v5, Ljava/util/concurrent/Executor;
+    check-cast v5, Lcom/android/systemui/media/muteawait/MediaMuteAwaitConnectionManagerFactory;
+
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->fgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Ljava/util/concurrent/Executor;
+
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v8, v0
+
+    check-cast v8, Ljava/util/concurrent/Executor;
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDeviceManager_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -256,23 +292,15 @@
 
     move-result-object p0
 
-    move-object v6, p0
+    move-object v9, p0
 
-    check-cast v6, Lcom/android/systemui/dump/DumpManager;
+    check-cast v9, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/media/MediaDeviceManager_Factory;->newInstance(Lcom/android/systemui/media/MediaControllerFactory;Lcom/android/systemui/media/LocalMediaManagerFactory;Landroid/media/MediaRouter2Manager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/media/MediaDeviceManager;
+    new-instance p0, Lcom/android/systemui/media/MediaDeviceManager;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaDeviceManager_Factory;->get()Lcom/android/systemui/media/MediaDeviceManager;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v9}, Lcom/android/systemui/media/MediaDeviceManager;-><init>(Lcom/android/systemui/media/MediaControllerFactory;Lcom/android/systemui/media/LocalMediaManagerFactory;Landroid/media/MediaRouter2Manager;Lcom/android/systemui/media/muteawait/MediaMuteAwaitConnectionManagerFactory;Lcom/android/systemui/statusbar/policy/ConfigurationController;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/dump/DumpManager;)V
 
     return-object p0
 .end method

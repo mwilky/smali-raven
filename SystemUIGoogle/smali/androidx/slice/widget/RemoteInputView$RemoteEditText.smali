@@ -15,26 +15,16 @@
 
 
 # instance fields
-.field private final mBackground:Landroid/graphics/drawable/Drawable;
+.field public final mBackground:Landroid/graphics/drawable/Drawable;
 
-.field mRemoteInputView:Landroidx/slice/widget/RemoteInputView;
+.field public mRemoteInputView:Landroidx/slice/widget/RemoteInputView;
 
-.field mShowImeOnInputConnection:Z
+.field public mShowImeOnInputConnection:Z
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/widget/EditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -47,14 +37,16 @@
     return-void
 .end method
 
-.method private defocusIfNeeded()V
-    .locals 2
+
+# virtual methods
+.method public final defocusIfNeeded()V
+    .locals 3
 
     iget-object v0, p0, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->mRemoteInputView:Landroidx/slice/widget/RemoteInputView;
 
     if-nez v0, :cond_3
 
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->isTemporarilyDetachedCompat()Z
+    invoke-virtual {p0}, Landroid/widget/EditText;->isTemporarilyDetached()Z
 
     move-result v0
 
@@ -83,7 +75,9 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v1}, Landroidx/slice/widget/RemoteInputView;->onDefocus()V
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :cond_1
     iput-boolean v0, p0, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->mShowImeOnInputConnection:Z
@@ -93,44 +87,13 @@
 
     :cond_3
     :goto_0
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->isTemporarilyDetachedCompat()Z
+    invoke-virtual {p0}, Landroid/widget/EditText;->isTemporarilyDetached()Z
 
     return-void
 .end method
 
-.method private isTemporarilyDetachedCompat()Z
+.method public final getFocusedRect(Landroid/graphics/Rect;)V
     .locals 2
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x18
-
-    if-lt v0, v1, :cond_0
-
-    invoke-virtual {p0}, Landroid/widget/EditText;->isTemporarilyDetached()Z
-
-    move-result p0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-
-# virtual methods
-.method public getFocusedRect(Landroid/graphics/Rect;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "r"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/EditText;->getFocusedRect(Landroid/graphics/Rect;)V
 
@@ -154,23 +117,15 @@
 
     sub-int/2addr v1, p0
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    iput v0, p1, Landroid/graphics/Rect;->bottom:I
+    iput v1, p1, Landroid/graphics/Rect;->bottom:I
 
     return-void
 .end method
 
-.method public onCommitCompletion(Landroid/view/inputmethod/CompletionInfo;)V
+.method public final onCommitCompletion(Landroid/view/inputmethod/CompletionInfo;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "text"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/EditText;->clearComposingText()V
 
@@ -193,16 +148,8 @@
     return-void
 .end method
 
-.method public onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "outAttrs"
-        }
-    .end annotation
+.method public final onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
+    .locals 3
 
     invoke-super {p0, p1}, Landroid/widget/EditText;->onCreateInputConnection(Landroid/view/inputmethod/EditorInfo;)Landroid/view/inputmethod/InputConnection;
 
@@ -220,7 +167,9 @@
 
     const-class v1, Landroid/view/inputmethod/InputMethodManager;
 
-    invoke-static {v0, v1}, Landroidx/core/content/ContextCompat;->getSystemService(Landroid/content/Context;Ljava/lang/Class;)Ljava/lang/Object;
+    sget-object v2, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -238,43 +187,21 @@
     return-object p1
 .end method
 
-.method protected onFocusChanged(ZILandroid/graphics/Rect;)V
+.method public final onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "focused",
-            "direction",
-            "previouslyFocusedRect"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3}, Landroid/widget/EditText;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
     if-nez p1, :cond_0
 
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
+    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
 
     :cond_0
     return-void
 .end method
 
-.method public onKeyDown(ILandroid/view/KeyEvent;)Z
+.method public final onKeyDown(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "keyCode",
-            "event"
-        }
-    .end annotation
 
     const/4 v0, 0x4
 
@@ -292,24 +219,14 @@
     return p0
 .end method
 
-.method public onKeyUp(ILandroid/view/KeyEvent;)Z
+.method public final onKeyUp(ILandroid/view/KeyEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "keyCode",
-            "event"
-        }
-    .end annotation
 
     const/4 v0, 0x4
 
     if-ne p1, v0, :cond_0
 
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
+    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
 
     const/4 p0, 0x1
 
@@ -323,18 +240,8 @@
     return p0
 .end method
 
-.method protected onVisibilityChanged(Landroid/view/View;I)V
+.method public final onVisibilityChanged(Landroid/view/View;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "changedView",
-            "visibility"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2}, Landroid/widget/EditText;->onVisibilityChanged(Landroid/view/View;I)V
 
@@ -344,42 +251,22 @@
 
     if-nez p1, :cond_0
 
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
+    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->defocusIfNeeded()V
 
     :cond_0
     return-void
 .end method
 
-.method public setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
+.method public final setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "actionModeCallback"
-        }
-    .end annotation
-
-    invoke-static {p0, p1}, Landroidx/core/widget/TextViewCompat;->wrapCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
-
-    move-result-object p1
 
     invoke-super {p0, p1}, Landroid/widget/EditText;->setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
 
     return-void
 .end method
 
-.method setInnerFocusable(Z)V
+.method public final setInnerFocusable(Z)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "focusable"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/widget/EditText;->setFocusableInTouchMode(Z)V
 

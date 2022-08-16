@@ -1,23 +1,21 @@
-.class public Lcom/airbnb/lottie/model/layer/ShapeLayer;
+.class public final Lcom/airbnb/lottie/model/layer/ShapeLayer;
 .super Lcom/airbnb/lottie/model/layer/BaseLayer;
 .source "ShapeLayer.java"
 
 
 # instance fields
-.field private final contentGroup:Lcom/airbnb/lottie/animation/content/ContentGroup;
+.field public final contentGroup:Lcom/airbnb/lottie/animation/content/ContentGroup;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/Layer;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/Layer;)V
     .locals 3
 
     invoke-direct {p0, p1, p2}, Lcom/airbnb/lottie/model/layer/BaseLayer;-><init>(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/Layer;)V
 
     new-instance v0, Lcom/airbnb/lottie/model/content/ShapeGroup;
 
-    invoke-virtual {p2}, Lcom/airbnb/lottie/model/layer/Layer;->getShapes()Ljava/util/List;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/airbnb/lottie/model/layer/Layer;->shapes:Ljava/util/List;
 
     const-string v1, "__container"
 
@@ -46,7 +44,7 @@
 
 
 # virtual methods
-.method drawLayer(Landroid/graphics/Canvas;Landroid/graphics/Matrix;I)V
+.method public final drawLayer(Landroid/graphics/Canvas;Landroid/graphics/Matrix;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/airbnb/lottie/model/layer/ShapeLayer;->contentGroup:Lcom/airbnb/lottie/animation/content/ContentGroup;
@@ -56,7 +54,7 @@
     return-void
 .end method
 
-.method public getBounds(Landroid/graphics/RectF;Landroid/graphics/Matrix;Z)V
+.method public final getBounds(Landroid/graphics/RectF;Landroid/graphics/Matrix;Z)V
     .locals 0
 
     invoke-super {p0, p1, p2, p3}, Lcom/airbnb/lottie/model/layer/BaseLayer;->getBounds(Landroid/graphics/RectF;Landroid/graphics/Matrix;Z)V
@@ -70,24 +68,12 @@
     return-void
 .end method
 
-.method protected resolveChildKeyPath(Lcom/airbnb/lottie/model/KeyPath;ILjava/util/List;Lcom/airbnb/lottie/model/KeyPath;)V
+.method public final resolveChildKeyPath(Lcom/airbnb/lottie/model/KeyPath;ILjava/util/ArrayList;Lcom/airbnb/lottie/model/KeyPath;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/model/KeyPath;",
-            "I",
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/model/KeyPath;",
-            ">;",
-            "Lcom/airbnb/lottie/model/KeyPath;",
-            ")V"
-        }
-    .end annotation
 
     iget-object p0, p0, Lcom/airbnb/lottie/model/layer/ShapeLayer;->contentGroup:Lcom/airbnb/lottie/animation/content/ContentGroup;
 
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/airbnb/lottie/animation/content/ContentGroup;->resolveKeyPath(Lcom/airbnb/lottie/model/KeyPath;ILjava/util/List;Lcom/airbnb/lottie/model/KeyPath;)V
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/airbnb/lottie/animation/content/ContentGroup;->resolveKeyPath(Lcom/airbnb/lottie/model/KeyPath;ILjava/util/ArrayList;Lcom/airbnb/lottie/model/KeyPath;)V
 
     return-void
 .end method

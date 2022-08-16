@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/util/sensors/ThresholdSensor$Listener;
@@ -27,7 +28,25 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/doze/DozeSensors;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/doze/DozeSensors;->$r8$lambda$3KOYE8Q2-MlL-D0NdFYJt2eufCQ(Lcom/android/systemui/doze/DozeSensors;Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
+    if-eqz p1, :cond_0
 
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeSensors;->mProxCallback:Ljava/util/function/Consumer;
+
+    iget-boolean p1, p1, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->mBelow:Z
+
+    xor-int/lit8 p1, p1, 0x1
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p1
+
+    invoke-interface {p0, p1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    :goto_0
     return-void
 .end method

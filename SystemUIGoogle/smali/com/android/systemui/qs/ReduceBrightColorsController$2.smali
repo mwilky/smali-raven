@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/ReduceBrightColorsController$2;
+.class public final Lcom/android/systemui/qs/ReduceBrightColorsController$2;
 .super Ljava/lang/Object;
 .source "ReduceBrightColorsController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/ReduceBrightColorsController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/ReduceBrightColorsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
@@ -34,75 +34,61 @@
 
 
 # virtual methods
-.method public onUserChanged(ILandroid/content/Context;)V
-    .locals 3
+.method public final onUserChanged(I)V
+    .locals 4
 
-    iget-object p2, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
+    iget-object v0, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {p2}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$000(Lcom/android/systemui/qs/ReduceBrightColorsController;)Ljava/util/ArrayList;
+    iget-object v0, v0, Lcom/android/systemui/qs/ReduceBrightColorsController;->mListeners:Ljava/util/ArrayList;
 
-    move-result-object p2
-
-    monitor-enter p2
+    monitor-enter v0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
+    iget-object v1, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$000(Lcom/android/systemui/qs/ReduceBrightColorsController;)Ljava/util/ArrayList;
+    iget-object v1, v1, Lcom/android/systemui/qs/ReduceBrightColorsController;->mListeners:Ljava/util/ArrayList;
 
-    move-result-object v0
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    move-result v1
 
-    move-result v0
-
-    if-lez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$300(Lcom/android/systemui/qs/ReduceBrightColorsController;)Lcom/android/systemui/util/settings/SecureSettings;
-
-    move-result-object v0
+    if-lez v1, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$200(Lcom/android/systemui/qs/ReduceBrightColorsController;)Landroid/database/ContentObserver;
+    iget-object v2, v1, Lcom/android/systemui/qs/ReduceBrightColorsController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/qs/ReduceBrightColorsController;->mContentObserver:Lcom/android/systemui/qs/ReduceBrightColorsController$1;
 
-    invoke-interface {v0, v1}, Lcom/android/systemui/util/settings/SettingsProxy;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+    invoke-interface {v2, v1}, Lcom/android/systemui/util/settings/SettingsProxy;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
+    iget-object v1, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$300(Lcom/android/systemui/qs/ReduceBrightColorsController;)Lcom/android/systemui/util/settings/SecureSettings;
+    iget-object v1, v1, Lcom/android/systemui/qs/ReduceBrightColorsController;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-    move-result-object v0
+    const-string/jumbo v2, "reduce_bright_colors_activated"
 
-    const-string v1, "reduce_bright_colors_activated"
+    invoke-static {v2}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    move-result-object v2
 
-    move-result-object v1
-
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     iget-object p0, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$2;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$200(Lcom/android/systemui/qs/ReduceBrightColorsController;)Landroid/database/ContentObserver;
+    iget-object p0, p0, Lcom/android/systemui/qs/ReduceBrightColorsController;->mContentObserver:Lcom/android/systemui/qs/ReduceBrightColorsController$1;
 
-    move-result-object p0
-
-    invoke-interface {v0, v1, v2, p0, p1}, Lcom/android/systemui/util/settings/SettingsProxy;->registerContentObserverForUser(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-interface {v1, v2, v3, p0, p1}, Lcom/android/systemui/util/settings/SettingsProxy;->registerContentObserverForUser(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     :cond_0
-    monitor-exit p2
+    monitor-exit v0
 
     return-void
 
     :catchall_0
     move-exception p0
 
-    monitor-exit p2
+    monitor-exit v0
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

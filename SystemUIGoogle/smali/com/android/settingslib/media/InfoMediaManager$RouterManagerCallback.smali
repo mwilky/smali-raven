@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;
+.class public final Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;
 .super Ljava/lang/Object;
 .source "InfoMediaManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "RouterManagerCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/media/InfoMediaManager;
+.field public final synthetic this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/media/InfoMediaManager;)V
+.method public constructor <init>(Lcom/android/settingslib/media/InfoMediaManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onPreferredFeaturesChanged(Ljava/lang/String;Ljava/util/List;)V
+.method public final onPreferredFeaturesChanged(Ljava/lang/String;Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -58,114 +58,194 @@
 
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->refreshDevices()V
 
     :cond_0
     return-void
 .end method
 
-.method public onRequestFailed(I)V
-    .locals 0
+.method public final onRequestFailed(I)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/media/MediaManager;->dispatchOnRequestFailed(I)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    return-void
-.end method
+    new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
-.method public onRoutesAdded(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Landroid/media/MediaRoute2Info;",
-            ">;)V"
-        }
-    .end annotation
+    iget-object p0, p0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
+    invoke-direct {v0, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>(Ljava/util/Collection;)V
 
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
 
-    return-void
-.end method
+    move-result-object p0
 
-.method public onRoutesChanged(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Landroid/media/MediaRoute2Info;",
-            ">;)V"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
-
-    return-void
-.end method
-
-.method public onRoutesRemoved(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Landroid/media/MediaRoute2Info;",
-            ">;)V"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-static {p0}, Lcom/android/settingslib/media/InfoMediaManager;->access$000(Lcom/android/settingslib/media/InfoMediaManager;)V
-
-    return-void
-.end method
-
-.method public onSessionUpdated(Landroid/media/RoutingSessionInfo;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/MediaManager;->dispatchDataChanged()V
-
-    return-void
-.end method
-
-.method public onTransferFailed(Landroid/media/RoutingSessionInfo;Landroid/media/MediaRoute2Info;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/media/MediaManager;->dispatchOnRequestFailed(I)V
-
-    return-void
-.end method
-
-.method public onTransferred(Landroid/media/RoutingSessionInfo;Landroid/media/RoutingSessionInfo;)V
-    .locals 2
-
-    invoke-static {}, Lcom/android/settingslib/media/InfoMediaManager;->access$100()Z
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v0
 
-    const-string v1, "onTransferred() oldSession : "
+    check-cast v0, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v0, p1}, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;->onRequestFailed(I)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onRoutesAdded(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/media/MediaRoute2Info;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->refreshDevices()V
+
+    return-void
+.end method
+
+.method public final onRoutesChanged(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/media/MediaRoute2Info;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->refreshDevices()V
+
+    return-void
+.end method
+
+.method public final onRoutesRemoved(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/media/MediaRoute2Info;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
+
+    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->refreshDevices()V
+
+    return-void
+.end method
+
+.method public final onSessionUpdated(Landroid/media/RoutingSessionInfo;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance p1, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    iget-object p0, p0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {p1, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;
+
+    invoke-interface {p1}, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;->onDeviceAttributesChanged()V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onTransferFailed(Landroid/media/RoutingSessionInfo;Landroid/media/MediaRoute2Info;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance p1, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    iget-object p0, p0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {p1, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;
+
+    const/4 p2, 0x0
+
+    invoke-interface {p1, p2}, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;->onRequestFailed(I)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onTransferred(Landroid/media/RoutingSessionInfo;Landroid/media/RoutingSessionInfo;)V
+    .locals 1
+
+    sget-boolean v0, Lcom/android/settingslib/media/InfoMediaManager;->DEBUG:Z
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "onTransferred() oldSession : "
+
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
 
     invoke-virtual {p1}, Landroid/media/RoutingSessionInfo;->getName()Ljava/lang/CharSequence;
 
@@ -194,17 +274,15 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    iget-object p1, p1, Lcom/android/settingslib/media/MediaManager;->mMediaDevices:Ljava/util/List;
+    iget-object p1, p1, Lcom/android/settingslib/media/MediaManager;->mMediaDevices:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    invoke-interface {p1}, Ljava/util/List;->clear()V
+    invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->clear()V
 
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
     const/4 p2, 0x0
 
-    invoke-static {p1, p2}, Lcom/android/settingslib/media/InfoMediaManager;->access$202(Lcom/android/settingslib/media/InfoMediaManager;Lcom/android/settingslib/media/MediaDevice;)Lcom/android/settingslib/media/MediaDevice;
-
-    iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
+    iput-object p2, p1, Lcom/android/settingslib/media/InfoMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
 
     iget-object p1, p1, Lcom/android/settingslib/media/InfoMediaManager;->mPackageName:Ljava/lang/String;
 
@@ -216,29 +294,21 @@
 
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$300(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-virtual {p1}, Lcom/android/settingslib/media/InfoMediaManager;->buildAllRoutes()V
 
     goto :goto_0
 
     :cond_1
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$400(Lcom/android/settingslib/media/InfoMediaManager;)V
+    invoke-virtual {p1}, Lcom/android/settingslib/media/InfoMediaManager;->buildAvailableRoutes()V
 
     :goto_0
     iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$200(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/settingslib/media/InfoMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
 
     if-eqz p1, :cond_2
-
-    iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-static {p1}, Lcom/android/settingslib/media/InfoMediaManager;->access$200(Lcom/android/settingslib/media/InfoMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-
-    move-result-object p1
 
     invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getId()Ljava/lang/String;
 
@@ -247,7 +317,35 @@
     :cond_2
     iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;->this$0:Lcom/android/settingslib/media/InfoMediaManager;
 
-    invoke-virtual {p0, p2}, Lcom/android/settingslib/media/MediaManager;->dispatchConnectedDeviceChanged(Ljava/lang/String;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
+    new-instance p1, Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    iget-object p0, p0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-direct {p1, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {p1}, Ljava/util/concurrent/CopyOnWriteArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;
+
+    invoke-interface {p1, p2}, Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;->onConnectedDeviceChanged(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_3
     return-void
 .end method

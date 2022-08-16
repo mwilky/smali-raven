@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/CarrierTextManager$1;
+.class public final Lcom/android/keyguard/CarrierTextManager$1;
 .super Ljava/lang/Object;
 .source "CarrierTextManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/CarrierTextManager;
+.field public final synthetic this$0:Lcom/android/keyguard/CarrierTextManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/CarrierTextManager;)V
+.method public constructor <init>(Lcom/android/keyguard/CarrierTextManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/CarrierTextManager$1;->this$0:Lcom/android/keyguard/CarrierTextManager;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onFinishedWakingUp()V
+.method public final onFinishedWakingUp()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$1;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {p0}, Lcom/android/keyguard/CarrierTextManager;->access$000(Lcom/android/keyguard/CarrierTextManager;)Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mCarrierTextCallback:Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;
 
     if-eqz p0, :cond_0
 
@@ -51,14 +49,12 @@
     return-void
 .end method
 
-.method public onStartedGoingToSleep()V
+.method public final onStartedGoingToSleep()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager$1;->this$0:Lcom/android/keyguard/CarrierTextManager;
 
-    invoke-static {p0}, Lcom/android/keyguard/CarrierTextManager;->access$000(Lcom/android/keyguard/CarrierTextManager;)Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/CarrierTextManager;->mCarrierTextCallback:Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;
 
     if-eqz p0, :cond_0
 

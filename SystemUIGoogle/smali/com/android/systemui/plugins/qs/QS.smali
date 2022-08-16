@@ -13,7 +13,7 @@
 
 .annotation runtime Lcom/android/systemui/plugins/annotations/ProvidesInterface;
     action = "com.android.systemui.action.PLUGIN_QS"
-    version = 0xc
+    version = 0xf
 .end annotation
 
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -29,7 +29,7 @@
 
 .field public static final TAG:Ljava/lang/String; = "QS"
 
-.field public static final VERSION:I = 0xc
+.field public static final VERSION:I = 0xf
 
 
 # virtual methods
@@ -58,6 +58,9 @@
 .method public abstract getHeader()Landroid/view/View;
 .end method
 
+.method public abstract getHeightDiff()I
+.end method
+
 .method public abstract getQsMinExpansionHeight()I
 .end method
 
@@ -81,6 +84,9 @@
 .method public abstract notifyCustomizeChanged()V
 .end method
 
+.method public abstract setCollapseExpandAction(Ljava/lang/Runnable;)V
+.end method
+
 .method public abstract setCollapsedMediaVisibilityChangedListener(Ljava/util/function/Consumer;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,9 +99,6 @@
 .end method
 
 .method public abstract setContainerController(Lcom/android/systemui/plugins/qs/QSContainerController;)V
-.end method
-
-.method public abstract setExpandClickListener(Landroid/view/View$OnClickListener;)V
 .end method
 
 .method public abstract setExpanded(Z)V
@@ -125,6 +128,12 @@
 .method public abstract setListening(Z)V
 .end method
 
+.method public setOverScrollAmount(I)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public abstract setOverscrolling(Z)V
 .end method
 
@@ -132,6 +141,9 @@
 .end method
 
 .method public abstract setQsExpansion(FFFF)V
+.end method
+
+.method public abstract setQsVisible(Z)V
 .end method
 
 .method public setScrollListener(Lcom/android/systemui/plugins/qs/QS$ScrollListener;)V

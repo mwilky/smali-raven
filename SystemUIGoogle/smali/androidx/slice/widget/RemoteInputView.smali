@@ -20,29 +20,23 @@
 
 
 # instance fields
-.field private mAction:Landroidx/slice/SliceItem;
+.field public mAction:Landroidx/slice/SliceItem;
 
-.field mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
+.field public mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
 
-.field private mProgressBar:Landroid/widget/ProgressBar;
+.field public mProgressBar:Landroid/widget/ProgressBar;
 
-.field private mRemoteInput:Landroid/app/RemoteInput;
+.field public mRemoteInput:Landroid/app/RemoteInput;
 
-.field private mRemoteInputs:[Landroid/app/RemoteInput;
+.field public mRemoteInputs:[Landroid/app/RemoteInput;
 
-.field private mResetting:Z
+.field public mResetting:Z
 
-.field private mRevealCx:I
-
-.field private mRevealCy:I
-
-.field private mRevealR:I
-
-.field private mSendButton:Landroid/widget/ImageButton;
+.field public mSendButton:Landroid/widget/ImageButton;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Ljava/lang/Object;
@@ -56,238 +50,29 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     return-void
 .end method
 
-.method private focus()V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->setInnerFocusable(Z)V
-
-    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
-
-    iput-boolean v1, v0, Landroidx/slice/widget/RemoteInputView$RemoteEditText;->mShowImeOnInputConnection:Z
-
-    invoke-virtual {v0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/text/Editable;->length()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/EditText;->setSelection(I)V
-
-    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
-
-    invoke-virtual {v0}, Landroid/widget/EditText;->requestFocus()Z
-
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView;->updateSendButton()V
-
-    return-void
-.end method
-
-.method public static inflate(Landroid/content/Context;Landroid/view/ViewGroup;)Landroidx/slice/widget/RemoteInputView;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "root"
-        }
-    .end annotation
-
-    invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object p0
-
-    sget v0, Landroidx/slice/view/R$layout;->abc_slice_remote_input:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/slice/widget/RemoteInputView;
-
-    sget-object p1, Landroidx/slice/widget/RemoteInputView;->VIEW_TAG:Ljava/lang/Object;
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setTag(Ljava/lang/Object;)V
-
-    return-object p0
-.end method
-
-.method public static final isConfirmKey(I)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "keyCode"
-        }
-    .end annotation
-
-    const/16 v0, 0x17
-
-    if-eq p0, v0, :cond_0
-
-    const/16 v0, 0x3e
-
-    if-eq p0, v0, :cond_0
-
-    const/16 v0, 0x42
-
-    if-eq p0, v0, :cond_0
-
-    const/16 v0, 0xa0
-
-    if-eq p0, v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method private reset()V
-    .locals 3
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroidx/slice/widget/RemoteInputView;->mResetting:Z
-
-    iget-object v1, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
-
-    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/text/Editable;->clear()V
-
-    iget-object v1, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
-
-    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setEnabled(Z)V
-
-    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
-
-    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
-
-    const/4 v2, 0x4
-
-    invoke-virtual {v0, v2}, Landroid/widget/ProgressBar;->setVisibility(I)V
-
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView;->updateSendButton()V
-
-    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView;->onDefocus()V
-
-    iput-boolean v1, p0, Landroidx/slice/widget/RemoteInputView;->mResetting:Z
-
-    return-void
-.end method
-
-.method private updateSendButton()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
-
-    iget-object p0, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
-
-    invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Landroid/text/Editable;->length()I
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setEnabled(Z)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public afterTextChanged(Landroid/text/Editable;)V
+.method public final afterTextChanged(Landroid/text/Editable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "s"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView;->updateSendButton()V
+    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView;->updateSendButton()V
 
     return-void
 .end method
 
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
+.method public final beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "start",
-            "count",
-            "after"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public dispatchFinishTemporaryDetach()V
+.method public final dispatchFinishTemporaryDetach()V
     .locals 3
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->isAttachedToWindow()Z
@@ -319,7 +104,7 @@
     return-void
 .end method
 
-.method public dispatchStartTemporaryDetach()V
+.method public final dispatchStartTemporaryDetach()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->dispatchStartTemporaryDetach()V
@@ -331,51 +116,8 @@
     return-void
 .end method
 
-.method public focusAnimated()V
-    .locals 4
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getVisibility()I
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget v0, p0, Landroidx/slice/widget/RemoteInputView;->mRevealCx:I
-
-    iget v1, p0, Landroidx/slice/widget/RemoteInputView;->mRevealCy:I
-
-    const/4 v2, 0x0
-
-    iget v3, p0, Landroidx/slice/widget/RemoteInputView;->mRevealR:I
-
-    int-to-float v3, v3
-
-    invoke-static {p0, v0, v1, v2, v3}, Landroid/view/ViewAnimationUtils;->createCircularReveal(Landroid/view/View;IIFF)Landroid/animation/Animator;
-
-    move-result-object v0
-
-    const-wide/16 v1, 0xc8
-
-    invoke-virtual {v0, v1, v2}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
-
-    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
-
-    :cond_0
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView;->focus()V
-
-    return-void
-.end method
-
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
 
@@ -387,22 +129,12 @@
     return-void
 .end method
 
-.method onDefocus()V
-    .locals 1
-
-    const/4 v0, 0x4
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 3
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    sget v0, Landroidx/slice/view/R$id;->remote_input_progress:I
+    const v0, 0x7f0b054c
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -412,7 +144,7 @@
 
     iput-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
 
-    sget v0, Landroidx/slice/view/R$id;->remote_input_send:I
+    const v0, 0x7f0b054d
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -455,18 +187,8 @@
     return-void
 .end method
 
-.method public onRequestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
+.method public final onRequestSendAccessibilityEvent(Landroid/view/View;Landroid/view/accessibility/AccessibilityEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "event"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/slice/widget/RemoteInputView;->mResetting:Z
 
@@ -488,36 +210,14 @@
     return p0
 .end method
 
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
+.method public final onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "start",
-            "before",
-            "count"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
@@ -526,7 +226,47 @@
     return p0
 .end method
 
-.method sendRemoteInput()V
+.method public final reset()V
+    .locals 3
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Landroidx/slice/widget/RemoteInputView;->mResetting:Z
+
+    iget-object v1, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
+
+    invoke-virtual {v1}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Landroid/text/Editable;->clear()V
+
+    iget-object v1, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
+
+    invoke-virtual {v1, v0}, Landroid/widget/EditText;->setEnabled(Z)V
+
+    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setVisibility(I)V
+
+    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mProgressBar:Landroid/widget/ProgressBar;
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v0, v2}, Landroid/widget/ProgressBar;->setVisibility(I)V
+
+    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView;->updateSendButton()V
+
+    invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    iput-boolean v1, p0, Landroidx/slice/widget/RemoteInputView;->mResetting:Z
+
+    return-void
+.end method
+
+.method public final sendRemoteInput()V
     .locals 4
 
     new-instance v0, Landroid/os/Bundle;
@@ -592,9 +332,9 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v3, v1}, Landroidx/slice/SliceItem;->fireAction(Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-virtual {v0, v3, v1}, Landroidx/slice/SliceItem;->fireActionInternal(Landroid/content/Context;Landroid/content/Intent;)Z
 
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView;->reset()V
+    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView;->reset()V
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -621,76 +361,38 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    invoke-direct {p0}, Landroidx/slice/widget/RemoteInputView;->reset()V
+    invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView;->reset()V
 
     :goto_0
     return-void
 .end method
 
-.method public setAction(Landroidx/slice/SliceItem;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "action"
-        }
-    .end annotation
+.method public final updateSendButton()V
+    .locals 1
 
-    iput-object p1, p0, Landroidx/slice/widget/RemoteInputView;->mAction:Landroidx/slice/SliceItem;
-
-    return-void
-.end method
-
-.method public setRemoteInput([Landroid/app/RemoteInput;Landroid/app/RemoteInput;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "remoteInputs",
-            "remoteInput"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/slice/widget/RemoteInputView;->mRemoteInputs:[Landroid/app/RemoteInput;
-
-    iput-object p2, p0, Landroidx/slice/widget/RemoteInputView;->mRemoteInput:Landroid/app/RemoteInput;
+    iget-object v0, p0, Landroidx/slice/widget/RemoteInputView;->mSendButton:Landroid/widget/ImageButton;
 
     iget-object p0, p0, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
 
-    invoke-virtual {p2}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
+    invoke-virtual {p0}, Landroid/widget/EditText;->getText()Landroid/text/Editable;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-virtual {p0, p1}, Landroid/widget/EditText;->setHint(Ljava/lang/CharSequence;)V
+    invoke-interface {p0}, Landroid/text/Editable;->length()I
 
-    return-void
-.end method
+    move-result p0
 
-.method public setRevealParameters(III)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cx",
-            "cy",
-            "r"
-        }
-    .end annotation
+    if-eqz p0, :cond_0
 
-    iput p1, p0, Landroidx/slice/widget/RemoteInputView;->mRevealCx:I
+    const/4 p0, 0x1
 
-    iput p2, p0, Landroidx/slice/widget/RemoteInputView;->mRevealCy:I
+    goto :goto_0
 
-    iput p3, p0, Landroidx/slice/widget/RemoteInputView;->mRevealR:I
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setEnabled(Z)V
 
     return-void
 .end method

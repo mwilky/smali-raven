@@ -1,18 +1,9 @@
-.class Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;
+.class public final Landroidx/mediarouter/media/MediaRouterJellybeanMr1$CallbackProxy;
 .super Landroidx/mediarouter/media/MediaRouterJellybean$CallbackProxy;
 .source "MediaRouterJellybeanMr1.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/mediarouter/media/MediaRouterJellybeanMr1;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
-    name = "CallbackProxy"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T::",
@@ -27,15 +18,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)V"
@@ -49,18 +31,8 @@
 
 
 # virtual methods
-.method public onRoutePresentationDisplayChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
+.method public final onRoutePresentationDisplayChanged(Landroid/media/MediaRouter;Landroid/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "route"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouterJellybean$CallbackProxy;->mCallback:Landroidx/mediarouter/media/MediaRouterJellybean$Callback;
 

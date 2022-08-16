@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
+.field public final synthetic this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker$allowedObserver$1;->this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
@@ -31,31 +31,40 @@
 
 
 # virtual methods
-.method public onChange(Z)V
-    .locals 1
+.method public final onChange(Z)V
+    .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker$allowedObserver$1;->this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
 
-    invoke-static {p1}, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->access$checkIsDemoModeAllowed(Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;)Z
+    iget-object p1, p1, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->context:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    const-string/jumbo v1, "sysui_demo_allowed"
+
+    invoke-static {p1, v1, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result p1
 
-    iget-object v0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker$allowedObserver$1;->this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0}, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isDemoModeAvailable()Z
+    const/4 v0, 0x1
 
-    move-result v0
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker$allowedObserver$1;->this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
 
-    if-ne v0, p1, :cond_0
+    iget-boolean p1, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isDemoModeAvailable:Z
+
+    if-ne p1, v0, :cond_1
 
     return-void
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker$allowedObserver$1;->this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->setDemoModeAvailable(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker$allowedObserver$1;->this$0:Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;
+    :cond_1
+    iput-boolean v0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isDemoModeAvailable:Z
 
     invoke-virtual {p0}, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->onDemoModeAvailabilityChanged()V
 

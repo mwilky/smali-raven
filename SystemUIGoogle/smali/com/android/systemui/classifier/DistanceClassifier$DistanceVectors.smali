@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;
+.class public final Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;
 .super Ljava/lang/Object;
 .source "DistanceClassifier.java"
 
@@ -9,61 +9,41 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DistanceVectors"
 .end annotation
 
 
 # instance fields
-.field final mDx:F
+.field public final mDx:F
 
-.field final mDy:F
+.field public final mDy:F
 
-.field private final mVx:F
+.field public final mVx:F
 
-.field private final mVy:F
-
-.field final synthetic this$0:Lcom/android/systemui/classifier/DistanceClassifier;
+.field public final mVy:F
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/DistanceClassifier;FFFF)V
+.method public constructor <init>(FFFF)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->this$0:Lcom/android/systemui/classifier/DistanceClassifier;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p2, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mDx:F
+    iput p1, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mDx:F
 
-    iput p3, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mDy:F
+    iput p2, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mDy:F
 
-    iput p4, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mVx:F
+    iput p3, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mVx:F
 
-    iput p5, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mVy:F
+    iput p4, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mVy:F
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mVx:F
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/classifier/DistanceClassifier$DistanceVectors;->mVy:F
-
-    return p0
-.end method
-
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     const/4 v0, 0x4

@@ -13,19 +13,16 @@
 .method public abstract isScreenOn()Z
 .end method
 
-.method public abstract keyguardDone(ZI)V
+.method public abstract keyguardDone(I)V
 .end method
 
 .method public abstract keyguardDoneDrawing()V
 .end method
 
-.method public abstract keyguardDonePending(ZI)V
+.method public abstract keyguardDonePending(I)V
 .end method
 
 .method public abstract keyguardGone()V
-.end method
-
-.method public abstract onBouncerVisiblityChanged(Z)V
 .end method
 
 .method public abstract onCancelClicked()V

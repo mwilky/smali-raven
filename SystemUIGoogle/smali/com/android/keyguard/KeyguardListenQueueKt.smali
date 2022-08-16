@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static final DEFAULT_FORMATTING:Ljava/text/SimpleDateFormat;
+.field public static final DEFAULT_FORMATTING:Ljava/text/SimpleDateFormat;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -22,12 +22,4 @@
     sput-object v0, Lcom/android/keyguard/KeyguardListenQueueKt;->DEFAULT_FORMATTING:Ljava/text/SimpleDateFormat;
 
     return-void
-.end method
-
-.method public static final synthetic access$getDEFAULT_FORMATTING$p()Ljava/text/SimpleDateFormat;
-    .locals 1
-
-    sget-object v0, Lcom/android/keyguard/KeyguardListenQueueKt;->DEFAULT_FORMATTING:Ljava/text/SimpleDateFormat;
-
-    return-object v0
 .end method

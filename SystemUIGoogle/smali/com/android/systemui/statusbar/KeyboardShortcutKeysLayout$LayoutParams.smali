@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
+.class public final Lcom/android/systemui/statusbar/KeyboardShortcutKeysLayout$LayoutParams;
 .super Landroid/view/ViewGroup$LayoutParams;
 .source "KeyboardShortcutKeysLayout.java"
 

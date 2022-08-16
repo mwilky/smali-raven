@@ -25,6 +25,3 @@
         }
     .end annotation
 .end method
-
-.method public abstract onSettingsActivityTriggered(Landroid/content/Intent;)V
-.end method

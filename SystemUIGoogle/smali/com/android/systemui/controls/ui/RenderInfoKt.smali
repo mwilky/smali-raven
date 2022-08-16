@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final deviceColorMap:Ljava/util/Map;
+.field public static final deviceColorMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -17,7 +17,7 @@
     .end annotation
 .end field
 
-.field private static final deviceIconMap:Ljava/util/Map;
+.field public static final deviceIconMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 18
 
     const/4 v0, 0x5
@@ -45,13 +45,13 @@
 
     new-instance v3, Lkotlin/Pair;
 
-    sget v4, Lcom/android/systemui/R$color;->control_default_foreground:I
+    const v4, 0x7f060083
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    sget v5, Lcom/android/systemui/R$color;->control_default_background:I
+    const v5, 0x7f060082
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -59,89 +59,89 @@
 
     invoke-direct {v3, v4, v5}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {v2, v3}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v4, Lkotlin/Pair;
 
-    move-result-object v3
+    invoke-direct {v4, v2, v3}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    aput-object v3, v1, v4
+    aput-object v4, v1, v3
 
-    const v3, 0xbf6a
+    const v4, 0xbf6a
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    new-instance v5, Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    sget v6, Lcom/android/systemui/R$color;->thermo_heat_foreground:I
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    sget v7, Lcom/android/systemui/R$color;->control_enabled_thermo_heat_background:I
+    const v7, 0x7f060463
 
     invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v7
 
-    invoke-direct {v5, v6, v7}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    invoke-static {v3, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v5
-
-    const/4 v6, 0x1
-
-    aput-object v5, v1, v6
-
-    const v5, 0xbf6b
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    new-instance v7, Lkotlin/Pair;
-
-    sget v8, Lcom/android/systemui/R$color;->thermo_cool_foreground:I
+    const v8, 0x7f06008a
 
     invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v8
 
-    sget v9, Lcom/android/systemui/R$color;->control_enabled_thermo_cool_background:I
+    invoke-direct {v6, v7, v8}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    new-instance v7, Lkotlin/Pair;
+
+    invoke-direct {v7, v5, v6}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const/4 v5, 0x1
+
+    aput-object v7, v1, v5
+
+    const v6, 0xbf6b
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    new-instance v8, Lkotlin/Pair;
+
+    const v9, 0x7f060462
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
 
-    invoke-direct {v7, v8, v9}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    const v10, 0x7f060089
 
-    invoke-static {v5, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v10
 
-    const/4 v8, 0x2
+    invoke-direct {v8, v9, v10}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v7, v1, v8
+    new-instance v9, Lkotlin/Pair;
 
-    const/16 v7, 0xd
+    invoke-direct {v9, v7, v8}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/4 v7, 0x2
+
+    aput-object v9, v1, v7
+
+    const/16 v8, 0xd
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v9
 
     new-instance v10, Lkotlin/Pair;
 
-    sget v11, Lcom/android/systemui/R$color;->light_foreground:I
+    const v11, 0x7f06012d
 
     invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v11
 
-    sget v12, Lcom/android/systemui/R$color;->control_enabled_light_background:I
+    const v12, 0x7f060088
 
     invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -149,51 +149,51 @@
 
     invoke-direct {v10, v11, v12}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {v9, v10}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v11, Lkotlin/Pair;
 
-    move-result-object v10
+    invoke-direct {v11, v9, v10}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v11, 0x3
+    const/4 v9, 0x3
 
-    aput-object v10, v1, v11
+    aput-object v11, v1, v9
 
     const/16 v10, 0x32
 
     invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v12
+    move-result-object v11
 
-    new-instance v13, Lkotlin/Pair;
+    new-instance v12, Lkotlin/Pair;
 
-    sget v14, Lcom/android/systemui/R$color;->camera_foreground:I
+    const v13, 0x7f060074
+
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v13
+
+    const v14, 0x7f060085
 
     invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v14
 
-    sget v15, Lcom/android/systemui/R$color;->control_enabled_default_background:I
+    invoke-direct {v12, v13, v14}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    new-instance v13, Lkotlin/Pair;
 
-    move-result-object v15
+    invoke-direct {v13, v11, v12}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-direct {v13, v14, v15}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    const/4 v11, 0x4
 
-    invoke-static {v12, v13}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    aput-object v13, v1, v11
 
-    move-result-object v13
-
-    const/4 v14, 0x4
-
-    aput-object v13, v1, v14
-
-    invoke-static {v1}, Lkotlin/collections/MapsKt;->mapOf([Lkotlin/Pair;)Ljava/util/Map;
+    invoke-static {v1}, Lkotlin/collections/MapsKt___MapsKt;->mapOf([Lkotlin/Pair;)Ljava/util/Map;
 
     move-result-object v1
 
-    sget-object v13, Lcom/android/systemui/controls/ui/RenderInfoKt$deviceColorMap$1;->INSTANCE:Lcom/android/systemui/controls/ui/RenderInfoKt$deviceColorMap$1;
+    sget-object v12, Lcom/android/systemui/controls/ui/RenderInfoKt$deviceColorMap$1;->INSTANCE:Lcom/android/systemui/controls/ui/RenderInfoKt$deviceColorMap$1;
 
-    invoke-static {v1, v13}, Lkotlin/collections/MapsKt;->withDefault(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
+    invoke-static {v1, v12}, Lkotlin/collections/MapsKt__MapsJVMKt;->withDefault(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 
     move-result-object v1
 
@@ -203,361 +203,379 @@
 
     new-array v1, v1, [Lkotlin/Pair;
 
-    sget v13, Lcom/android/systemui/R$drawable;->ic_device_thermostat_off:I
-
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v15
-
-    invoke-static {v2, v15}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v2
-
-    aput-object v2, v1, v4
-
-    sget v2, Lcom/android/systemui/R$drawable;->ic_device_thermostat:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v3
-
-    aput-object v3, v1, v6
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-static {v5, v3}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v3
-
-    aput-object v3, v1, v8
-
-    const v3, 0xbf6c
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v3
-
-    aput-object v3, v1, v11
-
-    const v3, 0xbf6d
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v3
-
-    aput-object v3, v1, v14
-
-    const/16 v3, 0x31
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v4
-
-    aput-object v4, v1, v0
-
-    sget v4, Lcom/android/systemui/R$drawable;->ic_device_light:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v9, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v4
-
-    const/4 v5, 0x6
-
-    aput-object v4, v1, v5
-
-    sget v4, Lcom/android/systemui/R$drawable;->ic_device_camera:I
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-static {v12, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v4
-
-    const/4 v9, 0x7
-
-    aput-object v4, v1, v9
-
-    const/16 v4, 0x2d
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    sget v13, Lcom/android/systemui/R$drawable;->ic_device_lock:I
-
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v13
-
-    invoke-static {v12, v13}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v12
-
-    const/16 v13, 0x8
-
-    aput-object v12, v1, v13
-
-    const/16 v12, 0x15
+    const v12, 0x7f080507
 
     invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v15
+    move-result-object v13
 
-    sget v16, Lcom/android/systemui/R$drawable;->ic_device_switch:I
+    new-instance v14, Lkotlin/Pair;
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {v14, v2, v13}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    move-result-object v10
+    aput-object v14, v1, v3
 
-    invoke-static {v15, v10}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v10
+    move-result-object v2
 
-    const/16 v15, 0x9
-
-    aput-object v10, v1, v15
-
-    const/16 v10, 0xf
-
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v15
-
-    sget v16, Lcom/android/systemui/R$drawable;->ic_device_outlet:I
-
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v3
-
-    invoke-static {v15, v3}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v3
-
-    const/16 v15, 0xa
-
-    aput-object v3, v1, v15
-
-    const/16 v3, 0x20
+    const v3, 0x7f080505
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    sget v17, Lcom/android/systemui/R$drawable;->ic_device_vacuum:I
+    new-instance v13, Lkotlin/Pair;
 
-    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {v13, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    move-result-object v9
+    aput-object v13, v1, v5
 
-    invoke-static {v4, v9}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    const/16 v9, 0xb
+    new-instance v6, Lkotlin/Pair;
 
-    aput-object v4, v1, v9
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v7
+
+    const v2, 0xbf6c
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v9
+
+    const v2, 0xbf6d
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v11
+
+    const/16 v2, 0x31
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    new-instance v12, Lkotlin/Pair;
+
+    invoke-direct {v12, v4, v6}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v12, v1, v0
+
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const v6, 0x7f0804ce
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    new-instance v12, Lkotlin/Pair;
+
+    invoke-direct {v12, v4, v6}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const/4 v4, 0x6
+
+    aput-object v12, v1, v4
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const v12, 0x7f0804a4
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    new-instance v13, Lkotlin/Pair;
+
+    invoke-direct {v13, v6, v12}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const/4 v6, 0x7
+
+    aput-object v13, v1, v6
+
+    const/16 v12, 0x2d
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v13
+
+    const v14, 0x7f0804d3
+
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v14
+
+    new-instance v15, Lkotlin/Pair;
+
+    invoke-direct {v15, v13, v14}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const/16 v13, 0x8
+
+    aput-object v15, v1, v13
+
+    const/16 v14, 0x9
+
+    const/16 v15, 0x15
+
+    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    const v16, 0x7f080500
+
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    new-instance v12, Lkotlin/Pair;
+
+    invoke-direct {v12, v10, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v12, v1, v14
+
+    const/16 v2, 0xf
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    const v12, 0x7f0804e4
+
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v12
+
+    new-instance v14, Lkotlin/Pair;
+
+    invoke-direct {v14, v10, v12}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    const/16 v10, 0xa
+
+    aput-object v14, v1, v10
+
+    const/16 v12, 0xb
+
+    const/16 v14, 0x20
+
+    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    const v17, 0x7f080513
+
+    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v0, Lkotlin/Pair;
+
+    invoke-direct {v0, v6, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v0, v1, v12
+
+    const/16 v0, 0xc
 
     const/16 v4, 0x1a
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v9
+    move-result-object v4
 
-    sget v17, Lcom/android/systemui/R$drawable;->ic_device_mop:I
+    const v6, 0x7f0804db
 
-    invoke-static/range {v17 .. v17}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v9, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v12, Lkotlin/Pair;
 
-    move-result-object v5
+    invoke-direct {v12, v4, v6}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v9, 0xc
-
-    aput-object v5, v1, v9
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    sget v11, Lcom/android/systemui/R$drawable;->ic_device_air_freshener:I
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-static {v5, v0}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    aput-object v0, v1, v7
-
-    invoke-static {v14}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v5, Lcom/android/systemui/R$drawable;->ic_device_air_purifier:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v5, 0xe
-
-    aput-object v0, v1, v5
-
-    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v5, Lcom/android/systemui/R$drawable;->ic_device_fan:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    aput-object v0, v1, v10
-
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v5, Lcom/android/systemui/R$drawable;->ic_device_hood:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v5, 0x10
-
-    aput-object v0, v1, v5
+    aput-object v12, v1, v0
 
     invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    sget v5, Lcom/android/systemui/R$drawable;->ic_device_kettle:I
+    const v4, 0x7f080499
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v6, v0, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v7, 0x11
-
-    aput-object v0, v1, v7
+    aput-object v6, v1, v8
 
     const/16 v0, 0xe
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    const v6, 0x7f08049c
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    new-instance v8, Lkotlin/Pair;
+
+    invoke-direct {v8, v4, v6}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v8, v1, v0
+
+    invoke-static {v13}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_microwave:I
+    const v4, 0x7f0804bb
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v6, v0, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v7, 0x12
+    aput-object v6, v1, v2
 
-    aput-object v0, v1, v7
+    const/16 v0, 0x10
+
+    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804c8
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
 
     const/16 v0, 0x11
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0xc
 
-    move-result-object v0
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_remote_control:I
+    move-result-object v2
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v4, 0x7f0804cb
 
-    move-result-object v7
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    move-result-object v4
 
-    move-result-object v0
+    new-instance v6, Lkotlin/Pair;
 
-    const/16 v7, 0x13
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v0, v1, v7
+    aput-object v6, v1, v0
 
     const/16 v0, 0x12
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0xe
 
-    move-result-object v0
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_set_top:I
+    move-result-object v2
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v4, 0x7f0804d8
 
-    move-result-object v7
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    move-result-object v4
 
-    move-result-object v0
+    new-instance v6, Lkotlin/Pair;
 
-    const/16 v7, 0x14
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v0, v1, v7
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x13
+
+    const/16 v2, 0x11
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804ef
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x14
+
+    const/16 v2, 0x12
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804f7
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
 
     const/16 v0, 0x14
 
@@ -565,215 +583,217 @@
 
     move-result-object v0
 
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_styler:I
+    const v2, 0x7f0804fd
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v2
 
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v4, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v4, v0, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v0, v1, v12
+    aput-object v4, v1, v15
 
     const/16 v0, 0x16
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x16
 
-    move-result-object v0
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_tv:I
+    move-result-object v2
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v7, 0x16
-
-    aput-object v0, v1, v7
-
-    const/16 v0, 0x17
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_water_heater:I
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v7, 0x17
-
-    aput-object v0, v1, v7
-
-    const/16 v0, 0x18
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_dishwasher:I
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v7, 0x18
-
-    aput-object v0, v1, v7
-
-    const/16 v0, 0x1c
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_multicooker:I
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v7, 0x19
-
-    aput-object v0, v1, v7
-
-    const/16 v0, 0x1e
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_sprinkler:I
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    aput-object v0, v1, v4
-
-    const/16 v0, 0x1f
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v4, Lcom/android/systemui/R$drawable;->ic_device_washer:I
+    const v4, 0x7f08050b
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v4
 
-    invoke-static {v0, v7}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v7, 0x1b
+    aput-object v6, v1, v0
 
-    aput-object v0, v1, v7
+    const/16 v0, 0x17
 
-    const/16 v0, 0x22
+    const/16 v2, 0x17
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget v7, Lcom/android/systemui/R$drawable;->ic_device_blinds:I
+    const v4, 0x7f08051f
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v9
+    move-result-object v4
 
-    invoke-static {v0, v9}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v9, 0x1c
+    aput-object v6, v1, v0
 
-    aput-object v0, v1, v9
+    const/16 v0, 0x18
 
-    const/16 v0, 0x26
+    const/16 v2, 0x18
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget v9, Lcom/android/systemui/R$drawable;->ic_device_drawer:I
+    const v4, 0x7f0804ac
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v10
+    move-result-object v4
 
-    invoke-static {v0, v10}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v10, 0x1d
+    aput-object v6, v1, v0
 
-    aput-object v0, v1, v10
+    const/16 v0, 0x19
 
-    const/16 v0, 0x27
+    const/16 v2, 0x1c
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget v10, Lcom/android/systemui/R$drawable;->ic_device_garage:I
+    const v4, 0x7f0804de
 
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v10
+    move-result-object v4
 
-    invoke-static {v0, v10}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v10, 0x1e
+    aput-object v6, v1, v0
 
-    aput-object v0, v1, v10
+    const/16 v0, 0x1a
 
-    const/16 v0, 0x28
+    const/16 v2, 0x1e
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget v10, Lcom/android/systemui/R$drawable;->ic_device_gate:I
+    const v4, 0x7f0804fa
 
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v10
+    move-result-object v4
 
-    invoke-static {v0, v10}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v6, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v10, 0x1f
+    aput-object v6, v1, v0
 
-    aput-object v0, v1, v10
+    const/16 v0, 0x1b
+
+    const/16 v2, 0x1f
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f08051b
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x1c
+
+    const/16 v2, 0x22
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f08049f
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x1d
+
+    const/16 v2, 0x26
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804b8
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x1e
+
+    const/16 v2, 0x27
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804c0
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x1f
+
+    const/16 v2, 0x28
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804c5
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
 
     const/16 v0, 0x29
 
@@ -781,243 +801,247 @@
 
     move-result-object v0
 
-    sget v10, Lcom/android/systemui/R$drawable;->ic_device_pergola:I
+    const v2, 0x7f0804e9
 
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v12
+    move-result-object v2
 
-    invoke-static {v0, v12}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v4, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v4, v0, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v0, v1, v3
+    aput-object v4, v1, v14
 
-    const/16 v0, 0x2b
+    const/16 v0, 0x21
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x2b
 
-    move-result-object v0
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    sget v3, Lcom/android/systemui/R$drawable;->ic_device_window:I
+    move-result-object v2
+
+    const v4, 0x7f080524
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x22
+
+    const/16 v2, 0x2c
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f080518
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x23
+
+    const/16 v2, 0x2e
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804f2
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x24
+
+    const/16 v2, 0x30
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804ec
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x25
+
+    const/16 v2, 0x33
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804b5
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x26
+
+    const/16 v2, 0x34
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const/4 v4, -0x1
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v6, Lkotlin/Pair;
+
+    invoke-direct {v6, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v6, v1, v0
+
+    const/16 v0, 0x27
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v12
+    move-result-object v4
 
-    invoke-static {v0, v12}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v5, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v12, 0x21
+    aput-object v5, v1, v0
 
-    aput-object v0, v1, v12
+    const/16 v0, 0x28
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v5, Lkotlin/Pair;
+
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v5, v1, v0
+
+    const/16 v0, 0x29
+
+    const/4 v2, 0x5
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f0804cb
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v5, Lkotlin/Pair;
+
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v5, v1, v0
+
+    const/16 v0, 0x2a
+
+    const/4 v2, 0x6
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f080499
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v5, Lkotlin/Pair;
+
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v5, v1, v0
+
+    const/16 v0, 0x2b
+
+    const/16 v2, 0x10
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v5, Lkotlin/Pair;
+
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v5, v1, v0
 
     const/16 v0, 0x2c
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v12, Lcom/android/systemui/R$drawable;->ic_device_valve:I
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-static {v0, v12}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v12, 0x22
-
-    aput-object v0, v1, v12
-
-    const/16 v0, 0x2e
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v12, Lcom/android/systemui/R$drawable;->ic_device_security_system:I
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-static {v0, v12}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v12, 0x23
-
-    aput-object v0, v1, v12
-
-    const/16 v0, 0x30
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v12, Lcom/android/systemui/R$drawable;->ic_device_refrigerator:I
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-static {v0, v12}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v12, 0x24
-
-    aput-object v0, v1, v12
-
-    const/16 v0, 0x33
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v12, Lcom/android/systemui/R$drawable;->ic_device_doorbell:I
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-static {v0, v12}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v12, 0x25
-
-    aput-object v0, v1, v12
-
-    const/16 v0, 0x34
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    const/4 v12, -0x1
-
-    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v12
-
-    invoke-static {v0, v12}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v12, 0x26
-
-    aput-object v0, v1, v12
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
+    const/16 v2, 0x13
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v2
 
-    invoke-static {v0, v6}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    const v4, 0x7f0804a9
 
-    move-result-object v0
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/16 v6, 0x27
+    move-result-object v4
 
-    aput-object v0, v1, v6
+    new-instance v5, Lkotlin/Pair;
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    move-result-object v0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-static {v0, v6}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v6, 0x28
-
-    aput-object v0, v1, v6
-
-    const/4 v0, 0x5
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v5, 0x29
-
-    aput-object v0, v1, v5
-
-    const/4 v0, 0x6
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v5, 0x2a
-
-    aput-object v0, v1, v5
-
-    const/16 v0, 0x10
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v5, 0x2b
-
-    aput-object v0, v1, v5
-
-    const/16 v0, 0x13
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v5, Lcom/android/systemui/R$drawable;->ic_device_cooking:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v5, 0x2c
-
-    aput-object v0, v1, v5
+    aput-object v5, v1, v0
 
     const/4 v0, 0x7
 
@@ -1025,77 +1049,79 @@
 
     move-result-object v0
 
-    sget v5, Lcom/android/systemui/R$drawable;->ic_device_display:I
+    const v2, 0x7f0804af
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v2
 
-    invoke-static {v0, v5}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v4, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v4, v0, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v5, 0x2d
+    const/16 v0, 0x2d
 
-    aput-object v0, v1, v5
+    aput-object v4, v1, v0
 
-    const/16 v0, 0x19
+    const/16 v0, 0x2e
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v2, 0x19
 
-    move-result-object v0
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-result-object v2
 
-    move-result-object v4
-
-    invoke-static {v0, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v4, 0x2e
-
-    aput-object v0, v1, v4
-
-    const/16 v0, 0x1b
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v4, Lcom/android/systemui/R$drawable;->ic_device_outdoor_garden:I
+    const v4, 0x7f08051b
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-static {v0, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v5, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v4, 0x2f
+    aput-object v5, v1, v0
 
-    aput-object v0, v1, v4
+    const/16 v0, 0x2f
 
-    const/16 v0, 0x1d
+    const/16 v2, 0x1b
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v2
 
-    sget v4, Lcom/android/systemui/R$drawable;->ic_device_water:I
+    const v4, 0x7f0804e1
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-static {v0, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v5, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v4, 0x30
+    aput-object v5, v1, v0
 
-    aput-object v0, v1, v4
+    const/16 v0, 0x30
+
+    const/16 v2, 0x1d
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f08051e
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v5, Lkotlin/Pair;
+
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v5, v1, v0
 
     const/16 v0, 0x21
 
@@ -1103,17 +1129,19 @@
 
     move-result-object v0
 
-    invoke-static {v10}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f0804e9
 
-    move-result-object v4
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v0, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    move-result-object v2
 
-    move-result-object v0
+    new-instance v4, Lkotlin/Pair;
 
-    const/16 v4, 0x31
+    invoke-direct {v4, v0, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v0, v1, v4
+    const/16 v0, 0x31
+
+    aput-object v4, v1, v0
 
     const/16 v0, 0x23
 
@@ -1121,139 +1149,129 @@
 
     move-result-object v0
 
-    invoke-static {v9}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f0804b8
 
-    move-result-object v4
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {v0, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    move-result-object v2
 
-    move-result-object v0
+    new-instance v4, Lkotlin/Pair;
 
-    const/16 v4, 0x32
+    invoke-direct {v4, v0, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v0, v1, v4
+    const/16 v0, 0x32
 
-    const/16 v0, 0x24
+    aput-object v4, v1, v0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const/16 v0, 0x33
 
-    move-result-object v0
+    const/16 v2, 0x24
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v2
 
-    invoke-static {v0, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v4, 0x33
-
-    aput-object v0, v1, v4
-
-    const/16 v0, 0x25
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    sget v4, Lcom/android/systemui/R$drawable;->ic_device_door:I
+    const v4, 0x7f08049f
 
     invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v4
 
-    invoke-static {v0, v4}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v5, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v4, 0x34
+    aput-object v5, v1, v0
 
-    aput-object v0, v1, v4
+    const/16 v0, 0x34
 
-    const/16 v0, 0x2a
+    const/16 v2, 0x25
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object v2
+
+    const v4, 0x7f0804b2
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v5, Lkotlin/Pair;
+
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v5, v1, v0
+
+    const/16 v0, 0x35
+
+    const/16 v2, 0x2a
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    const v4, 0x7f080524
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    new-instance v5, Lkotlin/Pair;
+
+    invoke-direct {v5, v2, v4}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v5, v1, v0
+
+    const/16 v0, 0x36
+
+    const/16 v2, 0x2f
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v3
 
-    invoke-static {v0, v3}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v4, Lkotlin/Pair;
 
-    move-result-object v0
+    invoke-direct {v4, v2, v3}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/16 v3, 0x35
+    aput-object v4, v1, v0
 
-    aput-object v0, v1, v3
+    const/16 v0, 0x37
 
-    const/16 v0, 0x2f
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
+    const/16 v2, -0x3e8
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    const v3, 0x7f08052e
 
-    move-result-object v0
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/16 v2, 0x36
+    move-result-object v3
 
-    aput-object v0, v1, v2
+    new-instance v4, Lkotlin/Pair;
 
-    const/16 v0, -0x3e8
+    invoke-direct {v4, v2, v3}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    aput-object v4, v1, v0
 
-    move-result-object v0
-
-    sget v2, Lcom/android/systemui/R$drawable;->ic_error_outline:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-static {v0, v2}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
-
-    move-result-object v0
-
-    const/16 v2, 0x37
-
-    aput-object v0, v1, v2
-
-    invoke-static {v1}, Lkotlin/collections/MapsKt;->mapOf([Lkotlin/Pair;)Ljava/util/Map;
+    invoke-static {v1}, Lkotlin/collections/MapsKt___MapsKt;->mapOf([Lkotlin/Pair;)Ljava/util/Map;
 
     move-result-object v0
 
     sget-object v1, Lcom/android/systemui/controls/ui/RenderInfoKt$deviceIconMap$1;->INSTANCE:Lcom/android/systemui/controls/ui/RenderInfoKt$deviceIconMap$1;
 
-    invoke-static {v0, v1}, Lkotlin/collections/MapsKt;->withDefault(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
+    invoke-static {v0, v1}, Lkotlin/collections/MapsKt__MapsJVMKt;->withDefault(Ljava/util/Map;Lkotlin/jvm/functions/Function1;)Ljava/util/Map;
 
     move-result-object v0
 
     sput-object v0, Lcom/android/systemui/controls/ui/RenderInfoKt;->deviceIconMap:Ljava/util/Map;
 
     return-void
-.end method
-
-.method public static final synthetic access$getDeviceColorMap$p()Ljava/util/Map;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/controls/ui/RenderInfoKt;->deviceColorMap:Ljava/util/Map;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getDeviceIconMap$p()Ljava/util/Map;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/controls/ui/RenderInfoKt;->deviceIconMap:Ljava/util/Map;
-
-    return-object v0
 .end method

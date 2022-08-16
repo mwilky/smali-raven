@@ -6,103 +6,88 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
+
+.field public final mediaOutputBroadcastDialogFactoryProvider:Ljavax/inject/Provider;
+
+.field public final mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p3, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+
+    iput-object p2, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->mediaOutputBroadcastDialogFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;",
-            ">;)",
-            "Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;-><init>(Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;)Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;-><init>(Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;
-    .locals 0
+.method public final get()Ljava/lang/Object;
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+    iget v0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->mediaOutputBroadcastDialogFactoryProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
+    check-cast p0, Lcom/android/systemui/media/dialog/MediaOutputBroadcastDialogFactory;
 
-    invoke-static {p0}, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->newInstance(Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;)Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;
+    new-instance v1, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;
+
+    invoke-direct {v1, v0, p0}, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;-><init>(Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;Lcom/android/systemui/media/dialog/MediaOutputBroadcastDialogFactory;)V
+
+    return-object v1
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->mediaOutputDialogFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;
+
+    iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->mediaOutputBroadcastDialogFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    new-instance v1, Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver_Factory;->get()Lcom/android/systemui/media/dialog/MediaOutputDialogReceiver;
+    invoke-direct {v1, v0, p0}, Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;-><init>(Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;)V
 
-    move-result-object p0
+    return-object v1
 
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

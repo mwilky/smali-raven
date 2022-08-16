@@ -1,4 +1,4 @@
-.class public Lcom/android/launcher3/icons/DotRenderer$DrawParams;
+.class public final Lcom/android/launcher3/icons/DotRenderer$DrawParams;
 .super Ljava/lang/Object;
 .source "DotRenderer.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field public color:I
+.field public dotColor:I
     .annotation runtime Landroid/view/ViewDebug$ExportedProperty;
         category = "notification dot"
         formatToHexString = true

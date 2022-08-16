@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/SearchBar$2;
+.class public final Landroidx/leanback/widget/SearchBar$2;
 .super Ljava/lang/Object;
 .source "SearchBar.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/SearchBar;
+.field public final synthetic this$0:Landroidx/leanback/widget/SearchBar;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/SearchBar;)V
+.method public constructor <init>(Landroidx/leanback/widget/SearchBar;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/SearchBar$2;->this$0:Landroidx/leanback/widget/SearchBar;
 
@@ -42,8 +34,8 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public final run()V
+    .locals 2
 
     iget-object p0, p0, Landroidx/leanback/widget/SearchBar$2;->this$0:Landroidx/leanback/widget/SearchBar;
 
@@ -57,7 +49,19 @@
 
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchBar;->setSearchQueryInternal(Ljava/lang/String;)V
+    iget-object v1, p0, Landroidx/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
 
+    invoke-static {v1, v0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iput-object v0, p0, Landroidx/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
+
+    :goto_0
     return-void
 .end method

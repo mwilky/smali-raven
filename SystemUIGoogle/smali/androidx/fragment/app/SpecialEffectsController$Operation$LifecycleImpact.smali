@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4018
+    accessFlags = 0x4019
     name = "LifecycleImpact"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+.field public static final synthetic $VALUES:[Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
 .field public static final enum ADDING:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
@@ -33,63 +33,58 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 7
 
     new-instance v0, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    const-string v1, "NONE"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "NONE"
 
-    invoke-direct {v0, v1, v2}, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->NONE:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    new-instance v1, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+    new-instance v2, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    const-string v3, "ADDING"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "ADDING"
 
-    invoke-direct {v1, v3, v4}, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->ADDING:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+    sput-object v2, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->ADDING:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    new-instance v3, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+    new-instance v4, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    const-string v5, "REMOVING"
+    const/4 v5, 0x2
 
-    const/4 v6, 0x2
+    const-string v6, "REMOVING"
 
-    invoke-direct {v3, v5, v6}, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v5, v6}, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;-><init>(ILjava/lang/String;)V
 
-    sput-object v3, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->REMOVING:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+    sput-object v4, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->REMOVING:Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    const/4 v5, 0x3
+    const/4 v6, 0x3
 
-    new-array v5, v5, [Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+    new-array v6, v6, [Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
-    aput-object v0, v5, v2
+    aput-object v0, v6, v1
 
-    aput-object v1, v5, v4
+    aput-object v2, v6, v3
 
-    aput-object v3, v5, v6
+    aput-object v4, v6, v5
 
-    sput-object v5, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->$VALUES:[Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
+    sput-object v6, Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;->$VALUES:[Landroidx/fragment/app/SpecialEffectsController$Operation$LifecycleImpact;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

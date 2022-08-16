@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onInflated(Landroid/view/View;)V
+.method public abstract onInflated()V
 .end method

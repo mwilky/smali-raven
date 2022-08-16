@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;
+.class public final Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;
 .super Ljava/lang/Object;
 .source "AdminSecondaryLockScreenController.java"
 
@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mParent:Lcom/android/keyguard/KeyguardSecurityContainer;
+.field public final mParent:Lcom/android/keyguard/KeyguardSecurityContainer;
 
-.field private final mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 
 # direct methods
@@ -39,30 +39,4 @@
     iput-object p4, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mHandler:Landroid/os/Handler;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public create(Lcom/android/keyguard/KeyguardSecurityCallback;)Lcom/android/keyguard/AdminSecondaryLockScreenController;
-    .locals 8
-
-    new-instance v7, Lcom/android/keyguard/AdminSecondaryLockScreenController;
-
-    iget-object v1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mParent:Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    iget-object v3, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    iget-object v5, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$Factory;->mHandler:Landroid/os/Handler;
-
-    const/4 v6, 0x0
-
-    move-object v0, v7
-
-    move-object v4, p1
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/keyguard/AdminSecondaryLockScreenController;-><init>(Landroid/content/Context;Lcom/android/keyguard/KeyguardSecurityContainer;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/keyguard/KeyguardSecurityCallback;Landroid/os/Handler;Lcom/android/keyguard/AdminSecondaryLockScreenController$1;)V
-
-    return-object v7
 .end method

@@ -1,21 +1,26 @@
 .class public final synthetic Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/screenshot/CropView;
+.field public final synthetic $r8$classId:I
+
+.field public final synthetic f$0:Ljava/lang/Object;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/CropView;)V
+.method public synthetic constructor <init>(ILjava/lang/Object;)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p1, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->$r8$classId:I
 
-    iput-object p1, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/screenshot/CropView;
+    iput-object p2, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Object;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
@@ -23,11 +28,82 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 0
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/screenshot/CropView;
+    iget v0, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->$r8$classId:I
 
-    invoke-static {p0, p1}, Lcom/android/systemui/screenshot/CropView;->$r8$lambda$Eu3lnVV9CoXVrdC1xPAUci9nHYI(Lcom/android/systemui/screenshot/CropView;Landroid/animation/ValueAnimator;)V
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0, v0}, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->setAlpha(FZZ)V
 
     return-void
+
+    :pswitch_1
+    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/screenshot/CropView;
+
+    sget v0, Lcom/android/systemui/screenshot/CropView;->$r8$clinit:I
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/screenshot/CropView;->mEntranceInterpolation:F
+
+    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+
+    return-void
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/screenshot/ScreenshotView;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotFlash:Landroid/widget/ImageView;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setAlpha(F)V
+
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

@@ -4,16 +4,16 @@
 
 
 # static fields
-.field private static final ART_URIS:[Ljava/lang/String;
+.field public static final ART_URIS:[Ljava/lang/String;
 
-.field private static final EMPTY_SMARTSPACE_MEDIA_DATA:Lcom/android/systemui/media/SmartspaceMediaData;
+.field public static final EMPTY_SMARTSPACE_MEDIA_DATA:Lcom/android/systemui/media/SmartspaceMediaData;
 
-.field private static final LOADING:Lcom/android/systemui/media/MediaData;
+.field public static final LOADING:Lcom/android/systemui/media/MediaData;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 39
+.method public static constructor <clinit>()V
+    .locals 31
 
     const-string v0, "android.media.metadata.ALBUM_ART_URI"
 
@@ -31,13 +31,17 @@
 
     move-object v1, v0
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
+    sget-object v29, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
-    move-result-object v10
+    move-object/from16 v9, v29
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
+    move-object/from16 v10, v29
 
-    move-result-object v11
+    const/16 v30, -0x1
+
+    invoke-static/range {v30 .. v30}, Lcom/android/internal/logging/InstanceId;->fakeInstanceId(I)Lcom/android/internal/logging/InstanceId;
+
+    move-result-object v26
 
     const/4 v2, -0x1
 
@@ -53,7 +57,7 @@
 
     const/4 v8, 0x0
 
-    const/4 v9, 0x0
+    const/4 v11, 0x0
 
     const-string v12, "INVALID"
 
@@ -81,67 +85,35 @@
 
     const-wide/16 v24, 0x0
 
-    const/high16 v26, 0x7f0000
+    const/16 v27, -0x1
 
-    const/16 v27, 0x0
+    const v28, 0x7f0200
 
-    invoke-direct/range {v1 .. v27}, Lcom/android/systemui/media/MediaData;-><init>(IZILjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct/range {v1 .. v28}, Lcom/android/systemui/media/MediaData;-><init>(IZLjava/lang/String;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Ljava/util/List;Ljava/util/List;Lcom/android/systemui/media/MediaButton;Ljava/lang/String;Landroid/media/session/MediaSession$Token;Landroid/app/PendingIntent;Lcom/android/systemui/media/MediaDeviceData;ZLjava/lang/Runnable;IZLjava/lang/String;ZLjava/lang/Boolean;ZJLcom/android/internal/logging/InstanceId;II)V
 
     sput-object v0, Lcom/android/systemui/media/MediaDataManagerKt;->LOADING:Lcom/android/systemui/media/MediaData;
 
     new-instance v0, Lcom/android/systemui/media/SmartspaceMediaData;
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
+    invoke-static/range {v30 .. v30}, Lcom/android/internal/logging/InstanceId;->fakeInstanceId(I)Lcom/android/internal/logging/InstanceId;
 
-    move-result-object v34
+    move-result-object v10
 
-    const-string v29, "INVALID"
+    const-string v2, "INVALID"
 
-    const/16 v30, 0x0
+    const-string v4, "INVALID"
 
-    const/16 v31, 0x0
+    const-wide/16 v8, 0x0
 
-    const-string v32, "INVALID"
+    move-object v1, v0
 
-    const/16 v33, 0x0
+    move-object/from16 v6, v29
 
-    const/16 v35, 0x0
-
-    const/16 v36, 0x0
-
-    const-wide/16 v37, 0x0
-
-    move-object/from16 v28, v0
-
-    invoke-direct/range {v28 .. v38}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;IJ)V
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/media/SmartspaceMediaData;-><init>(Ljava/lang/String;ZLjava/lang/String;Landroid/app/smartspace/SmartspaceAction;Ljava/util/List;Landroid/content/Intent;JLcom/android/internal/logging/InstanceId;)V
 
     sput-object v0, Lcom/android/systemui/media/MediaDataManagerKt;->EMPTY_SMARTSPACE_MEDIA_DATA:Lcom/android/systemui/media/SmartspaceMediaData;
 
     return-void
-.end method
-
-.method public static final synthetic access$getART_URIS$p()[Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/media/MediaDataManagerKt;->ART_URIS:[Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$getLOADING$p()Lcom/android/systemui/media/MediaData;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/media/MediaDataManagerKt;->LOADING:Lcom/android/systemui/media/MediaData;
-
-    return-object v0
-.end method
-
-.method public static final getEMPTY_SMARTSPACE_MEDIA_DATA()Lcom/android/systemui/media/SmartspaceMediaData;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/media/MediaDataManagerKt;->EMPTY_SMARTSPACE_MEDIA_DATA:Lcom/android/systemui/media/SmartspaceMediaData;
-
-    return-object v0
 .end method
 
 .method public static synthetic getEMPTY_SMARTSPACE_MEDIA_DATA$annotations()V
@@ -150,22 +122,4 @@
     .end annotation
 
     return-void
-.end method
-
-.method public static final isMediaNotification(Landroid/service/notification/StatusBarNotification;)Z
-    .locals 1
-
-    const-string v0, "sbn"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/app/Notification;->isMediaNotification()Z
-
-    move-result p0
-
-    return p0
 .end method

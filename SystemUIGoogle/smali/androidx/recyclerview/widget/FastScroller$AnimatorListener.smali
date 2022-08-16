@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/FastScroller$AnimatorListener;
+.class public final Landroidx/recyclerview/widget/FastScroller$AnimatorListener;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "FastScroller.java"
 
@@ -9,28 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AnimatorListener"
 .end annotation
 
 
 # instance fields
-.field private mCanceled:Z
+.field public mCanceled:Z
 
-.field final synthetic this$0:Landroidx/recyclerview/widget/FastScroller;
+.field public final synthetic this$0:Landroidx/recyclerview/widget/FastScroller;
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
+.method public constructor <init>(Landroidx/recyclerview/widget/FastScroller;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorListener;->this$0:Landroidx/recyclerview/widget/FastScroller;
 
@@ -45,16 +37,8 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     const/4 p1, 0x1
 
@@ -63,16 +47,8 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     iget-boolean p1, p0, Landroidx/recyclerview/widget/FastScroller$AnimatorListener;->mCanceled:Z
 
@@ -120,7 +96,9 @@
 
     iput p1, p0, Landroidx/recyclerview/widget/FastScroller;->mAnimationState:I
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/FastScroller;->requestRedraw()V
+    iget-object p0, p0, Landroidx/recyclerview/widget/FastScroller;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->invalidate()V
 
     :goto_0
     return-void

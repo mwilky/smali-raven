@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$3;
+.class public final Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$3;
 .super Ljava/lang/Object;
 .source "MediaRouteDynamicControllerDialog.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$3;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
@@ -42,16 +34,8 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$3;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
@@ -69,7 +53,9 @@
 
     const/4 v0, 0x2
 
-    invoke-virtual {p1, v0}, Landroidx/mediarouter/media/MediaRouter;->unselect(I)V
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {v0}, Landroidx/mediarouter/media/MediaRouter;->unselect(I)V
 
     :cond_0
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$3;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;

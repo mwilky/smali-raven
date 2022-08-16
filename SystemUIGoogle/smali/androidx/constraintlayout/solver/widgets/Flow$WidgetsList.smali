@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;
+.class public final Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;
 .super Ljava/lang/Object;
 .source "Flow.java"
 
@@ -9,52 +9,52 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "WidgetsList"
 .end annotation
 
 
 # instance fields
-.field private biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+.field public biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-.field biggestDimension:I
+.field public biggestDimension:I
 
-.field private mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+.field public mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-.field private mCount:I
+.field public mCount:I
 
-.field private mHeight:I
+.field public mHeight:I
 
-.field private mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+.field public mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-.field private mMax:I
+.field public mMax:I
 
-.field private mNbMatchConstraintsWidgets:I
+.field public mNbMatchConstraintsWidgets:I
 
-.field private mOrientation:I
+.field public mOrientation:I
 
-.field private mPaddingBottom:I
+.field public mPaddingBottom:I
 
-.field private mPaddingLeft:I
+.field public mPaddingLeft:I
 
-.field private mPaddingRight:I
+.field public mPaddingRight:I
 
-.field private mPaddingTop:I
+.field public mPaddingTop:I
 
-.field private mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+.field public mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-.field private mStartIndex:I
+.field public mStartIndex:I
 
-.field private mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+.field public mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-.field private mWidth:I
+.field public mWidth:I
 
-.field final synthetic this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+.field public final synthetic this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
 
 # direct methods
 .method public constructor <init>(Landroidx/constraintlayout/solver/widgets/Flow;ILandroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
-    .locals 2
+    .locals 1
 
     iput-object p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
@@ -62,11 +62,9 @@
 
     const/4 v0, 0x0
 
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
+    iput-object v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    const/4 v0, 0x0
 
     iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
 
@@ -100,27 +98,19 @@
 
     iput-object p6, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->getPaddingLeft()I
-
-    move-result p2
+    iget p2, p1, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->mResolvedPaddingLeft:I
 
     iput p2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingLeft:I
 
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->getPaddingTop()I
-
-    move-result p2
+    iget p2, p1, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->mPaddingTop:I
 
     iput p2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingTop:I
 
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->getPaddingRight()I
-
-    move-result p2
+    iget p2, p1, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->mResolvedPaddingRight:I
 
     iput p2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingRight:I
 
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->getPaddingBottom()I
-
-    move-result p1
+    iget p1, p1, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->mPaddingBottom:I
 
     iput p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingBottom:I
 
@@ -129,238 +119,69 @@
     return-void
 .end method
 
-.method static synthetic access$1900(Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;)Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    return-object p0
-.end method
-
-.method private recomputeDimensions()V
-    .locals 9
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
-
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
-
-    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mCount:I
-
-    move v2, v0
-
-    :goto_0
-    if-ge v2, v1, :cond_6
-
-    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$400(Landroidx/constraintlayout/solver/widgets/Flow;)[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v3
-
-    iget v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
-
-    add-int/2addr v4, v2
-
-    aget-object v3, v3, v4
-
-    iget v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
-
-    const/16 v5, 0x8
-
-    if-nez v4, :cond_2
-
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getWidth()I
-
-    move-result v4
-
-    iget-object v6, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v6}, Landroidx/constraintlayout/solver/widgets/Flow;->access$000(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v6
-
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVisibility()I
-
-    move-result v7
-
-    if-ne v7, v5, :cond_0
-
-    move v6, v0
-
-    :cond_0
-    iget v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
-
-    add-int/2addr v4, v6
-
-    add-int/2addr v5, v4
-
-    iput v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
-
-    iget-object v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    iget v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
-
-    invoke-static {v4, v3, v5}, Landroidx/constraintlayout/solver/widgets/Flow;->access$300(Landroidx/constraintlayout/solver/widgets/Flow;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
-
-    move-result v4
-
-    iget-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    if-eqz v5, :cond_1
-
-    iget v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
-
-    if-ge v5, v4, :cond_5
-
-    :cond_1
-    iput-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    iput v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
-
-    iput v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    iget v6, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
-
-    invoke-static {v4, v3, v6}, Landroidx/constraintlayout/solver/widgets/Flow;->access$200(Landroidx/constraintlayout/solver/widgets/Flow;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
-
-    move-result v4
-
-    iget-object v6, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    iget v7, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
-
-    invoke-static {v6, v3, v7}, Landroidx/constraintlayout/solver/widgets/Flow;->access$300(Landroidx/constraintlayout/solver/widgets/Flow;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
-
-    move-result v6
-
-    iget-object v7, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v7}, Landroidx/constraintlayout/solver/widgets/Flow;->access$100(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v7
-
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVisibility()I
-
-    move-result v8
-
-    if-ne v8, v5, :cond_3
-
-    move v7, v0
-
-    :cond_3
-    iget v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
-
-    add-int/2addr v6, v7
-
-    add-int/2addr v5, v6
-
-    iput v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
-
-    iget-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    if-eqz v5, :cond_4
-
-    iget v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
-
-    if-ge v5, v4, :cond_5
-
-    :cond_4
-    iput-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    iput v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
-
-    iput v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
-
-    :cond_5
-    :goto_1
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_6
-    return-void
-.end method
-
 
 # virtual methods
-.method public add(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
-    .locals 6
+.method public final add(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;)V
+    .locals 7
 
-    iget v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
+    sget-object v0, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    const/4 v1, 0x0
+    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
 
     const/16 v2, 0x8
 
-    if-nez v0, :cond_3
+    const/4 v3, 0x0
 
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHorizontalDimensionBehaviour()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    const/4 v4, 0x1
 
-    move-result-object v0
+    if-nez v1, :cond_3
 
-    sget-object v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget-object v1, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    if-ne v0, v3, :cond_0
+    aget-object v1, v1, v3
+
+    if-ne v1, v0, :cond_0
 
     iget v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/2addr v0, v4
 
     iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
 
     :cond_0
     iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    iget v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
+    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
 
-    invoke-static {v0, p1, v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$200(Landroidx/constraintlayout/solver/widgets/Flow;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-virtual {v0, p1, v1}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
     move-result v0
 
-    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget-object v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$000(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v5, v1, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
 
-    move-result v3
+    iget v6, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVisibility:I
 
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVisibility()I
-
-    move-result v4
-
-    if-ne v4, v2, :cond_1
+    if-ne v6, v2, :cond_1
 
     goto :goto_0
 
     :cond_1
-    move v1, v3
+    move v3, v5
 
     :goto_0
     iget v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
 
-    add-int/2addr v0, v1
+    add-int/2addr v0, v3
 
-    add-int/2addr v2, v0
+    add-int/2addr v0, v2
 
-    iput v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
+    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
 
-    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
 
-    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
-
-    invoke-static {v0, p1, v1}, Landroidx/constraintlayout/solver/widgets/Flow;->access$300(Landroidx/constraintlayout/solver/widgets/Flow;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-virtual {v1, p1, v0}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
     move-result v0
 
@@ -382,62 +203,56 @@
     goto :goto_2
 
     :cond_3
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVerticalDimensionBehaviour()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget-object v1, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
-    move-result-object v0
+    aget-object v1, v1, v4
 
-    sget-object v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
-
-    if-ne v0, v3, :cond_4
+    if-ne v1, v0, :cond_4
 
     iget v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
 
-    add-int/lit8 v0, v0, 0x1
+    add-int/2addr v0, v4
 
     iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
 
     :cond_4
     iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    iget v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
+    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
 
-    invoke-static {v0, p1, v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$200(Landroidx/constraintlayout/solver/widgets/Flow;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-virtual {v0, p1, v1}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
     move-result v0
 
-    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget-object v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    iget v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
+    iget v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
 
-    invoke-static {v3, p1, v4}, Landroidx/constraintlayout/solver/widgets/Flow;->access$300(Landroidx/constraintlayout/solver/widgets/Flow;Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+    invoke-virtual {v1, p1, v5}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move-result v3
+    move-result v1
 
-    iget-object v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v4}, Landroidx/constraintlayout/solver/widgets/Flow;->access$100(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v5, v5, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
 
-    move-result v4
+    iget v6, p1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVisibility:I
 
-    invoke-virtual {p1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVisibility()I
-
-    move-result v5
-
-    if-ne v5, v2, :cond_5
+    if-ne v6, v2, :cond_5
 
     goto :goto_1
 
     :cond_5
-    move v1, v4
+    move v3, v5
 
     :goto_1
     iget v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
 
-    add-int/2addr v3, v1
+    add-int/2addr v1, v3
 
-    add-int/2addr v2, v3
+    add-int/2addr v1, v2
 
-    iput v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
+    iput v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
 
     iget-object v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
@@ -458,38 +273,14 @@
     :goto_2
     iget p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mCount:I
 
-    add-int/lit8 p1, p1, 0x1
+    add-int/2addr p1, v4
 
     iput p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mCount:I
 
     return-void
 .end method
 
-.method public clear()V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
-
-    const/4 v1, 0x0
-
-    iput-object v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mCount:I
-
-    iput v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
-
-    return-void
-.end method
-
-.method public createConstraints(ZIZ)V
+.method public final createConstraints(IZZ)V
     .locals 16
 
     move-object/from16 v0, p0
@@ -505,9 +296,7 @@
 
     iget-object v4, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v4}, Landroidx/constraintlayout/solver/widgets/Flow;->access$400(Landroidx/constraintlayout/solver/widgets/Flow;)[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v4
+    iget-object v4, v4, Landroidx/constraintlayout/solver/widgets/Flow;->mDisplayedWidgets:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     iget v5, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
@@ -531,12 +320,12 @@
 
     if-nez v3, :cond_2
 
-    goto/16 :goto_10
+    goto/16 :goto_12
 
     :cond_2
     if-eqz p3, :cond_3
 
-    if-nez p2, :cond_3
+    if-nez p1, :cond_3
 
     const/4 v4, 0x1
 
@@ -557,7 +346,7 @@
     :goto_2
     if-ge v6, v1, :cond_7
 
-    if-eqz p1, :cond_4
+    if-eqz p2, :cond_4
 
     add-int/lit8 v9, v1, -0x1
 
@@ -571,9 +360,7 @@
     :goto_3
     iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v10}, Landroidx/constraintlayout/solver/widgets/Flow;->access$400(Landroidx/constraintlayout/solver/widgets/Flow;)[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v10
+    iget-object v10, v10, Landroidx/constraintlayout/solver/widgets/Flow;->mDisplayedWidgets:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     iget v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
@@ -581,9 +368,7 @@
 
     aget-object v9, v10, v11
 
-    invoke-virtual {v9}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVisibility()I
-
-    move-result v9
+    iget v9, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVisibility:I
 
     if-nez v9, :cond_6
 
@@ -610,30 +395,24 @@
 
     iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v10}, Landroidx/constraintlayout/solver/widgets/Flow;->access$500(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v11, v10, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalStyle:I
 
-    move-result v10
+    iput v11, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVerticalChainStyle:I
 
-    invoke-virtual {v9, v10}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setVerticalChainStyle(I)V
+    iget v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingTop:I
 
-    iget v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingTop:I
+    if-lez p1, :cond_8
 
-    if-lez p2, :cond_8
+    iget v10, v10, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
 
-    iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$100(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v11
-
-    add-int/2addr v10, v11
+    add-int/2addr v11, v10
 
     :cond_8
-    iget-object v11, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+    iget-object v10, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v12, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v11, v12, v10}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v10, v12, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     if-eqz p3, :cond_9
 
@@ -643,10 +422,10 @@
 
     iget v12, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingBottom:I
 
-    invoke-virtual {v10, v11, v12}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v10, v11, v12}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     :cond_9
-    if-lez p2, :cond_a
+    if-lez p1, :cond_a
 
     iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
@@ -656,22 +435,18 @@
 
     iget-object v11, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v10, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v10, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     :cond_a
     iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v10}, Landroidx/constraintlayout/solver/widgets/Flow;->access$600(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v10
+    iget v10, v10, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalAlign:I
 
     const/4 v11, 0x3
 
     if-ne v10, v11, :cond_d
 
-    invoke-virtual {v9}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline()Z
-
-    move-result v10
+    iget-boolean v10, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline:Z
 
     if-nez v10, :cond_d
 
@@ -680,7 +455,7 @@
     :goto_4
     if-ge v10, v1, :cond_d
 
-    if-eqz p1, :cond_b
+    if-eqz p2, :cond_b
 
     add-int/lit8 v12, v1, -0x1
 
@@ -694,9 +469,7 @@
     :goto_5
     iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v13}, Landroidx/constraintlayout/solver/widgets/Flow;->access$400(Landroidx/constraintlayout/solver/widgets/Flow;)[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v13
+    iget-object v13, v13, Landroidx/constraintlayout/solver/widgets/Flow;->mDisplayedWidgets:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     iget v14, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
@@ -704,9 +477,7 @@
 
     aget-object v12, v13, v14
 
-    invoke-virtual {v12}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline()Z
-
-    move-result v13
+    iget-boolean v13, v12, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline:Z
 
     if-eqz v13, :cond_c
 
@@ -726,7 +497,7 @@
     :goto_7
     if-ge v10, v1, :cond_30
 
-    if-eqz p1, :cond_e
+    if-eqz p2, :cond_e
 
     add-int/lit8 v13, v1, -0x1
 
@@ -740,9 +511,7 @@
     :goto_8
     iget-object v14, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v14}, Landroidx/constraintlayout/solver/widgets/Flow;->access$400(Landroidx/constraintlayout/solver/widgets/Flow;)[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v14
+    iget-object v14, v14, Landroidx/constraintlayout/solver/widgets/Flow;->mDisplayedWidgets:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     iget v15, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
@@ -765,70 +534,43 @@
 
     iget-object v3, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$700(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v11, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalStyle:I
 
-    move-result v3
+    iget v13, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalBias:F
 
-    iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget v15, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$800(Landroidx/constraintlayout/solver/widgets/Flow;)F
+    if-nez v15, :cond_10
 
-    move-result v11
+    iget v15, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mFirstHorizontalStyle:I
 
-    iget v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
+    if-eq v15, v5, :cond_10
 
-    if-nez v13, :cond_10
+    iget v3, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mFirstHorizontalBias:F
 
-    iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    :goto_9
+    move v13, v3
 
-    invoke-static {v13}, Landroidx/constraintlayout/solver/widgets/Flow;->access$900(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    move v11, v15
 
-    move-result v13
-
-    if-eq v13, v5, :cond_10
-
-    iget-object v3, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$900(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v3
-
-    iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1000(Landroidx/constraintlayout/solver/widgets/Flow;)F
-
-    move-result v11
-
-    goto :goto_9
+    goto :goto_a
 
     :cond_10
     if-eqz p3, :cond_11
 
-    iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget v15, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mLastHorizontalStyle:I
 
-    invoke-static {v13}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1100(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    if-eq v15, v5, :cond_11
 
-    move-result v13
+    iget v3, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mLastHorizontalBias:F
 
-    if-eq v13, v5, :cond_11
-
-    iget-object v3, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1100(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v3
-
-    iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1200(Landroidx/constraintlayout/solver/widgets/Flow;)F
-
-    move-result v11
+    goto :goto_9
 
     :cond_11
-    :goto_9
-    invoke-virtual {v14, v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setHorizontalChainStyle(I)V
+    :goto_a
+    iput v11, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mHorizontalChainStyle:I
 
-    invoke-virtual {v14, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setHorizontalBiasPercent(F)V
+    iput v13, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mHorizontalBiasPercent:F
 
     :cond_12
     add-int/lit8 v3, v1, -0x1
@@ -852,11 +594,9 @@
 
     iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v13}, Landroidx/constraintlayout/solver/widgets/Flow;->access$000(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v13, v13, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
 
-    move-result v13
-
-    invoke-virtual {v3, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     if-ne v10, v7, :cond_14
 
@@ -864,14 +604,20 @@
 
     iget v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingLeft:I
 
-    invoke-virtual {v3, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->setGoneMargin(I)V
+    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->isConnected()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_14
+
+    iput v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mGoneMargin:I
 
     :cond_14
     iget-object v3, v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     const/4 v3, 0x1
 
@@ -883,50 +629,44 @@
 
     iget v6, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingRight:I
 
-    invoke-virtual {v3, v6}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->setGoneMargin(I)V
+    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->isConnected()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_15
+
+    iput v6, v3, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mGoneMargin:I
 
     :cond_15
     if-eq v14, v9, :cond_1a
 
     iget-object v3, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$600(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v3
+    iget v3, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalAlign:I
 
     const/4 v6, 0x3
 
     if-ne v3, v6, :cond_16
 
-    invoke-virtual {v12}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline()Z
+    iget-boolean v11, v12, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline:Z
 
-    move-result v3
-
-    if-eqz v3, :cond_16
+    if-eqz v11, :cond_16
 
     if-eq v14, v12, :cond_16
 
-    invoke-virtual {v14}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline()Z
+    iget-boolean v11, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->hasBaseline:Z
 
-    move-result v3
-
-    if-eqz v3, :cond_16
+    if-eqz v11, :cond_16
 
     iget-object v3, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBaseline:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v12, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBaseline:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_16
-    iget-object v3, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v3}, Landroidx/constraintlayout/solver/widgets/Flow;->access$600(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v3
-
     if-eqz v3, :cond_19
 
     const/4 v11, 0x1
@@ -941,7 +681,7 @@
 
     iget v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingTop:I
 
-    invoke-virtual {v3, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     iget-object v3, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
@@ -949,47 +689,47 @@
 
     iget v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingBottom:I
 
-    invoke-virtual {v3, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_17
     iget-object v3, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     iget-object v3, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_18
     iget-object v3, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_19
     iget-object v3, v14, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v9, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v3, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_a
+    goto :goto_b
 
     :cond_1a
     const/4 v6, 0x3
 
-    :goto_a
+    :goto_b
     add-int/lit8 v10, v10, 0x1
 
     move v11, v6
@@ -1003,32 +743,26 @@
 
     iget-object v9, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v9}, Landroidx/constraintlayout/solver/widgets/Flow;->access$700(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v10, v9, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalStyle:I
 
-    move-result v9
+    iput v10, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mHorizontalChainStyle:I
 
-    invoke-virtual {v3, v9}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setHorizontalChainStyle(I)V
+    iget v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingLeft:I
 
-    iget v9, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingLeft:I
+    if-lez p1, :cond_1c
 
-    if-lez p2, :cond_1c
+    iget v9, v9, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
 
-    iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v10}, Landroidx/constraintlayout/solver/widgets/Flow;->access$000(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v10
-
-    add-int/2addr v9, v10
+    add-int/2addr v10, v9
 
     :cond_1c
-    if-eqz p1, :cond_1e
+    if-eqz p2, :cond_1e
 
-    iget-object v10, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+    iget-object v9, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v10, v11, v9}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v9, v11, v10}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     if-eqz p3, :cond_1d
 
@@ -1038,10 +772,10 @@
 
     iget v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingRight:I
 
-    invoke-virtual {v9, v10, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v9, v10, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     :cond_1d
-    if-lez p2, :cond_20
+    if-lez p1, :cond_20
 
     iget-object v9, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
@@ -1051,16 +785,16 @@
 
     iget-object v10, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v9, v10, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v9, v10, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_b
+    goto :goto_c
 
     :cond_1e
-    iget-object v10, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
+    iget-object v9, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v10, v11, v9}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v9, v11, v10}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     if-eqz p3, :cond_1f
 
@@ -1070,10 +804,10 @@
 
     iget v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingRight:I
 
-    invoke-virtual {v9, v10, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v9, v10, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     :cond_1f
-    if-lez p2, :cond_20
+    if-lez p1, :cond_20
 
     iget-object v9, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
@@ -1083,20 +817,18 @@
 
     iget-object v10, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v9, v10, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v9, v10, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     :cond_20
-    :goto_b
+    :goto_c
     move v9, v2
 
-    :goto_c
+    :goto_d
     if-ge v9, v1, :cond_30
 
     iget-object v10, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v10}, Landroidx/constraintlayout/solver/widgets/Flow;->access$400(Landroidx/constraintlayout/solver/widgets/Flow;)[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
-
-    move-result-object v10
+    iget-object v10, v10, Landroidx/constraintlayout/solver/widgets/Flow;->mDisplayedWidgets:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     iget v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
@@ -1116,70 +848,43 @@
 
     iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$500(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v12, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalStyle:I
 
-    move-result v11
+    iget v13, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalBias:F
 
-    iget-object v12, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget v14, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
-    invoke-static {v12}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1300(Landroidx/constraintlayout/solver/widgets/Flow;)F
+    if-nez v14, :cond_21
 
-    move-result v12
+    iget v14, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mFirstVerticalStyle:I
 
-    iget v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
+    if-eq v14, v5, :cond_21
 
-    if-nez v13, :cond_21
+    iget v11, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mFirstVerticalBias:F
 
-    iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    :goto_e
+    move v13, v11
 
-    invoke-static {v13}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1400(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    move v12, v14
 
-    move-result v13
-
-    if-eq v13, v5, :cond_21
-
-    iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1400(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v11
-
-    iget-object v12, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v12}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1500(Landroidx/constraintlayout/solver/widgets/Flow;)F
-
-    move-result v12
-
-    goto :goto_d
+    goto :goto_f
 
     :cond_21
     if-eqz p3, :cond_22
 
-    iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget v14, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mLastVerticalStyle:I
 
-    invoke-static {v13}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1600(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    if-eq v14, v5, :cond_22
 
-    move-result v13
+    iget v11, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mLastVerticalBias:F
 
-    if-eq v13, v5, :cond_22
-
-    iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1600(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v11
-
-    iget-object v12, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
-
-    invoke-static {v12}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1700(Landroidx/constraintlayout/solver/widgets/Flow;)F
-
-    move-result v12
+    goto :goto_e
 
     :cond_22
-    :goto_d
-    invoke-virtual {v10, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setVerticalChainStyle(I)V
+    :goto_f
+    iput v12, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVerticalChainStyle:I
 
-    invoke-virtual {v10, v12}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setVerticalBiasPercent(F)V
+    iput v13, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVerticalBiasPercent:F
 
     :cond_23
     add-int/lit8 v11, v1, -0x1
@@ -1203,11 +908,9 @@
 
     iget-object v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v13}, Landroidx/constraintlayout/solver/widgets/Flow;->access$100(Landroidx/constraintlayout/solver/widgets/Flow;)I
+    iget v13, v13, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
 
-    move-result v13
-
-    invoke-virtual {v11, v12, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v11, v12, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     if-ne v9, v7, :cond_25
 
@@ -1215,14 +918,20 @@
 
     iget v12, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingTop:I
 
-    invoke-virtual {v11, v12}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->setGoneMargin(I)V
+    invoke-virtual {v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->isConnected()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_25
+
+    iput v12, v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mGoneMargin:I
 
     :cond_25
     iget-object v11, v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mBottom:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v12, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mTop:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v11, v12, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v11, v12, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     const/4 v11, 0x1
 
@@ -1234,20 +943,24 @@
 
     iget v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingBottom:I
 
-    invoke-virtual {v6, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->setGoneMargin(I)V
+    invoke-virtual {v6}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->isConnected()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_26
+
+    iput v11, v6, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->mGoneMargin:I
 
     :cond_26
     if-eq v10, v3, :cond_2f
 
     const/4 v6, 0x2
 
-    if-eqz p1, :cond_2a
+    if-eqz p2, :cond_2a
 
     iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1800(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v11
+    iget v11, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalAlign:I
 
     if-eqz v11, :cond_29
 
@@ -1257,47 +970,45 @@
 
     if-eq v11, v6, :cond_27
 
-    goto :goto_e
+    goto :goto_10
 
     :cond_27
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_e
+    goto :goto_10
 
     :cond_28
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_e
+    goto :goto_10
 
     :cond_29
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_e
+    goto :goto_10
 
     :cond_2a
     iget-object v11, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v11}, Landroidx/constraintlayout/solver/widgets/Flow;->access$1800(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result v11
+    iget v11, v11, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalAlign:I
 
     if-eqz v11, :cond_2e
 
@@ -1307,7 +1018,7 @@
 
     if-eq v11, v6, :cond_2b
 
-    goto :goto_f
+    goto :goto_11
 
     :cond_2b
     if-eqz v4, :cond_2c
@@ -1318,7 +1029,7 @@
 
     iget v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingLeft:I
 
-    invoke-virtual {v6, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
@@ -1326,33 +1037,33 @@
 
     iget v13, v0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mPaddingRight:I
 
-    invoke-virtual {v6, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_f
+    goto :goto_11
 
     :cond_2c
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_f
+    goto :goto_11
 
     :cond_2d
     iget-object v6, v10, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mRight:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_f
+    goto :goto_11
 
     :cond_2e
     const/4 v12, 0x1
@@ -1361,27 +1072,27 @@
 
     iget-object v11, v3, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mLeft:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;
 
-    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)Z
+    invoke-virtual {v6, v11, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;->connect(Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;I)V
 
-    goto :goto_f
+    goto :goto_11
 
     :cond_2f
-    :goto_e
+    :goto_10
     const/4 v12, 0x1
 
-    :goto_f
+    :goto_11
     add-int/lit8 v9, v9, 0x1
 
     move-object v6, v10
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     :cond_30
-    :goto_10
+    :goto_12
     return-void
 .end method
 
-.method public getHeight()I
+.method public final getHeight()I
     .locals 2
 
     iget v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
@@ -1394,9 +1105,7 @@
 
     iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {p0}, Landroidx/constraintlayout/solver/widgets/Flow;->access$100(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result p0
+    iget p0, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
 
     sub-int/2addr v0, p0
 
@@ -1408,7 +1117,7 @@
     return p0
 .end method
 
-.method public getWidth()I
+.method public final getWidth()I
     .locals 1
 
     iget v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
@@ -1419,9 +1128,7 @@
 
     iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {p0}, Landroidx/constraintlayout/solver/widgets/Flow;->access$000(Landroidx/constraintlayout/solver/widgets/Flow;)I
-
-    move-result p0
+    iget p0, p0, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
 
     sub-int/2addr v0, p0
 
@@ -1433,8 +1140,12 @@
     return p0
 .end method
 
-.method public measureMatchConstraints(I)V
-    .locals 8
+.method public final measureMatchConstraints(I)V
+    .locals 11
+
+    sget-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    sget-object v7, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
 
     iget v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mNbMatchConstraintsWidgets:I
 
@@ -1443,107 +1154,222 @@
     return-void
 
     :cond_0
-    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mCount:I
+    iget v8, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mCount:I
 
     div-int/2addr p1, v0
 
-    const/4 v0, 0x0
+    const/4 v9, 0x0
+
+    move v10, v9
 
     :goto_0
-    if-ge v0, v1, :cond_3
+    if-ge v10, v8, :cond_3
 
-    iget-object v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    invoke-static {v2}, Landroidx/constraintlayout/solver/widgets/Flow;->access$400(Landroidx/constraintlayout/solver/widgets/Flow;)[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v1, v0, Landroidx/constraintlayout/solver/widgets/Flow;->mDisplayedWidgets:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    move-result-object v2
+    iget v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
+
+    add-int/2addr v2, v10
+
+    aget-object v1, v1, v2
+
+    iget v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
+
+    const/4 v3, 0x1
+
+    if-nez v2, :cond_1
+
+    if-eqz v1, :cond_2
+
+    iget-object v2, v1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    aget-object v4, v2, v9
+
+    if-ne v4, v7, :cond_2
+
+    aget-object v4, v2, v3
+
+    invoke-virtual {v1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHeight()I
+
+    move-result v5
+
+    move-object v2, v6
+
+    move v3, p1
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->measure(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;ILandroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;I)V
+
+    goto :goto_1
+
+    :cond_1
+    if-eqz v1, :cond_2
+
+    iget-object v2, v1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mListDimensionBehaviors:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+
+    aget-object v3, v2, v3
+
+    if-ne v3, v7, :cond_2
+
+    aget-object v2, v2, v9
+
+    invoke-virtual {v1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getWidth()I
+
+    move-result v3
+
+    move-object v4, v6
+
+    move v5, p1
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->measure(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;ILandroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;I)V
+
+    :cond_2
+    :goto_1
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    iput v9, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
+
+    iput v9, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+
+    iput v9, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
+
+    iget p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mCount:I
+
+    move v0, v9
+
+    :goto_2
+    if-ge v0, p1, :cond_a
+
+    iget-object v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+
+    iget-object v2, v1, Landroidx/constraintlayout/solver/widgets/Flow;->mDisplayedWidgets:[Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
     iget v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
 
     add-int/2addr v3, v0
 
-    aget-object v3, v2, v3
+    aget-object v2, v2, v3
 
-    iget v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
+    iget v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I
 
-    if-nez v2, :cond_1
+    const/16 v4, 0x8
 
-    if-eqz v3, :cond_2
+    if-nez v3, :cond_6
 
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHorizontalDimensionBehaviour()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    invoke-virtual {v2}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getWidth()I
 
-    move-result-object v2
+    move-result v1
 
-    sget-object v4, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    if-ne v2, v4, :cond_2
+    iget v5, v3, Landroidx/constraintlayout/solver/widgets/Flow;->mHorizontalGap:I
 
-    iget-object v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    iget v6, v2, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVisibility:I
 
-    sget-object v4, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    if-ne v6, v4, :cond_4
 
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVerticalDimensionBehaviour()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    move v5, v9
 
-    move-result-object v6
+    :cond_4
+    iget v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
 
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHeight()I
+    add-int/2addr v1, v5
 
-    move-result v7
+    add-int/2addr v1, v4
 
-    move v5, p1
+    iput v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
 
-    invoke-virtual/range {v2 .. v7}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->measure(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;ILandroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;I)V
+    iget v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
 
-    goto :goto_1
+    invoke-virtual {v3, v2, v1}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    :cond_1
-    if-eqz v3, :cond_2
+    move-result v1
 
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getVerticalDimensionBehaviour()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    move-result-object v2
+    if-eqz v3, :cond_5
 
-    sget-object v4, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->MATCH_CONSTRAINT:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iget v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
 
-    if-ne v2, v4, :cond_2
+    if-ge v3, v1, :cond_9
 
-    iget-object v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+    :cond_5
+    iput-object v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getHorizontalDimensionBehaviour()Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    iput v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
 
-    move-result-object v4
+    iput v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
 
-    invoke-virtual {v3}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getWidth()I
+    goto :goto_3
 
-    move-result v5
+    :cond_6
+    iget v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
 
-    sget-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;->FIXED:Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;
+    invoke-virtual {v1, v2, v3}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetWidth(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
 
-    move v7, p1
+    move-result v1
 
-    invoke-virtual/range {v2 .. v7}, Landroidx/constraintlayout/solver/widgets/VirtualLayout;->measure(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;Landroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;ILandroidx/constraintlayout/solver/widgets/ConstraintWidget$DimensionBehaviour;I)V
+    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
 
-    :cond_2
-    :goto_1
+    iget v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mMax:I
+
+    invoke-virtual {v3, v2, v5}, Landroidx/constraintlayout/solver/widgets/Flow;->getWidgetHeight(Landroidx/constraintlayout/solver/widgets/ConstraintWidget;I)I
+
+    move-result v3
+
+    iget-object v5, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->this$0:Landroidx/constraintlayout/solver/widgets/Flow;
+
+    iget v5, v5, Landroidx/constraintlayout/solver/widgets/Flow;->mVerticalGap:I
+
+    iget v6, v2, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mVisibility:I
+
+    if-ne v6, v4, :cond_7
+
+    move v5, v9
+
+    :cond_7
+    iget v4, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
+
+    add-int/2addr v3, v5
+
+    add-int/2addr v3, v4
+
+    iput v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mHeight:I
+
+    iget-object v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+
+    if-eqz v3, :cond_8
+
+    iget v3, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
+
+    if-ge v3, v1, :cond_9
+
+    :cond_8
+    iput-object v2, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggest:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+
+    iput v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->biggestDimension:I
+
+    iput v1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mWidth:I
+
+    :cond_9
+    :goto_3
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_3
-    invoke-direct {p0}, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->recomputeDimensions()V
-
+    :cond_a
     return-void
 .end method
 
-.method public setStartIndex(I)V
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mStartIndex:I
-
-    return-void
-.end method
-
-.method public setup(ILandroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;IIIII)V
+.method public final setup(ILandroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;Landroidx/constraintlayout/solver/widgets/ConstraintAnchor;IIIII)V
     .locals 0
 
     iput p1, p0, Landroidx/constraintlayout/solver/widgets/Flow$WidgetsList;->mOrientation:I

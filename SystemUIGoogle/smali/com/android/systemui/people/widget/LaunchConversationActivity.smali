@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mBubble:Lcom/android/wm/shell/bubbles/Bubble;
+.field public mBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
-.field private final mBubblesManagerOptional:Ljava/util/Optional;
+.field public final mBubblesManagerOptional:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -16,28 +16,31 @@
     .end annotation
 .end field
 
-.field private mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+.field public mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-.field private mEntryToBubble:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+.field public mCommonNotifCollection:Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
 
-.field private mIStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
+.field public mEntryToBubble:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-.field private mIsForTesting:Z
+.field public mIStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-.field private mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+.field public mIsForTesting:Z
 
-.field private mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public mUiEventLogger:Lcom/android/internal/logging/UiEventLoggerImpl;
 
-.field private final mUserManager:Landroid/os/UserManager;
+.field public final mUserManager:Landroid/os/UserManager;
+
+.field public mVisibilityProvider:Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Ljava/util/Optional;Landroid/os/UserManager;Lcom/android/systemui/statusbar/CommandQueue;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Ljava/util/Optional;Landroid/os/UserManager;Lcom/android/systemui/statusbar/CommandQueue;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;",
+            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
             "Ljava/util/Optional<",
             "Lcom/android/systemui/wmshell/BubblesManager;",
             ">;",
@@ -53,60 +56,30 @@
 
     invoke-direct {v0}, Lcom/android/internal/logging/UiEventLoggerImpl;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    iput-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLoggerImpl;
 
-    iput-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iput-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mVisibilityProvider:Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;
 
-    iput-object p2, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubblesManagerOptional:Ljava/util/Optional;
+    iput-object p2, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mCommonNotifCollection:Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
 
-    iput-object p3, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mUserManager:Landroid/os/UserManager;
+    iput-object p3, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubblesManagerOptional:Ljava/util/Optional;
 
-    iput-object p4, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+    iput-object p4, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mUserManager:Landroid/os/UserManager;
+
+    iput-object p5, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
     new-instance p1, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;-><init>(Lcom/android/systemui/people/widget/LaunchConversationActivity;)V
 
-    invoke-virtual {p4, p1}, Lcom/android/systemui/statusbar/CommandQueue;->addCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
+    invoke-virtual {p5, p1}, Lcom/android/systemui/statusbar/CommandQueue;->addCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubblesManagerOptional:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/wm/shell/bubbles/Bubble;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubble:Lcom/android/wm/shell/bubbles/Bubble;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mEntryToBubble:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/systemui/statusbar/CommandQueue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method clearNotificationIfPresent(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
+.method public final clearNotificationIfPresent(Ljava/lang/String;Ljava/lang/String;Landroid/os/UserHandle;)V
     .locals 10
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -123,47 +96,35 @@
 
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mCommonNotifCollection:Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
 
     if-nez v0, :cond_1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getPendingOrActiveNotif(Ljava/lang/String;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;->getEntry(Ljava/lang/String;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     move-result-object v0
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
 
     if-nez v1, :cond_2
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getActiveNotificationsCount()I
-
-    move-result v1
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->getRank()I
-
-    move-result v0
+    iget-object v1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mVisibilityProvider:Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;
 
     const/4 v2, 0x1
 
-    invoke-static {p1, v0, v1, v2}, Lcom/android/internal/statusbar/NotificationVisibility;->obtain(Ljava/lang/String;IIZ)Lcom/android/internal/statusbar/NotificationVisibility;
+    invoke-interface {v1, v0, v2}, Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;->obtain(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)Lcom/android/internal/statusbar/NotificationVisibility;
 
     move-result-object v9
+
+    iget v0, v9, Lcom/android/internal/statusbar/NotificationVisibility;->rank:I
 
     iget-object v3, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mIStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
@@ -214,7 +175,7 @@
     return-void
 .end method
 
-.method public onCreate(Landroid/os/Bundle;)V
+.method public final onCreate(Landroid/os/Bundle;)V
     .locals 7
 
     iget-boolean v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mIsForTesting:Z
@@ -262,11 +223,11 @@
 
     if-nez v0, :cond_5
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mUiEventLogger:Lcom/android/internal/logging/UiEventLoggerImpl;
 
     sget-object v1, Lcom/android/systemui/people/PeopleSpaceUtils$PeopleSpaceWidgetEvent;->PEOPLE_SPACE_WIDGET_CLICKED:Lcom/android/systemui/people/PeopleSpaceUtils$PeopleSpaceWidgetEvent;
 
-    invoke-interface {v0, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+    invoke-virtual {v0, v1}, Lcom/android/internal/logging/UiEventLoggerImpl;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mUserManager:Landroid/os/UserManager;
@@ -312,15 +273,17 @@
 
     check-cast v0, Lcom/android/systemui/wmshell/BubblesManager;
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/wmshell/BubblesManager;->getBubbleWithShortcutId(Ljava/lang/String;)Lcom/android/wm/shell/bubbles/Bubble;
+    iget-object v0, v0, Lcom/android/systemui/wmshell/BubblesManager;->mBubbles:Lcom/android/wm/shell/bubbles/Bubbles;
+
+    invoke-interface {v0, v3}, Lcom/android/wm/shell/bubbles/Bubbles;->getBubbleWithShortcutId(Ljava/lang/String;)Lcom/android/wm/shell/bubbles/Bubble;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mNotificationEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mCommonNotifCollection:Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getPendingOrActiveNotif(Ljava/lang/String;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;->getEntry(Ljava/lang/String;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     move-result-object v0
 
@@ -330,7 +293,9 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->canBubble()Z
+    iget-object v1, v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
+
+    invoke-virtual {v1}, Landroid/service/notification/NotificationListenerService$Ranking;->canBubble()Z
 
     move-result v1
 
@@ -348,7 +313,7 @@
 
     if-nez v0, :cond_4
 
-    const-string v0, "statusbar"
+    const-string/jumbo v0, "statusbar"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -415,7 +380,7 @@
     return-void
 .end method
 
-.method setIsForTesting(ZLcom/android/internal/statusbar/IStatusBarService;)V
+.method public setIsForTesting(ZLcom/android/internal/statusbar/IStatusBarService;)V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation

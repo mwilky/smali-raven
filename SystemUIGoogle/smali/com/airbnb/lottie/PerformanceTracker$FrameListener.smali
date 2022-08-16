@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onFrameRendered(F)V
+.method public abstract onFrameRendered()V
 .end method

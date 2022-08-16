@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaDataFilter;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/time/SystemClock;)V
+    value = Lcom/android/systemui/media/MediaDataFilter;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/broadcast/BroadcastSender;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/media/MediaUiEventLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDataFilter;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDataFilter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDataFilter;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaDataFilter;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaDataFilter$1;->this$0:Lcom/android/systemui/media/MediaDataFilter;
@@ -31,18 +31,14 @@
 
 
 # virtual methods
-.method public onUserSwitched(I)V
+.method public final onUserSwitched(I)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter$1;->this$0:Lcom/android/systemui/media/MediaDataFilter;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter$1;->this$0:Lcom/android/systemui/media/MediaDataFilter;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaDataFilter;->access$getExecutor$p(Lcom/android/systemui/media/MediaDataFilter;)Ljava/util/concurrent/Executor;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter;->executor:Ljava/util/concurrent/Executor;
 
     new-instance v1, Lcom/android/systemui/media/MediaDataFilter$1$onUserSwitched$1;
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter$1;->this$0:Lcom/android/systemui/media/MediaDataFilter;
 
     invoke-direct {v1, p0, p1}, Lcom/android/systemui/media/MediaDataFilter$1$onUserSwitched$1;-><init>(Lcom/android/systemui/media/MediaDataFilter;I)V
 

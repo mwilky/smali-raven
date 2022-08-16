@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;
+.class public final Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;
 .super Landroidx/recyclerview/widget/RecyclerView$Adapter;
 .source "Picker.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "PickerScrollArrayAdapter"
 .end annotation
 
@@ -23,34 +23,20 @@
 
 
 # instance fields
-.field private final mColIndex:I
+.field public final mColIndex:I
 
-.field private mData:Landroidx/leanback/widget/picker/PickerColumn;
+.field public mData:Landroidx/leanback/widget/picker/PickerColumn;
 
-.field private final mResource:I
+.field public final mResource:I
 
-.field private final mTextViewResourceId:I
+.field public final mTextViewResourceId:I
 
-.field final synthetic this$0:Landroidx/leanback/widget/picker/Picker;
+.field public final synthetic this$0:Landroidx/leanback/widget/picker/Picker;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/picker/Picker;III)V
+.method public constructor <init>(Landroidx/leanback/widget/picker/Picker;III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "resource",
-            "textViewResourceId",
-            "colIndex"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->this$0:Landroidx/leanback/widget/picker/Picker;
 
@@ -77,8 +63,8 @@
 
 
 # virtual methods
-.method public getItemCount()I
-    .locals 0
+.method public final getItemCount()I
+    .locals 1
 
     iget-object p0, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mData:Landroidx/leanback/widget/picker/PickerColumn;
 
@@ -89,131 +75,115 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Landroidx/leanback/widget/picker/PickerColumn;->getCount()I
+    iget v0, p0, Landroidx/leanback/widget/picker/PickerColumn;->mMaxValue:I
 
-    move-result p0
+    iget p0, p0, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
+
+    sub-int/2addr v0, p0
+
+    add-int/lit8 p0, v0, 0x1
 
     :goto_0
     return p0
 .end method
 
-.method public onBindViewHolder(Landroidx/leanback/widget/picker/Picker$ViewHolder;I)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "holder",
-            "position"
-        }
-    .end annotation
+.method public final onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+    .locals 6
+
+    check-cast p1, Landroidx/leanback/widget/picker/Picker$ViewHolder;
 
     iget-object v0, p1, Landroidx/leanback/widget/picker/Picker$ViewHolder;->textView:Landroid/widget/TextView;
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x1
 
-    iget-object v1, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mData:Landroidx/leanback/widget/picker/PickerColumn;
+    const/4 v2, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v1}, Landroidx/leanback/widget/picker/PickerColumn;->getMinValue()I
+    iget-object v3, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mData:Landroidx/leanback/widget/picker/PickerColumn;
 
-    move-result v2
+    if-eqz v3, :cond_1
 
-    add-int/2addr v2, p2
+    iget v4, v3, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
 
-    invoke-virtual {v1, v2}, Landroidx/leanback/widget/picker/PickerColumn;->getLabelFor(I)Ljava/lang/CharSequence;
+    add-int/2addr v4, p2
 
-    move-result-object v1
+    iget-object v5, v3, Landroidx/leanback/widget/picker/PickerColumn;->mStaticLabels:[Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    if-nez v5, :cond_0
+
+    iget-object v3, v3, Landroidx/leanback/widget/picker/PickerColumn;->mLabelFormat:Ljava/lang/String;
+
+    new-array v5, v1, [Ljava/lang/Object;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    aput-object v4, v5, v2
+
+    invoke-static {v3, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_0
 
     :cond_0
+    aget-object v3, v5, v4
+
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_1
     iget-object v0, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->this$0:Landroidx/leanback/widget/picker/Picker;
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    iget-object v1, v0, Landroidx/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
+    iget-object v3, v0, Landroidx/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/ArrayList;
 
-    iget v2, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mColIndex:I
+    iget v4, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mColIndex:I
 
-    invoke-interface {v1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v3
 
-    check-cast v1, Landroidx/leanback/widget/VerticalGridView;
+    check-cast v3, Landroidx/leanback/widget/VerticalGridView;
 
-    invoke-virtual {v1}, Landroidx/leanback/widget/BaseGridView;->getSelectedPosition()I
+    iget-object v3, v3, Landroidx/leanback/widget/BaseGridView;->mLayoutManager:Landroidx/leanback/widget/GridLayoutManager;
 
-    move-result v1
+    iget v3, v3, Landroidx/leanback/widget/GridLayoutManager;->mFocusPosition:I
 
-    const/4 v2, 0x0
+    if-ne v3, p2, :cond_2
 
-    if-ne v1, p2, :cond_1
+    goto :goto_1
 
-    const/4 p2, 0x1
+    :cond_2
+    move v1, v2
 
-    goto :goto_0
-
-    :cond_1
-    move p2, v2
-
-    :goto_0
+    :goto_1
     iget p0, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mColIndex:I
 
-    invoke-virtual {v0, p1, p2, p0, v2}, Landroidx/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZIZ)V
+    invoke-virtual {v0, p1, v1, p0, v2}, Landroidx/leanback/widget/picker/Picker;->setOrAnimateAlpha(Landroid/view/View;ZIZ)V
 
     return-void
 .end method
 
-.method public bridge synthetic onBindViewHolder(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "holder",
-            "position"
-        }
-    .end annotation
-
-    check-cast p1, Landroidx/leanback/widget/picker/Picker$ViewHolder;
-
-    invoke-virtual {p0, p1, p2}, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->onBindViewHolder(Landroidx/leanback/widget/picker/Picker$ViewHolder;I)V
-
-    return-void
-.end method
-
-.method public onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/leanback/widget/picker/Picker$ViewHolder;
+.method public final onCreateViewHolder(ILandroidx/recyclerview/widget/RecyclerView;)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "viewType"
-        }
-    .end annotation
 
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+    invoke-virtual {p2}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-static {p2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object p2
+    move-result-object p1
 
     iget v0, p0, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->mResource:I
 
     const/4 v1, 0x0
 
-    invoke-virtual {p2, v0, p1, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p1
 
@@ -242,36 +212,10 @@
     return-object p2
 .end method
 
-.method public bridge synthetic onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+.method public final onViewAttachedToWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "parent",
-            "viewType"
-        }
-    .end annotation
 
-    invoke-virtual {p0, p1, p2}, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->onCreateViewHolder(Landroid/view/ViewGroup;I)Landroidx/leanback/widget/picker/Picker$ViewHolder;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onViewAttachedToWindow(Landroidx/leanback/widget/picker/Picker$ViewHolder;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "holder"
-        }
-    .end annotation
+    check-cast p1, Landroidx/leanback/widget/picker/Picker$ViewHolder;
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
@@ -282,24 +226,6 @@
     move-result p0
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setFocusable(Z)V
-
-    return-void
-.end method
-
-.method public bridge synthetic onViewAttachedToWindow(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "holder"
-        }
-    .end annotation
-
-    check-cast p1, Landroidx/leanback/widget/picker/Picker$ViewHolder;
-
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/picker/Picker$PickerScrollArrayAdapter;->onViewAttachedToWindow(Landroidx/leanback/widget/picker/Picker$ViewHolder;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Landroidx/transition/RectEvaluator;
+.class public final Landroidx/transition/RectEvaluator;
 .super Ljava/lang/Object;
 .source "RectEvaluator.java"
 
@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field private mRect:Landroid/graphics/Rect;
+.field public mRect:Landroid/graphics/Rect;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,7 +30,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/graphics/Rect;)V
+.method public constructor <init>(Landroid/graphics/Rect;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,8 +42,12 @@
 
 
 # virtual methods
-.method public evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
+.method public final evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 4
+
+    check-cast p2, Landroid/graphics/Rect;
+
+    check-cast p3, Landroid/graphics/Rect;
 
     iget v0, p2, Landroid/graphics/Rect;->left:I
 
@@ -109,26 +113,13 @@
 
     invoke-direct {p0, v0, v1, v2, p2}, Landroid/graphics/Rect;-><init>(IIII)V
 
-    return-object p0
+    goto :goto_0
 
     :cond_0
     invoke-virtual {p1, v0, v1, v2, p2}, Landroid/graphics/Rect;->set(IIII)V
 
     iget-object p0, p0, Landroidx/transition/RectEvaluator;->mRect:Landroid/graphics/Rect;
 
-    return-object p0
-.end method
-
-.method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p2, Landroid/graphics/Rect;
-
-    check-cast p3, Landroid/graphics/Rect;
-
-    invoke-virtual {p0, p1, p2, p3}, Landroidx/transition/RectEvaluator;->evaluate(FLandroid/graphics/Rect;Landroid/graphics/Rect;)Landroid/graphics/Rect;
-
-    move-result-object p0
-
+    :goto_0
     return-object p0
 .end method

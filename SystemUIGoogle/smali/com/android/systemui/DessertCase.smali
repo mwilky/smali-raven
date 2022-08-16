@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field mView:Lcom/android/systemui/DessertCaseView;
+.field public mView:Lcom/android/systemui/DessertCaseView;
 
 
 # direct methods
@@ -18,19 +18,27 @@
 
 
 # virtual methods
-.method public onPause()V
-    .locals 0
+.method public final onPause()V
+    .locals 1
 
     invoke-super {p0}, Landroid/app/Activity;->onPause()V
 
     iget-object p0, p0, Lcom/android/systemui/DessertCase;->mView:Lcom/android/systemui/DessertCaseView;
 
-    invoke-virtual {p0}, Lcom/android/systemui/DessertCaseView;->stop()V
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/DessertCaseView;->mStarted:Z
+
+    iget-object v0, p0, Lcom/android/systemui/DessertCaseView;->mHandler:Landroid/os/Handler;
+
+    iget-object p0, p0, Lcom/android/systemui/DessertCaseView;->mJuggle:Lcom/android/systemui/DessertCaseView$1;
+
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     return-void
 .end method
 
-.method public onResume()V
+.method public final onResume()V
     .locals 4
 
     invoke-super {p0}, Landroid/app/Activity;->onResume()V
@@ -48,7 +56,7 @@
     return-void
 .end method
 
-.method public onStart()V
+.method public final onStart()V
     .locals 5
 
     invoke-super {p0}, Landroid/app/Activity;->onStart()V
@@ -82,7 +90,9 @@
     :cond_0
     new-instance v0, Lcom/android/systemui/DessertCaseView;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/DessertCaseView;-><init>(Landroid/content/Context;)V
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/DessertCaseView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     iput-object v0, p0, Lcom/android/systemui/DessertCase;->mView:Lcom/android/systemui/DessertCaseView;
 
@@ -92,7 +102,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/DessertCase;->mView:Lcom/android/systemui/DessertCaseView;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/DessertCaseView$RescalingContainer;->setView(Lcom/android/systemui/DessertCaseView;)V
+    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
+
+    iput-object v1, v0, Lcom/android/systemui/DessertCaseView$RescalingContainer;->mView:Lcom/android/systemui/DessertCaseView;
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->setContentView(Landroid/view/View;)V
 

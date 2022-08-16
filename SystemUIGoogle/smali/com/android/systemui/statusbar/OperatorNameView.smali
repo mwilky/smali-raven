@@ -3,10 +3,6 @@
 .source "OperatorNameView.java"
 
 
-# instance fields
-.field private mDemoMode:Z
-
-
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
@@ -38,59 +34,51 @@
 
 
 # virtual methods
-.method setDemoMode(Z)V
-    .locals 0
+.method public final update(ZZLcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;)V
+    .locals 3
 
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/OperatorNameView;->mDemoMode:Z
+    const/4 v0, 0x0
 
-    return-void
-.end method
-
-.method update(ZZLjava/util/List;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(ZZ",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;",
-            ">;)V"
-        }
-    .end annotation
-
-    const/16 v0, 0x8
+    const/16 v1, 0x8
 
     if-eqz p1, :cond_0
 
-    const/4 p1, 0x0
+    move p1, v0
 
     goto :goto_0
 
     :cond_0
-    move p1, v0
+    move p1, v1
 
     :goto_0
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object p1, p0, Landroid/widget/TextView;->mContext:Landroid/content/Context;
 
-    invoke-static {p1}, Lcom/android/settingslib/WirelessUtils;->isAirplaneModeOn(Landroid/content/Context;)Z
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    const-string v2, "airplane_mode_on"
+
+    invoke-static {p1, v2, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result p1
 
+    if-eqz p1, :cond_1
+
+    const/4 v0, 0x1
+
+    :cond_1
     if-eqz p2, :cond_3
 
-    if-eqz p1, :cond_1
+    if-eqz v0, :cond_2
 
     goto :goto_1
 
-    :cond_1
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/OperatorNameView;->mDemoMode:Z
-
-    if-nez p1, :cond_2
-
-    invoke-virtual {p0, p3}, Lcom/android/systemui/statusbar/OperatorNameView;->updateText(Ljava/util/List;)V
-
     :cond_2
+    invoke-virtual {p0, p3}, Lcom/android/systemui/statusbar/OperatorNameView;->updateText(Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;)V
+
     return-void
 
     :cond_3
@@ -99,81 +87,67 @@
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {p0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     return-void
 .end method
 
-.method updateText(Ljava/util/List;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;",
-            ">;)V"
-        }
-    .end annotation
+.method public final updateText(Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;)V
+    .locals 5
 
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    iget-object v0, p1, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;->mCarrierName:Ljava/lang/CharSequence;
 
-    move-result v0
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    const/4 v1, 0x0
+    move-result v1
 
-    :goto_0
-    if-ge v1, v0, :cond_1
+    if-nez v1, :cond_2
 
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget v1, p1, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;->mSimState:I
 
-    move-result-object v2
+    const/4 v2, 0x5
 
-    check-cast v2, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;
+    const/4 v3, 0x1
 
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    const/4 v4, 0x0
 
-    move-result-object v3
+    if-ne v1, v2, :cond_0
 
-    check-cast v3, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;->getCarrierName()Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;->simReady()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;->stateInService()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;->getCarrierName()Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    goto :goto_1
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
+    move v1, v3
 
     goto :goto_0
 
+    :cond_0
+    move v1, v4
+
+    :goto_0
+    if-eqz v1, :cond_2
+
+    iget-object p1, p1, Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;->mServiceState:Landroid/telephony/ServiceState;
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1}, Landroid/telephony/ServiceState;->getState()I
+
+    move-result p1
+
+    if-nez p1, :cond_1
+
+    goto :goto_1
+
     :cond_1
-    const/4 p1, 0x0
+    move v3, v4
 
     :goto_1
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    if-eqz v3, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    const/4 v0, 0x0
+
+    :goto_2
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

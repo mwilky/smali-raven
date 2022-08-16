@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+.class public final Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 .super Ljava/lang/Object;
 .source "QSAnimator.java"
 
@@ -9,31 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "HeightExpansionAnimator"
 .end annotation
 
 
 # instance fields
-.field private final mAnimator:Landroid/animation/ValueAnimator;
+.field public final mAnimator:Landroid/animation/ValueAnimator;
 
-.field private final mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
+.field public final mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
-.field private final mUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+.field public final mUpdateListener:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;
 
-.field private final mViews:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroid/view/View;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mViews:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/TouchAnimator$Listener;II)V
+.method public constructor <init>(Lcom/android/systemui/qs/TouchAnimator$Listener;II)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,13 +34,13 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/ArrayList;
 
     new-instance v0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;-><init>(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mUpdateListener:Landroid/animation/ValueAnimator$AnimatorUpdateListener;
+    iput-object v0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mUpdateListener:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
@@ -81,40 +73,14 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)Lcom/android/systemui/qs/TouchAnimator$Listener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method addView(Landroid/view/View;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method resetViewsHeights()V
+.method public final resetViewsHeights()V
     .locals 5
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -123,9 +89,9 @@
     :goto_0
     if-ge v1, v0, :cond_1
 
-    iget-object v2, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -150,9 +116,9 @@
 
     move-result v4
 
-    add-int/2addr v3, v4
+    add-int/2addr v4, v3
 
-    invoke-virtual {v2, v3}, Landroid/view/View;->setBottom(I)V
+    invoke-virtual {v2, v4}, Landroid/view/View;->setBottom(I)V
 
     :goto_1
     add-int/lit8 v1, v1, 0x1
@@ -160,25 +126,5 @@
     goto :goto_0
 
     :cond_1
-    return-void
-.end method
-
-.method setInterpolator(Landroid/animation/TimeInterpolator;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p0, p1}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    return-void
-.end method
-
-.method setPosition(F)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p0, p1}, Landroid/animation/ValueAnimator;->setCurrentFraction(F)V
-
     return-void
 .end method

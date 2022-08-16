@@ -14,7 +14,7 @@
 
 
 # direct methods
-.method protected constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;-><init>(Ljava/lang/String;)V

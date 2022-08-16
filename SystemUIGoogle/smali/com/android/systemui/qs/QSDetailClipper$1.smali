@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QSDetailClipper$1;
+.class public final Lcom/android/systemui/qs/QSDetailClipper$1;
 .super Ljava/lang/Object;
 .source "QSDetailClipper.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/QSDetailClipper;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QSDetailClipper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSDetailClipper;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSDetailClipper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSDetailClipper$1;->this$0:Lcom/android/systemui/qs/QSDetailClipper;
@@ -34,42 +34,30 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailClipper$1;->this$0:Lcom/android/systemui/qs/QSDetailClipper;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QSDetailClipper;->access$000(Lcom/android/systemui/qs/QSDetailClipper;)Landroid/animation/Animator;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailClipper$1;->this$0:Lcom/android/systemui/qs/QSDetailClipper;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QSDetailClipper;->access$100(Lcom/android/systemui/qs/QSDetailClipper;)Landroid/graphics/drawable/TransitionDrawable;
-
-    move-result-object v0
+.method public final run()V
+    .locals 4
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSDetailClipper$1;->this$0:Lcom/android/systemui/qs/QSDetailClipper;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSDetailClipper;->access$000(Lcom/android/systemui/qs/QSDetailClipper;)Landroid/animation/Animator;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSDetailClipper;->mAnimator:Landroid/animation/Animator;
 
-    move-result-object p0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Landroid/animation/Animator;->getDuration()J
+    iget-object p0, p0, Lcom/android/systemui/qs/QSDetailClipper;->mBackground:Landroid/graphics/drawable/TransitionDrawable;
 
-    move-result-wide v1
+    invoke-virtual {v0}, Landroid/animation/Animator;->getDuration()J
 
-    long-to-double v1, v1
+    move-result-wide v0
 
-    const-wide v3, 0x3fd6666666666666L    # 0.35
+    long-to-double v0, v0
 
-    mul-double/2addr v1, v3
+    const-wide v2, 0x3fd6666666666666L    # 0.35
 
-    double-to-int p0, v1
+    mul-double/2addr v0, v2
 
-    invoke-virtual {v0, p0}, Landroid/graphics/drawable/TransitionDrawable;->reverseTransition(I)V
+    double-to-int v0, v0
+
+    invoke-virtual {p0, v0}, Landroid/graphics/drawable/TransitionDrawable;->reverseTransition(I)V
 
     :cond_0
     return-void

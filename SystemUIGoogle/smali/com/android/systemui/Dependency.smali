@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/Dependency;
+.class public final Lcom/android/systemui/Dependency;
 .super Ljava/lang/Object;
 .source "Dependency.java"
 
@@ -83,11 +83,11 @@
     .end annotation
 .end field
 
-.field private static sDependency:Lcom/android/systemui/Dependency;
+.field public static sDependency:Lcom/android/systemui/Dependency;
 
 
 # instance fields
-.field mAccessibilityButtonListController:Ldagger/Lazy;
+.field public mAccessibilityButtonListController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -97,7 +97,7 @@
     .end annotation
 .end field
 
-.field mAccessibilityButtonModeObserver:Ldagger/Lazy;
+.field public mAccessibilityButtonModeObserver:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -107,7 +107,7 @@
     .end annotation
 .end field
 
-.field mAccessibilityController:Ldagger/Lazy;
+.field public mAccessibilityController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -117,7 +117,7 @@
     .end annotation
 .end field
 
-.field mAccessibilityFloatingMenuController:Ldagger/Lazy;
+.field public mAccessibilityFloatingMenuController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -127,7 +127,7 @@
     .end annotation
 .end field
 
-.field mAccessibilityManagerWrapper:Ldagger/Lazy;
+.field public mAccessibilityManagerWrapper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -137,7 +137,7 @@
     .end annotation
 .end field
 
-.field mActivityManagerWrapper:Ldagger/Lazy;
+.field public mActivityManagerWrapper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -147,7 +147,7 @@
     .end annotation
 .end field
 
-.field mActivityStarter:Ldagger/Lazy;
+.field public mActivityStarter:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -157,7 +157,7 @@
     .end annotation
 .end field
 
-.field mAlarmManager:Ldagger/Lazy;
+.field public mAlarmManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -167,7 +167,7 @@
     .end annotation
 .end field
 
-.field mAmbientStateLazy:Ldagger/Lazy;
+.field public mAmbientStateLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -177,7 +177,7 @@
     .end annotation
 .end field
 
-.field mAppOpsController:Ldagger/Lazy;
+.field public mAppOpsController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -187,7 +187,7 @@
     .end annotation
 .end field
 
-.field mAssistManager:Ldagger/Lazy;
+.field public mAssistManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -197,7 +197,7 @@
     .end annotation
 .end field
 
-.field mAsyncSensorManager:Ldagger/Lazy;
+.field public mAsyncSensorManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -207,7 +207,7 @@
     .end annotation
 .end field
 
-.field mAutoHideController:Ldagger/Lazy;
+.field public mAutoHideController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -217,7 +217,7 @@
     .end annotation
 .end field
 
-.field mBackgroundExecutor:Ldagger/Lazy;
+.field public mBackgroundExecutor:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -227,7 +227,7 @@
     .end annotation
 .end field
 
-.field mBatteryController:Ldagger/Lazy;
+.field public mBatteryController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -237,7 +237,7 @@
     .end annotation
 .end field
 
-.field mBgHandler:Ldagger/Lazy;
+.field public mBgHandler:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -247,7 +247,7 @@
     .end annotation
 .end field
 
-.field mBgLooper:Ldagger/Lazy;
+.field public mBgLooper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -257,7 +257,7 @@
     .end annotation
 .end field
 
-.field mBluetoothController:Ldagger/Lazy;
+.field public mBluetoothController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -267,7 +267,7 @@
     .end annotation
 .end field
 
-.field mBroadcastDispatcher:Ldagger/Lazy;
+.field public mBroadcastDispatcher:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -277,7 +277,7 @@
     .end annotation
 .end field
 
-.field mCastController:Ldagger/Lazy;
+.field public mCastController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -287,7 +287,7 @@
     .end annotation
 .end field
 
-.field mClockManager:Ldagger/Lazy;
+.field public mClockManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -297,7 +297,7 @@
     .end annotation
 .end field
 
-.field mCommandQueue:Ldagger/Lazy;
+.field public mCommandQueue:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -307,7 +307,7 @@
     .end annotation
 .end field
 
-.field mConfigurationController:Ldagger/Lazy;
+.field public mConfigurationController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -317,7 +317,7 @@
     .end annotation
 .end field
 
-.field mContentInsetsProviderLazy:Ldagger/Lazy;
+.field public mContentInsetsProviderLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -327,7 +327,7 @@
     .end annotation
 .end field
 
-.field mDarkIconDispatcher:Ldagger/Lazy;
+.field public mDarkIconDispatcher:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -337,7 +337,7 @@
     .end annotation
 .end field
 
-.field mDataSaverController:Ldagger/Lazy;
+.field public mDataSaverController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -347,7 +347,7 @@
     .end annotation
 .end field
 
-.field private final mDependencies:Landroid/util/ArrayMap;
+.field public final mDependencies:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -358,7 +358,7 @@
     .end annotation
 .end field
 
-.field mDeviceConfigProxy:Ldagger/Lazy;
+.field public mDeviceConfigProxy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -368,7 +368,7 @@
     .end annotation
 .end field
 
-.field mDevicePolicyManagerWrapper:Ldagger/Lazy;
+.field public mDevicePolicyManagerWrapper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -378,7 +378,7 @@
     .end annotation
 .end field
 
-.field mDeviceProvisionedController:Ldagger/Lazy;
+.field public mDeviceProvisionedController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -388,7 +388,17 @@
     .end annotation
 .end field
 
-.field mDisplayMetrics:Ldagger/Lazy;
+.field public mDialogLaunchAnimatorLazy:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public mDisplayMetrics:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -398,7 +408,7 @@
     .end annotation
 .end field
 
-.field mDockManager:Ldagger/Lazy;
+.field public mDockManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -408,7 +418,7 @@
     .end annotation
 .end field
 
-.field mDozeParameters:Ldagger/Lazy;
+.field public mDozeParameters:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -418,9 +428,9 @@
     .end annotation
 .end field
 
-.field mDumpManager:Lcom/android/systemui/dump/DumpManager;
+.field public mDumpManager:Lcom/android/systemui/dump/DumpManager;
 
-.field mEdgeBackGestureHandlerFactoryLazy:Ldagger/Lazy;
+.field public mEdgeBackGestureHandlerFactoryLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -430,7 +440,7 @@
     .end annotation
 .end field
 
-.field mEnhancedEstimates:Ldagger/Lazy;
+.field public mEnhancedEstimates:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -440,7 +450,7 @@
     .end annotation
 .end field
 
-.field mExtensionController:Ldagger/Lazy;
+.field public mExtensionController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -450,7 +460,7 @@
     .end annotation
 .end field
 
-.field mFeatureFlagsLazy:Ldagger/Lazy;
+.field public mFeatureFlagsLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -460,7 +470,7 @@
     .end annotation
 .end field
 
-.field mFlashlightController:Ldagger/Lazy;
+.field public mFlashlightController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -470,7 +480,7 @@
     .end annotation
 .end field
 
-.field mForegroundServiceController:Ldagger/Lazy;
+.field public mForegroundServiceController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -480,7 +490,7 @@
     .end annotation
 .end field
 
-.field mForegroundServiceNotificationListener:Ldagger/Lazy;
+.field public mForegroundServiceNotificationListener:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -490,7 +500,7 @@
     .end annotation
 .end field
 
-.field mFragmentService:Ldagger/Lazy;
+.field public mFragmentService:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -500,7 +510,7 @@
     .end annotation
 .end field
 
-.field mGarbageMonitor:Ldagger/Lazy;
+.field public mGarbageMonitor:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -510,7 +520,7 @@
     .end annotation
 .end field
 
-.field mGroupExpansionManagerLazy:Ldagger/Lazy;
+.field public mGroupExpansionManagerLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -520,7 +530,7 @@
     .end annotation
 .end field
 
-.field mGroupMembershipManagerLazy:Ldagger/Lazy;
+.field public mGroupMembershipManagerLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -530,7 +540,17 @@
     .end annotation
 .end field
 
-.field mHotspotController:Ldagger/Lazy;
+.field public mHdmiCecSetMenuLanguageHelper:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/hdmi/HdmiCecSetMenuLanguageHelper;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public mHotspotController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -540,7 +560,7 @@
     .end annotation
 .end field
 
-.field mINotificationManager:Ldagger/Lazy;
+.field public mINotificationManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -550,7 +570,7 @@
     .end annotation
 .end field
 
-.field mIStatusBarService:Ldagger/Lazy;
+.field public mIStatusBarService:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -560,7 +580,7 @@
     .end annotation
 .end field
 
-.field mIWindowManager:Ldagger/Lazy;
+.field public mIWindowManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -570,7 +590,7 @@
     .end annotation
 .end field
 
-.field mInternetDialogFactory:Ldagger/Lazy;
+.field public mInternetDialogFactory:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -580,7 +600,7 @@
     .end annotation
 .end field
 
-.field mKeyguardDismissUtil:Ldagger/Lazy;
+.field public mKeyguardDismissUtil:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -590,7 +610,7 @@
     .end annotation
 .end field
 
-.field mKeyguardEnvironment:Ldagger/Lazy;
+.field public mKeyguardEnvironment:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -600,7 +620,7 @@
     .end annotation
 .end field
 
-.field mKeyguardMonitor:Ldagger/Lazy;
+.field public mKeyguardMonitor:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -610,7 +630,7 @@
     .end annotation
 .end field
 
-.field mKeyguardSecurityModel:Ldagger/Lazy;
+.field public mKeyguardSecurityModel:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -620,7 +640,7 @@
     .end annotation
 .end field
 
-.field mKeyguardUpdateMonitor:Ldagger/Lazy;
+.field public mKeyguardUpdateMonitor:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -630,7 +650,7 @@
     .end annotation
 .end field
 
-.field mLeakDetector:Ldagger/Lazy;
+.field public mLeakDetector:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -640,7 +660,7 @@
     .end annotation
 .end field
 
-.field mLeakReportEmail:Ldagger/Lazy;
+.field public mLeakReportEmail:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -650,7 +670,7 @@
     .end annotation
 .end field
 
-.field mLeakReporter:Ldagger/Lazy;
+.field public mLeakReporter:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -660,7 +680,7 @@
     .end annotation
 .end field
 
-.field mLightBarController:Ldagger/Lazy;
+.field public mLightBarController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -670,7 +690,7 @@
     .end annotation
 .end field
 
-.field mLocalBluetoothManager:Ldagger/Lazy;
+.field public mLocalBluetoothManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -680,7 +700,7 @@
     .end annotation
 .end field
 
-.field mLocationController:Ldagger/Lazy;
+.field public mLocationController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -690,7 +710,7 @@
     .end annotation
 .end field
 
-.field mLockscreenGestureLogger:Ldagger/Lazy;
+.field public mLockscreenGestureLogger:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -700,7 +720,7 @@
     .end annotation
 .end field
 
-.field mMainExecutor:Ldagger/Lazy;
+.field public mMainExecutor:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -710,7 +730,7 @@
     .end annotation
 .end field
 
-.field mMainHandler:Ldagger/Lazy;
+.field public mMainHandler:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -720,7 +740,7 @@
     .end annotation
 .end field
 
-.field mMainLooper:Ldagger/Lazy;
+.field public mMainLooper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -730,7 +750,7 @@
     .end annotation
 .end field
 
-.field mManagedProfileController:Ldagger/Lazy;
+.field public mManagedProfileController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -740,7 +760,7 @@
     .end annotation
 .end field
 
-.field mMediaOutputDialogFactory:Ldagger/Lazy;
+.field public mMediaOutputDialogFactory:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -750,7 +770,7 @@
     .end annotation
 .end field
 
-.field mMetricsLogger:Ldagger/Lazy;
+.field public mMetricsLogger:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -760,7 +780,7 @@
     .end annotation
 .end field
 
-.field mNavBarModeController:Ldagger/Lazy;
+.field public mNavBarModeController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -770,17 +790,7 @@
     .end annotation
 .end field
 
-.field mNavbarButtonsControllerLazy:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/navigationbar/NavigationBarOverlayController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field mNavigationBarController:Ldagger/Lazy;
+.field public mNavigationBarController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -790,7 +800,7 @@
     .end annotation
 .end field
 
-.field mNextAlarmController:Ldagger/Lazy;
+.field public mNextAlarmController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -800,7 +810,7 @@
     .end annotation
 .end field
 
-.field mNightDisplayListener:Ldagger/Lazy;
+.field public mNightDisplayListener:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -810,7 +820,7 @@
     .end annotation
 .end field
 
-.field mNotificationEntryManager:Ldagger/Lazy;
+.field public mNotificationEntryManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -820,7 +830,7 @@
     .end annotation
 .end field
 
-.field mNotificationFilter:Ldagger/Lazy;
+.field public mNotificationFilter:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -830,7 +840,7 @@
     .end annotation
 .end field
 
-.field mNotificationGroupAlertTransferHelper:Ldagger/Lazy;
+.field public mNotificationGroupAlertTransferHelper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -840,7 +850,7 @@
     .end annotation
 .end field
 
-.field mNotificationGroupManager:Ldagger/Lazy;
+.field public mNotificationGroupManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -850,7 +860,7 @@
     .end annotation
 .end field
 
-.field mNotificationGutsManager:Ldagger/Lazy;
+.field public mNotificationGutsManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -860,7 +870,7 @@
     .end annotation
 .end field
 
-.field mNotificationListener:Ldagger/Lazy;
+.field public mNotificationListener:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -870,7 +880,7 @@
     .end annotation
 .end field
 
-.field mNotificationLockscreenUserManager:Ldagger/Lazy;
+.field public mNotificationLockscreenUserManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -880,7 +890,7 @@
     .end annotation
 .end field
 
-.field mNotificationLogger:Ldagger/Lazy;
+.field public mNotificationLogger:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -890,7 +900,7 @@
     .end annotation
 .end field
 
-.field mNotificationMediaManager:Ldagger/Lazy;
+.field public mNotificationMediaManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -900,7 +910,7 @@
     .end annotation
 .end field
 
-.field mNotificationRemoteInputManager:Ldagger/Lazy;
+.field public mNotificationRemoteInputManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -910,7 +920,7 @@
     .end annotation
 .end field
 
-.field mNotificationRemoteInputManagerCallback:Ldagger/Lazy;
+.field public mNotificationRemoteInputManagerCallback:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -920,7 +930,7 @@
     .end annotation
 .end field
 
-.field mNotificationSectionsManagerLazy:Ldagger/Lazy;
+.field public mNotificationSectionsManagerLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -930,7 +940,7 @@
     .end annotation
 .end field
 
-.field mNotificationShadeWindowController:Ldagger/Lazy;
+.field public mNotificationShadeWindowController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -940,7 +950,7 @@
     .end annotation
 .end field
 
-.field mNotificationViewHierarchyManager:Ldagger/Lazy;
+.field public mNotificationViewHierarchyManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -950,7 +960,7 @@
     .end annotation
 .end field
 
-.field mOverviewProxyService:Ldagger/Lazy;
+.field public mOverviewProxyService:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -960,7 +970,7 @@
     .end annotation
 .end field
 
-.field mPackageManagerWrapper:Ldagger/Lazy;
+.field public mPackageManagerWrapper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -970,7 +980,7 @@
     .end annotation
 .end field
 
-.field mPluginDependencyProvider:Ldagger/Lazy;
+.field public mPluginDependencyProvider:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -980,7 +990,7 @@
     .end annotation
 .end field
 
-.field mPluginManager:Ldagger/Lazy;
+.field public mPluginManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -990,7 +1000,7 @@
     .end annotation
 .end field
 
-.field mPrivacyDotViewControllerLazy:Ldagger/Lazy;
+.field public mPrivacyDotViewControllerLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1000,7 +1010,7 @@
     .end annotation
 .end field
 
-.field mPrivacyItemController:Ldagger/Lazy;
+.field public mPrivacyItemController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1010,7 +1020,7 @@
     .end annotation
 .end field
 
-.field mProtoTracer:Ldagger/Lazy;
+.field public mProtoTracer:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1020,7 +1030,7 @@
     .end annotation
 .end field
 
-.field private final mProviders:Landroid/util/ArrayMap;
+.field public final mProviders:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -1031,7 +1041,7 @@
     .end annotation
 .end field
 
-.field mRecordingController:Ldagger/Lazy;
+.field public mRecordingController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1041,7 +1051,7 @@
     .end annotation
 .end field
 
-.field mReduceBrightColorsController:Ldagger/Lazy;
+.field public mReduceBrightColorsController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1051,7 +1061,7 @@
     .end annotation
 .end field
 
-.field mRemoteInputQuickSettingsDisabler:Ldagger/Lazy;
+.field public mRemoteInputQuickSettingsDisabler:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1061,7 +1071,7 @@
     .end annotation
 .end field
 
-.field mRotationLockController:Ldagger/Lazy;
+.field public mRotationLockController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1071,7 +1081,7 @@
     .end annotation
 .end field
 
-.field mScreenLifecycle:Ldagger/Lazy;
+.field public mScreenLifecycle:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1081,7 +1091,17 @@
     .end annotation
 .end field
 
-.field mSecurityController:Ldagger/Lazy;
+.field public mScreenOffAnimationController:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public mSecurityController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1091,7 +1111,7 @@
     .end annotation
 .end field
 
-.field mSensorPrivacyController:Ldagger/Lazy;
+.field public mSensorPrivacyController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1101,7 +1121,7 @@
     .end annotation
 .end field
 
-.field mSensorPrivacyManager:Ldagger/Lazy;
+.field public mSensorPrivacyManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1111,7 +1131,7 @@
     .end annotation
 .end field
 
-.field mShadeController:Ldagger/Lazy;
+.field public mShadeController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1121,7 +1141,7 @@
     .end annotation
 .end field
 
-.field mSmartReplyConstants:Ldagger/Lazy;
+.field public mSmartReplyConstants:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1131,7 +1151,7 @@
     .end annotation
 .end field
 
-.field mSmartReplyController:Ldagger/Lazy;
+.field public mSmartReplyController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1141,7 +1161,7 @@
     .end annotation
 .end field
 
-.field mStatusBarIconController:Ldagger/Lazy;
+.field public mStatusBarIconController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1151,7 +1171,7 @@
     .end annotation
 .end field
 
-.field mStatusBarStateController:Ldagger/Lazy;
+.field public mStatusBarStateController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1161,7 +1181,7 @@
     .end annotation
 .end field
 
-.field mSysUiStateFlagsContainer:Ldagger/Lazy;
+.field public mSysUiStateFlagsContainer:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1171,7 +1191,7 @@
     .end annotation
 .end field
 
-.field mSystemStatusAnimationSchedulerLazy:Ldagger/Lazy;
+.field public mSystemStatusAnimationSchedulerLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1181,7 +1201,17 @@
     .end annotation
 .end field
 
-.field mSysuiColorExtractor:Ldagger/Lazy;
+.field public mSystemUIDialogManagerLazy:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public mSysuiColorExtractor:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1191,7 +1221,7 @@
     .end annotation
 .end field
 
-.field mTelephonyListenerManager:Ldagger/Lazy;
+.field public mTelephonyListenerManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1201,7 +1231,7 @@
     .end annotation
 .end field
 
-.field mTempStatusBarWindowController:Ldagger/Lazy;
+.field public mTempStatusBarWindowController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1211,7 +1241,7 @@
     .end annotation
 .end field
 
-.field mTimeTickHandler:Ldagger/Lazy;
+.field public mTimeTickHandler:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1221,7 +1251,7 @@
     .end annotation
 .end field
 
-.field mTunablePaddingService:Ldagger/Lazy;
+.field public mTunablePaddingService:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1231,7 +1261,7 @@
     .end annotation
 .end field
 
-.field mTunerService:Ldagger/Lazy;
+.field public mTunerService:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1241,7 +1271,7 @@
     .end annotation
 .end field
 
-.field mUiEventLogger:Ldagger/Lazy;
+.field public mUiEventLogger:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1251,7 +1281,7 @@
     .end annotation
 .end field
 
-.field mUiOffloadThread:Ldagger/Lazy;
+.field public mUiOffloadThread:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1261,17 +1291,7 @@
     .end annotation
 .end field
 
-.field mUnlockedScreenOffAnimationControllerLazy:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field mUserInfoController:Ldagger/Lazy;
+.field public mUserInfoController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1281,7 +1301,7 @@
     .end annotation
 .end field
 
-.field mUserSwitcherController:Ldagger/Lazy;
+.field public mUserSwitcherController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1291,7 +1311,7 @@
     .end annotation
 .end field
 
-.field mVibratorHelper:Ldagger/Lazy;
+.field public mVibratorHelper:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1301,7 +1321,7 @@
     .end annotation
 .end field
 
-.field mVisualStabilityManager:Ldagger/Lazy;
+.field public mVisualStabilityManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1311,7 +1331,7 @@
     .end annotation
 .end field
 
-.field mVolumeDialogController:Ldagger/Lazy;
+.field public mVolumeDialogController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1321,7 +1341,7 @@
     .end annotation
 .end field
 
-.field mWakefulnessLifecycle:Ldagger/Lazy;
+.field public mWakefulnessLifecycle:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1331,7 +1351,7 @@
     .end annotation
 .end field
 
-.field mWallpaperManager:Ldagger/Lazy;
+.field public mWallpaperManager:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1341,7 +1361,7 @@
     .end annotation
 .end field
 
-.field mWarningsUI:Ldagger/Lazy;
+.field public mWarningsUI:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1351,7 +1371,7 @@
     .end annotation
 .end field
 
-.field mZenModeController:Ldagger/Lazy;
+.field public mZenModeController:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -1363,7 +1383,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Lcom/android/systemui/Dependency$DependencyKey;
@@ -1384,7 +1404,7 @@
 
     new-instance v0, Lcom/android/systemui/Dependency$DependencyKey;
 
-    const-string v1, "time_tick_handler"
+    const-string/jumbo v1, "time_tick_handler"
 
     invoke-direct {v0, v1}, Lcom/android/systemui/Dependency$DependencyKey;-><init>(Ljava/lang/String;)V
 
@@ -1445,100 +1465,8 @@
     return-void
 .end method
 
-.method public static destroy(Ljava/lang/Class;Ljava/util/function/Consumer;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class<",
-            "TT;>;",
-            "Ljava/util/function/Consumer<",
-            "TT;>;)V"
-        }
-    .end annotation
-
-    sget-object v0, Lcom/android/systemui/Dependency;->sDependency:Lcom/android/systemui/Dependency;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/Dependency;->destroyDependency(Ljava/lang/Class;Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private destroyDependency(Ljava/lang/Class;Ljava/util/function/Consumer;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class<",
-            "TT;>;",
-            "Ljava/util/function/Consumer<",
-            "TT;>;)V"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mDependencies:Landroid/util/ArrayMap;
-
-    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    instance-of v0, p1, Lcom/android/systemui/Dumpable;
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/Dependency;->mDumpManager:Lcom/android/systemui/dump/DumpManager;
-
-    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getName()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/dump/DumpManager;->unregisterDumpable(Ljava/lang/String;)V
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    if-eqz p2, :cond_1
-
-    invoke-interface {p2, p1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
-
-    :cond_1
-    return-void
-.end method
-
-.method public static get(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lcom/android/systemui/Dependency$DependencyKey<",
-            "TT;>;)TT;"
-        }
-    .end annotation
-
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    sget-object v0, Lcom/android/systemui/Dependency;->sDependency:Lcom/android/systemui/Dependency;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/Dependency;->getDependency(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 .method public static get(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 1
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -1554,57 +1482,38 @@
 
     sget-object v0, Lcom/android/systemui/Dependency;->sDependency:Lcom/android/systemui/Dependency;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/Dependency;->getDependency(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private declared-synchronized getDependencyInner(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Object;",
-            ")TT;"
-        }
-    .end annotation
-
-    monitor-enter p0
+    monitor-enter v0
 
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mDependencies:Landroid/util/ArrayMap;
+    iget-object v1, v0, Lcom/android/systemui/Dependency;->mDependencies:Landroid/util/ArrayMap;
 
-    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, p0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/Dependency;->createDependency(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p0}, Lcom/android/systemui/Dependency;->createDependency(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/systemui/Dependency;->mDependencies:Landroid/util/ArrayMap;
+    iget-object v2, v0, Lcom/android/systemui/Dependency;->mDependencies:Landroid/util/ArrayMap;
 
-    invoke-virtual {v1, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, p0, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
-    monitor-exit p0
+    monitor-exit v0
 
-    return-object v0
+    return-object v1
 
     :catchall_0
-    move-exception p1
+    move-exception p0
 
-    monitor-exit p0
+    monitor-exit v0
 
-    throw p1
+    throw p0
 .end method
 
 .method public static setInstance(Lcom/android/systemui/Dependency;)V
@@ -1708,1786 +1617,4 @@
     invoke-direct {v0, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v0
-.end method
-
-.method protected final getDependency(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Lcom/android/systemui/Dependency$DependencyKey<",
-            "TT;>;)TT;"
-        }
-    .end annotation
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/Dependency;->getDependencyInner(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected final getDependency(Ljava/lang/Class;)Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class<",
-            "TT;>;)TT;"
-        }
-    .end annotation
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/Dependency;->getDependencyInner(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method protected start()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->TIME_TICK_HANDLER:Lcom/android/systemui/Dependency$DependencyKey;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mTimeTickHandler:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->BG_LOOPER:Lcom/android/systemui/Dependency$DependencyKey;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mBgLooper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->MAIN_LOOPER:Lcom/android/systemui/Dependency$DependencyKey;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mMainLooper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->MAIN_HANDLER:Lcom/android/systemui/Dependency$DependencyKey;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mMainHandler:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->MAIN_EXECUTOR:Lcom/android/systemui/Dependency$DependencyKey;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mMainExecutor:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->BACKGROUND_EXECUTOR:Lcom/android/systemui/Dependency$DependencyKey;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mBackgroundExecutor:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/plugins/ActivityStarter;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mActivityStarter:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/broadcast/BroadcastDispatcher;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mBroadcastDispatcher:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/util/sensors/AsyncSensorManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAsyncSensorManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/BluetoothController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mBluetoothController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Landroid/hardware/SensorPrivacyManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSensorPrivacyManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/LocationController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mLocationController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/RotationLockController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mRotationLockController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/ZenModeController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mZenModeController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/HotspotController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mHotspotController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/CastController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mCastController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/FlashlightController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mFlashlightController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mKeyguardMonitor:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mKeyguardUpdateMonitor:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mUserSwitcherController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/UserInfoController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mUserInfoController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/BatteryController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mBatteryController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Landroid/hardware/display/NightDisplayListener;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNightDisplayListener:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/qs/ReduceBrightColorsController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mReduceBrightColorsController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/ManagedProfileController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mManagedProfileController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/NextAlarmController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNextAlarmController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/DataSaverController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDataSaverController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/AccessibilityController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAccessibilityController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDeviceProvisionedController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/shared/plugins/PluginManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mPluginManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/assist/AssistManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAssistManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/SecurityController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSecurityController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/util/leak/LeakDetector;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mLeakDetector:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    sget-object v1, Lcom/android/systemui/Dependency;->LEAK_REPORT_EMAIL:Lcom/android/systemui/Dependency$DependencyKey;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mLeakReportEmail:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/util/leak/LeakReporter;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mLeakReporter:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/util/leak/GarbageMonitor;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mGarbageMonitor:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/tuner/TunerService;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mTunerService:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationShadeWindowController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/window/StatusBarWindowController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mTempStatusBarWindowController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/plugins/DarkIconDispatcher;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDarkIconDispatcher:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/ConfigurationController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mConfigurationController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/StatusBarIconController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mStatusBarIconController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/keyguard/ScreenLifecycle;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mScreenLifecycle:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/keyguard/WakefulnessLifecycle;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mWakefulnessLifecycle:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/fragments/FragmentService;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mFragmentService:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/ExtensionController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mExtensionController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/plugins/PluginDependencyProvider;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mPluginDependencyProvider:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mLocalBluetoothManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/plugins/VolumeDialogController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mVolumeDialogController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/internal/logging/MetricsLogger;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mMetricsLogger:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/AccessibilityManagerWrapper;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAccessibilityManagerWrapper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSysuiColorExtractor:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/tuner/TunablePadding$TunablePaddingService;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mTunablePaddingService:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/ForegroundServiceController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mForegroundServiceController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/UiOffloadThread;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mUiOffloadThread:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/power/PowerUI$WarningsUI;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mWarningsUI:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/LightBarController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mLightBarController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Landroid/view/IWindowManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mIWindowManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/recents/OverviewProxyService;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mOverviewProxyService:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/navigationbar/NavigationModeController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNavBarModeController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/accessibility/AccessibilityButtonModeObserver;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAccessibilityButtonModeObserver:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAccessibilityButtonListController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/power/EnhancedEstimates;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mEnhancedEstimates:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/VibratorHelper;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mVibratorHelper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/internal/statusbar/IStatusBarService;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mIStatusBarService:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Landroid/util/DisplayMetrics;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDisplayMetrics:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mLockscreenGestureLogger:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mKeyguardEnvironment:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/ShadeController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mShadeController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationRemoteInputManagerCallback:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/appops/AppOpsController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAppOpsController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/navigationbar/NavigationBarController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNavigationBarController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAccessibilityFloatingMenuController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mStatusBarStateController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationLockscreenUserManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mVisualStabilityManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationGroupManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/NotificationGroupAlertTransferHelper;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationGroupAlertTransferHelper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/NotificationMediaManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationMediaManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationGutsManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationRemoteInputManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/SmartReplyConstants;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSmartReplyConstants:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/NotificationListener;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationListener:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationLogger:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/NotificationViewHierarchyManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationViewHierarchyManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/NotificationFilter;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationFilter:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/KeyguardDismissUtil;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mKeyguardDismissUtil:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/SmartReplyController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSmartReplyController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/RemoteInputQuickSettingsDisabler;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mRemoteInputQuickSettingsDisabler:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationEntryManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/ForegroundServiceNotificationListener;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mForegroundServiceNotificationListener:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/keyguard/clock/ClockManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mClockManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/privacy/PrivacyItemController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mPrivacyItemController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/shared/system/ActivityManagerWrapper;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mActivityManagerWrapper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/shared/system/DevicePolicyManagerWrapper;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDevicePolicyManagerWrapper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/shared/system/PackageManagerWrapper;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mPackageManagerWrapper:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/policy/SensorPrivacyController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSensorPrivacyController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/dock/DockManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDockManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Landroid/app/INotificationManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mINotificationManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/model/SysUiState;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSysUiStateFlagsContainer:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Landroid/app/AlarmManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAlarmManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/keyguard/KeyguardSecurityModel;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mKeyguardSecurityModel:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/DozeParameters;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDozeParameters:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Landroid/app/IWallpaperManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mWallpaperManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/CommandQueue;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mCommandQueue:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/tracing/ProtoTracer;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mProtoTracer:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/util/DeviceConfigProxy;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mDeviceConfigProxy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/telephony/TelephonyListenerManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mTelephonyListenerManager:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/AutoHideController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAutoHideController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/screenrecord/RecordingController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mRecordingController:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/media/dialog/MediaOutputDialogFactory;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mMediaOutputDialogFactory:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/navigationbar/NavigationBarOverlayController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNavbarButtonsControllerLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/events/SystemStatusAnimationScheduler;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mSystemStatusAnimationSchedulerLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mPrivacyDotViewControllerLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mEdgeBackGestureHandlerFactoryLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mInternetDialogFactory:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/internal/logging/UiEventLogger;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mUiEventLogger:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/flags/FeatureFlags;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mFeatureFlagsLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mContentInsetsProviderLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mNotificationSectionsManagerLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mUnlockedScreenOffAnimationControllerLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/stack/AmbientState;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mAmbientStateLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/collection/render/GroupMembershipManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mGroupMembershipManagerLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
-
-    const-class v1, Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager;
-
-    iget-object v2, p0, Lcom/android/systemui/Dependency;->mGroupExpansionManagerLazy:Ldagger/Lazy;
-
-    invoke-static {v2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v2}, Lcom/android/systemui/Dependency$$ExternalSyntheticLambda0;-><init>(Ldagger/Lazy;)V
-
-    invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-static {p0}, Lcom/android/systemui/Dependency;->setInstance(Lcom/android/systemui/Dependency;)V
-
-    return-void
 .end method

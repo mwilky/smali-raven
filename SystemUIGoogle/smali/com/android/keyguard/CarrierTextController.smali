@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/CarrierTextController;
+.class public final Lcom/android/keyguard/CarrierTextController;
 .super Lcom/android/systemui/util/ViewController;
 .source "CarrierTextController.java"
 
@@ -14,50 +14,34 @@
 
 
 # instance fields
-.field private final mCarrierTextCallback:Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;
+.field public final mCarrierTextCallback:Lcom/android/keyguard/CarrierTextController$1;
 
-.field private final mCarrierTextManager:Lcom/android/keyguard/CarrierTextManager;
+.field public final mCarrierTextManager:Lcom/android/keyguard/CarrierTextManager;
 
-.field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/keyguard/CarrierText;Lcom/android/keyguard/CarrierTextManager$Builder;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
 
-    new-instance p1, Lcom/android/keyguard/CarrierTextController$1;
+    new-instance v0, Lcom/android/keyguard/CarrierTextController$1;
 
-    invoke-direct {p1, p0}, Lcom/android/keyguard/CarrierTextController$1;-><init>(Lcom/android/keyguard/CarrierTextController;)V
+    invoke-direct {v0, p0}, Lcom/android/keyguard/CarrierTextController$1;-><init>(Lcom/android/keyguard/CarrierTextController;)V
 
-    iput-object p1, p0, Lcom/android/keyguard/CarrierTextController;->mCarrierTextCallback:Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;
+    iput-object v0, p0, Lcom/android/keyguard/CarrierTextController;->mCarrierTextCallback:Lcom/android/keyguard/CarrierTextController$1;
 
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-boolean v0, p1, Lcom/android/keyguard/CarrierText;->mShowAirplaneMode:Z
 
-    check-cast p1, Lcom/android/keyguard/CarrierText;
+    iput-boolean v0, p2, Lcom/android/keyguard/CarrierTextManager$Builder;->mShowAirplaneMode:Z
 
-    invoke-virtual {p1}, Lcom/android/keyguard/CarrierText;->getShowAirplaneMode()Z
+    iget-boolean p1, p1, Lcom/android/keyguard/CarrierText;->mShowMissingSim:Z
 
-    move-result p1
+    iput-boolean p1, p2, Lcom/android/keyguard/CarrierTextManager$Builder;->mShowMissingSim:Z
 
-    invoke-virtual {p2, p1}, Lcom/android/keyguard/CarrierTextManager$Builder;->setShowAirplaneMode(Z)Lcom/android/keyguard/CarrierTextManager$Builder;
-
-    move-result-object p1
-
-    iget-object p2, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p2, Lcom/android/keyguard/CarrierText;
-
-    invoke-virtual {p2}, Lcom/android/keyguard/CarrierText;->getShowMissingSim()Z
-
-    move-result p2
-
-    invoke-virtual {p1, p2}, Lcom/android/keyguard/CarrierTextManager$Builder;->setShowMissingSim(Z)Lcom/android/keyguard/CarrierTextManager$Builder;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/android/keyguard/CarrierTextManager$Builder;->build()Lcom/android/keyguard/CarrierTextManager;
+    invoke-virtual {p2}, Lcom/android/keyguard/CarrierTextManager$Builder;->build()Lcom/android/keyguard/CarrierTextManager;
 
     move-result-object p1
 
@@ -68,36 +52,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/keyguard/CarrierTextController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/keyguard/CarrierTextController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/keyguard/CarrierTextController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method protected onInit()V
+.method public final onInit()V
     .locals 1
-
-    invoke-super {p0}, Lcom/android/systemui/util/ViewController;->onInit()V
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
@@ -105,35 +63,49 @@
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isDeviceInteractive()Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mDeviceInteractive:Z
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setSelected(Z)V
 
     return-void
 .end method
 
-.method protected onViewAttached()V
-    .locals 1
+.method public final onViewAttached()V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/CarrierTextController;->mCarrierTextManager:Lcom/android/keyguard/CarrierTextManager;
 
-    iget-object p0, p0, Lcom/android/keyguard/CarrierTextController;->mCarrierTextCallback:Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;
+    iget-object p0, p0, Lcom/android/keyguard/CarrierTextController;->mCarrierTextCallback:Lcom/android/keyguard/CarrierTextController$1;
 
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/CarrierTextManager;->setListening(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;)V
+    iget-object v1, v0, Lcom/android/keyguard/CarrierTextManager;->mBgExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v2, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda0;
+
+    const/4 v3, 0x0
+
+    invoke-direct {v2, v3, v0, p0}, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method
 
-.method protected onViewDetached()V
-    .locals 1
+.method public final onViewDetached()V
+    .locals 4
 
     iget-object p0, p0, Lcom/android/keyguard/CarrierTextController;->mCarrierTextManager:Lcom/android/keyguard/CarrierTextManager;
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/keyguard/CarrierTextManager;->mBgExecutor:Ljava/util/concurrent/Executor;
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/CarrierTextManager;->setListening(Lcom/android/keyguard/CarrierTextManager$CarrierTextCallback;)V
+    new-instance v1, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda0;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-direct {v1, v2, p0, v3}, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method

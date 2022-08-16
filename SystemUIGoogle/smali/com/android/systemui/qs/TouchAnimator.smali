@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/TouchAnimator;
+.class public final Lcom/android/systemui/qs/TouchAnimator;
 .super Ljava/lang/Object;
 .source "TouchAnimator.java"
 
@@ -16,51 +16,39 @@
 
 
 # static fields
-.field private static final POSITION:Landroid/util/FloatProperty;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/FloatProperty<",
-            "Lcom/android/systemui/qs/TouchAnimator;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public static final POSITION:Lcom/android/systemui/qs/TouchAnimator$1;
 
 
 # instance fields
-.field private final mEndDelay:F
+.field public final mInterpolator:Landroid/view/animation/Interpolator;
 
-.field private final mInterpolator:Landroid/view/animation/Interpolator;
+.field public final mKeyframeSets:[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
 
-.field private final mKeyframeSets:[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
+.field public mLastT:F
 
-.field private mLastT:F
+.field public final mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
-.field private final mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
+.field public final mSpan:F
 
-.field private final mSpan:F
+.field public final mStartDelay:F
 
-.field private final mStartDelay:F
-
-.field private final mTargets:[Ljava/lang/Object;
+.field public final mTargets:[Ljava/lang/Object;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public static constructor <clinit>()V
+    .locals 1
 
     new-instance v0, Lcom/android/systemui/qs/TouchAnimator$1;
 
-    const-string v1, "position"
+    invoke-direct {v0}, Lcom/android/systemui/qs/TouchAnimator$1;-><init>()V
 
-    invoke-direct {v0, v1}, Lcom/android/systemui/qs/TouchAnimator$1;-><init>(Ljava/lang/String;)V
-
-    sput-object v0, Lcom/android/systemui/qs/TouchAnimator;->POSITION:Landroid/util/FloatProperty;
+    sput-object v0, Lcom/android/systemui/qs/TouchAnimator;->POSITION:Lcom/android/systemui/qs/TouchAnimator$1;
 
     return-void
 .end method
 
-.method private constructor <init>([Ljava/lang/Object;[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;FFLandroid/view/animation/Interpolator;Lcom/android/systemui/qs/TouchAnimator$Listener;)V
+.method public constructor <init>([Ljava/lang/Object;[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;FFLandroid/view/animation/Interpolator;Lcom/android/systemui/qs/TouchAnimator$Listener;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,8 +62,6 @@
     iput-object p2, p0, Lcom/android/systemui/qs/TouchAnimator;->mKeyframeSets:[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
 
     iput p3, p0, Lcom/android/systemui/qs/TouchAnimator;->mStartDelay:F
-
-    iput p4, p0, Lcom/android/systemui/qs/TouchAnimator;->mEndDelay:F
 
     const/high16 p1, 0x3f800000    # 1.0f
 
@@ -92,34 +78,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>([Ljava/lang/Object;[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;FFLandroid/view/animation/Interpolator;Lcom/android/systemui/qs/TouchAnimator$Listener;Lcom/android/systemui/qs/TouchAnimator$1;)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p6}, Lcom/android/systemui/qs/TouchAnimator;-><init>([Ljava/lang/Object;[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;FFLandroid/view/animation/Interpolator;Lcom/android/systemui/qs/TouchAnimator$Listener;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/qs/TouchAnimator;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/qs/TouchAnimator;->mLastT:F
-
-    return p0
-.end method
-
-.method static synthetic access$100()Landroid/util/FloatProperty;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/qs/TouchAnimator;->POSITION:Landroid/util/FloatProperty;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public setPosition(F)V
-    .locals 5
+.method public final setPosition(F)V
+    .locals 6
 
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
@@ -217,7 +179,41 @@
 
     aget-object v1, v1, v0
 
-    invoke-virtual {v2, p1, v1}, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->setValue(FLjava/lang/Object;)V
+    iget v3, v2, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->mFrameWidth:F
+
+    div-float v3, p1, v3
+
+    float-to-double v3, v3
+
+    invoke-static {v3, v4}, Ljava/lang/Math;->ceil(D)D
+
+    move-result-wide v3
+
+    double-to-int v3, v3
+
+    iget v4, v2, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->mSize:I
+
+    const/4 v5, 0x1
+
+    sub-int/2addr v4, v5
+
+    invoke-static {v3, v5, v4}, Landroid/util/MathUtils;->constrain(III)I
+
+    move-result v3
+
+    iget v4, v2, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->mFrameWidth:F
+
+    add-int/lit8 v5, v3, -0x1
+
+    int-to-float v5, v5
+
+    mul-float/2addr v5, v4
+
+    sub-float v5, p1, v5
+
+    div-float/2addr v5, v4
+
+    invoke-virtual {v2, v3, v5, v1}, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->interpolate(IFLjava/lang/Object;)V
 
     add-int/lit8 v0, v0, 0x1
 

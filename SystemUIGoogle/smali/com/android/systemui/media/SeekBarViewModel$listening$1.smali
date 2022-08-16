@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/SeekBarViewModel$listening$1;
+.class public final Lcom/android/systemui/media/SeekBarViewModel$listening$1;
 .super Ljava/lang/Object;
 .source "SeekBarViewModel.kt"
 
@@ -6,25 +6,14 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/SeekBarViewModel;->setListening(Z)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $value:Z
+.field public final synthetic $value:Z
 
-.field final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
+.field public final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;Z)V
+.method public constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel$listening$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
@@ -43,21 +32,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$listening$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-static {v0}, Lcom/android/systemui/media/SeekBarViewModel;->access$getListening$p(Lcom/android/systemui/media/SeekBarViewModel;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/media/SeekBarViewModel;->listening:Z
 
-    move-result v0
+    iget-boolean p0, p0, Lcom/android/systemui/media/SeekBarViewModel$listening$1;->$value:Z
 
-    iget-boolean v1, p0, Lcom/android/systemui/media/SeekBarViewModel$listening$1;->$value:Z
+    if-eq v1, p0, :cond_0
 
-    if-eq v0, v1, :cond_0
+    iput-boolean p0, v0, Lcom/android/systemui/media/SeekBarViewModel;->listening:Z
 
-    iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$listening$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
-
-    invoke-static {v0, v1}, Lcom/android/systemui/media/SeekBarViewModel;->access$setListening$p(Lcom/android/systemui/media/SeekBarViewModel;Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/media/SeekBarViewModel$listening$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
-
-    invoke-static {p0}, Lcom/android/systemui/media/SeekBarViewModel;->access$checkIfPollingNeeded(Lcom/android/systemui/media/SeekBarViewModel;)V
+    invoke-virtual {v0}, Lcom/android/systemui/media/SeekBarViewModel;->checkIfPollingNeeded()V
 
     :cond_0
     return-void

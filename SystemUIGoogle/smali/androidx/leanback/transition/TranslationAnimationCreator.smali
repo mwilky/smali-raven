@@ -1,4 +1,4 @@
-.class Landroidx/leanback/transition/TranslationAnimationCreator;
+.class public final Landroidx/leanback/transition/TranslationAnimationCreator;
 .super Ljava/lang/Object;
 .source "TranslationAnimationCreator.java"
 
@@ -12,34 +12,8 @@
 
 
 # direct methods
-.method static createAnimation(Landroid/view/View;Landroid/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroid/transition/Transition;)Landroid/animation/Animator;
+.method public static createAnimation(Landroid/view/View;Landroid/transition/TransitionValues;IIFFFFLandroid/view/animation/DecelerateInterpolator;Landroid/transition/Transition;)Landroid/animation/ObjectAnimator;
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "values",
-            "viewPosX",
-            "viewPosY",
-            "startX",
-            "startY",
-            "endX",
-            "endY",
-            "interpolator",
-            "transition"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/view/View;->getTranslationX()F
 
@@ -51,7 +25,7 @@
 
     iget-object v2, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    sget v3, Landroidx/leanback/R$id;->transitionPosition:I
+    const v3, 0x7f0b06e6
 
     invoke-virtual {v2, v3}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -96,7 +70,7 @@
 
     move-result p2
 
-    add-int v3, p3, p2
+    add-int v3, p2, p3
 
     invoke-virtual {p0, p4}, Landroid/view/View;->setTranslationX(F)V
 

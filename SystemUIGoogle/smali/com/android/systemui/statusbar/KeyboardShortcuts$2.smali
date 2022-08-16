@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/KeyboardShortcuts$2;
+.class public final Lcom/android/systemui/statusbar/KeyboardShortcuts$2;
 .super Ljava/lang/Object;
 .source "KeyboardShortcuts.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -26,15 +26,9 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/KeyboardShortcuts;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,8 +37,12 @@
 
 
 # virtual methods
-.method public compare(Landroid/view/KeyboardShortcutInfo;Landroid/view/KeyboardShortcutInfo;)I
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 3
+
+    check-cast p1, Landroid/view/KeyboardShortcutInfo;
+
+    check-cast p2, Landroid/view/KeyboardShortcutInfo;
 
     invoke-virtual {p1}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
 
@@ -118,19 +116,21 @@
 
     if-eqz v2, :cond_4
 
-    return v0
+    goto :goto_4
 
     :cond_4
     if-eqz p0, :cond_5
 
-    return v1
+    move v0, v1
+
+    goto :goto_4
 
     :cond_5
     if-eqz v2, :cond_6
 
-    const/4 p0, -0x1
+    const/4 v0, -0x1
 
-    return p0
+    goto :goto_4
 
     :cond_6
     invoke-virtual {p1}, Landroid/view/KeyboardShortcutInfo;->getLabel()Ljava/lang/CharSequence;
@@ -151,21 +151,8 @@
 
     invoke-virtual {p0, p1}, Ljava/lang/String;->compareToIgnoreCase(Ljava/lang/String;)I
 
-    move-result p0
+    move-result v0
 
-    return p0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
-
-    check-cast p1, Landroid/view/KeyboardShortcutInfo;
-
-    check-cast p2, Landroid/view/KeyboardShortcutInfo;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->compare(Landroid/view/KeyboardShortcutInfo;Landroid/view/KeyboardShortcutInfo;)I
-
-    move-result p0
-
-    return p0
+    :goto_4
+    return v0
 .end method

@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/content/ShapeGroup;
+.class public final Lcom/airbnb/lottie/model/content/ShapeGroup;
 .super Ljava/lang/Object;
 .source "ShapeGroup.java"
 
@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field private final hidden:Z
+.field public final hidden:Z
 
-.field private final items:Ljava/util/List;
+.field public final items:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -19,7 +19,7 @@
     .end annotation
 .end field
 
-.field private final name:Ljava/lang/String;
+.field public final name:Ljava/lang/String;
 
 
 # direct methods
@@ -48,39 +48,7 @@
 
 
 # virtual methods
-.method public getItems()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/model/content/ContentModel;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/ShapeGroup;->items:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/ShapeGroup;->name:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public isHidden()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/ShapeGroup;->hidden:Z
-
-    return p0
-.end method
-
-.method public toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
+.method public final toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
     .locals 1
 
     new-instance v0, Lcom/airbnb/lottie/animation/content/ContentGroup;
@@ -90,16 +58,14 @@
     return-object v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "ShapeGroup{name=\'"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "ShapeGroup{name=\'"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/airbnb/lottie/model/content/ShapeGroup;->name:Ljava/lang/String;
 

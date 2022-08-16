@@ -1,4 +1,4 @@
-.class final Landroidx/appcompat/app/AlertController$ButtonHandler;
+.class public final Landroidx/appcompat/app/AlertController$ButtonHandler;
 .super Landroid/os/Handler;
 .source "AlertController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ButtonHandler"
 .end annotation
 
 
 # instance fields
-.field private mDialog:Ljava/lang/ref/WeakReference;
+.field public mDialog:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -43,7 +43,7 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public final handleMessage(Landroid/os/Message;)V
     .locals 2
 
     iget v0, p1, Landroid/os/Message;->what:I

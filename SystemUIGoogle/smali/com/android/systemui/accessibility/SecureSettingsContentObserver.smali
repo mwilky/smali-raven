@@ -15,16 +15,16 @@
 
 
 # instance fields
-.field final mContentObserver:Landroid/database/ContentObserver;
+.field public final mContentObserver:Landroid/database/ContentObserver;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private final mContentResolver:Landroid/content/ContentResolver;
+.field public final mContentResolver:Landroid/content/ContentResolver;
 
-.field private final mKey:Ljava/lang/String;
+.field public final mKey:Ljava/lang/String;
 
-.field final mListeners:Ljava/util/List;
+.field public final mListeners:Ljava/util/List;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -38,7 +38,7 @@
 
 
 # direct methods
-.method protected constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/content/Context;Ljava/lang/String;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,51 +74,9 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/accessibility/SecureSettingsContentObserver;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->updateValueChanged()V
-
-    return-void
-.end method
-
-.method private updateValueChanged()V
-    .locals 4
-
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->getSettingsValue()Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->mListeners:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    :goto_0
-    if-ge v2, v1, :cond_0
-
-    iget-object v3, p0, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->mListeners:Ljava/util/List;
-
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    invoke-virtual {p0, v3, v0}, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->onValueChanged(Ljava/lang/Object;Ljava/lang/String;)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public addListener(Ljava/lang/Object;)V
+.method public final addListener(Ljava/lang/Object;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -173,23 +131,7 @@
     return-void
 .end method
 
-.method public final getSettingsValue()Ljava/lang/String;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->mContentResolver:Landroid/content/ContentResolver;
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->mKey:Ljava/lang/String;
-
-    const/4 v1, -0x2
-
-    invoke-static {v0, p0, v1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method abstract onValueChanged(Ljava/lang/Object;Ljava/lang/String;)V
+.method public abstract onValueChanged(Ljava/lang/Object;Ljava/lang/String;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;",

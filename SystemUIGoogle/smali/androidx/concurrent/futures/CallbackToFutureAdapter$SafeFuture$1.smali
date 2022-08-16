@@ -1,4 +1,4 @@
-.class Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;
+.class public final Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;
 .super Landroidx/concurrent/futures/AbstractResolvableFuture;
 .source "CallbackToFutureAdapter.java"
 
@@ -9,24 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroidx/concurrent/futures/AbstractResolvableFuture<",
-        "*>;"
+        "TT;>;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
+.field public final synthetic this$0:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
 
 # direct methods
-.method constructor <init>(Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;)V
+.method public constructor <init>(Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;->this$0:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
@@ -38,8 +38,8 @@
 
 
 # virtual methods
-.method protected pendingToString()Ljava/lang/String;
-    .locals 2
+.method public final pendingToString()Ljava/lang/String;
+    .locals 1
 
     iget-object p0, p0, Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture$1;->this$0:Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 
@@ -58,13 +58,11 @@
     return-object p0
 
     :cond_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "tag=["
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "tag=["
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Landroidx/concurrent/futures/CallbackToFutureAdapter$Completer;->tag:Ljava/lang/Object;
 

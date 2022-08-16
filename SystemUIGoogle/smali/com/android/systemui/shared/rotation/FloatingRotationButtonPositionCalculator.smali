@@ -12,11 +12,11 @@
 
 
 # instance fields
-.field private final defaultMargin:I
+.field public final defaultMargin:I
 
-.field private final taskbarMarginBottom:I
+.field public final taskbarMarginBottom:I
 
-.field private final taskbarMarginLeft:I
+.field public final taskbarMarginLeft:I
 
 
 # direct methods
@@ -32,61 +32,6 @@
     iput p3, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->taskbarMarginBottom:I
 
     return-void
-.end method
-
-.method private final resolveGravity(I)I
-    .locals 1
-
-    if-eqz p1, :cond_3
-
-    const/4 p0, 0x1
-
-    if-eq p1, p0, :cond_2
-
-    const/4 p0, 0x2
-
-    if-eq p1, p0, :cond_1
-
-    const/4 p0, 0x3
-
-    if-ne p1, p0, :cond_0
-
-    const/16 p0, 0x33
-
-    goto :goto_0
-
-    :cond_0
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    const-string v0, "Invalid rotation "
-
-    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-
-    :cond_1
-    const/16 p0, 0x35
-
-    goto :goto_0
-
-    :cond_2
-    const/16 p0, 0x55
-
-    goto :goto_0
-
-    :cond_3
-    const/16 p0, 0x53
-
-    :goto_0
-    return p0
 .end method
 
 
@@ -123,48 +68,91 @@
     move v0, v1
 
     :cond_2
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->resolveGravity(I)I
+    if-eqz p1, :cond_6
 
-    move-result p1
+    if-eq p1, v1, :cond_5
 
-    if-eqz v0, :cond_3
+    const/4 p2, 0x2
 
-    iget p2, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->taskbarMarginLeft:I
+    if-eq p1, p2, :cond_4
+
+    const/4 p2, 0x3
+
+    if-ne p1, p2, :cond_3
+
+    const/16 p1, 0x33
 
     goto :goto_2
 
     :cond_3
-    iget p2, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->defaultMargin:I
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    const-string p2, "Invalid rotation "
+
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_4
+    const/16 p1, 0x35
+
+    goto :goto_2
+
+    :cond_5
+    const/16 p1, 0x55
+
+    goto :goto_2
+
+    :cond_6
+    const/16 p1, 0x53
 
     :goto_2
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7
 
-    iget p0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->taskbarMarginBottom:I
+    iget p2, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->taskbarMarginLeft:I
 
     goto :goto_3
 
-    :cond_4
-    iget p0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->defaultMargin:I
+    :cond_7
+    iget p2, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->defaultMargin:I
 
     :goto_3
+    if-eqz v0, :cond_8
+
+    iget p0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->taskbarMarginBottom:I
+
+    goto :goto_4
+
+    :cond_8
+    iget p0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator;->defaultMargin:I
+
+    :goto_4
     and-int/lit8 p3, p1, 0x5
 
     const/4 v0, 0x5
 
-    if-ne p3, v0, :cond_5
+    if-ne p3, v0, :cond_9
 
     neg-int p2, p2
 
-    :cond_5
+    :cond_9
     and-int/lit8 p3, p1, 0x50
 
     const/16 v0, 0x50
 
-    if-ne p3, v0, :cond_6
+    if-ne p3, v0, :cond_a
 
     neg-int p0, p0
 
-    :cond_6
+    :cond_a
     new-instance p3, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator$Position;
 
     invoke-direct {p3, p1, p2, p0}, Lcom/android/systemui/shared/rotation/FloatingRotationButtonPositionCalculator$Position;-><init>(III)V

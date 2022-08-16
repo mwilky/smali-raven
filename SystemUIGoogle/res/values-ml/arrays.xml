@@ -17,6 +17,7 @@
         <item>പരമാവധി 3 പ്രോസ‌സ്സുകൾ</item>
         <item>പരമാവധി 4 പ്രോസ‌സ്സുകൾ</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>ഓഫാണ്</item>
         <item>ഓണാണ്</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>ലഭ്യമല്ല</item>
+        <item>ഓഫാണ്</item>
+        <item>ഓണാണ്</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>ലഭ്യമല്ല</item>
         <item>ഓഫാണ്</item>
@@ -306,6 +312,16 @@
         <item>ഓണാണ്</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>ലഭ്യമല്ല</item>
+        <item>ഓഫാണ്</item>
+        <item>ഓണാണ്</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>ലഭ്യമല്ല</item>
+        <item>ഓഫാണ്</item>
+        <item>ഓണാണ്</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>ലഭ്യമല്ല</item>
         <item>ഓഫാണ്</item>
         <item>ഓണാണ്</item>
@@ -374,6 +390,12 @@
         <item>ശീഘ്രം</item>
         <item>വളരെ ശീഘ്രം</item>
         <item>ഏറ്റവും വേഗത്തിൽ</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>ഇടത്തേക്ക് നീക്കുക</item>
+        <item>താഴേക്ക് നീക്കുക</item>
+        <item>വലത്തേക്ക് നീക്കുക</item>
+        <item>മുകളിലേക്ക് നീക്കുക</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>ചാർജ് ചെയ്യുന്നു</item>

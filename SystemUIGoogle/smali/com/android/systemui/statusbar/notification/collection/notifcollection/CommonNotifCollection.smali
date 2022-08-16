@@ -17,3 +17,9 @@
         }
     .end annotation
 .end method
+
+.method public abstract getEntry(Ljava/lang/String;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+.end method
+
+.method public abstract removeCollectionListener(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;)V
+.end method

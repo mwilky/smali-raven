@@ -4,9 +4,7 @@
 
 
 # static fields
-.field public static final ICON_TAG:I
-
-.field private static sInstancePool:Landroid/util/Pools$SimplePool;
+.field public static sInstancePool:Landroid/util/Pools$SimplePool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Pools$SimplePool<",
@@ -18,16 +16,12 @@
 
 
 # instance fields
-.field private mIcon:Landroid/graphics/drawable/Icon;
+.field public mIcon:Landroid/graphics/drawable/Icon;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
-
-    sget v0, Lcom/android/systemui/R$id;->image_icon_tag:I
-
-    sput v0, Lcom/android/systemui/statusbar/notification/ImageTransformState;->ICON_TAG:I
 
     new-instance v0, Landroid/util/Pools$SimplePool;
 
@@ -48,63 +42,10 @@
     return-void
 .end method
 
-.method private static mapToDuration(F)F
-    .locals 1
-
-    const/high16 v0, 0x43b40000    # 360.0f
-
-    mul-float/2addr p0, v0
-
-    const/high16 v0, 0x43160000    # 150.0f
-
-    sub-float/2addr p0, v0
-
-    const/high16 v0, 0x43520000    # 210.0f
-
-    div-float/2addr p0, v0
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    invoke-static {p0, v0}, Ljava/lang/Math;->min(FF)F
-
-    move-result p0
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, v0}, Ljava/lang/Math;->max(FF)F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static obtain()Lcom/android/systemui/statusbar/notification/ImageTransformState;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/statusbar/notification/ImageTransformState;->sInstancePool:Landroid/util/Pools$SimplePool;
-
-    invoke-virtual {v0}, Landroid/util/Pools$SimplePool;->acquire()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/ImageTransformState;
-
-    if-eqz v0, :cond_0
-
-    return-object v0
-
-    :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/notification/ImageTransformState;
-
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/ImageTransformState;-><init>()V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public appear(FLcom/android/systemui/statusbar/TransformableView;)V
-    .locals 1
+.method public final appear(FLcom/android/systemui/statusbar/TransformableView;)V
+    .locals 2
 
     instance-of v0, p2, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
 
@@ -120,22 +61,40 @@
 
     invoke-virtual {v0, p2}, Landroid/view/View;->setPivotY(F)V
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
-    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
-    move-result v0
+    move-result v1
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 v1, v1, 0x2
 
-    int-to-float v0, v0
+    int-to-float v1, v1
 
-    invoke-virtual {p2, v0}, Landroid/view/View;->setPivotX(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotX(F)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->prepareFadeIn()V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->resetTransformedView()V
 
     :cond_0
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/ImageTransformState;->mapToDuration(F)F
+    const/high16 v0, 0x43b40000    # 360.0f
+
+    mul-float/2addr p1, v0
+
+    const/high16 v0, 0x43160000    # 150.0f
+
+    sub-float/2addr p1, v0
+
+    const/high16 v0, 0x43520000    # 210.0f
+
+    div-float/2addr p1, v0
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
+
+    move-result p1
+
+    invoke-static {p1, p2}, Ljava/lang/Math;->max(FF)F
 
     move-result p1
 
@@ -143,11 +102,11 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p2, p1, v0}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeIn(Landroid/view/View;FZ)V
+    invoke-static {p2, p1, v0}, Landroidx/leanback/R$style;->fadeIn(Landroid/view/View;FZ)V
 
-    sget-object p2, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    sget-object p2, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
 
-    invoke-interface {p2, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-virtual {p2, p1}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
 
     move-result p1
 
@@ -168,7 +127,7 @@
     return-void
 .end method
 
-.method public disappear(FLcom/android/systemui/statusbar/TransformableView;)V
+.method public final disappear(FLcom/android/systemui/statusbar/TransformableView;)V
     .locals 2
 
     instance-of v0, p2, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
@@ -185,38 +144,54 @@
 
     invoke-virtual {v0, p2}, Landroid/view/View;->setPivotY(F)V
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
-    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
+    invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
-    move-result v0
+    move-result v1
 
-    div-int/lit8 v0, v0, 0x2
+    div-int/lit8 v1, v1, 0x2
 
-    int-to-float v0, v0
+    int-to-float v1, v1
 
-    invoke-virtual {p2, v0}, Landroid/view/View;->setPivotX(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotX(F)V
 
     :cond_0
-    const/high16 p2, 0x3f800000    # 1.0f
+    const/high16 v0, 0x3f800000    # 1.0f
 
-    sub-float p1, p2, p1
+    sub-float p1, v0, p1
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/ImageTransformState;->mapToDuration(F)F
+    const/high16 v1, 0x43b40000    # 360.0f
+
+    mul-float/2addr p1, v1
+
+    const/high16 v1, 0x43160000    # 150.0f
+
+    sub-float/2addr p1, v1
+
+    const/high16 v1, 0x43520000    # 210.0f
+
+    div-float/2addr p1, v1
+
+    invoke-static {p1, v0}, Ljava/lang/Math;->min(FF)F
 
     move-result p1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
+    invoke-static {p1, p2}, Ljava/lang/Math;->max(FF)F
 
-    sub-float/2addr p2, p1
+    move-result p1
+
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
+
+    sub-float/2addr v0, p1
 
     const/4 v1, 0x0
 
-    invoke-static {v0, p2, v1}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeOut(Landroid/view/View;FZ)V
+    invoke-static {p2, v0, v1}, Landroidx/leanback/R$style;->fadeOut(Landroid/view/View;FZ)V
 
-    sget-object p2, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    sget-object p2, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
 
-    invoke-interface {p2, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-virtual {p2, p1}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
 
     move-result p1
 
@@ -237,14 +212,6 @@
     return-void
 .end method
 
-.method public getIcon()Landroid/graphics/drawable/Icon;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/ImageTransformState;->mIcon:Landroid/graphics/drawable/Icon;
-
-    return-object p0
-.end method
-
 .method public initFrom(Landroid/view/View;Lcom/android/systemui/statusbar/notification/TransformState$TransformInfo;)V
     .locals 0
 
@@ -254,7 +221,7 @@
 
     if-eqz p2, :cond_0
 
-    sget p2, Lcom/android/systemui/statusbar/notification/ImageTransformState;->ICON_TAG:I
+    const p2, 0x7f0b030d
 
     invoke-virtual {p1, p2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -289,7 +256,7 @@
     return-void
 .end method
 
-.method protected reset()V
+.method public reset()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->reset()V
@@ -301,12 +268,10 @@
     return-void
 .end method
 
-.method protected sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
+.method public sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
     .locals 3
 
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/TransformState;->sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mSameAsAny:Z
 
     const/4 v1, 0x1
 
@@ -327,9 +292,7 @@
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/ImageTransformState;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/ImageTransformState;->getIcon()Landroid/graphics/drawable/Icon;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/ImageTransformState;->mIcon:Landroid/graphics/drawable/Icon;
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Icon;->sameAs(Landroid/graphics/drawable/Icon;)Z
 

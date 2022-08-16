@@ -57,12 +57,6 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 1
 
@@ -324,7 +318,7 @@
     :cond_4
     invoke-static {v0, p1}, Lcom/android/systemui/plugins/VolumeDialogController$State;->sep(Ljava/lang/StringBuilder;I)V
 
-    const-string v1, "ringerModeExternal:"
+    const-string/jumbo v1, "ringerModeExternal:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -334,7 +328,7 @@
 
     invoke-static {v0, p1}, Lcom/android/systemui/plugins/VolumeDialogController$State;->sep(Ljava/lang/StringBuilder;I)V
 
-    const-string v1, "ringerModeInternal:"
+    const-string/jumbo v1, "ringerModeInternal:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

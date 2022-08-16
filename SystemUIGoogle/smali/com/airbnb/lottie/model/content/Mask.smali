@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/content/Mask;
+.class public final Lcom/airbnb/lottie/model/content/Mask;
 .super Ljava/lang/Object;
 .source "Mask.java"
 
@@ -12,13 +12,13 @@
 
 
 # instance fields
-.field private final inverted:Z
+.field public final inverted:Z
 
-.field private final maskMode:Lcom/airbnb/lottie/model/content/Mask$MaskMode;
+.field public final maskMode:Lcom/airbnb/lottie/model/content/Mask$MaskMode;
 
-.field private final maskPath:Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;
+.field public final maskPath:Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;
 
-.field private final opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
+.field public final opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
 
 
 # direct methods
@@ -36,38 +36,4 @@
     iput-boolean p4, p0, Lcom/airbnb/lottie/model/content/Mask;->inverted:Z
 
     return-void
-.end method
-
-
-# virtual methods
-.method public getMaskMode()Lcom/airbnb/lottie/model/content/Mask$MaskMode;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/Mask;->maskMode:Lcom/airbnb/lottie/model/content/Mask$MaskMode;
-
-    return-object p0
-.end method
-
-.method public getMaskPath()Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/Mask;->maskPath:Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;
-
-    return-object p0
-.end method
-
-.method public getOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/Mask;->opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-
-    return-object p0
-.end method
-
-.method public isInverted()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/Mask;->inverted:Z
-
-    return p0
 .end method

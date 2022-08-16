@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$6;
+.class public final Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$6;
 .super Ljava/lang/Object;
 .source "NotificationStackScrollLayout.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$6;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onHeightChanged(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
+.method public final onHeightChanged(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$6;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
@@ -44,12 +44,55 @@
     return-void
 .end method
 
-.method public onReset(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
-    .locals 0
+.method public final onReset(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout$6;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->onChildHeightReset(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mAnimationsEnabled:Z
 
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mPulsing:Z
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mIsExpanded:Z
+
+    if-nez v0, :cond_2
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->isPinnedHeadsUp(Landroid/view/View;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    instance-of v1, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setIconAnimationRunning(Z)V
+
+    :cond_3
+    if-eqz v1, :cond_4
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->mIsExpanded:Z
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setChronometerRunning(Z)V
+
+    :cond_4
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "GlobalActionsDialogLite.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
+.field public final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+.method public constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onDown(Landroid/view/MotionEvent;)Z
+.method public final onDown(Landroid/view/MotionEvent;)Z
     .locals 0
 
     const/4 p0, 0x1
@@ -39,7 +39,7 @@
     return p0
 .end method
 
-.method public onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+.method public final onFling(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 1
 
     const/4 p2, 0x0
@@ -68,11 +68,13 @@
 
     iget-object p2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Ljava/util/Optional;
+    iget-object p2, p2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mCentralSurfacesOptional:Ljava/util/Optional;
 
-    move-result-object p2
+    new-instance p3, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda1;
 
-    sget-object p3, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;
+    const/4 p4, 0x1
+
+    invoke-direct {p3, p4}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda1;-><init>(I)V
 
     invoke-virtual {p2, p3}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
 
@@ -100,17 +102,15 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->-$$Nest$mopenShadeAndDismiss(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
-    const/4 p0, 0x1
-
-    return p0
+    return p4
 
     :cond_0
     return v0
 .end method
 
-.method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+.method public final onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 1
 
     const/4 p2, 0x0
@@ -131,11 +131,13 @@
 
     iget-object p2, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Ljava/util/Optional;
+    iget-object p2, p2, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mCentralSurfacesOptional:Ljava/util/Optional;
 
-    move-result-object p2
+    new-instance p3, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda2;
 
-    sget-object p3, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1$$ExternalSyntheticLambda0;
+    const/4 p4, 0x1
+
+    invoke-direct {p3, p4}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda2;-><init>(I)V
 
     invoke-virtual {p2, p3}, Ljava/util/Optional;->map(Ljava/util/function/Function;)Ljava/util/Optional;
 
@@ -163,24 +165,20 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3300(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
+    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->-$$Nest$mopenShadeAndDismiss(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)V
 
-    const/4 p0, 0x1
-
-    return p0
+    return p4
 
     :cond_0
     return v0
 .end method
 
-.method public onSingleTapUp(Landroid/view/MotionEvent;)Z
+.method public final onSingleTapUp(Landroid/view/MotionEvent;)Z
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite$1;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
 
-    invoke-static {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->access$3100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;)Lcom/android/internal/logging/UiEventLogger;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->GA_CLOSE_TAP_OUTSIDE:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 

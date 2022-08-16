@@ -27,9 +27,9 @@
 
 
 # instance fields
-.field private cachedEndProgress:F
+.field public cachedEndProgress:F
 
-.field private cachedGetValue:Ljava/lang/Object;
+.field public cachedGetValue:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TA;"
@@ -37,11 +37,11 @@
     .end annotation
 .end field
 
-.field private cachedStartDelayProgress:F
+.field public cachedStartDelayProgress:F
 
-.field private isDiscrete:Z
+.field public isDiscrete:Z
 
-.field private final keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
+.field public final keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper<",
@@ -50,19 +50,11 @@
     .end annotation
 .end field
 
-.field final listeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$AnimationListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final listeners:Ljava/util/ArrayList;
 
-.field private progress:F
+.field public progress:F
 
-.field protected valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
+.field public valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/value/LottieValueCallback<",
@@ -73,7 +65,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/List;)V
+.method public constructor <init>(Ljava/util/List;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,7 +85,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/List;
+    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/ArrayList;
 
     const/4 v0, 0x0
 
@@ -113,107 +105,59 @@
 
     iput v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedEndProgress:F
 
-    invoke-static {p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->wrap(Ljava/util/List;)Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
-
-    return-void
-.end method
-
-.method private getStartDelayProgress()F
-    .locals 2
-
-    iget v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
-
-    const/high16 v1, -0x40800000    # -1.0f
-
-    cmpl-float v0, v0, v1
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
-
-    invoke-interface {v0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;->getStartDelayProgress()F
-
-    move-result v0
-
-    iput v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
-
-    :cond_0
-    iget p0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
-
-    return p0
-.end method
-
-.method private static wrap(Ljava/util/List;)Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/List<",
-            "+",
-            "Lcom/airbnb/lottie/value/Keyframe<",
-            "TT;>;>;)",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper<",
-            "TT;>;"
-        }
-    .end annotation
-
-    invoke-interface {p0}, Ljava/util/List;->isEmpty()Z
+    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    new-instance p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$EmptyKeyframeWrapper;
+    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$EmptyKeyframeWrapper;
 
-    const/4 v0, 0x0
+    invoke-direct {p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$EmptyKeyframeWrapper;-><init>()V
 
-    invoke-direct {p0, v0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$EmptyKeyframeWrapper;-><init>(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$1;)V
-
-    return-object p0
+    goto :goto_1
 
     :cond_0
-    invoke-interface {p0}, Ljava/util/List;->size()I
+    invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result v0
-
-    const/4 v1, 0x1
 
     if-ne v0, v1, :cond_1
 
     new-instance v0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$SingleKeyframeWrapper;
 
-    invoke-direct {v0, p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$SingleKeyframeWrapper;-><init>(Ljava/util/List;)V
+    invoke-direct {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$SingleKeyframeWrapper;-><init>(Ljava/util/List;)V
 
-    return-object v0
+    goto :goto_0
 
     :cond_1
     new-instance v0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapperImpl;
 
-    invoke-direct {v0, p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapperImpl;-><init>(Ljava/util/List;)V
+    invoke-direct {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapperImpl;-><init>(Ljava/util/List;)V
 
-    return-object v0
-.end method
+    :goto_0
+    move-object p1, v0
 
-
-# virtual methods
-.method public addUpdateListener(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$AnimationListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :goto_1
+    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
 
     return-void
 .end method
 
-.method protected getCurrentKeyframe()Lcom/airbnb/lottie/value/Keyframe;
-    .locals 1
+
+# virtual methods
+.method public final addUpdateListener(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$AnimationListener;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public final getCurrentKeyframe()Lcom/airbnb/lottie/value/Keyframe;
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -222,22 +166,18 @@
         }
     .end annotation
 
-    const-string v0, "BaseKeyframeAnimation#getCurrentKeyframe"
-
-    invoke-static {v0}, Lcom/airbnb/lottie/L;->beginSection(Ljava/lang/String;)V
-
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
 
     invoke-interface {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;->getCurrentKeyframe()Lcom/airbnb/lottie/value/Keyframe;
 
     move-result-object p0
 
-    invoke-static {v0}, Lcom/airbnb/lottie/L;->endSection(Ljava/lang/String;)F
+    invoke-static {}, Lcom/airbnb/lottie/L;->endSection()V
 
     return-object p0
 .end method
 
-.method getEndProgress()F
+.method public getEndProgress()F
     .locals 2
 
     iget v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedEndProgress:F
@@ -262,7 +202,7 @@
     return p0
 .end method
 
-.method protected getInterpolatedCurrentKeyframeProgress()F
+.method public final getInterpolatedCurrentKeyframeProgress()F
     .locals 2
 
     invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getCurrentKeyframe()Lcom/airbnb/lottie/value/Keyframe;
@@ -293,7 +233,7 @@
     return p0
 .end method
 
-.method getLinearCurrentKeyframeProgress()F
+.method public final getLinearCurrentKeyframeProgress()F
     .locals 3
 
     iget-boolean v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->isDiscrete:Z
@@ -341,14 +281,6 @@
     return p0
 .end method
 
-.method public getProgress()F
-    .locals 0
-
-    iget p0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->progress:F
-
-    return p0
-.end method
-
 .method public getValue()Ljava/lang/Object;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -391,7 +323,7 @@
     return-object v0
 .end method
 
-.method abstract getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
+.method public abstract getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -407,17 +339,17 @@
     const/4 v0, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     if-ge v0, v1, :cond_0
 
-    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/List;
+    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->listeners:Ljava/util/ArrayList;
 
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -433,18 +365,8 @@
     return-void
 .end method
 
-.method public setIsDiscrete()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->isDiscrete:Z
-
-    return-void
-.end method
-
 .method public setProgress(F)V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
 
@@ -457,44 +379,70 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getStartDelayProgress()F
+    iget v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
+
+    const/high16 v1, -0x40800000    # -1.0f
+
+    cmpl-float v0, v0, v1
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
+
+    invoke-interface {v0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;->getStartDelayProgress()F
 
     move-result v0
 
-    cmpg-float v0, p1, v0
+    iput v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
 
-    if-gez v0, :cond_1
+    :cond_1
+    iget v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
 
-    invoke-direct {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getStartDelayProgress()F
+    cmpg-float v2, p1, v0
+
+    if-gez v2, :cond_3
+
+    cmpl-float p1, v0, v1
+
+    if-nez p1, :cond_2
+
+    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
+
+    invoke-interface {p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;->getStartDelayProgress()F
 
     move-result p1
 
+    iput p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
+
+    :cond_2
+    iget p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->cachedStartDelayProgress:F
+
     goto :goto_0
 
-    :cond_1
+    :cond_3
     invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getEndProgress()F
 
     move-result v0
 
     cmpl-float v0, p1, v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_4
 
     invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getEndProgress()F
 
     move-result p1
 
-    :cond_2
+    :cond_4
     :goto_0
     iget v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->progress:F
 
     cmpl-float v0, p1, v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_5
 
     return-void
 
-    :cond_3
+    :cond_5
     iput p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->progress:F
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->keyframesWrapper:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$KeyframesWrapper;
@@ -503,16 +451,16 @@
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
     invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->notifyListeners()V
 
-    :cond_4
+    :cond_6
     return-void
 .end method
 
-.method public setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
-    .locals 2
+.method public final setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -525,17 +473,10 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/airbnb/lottie/value/LottieValueCallback;->setAnimation(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     :cond_0
     iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
 
-    if-eqz p1, :cond_1
-
-    invoke-virtual {p1, p0}, Lcom/airbnb/lottie/value/LottieValueCallback;->setAnimation(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;)V
-
-    :cond_1
     return-void
 .end method

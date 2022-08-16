@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;
+.class public final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;
 .super Ljava/lang/Object;
 .source "DaggerGlobalRootComponent.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "Builder"
 .end annotation
 
 
 # instance fields
-.field private context:Landroid/content/Context;
+.field public context:Landroid/content/Context;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,64 +30,72 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
+.method public constructor <init>(I)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public build()Lcom/android/systemui/dagger/GlobalRootComponent;
-    .locals 4
+.method public final build()Lcom/android/systemui/dagger/GlobalRootComponent;
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context:Landroid/content/Context;
 
     const-class v1, Landroid/content/Context;
 
-    invoke-static {v0, v1}, Ldagger/internal/Preconditions;->checkBuilderRequirement(Ljava/lang/Object;Ljava/lang/Class;)V
+    invoke-static {v1, v0}, Lcom/android/systemui/R$menu;->checkBuilderRequirement(Ljava/lang/Class;Ljava/lang/Object;)V
 
     new-instance v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
-    new-instance v1, Lcom/android/systemui/dagger/GlobalModule;
+    new-instance v3, Lcom/android/systemui/dagger/GlobalModule;
 
-    invoke-direct {v1}, Lcom/android/systemui/dagger/GlobalModule;-><init>()V
+    invoke-direct {v3}, Lcom/android/systemui/dagger/GlobalModule;-><init>()V
 
-    new-instance v2, Lcom/android/systemui/unfold/UnfoldTransitionModule;
+    new-instance v4, Lcom/android/systemui/dagger/AndroidInternalsModule;
 
-    invoke-direct {v2}, Lcom/android/systemui/unfold/UnfoldTransitionModule;-><init>()V
+    invoke-direct {v4}, Lcom/android/systemui/dagger/AndroidInternalsModule;-><init>()V
 
-    iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context:Landroid/content/Context;
+    new-instance v5, Lcom/android/systemui/dagger/FrameworkServicesModule;
 
-    const/4 v3, 0x0
+    invoke-direct {v5}, Lcom/android/systemui/dagger/FrameworkServicesModule;-><init>()V
 
-    invoke-direct {v0, v1, v2, p0, v3}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;-><init>(Lcom/android/systemui/dagger/GlobalModule;Lcom/android/systemui/unfold/UnfoldTransitionModule;Landroid/content/Context;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
+    new-instance v6, Lcom/android/systemui/unfold/UnfoldTransitionModule;
+
+    invoke-direct {v6}, Lcom/android/systemui/unfold/UnfoldTransitionModule;-><init>()V
+
+    new-instance v7, Lcom/android/systemui/unfold/UnfoldSharedModule;
+
+    invoke-direct {v7}, Lcom/android/systemui/unfold/UnfoldSharedModule;-><init>()V
+
+    iget-object v8, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context:Landroid/content/Context;
+
+    move-object v2, v0
+
+    invoke-direct/range {v2 .. v8}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;-><init>(Lcom/android/systemui/dagger/GlobalModule;Lcom/android/systemui/dagger/AndroidInternalsModule;Lcom/android/systemui/dagger/FrameworkServicesModule;Lcom/android/systemui/unfold/UnfoldTransitionModule;Lcom/android/systemui/unfold/UnfoldSharedModule;Landroid/content/Context;)V
 
     return-object v0
 .end method
 
-.method public context(Landroid/content/Context;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;
+.method public final context(Landroid/content/Context;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;
     .locals 0
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/content/Context;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context:Landroid/content/Context;
 
     return-object p0
 .end method
 
-.method public bridge synthetic context(Landroid/content/Context;)Lcom/android/systemui/dagger/GlobalRootComponent$Builder;
+.method public final context(Landroid/content/Context;)Lcom/android/systemui/dagger/GlobalRootComponent$Builder;
     .locals 0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context(Landroid/content/Context;)Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$Builder;->context:Landroid/content/Context;
 
     return-object p0
 .end method

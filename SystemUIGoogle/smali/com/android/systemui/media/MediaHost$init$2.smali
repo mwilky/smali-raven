@@ -18,13 +18,13 @@
 
 
 # instance fields
-.field final synthetic $location:I
+.field public final synthetic $location:I
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaHost;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaHost;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaHost;I)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaHost;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaHost$init$2;->this$0:Lcom/android/systemui/media/MediaHost;
@@ -38,16 +38,10 @@
 
 
 # virtual methods
-.method public onMeasure(Lcom/android/systemui/util/animation/MeasurementInput;)Lcom/android/systemui/util/animation/MeasurementOutput;
-    .locals 2
+.method public final onMeasure(Lcom/android/systemui/util/animation/MeasurementInput;)Lcom/android/systemui/util/animation/MeasurementOutput;
+    .locals 4
 
-    const-string v0, "input"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/android/systemui/util/animation/MeasurementInput;->getWidthMeasureSpec()I
-
-    move-result v0
+    iget v0, p1, Lcom/android/systemui/util/animation/MeasurementInput;->widthMeasureSpec:I
 
     invoke-static {v0}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
@@ -57,9 +51,7 @@
 
     if-ne v0, v1, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/systemui/util/animation/MeasurementInput;->getWidthMeasureSpec()I
-
-    move-result v0
+    iget v0, p1, Lcom/android/systemui/util/animation/MeasurementInput;->widthMeasureSpec:I
 
     invoke-static {v0}, Landroid/view/View$MeasureSpec;->getSize(I)I
 
@@ -71,32 +63,56 @@
 
     move-result v0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/util/animation/MeasurementInput;->setWidthMeasureSpec(I)V
+    iput v0, p1, Lcom/android/systemui/util/animation/MeasurementInput;->widthMeasureSpec:I
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/media/MediaHost$init$2;->this$0:Lcom/android/systemui/media/MediaHost;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaHost;->access$getState$p(Lcom/android/systemui/media/MediaHost;)Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
+    iget-object v0, v0, Lcom/android/systemui/media/MediaHost;->state:Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
 
-    move-result-object v0
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setMeasurementInput(Lcom/android/systemui/util/animation/MeasurementInput;)V
+    const/4 v2, 0x1
 
+    iget-object v3, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
+
+    invoke-virtual {p1, v3}, Lcom/android/systemui/util/animation/MeasurementInput;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-ne v3, v2, :cond_1
+
+    move v1, v2
+
+    :cond_1
+    if-nez v1, :cond_3
+
+    iput-object p1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
+
+    iget-object p1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
+
+    if-nez p1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {p1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    :goto_0
     iget-object p1, p0, Lcom/android/systemui/media/MediaHost$init$2;->this$0:Lcom/android/systemui/media/MediaHost;
 
-    invoke-static {p1}, Lcom/android/systemui/media/MediaHost;->access$getMediaHostStatesManager$p(Lcom/android/systemui/media/MediaHost;)Lcom/android/systemui/media/MediaHostStatesManager;
+    iget-object v0, p1, Lcom/android/systemui/media/MediaHost;->mediaHostStatesManager:Lcom/android/systemui/media/MediaHostStatesManager;
 
-    move-result-object p1
+    iget p0, p0, Lcom/android/systemui/media/MediaHost$init$2;->$location:I
 
-    iget v0, p0, Lcom/android/systemui/media/MediaHost$init$2;->$location:I
+    iget-object p1, p1, Lcom/android/systemui/media/MediaHost;->state:Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$init$2;->this$0:Lcom/android/systemui/media/MediaHost;
-
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHost;->access$getState$p(Lcom/android/systemui/media/MediaHost;)Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
-
-    move-result-object p0
-
-    invoke-virtual {p1, v0, p0}, Lcom/android/systemui/media/MediaHostStatesManager;->updateCarouselDimensions(ILcom/android/systemui/media/MediaHostState;)Lcom/android/systemui/util/animation/MeasurementOutput;
+    invoke-virtual {v0, p0, p1}, Lcom/android/systemui/media/MediaHostStatesManager;->updateCarouselDimensions(ILcom/android/systemui/media/MediaHost$MediaHostStateHolder;)Lcom/android/systemui/util/animation/MeasurementOutput;
 
     move-result-object p0
 

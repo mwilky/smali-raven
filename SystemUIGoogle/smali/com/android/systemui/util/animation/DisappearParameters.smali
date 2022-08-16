@@ -1,0 +1,242 @@
+.class public final Lcom/android/systemui/util/animation/DisappearParameters;
+.super Ljava/lang/Object;
+.source "TransitionLayoutController.kt"
+
+
+# instance fields
+.field public contentTranslationFraction:Landroid/graphics/PointF;
+
+.field public disappearEnd:F
+
+.field public disappearSize:Landroid/graphics/PointF;
+
+.field public disappearStart:F
+
+.field public fadeStartPosition:F
+
+.field public gonePivot:Landroid/graphics/PointF;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 4
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Landroid/graphics/PointF;
+
+    const/4 v1, 0x0
+
+    const/high16 v2, 0x3f800000    # 1.0f
+
+    invoke-direct {v0, v1, v2}, Landroid/graphics/PointF;-><init>(FF)V
+
+    iput-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->gonePivot:Landroid/graphics/PointF;
+
+    new-instance v0, Landroid/graphics/PointF;
+
+    invoke-direct {v0, v2, v1}, Landroid/graphics/PointF;-><init>(FF)V
+
+    iput-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearSize:Landroid/graphics/PointF;
+
+    new-instance v0, Landroid/graphics/PointF;
+
+    const v3, 0x3f4ccccd    # 0.8f
+
+    invoke-direct {v0, v1, v3}, Landroid/graphics/PointF;-><init>(FF)V
+
+    iput-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->contentTranslationFraction:Landroid/graphics/PointF;
+
+    iput v2, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearEnd:F
+
+    const v0, 0x3f666666    # 0.9f
+
+    iput v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->fadeStartPosition:F
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final equals(Ljava/lang/Object;)Z
+    .locals 4
+
+    instance-of v0, p1, Lcom/android/systemui/util/animation/DisappearParameters;
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearSize:Landroid/graphics/PointF;
+
+    check-cast p1, Lcom/android/systemui/util/animation/DisappearParameters;
+
+    iget-object v2, p1, Lcom/android/systemui/util/animation/DisappearParameters;->disappearSize:Landroid/graphics/PointF;
+
+    invoke-virtual {v0, v2}, Landroid/graphics/PointF;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    return v1
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->gonePivot:Landroid/graphics/PointF;
+
+    iget-object v2, p1, Lcom/android/systemui/util/animation/DisappearParameters;->gonePivot:Landroid/graphics/PointF;
+
+    invoke-virtual {v0, v2}, Landroid/graphics/PointF;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    return v1
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->contentTranslationFraction:Landroid/graphics/PointF;
+
+    iget-object v2, p1, Lcom/android/systemui/util/animation/DisappearParameters;->contentTranslationFraction:Landroid/graphics/PointF;
+
+    invoke-virtual {v0, v2}, Landroid/graphics/PointF;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    return v1
+
+    :cond_3
+    iget v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearStart:F
+
+    iget v2, p1, Lcom/android/systemui/util/animation/DisappearParameters;->disappearStart:F
+
+    cmpg-float v0, v0, v2
+
+    const/4 v2, 0x1
+
+    if-nez v0, :cond_4
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_4
+    move v0, v1
+
+    :goto_0
+    if-nez v0, :cond_5
+
+    return v1
+
+    :cond_5
+    iget v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearEnd:F
+
+    iget v3, p1, Lcom/android/systemui/util/animation/DisappearParameters;->disappearEnd:F
+
+    cmpg-float v0, v0, v3
+
+    if-nez v0, :cond_6
+
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_6
+    move v0, v1
+
+    :goto_1
+    if-nez v0, :cond_7
+
+    return v1
+
+    :cond_7
+    iget p0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->fadeStartPosition:F
+
+    iget p1, p1, Lcom/android/systemui/util/animation/DisappearParameters;->fadeStartPosition:F
+
+    cmpg-float p0, p0, p1
+
+    if-nez p0, :cond_8
+
+    move p0, v2
+
+    goto :goto_2
+
+    :cond_8
+    move p0, v1
+
+    :goto_2
+    if-nez p0, :cond_9
+
+    return v1
+
+    :cond_9
+    return v2
+.end method
+
+.method public final hashCode()I
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearSize:Landroid/graphics/PointF;
+
+    invoke-virtual {v0}, Landroid/graphics/PointF;->hashCode()I
+
+    move-result v0
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-object v1, p0, Lcom/android/systemui/util/animation/DisappearParameters;->gonePivot:Landroid/graphics/PointF;
+
+    invoke-virtual {v1}, Landroid/graphics/PointF;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
+
+    iget-object v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->contentTranslationFraction:Landroid/graphics/PointF;
+
+    invoke-virtual {v0}, Landroid/graphics/PointF;->hashCode()I
+
+    move-result v0
+
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget v1, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearStart:F
+
+    invoke-static {v1}, Ljava/lang/Float;->hashCode(F)I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
+
+    iget v0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->disappearEnd:F
+
+    invoke-static {v0}, Ljava/lang/Float;->hashCode(F)I
+
+    move-result v0
+
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget p0, p0, Lcom/android/systemui/util/animation/DisappearParameters;->fadeStartPosition:F
+
+    invoke-static {p0}, Ljava/lang/Float;->hashCode(F)I
+
+    move-result p0
+
+    add-int/2addr p0, v0
+
+    return p0
+.end method

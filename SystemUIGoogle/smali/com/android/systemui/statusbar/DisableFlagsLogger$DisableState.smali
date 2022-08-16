@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field private final disable1:I
+.field public final disable1:I
 
-.field private final disable2:I
+.field public final disable2:I
 
 
 # direct methods
@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -77,23 +77,7 @@
     return v0
 .end method
 
-.method public final getDisable1()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;->disable1:I
-
-    return p0
-.end method
-
-.method public final getDisable2()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;->disable2:I
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;->disable1:I
@@ -110,21 +94,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "DisableState(disable1="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "DisableState(disable1="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;->disable1:I
 
@@ -136,13 +118,9 @@
 
     iget p0, p0, Lcom/android/systemui/statusbar/DisableFlagsLogger$DisableState;->disable2:I
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/core/graphics/Insets$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;IC)Ljava/lang/String;
 
     move-result-object p0
 

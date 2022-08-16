@@ -22,21 +22,21 @@
 
 
 # static fields
-.field static final DEBUG:Z
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private final mDozeComponentBuilder:Lcom/android/systemui/doze/dagger/DozeComponent$Builder;
+.field public final mDozeComponentBuilder:Lcom/android/systemui/doze/dagger/DozeComponent$Builder;
 
-.field private mDozeMachine:Lcom/android/systemui/doze/DozeMachine;
+.field public mDozeMachine:Lcom/android/systemui/doze/DozeMachine;
 
-.field private mDozePlugin:Lcom/android/systemui/plugins/DozeServicePlugin;
+.field public mDozePlugin:Lcom/android/systemui/plugins/DozeServicePlugin;
 
-.field private mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
+.field public mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "DozeService"
@@ -70,8 +70,8 @@
 
 
 # virtual methods
-.method protected dumpOnHandler(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
+.method public final dumpOnHandler(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 1
 
     invoke-super {p0, p1, p2, p3}, Landroid/service/dreams/DreamService;->dumpOnHandler(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
@@ -79,13 +79,58 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0, p2}, Lcom/android/systemui/doze/DozeMachine;->dump(Ljava/io/PrintWriter;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const-string p1, " state="
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeMachine;->mState:Lcom/android/systemui/doze/DozeMachine$State;
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    const-string p1, " wakeLockHeldForCurrentState="
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean p1, p0, Lcom/android/systemui/doze/DozeMachine;->mWakeLockHeldForCurrentState:Z
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Z)V
+
+    const-string p1, " wakeLock="
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeMachine;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    const-string p1, "Parts:"
+
+    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeMachine;->mParts:[Lcom/android/systemui/doze/DozeMachine$Part;
+
+    array-length p1, p0
+
+    const/4 p3, 0x0
+
+    :goto_0
+    if-ge p3, p1, :cond_0
+
+    aget-object v0, p0, p3
+
+    invoke-interface {v0, p2}, Lcom/android/systemui/doze/DozeMachine$Part;->dump(Ljava/io/PrintWriter;)V
+
+    add-int/lit8 p3, p3, 0x1
+
+    goto :goto_0
 
     :cond_0
     return-void
 .end method
 
-.method public onCreate()V
+.method public final onCreate()V
     .locals 3
 
     invoke-super {p0}, Landroid/service/dreams/DreamService;->onCreate()V
@@ -117,8 +162,8 @@
     return-void
 .end method
 
-.method public onDestroy()V
-    .locals 1
+.method public final onDestroy()V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeService;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
 
@@ -131,8 +176,24 @@
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeService;->mDozeMachine:Lcom/android/systemui/doze/DozeMachine;
 
-    invoke-virtual {v0}, Lcom/android/systemui/doze/DozeMachine;->destroy()V
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeMachine;->mParts:[Lcom/android/systemui/doze/DozeMachine$Part;
 
+    array-length v1, v0
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v1, :cond_1
+
+    aget-object v3, v0, v2
+
+    invoke-interface {v3}, Lcom/android/systemui/doze/DozeMachine$Part;->destroy()V
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
     const/4 v0, 0x0
 
     iput-object v0, p0, Lcom/android/systemui/doze/DozeService;->mDozeMachine:Lcom/android/systemui/doze/DozeMachine;
@@ -140,7 +201,7 @@
     return-void
 .end method
 
-.method public onDreamingStarted()V
+.method public final onDreamingStarted()V
     .locals 2
 
     invoke-super {p0}, Landroid/service/dreams/DreamService;->onDreamingStarted()V
@@ -163,7 +224,7 @@
     return-void
 .end method
 
-.method public onDreamingStopped()V
+.method public final onDreamingStopped()V
     .locals 2
 
     invoke-super {p0}, Landroid/service/dreams/DreamService;->onDreamingStopped()V
@@ -184,8 +245,10 @@
     return-void
 .end method
 
-.method public onPluginConnected(Lcom/android/systemui/plugins/DozeServicePlugin;Landroid/content/Context;)V
+.method public final onPluginConnected(Lcom/android/systemui/plugins/Plugin;Landroid/content/Context;)V
     .locals 0
+
+    check-cast p1, Lcom/android/systemui/plugins/DozeServicePlugin;
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeService;->mDozePlugin:Lcom/android/systemui/plugins/DozeServicePlugin;
 
@@ -194,18 +257,10 @@
     return-void
 .end method
 
-.method public bridge synthetic onPluginConnected(Lcom/android/systemui/plugins/Plugin;Landroid/content/Context;)V
+.method public final onPluginDisconnected(Lcom/android/systemui/plugins/Plugin;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/plugins/DozeServicePlugin;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/doze/DozeService;->onPluginConnected(Lcom/android/systemui/plugins/DozeServicePlugin;Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method public onPluginDisconnected(Lcom/android/systemui/plugins/DozeServicePlugin;)V
-    .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/doze/DozeService;->mDozePlugin:Lcom/android/systemui/plugins/DozeServicePlugin;
 
@@ -221,17 +276,7 @@
     return-void
 .end method
 
-.method public bridge synthetic onPluginDisconnected(Lcom/android/systemui/plugins/Plugin;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/plugins/DozeServicePlugin;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/doze/DozeService;->onPluginDisconnected(Lcom/android/systemui/plugins/DozeServicePlugin;)V
-
-    return-void
-.end method
-
-.method public onRequestHideDoze()V
+.method public final onRequestHideDoze()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeService;->mDozeMachine:Lcom/android/systemui/doze/DozeMachine;
@@ -246,7 +291,7 @@
     return-void
 .end method
 
-.method public onRequestShowDoze()V
+.method public final onRequestShowDoze()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeService;->mDozeMachine:Lcom/android/systemui/doze/DozeMachine;
@@ -261,7 +306,7 @@
     return-void
 .end method
 
-.method public requestWakeUp()V
+.method public final requestWakeUp()V
     .locals 4
 
     const-class v0, Landroid/os/PowerManager;
@@ -285,14 +330,56 @@
     return-void
 .end method
 
-.method public setDozeScreenState(I)V
-    .locals 0
+.method public final setDozeScreenState(I)V
+    .locals 4
 
     invoke-super {p0, p1}, Landroid/service/dreams/DreamService;->setDozeScreenState(I)V
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeService;->mDozeMachine:Lcom/android/systemui/doze/DozeMachine;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/doze/DozeMachine;->onScreenState(I)V
+    if-eqz p0, :cond_0
 
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeMachine;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
+
+    iget-object v0, v0, Lcom/android/systemui/doze/DozeLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v1, Lcom/android/systemui/log/LogLevel;->INFO:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v2, Lcom/android/systemui/doze/DozeLogger$logDisplayStateChanged$2;->INSTANCE:Lcom/android/systemui/doze/DozeLogger$logDisplayStateChanged$2;
+
+    const-string v3, "DozeLog"
+
+    invoke-virtual {v0, v3, v1, v2}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v1
+
+    invoke-static {p1}, Landroid/view/Display;->stateToString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v1, Lcom/android/systemui/log/LogMessageImpl;->str1:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeMachine;->mParts:[Lcom/android/systemui/doze/DozeMachine$Part;
+
+    array-length v0, p0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    if-ge v1, v0, :cond_0
+
+    aget-object v2, p0, v1
+
+    invoke-interface {v2, p1}, Lcom/android/systemui/doze/DozeMachine$Part;->onScreenState(I)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

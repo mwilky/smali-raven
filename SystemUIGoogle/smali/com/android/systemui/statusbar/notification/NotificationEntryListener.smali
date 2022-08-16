@@ -16,7 +16,7 @@
     return-void
 .end method
 
-.method public onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/internal/statusbar/NotificationVisibility;ZI)V
+.method public onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
     .locals 0
 
     return-void
@@ -28,7 +28,7 @@
     return-void
 .end method
 
-.method public onNotificationAdded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public onNotificationChannelModified(Ljava/lang/String;Landroid/os/UserHandle;Landroid/app/NotificationChannel;I)V
     .locals 0
 
     return-void
@@ -41,12 +41,6 @@
 .end method
 
 .method public onPendingEntryAdded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onPostEntryUpdated(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 0
 
     return-void

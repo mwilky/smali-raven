@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/SwipeHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -39,7 +40,19 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/SwipeHelper$$ExternalSyntheticLambda0;->f$2:Z
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/SwipeHelper;->$r8$lambda$oZNJKeeaVNOiKb5ASGdHpRK1AoI(Lcom/android/systemui/SwipeHelper;Landroid/view/View;ZLandroid/animation/ValueAnimator;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    invoke-virtual {v0, v1, p1, p0}, Lcom/android/systemui/SwipeHelper;->updateSwipeProgressFromOffset(Landroid/view/View;FZ)V
 
     return-void
 .end method

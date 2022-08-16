@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotificationContentView$2;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationContentView$2;
 .super Ljava/lang/Object;
 .source "NotificationContentView.java"
 
@@ -6,25 +6,14 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->animateToVisibleType(I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
 
-.field final synthetic val$hiddenView:Lcom/android/systemui/statusbar/TransformableView;
+.field public final synthetic val$hiddenView:Lcom/android/systemui/statusbar/TransformableView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;Lcom/android/systemui/statusbar/TransformableView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;Lcom/android/systemui/statusbar/TransformableView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView$2;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
@@ -38,18 +27,16 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView$2;->val$hiddenView:Lcom/android/systemui/statusbar/TransformableView;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView$2;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->access$100(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;)I
+    iget v2, v1, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mVisibleType:I
 
-    move-result v2
-
-    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->access$200(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;I)Lcom/android/systemui/statusbar/TransformableView;
+    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->getTransformableViewForVisibleType(I)Lcom/android/systemui/statusbar/TransformableView;
 
     move-result-object v1
 
@@ -66,7 +53,7 @@
 
     const/4 v0, -0x1
 
-    invoke-static {p0, v0}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->access$302(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;I)I
+    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mAnimationStartVisibleType:I
 
     return-void
 .end method

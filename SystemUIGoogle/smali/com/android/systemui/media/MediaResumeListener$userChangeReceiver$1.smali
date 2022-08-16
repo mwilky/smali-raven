@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaResumeListener;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaResumeListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaResumeListener;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaResumeListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaResumeListener$userChangeReceiver$1;->this$0:Lcom/android/systemui/media/MediaResumeListener;
@@ -31,16 +31,8 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "intent"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 9
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -52,15 +44,130 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_2
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaResumeListener$userChangeReceiver$1;->this$0:Lcom/android/systemui/media/MediaResumeListener;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaResumeListener;->access$loadMediaResumptionControls(Lcom/android/systemui/media/MediaResumeListener;)V
+    iget-boolean p1, p0, Lcom/android/systemui/media/MediaResumeListener;->useMediaResumption:Z
+
+    if-nez p1, :cond_0
+
+    goto/16 :goto_1
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/media/MediaResumeListener;->systemClock:Lcom/android/systemui/util/time/SystemClock;
+
+    invoke-interface {p1}, Lcom/android/systemui/util/time/SystemClock;->currentTimeMillis()J
+
+    move-result-wide p1
+
+    iget-object v0, p0, Lcom/android/systemui/media/MediaResumeListener;->resumeComponents:Ljava/util/concurrent/ConcurrentLinkedQueue;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/ConcurrentLinkedQueue;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :cond_1
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lkotlin/Pair;
+
+    invoke-virtual {v1}, Lkotlin/Pair;->getSecond()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Number;
+
+    invoke-virtual {v2}, Ljava/lang/Number;->longValue()J
+
+    move-result-wide v2
+
+    sub-long v2, p1, v2
+
+    sget-wide v4, Lcom/android/systemui/media/MediaTimeoutListenerKt;->RESUME_MEDIA_TIMEOUT:J
+
+    cmp-long v2, v2, v4
+
+    if-gtz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/media/MediaResumeListener;->mediaBrowserFactory:Lcom/android/systemui/media/ResumeMediaBrowserFactory;
+
+    iget-object v5, p0, Lcom/android/systemui/media/MediaResumeListener;->mediaBrowserCallback:Lcom/android/systemui/media/MediaResumeListener$mediaBrowserCallback$1;
+
+    invoke-virtual {v1}, Lkotlin/Pair;->getFirst()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v6, v1
+
+    check-cast v6, Landroid/content/ComponentName;
+
+    new-instance v1, Lcom/android/systemui/media/ResumeMediaBrowser;
+
+    iget-object v4, v2, Lcom/android/systemui/media/ResumeMediaBrowserFactory;->mContext:Landroid/content/Context;
+
+    iget-object v7, v2, Lcom/android/systemui/media/ResumeMediaBrowserFactory;->mBrowserFactory:Lcom/android/systemui/media/MediaBrowserFactory;
+
+    iget-object v8, v2, Lcom/android/systemui/media/ResumeMediaBrowserFactory;->mLogger:Lcom/android/systemui/media/ResumeMediaBrowserLogger;
+
+    move-object v3, v1
+
+    invoke-direct/range {v3 .. v8}, Lcom/android/systemui/media/ResumeMediaBrowser;-><init>(Landroid/content/Context;Lcom/android/systemui/media/ResumeMediaBrowser$Callback;Landroid/content/ComponentName;Lcom/android/systemui/media/MediaBrowserFactory;Lcom/android/systemui/media/ResumeMediaBrowserLogger;)V
+
+    invoke-virtual {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->disconnect()V
+
+    new-instance v2, Landroid/os/Bundle;
+
+    invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
+
+    const/4 v3, 0x1
+
+    const-string v4, "android.service.media.extra.RECENT"
+
+    invoke-virtual {v2, v4, v3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    iget-object v3, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mBrowserFactory:Lcom/android/systemui/media/MediaBrowserFactory;
+
+    iget-object v4, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mComponentName:Landroid/content/ComponentName;
+
+    iget-object v5, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mConnectionCallback:Lcom/android/systemui/media/ResumeMediaBrowser$2;
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v6, Landroid/media/browse/MediaBrowser;
+
+    iget-object v3, v3, Lcom/android/systemui/media/MediaBrowserFactory;->mContext:Landroid/content/Context;
+
+    invoke-direct {v6, v3, v4, v5, v2}, Landroid/media/browse/MediaBrowser;-><init>(Landroid/content/Context;Landroid/content/ComponentName;Landroid/media/browse/MediaBrowser$ConnectionCallback;Landroid/os/Bundle;)V
+
+    iput-object v6, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mMediaBrowser:Landroid/media/browse/MediaBrowser;
+
+    invoke-virtual {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->updateMediaController()V
+
+    iget-object v2, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mLogger:Lcom/android/systemui/media/ResumeMediaBrowserLogger;
+
+    iget-object v3, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mComponentName:Landroid/content/ComponentName;
+
+    const-string v4, "findRecentMedia"
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/media/ResumeMediaBrowserLogger;->logConnection(Landroid/content/ComponentName;Ljava/lang/String;)V
+
+    iget-object v1, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mMediaBrowser:Landroid/media/browse/MediaBrowser;
+
+    invoke-virtual {v1}, Landroid/media/browse/MediaBrowser;->connect()V
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
     move-result-object p1
@@ -71,7 +178,7 @@
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_3
 
     iget-object p1, p0, Lcom/android/systemui/media/MediaResumeListener$userChangeReceiver$1;->this$0:Lcom/android/systemui/media/MediaResumeListener;
 
@@ -83,13 +190,13 @@
 
     move-result p2
 
-    invoke-static {p1, p2}, Lcom/android/systemui/media/MediaResumeListener;->access$setCurrentUserId$p(Lcom/android/systemui/media/MediaResumeListener;I)V
+    iput p2, p1, Lcom/android/systemui/media/MediaResumeListener;->currentUserId:I
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaResumeListener$userChangeReceiver$1;->this$0:Lcom/android/systemui/media/MediaResumeListener;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaResumeListener;->access$loadSavedComponents(Lcom/android/systemui/media/MediaResumeListener;)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaResumeListener;->loadSavedComponents()V
 
-    :cond_1
-    :goto_0
+    :cond_3
+    :goto_1
     return-void
 .end method

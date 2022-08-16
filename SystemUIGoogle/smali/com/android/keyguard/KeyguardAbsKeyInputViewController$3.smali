@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;
+.class public final Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;
 .super Ljava/lang/Object;
 .source "KeyguardAbsKeyInputViewController.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardAbsKeyInputViewController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardAbsKeyInputViewController;
 
-.field final synthetic val$password:Lcom/android/internal/widget/LockscreenCredential;
+.field public final synthetic val$password:Lcom/android/internal/widget/LockscreenCredential;
 
-.field final synthetic val$userId:I
+.field public final synthetic val$userId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardAbsKeyInputViewController;ILcom/android/internal/widget/LockscreenCredential;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardAbsKeyInputViewController;ILcom/android/internal/widget/LockscreenCredential;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputViewController;
@@ -42,14 +42,12 @@
 
 
 # virtual methods
-.method public onCancelled()V
+.method public final onCancelled()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->access$100(Lcom/android/keyguard/KeyguardAbsKeyInputViewController;)Lcom/android/internal/util/LatencyTracker;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
     const/4 v1, 0x4
 
@@ -62,14 +60,12 @@
     return-void
 .end method
 
-.method public onChecked(ZI)V
+.method public final onChecked(ZI)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->access$100(Lcom/android/keyguard/KeyguardAbsKeyInputViewController;)Lcom/android/internal/util/LatencyTracker;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
     const/4 v1, 0x4
 
@@ -77,9 +73,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->access$200(Lcom/android/keyguard/KeyguardAbsKeyInputViewController;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
@@ -99,7 +93,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v0, p1, v2, p2, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->onPasswordChecked(IZIZ)V
+    invoke-virtual {v0, p1, p2, v2, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->onPasswordChecked(IIZZ)V
 
     :cond_0
     iget-object p0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->val$password:Lcom/android/internal/widget/LockscreenCredential;
@@ -109,14 +103,12 @@
     return-void
 .end method
 
-.method public onEarlyMatched()V
+.method public final onEarlyMatched()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->access$100(Lcom/android/keyguard/KeyguardAbsKeyInputViewController;)Lcom/android/internal/util/LatencyTracker;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
     const/4 v1, 0x3
 
@@ -126,11 +118,11 @@
 
     iget v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->val$userId:I
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, v1, v2, v3, v2}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->onPasswordChecked(IZIZ)V
+    invoke-virtual {v0, v1, v2, v3, v3}, Lcom/android/keyguard/KeyguardAbsKeyInputViewController;->onPasswordChecked(IIZZ)V
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputViewController$3;->val$password:Lcom/android/internal/widget/LockscreenCredential;
 

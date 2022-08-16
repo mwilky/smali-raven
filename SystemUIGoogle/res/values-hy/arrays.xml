@@ -17,6 +17,7 @@
         <item>"Առավելագույնը 3  գործընթաց"</item>
         <item>Ամենաշատը 4 գործընթաց</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Անջատված է</item>
         <item>Միացված է</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Անհասանելի է</item>
+        <item>Անջատված է</item>
+        <item>Միացված է</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Հասանելի չէ</item>
         <item>Անջատված է</item>
@@ -307,6 +313,16 @@
     </string-array>
     <string-array name="tile_states_night">
         <item>Հասանելի չէ</item>
+        <item>Անջատված է</item>
+        <item>Միացված է</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Հասանելի չէ</item>
+        <item>Անջատված է</item>
+        <item>Միացված է</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Անհասանելի է</item>
         <item>Անջատված է</item>
         <item>Միացված է</item>
     </string-array>
@@ -374,6 +390,12 @@
         <item>Սրընթաց</item>
         <item>Չափազանց արագ</item>
         <item>Ամենաարագ</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Տեղափոխել ձախ</item>
+        <item>Տեղափոխել ներքև</item>
+        <item>Տեղափոխել աջ</item>
+        <item>Տեղափոխել վերև</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Լիցքավորում</item>

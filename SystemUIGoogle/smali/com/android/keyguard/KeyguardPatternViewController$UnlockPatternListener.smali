@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;
+.class public final Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;
 .super Ljava/lang/Object;
 .source "KeyguardPatternViewController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "UnlockPatternListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/keyguard/KeyguardPatternViewController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardPatternViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
@@ -32,23 +32,39 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/keyguard/KeyguardPatternViewController;Lcom/android/keyguard/KeyguardPatternViewController$1;)V
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;-><init>(Lcom/android/keyguard/KeyguardPatternViewController;)V
+# virtual methods
+.method public final onPatternCellAdded(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Lcom/android/internal/widget/LockPatternView$Cell;",
+            ">;)V"
+        }
+    .end annotation
+
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+
+    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lcom/android/keyguard/KeyguardSecurityCallback;->onUserInput()V
 
     return-void
 .end method
 
-.method static synthetic access$800(Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;IZIZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->onPatternChecked(IZIZ)V
-
-    return-void
-.end method
-
-.method private onPatternChecked(IZIZ)V
+.method public final onPatternChecked(IIZZ)V
     .locals 3
 
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
@@ -69,7 +85,7 @@
     move v0, v2
 
     :goto_0
-    if-eqz p2, :cond_1
+    if-eqz p3, :cond_1
 
     iget-object p2, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
@@ -77,15 +93,13 @@
 
     move-result-object p2
 
-    invoke-interface {p2, p1, v1, v2}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
+    invoke-interface {p2, p1, v2, v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IIZ)V
 
     if-eqz v0, :cond_3
 
     iget-object p2, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p2}, Lcom/android/keyguard/KeyguardPatternViewController;->access$000(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     sget-object p3, Lcom/android/internal/widget/LockPatternView$DisplayMode;->Correct:Lcom/android/internal/widget/LockPatternView$DisplayMode;
 
@@ -93,9 +107,7 @@
 
     iget-object p2, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p2}, Lcom/android/keyguard/KeyguardPatternViewController;->access$600(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/util/LatencyTracker;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/keyguard/KeyguardPatternViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
     const/16 p3, 0xb
 
@@ -107,71 +119,59 @@
 
     move-result-object p0
 
-    invoke-interface {p0, v1, p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(ZI)V
+    invoke-interface {p0, p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(I)V
 
     goto :goto_1
 
     :cond_1
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+    iget-object p3, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p2}, Lcom/android/keyguard/KeyguardPatternViewController;->access$000(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object p2
+    iget-object p3, p3, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     sget-object v0, Lcom/android/internal/widget/LockPatternView$DisplayMode;->Wrong:Lcom/android/internal/widget/LockPatternView$DisplayMode;
 
-    invoke-virtual {p2, v0}, Lcom/android/internal/widget/LockPatternView;->setDisplayMode(Lcom/android/internal/widget/LockPatternView$DisplayMode;)V
+    invoke-virtual {p3, v0}, Lcom/android/internal/widget/LockPatternView;->setDisplayMode(Lcom/android/internal/widget/LockPatternView$DisplayMode;)V
 
     if-eqz p4, :cond_2
 
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+    iget-object p3, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-virtual {p2}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
+    invoke-virtual {p3}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
 
-    move-result-object p2
+    move-result-object p3
 
-    invoke-interface {p2, p1, v2, p3}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
+    invoke-interface {p3, p1, p2, v2}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IIZ)V
 
-    if-lez p3, :cond_2
+    if-lez p2, :cond_2
 
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+    iget-object p3, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p2}, Lcom/android/keyguard/KeyguardPatternViewController;->access$700(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternUtils;
+    iget-object p3, p3, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    move-result-object p2
+    invoke-virtual {p3, p1, p2}, Lcom/android/internal/widget/LockPatternUtils;->setLockoutAttemptDeadline(II)J
 
-    invoke-virtual {p2, p1, p3}, Lcom/android/internal/widget/LockPatternUtils;->setLockoutAttemptDeadline(II)J
-
-    move-result-wide p1
-
-    iget-object p4, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
-
-    invoke-static {p4, p1, p2}, Lcom/android/keyguard/KeyguardPatternViewController;->access$900(Lcom/android/keyguard/KeyguardPatternViewController;J)V
-
-    :cond_2
-    if-nez p3, :cond_3
+    move-result-wide p3
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$200(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/keyguard/KeyguardMessageAreaController;
+    invoke-virtual {p1, p3, p4}, Lcom/android/keyguard/KeyguardPatternViewController;->handleAttemptLockout(J)V
 
-    move-result-object p1
+    :cond_2
+    if-nez p2, :cond_3
 
-    sget p2, Lcom/android/systemui/R$string;->kg_wrong_pattern:I
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+
+    iget-object p1, p1, Lcom/android/keyguard/KeyguardPatternViewController;->mMessageAreaController:Lcom/android/keyguard/KeyguardMessageAreaController;
+
+    const p2, 0x7f1303e0
 
     invoke-virtual {p1, p2}, Lcom/android/keyguard/KeyguardMessageAreaController;->setMessage(I)V
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
-
-    invoke-static {p1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$000(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object p1
-
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$100(Lcom/android/keyguard/KeyguardPatternViewController;)Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mCancelPatternRunnable:Lcom/android/keyguard/KeyguardPatternViewController$2;
 
     const-wide/16 p2, 0x7d0
 
@@ -182,46 +182,14 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public onPatternCellAdded(Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/internal/widget/LockPatternView$Cell;",
-            ">;)V"
-        }
-    .end annotation
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
-
-    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->userActivity()V
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Lcom/android/keyguard/KeyguardSecurityCallback;->onUserInput()V
-
-    return-void
-.end method
-
-.method public onPatternCleared()V
+.method public final onPatternCleared()V
     .locals 0
 
     return-void
 .end method
 
-.method public onPatternDetected(Ljava/util/List;)V
-    .locals 6
+.method public final onPatternDetected(Ljava/util/List;)V
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -233,37 +201,31 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$300(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPatternViewController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    move-result-object v0
+    const/4 v1, 0x1
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->setCredentialAttempted()V
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCredentialAttempted:Z
+
+    const/4 v2, 0x2
+
+    invoke-virtual {v0, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateFingerprintListeningState(I)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$000(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternView;->disableInput()V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$400(Lcom/android/keyguard/KeyguardPatternViewController;)Landroid/os/AsyncTask;
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPatternViewController;->mPendingLockCheck:Landroid/os/AsyncTask;
 
-    move-result-object v0
-
-    const/4 v1, 0x0
+    const/4 v3, 0x0
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$400(Lcom/android/keyguard/KeyguardPatternViewController;)Landroid/os/AsyncTask;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->cancel(Z)Z
+    invoke-virtual {v0, v3}, Landroid/os/AsyncTask;->cancel(Z)Z
 
     :cond_0
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
@@ -272,101 +234,91 @@
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v4
 
-    const/4 v3, 0x4
+    const/4 v5, 0x4
 
-    if-ge v2, v3, :cond_2
+    if-ge v4, v5, :cond_2
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result p1
 
-    const/4 v2, 0x1
-
-    if-ne p1, v2, :cond_1
+    if-ne p1, v1, :cond_1
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$500(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/systemui/classifier/FalsingCollector;
+    iget-object p1, p1, Lcom/android/keyguard/KeyguardPatternViewController;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
-    move-result-object p1
+    const-wide v6, 0x3fe6666666666666L    # 0.7
 
-    const-wide v2, 0x3fe6666666666666L    # 0.7
+    const-class v1, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;
 
-    const-class v4, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;
+    invoke-virtual {v1}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v4
+    new-instance v1, Lcom/android/systemui/classifier/FalsingClassifier$Result;
 
-    const-string v5, "empty pattern input"
+    const/4 v5, 0x1
 
-    invoke-static {v2, v3, v4, v5}, Lcom/android/systemui/classifier/FalsingClassifier$Result;->falsed(DLjava/lang/String;Ljava/lang/String;)Lcom/android/systemui/classifier/FalsingClassifier$Result;
+    const-string v9, "empty pattern input"
 
-    move-result-object v2
+    move-object v4, v1
 
-    invoke-interface {p1, v2}, Lcom/android/systemui/classifier/FalsingCollector;->updateFalseConfidence(Lcom/android/systemui/classifier/FalsingClassifier$Result;)V
+    invoke-direct/range {v4 .. v9}, Lcom/android/systemui/classifier/FalsingClassifier$Result;-><init>(ZDLjava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {p1, v1}, Lcom/android/systemui/classifier/FalsingCollector;->updateFalseConfidence(Lcom/android/systemui/classifier/FalsingClassifier$Result;)V
 
     :cond_1
     iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$000(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     invoke-virtual {p1}, Lcom/android/internal/widget/LockPatternView;->enableInput()V
 
-    invoke-direct {p0, v0, v1, v1, v1}, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->onPatternChecked(IZIZ)V
+    invoke-virtual {p0, v0, v3, v3, v3}, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->onPatternChecked(IIZZ)V
 
     return-void
 
     :cond_2
     iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$600(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/util/LatencyTracker;
+    iget-object v1, v1, Lcom/android/keyguard/KeyguardPatternViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
-    move-result-object v1
-
-    const/4 v2, 0x3
-
-    invoke-virtual {v1, v2}, Lcom/android/internal/util/LatencyTracker;->onActionStart(I)V
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
-
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$600(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/util/LatencyTracker;
-
-    move-result-object v1
+    const/4 v3, 0x3
 
     invoke-virtual {v1, v3}, Lcom/android/internal/util/LatencyTracker;->onActionStart(I)V
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$700(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternUtils;
+    iget-object v1, v1, Lcom/android/keyguard/KeyguardPatternViewController;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
-    move-result-object v2
+    invoke-virtual {v1, v5}, Lcom/android/internal/util/LatencyTracker;->onActionStart(I)V
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+
+    iget-object v3, v1, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     invoke-static {p1}, Lcom/android/internal/widget/LockscreenCredential;->createPattern(Ljava/util/List;)Lcom/android/internal/widget/LockscreenCredential;
 
-    move-result-object v3
+    move-result-object v4
 
-    new-instance v4, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener$1;
+    new-instance v5, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener$1;
 
-    invoke-direct {v4, p0, v0}, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener$1;-><init>(Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;I)V
+    invoke-direct {v5, p0, v0}, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener$1;-><init>(Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;I)V
 
-    invoke-static {v2, v3, v0, v4}, Lcom/android/internal/widget/LockPatternChecker;->checkCredential(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/widget/LockscreenCredential;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)Landroid/os/AsyncTask;
+    invoke-static {v3, v4, v0, v5}, Lcom/android/internal/widget/LockPatternChecker;->checkCredential(Lcom/android/internal/widget/LockPatternUtils;Lcom/android/internal/widget/LockscreenCredential;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)Landroid/os/AsyncTask;
 
     move-result-object v0
 
-    invoke-static {v1, v0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$402(Lcom/android/keyguard/KeyguardPatternViewController;Landroid/os/AsyncTask;)Landroid/os/AsyncTask;
+    iput-object v0, v1, Lcom/android/keyguard/KeyguardPatternViewController;->mPendingLockCheck:Landroid/os/AsyncTask;
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
     move-result p1
 
-    const/4 v0, 0x2
-
-    if-le p1, v0, :cond_3
+    if-le p1, v2, :cond_3
 
     iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
@@ -388,28 +340,20 @@
     return-void
 .end method
 
-.method public onPatternStart()V
+.method public final onPatternStart()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$000(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternView;
+    iget-object v1, v0, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPatternViewController;->mCancelPatternRunnable:Lcom/android/keyguard/KeyguardPatternViewController$2;
 
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
-
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardPatternViewController;->access$100(Lcom/android/keyguard/KeyguardPatternViewController;)Ljava/lang/Runnable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->removeCallbacks(Ljava/lang/Runnable;)Z
+    invoke-virtual {v1, v0}, Lcom/android/internal/widget/LockPatternView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$UnlockPatternListener;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$200(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/keyguard/KeyguardMessageAreaController;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mMessageAreaController:Lcom/android/keyguard/KeyguardMessageAreaController;
 
     const-string v0, ""
 

@@ -14,50 +14,46 @@
 
 
 # virtual methods
-.method protected init(Landroid/util/AttributeSet;)V
+.method public final init(Landroid/util/AttributeSet;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroidx/constraintlayout/widget/ConstraintHelper;->init(Landroid/util/AttributeSet;)V
 
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Landroidx/constraintlayout/widget/ConstraintHelper;->mUseViewMeasure:Z
-
     return-void
 .end method
 
-.method public onAttachedToWindow()V
+.method public final onAttachedToWindow()V
     .locals 0
 
     invoke-super {p0}, Landroid/view/View;->onAttachedToWindow()V
 
-    invoke-virtual {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->applyLayoutFeatures()V
+    invoke-virtual {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->applyLayoutFeatures$1()V
 
     return-void
 .end method
 
-.method public setElevation(F)V
+.method public final setElevation(F)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/view/View;->setElevation(F)V
 
-    invoke-virtual {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->applyLayoutFeatures()V
+    invoke-virtual {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->applyLayoutFeatures$1()V
 
     return-void
 .end method
 
-.method public setVisibility(I)V
+.method public final setVisibility(I)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->applyLayoutFeatures()V
+    invoke-virtual {p0}, Landroidx/constraintlayout/widget/ConstraintHelper;->applyLayoutFeatures$1()V
 
     return-void
 .end method
 
-.method public updatePostLayout(Landroidx/constraintlayout/widget/ConstraintLayout;)V
-    .locals 1
+.method public final updatePostLayout()V
+    .locals 2
 
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -65,15 +61,15 @@
 
     check-cast p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;
 
-    iget-object p1, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
+    iget-object v0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setWidth(I)V
+    invoke-virtual {v0, v1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setWidth(I)V
 
     iget-object p0, p0, Landroidx/constraintlayout/widget/ConstraintLayout$LayoutParams;->widget:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    invoke-virtual {p0, v0}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setHeight(I)V
+    invoke-virtual {p0, v1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->setHeight(I)V
 
     return-void
 .end method

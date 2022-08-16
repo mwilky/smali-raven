@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/animatable/AnimatableTransform;
+.class public final Lcom/airbnb/lottie/model/animatable/AnimatableTransform;
 .super Ljava/lang/Object;
 .source "AnimatableTransform.java"
 
@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field private final anchorPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
+.field public final anchorPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
 
-.field private final endOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final endOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
+.field public final opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
 
-.field private final position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
+.field public final position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/model/animatable/AnimatableValue<",
@@ -24,15 +24,15 @@
     .end annotation
 .end field
 
-.field private final rotation:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final rotation:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final scale:Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;
+.field public final scale:Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;
 
-.field private final skew:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final skew:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final skewAngle:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final skewAngle:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final startOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final startOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
 
 # direct methods
@@ -110,98 +110,7 @@
 
 
 # virtual methods
-.method public createAnimation()Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;
-    .locals 1
-
-    new-instance v0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;
-
-    invoke-direct {v0, p0}, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;-><init>(Lcom/airbnb/lottie/model/animatable/AnimatableTransform;)V
-
-    return-object v0
-.end method
-
-.method public getAnchorPoint()Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->anchorPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
-
-    return-object p0
-.end method
-
-.method public getEndOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->endOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-
-    return-object p0
-.end method
-
-.method public getPosition()Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/airbnb/lottie/model/animatable/AnimatableValue<",
-            "Landroid/graphics/PointF;",
-            "Landroid/graphics/PointF;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-
-    return-object p0
-.end method
-
-.method public getRotation()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->rotation:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getScale()Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->scale:Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;
-
-    return-object p0
-.end method
-
-.method public getSkew()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->skew:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getSkewAngle()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->skewAngle:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getStartOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->startOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
+.method public final toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
     .locals 0
 
     const/4 p0, 0x0

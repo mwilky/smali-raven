@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$animateStatusChange$2$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
@@ -31,14 +31,12 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$animateStatusChange$2$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getStatus()Landroid/widget/TextView;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlViewHolder;->status:Landroid/widget/TextView;
 
     const/high16 v0, 0x3f800000    # 1.0f
 
@@ -48,7 +46,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->access$setStatusAnimator$p(Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/animation/Animator;)V
+    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder;->statusAnimator:Landroid/animation/Animator;
 
     return-void
 .end method

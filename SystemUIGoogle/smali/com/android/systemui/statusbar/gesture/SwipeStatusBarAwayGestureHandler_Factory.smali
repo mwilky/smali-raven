@@ -6,68 +6,21 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final contextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final loggerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final contextProvider:Ljavax/inject/Provider;
 
-.field private final statusBarWindowControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final loggerProvider:Ljavax/inject/Provider;
+
+.field public final statusBarWindowControllerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p4, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -75,49 +28,54 @@
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->loggerProvider:Ljavax/inject/Provider;
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/window/StatusBarWindowController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;)Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
+    iget v0, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/collection/render/NotifGutsViewManager;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->statusBarWindowControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/notification/collection/coordinator/GutsCoordinatorLogger;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/dump/DumpManager;
+
+    new-instance v2, Lcom/android/systemui/statusbar/notification/collection/coordinator/GutsCoordinator;
+
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/notification/collection/coordinator/GutsCoordinator;-><init>(Lcom/android/systemui/statusbar/notification/collection/render/NotifGutsViewManager;Lcom/android/systemui/statusbar/notification/collection/coordinator/GutsCoordinatorLogger;Lcom/android/systemui/dump/DumpManager;)V
+
+    return-object v2
+
+    :pswitch_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -142,19 +100,64 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;)Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;
+    new-instance v2, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;
+
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureLogger;)V
+
+    return-object v2
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->statusBarWindowControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;->isNewPipelineEnabled()Z
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    move-result v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler_Factory;->get()Lcom/android/systemui/statusbar/gesture/SwipeStatusBarAwayGestureHandler;
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
     move-result-object p0
 
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;
+
+    goto :goto_1
+
+    :cond_0
+    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/render/NotifShadeEventSource;
+
+    :goto_1
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
+
     return-object p0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

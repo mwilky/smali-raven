@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/SwipeHelper$2;
+.class public final Lcom/android/systemui/SwipeHelper$2;
 .super Ljava/lang/Object;
 .source "SwipeHelper.java"
 
@@ -6,27 +6,16 @@
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/SwipeHelper;->dismissChild(Landroid/view/View;FLjava/lang/Runnable;JZJZ)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/SwipeHelper;
+.field public final synthetic this$0:Lcom/android/systemui/SwipeHelper;
 
-.field final synthetic val$animView:Landroid/view/View;
+.field public final synthetic val$animView:Landroid/view/View;
 
-.field final synthetic val$canBeDismissed:Z
+.field public final synthetic val$canBeDismissed:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
+.method public constructor <init>(Lcom/android/systemui/SwipeHelper;Landroid/view/View;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/SwipeHelper$2;->this$0:Lcom/android/systemui/SwipeHelper;
@@ -42,7 +31,7 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/SwipeHelper$2;->this$0:Lcom/android/systemui/SwipeHelper;
@@ -61,7 +50,7 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/SwipeHelper$2;->val$canBeDismissed:Z
 
-    invoke-virtual {v0, v1, p1, p0}, Lcom/android/systemui/SwipeHelper;->onTranslationUpdate(Landroid/view/View;FZ)V
+    invoke-virtual {v0, v1, p1, p0}, Lcom/android/systemui/SwipeHelper;->updateSwipeProgressFromOffset(Landroid/view/View;FZ)V
 
     return-void
 .end method

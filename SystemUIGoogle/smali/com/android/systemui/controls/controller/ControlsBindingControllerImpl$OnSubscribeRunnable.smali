@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$OnSubscribeRunnable;
+.class public final Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$OnSubscribeRunnable;
 .super Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$CallbackRunnable;
 .source "ControlsBindingControllerImpl.kt"
 
@@ -9,22 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "OnSubscribeRunnable"
 .end annotation
 
 
 # instance fields
-.field private final requestLimit:J
+.field public final requestLimit:J
 
-.field private final subscription:Landroid/service/controls/IControlsSubscription;
-
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;
+.field public final subscription:Landroid/service/controls/IControlsSubscription;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;Landroid/os/IBinder;Landroid/service/controls/IControlsSubscription;J)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -33,20 +31,6 @@
             "J)V"
         }
     .end annotation
-
-    const-string v0, "this$0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "token"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "subscription"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$OnSubscribeRunnable;->this$0:Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$CallbackRunnable;-><init>(Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;Landroid/os/IBinder;)V
 
@@ -59,7 +43,7 @@
 
 
 # virtual methods
-.method public doRun()V
+.method public final doRun()V
     .locals 4
 
     const-string v0, "ControlsBindingControllerImpl"
@@ -68,9 +52,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$CallbackRunnable;->getProvider()Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$CallbackRunnable;->provider:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
     if-nez v0, :cond_0
 

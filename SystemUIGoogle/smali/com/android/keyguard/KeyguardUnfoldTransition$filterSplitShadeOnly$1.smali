@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardUnfoldTransition;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardUnfoldTransition;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardUnfoldTransition;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardUnfoldTransition;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardUnfoldTransition$filterSplitShadeOnly$1;->this$0:Lcom/android/keyguard/KeyguardUnfoldTransition;
@@ -45,30 +45,18 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
+.method public final invoke()Ljava/lang/Object;
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUnfoldTransition$filterSplitShadeOnly$1;->invoke()Z
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUnfoldTransition$filterSplitShadeOnly$1;->this$0:Lcom/android/keyguard/KeyguardUnfoldTransition;
 
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardUnfoldTransition;->statusViewCentered:Z
+
+    xor-int/lit8 p0, p0, 0x1
 
     invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
 
     return-object p0
-.end method
-
-.method public final invoke()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardUnfoldTransition$filterSplitShadeOnly$1;->this$0:Lcom/android/keyguard/KeyguardUnfoldTransition;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUnfoldTransition;->getStatusViewCentered()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
-    return p0
 .end method

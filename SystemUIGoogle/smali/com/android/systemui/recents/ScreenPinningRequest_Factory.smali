@@ -6,114 +6,49 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/recents/ScreenPinningRequest;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final contextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;"
-        }
-    .end annotation
-.end field
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+.field public final centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+
+.field public final contextProvider:Ljavax/inject/Provider;
+
+.field public final navigationModeControllerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p5, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->contextProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+
+    iput-object p3, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+
+    iput-object p4, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/recents/ScreenPinningRequest_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)",
-            "Lcom/android/systemui/recents/ScreenPinningRequest_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Ldagger/Lazy;)Lcom/android/systemui/recents/ScreenPinningRequest;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Ldagger/Lazy<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)",
-            "Lcom/android/systemui/recents/ScreenPinningRequest;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/recents/ScreenPinningRequest;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/recents/ScreenPinningRequest;-><init>(Landroid/content/Context;Ldagger/Lazy;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/recents/ScreenPinningRequest;
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 4
 
+    iget v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -122,25 +57,113 @@
 
     check-cast v0, Landroid/content/Context;
 
-    iget-object p0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
 
-    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
+    iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v2
+
+    iget-object p0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->newInstance(Landroid/content/Context;Ldagger/Lazy;)Lcom/android/systemui/recents/ScreenPinningRequest;
+    check-cast p0, Lcom/android/systemui/settings/UserTracker;
+
+    new-instance v3, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;
+
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;-><init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Ldagger/Lazy;Lcom/android/systemui/settings/UserTracker;)V
+
+    return-object v3
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/navigationbar/NavigationModeController;
+
+    iget-object p0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    check-cast p0, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    new-instance v3, Lcom/android/systemui/recents/ScreenPinningRequest;
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->get()Lcom/android/systemui/recents/ScreenPinningRequest;
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/recents/ScreenPinningRequest;-><init>(Landroid/content/Context;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+
+    return-object v3
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/media/MediaFlags;
+
+    iget-object v1, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->navigationModeControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/media/muteawait/MediaMuteAwaitLogger;
+
+    iget-object p0, p0, Lcom/android/systemui/recents/ScreenPinningRequest_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
+    check-cast p0, Ljava/util/concurrent/Executor;
+
+    new-instance v3, Lcom/android/systemui/media/muteawait/MediaMuteAwaitConnectionManagerFactory;
+
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/media/muteawait/MediaMuteAwaitConnectionManagerFactory;-><init>(Lcom/android/systemui/media/MediaFlags;Landroid/content/Context;Lcom/android/systemui/media/muteawait/MediaMuteAwaitLogger;Ljava/util/concurrent/Executor;)V
+
+    return-object v3
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

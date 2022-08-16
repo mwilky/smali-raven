@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;
+.class public final Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;
 .super Landroid/telephony/TelephonyCallback;
 .source "MobileStatusTracker.java"
 
@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+.field public final synthetic this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
 
 # direct methods
@@ -40,8 +40,8 @@
 
 
 # virtual methods
-.method public onActiveDataSubscriptionIdChanged(I)V
-    .locals 3
+.method public final onActiveDataSubscriptionIdChanged(I)V
+    .locals 2
 
     const-string v0, "MobileStatusTracker"
 
@@ -53,42 +53,24 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "onActiveDataSubscriptionIdChanged: subId="
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "onActiveDataSubscriptionIdChanged: subId="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p1, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline1;->m(Ljava/lang/String;ILjava/lang/String;)V
 
     :cond_0
     iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$300(Lcom/android/settingslib/mobile/MobileStatusTracker;)V
+    invoke-virtual {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->updateDataSim()V
 
-    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$100(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mCallback:Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
 
     const/4 v0, 0x1
 
     new-instance v1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
-    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
-
-    invoke-static {p0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mMobileStatus:Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
     invoke-direct {v1, p0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
@@ -97,7 +79,7 @@
     return-void
 .end method
 
-.method public onCarrierNetworkChange(Z)V
+.method public final onCarrierNetworkChange(Z)V
     .locals 3
 
     const-string v0, "MobileStatusTracker"
@@ -127,39 +109,27 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {v0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mMobileStatus:Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
     iput-boolean p1, v0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->carrierNetworkChangeMode:Z
 
-    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mCallback:Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
 
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$100(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     new-instance v1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
-    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    invoke-direct {v1, v0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
-    invoke-static {p0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object p0
-
-    invoke-direct {v1, p0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
-
-    invoke-interface {p1, v0, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+    invoke-interface {p0, p1, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
     return-void
 .end method
 
-.method public onDataActivity(I)V
-    .locals 3
+.method public final onDataActivity(I)V
+    .locals 5
 
     const-string v0, "MobileStatusTracker"
 
@@ -167,55 +137,68 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v2, :cond_0
 
     const-string v2, "onDataActivity: direction="
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, p1, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline1;->m(Ljava/lang/String;ILjava/lang/String;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
-
-    invoke-static {v0, p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$200(Lcom/android/settingslib/mobile/MobileStatusTracker;I)V
-
-    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
-
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$100(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
-
-    move-result-object p1
-
-    const/4 v0, 0x0
-
-    new-instance v1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
     iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {p0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
+    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mMobileStatus:Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
-    move-result-object p0
+    const/4 v2, 0x1
 
-    invoke-direct {v1, p0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+    const/4 v3, 0x0
 
-    invoke-interface {p1, v0, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+    if-eq p1, v1, :cond_2
+
+    if-ne p1, v2, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    move v4, v3
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    move v4, v2
+
+    :goto_1
+    iput-boolean v4, v0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->activityIn:Z
+
+    if-eq p1, v1, :cond_4
+
+    const/4 v1, 0x2
+
+    if-ne p1, v1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move v2, v3
+
+    :cond_4
+    :goto_2
+    iput-boolean v2, v0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->activityOut:Z
+
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mCallback:Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
+
+    new-instance p1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
+
+    invoke-direct {p1, v0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+
+    invoke-interface {p0, v3, p1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
     return-void
 .end method
 
-.method public onDataConnectionStateChanged(II)V
+.method public final onDataConnectionStateChanged(II)V
     .locals 3
 
     const-string v0, "MobileStatusTracker"
@@ -251,38 +234,26 @@
     invoke-static {v0, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object p2, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {p2}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object p2
+    iget-object p2, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mMobileStatus:Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
     iput p1, p2, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->dataState:I
 
-    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mCallback:Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
 
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$100(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
-
-    move-result-object p1
-
-    const/4 p2, 0x1
+    const/4 p1, 0x1
 
     new-instance v0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
-    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    invoke-direct {v0, p2}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
-    invoke-static {p0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object p0
-
-    invoke-direct {v0, p0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
-
-    invoke-interface {p1, p2, v0}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+    invoke-interface {p0, p1, v0}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
     return-void
 .end method
 
-.method public onDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
+.method public final onDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
     .locals 3
 
     const-string v0, "MobileStatusTracker"
@@ -312,38 +283,26 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {v0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mMobileStatus:Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
     iput-object p1, v0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->telephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
 
-    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mCallback:Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
 
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$100(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     new-instance v1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
-    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    invoke-direct {v1, v0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
-    invoke-static {p0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object p0
-
-    invoke-direct {v1, p0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
-
-    invoke-interface {p1, v0, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+    invoke-interface {p0, p1, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
     return-void
 .end method
 
-.method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
+.method public final onServiceStateChanged(Landroid/telephony/ServiceState;)V
     .locals 4
 
     const-string v0, "MobileStatusTracker"
@@ -356,13 +315,11 @@
 
     if-eqz v1, :cond_2
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "onServiceStateChanged voiceState="
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "onServiceStateChanged voiceState="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     const-string v2, ""
 
@@ -411,38 +368,26 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
-    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {v0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mMobileStatus:Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
     iput-object p1, v0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->serviceState:Landroid/telephony/ServiceState;
 
-    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mCallback:Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
 
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$100(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     new-instance v1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
-    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    invoke-direct {v1, v0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
-    invoke-static {p0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object p0
-
-    invoke-direct {v1, p0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
-
-    invoke-interface {p1, v0, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+    invoke-interface {p0, p1, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
     return-void
 .end method
 
-.method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
+.method public final onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
     .locals 4
 
     const-string v0, "MobileStatusTracker"
@@ -459,7 +404,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onSignalStrengthsChanged signalStrength="
+    const-string/jumbo v2, "onSignalStrengthsChanged signalStrength="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -472,13 +417,11 @@
     goto :goto_0
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, " level="
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, " level="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     invoke-virtual {p1}, Landroid/telephony/SignalStrength;->getLevel()I
 
@@ -491,42 +434,24 @@
     move-result-object v2
 
     :goto_0
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
 
-    invoke-static {v0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mMobileStatus:Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
     iput-object p1, v0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;->signalStrength:Landroid/telephony/SignalStrength;
 
-    iget-object p1, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker;->mCallback:Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
 
-    invoke-static {p1}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$100(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;
-
-    move-result-object p1
-
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     new-instance v1, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
 
-    iget-object p0, p0, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileTelephonyCallback;->this$0:Lcom/android/settingslib/mobile/MobileStatusTracker;
+    invoke-direct {v1, v0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
-    invoke-static {p0}, Lcom/android/settingslib/mobile/MobileStatusTracker;->access$000(Lcom/android/settingslib/mobile/MobileStatusTracker;)Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;
-
-    move-result-object p0
-
-    invoke-direct {v1, p0}, Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;-><init>(Lcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
-
-    invoke-interface {p1, v0, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
+    invoke-interface {p0, p1, v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$Callback;->onMobileStatusChanged(ZLcom/android/settingslib/mobile/MobileStatusTracker$MobileStatus;)V
 
     return-void
 .end method

@@ -1,21 +1,16 @@
 .class public final synthetic Lcom/android/systemui/classifier/BrightLineFalsingManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;
-
-
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;
 
     return-void
 .end method
@@ -25,11 +20,15 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;
-
     check-cast p1, Lcom/android/systemui/classifier/FalsingClassifier;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/classifier/BrightLineFalsingManager;->$r8$lambda$Jj8XTp-iZIuP5eR8YU0R_8UAq9o(Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;Lcom/android/systemui/classifier/FalsingClassifier;)V
+    iget-object p0, p1, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
+
+    iget-object p1, p1, Lcom/android/systemui/classifier/FalsingClassifier;->mMotionEventListener:Lcom/android/systemui/classifier/FalsingClassifier$$ExternalSyntheticLambda0;
+
+    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingDataProvider;->mMotionEventListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method

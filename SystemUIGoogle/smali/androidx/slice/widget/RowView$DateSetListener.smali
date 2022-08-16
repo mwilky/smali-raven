@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/RowView$DateSetListener;
+.class public final Landroidx/slice/widget/RowView$DateSetListener;
 .super Ljava/lang/Object;
 .source "RowView.java"
 
@@ -12,34 +12,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DateSetListener"
 .end annotation
 
 
 # instance fields
-.field private final mActionItem:Landroidx/slice/SliceItem;
+.field public final mActionItem:Landroidx/slice/SliceItem;
 
-.field private final mRowIndex:I
+.field public final mRowIndex:I
 
-.field final synthetic this$0:Landroidx/slice/widget/RowView;
+.field public final synthetic this$0:Landroidx/slice/widget/RowView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/RowView;Landroidx/slice/SliceItem;I)V
+.method public constructor <init>(Landroidx/slice/widget/RowView;Landroidx/slice/SliceItem;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "datePickerItem",
-            "mRowIndex"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/RowView$DateSetListener;->this$0:Landroidx/slice/widget/RowView;
 
@@ -54,22 +42,8 @@
 
 
 # virtual methods
-.method public onDateSet(Landroid/widget/DatePicker;III)V
+.method public final onDateSet(Landroid/widget/DatePicker;III)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "datePicker",
-            "year",
-            "month",
-            "day"
-        }
-    .end annotation
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
@@ -112,35 +86,11 @@
 
     move-result-object p1
 
-    invoke-virtual {p2, p3, p1}, Landroidx/slice/SliceItem;->fireAction(Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-virtual {p2, p3, p1}, Landroidx/slice/SliceItem;->fireActionInternal(Landroid/content/Context;Landroid/content/Intent;)Z
 
-    iget-object p1, p0, Landroidx/slice/widget/RowView$DateSetListener;->this$0:Landroidx/slice/widget/RowView;
+    iget-object p0, p0, Landroidx/slice/widget/RowView$DateSetListener;->this$0:Landroidx/slice/widget/RowView;
 
-    iget-object p2, p1, Landroidx/slice/widget/SliceChildView;->mObserver:Landroidx/slice/widget/SliceView$OnSliceActionListener;
-
-    if-eqz p2, :cond_0
-
-    new-instance p2, Landroidx/slice/widget/EventInfo;
-
-    invoke-virtual {p1}, Landroidx/slice/widget/SliceChildView;->getMode()I
-
-    move-result p1
-
-    const/4 p3, 0x6
-
-    const/4 p4, 0x7
-
-    iget v0, p0, Landroidx/slice/widget/RowView$DateSetListener;->mRowIndex:I
-
-    invoke-direct {p2, p1, p3, p4, v0}, Landroidx/slice/widget/EventInfo;-><init>(IIII)V
-
-    iget-object p1, p0, Landroidx/slice/widget/RowView$DateSetListener;->this$0:Landroidx/slice/widget/RowView;
-
-    iget-object p1, p1, Landroidx/slice/widget/SliceChildView;->mObserver:Landroidx/slice/widget/SliceView$OnSliceActionListener;
-
-    iget-object p0, p0, Landroidx/slice/widget/RowView$DateSetListener;->mActionItem:Landroidx/slice/SliceItem;
-
-    invoke-interface {p1, p2, p0}, Landroidx/slice/widget/SliceView$OnSliceActionListener;->onSliceAction(Landroidx/slice/widget/EventInfo;Landroidx/slice/SliceItem;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 

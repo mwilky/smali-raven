@@ -4,11 +4,11 @@
 
 
 # instance fields
-.field private final mLastConfiguration:Landroid/content/res/Configuration;
+.field public final mLastConfiguration:Landroid/content/res/Configuration;
 
-.field private final mOvalBgPaint:Landroid/graphics/Paint;
+.field public final mOvalBgPaint:Landroid/graphics/Paint;
 
-.field private mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
+.field public mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
 
 # direct methods
@@ -60,7 +60,7 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 7
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getWidth()I
@@ -94,7 +94,7 @@
     return-void
 .end method
 
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonView;->mLastConfiguration:Landroid/content/res/Configuration;
@@ -116,13 +116,31 @@
 
     if-eqz p0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->updateResources()V
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mTargetView:Landroid/view/View;
+
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    iget v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mMaxWidthResource:I
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mMaxWidth:I
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     :cond_1
     return-void
 .end method
 
-.method protected onWindowVisibilityChanged(I)V
+.method public final onWindowVisibilityChanged(I)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onWindowVisibilityChanged(I)V
@@ -132,89 +150,5 @@
     invoke-virtual {p0}, Landroid/widget/ImageView;->jumpDrawablesToCurrentState()V
 
     :cond_0
-    return-void
-.end method
-
-.method public setColors(II)V
-    .locals 3
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    new-instance v1, Landroid/graphics/PorterDuffColorFilter;
-
-    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_IN:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-direct {v1, p1, v2}, Landroid/graphics/PorterDuffColorFilter;-><init>(ILandroid/graphics/PorterDuff$Mode;)V
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    invoke-static {p2}, Landroid/graphics/Color;->red(I)I
-
-    move-result p1
-
-    int-to-float p1, p1
-
-    invoke-static {p2}, Landroid/graphics/Color;->green(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    invoke-static {p2}, Landroid/graphics/Color;->blue(I)I
-
-    move-result p2
-
-    int-to-float p2, p2
-
-    const v1, 0x3f6b851f    # 0.92f
-
-    invoke-static {p1, v0, p2, v1}, Landroid/graphics/Color;->valueOf(FFFF)Landroid/graphics/Color;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/graphics/Color;->toArgb()I
-
-    move-result p1
-
-    iget-object p2, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonView;->mOvalBgPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p2, p1}, Landroid/graphics/Paint;->setColor(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
-
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;->OVAL:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->setType(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;)V
-
-    return-void
-.end method
-
-.method public setDarkIntensity(F)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->setDarkIntensity(F)V
-
-    return-void
-.end method
-
-.method public setRipple(I)V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1, p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;-><init>(Landroid/content/Context;Landroid/view/View;I)V
-
-    iput-object v0, p0, Lcom/android/systemui/shared/rotation/FloatingRotationButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
-
-    invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
     return-void
 .end method

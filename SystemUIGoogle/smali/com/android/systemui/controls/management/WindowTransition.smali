@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final animator:Lkotlin/jvm/functions/Function1;
+.field public final animator:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function1<",
@@ -18,7 +18,7 @@
 
 # direct methods
 .method public constructor <init>(Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -31,10 +31,6 @@
         }
     .end annotation
 
-    const-string v0, "animator"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-direct {p0}, Landroid/transition/Transition;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/WindowTransition;->animator:Lkotlin/jvm/functions/Function1;
@@ -44,18 +40,10 @@
 
 
 # virtual methods
-.method public captureEndValues(Landroid/transition/TransitionValues;)V
+.method public final captureEndValues(Landroid/transition/TransitionValues;)V
     .locals 1
 
-    const-string p0, "tv"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object p0, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
-
-    const-string p1, "tv.values"
-
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     const/high16 p1, 0x3f800000    # 1.0f
 
@@ -70,18 +58,10 @@
     return-void
 .end method
 
-.method public captureStartValues(Landroid/transition/TransitionValues;)V
+.method public final captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 1
 
-    const-string p0, "tv"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object p0, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
-
-    const-string p1, "tv.values"
-
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     const/4 p1, 0x0
 
@@ -96,22 +76,14 @@
     return-void
 .end method
 
-.method public createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
+.method public final createAnimator(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 0
-
-    const-string p3, "sceneRoot"
-
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/WindowTransition;->animator:Lkotlin/jvm/functions/Function1;
 
     invoke-static {p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     iget-object p1, p2, Landroid/transition/TransitionValues;->view:Landroid/view/View;
-
-    const-string p2, "!!.view"
-
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-interface {p0, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 

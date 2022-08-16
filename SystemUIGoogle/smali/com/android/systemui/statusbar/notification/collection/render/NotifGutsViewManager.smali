@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract setGutsListener(Lcom/android/systemui/statusbar/notification/collection/render/NotifGutsViewListener;)V
+.method public abstract setGutsListener(Lcom/android/systemui/statusbar/notification/collection/coordinator/GutsCoordinator$mGutsListener$1;)V
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/battery/BatteryMeterViewController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/battery/BatteryMeterView$BatteryEstimateFetcher;
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final fetchBatteryTimeRemainingEstimate(Lcom/android/systemui/statusbar/policy/BatteryController$EstimateFetchCompletion;)V
+.method public final fetchBatteryTimeRemainingEstimate(Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/policy/BatteryController;->getEstimatedTimeRemainingString(Lcom/android/systemui/statusbar/policy/BatteryController$EstimateFetchCompletion;)V
+    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/policy/BatteryController;->getEstimatedTimeRemainingString(Lcom/android/systemui/battery/BatteryMeterView$$ExternalSyntheticLambda1;)V
 
     return-void
 .end method

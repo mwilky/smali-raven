@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:visibility="gone" android:clickable="true" android:layout_width="0.0dip" android:layout_height="@dimen/qs_security_footer_single_line_height" android:layout_weight="1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="end" android:id="@id/fgs_text_container" android:background="@drawable/qs_security_footer_background" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginEnd="@dimen/qs_footer_action_inset" android:paddingHorizontal="@dimen/qs_footer_padding">
+        <ImageView android:gravity="start" android:id="@id/primary_footer_icon" android:layout_width="@dimen/qs_footer_icon_size" android:layout_height="@dimen/qs_footer_icon_size" android:src="@drawable/ic_info_outline" android:tint="?android:textColorSecondary" android:contentDescription="@null" android:layout_marginEnd="12.0dip" />
+        <TextView android:textAppearance="@style/TextAppearance.QS.SecurityFooter" android:textColor="?android:textColorSecondary" android:ellipsize="end" android:id="@id/footer_text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxLines="1" android:layout_weight="1.0" />
+        <ImageView android:id="@id/fgs_new" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/fgs_dot" android:scaleType="fitCenter" android:contentDescription="@string/fgs_dot_content_description" />
+        <ImageView android:id="@id/footer_icon" android:layout_width="@dimen/qs_footer_icon_size" android:layout_height="@dimen/qs_footer_icon_size" android:src="@android:drawable/ic_chevron_end" android:tint="?android:textColorSecondary" android:contentDescription="@null" android:layout_marginStart="8.0dip" android:autoMirrored="true" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/fgs_number_container" android:background="@drawable/qs_footer_action_circle" android:focusable="true" android:visibility="gone" android:layout_width="@dimen/qs_footer_action_button_size" android:layout_height="@dimen/qs_footer_action_button_size">
+        <TextView android:textAppearance="@style/TextAppearance.QS.SecurityFooter" android:textSize="18.0sp" android:textColor="?android:textColorPrimary" android:layout_gravity="center" android:id="@id/fgs_number" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <ImageView android:layout_gravity="end|bottom|center" android:id="@id/fgs_collapsed_new" android:layout_width="12.0dip" android:layout_height="12.0dip" android:src="@drawable/fgs_dot" android:scaleType="fitCenter" android:contentDescription="@string/fgs_dot_content_description" />
+    </FrameLayout>
+</FrameLayout>

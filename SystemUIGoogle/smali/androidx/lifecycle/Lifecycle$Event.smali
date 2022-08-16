@@ -41,199 +41,108 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 15
 
     new-instance v0, Landroidx/lifecycle/Lifecycle$Event;
 
-    const-string v1, "ON_CREATE"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "ON_CREATE"
 
-    invoke-direct {v0, v1, v2}, Landroidx/lifecycle/Lifecycle$Event;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroidx/lifecycle/Lifecycle$Event;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
 
-    new-instance v1, Landroidx/lifecycle/Lifecycle$Event;
+    new-instance v2, Landroidx/lifecycle/Lifecycle$Event;
 
-    const-string v3, "ON_START"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "ON_START"
 
-    invoke-direct {v1, v3, v4}, Landroidx/lifecycle/Lifecycle$Event;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Landroidx/lifecycle/Lifecycle$Event;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
+    sput-object v2, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
-    new-instance v3, Landroidx/lifecycle/Lifecycle$Event;
+    new-instance v4, Landroidx/lifecycle/Lifecycle$Event;
 
-    const-string v5, "ON_RESUME"
+    const/4 v5, 0x2
 
-    const/4 v6, 0x2
+    const-string v6, "ON_RESUME"
 
-    invoke-direct {v3, v5, v6}, Landroidx/lifecycle/Lifecycle$Event;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v5, v6}, Landroidx/lifecycle/Lifecycle$Event;-><init>(ILjava/lang/String;)V
 
-    sput-object v3, Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
+    sput-object v4, Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
 
-    new-instance v5, Landroidx/lifecycle/Lifecycle$Event;
+    new-instance v6, Landroidx/lifecycle/Lifecycle$Event;
 
-    const-string v7, "ON_PAUSE"
+    const/4 v7, 0x3
 
-    const/4 v8, 0x3
+    const-string v8, "ON_PAUSE"
 
-    invoke-direct {v5, v7, v8}, Landroidx/lifecycle/Lifecycle$Event;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v7, v8}, Landroidx/lifecycle/Lifecycle$Event;-><init>(ILjava/lang/String;)V
 
-    sput-object v5, Landroidx/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroidx/lifecycle/Lifecycle$Event;
+    sput-object v6, Landroidx/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroidx/lifecycle/Lifecycle$Event;
 
-    new-instance v7, Landroidx/lifecycle/Lifecycle$Event;
+    new-instance v8, Landroidx/lifecycle/Lifecycle$Event;
 
-    const-string v9, "ON_STOP"
+    const/4 v9, 0x4
 
-    const/4 v10, 0x4
+    const-string v10, "ON_STOP"
 
-    invoke-direct {v7, v9, v10}, Landroidx/lifecycle/Lifecycle$Event;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v8, v9, v10}, Landroidx/lifecycle/Lifecycle$Event;-><init>(ILjava/lang/String;)V
 
-    sput-object v7, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
+    sput-object v8, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
 
-    new-instance v9, Landroidx/lifecycle/Lifecycle$Event;
+    new-instance v10, Landroidx/lifecycle/Lifecycle$Event;
 
-    const-string v11, "ON_DESTROY"
+    const/4 v11, 0x5
 
-    const/4 v12, 0x5
+    const-string v12, "ON_DESTROY"
 
-    invoke-direct {v9, v11, v12}, Landroidx/lifecycle/Lifecycle$Event;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v10, v11, v12}, Landroidx/lifecycle/Lifecycle$Event;-><init>(ILjava/lang/String;)V
 
-    sput-object v9, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
+    sput-object v10, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
 
-    new-instance v11, Landroidx/lifecycle/Lifecycle$Event;
+    new-instance v12, Landroidx/lifecycle/Lifecycle$Event;
 
-    const-string v13, "ON_ANY"
+    const/4 v13, 0x6
 
-    const/4 v14, 0x6
+    const-string v14, "ON_ANY"
 
-    invoke-direct {v11, v13, v14}, Landroidx/lifecycle/Lifecycle$Event;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v12, v13, v14}, Landroidx/lifecycle/Lifecycle$Event;-><init>(ILjava/lang/String;)V
 
-    sput-object v11, Landroidx/lifecycle/Lifecycle$Event;->ON_ANY:Landroidx/lifecycle/Lifecycle$Event;
+    sput-object v12, Landroidx/lifecycle/Lifecycle$Event;->ON_ANY:Landroidx/lifecycle/Lifecycle$Event;
 
-    const/4 v13, 0x7
+    const/4 v14, 0x7
 
-    new-array v13, v13, [Landroidx/lifecycle/Lifecycle$Event;
+    new-array v14, v14, [Landroidx/lifecycle/Lifecycle$Event;
 
-    aput-object v0, v13, v2
+    aput-object v0, v14, v1
 
-    aput-object v1, v13, v4
+    aput-object v2, v14, v3
 
-    aput-object v3, v13, v6
+    aput-object v4, v14, v5
 
-    aput-object v5, v13, v8
+    aput-object v6, v14, v7
 
-    aput-object v7, v13, v10
+    aput-object v8, v14, v9
 
-    aput-object v9, v13, v12
+    aput-object v10, v14, v11
 
-    aput-object v11, v13, v14
+    aput-object v12, v14, v13
 
-    sput-object v13, Landroidx/lifecycle/Lifecycle$Event;->$VALUES:[Landroidx/lifecycle/Lifecycle$Event;
+    sput-object v14, Landroidx/lifecycle/Lifecycle$Event;->$VALUES:[Landroidx/lifecycle/Lifecycle$Event;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
-.end method
-
-.method public static downFrom(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
-
-    sget-object v0, Landroidx/lifecycle/Lifecycle$1;->$SwitchMap$androidx$lifecycle$Lifecycle$State:[I
-
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
-
-    move-result p0
-
-    aget p0, v0, p0
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_2
-
-    const/4 v0, 0x2
-
-    if-eq p0, v0, :cond_1
-
-    const/4 v0, 0x3
-
-    if-eq p0, v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroidx/lifecycle/Lifecycle$Event;
-
-    return-object p0
-
-    :cond_1
-    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_STOP:Landroidx/lifecycle/Lifecycle$Event;
-
-    return-object p0
-
-    :cond_2
-    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
-
-    return-object p0
-.end method
-
-.method public static upFrom(Landroidx/lifecycle/Lifecycle$State;)Landroidx/lifecycle/Lifecycle$Event;
-    .locals 1
-
-    sget-object v0, Landroidx/lifecycle/Lifecycle$1;->$SwitchMap$androidx$lifecycle$Lifecycle$State:[I
-
-    invoke-virtual {p0}, Ljava/lang/Enum;->ordinal()I
-
-    move-result p0
-
-    aget p0, v0, p0
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_2
-
-    const/4 v0, 0x2
-
-    if-eq p0, v0, :cond_1
-
-    const/4 v0, 0x5
-
-    if-eq p0, v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_CREATE:Landroidx/lifecycle/Lifecycle$Event;
-
-    return-object p0
-
-    :cond_1
-    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_RESUME:Landroidx/lifecycle/Lifecycle$Event;
-
-    return-object p0
-
-    :cond_2
-    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
-
-    return-object p0
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/lifecycle/Lifecycle$Event;
@@ -266,7 +175,7 @@
 
 
 # virtual methods
-.method public getTargetState()Landroidx/lifecycle/Lifecycle$State;
+.method public final getTargetState()Landroidx/lifecycle/Lifecycle$State;
     .locals 2
 
     sget-object v0, Landroidx/lifecycle/Lifecycle$1;->$SwitchMap$androidx$lifecycle$Lifecycle$Event:[I

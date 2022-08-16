@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/DefaultSpecialEffectsController$3;
+.class public final Landroidx/fragment/app/DefaultSpecialEffectsController$3;
 .super Ljava/lang/Object;
 .source "DefaultSpecialEffectsController.java"
 
@@ -6,30 +6,15 @@
 .implements Landroidx/core/os/CancellationSignal$OnCancelListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/fragment/app/DefaultSpecialEffectsController;->startAnimations(Ljava/util/List;Ljava/util/List;ZLjava/util/Map;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/DefaultSpecialEffectsController;
-
-.field final synthetic val$animator:Landroid/animation/Animator;
+.field public final synthetic val$animator:Landroid/animation/Animator;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Landroid/animation/Animator;)V
+.method public constructor <init>(Landroid/animation/Animator;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$3;->this$0:Landroidx/fragment/app/DefaultSpecialEffectsController;
-
-    iput-object p2, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$3;->val$animator:Landroid/animation/Animator;
+    iput-object p1, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$3;->val$animator:Landroid/animation/Animator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +23,7 @@
 
 
 # virtual methods
-.method public onCancel()V
+.method public final onCancel()V
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$3;->val$animator:Landroid/animation/Animator;

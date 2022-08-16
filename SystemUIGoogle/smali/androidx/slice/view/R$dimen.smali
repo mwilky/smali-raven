@@ -1,55 +1,160 @@
-.class public final Landroidx/slice/view/R$dimen;
+.class public Landroidx/slice/view/R$dimen;
 .super Ljava/lang/Object;
 .source "R.java"
 
 
 # static fields
-.field public static final abc_slice_action_row_height:I = 0x7f07003d
+.field public static final BannerMessagePreference:[I
 
-.field public static final abc_slice_big_pic_max_height:I = 0x7f07003e
+.field public static final ButtonPreference:[I
 
-.field public static final abc_slice_big_pic_min_height:I = 0x7f07003f
+.field public static final LottieAnimationView:[I
 
-.field public static final abc_slice_grid_gutter:I = 0x7f070040
+.field public static final Preference:[I
 
-.field public static final abc_slice_grid_image_min_width:I = 0x7f070041
+.field public static final SettingsBarView:[I
 
-.field public static final abc_slice_grid_image_only_height:I = 0x7f070042
 
-.field public static final abc_slice_grid_image_text_height:I = 0x7f070043
+# direct methods
+.method static synthetic constructor <clinit>()V
+    .locals 4
 
-.field public static final abc_slice_grid_max_height:I = 0x7f070044
+    const/4 v0, 0x2
 
-.field public static final abc_slice_grid_min_height:I = 0x7f070045
+    new-array v0, v0, [I
 
-.field public static final abc_slice_grid_raw_image_text_offset:I = 0x7f070046
+    fill-array-data v0, :array_0
 
-.field public static final abc_slice_grid_text_inner_padding:I = 0x7f070048
+    sput-object v0, Landroidx/slice/view/R$dimen;->BannerMessagePreference:[I
 
-.field public static final abc_slice_grid_text_padding:I = 0x7f070049
+    const/4 v0, 0x1
 
-.field public static final abc_slice_icon_size:I = 0x7f07004a
+    new-array v1, v0, [I
 
-.field public static final abc_slice_large_height:I = 0x7f07004b
+    const v2, 0x10100af
 
-.field public static final abc_slice_row_max_height:I = 0x7f07004e
+    const/4 v3, 0x0
 
-.field public static final abc_slice_row_min_height:I = 0x7f07004f
+    aput v2, v1, v3
 
-.field public static final abc_slice_row_range_height:I = 0x7f070050
+    sput-object v1, Landroidx/slice/view/R$dimen;->ButtonPreference:[I
 
-.field public static final abc_slice_row_range_inline_height:I = 0x7f070051
+    const/16 v1, 0x10
 
-.field public static final abc_slice_row_range_multi_text_height:I = 0x7f070052
+    new-array v1, v1, [I
 
-.field public static final abc_slice_row_range_single_text_height:I = 0x7f070053
+    fill-array-data v1, :array_1
 
-.field public static final abc_slice_row_selection_height:I = 0x7f070054
+    sput-object v1, Landroidx/slice/view/R$dimen;->LottieAnimationView:[I
 
-.field public static final abc_slice_row_selection_multi_text_height:I = 0x7f070055
+    const/16 v1, 0x24
 
-.field public static final abc_slice_row_selection_single_text_height:I = 0x7f070056
+    new-array v1, v1, [I
 
-.field public static final abc_slice_shortcut_size:I = 0x7f070057
+    fill-array-data v1, :array_2
 
-.field public static final abc_slice_small_image_size:I = 0x7f070059
+    sput-object v1, Landroidx/slice/view/R$dimen;->Preference:[I
+
+    new-array v0, v0, [I
+
+    const v1, 0x7f04005f
+
+    aput v1, v0, v3
+
+    sput-object v0, Landroidx/slice/view/R$dimen;->SettingsBarView:[I
+
+    return-void
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x7f040041
+        0x7f0404c0
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x7f040333
+        0x7f040334
+        0x7f040335
+        0x7f040336
+        0x7f040337
+        0x7f040338
+        0x7f040339
+        0x7f04033a
+        0x7f04033b
+        0x7f04033c
+        0x7f04033d
+        0x7f04033e
+        0x7f04033f
+        0x7f040340
+        0x7f040341
+        0x7f040342
+    .end array-data
+
+    :array_2
+    .array-data 4
+        0x1010002
+        0x101000d
+        0x101000e
+        0x10100f2
+        0x10101e1
+        0x10101e6
+        0x10101e8
+        0x10101e9
+        0x10101ea
+        0x10101eb
+        0x10101ec
+        0x10101ed
+        0x10101ee
+        0x10102e3
+        0x101055c
+        0x1010561
+        0x7f04002f
+        0x7f040031
+        0x7f040167
+        0x7f04016a
+        0x7f0401a8
+        0x7f0401aa
+        0x7f040216
+        0x7f04027d
+        0x7f040283
+        0x7f0402a3
+        0x7f0402c3
+        0x7f0402ce
+        0x7f0403ce
+        0x7f0403f0
+        0x7f04046d
+        0x7f04047e
+        0x7f040491
+        0x7f040542
+        0x7f0405c0
+        0x7f04060c
+    .end array-data
+.end method
+
+.method public static final roundToInt(F)I
+    .locals 1
+
+    invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {p0}, Ljava/lang/Math;->round(F)I
+
+    move-result p0
+
+    return p0
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string v0, "Cannot round NaN value."
+
+    invoke-direct {p0, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method

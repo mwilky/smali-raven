@@ -15,80 +15,78 @@
 
 
 # static fields
-.field private static final sAccelerate:Landroid/animation/TimeInterpolator;
+.field public static final sAccelerate:Landroid/view/animation/AccelerateInterpolator;
 
-.field private static final sCalculateBottom:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+.field public static final sCalculateBottom:Landroidx/leanback/transition/SlideKitkat$4;
 
-.field private static final sCalculateEnd:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+.field public static final sCalculateEnd:Landroidx/leanback/transition/SlideKitkat$6;
 
-.field private static final sCalculateLeft:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+.field public static final sCalculateLeft:Landroidx/leanback/transition/SlideKitkat$1;
 
-.field private static final sCalculateRight:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+.field public static final sCalculateRight:Landroidx/leanback/transition/SlideKitkat$3;
 
-.field private static final sCalculateStart:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+.field public static final sCalculateStart:Landroidx/leanback/transition/SlideKitkat$5;
 
-.field private static final sCalculateTop:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+.field public static final sCalculateTop:Landroidx/leanback/transition/SlideKitkat$2;
 
-.field private static final sDecelerate:Landroid/animation/TimeInterpolator;
+.field public static final sDecelerate:Landroid/view/animation/DecelerateInterpolator;
 
 
 # instance fields
-.field private mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
-
-.field private mSlideEdge:I
+.field public mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sDecelerate:Landroid/animation/TimeInterpolator;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sDecelerate:Landroid/view/animation/DecelerateInterpolator;
 
     new-instance v0, Landroid/view/animation/AccelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sAccelerate:Landroid/animation/TimeInterpolator;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sAccelerate:Landroid/view/animation/AccelerateInterpolator;
 
     new-instance v0, Landroidx/leanback/transition/SlideKitkat$1;
 
     invoke-direct {v0}, Landroidx/leanback/transition/SlideKitkat$1;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateLeft:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateLeft:Landroidx/leanback/transition/SlideKitkat$1;
 
     new-instance v0, Landroidx/leanback/transition/SlideKitkat$2;
 
     invoke-direct {v0}, Landroidx/leanback/transition/SlideKitkat$2;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateTop:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateTop:Landroidx/leanback/transition/SlideKitkat$2;
 
     new-instance v0, Landroidx/leanback/transition/SlideKitkat$3;
 
     invoke-direct {v0}, Landroidx/leanback/transition/SlideKitkat$3;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateRight:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateRight:Landroidx/leanback/transition/SlideKitkat$3;
 
     new-instance v0, Landroidx/leanback/transition/SlideKitkat$4;
 
     invoke-direct {v0}, Landroidx/leanback/transition/SlideKitkat$4;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateBottom:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateBottom:Landroidx/leanback/transition/SlideKitkat$4;
 
     new-instance v0, Landroidx/leanback/transition/SlideKitkat$5;
 
     invoke-direct {v0}, Landroidx/leanback/transition/SlideKitkat$5;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateStart:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateStart:Landroidx/leanback/transition/SlideKitkat$5;
 
     new-instance v0, Landroidx/leanback/transition/SlideKitkat$6;
 
     invoke-direct {v0}, Landroidx/leanback/transition/SlideKitkat$6;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateEnd:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateEnd:Landroidx/leanback/transition/SlideKitkat$6;
 
     return-void
 .end method
@@ -107,16 +105,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/transition/Visibility;-><init>()V
 
@@ -126,7 +114,7 @@
 
     move-result-object p2
 
-    sget v0, Landroidx/leanback/R$styleable;->lbSlide_lb_slideEdge:I
+    const/4 v0, 0x3
 
     const/16 v1, 0x50
 
@@ -136,7 +124,7 @@
 
     invoke-virtual {p0, v0}, Landroidx/leanback/transition/SlideKitkat;->setSlideEdge(I)V
 
-    sget v0, Landroidx/leanback/R$styleable;->lbSlide_android_duration:I
+    const/4 v0, 0x1
 
     const/4 v1, -0x1
 
@@ -155,7 +143,7 @@
     invoke-virtual {p0, v2, v3}, Landroid/transition/Visibility;->setDuration(J)Landroid/transition/Transition;
 
     :cond_0
-    sget v0, Landroidx/leanback/R$styleable;->lbSlide_android_startDelay:I
+    const/4 v0, 0x2
 
     invoke-virtual {p2, v0, v1}, Landroid/content/res/TypedArray;->getInt(II)I
 
@@ -170,11 +158,9 @@
     invoke-virtual {p0, v0, v1}, Landroid/transition/Visibility;->setStartDelay(J)Landroid/transition/Transition;
 
     :cond_1
-    sget v0, Landroidx/leanback/R$styleable;->lbSlide_android_interpolator:I
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
-
-    invoke-virtual {p2, v0, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p2, v0, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v0
 
@@ -192,131 +178,81 @@
     return-void
 .end method
 
-.method private createAnimation(Landroid/view/View;Landroid/util/Property;FFFLandroid/animation/TimeInterpolator;I)Landroid/animation/Animator;
-    .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "property",
-            "start",
-            "end",
-            "terminalValue",
-            "interpolator",
-            "finalVisibility"
-        }
-    .end annotation
+.method public static createAnimation(Landroid/view/View;Landroid/util/Property;FFFLandroid/view/animation/BaseInterpolator;I)Landroid/animation/ObjectAnimator;
+    .locals 7
 
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/View;",
-            "Landroid/util/Property<",
-            "Landroid/view/View;",
-            "Ljava/lang/Float;",
-            ">;FFF",
-            "Landroid/animation/TimeInterpolator;",
-            "I)",
-            "Landroid/animation/Animator;"
-        }
-    .end annotation
+    const v0, 0x7f0b0388
 
-    sget p0, Landroidx/leanback/R$id;->lb_slide_transition_value:I
+    invoke-virtual {p0, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    invoke-virtual {p1, p0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    move-result-object v1
 
-    move-result-object v0
+    check-cast v1, [F
 
-    check-cast v0, [F
+    const/4 v2, 0x1
 
-    const/4 v1, 0x1
+    const/4 v3, 0x0
 
-    const/4 v2, 0x0
+    if-eqz v1, :cond_1
 
-    if-eqz v0, :cond_1
+    sget-object p2, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
-    sget-object p3, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
+    if-ne p2, p1, :cond_0
 
-    if-ne p3, p2, :cond_0
-
-    aget p3, v0, v1
+    aget p2, v1, v2
 
     goto :goto_0
 
     :cond_0
-    aget p3, v0, v2
+    aget p2, v1, v3
 
     :goto_0
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, p0, v0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {p0, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     :cond_1
-    const/4 p0, 0x2
+    const/4 v0, 0x2
 
-    new-array p0, p0, [F
+    new-array v0, v0, [F
 
-    aput p3, p0, v2
+    aput p2, v0, v3
 
-    aput p4, p0, v1
+    aput p3, v0, v2
 
-    invoke-static {p1, p2, p0}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0, p1, v0}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Landroid/util/Property;[F)Landroid/animation/ObjectAnimator;
 
-    move-result-object p0
+    move-result-object p2
 
-    new-instance p3, Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;
+    new-instance v6, Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;
 
-    move-object v0, p3
+    move-object v0, v6
 
-    move-object v1, p1
+    move-object v1, p0
 
-    move-object v2, p2
+    move-object v2, p1
 
-    move v3, p5
+    move v3, p4
 
-    move v4, p4
+    move v4, p3
 
-    move v5, p7
+    move v5, p6
 
     invoke-direct/range {v0 .. v5}, Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;-><init>(Landroid/view/View;Landroid/util/Property;FFI)V
 
-    invoke-virtual {p0, p3}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {p2, v6}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-virtual {p0, p3}, Landroid/animation/ObjectAnimator;->addPauseListener(Landroid/animation/Animator$AnimatorPauseListener;)V
+    invoke-virtual {p2, v6}, Landroid/animation/ObjectAnimator;->addPauseListener(Landroid/animation/Animator$AnimatorPauseListener;)V
 
-    invoke-virtual {p0, p6}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {p2, p5}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    return-object p0
+    return-object p2
 .end method
 
 
 # virtual methods
-.method public onAppear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
-    .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sceneRoot",
-            "startValues",
-            "startVisibility",
-            "endValues",
-            "endVisibility"
-        }
-    .end annotation
+.method public final onAppear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
+    .locals 7
 
     const/4 p1, 0x0
 
@@ -324,70 +260,52 @@
 
     iget-object p2, p4, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    move-object v1, p2
+    move-object v0, p2
 
     goto :goto_0
 
     :cond_0
-    move-object v1, p1
+    move-object v0, p1
 
     :goto_0
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     return-object p1
 
     :cond_1
     iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
-    invoke-interface {p1, v1}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getHere(Landroid/view/View;)F
+    invoke-interface {p1, v0}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getHere(Landroid/view/View;)F
 
-    move-result v5
-
-    iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
-
-    invoke-interface {p1, v1}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getGone(Landroid/view/View;)F
-
-    move-result v3
+    move-result v4
 
     iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
-    invoke-interface {p1}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getProperty()Landroid/util/Property;
+    invoke-interface {p1, v0}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getGone(Landroid/view/View;)F
 
-    move-result-object v2
+    move-result v2
 
-    sget-object v6, Landroidx/leanback/transition/SlideKitkat;->sDecelerate:Landroid/animation/TimeInterpolator;
+    iget-object p0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
-    const/4 v7, 0x0
+    invoke-interface {p0}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getProperty()Landroid/util/Property;
 
-    move-object v0, p0
+    move-result-object v1
 
-    move v4, v5
+    sget-object v5, Landroidx/leanback/transition/SlideKitkat;->sDecelerate:Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-direct/range {v0 .. v7}, Landroidx/leanback/transition/SlideKitkat;->createAnimation(Landroid/view/View;Landroid/util/Property;FFFLandroid/animation/TimeInterpolator;I)Landroid/animation/Animator;
+    const/4 v6, 0x0
+
+    move v3, v4
+
+    invoke-static/range {v0 .. v6}, Landroidx/leanback/transition/SlideKitkat;->createAnimation(Landroid/view/View;Landroid/util/Property;FFFLandroid/view/animation/BaseInterpolator;I)Landroid/animation/ObjectAnimator;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public onDisappear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
-    .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sceneRoot",
-            "startValues",
-            "startVisibility",
-            "endValues",
-            "endVisibility"
-        }
-    .end annotation
+.method public final onDisappear(Landroid/view/ViewGroup;Landroid/transition/TransitionValues;ILandroid/transition/TransitionValues;I)Landroid/animation/Animator;
+    .locals 7
 
     const/4 p1, 0x0
 
@@ -395,62 +313,52 @@
 
     iget-object p2, p2, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
-    move-object v1, p2
+    move-object v0, p2
 
     goto :goto_0
 
     :cond_0
-    move-object v1, p1
+    move-object v0, p1
 
     :goto_0
-    if-nez v1, :cond_1
+    if-nez v0, :cond_1
 
     return-object p1
 
     :cond_1
     iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
-    invoke-interface {p1, v1}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getHere(Landroid/view/View;)F
-
-    move-result v5
-
-    iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
-
-    invoke-interface {p1, v1}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getGone(Landroid/view/View;)F
+    invoke-interface {p1, v0}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getHere(Landroid/view/View;)F
 
     move-result v4
 
     iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
-    invoke-interface {p1}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getProperty()Landroid/util/Property;
+    invoke-interface {p1, v0}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getGone(Landroid/view/View;)F
 
-    move-result-object v2
+    move-result v3
 
-    sget-object v6, Landroidx/leanback/transition/SlideKitkat;->sAccelerate:Landroid/animation/TimeInterpolator;
+    iget-object p0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
-    const/4 v7, 0x4
+    invoke-interface {p0}, Landroidx/leanback/transition/SlideKitkat$CalculateSlide;->getProperty()Landroid/util/Property;
 
-    move-object v0, p0
+    move-result-object v1
 
-    move v3, v5
+    sget-object v5, Landroidx/leanback/transition/SlideKitkat;->sAccelerate:Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-direct/range {v0 .. v7}, Landroidx/leanback/transition/SlideKitkat;->createAnimation(Landroid/view/View;Landroid/util/Property;FFFLandroid/animation/TimeInterpolator;I)Landroid/animation/Animator;
+    const/4 v6, 0x4
+
+    move v2, v4
+
+    invoke-static/range {v0 .. v6}, Landroidx/leanback/transition/SlideKitkat;->createAnimation(Landroid/view/View;Landroid/util/Property;FFFLandroid/view/animation/BaseInterpolator;I)Landroid/animation/ObjectAnimator;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public setSlideEdge(I)V
+.method public final setSlideEdge(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slideEdge"
-        }
-    .end annotation
 
     const/4 v0, 0x3
 
@@ -476,9 +384,9 @@
 
     if-ne p1, v0, :cond_0
 
-    sget-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateEnd:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/SlideKitkat;->sCalculateEnd:Landroidx/leanback/transition/SlideKitkat$6;
 
-    iput-object v0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    iput-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
     goto :goto_0
 
@@ -492,40 +400,38 @@
     throw p0
 
     :cond_1
-    sget-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateStart:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/SlideKitkat;->sCalculateStart:Landroidx/leanback/transition/SlideKitkat$5;
 
-    iput-object v0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    iput-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
     goto :goto_0
 
     :cond_2
-    sget-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateBottom:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/SlideKitkat;->sCalculateBottom:Landroidx/leanback/transition/SlideKitkat$4;
 
-    iput-object v0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    iput-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
     goto :goto_0
 
     :cond_3
-    sget-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateTop:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/SlideKitkat;->sCalculateTop:Landroidx/leanback/transition/SlideKitkat$2;
 
-    iput-object v0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    iput-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
     goto :goto_0
 
     :cond_4
-    sget-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateRight:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/SlideKitkat;->sCalculateRight:Landroidx/leanback/transition/SlideKitkat$3;
 
-    iput-object v0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    iput-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
     goto :goto_0
 
     :cond_5
-    sget-object v0, Landroidx/leanback/transition/SlideKitkat;->sCalculateLeft:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/SlideKitkat;->sCalculateLeft:Landroidx/leanback/transition/SlideKitkat$1;
 
-    iput-object v0, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
+    iput-object p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideCalculator:Landroidx/leanback/transition/SlideKitkat$CalculateSlide;
 
     :goto_0
-    iput p1, p0, Landroidx/leanback/transition/SlideKitkat;->mSlideEdge:I
-
     return-void
 .end method

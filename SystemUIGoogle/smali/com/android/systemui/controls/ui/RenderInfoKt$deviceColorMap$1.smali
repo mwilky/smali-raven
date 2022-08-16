@@ -7,12 +7,12 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/RenderInfoKt;-><clinit>()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/controls/ui/RenderInfoKt;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -36,7 +36,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/controls/ui/RenderInfoKt$deviceColorMap$1;
@@ -48,7 +48,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     const/4 v0, 0x1
@@ -60,43 +60,22 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
     check-cast p1, Ljava/lang/Number;
 
     invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
 
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/ui/RenderInfoKt$deviceColorMap$1;->invoke(I)Lkotlin/Pair;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final invoke(I)Lkotlin/Pair;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)",
-            "Lkotlin/Pair<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-
     new-instance p0, Lkotlin/Pair;
 
-    sget p1, Lcom/android/systemui/R$color;->control_foreground:I
+    const p1, 0x7f06008b
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$color;->control_enabled_default_background:I
+    const v0, 0x7f060085
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 

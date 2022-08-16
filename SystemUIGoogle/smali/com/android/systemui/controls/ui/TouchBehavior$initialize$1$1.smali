@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;
+.class public final Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;
 .super Ljava/lang/Object;
 .source "TouchBehavior.kt"
 
@@ -12,24 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/TouchBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/TouchBehavior;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/TouchBehavior;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/TouchBehavior;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->this$0:Lcom/android/systemui/controls/ui/TouchBehavior;
+    iput-object p2, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->this$0:Lcom/android/systemui/controls/ui/TouchBehavior;
 
-    iput-object p2, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
+    iput-object p1, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,35 +39,29 @@
 
 # virtual methods
 .method public final run()V
-    .locals 8
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->this$0:Lcom/android/systemui/controls/ui/TouchBehavior;
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/controls/ui/TouchBehavior;->access$setStatelessTouch$p(Lcom/android/systemui/controls/ui/TouchBehavior;Z)V
+    iput-boolean v1, v0, Lcom/android/systemui/controls/ui/TouchBehavior;->statelessTouch:Z
 
-    iget-object v2, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
+    iget-object v1, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->this$0:Lcom/android/systemui/controls/ui/TouchBehavior;
+    invoke-virtual {v0}, Lcom/android/systemui/controls/ui/TouchBehavior;->getEnabled()Z
 
-    invoke-static {v0}, Lcom/android/systemui/controls/ui/TouchBehavior;->access$getEnabled(Lcom/android/systemui/controls/ui/TouchBehavior;)Z
-
-    move-result v3
+    move-result v0
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/TouchBehavior$initialize$1$1;->this$0:Lcom/android/systemui/controls/ui/TouchBehavior;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/ui/TouchBehavior;->access$getLastColorOffset$p(Lcom/android/systemui/controls/ui/TouchBehavior;)I
+    iget p0, p0, Lcom/android/systemui/controls/ui/TouchBehavior;->lastColorOffset:I
 
-    move-result v4
+    sget-object v2, Lcom/android/systemui/controls/ui/ControlViewHolder;->FORCE_PANEL_DEVICES:Ljava/util/Set;
 
-    const/4 v5, 0x0
+    const/4 v2, 0x1
 
-    const/4 v6, 0x4
-
-    const/4 v7, 0x0
-
-    invoke-static/range {v2 .. v7}, Lcom/android/systemui/controls/ui/ControlViewHolder;->applyRenderInfo$frameworks__base__packages__SystemUI__android_common__SystemUI_core$default(Lcom/android/systemui/controls/ui/ControlViewHolder;ZIZILjava/lang/Object;)V
+    invoke-virtual {v1, p0, v0, v2}, Lcom/android/systemui/controls/ui/ControlViewHolder;->applyRenderInfo$frameworks__base__packages__SystemUI__android_common__SystemUI_core(IZZ)V
 
     return-void
 .end method

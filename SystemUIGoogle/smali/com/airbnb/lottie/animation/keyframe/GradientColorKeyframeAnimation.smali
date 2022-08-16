@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/GradientColorKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/GradientColorKeyframeAnimation;
 .super Lcom/airbnb/lottie/animation/keyframe/KeyframeAnimation;
 .source "GradientColorKeyframeAnimation.java"
 
@@ -14,7 +14,7 @@
 
 
 # instance fields
-.field private final gradientColor:Lcom/airbnb/lottie/model/content/GradientColor;
+.field public final gradientColor:Lcom/airbnb/lottie/model/content/GradientColor;
 
 
 # direct methods
@@ -49,9 +49,9 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/content/GradientColor;->getSize()I
+    iget-object p1, p1, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
 
-    move-result v0
+    array-length v0, p1
 
     :goto_0
     new-instance p1, Lcom/airbnb/lottie/model/content/GradientColor;
@@ -69,17 +69,8 @@
 
 
 # virtual methods
-.method getValue(Lcom/airbnb/lottie/value/Keyframe;F)Lcom/airbnb/lottie/model/content/GradientColor;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/value/Keyframe<",
-            "Lcom/airbnb/lottie/model/content/GradientColor;",
-            ">;F)",
-            "Lcom/airbnb/lottie/model/content/GradientColor;"
-        }
-    .end annotation
+.method public final getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
+    .locals 8
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/GradientColorKeyframeAnimation;->gradientColor:Lcom/airbnb/lottie/model/content/GradientColor;
 
@@ -91,19 +82,102 @@
 
     check-cast p1, Lcom/airbnb/lottie/model/content/GradientColor;
 
-    invoke-virtual {v0, v1, p1, p2}, Lcom/airbnb/lottie/model/content/GradientColor;->lerp(Lcom/airbnb/lottie/model/content/GradientColor;Lcom/airbnb/lottie/model/content/GradientColor;F)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
+    iget-object v2, v1, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
+
+    array-length v2, v2
+
+    iget-object v3, p1, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
+
+    array-length v3, v3
+
+    if-ne v2, v3, :cond_1
+
+    const/4 v2, 0x0
+
+    :goto_0
+    iget-object v3, v1, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
+
+    array-length v4, v3
+
+    if-ge v2, v4, :cond_0
+
+    iget-object v4, v0, Lcom/airbnb/lottie/model/content/GradientColor;->positions:[F
+
+    iget-object v5, v1, Lcom/airbnb/lottie/model/content/GradientColor;->positions:[F
+
+    aget v5, v5, v2
+
+    iget-object v6, p1, Lcom/airbnb/lottie/model/content/GradientColor;->positions:[F
+
+    aget v6, v6, v2
+
+    sget-object v7, Lcom/airbnb/lottie/utils/MiscUtils;->pathFromDataCurrentPoint:Landroid/graphics/PointF;
+
+    invoke-static {v6, v5, p2, v5}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
+
+    move-result v5
+
+    aput v5, v4, v2
+
+    iget-object v4, v0, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
+
+    aget v3, v3, v2
+
+    iget-object v5, p1, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
+
+    aget v5, v5, v2
+
+    invoke-static {p2, v3, v5}, Lokio/-Platform;->evaluate(FII)I
+
+    move-result v3
+
+    aput v3, v4, v2
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_0
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/GradientColorKeyframeAnimation;->gradientColor:Lcom/airbnb/lottie/model/content/GradientColor;
 
     return-object p0
-.end method
 
-.method bridge synthetic getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
-    .locals 0
+    :cond_1
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-virtual {p0, p1, p2}, Lcom/airbnb/lottie/animation/keyframe/GradientColorKeyframeAnimation;->getValue(Lcom/airbnb/lottie/value/Keyframe;F)Lcom/airbnb/lottie/model/content/GradientColor;
+    const-string p2, "Cannot interpolate between gradients. Lengths vary ("
 
-    move-result-object p0
+    invoke-static {p2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-object p0
+    move-result-object p2
+
+    iget-object v0, v1, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
+
+    array-length v0, v0
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, " vs "
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p1, p1, Lcom/airbnb/lottie/model/content/GradientColor;->colors:[I
+
+    array-length p1, p1
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p1, ")"
+
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

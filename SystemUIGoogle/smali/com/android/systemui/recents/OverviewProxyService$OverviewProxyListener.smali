@@ -45,19 +45,13 @@
     return-void
 .end method
 
-.method public onOverviewShown(Z)V
+.method public onOverviewShown()V
     .locals 0
 
     return-void
 .end method
 
 .method public onPrioritizedRotation(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onSwipeUpGestureStarted()V
     .locals 0
 
     return-void

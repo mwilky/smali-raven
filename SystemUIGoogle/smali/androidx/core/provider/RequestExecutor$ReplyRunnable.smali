@@ -1,4 +1,4 @@
-.class Landroidx/core/provider/RequestExecutor$ReplyRunnable;
+.class public final Landroidx/core/provider/RequestExecutor$ReplyRunnable;
 .super Ljava/lang/Object;
 .source "RequestExecutor.java"
 
@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/core/provider/RequestExecutor;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
-    name = "ReplyRunnable"
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "<T:",
@@ -28,7 +19,7 @@
 
 
 # instance fields
-.field private mCallable:Ljava/util/concurrent/Callable;
+.field public mCallable:Ljava/util/concurrent/Callable;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/Callable<",
@@ -37,7 +28,7 @@
     .end annotation
 .end field
 
-.field private mConsumer:Landroidx/core/util/Consumer;
+.field public mConsumer:Landroidx/core/util/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/core/util/Consumer<",
@@ -46,35 +37,12 @@
     .end annotation
 .end field
 
-.field private mHandler:Landroid/os/Handler;
+.field public mHandler:Landroid/os/Handler;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/Handler;Ljava/util/concurrent/Callable;Landroidx/core/util/Consumer;)V
+.method public constructor <init>(Landroid/os/Handler;Landroidx/core/provider/FontRequestWorker$3;Landroidx/core/provider/FontRequestWorker$4;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "handler",
-            "callable",
-            "consumer"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/os/Handler;",
-            "Ljava/util/concurrent/Callable<",
-            "TT;>;",
-            "Landroidx/core/util/Consumer<",
-            "TT;>;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -89,8 +57,8 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public final run()V
+    .locals 3
 
     :try_start_0
     iget-object v0, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable;->mCallable:Ljava/util/concurrent/Callable;
@@ -109,13 +77,13 @@
     :goto_0
     iget-object v1, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable;->mConsumer:Landroidx/core/util/Consumer;
 
-    iget-object v2, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable;->mHandler:Landroid/os/Handler;
+    iget-object p0, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable;->mHandler:Landroid/os/Handler;
 
-    new-instance v3, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;
+    new-instance v2, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;
 
-    invoke-direct {v3, p0, v1, v0}, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;-><init>(Landroidx/core/provider/RequestExecutor$ReplyRunnable;Landroidx/core/util/Consumer;Ljava/lang/Object;)V
+    invoke-direct {v2, v1, v0}, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;-><init>(Landroidx/core/util/Consumer;Ljava/lang/Object;)V
 
-    invoke-virtual {v2, v3}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {p0, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

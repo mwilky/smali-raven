@@ -7,25 +7,27 @@
 
 
 # instance fields
-.field private mAod:Z
+.field public mAod:Z
 
-.field private mBgView:Landroid/widget/ImageView;
+.field public mBgView:Landroid/widget/ImageView;
 
-.field private mDozeAmount:F
+.field public mDozeAmount:F
 
-.field private mIconType:I
+.field public mIconType:I
 
-.field private mLockIcon:Landroid/widget/ImageView;
+.field public mLockIcon:Landroid/widget/ImageView;
 
-.field private mLockIconCenter:Landroid/graphics/PointF;
+.field public mLockIconCenter:Landroid/graphics/PointF;
 
-.field private mLockIconColor:I
+.field public mLockIconColor:I
 
-.field private mRadius:I
+.field public mLockIconPadding:I
 
-.field private final mSensorRect:Landroid/graphics/RectF;
+.field public mRadius:F
 
-.field private mUseBackground:Z
+.field public final mSensorRect:Landroid/graphics/RectF;
+
+.field public mUseBackground:Z
 
 
 # direct methods
@@ -57,310 +59,202 @@
     return-void
 .end method
 
-.method private static getLockIconState(IZ)[I
-    .locals 4
-
-    const/4 v0, 0x0
-
-    const/4 v1, -0x1
-
-    if-ne p0, v1, :cond_0
-
-    new-array p0, v0, [I
-
-    return-object p0
-
-    :cond_0
-    const/4 v1, 0x2
-
-    new-array v2, v1, [I
-
-    const/4 v3, 0x1
-
-    if-eqz p0, :cond_3
-
-    if-eq p0, v3, :cond_2
-
-    if-eq p0, v1, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    const p0, 0x10100a6
-
-    aput p0, v2, v0
-
-    goto :goto_0
-
-    :cond_2
-    const p0, 0x10100a5
-
-    aput p0, v2, v0
-
-    goto :goto_0
-
-    :cond_3
-    const p0, 0x10100a4
-
-    aput p0, v2, v0
-
-    :goto_0
-    if-eqz p1, :cond_4
-
-    const p0, 0x10100a3
-
-    aput p0, v2, v3
-
-    goto :goto_1
-
-    :cond_4
-    const p0, -0x10100a3
-
-    aput p0, v2, v3
-
-    :goto_1
-    return-object v2
-.end method
-
-.method private typeToString(I)Ljava/lang/String;
-    .locals 0
-
-    const/4 p0, -0x1
-
-    if-eq p1, p0, :cond_3
-
-    if-eqz p1, :cond_2
-
-    const/4 p0, 0x1
-
-    if-eq p1, p0, :cond_1
-
-    const/4 p0, 0x2
-
-    if-eq p1, p0, :cond_0
-
-    const-string p0, "invalid"
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "unlock"
-
-    return-object p0
-
-    :cond_1
-    const-string p0, "fingerprint"
-
-    return-object p0
-
-    :cond_2
-    const-string p0, "lock"
-
-    return-object p0
-
-    :cond_3
-    const-string p0, "none"
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public clearIcon()V
-    .locals 2
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 4
 
-    const/4 v0, -0x1
+    const-string p2, "Lock Icon View Parameters:"
 
-    const/4 v1, 0x0
+    const-string v0, "    Center in px (x, y)= ("
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/keyguard/LockIconView;->updateIcon(IZ)V
+    invoke-static {p1, p2, v0}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline0;->m(Ljava/io/PrintWriter;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    return-void
-.end method
-
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 2
-
-    const-string p1, "Lock Icon View Parameters:"
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "    Center in px (x, y)= ("
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p3, p0, Lcom/android/keyguard/LockIconView;->mLockIconCenter:Landroid/graphics/PointF;
-
-    iget p3, p3, Landroid/graphics/PointF;->x:F
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
-
-    const-string p3, ", "
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
     iget-object v0, p0, Lcom/android/keyguard/LockIconView;->mLockIconCenter:Landroid/graphics/PointF;
 
-    iget v0, v0, Landroid/graphics/PointF;->y:F
+    iget v0, v0, Landroid/graphics/PointF;->x:F
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    const-string v0, ")"
+    const-string v0, ", "
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/keyguard/LockIconView;->mLockIconCenter:Landroid/graphics/PointF;
 
-    move-result-object p1
+    iget v1, v1, Landroid/graphics/PointF;->y:F
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string v1, ")"
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "    Radius in pixels: "
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    iget v1, p0, Lcom/android/keyguard/LockIconView;->mRadius:I
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object p1
+    const-string v2, "    Radius in pixels: "
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    iget v2, p0, Lcom/android/keyguard/LockIconView;->mRadius:F
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v3, "    Drawable padding: "
 
-    const-string v1, "    mIconType="
+    invoke-static {p2, v2, p1, v3}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    iget v1, p0, Lcom/android/keyguard/LockIconView;->mIconType:I
+    iget v2, p0, Lcom/android/keyguard/LockIconView;->mLockIconPadding:I
 
-    invoke-direct {p0, v1}, Lcom/android/keyguard/LockIconView;->typeToString(I)Ljava/lang/String;
+    const-string v3, "    mIconType="
 
-    move-result-object v1
+    invoke-static {p2, v2, p1, v3}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget v2, p0, Lcom/android/keyguard/LockIconView;->mIconType:I
 
-    move-result-object p1
+    const/4 v3, -0x1
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    if-eq v2, v3, :cond_3
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_2
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    const/4 v3, 0x1
 
-    const-string v1, "    mAod="
+    if-eq v2, v3, :cond_1
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/4 v3, 0x2
 
-    iget-boolean v1, p0, Lcom/android/keyguard/LockIconView;->mAod:Z
+    if-eq v2, v3, :cond_0
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string v2, "invalid"
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    goto :goto_0
 
-    move-result-object p1
+    :cond_0
+    const-string/jumbo v2, "unlock"
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    goto :goto_0
 
-    const-string p1, "Lock Icon View actual measurements:"
+    :cond_1
+    const-string v2, "fingerprint"
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    goto :goto_0
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    :cond_2
+    const-string v2, "lock"
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    goto :goto_0
 
-    const-string v1, "    topLeft= ("
+    :cond_3
+    const-string v2, "none"
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_0
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "    mAod="
+
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v2, p0, Lcom/android/keyguard/LockIconView;->mAod:Z
+
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string p2, "Lock Icon View actual measurements:"
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "    topLeft= ("
+
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getX()F
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v2}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getY()F
 
-    move-result p3
+    move-result v0
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p2
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    new-instance p2, Ljava/lang/StringBuilder;
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p3, "    width="
+    const-string v0, "    width="
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
 
-    move-result p3
+    move-result v0
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p3, " height="
+    const-string v0, " height="
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
 
     move-result p0
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method getLocationTop()F
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/LockIconView;->mLockIconCenter:Landroid/graphics/PointF;
-
-    iget v0, v0, Landroid/graphics/PointF;->y:F
-
-    iget p0, p0, Lcom/android/keyguard/LockIconView;->mRadius:I
-
-    int-to-float p0, p0
-
-    sub-float/2addr v0, p0
-
-    return v0
-.end method
-
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -368,12 +262,12 @@
     return p0
 .end method
 
-.method public onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/systemui/R$id;->lock_icon:I
+    const v0, 0x7f0b03ab
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -383,7 +277,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/LockIconView;->mLockIcon:Landroid/widget/ImageView;
 
-    sget v0, Lcom/android/systemui/R$id;->lock_icon_bg:I
+    const v0, 0x7f0b03ac
 
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -396,36 +290,38 @@
     return-void
 .end method
 
-.method public setCenterLocation(Landroid/graphics/PointF;I)V
-    .locals 5
+.method public setCenterLocation(Landroid/graphics/PointF;FI)V
+    .locals 3
 
     iput-object p1, p0, Lcom/android/keyguard/LockIconView;->mLockIconCenter:Landroid/graphics/PointF;
 
-    iput p2, p0, Lcom/android/keyguard/LockIconView;->mRadius:I
+    iput p2, p0, Lcom/android/keyguard/LockIconView;->mRadius:F
 
-    iget-object v0, p0, Lcom/android/keyguard/LockIconView;->mSensorRect:Landroid/graphics/RectF;
+    iput p3, p0, Lcom/android/keyguard/LockIconView;->mLockIconPadding:I
 
-    iget v1, p1, Landroid/graphics/PointF;->x:F
+    iget-object p1, p0, Lcom/android/keyguard/LockIconView;->mLockIcon:Landroid/widget/ImageView;
 
-    int-to-float v2, p2
+    invoke-virtual {p1, p3, p3, p3, p3}, Landroid/widget/ImageView;->setPadding(IIII)V
 
-    sub-float v2, v1, v2
+    iget-object p1, p0, Lcom/android/keyguard/LockIconView;->mSensorRect:Landroid/graphics/RectF;
 
-    iget p1, p1, Landroid/graphics/PointF;->y:F
+    iget-object p2, p0, Lcom/android/keyguard/LockIconView;->mLockIconCenter:Landroid/graphics/PointF;
 
-    int-to-float v3, p2
+    iget p3, p2, Landroid/graphics/PointF;->x:F
 
-    sub-float v3, p1, v3
+    iget v0, p0, Lcom/android/keyguard/LockIconView;->mRadius:F
 
-    int-to-float v4, p2
+    sub-float v1, p3, v0
 
-    add-float/2addr v1, v4
+    iget p2, p2, Landroid/graphics/PointF;->y:F
 
-    int-to-float p2, p2
+    sub-float v2, p2, v0
 
-    add-float/2addr p1, p2
+    add-float/2addr p3, v0
 
-    invoke-virtual {v0, v2, v3, v1, p1}, Landroid/graphics/RectF;->set(FFFF)V
+    add-float/2addr p2, v0
+
+    invoke-virtual {p1, v1, v2, p3, p2}, Landroid/graphics/RectF;->set(FFFF)V
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -435,31 +331,31 @@
 
     iget-object p2, p0, Lcom/android/keyguard/LockIconView;->mSensorRect:Landroid/graphics/RectF;
 
-    iget v0, p2, Landroid/graphics/RectF;->right:F
+    iget p3, p2, Landroid/graphics/RectF;->right:F
 
-    iget v1, p2, Landroid/graphics/RectF;->left:F
+    iget v0, p2, Landroid/graphics/RectF;->left:F
 
-    sub-float/2addr v0, v1
+    sub-float/2addr p3, v0
 
-    float-to-int v0, v0
+    float-to-int p3, p3
 
-    iput v0, p1, Landroid/widget/FrameLayout$LayoutParams;->width:I
+    iput p3, p1, Landroid/widget/FrameLayout$LayoutParams;->width:I
 
-    iget v0, p2, Landroid/graphics/RectF;->bottom:F
+    iget p3, p2, Landroid/graphics/RectF;->bottom:F
 
     iget p2, p2, Landroid/graphics/RectF;->top:F
 
-    sub-float/2addr v0, p2
+    sub-float/2addr p3, p2
 
-    float-to-int v0, v0
+    float-to-int p3, p3
 
-    iput v0, p1, Landroid/widget/FrameLayout$LayoutParams;->height:I
+    iput p3, p1, Landroid/widget/FrameLayout$LayoutParams;->height:I
 
     float-to-int p2, p2
 
     iput p2, p1, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
-    float-to-int p2, v1
+    float-to-int p2, v0
 
     invoke-virtual {p1, p2}, Landroid/widget/FrameLayout$LayoutParams;->setMarginStart(I)V
 
@@ -468,62 +364,7 @@
     return-void
 .end method
 
-.method setDozeAmount(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/keyguard/LockIconView;->mDozeAmount:F
-
-    invoke-virtual {p0}, Lcom/android/keyguard/LockIconView;->updateColorAndBackgroundVisibility()V
-
-    return-void
-.end method
-
-.method setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/LockIconView;->mLockIcon:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    iget-boolean v0, p0, Lcom/android/keyguard/LockIconView;->mUseBackground:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    if-nez p1, :cond_1
-
-    iget-object p0, p0, Lcom/android/keyguard/LockIconView;->mBgView:Landroid/widget/ImageView;
-
-    const/4 p1, 0x4
-
-    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/keyguard/LockIconView;->mBgView:Landroid/widget/ImageView;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    :goto_0
-    return-void
-.end method
-
-.method public setUseBackground(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/keyguard/LockIconView;->mUseBackground:Z
-
-    invoke-virtual {p0}, Lcom/android/keyguard/LockIconView;->updateColorAndBackgroundVisibility()V
-
-    return-void
-.end method
-
-.method updateColorAndBackgroundVisibility()V
+.method public final updateColorAndBackgroundVisibility()V
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/keyguard/LockIconView;->mUseBackground:Z
@@ -564,7 +405,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$drawable;->fingerprint_bg:I
+    const v2, 0x7f08043c
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -595,7 +436,7 @@
 
     move-result-object v0
 
-    sget v2, Lcom/android/systemui/R$attr;->wallpaperTextColorAccent:I
+    const v2, 0x7f040604
 
     invoke-static {v0, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
@@ -629,8 +470,8 @@
     return-void
 .end method
 
-.method public updateIcon(IZ)V
-    .locals 0
+.method public final updateIcon(IZ)V
+    .locals 4
 
     iput p1, p0, Lcom/android/keyguard/LockIconView;->mIconType:I
 
@@ -638,13 +479,69 @@
 
     iget-object p0, p0, Lcom/android/keyguard/LockIconView;->mLockIcon:Landroid/widget/ImageView;
 
-    invoke-static {p1, p2}, Lcom/android/keyguard/LockIconView;->getLockIconState(IZ)[I
+    const/4 v0, 0x0
 
-    move-result-object p1
+    const/4 v1, -0x1
 
-    const/4 p2, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {p0, p1, p2}, Landroid/widget/ImageView;->setImageState([IZ)V
+    if-ne p1, v1, :cond_0
+
+    new-array p1, v0, [I
+
+    goto :goto_2
+
+    :cond_0
+    const/4 v1, 0x2
+
+    new-array v3, v1, [I
+
+    if-eqz p1, :cond_3
+
+    if-eq p1, v2, :cond_2
+
+    if-eq p1, v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const p1, 0x10100a6
+
+    aput p1, v3, v0
+
+    goto :goto_0
+
+    :cond_2
+    const p1, 0x10100a5
+
+    aput p1, v3, v0
+
+    goto :goto_0
+
+    :cond_3
+    const p1, 0x10100a4
+
+    aput p1, v3, v0
+
+    :goto_0
+    if-eqz p2, :cond_4
+
+    const p1, 0x10100a3
+
+    aput p1, v3, v2
+
+    goto :goto_1
+
+    :cond_4
+    const p1, -0x10100a3
+
+    aput p1, v3, v2
+
+    :goto_1
+    move-object p1, v3
+
+    :goto_2
+    invoke-virtual {p0, p1, v2}, Landroid/widget/ImageView;->setImageState([IZ)V
 
     return-void
 .end method

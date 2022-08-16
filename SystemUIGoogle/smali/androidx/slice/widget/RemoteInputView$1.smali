@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/RemoteInputView$1;
+.class public final Landroidx/slice/widget/RemoteInputView$1;
 .super Ljava/lang/Object;
 .source "RemoteInputView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/slice/widget/RemoteInputView;
+.field public final synthetic this$0:Landroidx/slice/widget/RemoteInputView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/RemoteInputView;)V
+.method public constructor <init>(Landroidx/slice/widget/RemoteInputView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/RemoteInputView$1;->this$0:Landroidx/slice/widget/RemoteInputView;
 
@@ -42,20 +34,8 @@
 
 
 # virtual methods
-.method public onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "actionId",
-            "event"
-        }
-    .end annotation
+.method public final onEditorAction(Landroid/widget/TextView;ILandroid/view/KeyEvent;)Z
+    .locals 3
 
     const/4 p1, 0x1
 
@@ -84,43 +64,65 @@
     move p2, v0
 
     :goto_0
-    if-eqz p3, :cond_2
+    if-eqz p3, :cond_3
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getKeyCode()I
 
     move-result v1
 
-    invoke-static {v1}, Landroidx/slice/widget/RemoteInputView;->isConfirmKey(I)Z
+    sget-object v2, Landroidx/slice/widget/RemoteInputView;->VIEW_TAG:Ljava/lang/Object;
 
-    move-result v1
+    const/16 v2, 0x17
 
-    if-eqz v1, :cond_2
+    if-eq v1, v2, :cond_2
+
+    const/16 v2, 0x3e
+
+    if-eq v1, v2, :cond_2
+
+    const/16 v2, 0x42
+
+    if-eq v1, v2, :cond_2
+
+    const/16 v2, 0xa0
+
+    if-eq v1, v2, :cond_2
+
+    move v1, v0
+
+    goto :goto_1
+
+    :cond_2
+    move v1, p1
+
+    :goto_1
+    if-eqz v1, :cond_3
 
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
     move-result p3
 
-    if-nez p3, :cond_2
+    if-nez p3, :cond_3
 
     move p3, p1
-
-    goto :goto_1
-
-    :cond_2
-    move p3, v0
-
-    :goto_1
-    if-nez p2, :cond_4
-
-    if-eqz p3, :cond_3
 
     goto :goto_2
 
     :cond_3
-    return v0
+    move p3, v0
+
+    :goto_2
+    if-nez p2, :cond_5
+
+    if-eqz p3, :cond_4
+
+    goto :goto_3
 
     :cond_4
-    :goto_2
+    return v0
+
+    :cond_5
+    :goto_3
     iget-object p2, p0, Landroidx/slice/widget/RemoteInputView$1;->this$0:Landroidx/slice/widget/RemoteInputView;
 
     iget-object p2, p2, Landroidx/slice/widget/RemoteInputView;->mEditText:Landroidx/slice/widget/RemoteInputView$RemoteEditText;
@@ -129,12 +131,12 @@
 
     move-result p2
 
-    if-lez p2, :cond_5
+    if-lez p2, :cond_6
 
     iget-object p0, p0, Landroidx/slice/widget/RemoteInputView$1;->this$0:Landroidx/slice/widget/RemoteInputView;
 
     invoke-virtual {p0}, Landroidx/slice/widget/RemoteInputView;->sendRemoteInput()V
 
-    :cond_5
+    :cond_6
     return p1
 .end method

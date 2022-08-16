@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract onNotificationRemoveRequested(Ljava/lang/String;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
+.method public abstract onNotificationRemoveRequested(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;I)Z
 .end method

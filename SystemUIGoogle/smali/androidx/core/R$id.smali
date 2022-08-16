@@ -3,95 +3,109 @@
 .source "R.java"
 
 
-# static fields
-.field public static final accessibility_action_clickable_span:I = 0x7f0b001d
+# direct methods
+.method public static applyMaskPenaltyRule1Internal(Lcom/google/zxing/qrcode/encoder/ByteMatrix;Z)I
+    .locals 10
 
-.field public static final accessibility_custom_action_0:I = 0x7f0b0029
+    if-eqz p1, :cond_0
 
-.field public static final accessibility_custom_action_1:I = 0x7f0b002a
+    iget v0, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->height:I
 
-.field public static final accessibility_custom_action_10:I = 0x7f0b002b
+    goto :goto_0
 
-.field public static final accessibility_custom_action_11:I = 0x7f0b002c
+    :cond_0
+    iget v0, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->width:I
 
-.field public static final accessibility_custom_action_12:I = 0x7f0b002d
+    :goto_0
+    if-eqz p1, :cond_1
 
-.field public static final accessibility_custom_action_13:I = 0x7f0b002e
+    iget v1, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->width:I
 
-.field public static final accessibility_custom_action_14:I = 0x7f0b002f
+    goto :goto_1
 
-.field public static final accessibility_custom_action_15:I = 0x7f0b0030
+    :cond_1
+    iget v1, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->height:I
 
-.field public static final accessibility_custom_action_16:I = 0x7f0b0031
+    :goto_1
+    iget-object p0, p0, Lcom/google/zxing/qrcode/encoder/ByteMatrix;->bytes:[[B
 
-.field public static final accessibility_custom_action_17:I = 0x7f0b0032
+    const/4 v2, 0x0
 
-.field public static final accessibility_custom_action_18:I = 0x7f0b0033
+    move v3, v2
 
-.field public static final accessibility_custom_action_19:I = 0x7f0b0034
+    move v4, v3
 
-.field public static final accessibility_custom_action_2:I = 0x7f0b0035
+    :goto_2
+    if-ge v3, v0, :cond_7
 
-.field public static final accessibility_custom_action_20:I = 0x7f0b0036
+    const/4 v5, -0x1
 
-.field public static final accessibility_custom_action_21:I = 0x7f0b0037
+    move v6, v2
 
-.field public static final accessibility_custom_action_22:I = 0x7f0b0038
+    move v7, v6
 
-.field public static final accessibility_custom_action_23:I = 0x7f0b0039
+    :goto_3
+    const/4 v8, 0x5
 
-.field public static final accessibility_custom_action_24:I = 0x7f0b003a
+    if-ge v6, v1, :cond_5
 
-.field public static final accessibility_custom_action_25:I = 0x7f0b003b
+    if-eqz p1, :cond_2
 
-.field public static final accessibility_custom_action_26:I = 0x7f0b003c
+    aget-object v9, p0, v3
 
-.field public static final accessibility_custom_action_27:I = 0x7f0b003d
+    aget-byte v9, v9, v6
 
-.field public static final accessibility_custom_action_28:I = 0x7f0b003e
+    goto :goto_4
 
-.field public static final accessibility_custom_action_29:I = 0x7f0b003f
+    :cond_2
+    aget-object v9, p0, v6
 
-.field public static final accessibility_custom_action_3:I = 0x7f0b0040
+    aget-byte v9, v9, v3
 
-.field public static final accessibility_custom_action_30:I = 0x7f0b0041
+    :goto_4
+    if-ne v9, v5, :cond_3
 
-.field public static final accessibility_custom_action_31:I = 0x7f0b0042
+    add-int/lit8 v7, v7, 0x1
 
-.field public static final accessibility_custom_action_4:I = 0x7f0b0043
+    goto :goto_5
 
-.field public static final accessibility_custom_action_5:I = 0x7f0b0044
+    :cond_3
+    if-lt v7, v8, :cond_4
 
-.field public static final accessibility_custom_action_6:I = 0x7f0b0045
+    add-int/lit8 v7, v7, -0x5
 
-.field public static final accessibility_custom_action_7:I = 0x7f0b0046
+    add-int/lit8 v7, v7, 0x3
 
-.field public static final accessibility_custom_action_8:I = 0x7f0b0047
+    add-int/2addr v4, v7
 
-.field public static final accessibility_custom_action_9:I = 0x7f0b0048
+    :cond_4
+    const/4 v5, 0x1
 
-.field public static final tag_accessibility_actions:I = 0x7f0b05fe
+    move v7, v5
 
-.field public static final tag_accessibility_clickable_spans:I = 0x7f0b05ff
+    move v5, v9
 
-.field public static final tag_accessibility_heading:I = 0x7f0b0600
+    :goto_5
+    add-int/lit8 v6, v6, 0x1
 
-.field public static final tag_accessibility_pane_title:I = 0x7f0b0601
+    goto :goto_3
 
-.field public static final tag_on_apply_window_listener:I = 0x7f0b0602
+    :cond_5
+    if-lt v7, v8, :cond_6
 
-.field public static final tag_on_receive_content_listener:I = 0x7f0b0603
+    add-int/lit8 v7, v7, -0x5
 
-.field public static final tag_on_receive_content_mime_types:I = 0x7f0b0604
+    add-int/lit8 v7, v7, 0x3
 
-.field public static final tag_screen_reader_focusable:I = 0x7f0b0605
+    add-int/2addr v7, v4
 
-.field public static final tag_state_description:I = 0x7f0b0606
+    move v4, v7
 
-.field public static final tag_transition_group:I = 0x7f0b0607
+    :cond_6
+    add-int/lit8 v3, v3, 0x1
 
-.field public static final tag_unhandled_key_event_manager:I = 0x7f0b0608
+    goto :goto_2
 
-.field public static final tag_unhandled_key_listeners:I = 0x7f0b0609
-
-.field public static final tag_window_insets_animation_callback:I = 0x7f0b060a
+    :cond_7
+    return v4
+.end method

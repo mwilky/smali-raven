@@ -9,15 +9,15 @@
 
 
 # instance fields
-.field private mAllowAnimation:Z
+.field public mAllowAnimation:Z
 
-.field mAnim:Landroid/graphics/drawable/AnimationDrawable;
+.field public mAnim:Landroid/graphics/drawable/AnimationDrawable;
 
-.field mAttached:Z
+.field public mAttached:Z
 
-.field mDrawableId:I
+.field public mDrawableId:I
 
-.field private final mHasOverlappingRendering:Z
+.field public final mHasOverlappingRendering:Z
 
 
 # direct methods
@@ -53,9 +53,7 @@
     move-result-object p1
 
     :try_start_0
-    sget p2, Lcom/android/systemui/R$styleable;->AnimatedImageView_hasOverlappingRendering:I
-
-    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p1, v2, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result p2
 
@@ -75,7 +73,143 @@
     throw p0
 .end method
 
-.method private updateAnim()V
+
+# virtual methods
+.method public hasOverlappingRendering()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mHasOverlappingRendering:Z
+
+    return p0
+.end method
+
+.method public final onAttachedToWindow()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAttached:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AnimatedImageView;->updateAnim()V
+
+    return-void
+.end method
+
+.method public final onDetachedFromWindow()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/ImageView;->onDetachedFromWindow()V
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
+
+    :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAttached:Z
+
+    return-void
+.end method
+
+.method public final onVisibilityChanged(Landroid/view/View;I)V
+    .locals 0
+
+    invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onVisibilityChanged(Landroid/view/View;I)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->isShown()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAllowAnimation:Z
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
+
+    :cond_1
+    :goto_0
+    return-void
+.end method
+
+.method public final setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 2
+
+    if-eqz p1, :cond_1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
+
+    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
+
+    :goto_0
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AnimatedImageView;->updateAnim()V
+
+    return-void
+.end method
+
+.method public final setImageResource(I)V
+    .locals 1
+    .annotation runtime Landroid/view/RemotableViewMethod;
+    .end annotation
+
+    iget v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
+
+    if-ne v0, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
+
+    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AnimatedImageView;->updateAnim()V
+
+    return-void
+.end method
+
+.method public final updateAnim()V
     .locals 2
 
     invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
@@ -124,182 +258,5 @@
 
     :cond_2
     :goto_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public hasOverlappingRendering()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mHasOverlappingRendering:Z
-
-    return p0
-.end method
-
-.method public onAttachedToWindow()V
-    .locals 1
-
-    invoke-super {p0}, Landroid/widget/ImageView;->onAttachedToWindow()V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAttached:Z
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/AnimatedImageView;->updateAnim()V
-
-    return-void
-.end method
-
-.method public onDetachedFromWindow()V
-    .locals 1
-
-    invoke-super {p0}, Landroid/widget/ImageView;->onDetachedFromWindow()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAttached:Z
-
-    return-void
-.end method
-
-.method protected onVisibilityChanged(Landroid/view/View;I)V
-    .locals 0
-
-    invoke-super {p0, p1, p2}, Landroid/widget/ImageView;->onVisibilityChanged(Landroid/view/View;I)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
-
-    if-eqz p1, :cond_1
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->isShown()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAllowAnimation:Z
-
-    if-eqz p1, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/AnimationDrawable;->stop()V
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method public setAllowAnimation(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAllowAnimation:Z
-
-    if-eq v0, p1, :cond_1
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAllowAnimation:Z
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/AnimatedImageView;->updateAnim()V
-
-    iget-boolean p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAllowAnimation:Z
-
-    if-nez p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mAnim:Landroid/graphics/drawable/AnimationDrawable;
-
-    if-eqz p1, :cond_1
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->getVisibility()I
-
-    move-result p0
-
-    const/4 v0, 0x1
-
-    if-nez p0, :cond_0
-
-    move p0, v0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    invoke-virtual {p1, p0, v0}, Landroid/graphics/drawable/AnimationDrawable;->setVisible(ZZ)Z
-
-    :cond_1
-    return-void
-.end method
-
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
-
-    if-eqz p1, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
-
-    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
-
-    move-result v1
-
-    if-ne v0, v1, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
-
-    :goto_0
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/AnimatedImageView;->updateAnim()V
-
-    return-void
-.end method
-
-.method public setImageResource(I)V
-    .locals 1
-    .annotation runtime Landroid/view/RemotableViewMethod;
-    .end annotation
-
-    iget v0, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput p1, p0, Lcom/android/systemui/statusbar/AnimatedImageView;->mDrawableId:I
-
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageResource(I)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/AnimatedImageView;->updateAnim()V
-
     return-void
 .end method

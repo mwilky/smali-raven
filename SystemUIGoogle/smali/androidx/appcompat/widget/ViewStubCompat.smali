@@ -3,20 +3,10 @@
 .source "ViewStubCompat.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/appcompat/widget/ViewStubCompat$OnInflateListener;
-    }
-.end annotation
-
-
 # instance fields
-.field private mInflateListener:Landroidx/appcompat/widget/ViewStubCompat$OnInflateListener;
+.field public mInflatedId:I
 
-.field private mInflatedId:I
-
-.field private mInflatedViewRef:Ljava/lang/ref/WeakReference;
+.field public mInflatedViewRef:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -26,9 +16,9 @@
     .end annotation
 .end field
 
-.field private mInflater:Landroid/view/LayoutInflater;
+.field public mInflater:Landroid/view/LayoutInflater;
 
-.field private mLayoutResource:I
+.field public mLayoutResource:I
 
 
 # direct methods
@@ -57,7 +47,7 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/appcompat/R$styleable;->ViewStubCompat_android_inflatedId:I
+    const/4 p2, 0x2
 
     const/4 p3, -0x1
 
@@ -67,21 +57,19 @@
 
     iput p2, p0, Landroidx/appcompat/widget/ViewStubCompat;->mInflatedId:I
 
-    sget p2, Landroidx/appcompat/R$styleable;->ViewStubCompat_android_layout:I
+    const/4 p2, 0x1
 
     invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    move-result p2
+    move-result v1
 
-    iput p2, p0, Landroidx/appcompat/widget/ViewStubCompat;->mLayoutResource:I
+    iput v1, p0, Landroidx/appcompat/widget/ViewStubCompat;->mLayoutResource:I
 
-    sget p2, Landroidx/appcompat/R$styleable;->ViewStubCompat_android_id:I
+    invoke-virtual {p1, v0, p3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
-    invoke-virtual {p1, p2, p3}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    move-result p3
 
-    move-result p2
-
-    invoke-virtual {p0, p2}, Landroid/view/View;->setId(I)V
+    invoke-virtual {p0, p3}, Landroid/view/View;->setId(I)V
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
@@ -89,22 +77,20 @@
 
     invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ViewStubCompat;->setVisibility(I)V
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->setWillNotDraw(Z)V
+    invoke-virtual {p0, p2}, Landroid/view/View;->setWillNotDraw(Z)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected dispatchDraw(Landroid/graphics/Canvas;)V
+.method public final dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 0
 
     return-void
 .end method
 
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 0
     .annotation build Landroid/annotation/SuppressLint;
         value = {
@@ -115,7 +101,7 @@
     return-void
 .end method
 
-.method public inflate()Landroid/view/View;
+.method public final inflate()Landroid/view/View;
     .locals 4
 
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
@@ -124,11 +110,11 @@
 
     instance-of v1, v0, Landroid/view/ViewGroup;
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     iget v1, p0, Landroidx/appcompat/widget/ViewStubCompat;->mLayoutResource:I
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     check-cast v0, Landroid/view/ViewGroup;
 
@@ -191,16 +177,9 @@
 
     iput-object v0, p0, Landroidx/appcompat/widget/ViewStubCompat;->mInflatedViewRef:Ljava/lang/ref/WeakReference;
 
-    iget-object v0, p0, Landroidx/appcompat/widget/ViewStubCompat;->mInflateListener:Landroidx/appcompat/widget/ViewStubCompat$OnInflateListener;
-
-    if-eqz v0, :cond_3
-
-    invoke-interface {v0, p0, v1}, Landroidx/appcompat/widget/ViewStubCompat$OnInflateListener;->onInflate(Landroidx/appcompat/widget/ViewStubCompat;Landroid/view/View;)V
-
-    :cond_3
     return-object v1
 
-    :cond_4
+    :cond_3
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string v0, "ViewStub must have a valid layoutResource"
@@ -209,7 +188,7 @@
 
     throw p0
 
-    :cond_5
+    :cond_4
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string v0, "ViewStub must have a non-null ViewGroup viewParent"
@@ -219,7 +198,7 @@
     throw p0
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 0
 
     const/4 p1, 0x0
@@ -229,15 +208,7 @@
     return-void
 .end method
 
-.method public setLayoutInflater(Landroid/view/LayoutInflater;)V
-    .locals 0
-
-    iput-object p1, p0, Landroidx/appcompat/widget/ViewStubCompat;->mInflater:Landroid/view/LayoutInflater;
-
-    return-void
-.end method
-
-.method public setVisibility(I)V
+.method public final setVisibility(I)V
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/widget/ViewStubCompat;->mInflatedViewRef:Ljava/lang/ref/WeakReference;
@@ -259,7 +230,7 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
 
-    const-string p1, "setVisibility called on un-referenced view"
+    const-string/jumbo p1, "setVisibility called on un-referenced view"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 

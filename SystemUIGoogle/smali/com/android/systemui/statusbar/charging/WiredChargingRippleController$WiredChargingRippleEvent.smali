@@ -27,7 +27,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
 
 .field public static final enum CHARGING_RIPPLE_PLAYED:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
 
@@ -37,24 +37,20 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 4
+.method public static constructor <clinit>()V
+    .locals 3
 
     new-instance v0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
 
-    const-string v1, "CHARGING_RIPPLE_PLAYED"
-
-    const/4 v2, 0x0
-
-    const/16 v3, 0x33d
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;-><init>(Ljava/lang/String;II)V
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;-><init>()V
 
     sput-object v0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;->CHARGING_RIPPLE_PLAYED:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
 
     const/4 v1, 0x1
 
     new-array v1, v1, [Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
+
+    const/4 v2, 0x0
 
     aput-object v0, v1, v2
 
@@ -63,27 +59,24 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)V"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 2
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    const-string v0, "CHARGING_RIPPLE_PLAYED"
 
-    iput p3, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;->_id:I
+    const/4 v1, 0x0
+
+    invoke-direct {p0, v0, v1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+
+    const/16 v0, 0x33d
+
+    iput v0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;->_id:I
 
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
     .locals 1
-
-    const-string/jumbo v0, "value"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     const-class v0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
 
@@ -97,26 +90,22 @@
 .end method
 
 .method public static values()[Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
-    .locals 4
+    .locals 1
 
     sget-object v0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;->$VALUES:[Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
 
-    array-length v1, v0
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    new-array v1, v1, [Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
+    move-result-object v0
 
-    array-length v2, v0
+    check-cast v0, [Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;
 
-    const/4 v3, 0x0
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    return-object v1
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$WiredChargingRippleEvent;->_id:I

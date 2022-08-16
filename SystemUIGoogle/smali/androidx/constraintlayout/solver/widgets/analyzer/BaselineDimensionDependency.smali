@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/solver/widgets/analyzer/BaselineDimensionDependency;
+.class public final Landroidx/constraintlayout/solver/widgets/analyzer/BaselineDimensionDependency;
 .super Landroidx/constraintlayout/solver/widgets/analyzer/DimensionDependency;
 .source "BaselineDimensionDependency.java"
 

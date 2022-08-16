@@ -1,27 +1,16 @@
-.class Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$4;
+.class public final Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$4;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "StackStateAnimator.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->animateOverScrollToAmount(FZZ)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
-.field final synthetic val$onTop:Z
+.field public final synthetic val$onTop:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;Z)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$4;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
@@ -35,7 +24,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$4;->val$onTop:Z
@@ -46,14 +35,14 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$4;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
-    invoke-static {p0, v0}, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->access$602(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->mTopOverScrollAnimator:Landroid/animation/ValueAnimator;
 
     goto :goto_0
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator$4;->this$0:Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;
 
-    invoke-static {p0, v0}, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->access$702(Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/StackStateAnimator;->mBottomOverScrollAnimator:Landroid/animation/ValueAnimator;
 
     :goto_0
     return-void

@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method public onScreenTurningOn()V
+.method public onScreenTurningOn(Ljava/lang/Runnable;)V
     .locals 0
 
     return-void

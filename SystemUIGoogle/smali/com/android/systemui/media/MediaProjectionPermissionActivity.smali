@@ -8,13 +8,13 @@
 
 
 # instance fields
-.field private mDialog:Landroid/app/AlertDialog;
+.field public mDialog:Landroid/app/AlertDialog;
 
-.field private mPackageName:Ljava/lang/String;
+.field public mPackageName:Ljava/lang/String;
 
-.field private mService:Landroid/media/projection/IMediaProjectionManager;
+.field public mService:Landroid/media/projection/IMediaProjectionManager;
 
-.field private mUid:I
+.field public mUid:I
 
 
 # direct methods
@@ -26,40 +26,9 @@
     return-void
 .end method
 
-.method private getMediaProjectionIntent(ILjava/lang/String;)Landroid/content/Intent;
-    .locals 1
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mService:Landroid/media/projection/IMediaProjectionManager;
-
-    const/4 v0, 0x0
-
-    invoke-interface {p0, p1, p2, v0, v0}, Landroid/media/projection/IMediaProjectionManager;->createProjection(ILjava/lang/String;IZ)Landroid/media/projection/IMediaProjection;
-
-    move-result-object p0
-
-    new-instance p1, Landroid/content/Intent;
-
-    invoke-direct {p1}, Landroid/content/Intent;-><init>()V
-
-    invoke-interface {p0}, Landroid/media/projection/IMediaProjection;->asBinder()Landroid/os/IBinder;
-
-    move-result-object p0
-
-    const-string p2, "android.media.projection.extra.EXTRA_MEDIA_PROJECTION"
-
-    invoke-virtual {p1, p2, p0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
-
-    return-object p1
-.end method
-
 
 # virtual methods
-.method public onCancel(Landroid/content/DialogInterface;)V
+.method public final onCancel(Landroid/content/DialogInterface;)V
     .locals 0
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
@@ -67,23 +36,39 @@
     return-void
 .end method
 
-.method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 1
+.method public final onClick(Landroid/content/DialogInterface;I)V
+    .locals 3
 
     const/4 p1, -0x1
 
     if-ne p2, p1, :cond_1
 
+    const/4 p2, 0x0
+
     :try_start_0
-    iget p2, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mUid:I
+    iget v0, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mUid:I
 
-    iget-object v0, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mPackageName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mPackageName:Ljava/lang/String;
 
-    invoke-direct {p0, p2, v0}, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->getMediaProjectionIntent(ILjava/lang/String;)Landroid/content/Intent;
+    iget-object v2, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mService:Landroid/media/projection/IMediaProjectionManager;
 
-    move-result-object p2
+    invoke-interface {v2, v0, v1, p2, p2}, Landroid/media/projection/IMediaProjectionManager;->createProjection(ILjava/lang/String;IZ)Landroid/media/projection/IMediaProjection;
 
-    invoke-virtual {p0, p1, p2}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
+    move-result-object v0
+
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    invoke-interface {v0}, Landroid/media/projection/IMediaProjection;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v0
+
+    const-string v2, "android.media.projection.extra.EXTRA_MEDIA_PROJECTION"
+
+    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
+
+    invoke-virtual {p0, p1, v1}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -99,15 +84,13 @@
     move-exception p1
 
     :try_start_1
-    const-string p2, "MediaProjectionPermissionActivity"
+    const-string v0, "MediaProjectionPermissionActivity"
 
-    const-string v0, "Error granting projection permission"
+    const-string v1, "Error granting projection permission"
 
-    invoke-static {p2, v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Landroid/app/Activity;->setResult(I)V
+    invoke-virtual {p0, p2}, Landroid/app/Activity;->setResult(I)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -144,7 +127,7 @@
     return-void
 .end method
 
-.method public onCreate(Landroid/os/Bundle;)V
+.method public final onCreate(Landroid/os/Bundle;)V
     .locals 9
 
     const-string v0, "MediaProjectionPermissionActivity"
@@ -214,11 +197,25 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mPackageName:Ljava/lang/String;
 
-    invoke-direct {p0, p1, v1}, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->getMediaProjectionIntent(ILjava/lang/String;)Landroid/content/Intent;
+    iget-object v3, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mService:Landroid/media/projection/IMediaProjectionManager;
+
+    invoke-interface {v3, p1, v1, v2, v2}, Landroid/media/projection/IMediaProjectionManager;->createProjection(ILjava/lang/String;IZ)Landroid/media/projection/IMediaProjection;
 
     move-result-object p1
 
-    invoke-virtual {p0, v4, p1}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
+    new-instance v1, Landroid/content/Intent;
+
+    invoke-direct {v1}, Landroid/content/Intent;-><init>()V
+
+    invoke-interface {p1}, Landroid/media/projection/IMediaProjection;->asBinder()Landroid/os/IBinder;
+
+    move-result-object p1
+
+    const-string v2, "android.media.projection.extra.EXTRA_MEDIA_PROJECTION"
+
+    invoke-virtual {v1, v2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
+
+    invoke-virtual {p0, v4, v1}, Landroid/app/Activity;->setResult(ILandroid/content/Intent;)V
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
     :try_end_1
@@ -245,13 +242,13 @@
 
     if-eqz v3, :cond_2
 
-    sget p1, Lcom/android/systemui/R$string;->media_projection_dialog_service_text:I
+    const p1, 0x7f130470
 
     invoke-virtual {p0, p1}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$string;->media_projection_dialog_service_title:I
+    const v0, 0x7f130471
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -358,7 +355,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$string;->media_projection_dialog_text:I
+    const v0, 0x7f130472
 
     new-array v1, v5, [Ljava/lang/Object;
 
@@ -391,7 +388,7 @@
     invoke-virtual {v1, v3, v0, v6, v2}, Landroid/text/SpannableString;->setSpan(Ljava/lang/Object;III)V
 
     :cond_7
-    sget v0, Lcom/android/systemui/R$string;->media_projection_dialog_title:I
+    const v0, 0x7f130473
 
     new-array v3, v5, [Ljava/lang/Object;
 
@@ -404,29 +401,19 @@
     move-object p1, v1
 
     :goto_2
-    sget v1, Lcom/android/systemui/R$layout;->media_projection_dialog_title:I
+    new-instance v1, Landroid/app/AlertDialog$Builder;
 
-    const/4 v2, 0x0
+    const v2, 0x7f14044b
 
-    invoke-static {p0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-direct {v1, p0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    move-result-object v1
+    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    sget v2, Lcom/android/systemui/R$id;->dialog_title:I
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    const v1, 0x7f08058f
 
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    new-instance v0, Landroid/app/AlertDialog$Builder;
-
-    invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCustomTitle(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
@@ -434,7 +421,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$string;->media_projection_action_text:I
+    const v0, 0x7f13046f
 
     invoke-virtual {p1, v0, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -442,7 +429,7 @@
 
     const/high16 v0, 0x1040000
 
-    invoke-virtual {p1, v0, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p1, v0, p0}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object p1
 
@@ -455,6 +442,18 @@
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->registerDismissListener(Landroid/app/Dialog;)V
+
+    iget-object p1, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->applyFlags(Landroid/app/AlertDialog;)V
+
+    iget-object p1, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mDialog:Landroid/app/AlertDialog;
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setDialogSize(Landroid/app/Dialog;)V
+
+    iget-object p1, p0, Lcom/android/systemui/media/MediaProjectionPermissionActivity;->mDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {p1}, Landroid/app/AlertDialog;->create()V
 
@@ -471,10 +470,6 @@
     invoke-virtual {p1}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
     move-result-object p1
-
-    const/16 v0, 0x7d9
-
-    invoke-virtual {p1, v0}, Landroid/view/Window;->setType(I)V
 
     const/high16 v0, 0x80000
 
@@ -500,7 +495,7 @@
     :catch_1
     move-exception p1
 
-    const-string v1, "unable to look up package name"
+    const-string/jumbo v1, "unable to look up package name"
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -509,7 +504,7 @@
     return-void
 .end method
 
-.method protected onDestroy()V
+.method public final onDestroy()V
     .locals 0
 
     invoke-super {p0}, Landroid/app/Activity;->onDestroy()V

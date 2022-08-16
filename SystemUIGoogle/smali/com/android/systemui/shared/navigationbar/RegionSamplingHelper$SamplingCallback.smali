@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public abstract getSampledRegion(Landroid/view/View;)Landroid/graphics/Rect;
+.method public abstract getSampledRegion()Landroid/graphics/Rect;
 .end method
 
 .method public isSamplingEnabled()Z

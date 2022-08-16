@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;
+.class public final Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;
 .super Ljava/lang/Object;
 .source "PluginManagerImpl.java"
 
@@ -12,71 +12,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "PluginExceptionHandler"
 .end annotation
 
 
 # instance fields
-.field private final mExceptionHandlerOptional:Ljava/util/Optional;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Optional<",
-            "Ljava/lang/Thread$UncaughtExceptionHandler;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field final synthetic this$0:Lcom/android/systemui/shared/plugins/PluginManagerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/shared/plugins/PluginManagerImpl;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$z9t9P8v3jgTN-_uKOhiAblr02AQ(Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/Thread$UncaughtExceptionHandler;)V
+.method public constructor <init>(Lcom/android/systemui/shared/plugins/PluginManagerImpl;)V
     .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->lambda$uncaughtException$0(Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$zP9ibK1dbUiFTVS9DQzDnfkI6Kg(Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->lambda$uncaughtException$1(Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-
-    return-void
-.end method
-
-.method private constructor <init>(Lcom/android/systemui/shared/plugins/PluginManagerImpl;Ljava/util/Optional;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Optional<",
-            "Ljava/lang/Thread$UncaughtExceptionHandler;",
-            ">;)V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->this$0:Lcom/android/systemui/shared/plugins/PluginManagerImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->mExceptionHandlerOptional:Ljava/util/Optional;
-
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/shared/plugins/PluginManagerImpl;Ljava/util/Optional;Lcom/android/systemui/shared/plugins/PluginManagerImpl$1;)V
-    .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;-><init>(Lcom/android/systemui/shared/plugins/PluginManagerImpl;Ljava/util/Optional;)V
-
-    return-void
-.end method
-
-.method private checkStack(Ljava/lang/Throwable;)Z
+# virtual methods
+.method public final checkStack(Ljava/lang/Throwable;)Z
     .locals 8
 
     const/4 v0, 0x0
@@ -104,9 +62,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->this$0:Lcom/android/systemui/shared/plugins/PluginManagerImpl;
 
-    invoke-static {v5}, Lcom/android/systemui/shared/plugins/PluginManagerImpl;->access$100(Lcom/android/systemui/shared/plugins/PluginManagerImpl;)Landroid/util/ArrayMap;
-
-    move-result-object v5
+    iget-object v5, v5, Lcom/android/systemui/shared/plugins/PluginManagerImpl;->mPluginMap:Landroid/util/ArrayMap;
 
     invoke-virtual {v5}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
 
@@ -155,7 +111,7 @@
 
     move-result-object p1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->checkStack(Ljava/lang/Throwable;)Z
+    invoke-virtual {p0, p1}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->checkStack(Ljava/lang/Throwable;)Z
 
     move-result p0
 
@@ -174,89 +130,61 @@
     throw p1
 .end method
 
-.method private static synthetic lambda$uncaughtException$0(Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-    .locals 0
+.method public final uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
+    .locals 2
 
-    invoke-interface {p2, p0, p1}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
+    const-string/jumbo p1, "plugin.debugging"
 
-    return-void
-.end method
+    const/4 v0, 0x0
 
-.method private static synthetic lambda$uncaughtException$1(Ljava/lang/Thread;Ljava/lang/Throwable;Ljava/lang/Thread$UncaughtExceptionHandler;)V
-    .locals 0
+    invoke-static {p1, v0}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
-    invoke-interface {p2, p0, p1}, Ljava/lang/Thread$UncaughtExceptionHandler;->uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
+    move-result p1
 
-    return-void
-.end method
-
-
-# virtual methods
-.method public uncaughtException(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-    .locals 3
-
-    const-string v0, "plugin.debugging"
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->mExceptionHandlerOptional:Ljava/util/Optional;
-
-    new-instance v0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0, p1, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler$$ExternalSyntheticLambda0;-><init>(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+    if-eqz p1, :cond_0
 
     return-void
 
     :cond_0
-    invoke-direct {p0, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->checkStack(Ljava/lang/Throwable;)Z
+    invoke-virtual {p0, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->checkStack(Ljava/lang/Throwable;)Z
 
-    move-result v0
+    move-result p1
 
-    if-nez v0, :cond_2
+    if-nez p1, :cond_2
 
     monitor-enter p0
 
     :try_start_0
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->this$0:Lcom/android/systemui/shared/plugins/PluginManagerImpl;
+    iget-object v0, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->this$0:Lcom/android/systemui/shared/plugins/PluginManagerImpl;
 
-    invoke-static {v1}, Lcom/android/systemui/shared/plugins/PluginManagerImpl;->access$100(Lcom/android/systemui/shared/plugins/PluginManagerImpl;)Landroid/util/ArrayMap;
+    iget-object v0, v0, Lcom/android/systemui/shared/plugins/PluginManagerImpl;->mPluginMap:Landroid/util/ArrayMap;
 
-    move-result-object v1
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
 
-    invoke-virtual {v1}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+    move-result-object v0
 
-    move-result-object v1
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
+    move-result-object v0
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/android/systemui/shared/plugins/PluginActionManager;
+    check-cast v1, Lcom/android/systemui/shared/plugins/PluginActionManager;
 
-    invoke-virtual {v2}, Lcom/android/systemui/shared/plugins/PluginActionManager;->disableAll()Z
+    invoke-virtual {v1}, Lcom/android/systemui/shared/plugins/PluginActionManager;->disableAll()Z
 
-    move-result v2
+    move-result v1
 
-    or-int/2addr v0, v2
+    or-int/2addr p1, v1
 
     goto :goto_0
 
@@ -276,22 +204,12 @@
 
     :cond_2
     :goto_1
-    if-eqz v0, :cond_3
+    if-eqz p1, :cond_3
 
-    new-instance v0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$CrashWhilePluginActiveException;
+    new-instance p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$CrashWhilePluginActiveException;
 
-    invoke-direct {v0, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$CrashWhilePluginActiveException;-><init>(Ljava/lang/Throwable;)V
-
-    move-object p2, v0
+    invoke-direct {p0, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$CrashWhilePluginActiveException;-><init>(Ljava/lang/Throwable;)V
 
     :cond_3
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler;->mExceptionHandlerOptional:Ljava/util/Optional;
-
-    new-instance v0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p1, p2}, Lcom/android/systemui/shared/plugins/PluginManagerImpl$PluginExceptionHandler$$ExternalSyntheticLambda1;-><init>(Ljava/lang/Thread;Ljava/lang/Throwable;)V
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
     return-void
 .end method

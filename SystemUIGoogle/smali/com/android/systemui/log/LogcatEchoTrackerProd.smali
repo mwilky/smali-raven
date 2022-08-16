@@ -17,16 +17,16 @@
 
 
 # virtual methods
-.method public isBufferLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
+.method public final getLogInBackgroundThread()Z
     .locals 0
 
-    const-string p0, "bufferName"
+    const/4 p0, 0x0
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    return p0
+.end method
 
-    const-string p0, "level"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final isBufferLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
+    .locals 0
 
     sget-object p0, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
 
@@ -47,16 +47,8 @@
     return p0
 .end method
 
-.method public isTagLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
+.method public final isTagLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
     .locals 0
-
-    const-string p0, "tagName"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "level"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     sget-object p0, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
 

@@ -22,9 +22,6 @@
 .method public abstract getNavigationMode()I
 .end method
 
-.method public abstract getViewGroup()Landroid/view/ViewGroup;
-.end method
-
 .method public abstract hasExpandedActionView()Z
 .end method
 
@@ -49,13 +46,13 @@
 .method public abstract setDisplayOptions(I)V
 .end method
 
-.method public abstract setEmbeddedTabView(Landroidx/appcompat/widget/ScrollingTabContainerView;)V
+.method public abstract setEmbeddedTabView()V
 .end method
 
-.method public abstract setHomeButtonEnabled(Z)V
+.method public abstract setHomeButtonEnabled()V
 .end method
 
-.method public abstract setMenu(Landroid/view/Menu;Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
+.method public abstract setMenu(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;)V
 .end method
 
 .method public abstract setMenuPrepared()V
@@ -70,7 +67,7 @@
 .method public abstract setWindowTitle(Ljava/lang/CharSequence;)V
 .end method
 
-.method public abstract setupAnimatorToVisibility(IJ)Landroidx/core/view/ViewPropertyAnimatorCompat;
+.method public abstract setupAnimatorToVisibility(JI)Landroidx/core/view/ViewPropertyAnimatorCompat;
 .end method
 
 .method public abstract showOverflowMenu()Z

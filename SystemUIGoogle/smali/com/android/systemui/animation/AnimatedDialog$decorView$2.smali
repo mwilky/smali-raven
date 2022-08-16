@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/animation/AnimatedDialog;
+.field public final synthetic this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
+.method public constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$decorView$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
@@ -45,14 +45,12 @@
 
 
 # virtual methods
-.method public final invoke()Landroid/view/ViewGroup;
+.method public final invoke()Ljava/lang/Object;
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog$decorView$2;->this$0:Lcom/android/systemui/animation/AnimatedDialog;
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/AnimatedDialog;->getDialog()Landroid/app/Dialog;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog;->dialog:Landroid/app/Dialog;
 
     invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
@@ -64,21 +62,18 @@
 
     move-result-object p0
 
-    const-string v0, "null cannot be cast to non-null type android.view.ViewGroup"
-
-    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p0, :cond_0
 
     check-cast p0, Landroid/view/ViewGroup;
 
     return-object p0
-.end method
 
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
+    :cond_0
+    new-instance p0, Ljava/lang/NullPointerException;
 
-    invoke-virtual {p0}, Lcom/android/systemui/animation/AnimatedDialog$decorView$2;->invoke()Landroid/view/ViewGroup;
+    const-string v0, "null cannot be cast to non-null type android.view.ViewGroup"
 
-    move-result-object p0
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
 
-    return-object p0
+    throw p0
 .end method

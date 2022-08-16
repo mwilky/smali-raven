@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,18 @@
     .end annotation
 .end field
 
-.field private final commandQueueProvider:Ljavax/inject/Provider;
+.field public final centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public final commandQueueProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +49,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,20 +59,39 @@
     .end annotation
 .end field
 
-.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+.field public final enhancedEstimatesProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;"
+            "Lcom/android/systemui/power/EnhancedEstimates;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final powerManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/os/PowerManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final warningsUIProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/power/PowerUI$WarningsUI;",
+            ">;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,8 +107,17 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)V"
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/power/PowerUI$WarningsUI;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/power/EnhancedEstimates;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/PowerManager;",
+            ">;)V"
         }
     .end annotation
 
@@ -90,13 +129,19 @@
 
     iput-object p3, p0, Lcom/android/systemui/power/PowerUI_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/power/PowerUI_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/power/PowerUI_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/power/PowerUI_Factory;->warningsUIProvider:Ljavax/inject/Provider;
+
+    iput-object p6, p0, Lcom/android/systemui/power/PowerUI_Factory;->enhancedEstimatesProvider:Ljavax/inject/Provider;
+
+    iput-object p7, p0, Lcom/android/systemui/power/PowerUI_Factory;->powerManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/power/PowerUI_Factory;
-    .locals 1
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/power/PowerUI_Factory;
+    .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -111,46 +156,48 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/power/PowerUI$WarningsUI;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/power/EnhancedEstimates;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Landroid/os/PowerManager;",
+            ">;)",
             "Lcom/android/systemui/power/PowerUI_Factory;"
         }
     .end annotation
 
-    new-instance v0, Lcom/android/systemui/power/PowerUI_Factory;
+    new-instance v8, Lcom/android/systemui/power/PowerUI_Factory;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/power/PowerUI_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object v0, v8
 
-    return-object v0
-.end method
+    move-object v1, p0
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;)Lcom/android/systemui/power/PowerUI;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
-            "Ldagger/Lazy<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;)",
-            "Lcom/android/systemui/power/PowerUI;"
-        }
-    .end annotation
+    move-object v2, p1
 
-    new-instance v0, Lcom/android/systemui/power/PowerUI;
+    move-object v3, p2
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/power/PowerUI;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;)V
+    move-object v4, p3
 
-    return-object v0
+    move-object v5, p4
+
+    move-object v6, p5
+
+    move-object v7, p6
+
+    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/power/PowerUI_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v8
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/power/PowerUI;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/power/PowerUI_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -158,43 +205,71 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/content/Context;
+    move-object v2, v0
 
-    iget-object v1, p0, Lcom/android/systemui/power/PowerUI_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    check-cast v2, Landroid/content/Context;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/power/PowerUI_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/power/PowerUI_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    move-object v3, v0
 
-    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    check-cast v3, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/systemui/power/PowerUI_Factory;->commandQueueProvider:Ljavax/inject/Provider;
 
-    check-cast v2, Lcom/android/systemui/statusbar/CommandQueue;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerUI_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    move-result-object v0
 
-    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/statusbar/CommandQueue;
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerUI_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v5
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerUI_Factory;->warningsUIProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/power/PowerUI$WarningsUI;
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerUI_Factory;->enhancedEstimatesProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Lcom/android/systemui/power/EnhancedEstimates;
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI_Factory;->powerManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/power/PowerUI_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;)Lcom/android/systemui/power/PowerUI;
+    move-object v8, p0
 
-    move-result-object p0
+    check-cast v8, Landroid/os/PowerManager;
 
-    return-object p0
-.end method
+    new-instance p0, Lcom/android/systemui/power/PowerUI;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    move-object v1, p0
 
-    invoke-virtual {p0}, Lcom/android/systemui/power/PowerUI_Factory;->get()Lcom/android/systemui/power/PowerUI;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/power/PowerUI;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Lcom/android/systemui/power/PowerUI$WarningsUI;Lcom/android/systemui/power/EnhancedEstimates;Landroid/os/PowerManager;)V
 
     return-object p0
 .end method

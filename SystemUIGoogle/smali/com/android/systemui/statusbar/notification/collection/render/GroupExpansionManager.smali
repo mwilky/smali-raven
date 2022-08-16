@@ -21,7 +21,7 @@
 .method public abstract isGroupExpanded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 .end method
 
-.method public abstract registerGroupExpansionChangeListener(Lcom/android/systemui/statusbar/notification/collection/render/GroupExpansionManager$OnGroupExpansionChangeListener;)V
+.method public abstract registerGroupExpansionChangeListener(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController$$ExternalSyntheticLambda4;)V
 .end method
 
 .method public abstract setGroupExpanded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V

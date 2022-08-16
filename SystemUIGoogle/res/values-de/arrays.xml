@@ -17,6 +17,7 @@
         <item>Höchstens 3 Prozesse</item>
         <item>Höchstens 4 Prozesse</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Aus</item>
         <item>An</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Nicht verfügbar</item>
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Nicht verfügbar</item>
         <item>Aus</item>
@@ -306,6 +312,16 @@
         <item>An</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Nicht verfügbar</item>
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Nicht verfügbar</item>
+        <item>Aus</item>
+        <item>An</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Nicht verfügbar</item>
         <item>Aus</item>
         <item>An</item>
@@ -374,6 +390,12 @@
         <item>Schnell</item>
         <item>Sehr schnell</item>
         <item>Am schnellsten</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Nach links bewegen</item>
+        <item>Nach unten bewegen</item>
+        <item>Nach rechts bewegen</item>
+        <item>Nach oben bewegen</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Wird aufgeladen</item>

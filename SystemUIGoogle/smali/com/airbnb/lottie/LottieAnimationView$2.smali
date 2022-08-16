@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieAnimationView$2;
+.class public final Lcom/airbnb/lottie/LottieAnimationView$2;
 .super Ljava/lang/Object;
 .source "LottieAnimationView.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieAnimationView;
+.field public final synthetic this$0:Lcom/airbnb/lottie/LottieAnimationView;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieAnimationView;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieAnimationView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieAnimationView$2;->this$0:Lcom/airbnb/lottie/LottieAnimationView;
@@ -43,22 +43,14 @@
 
 
 # virtual methods
-.method public onResult(Lcom/airbnb/lottie/LottieComposition;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/LottieAnimationView$2;->this$0:Lcom/airbnb/lottie/LottieAnimationView;
-
-    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView;->setComposition(Lcom/airbnb/lottie/LottieComposition;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic onResult(Ljava/lang/Object;)V
+.method public final onResult(Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Lcom/airbnb/lottie/LottieComposition;
 
-    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView$2;->onResult(Lcom/airbnb/lottie/LottieComposition;)V
+    iget-object p0, p0, Lcom/airbnb/lottie/LottieAnimationView$2;->this$0:Lcom/airbnb/lottie/LottieAnimationView;
+
+    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/LottieAnimationView;->setComposition(Lcom/airbnb/lottie/LottieComposition;)V
 
     return-void
 .end method

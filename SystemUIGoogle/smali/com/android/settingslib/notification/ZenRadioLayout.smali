@@ -12,38 +12,38 @@
     return-void
 .end method
 
-.method private findFirstClickable(Landroid/view/View;)Landroid/view/View;
+.method public static findFirstClickable(Landroid/view/View;)Landroid/view/View;
     .locals 2
 
-    invoke-virtual {p1}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    return-object p1
+    return-object p0
 
     :cond_0
-    instance-of v0, p1, Landroid/view/ViewGroup;
+    instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_2
 
-    check-cast p1, Landroid/view/ViewGroup;
+    check-cast p0, Landroid/view/ViewGroup;
 
     const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v1
 
     if-ge v0, v1, :cond_2
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/settingslib/notification/ZenRadioLayout;->findFirstClickable(Landroid/view/View;)Landroid/view/View;
+    invoke-static {v1}, Lcom/android/settingslib/notification/ZenRadioLayout;->findFirstClickable(Landroid/view/View;)Landroid/view/View;
 
     move-result-object v1
 
@@ -62,49 +62,44 @@
     return-object p0
 .end method
 
-.method private findLastClickable(Landroid/view/View;)Landroid/view/View;
+.method public static findLastClickable(Landroid/view/View;)Landroid/view/View;
     .locals 2
 
-    invoke-virtual {p1}, Landroid/view/View;->isClickable()Z
+    invoke-virtual {p0}, Landroid/view/View;->isClickable()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    return-object p1
+    return-object p0
 
     :cond_0
-    instance-of v0, p1, Landroid/view/ViewGroup;
+    instance-of v0, p0, Landroid/view/ViewGroup;
 
     if-eqz v0, :cond_2
 
-    check-cast p1, Landroid/view/ViewGroup;
+    check-cast p0, Landroid/view/ViewGroup;
 
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->getChildCount()I
 
     move-result v0
 
+    :cond_1
     add-int/lit8 v0, v0, -0x1
 
-    :goto_0
     if-ltz v0, :cond_2
 
-    invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/settingslib/notification/ZenRadioLayout;->findLastClickable(Landroid/view/View;)Landroid/view/View;
+    invoke-static {v1}, Lcom/android/settingslib/notification/ZenRadioLayout;->findLastClickable(Landroid/view/View;)Landroid/view/View;
 
     move-result-object v1
 
     if-eqz v1, :cond_1
 
     return-object v1
-
-    :cond_1
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
 
     :cond_2
     const/4 p0, 0x0
@@ -114,7 +109,7 @@
 
 
 # virtual methods
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 11
 
     invoke-super {p0, p1, p2}, Landroid/widget/LinearLayout;->onMeasure(II)V
@@ -171,7 +166,7 @@
     invoke-virtual {v7, v6}, Landroid/view/View;->setAccessibilityTraversalAfter(I)V
 
     :cond_0
-    invoke-direct {p0, v8}, Lcom/android/settingslib/notification/ZenRadioLayout;->findFirstClickable(Landroid/view/View;)Landroid/view/View;
+    invoke-static {v8}, Lcom/android/settingslib/notification/ZenRadioLayout;->findFirstClickable(Landroid/view/View;)Landroid/view/View;
 
     move-result-object v6
 
@@ -184,7 +179,7 @@
     invoke-virtual {v6, v9}, Landroid/view/View;->setAccessibilityTraversalAfter(I)V
 
     :cond_1
-    invoke-direct {p0, v8}, Lcom/android/settingslib/notification/ZenRadioLayout;->findLastClickable(Landroid/view/View;)Landroid/view/View;
+    invoke-static {v8}, Lcom/android/settingslib/notification/ZenRadioLayout;->findLastClickable(Landroid/view/View;)Landroid/view/View;
 
     move-result-object v6
 

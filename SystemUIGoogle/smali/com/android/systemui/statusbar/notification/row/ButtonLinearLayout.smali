@@ -14,7 +14,7 @@
 
 
 # virtual methods
-.method public getAccessibilityClassName()Ljava/lang/CharSequence;
+.method public final getAccessibilityClassName()Ljava/lang/CharSequence;
     .locals 0
 
     const-class p0, Landroid/widget/Button;

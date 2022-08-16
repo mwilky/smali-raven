@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateRows$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;
@@ -34,13 +34,13 @@
 
 
 # virtual methods
-.method public onTransitionCancel(Landroid/transition/Transition;)V
+.method public final onTransitionCancel(Landroid/transition/Transition;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionEnd(Landroid/transition/Transition;)V
+.method public final onTransitionEnd(Landroid/transition/Transition;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView$updateRows$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorListView;
@@ -50,19 +50,19 @@
     return-void
 .end method
 
-.method public onTransitionPause(Landroid/transition/Transition;)V
+.method public final onTransitionPause(Landroid/transition/Transition;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionResume(Landroid/transition/Transition;)V
+.method public final onTransitionResume(Landroid/transition/Transition;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionStart(Landroid/transition/Transition;)V
+.method public final onTransitionStart(Landroid/transition/Transition;)V
     .locals 0
 
     return-void

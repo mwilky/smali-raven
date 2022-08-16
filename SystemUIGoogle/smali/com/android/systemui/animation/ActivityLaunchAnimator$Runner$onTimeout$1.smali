@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$onTimeout$1;
+.class public final Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$onTimeout$1;
 .super Ljava/lang/Object;
 .source "ActivityLaunchAnimator.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;
+.field public final synthetic this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)V
+.method public constructor <init>(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$onTimeout$1;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;
@@ -35,11 +35,31 @@
 
 # virtual methods
 .method public final run()V
-    .locals 0
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner$onTimeout$1;->this$0:Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;
 
-    invoke-static {p0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->access$onAnimationTimedOut(Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;)V
+    iget-boolean v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->cancelled:Z
 
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "ActivityLaunchAnimator"
+
+    const-string v1, "Remote animation timed out"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->timedOut:Z
+
+    iget-object p0, p0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Runner;->controller:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+
+    invoke-interface {p0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->onLaunchAnimationCancelled()V
+
+    :goto_0
     return-void
 .end method

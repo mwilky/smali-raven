@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/TaskbarDelegate$1;
+.class public final Lcom/android/systemui/navigationbar/TaskbarDelegate$1;
 .super Ljava/lang/Object;
 .source "TaskbarDelegate.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$1;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
@@ -34,22 +34,58 @@
 
 
 # virtual methods
-.method public updateAccessibilityServicesState()V
+.method public final updateAccessibilityServicesState()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$1;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/TaskbarDelegate;->access$000(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/TaskbarDelegate;->updateSysuiFlags()V
 
     return-void
 .end method
 
-.method public updateAssistantAvailable(Z)V
-    .locals 0
+.method public final updateAssistantAvailable(Z)V
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$1;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/TaskbarDelegate;->access$100(Lcom/android/systemui/navigationbar/TaskbarDelegate;Z)V
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
+
+    if-nez p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    :try_start_0
+    invoke-interface {p0, p1}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onAssistantAvailable(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onAssistantAvailable() failed, available: "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "TaskbarDelegate"
+
+    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
     return-void
 .end method

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnLayoutChangeListener;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/LongScreenshotActivity$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/screenshot/LongScreenshotActivity;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->$r8$lambda$aMkbduOksLUQfNp9Tn4RQVDXZxU(Lcom/android/systemui/screenshot/LongScreenshotActivity;)V
+    sget p1, Lcom/android/systemui/screenshot/LongScreenshotActivity;->$r8$clinit:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/LongScreenshotActivity;->updateImageDimensions()V
 
     return-void
 .end method

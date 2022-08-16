@@ -34,6 +34,8 @@
         <item>3</item>
         <item>4</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
+    <array name="avatar_images" />
     <array name="background_style1">
         <item>@drawable/rounded_ripple</item>
     </array>
@@ -314,7 +316,13 @@
         <item>0</item>
         <item>400</item>
     </integer-array>
+    <array name="config_collapsed_statusbar_icon_blocklist">
+        <item>@android:string/status_bar_volume</item>
+        <item>@android:string/status_bar_alarm_clock</item>
+        <item>@android:string/status_bar_call_strength</item>
+    </array>
     <array name="config_controlsPreferredPackages" />
+    <array name="config_dock_bound_components" />
     <integer-array name="config_doze_brightness_sensor_to_brightness">
         <item>-1</item>
         <item>2</item>
@@ -330,6 +338,11 @@
         <item>0</item>
     </integer-array>
     <array name="config_face_auth_props" />
+    <array name="config_keyguard_statusbar_icon_blocklist">
+        <item>@android:string/status_bar_volume</item>
+        <item>@android:string/status_bar_alarm_clock</item>
+        <item>@android:string/status_bar_call_strength</item>
+    </array>
     <array name="config_nfc_conflict_with_usb_audio_productid" />
     <array name="config_nfc_conflict_with_usb_audio_vendorid" />
     <integer-array name="config_notification_snooze_times">
@@ -342,7 +355,9 @@
         <item>com.android.systemui</item>
     </string-array>
     <string-array name="config_quickSettingsAutoAdd">
+        <item>accessibility_display_daltonizer_enabled:color_correction</item>
         <item>accessibility_display_inversion_enabled:inversion</item>
+        <item>one_handed_mode_enabled:onehanded</item>
         <item>wind_down_first_time_setup:custom(com.google.android.apps.wellbeing/.screen.ui.GrayscaleTileService)</item>
         <item>focus_mode_first_time_setup:custom(com.google.android.apps.wellbeing/.focusmode.quicksettings.FocusModeTileService)</item>
     </string-array>
@@ -354,10 +369,6 @@
         <item>@drawable/rounded</item>
         <item>@drawable/rounded_secondary</item>
     </array>
-    <array name="config_roundedCornerMultipleRadiusArray">
-        <item>@bool/config_roundedCornerMultipleRadius</item>
-        <item>@bool/config_roundedCornerMultipleRadiusSecondary</item>
-    </array>
     <array name="config_roundedCornerTopDrawableArray">
         <item>@drawable/rounded_corner_top</item>
         <item>@drawable/rounded_corner_top_secondary</item>
@@ -366,31 +377,6 @@
         <item>@android:string/status_bar_rotate</item>
         <item>@android:string/status_bar_headset</item>
     </array>
-    <string-array name="config_systemUIServiceComponents">
-        <item>com.android.systemui.util.NotificationChannels</item>
-        <item>com.android.systemui.keyguard.KeyguardViewMediator</item>
-        <item>com.android.systemui.recents.Recents</item>
-        <item>com.android.systemui.volume.VolumeUI</item>
-        <item>com.android.systemui.statusbar.phone.StatusBar</item>
-        <item>com.android.systemui.usb.StorageNotification</item>
-        <item>com.android.systemui.power.PowerUI</item>
-        <item>com.android.systemui.media.RingtonePlayer</item>
-        <item>com.android.systemui.keyboard.KeyboardUI</item>
-        <item>com.android.systemui.shortcut.ShortcutKeyDispatcher</item>
-        <item>@string/config_systemUIVendorServiceComponent</item>
-        <item>com.android.systemui.util.leak.GarbageMonitor$Service</item>
-        <item>com.android.systemui.LatencyTester</item>
-        <item>com.android.systemui.globalactions.GlobalActionsComponent</item>
-        <item>com.android.systemui.ScreenDecorations</item>
-        <item>com.android.systemui.biometrics.AuthController</item>
-        <item>com.android.systemui.SliceBroadcastRelayHandler</item>
-        <item>com.android.systemui.statusbar.notification.InstantAppNotifier</item>
-        <item>com.android.systemui.theme.ThemeOverlayController</item>
-        <item>com.android.systemui.accessibility.WindowMagnification</item>
-        <item>com.android.systemui.accessibility.SystemActions</item>
-        <item>com.android.systemui.toast.ToastUI</item>
-        <item>com.android.systemui.wmshell.WMShell</item>
-    </string-array>
     <string-array name="config_systemUIServiceComponentsPerUser">
         <item>com.android.systemui.util.NotificationChannels</item>
     </string-array>
@@ -581,6 +567,11 @@
         <item>1</item>
         <item>3</item>
     </string-array>
+    <string-array name="system_ui_packages">
+        <item>com.android.keyguard</item>
+        <item>com.android.systemui</item>
+        <item>com.google.android.systemui</item>
+    </string-array>
     <string-array name="tile_states_airplane">
         <item>Unavailable</item>
         <item>Off</item>
@@ -612,6 +603,11 @@
         <item>On</item>
     </string-array>
     <string-array name="tile_states_cell">
+        <item>Unavailable</item>
+        <item>Off</item>
+        <item>On</item>
+    </string-array>
+    <string-array name="tile_states_color_correction">
         <item>Unavailable</item>
         <item>Off</item>
         <item>On</item>
@@ -667,6 +663,16 @@
         <item>On</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Unavailable</item>
+        <item>Off</item>
+        <item>On</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Unavailable</item>
+        <item>Off</item>
+        <item>On</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Unavailable</item>
         <item>Off</item>
         <item>On</item>
@@ -776,6 +782,12 @@
         <item>300</item>
         <item>350</item>
         <item>400</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Move left</item>
+        <item>Move down</item>
+        <item>Move right</item>
+        <item>Move up</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Charging</item>

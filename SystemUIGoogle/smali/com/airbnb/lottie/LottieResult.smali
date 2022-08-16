@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field private final exception:Ljava/lang/Throwable;
+.field public final exception:Ljava/lang/Throwable;
 
-.field private final value:Ljava/lang/Object;
+.field public final value:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TV;"
@@ -27,13 +27,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/Object;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieComposition;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TV;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -62,7 +57,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -83,19 +78,11 @@
     :cond_1
     check-cast p1, Lcom/airbnb/lottie/LottieResult;
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieResult;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/airbnb/lottie/LottieResult;->value:Ljava/lang/Object;
 
     if-eqz v1, :cond_2
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieResult;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/airbnb/lottie/LottieResult;->getValue()Ljava/lang/Object;
-
-    move-result-object v3
+    iget-object v3, p1, Lcom/airbnb/lottie/LottieResult;->value:Ljava/lang/Object;
 
     invoke-virtual {v1, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -106,29 +93,19 @@
     return v0
 
     :cond_2
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieResult;->getException()Ljava/lang/Throwable;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/airbnb/lottie/LottieResult;->exception:Ljava/lang/Throwable;
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/LottieResult;->getException()Ljava/lang/Throwable;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/airbnb/lottie/LottieResult;->exception:Ljava/lang/Throwable;
 
     if-eqz p1, :cond_3
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieResult;->getException()Ljava/lang/Throwable;
+    invoke-virtual {v0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieResult;->getException()Ljava/lang/Throwable;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/airbnb/lottie/LottieResult;->exception:Ljava/lang/Throwable;
 
     invoke-virtual {p0}, Ljava/lang/Throwable;->toString()Ljava/lang/String;
 
@@ -144,47 +121,22 @@
     return v2
 .end method
 
-.method public getException()Ljava/lang/Throwable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/LottieResult;->exception:Ljava/lang/Throwable;
-
-    return-object p0
-.end method
-
-.method public getValue()Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TV;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/LottieResult;->value:Ljava/lang/Object;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 3
 
     const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieResult;->getValue()Ljava/lang/Object;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/airbnb/lottie/LottieResult;->value:Ljava/lang/Object;
 
     const/4 v2, 0x0
 
     aput-object v1, v0, v2
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieResult;->getException()Ljava/lang/Throwable;
-
-    move-result-object p0
-
     const/4 v1, 0x1
+
+    iget-object p0, p0, Lcom/airbnb/lottie/LottieResult;->exception:Ljava/lang/Throwable;
 
     aput-object p0, v0, v1
 

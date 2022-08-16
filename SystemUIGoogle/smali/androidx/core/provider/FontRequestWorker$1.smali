@@ -1,4 +1,4 @@
-.class Landroidx/core/provider/FontRequestWorker$1;
+.class public final Landroidx/core/provider/FontRequestWorker$1;
 .super Ljava/lang/Object;
 .source "FontRequestWorker.java"
 
@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/core/provider/FontRequestWorker;->requestFontSync(Landroid/content/Context;Landroidx/core/provider/FontRequest;Landroidx/core/provider/CallbackWithHandler;II)Landroid/graphics/Typeface;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -27,32 +18,18 @@
 
 
 # instance fields
-.field final synthetic val$context:Landroid/content/Context;
+.field public final synthetic val$context:Landroid/content/Context;
 
-.field final synthetic val$id:Ljava/lang/String;
+.field public final synthetic val$id:Ljava/lang/String;
 
-.field final synthetic val$request:Landroidx/core/provider/FontRequest;
+.field public final synthetic val$request:Landroidx/core/provider/FontRequest;
 
-.field final synthetic val$style:I
+.field public final synthetic val$style:I
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Landroid/content/Context;Landroidx/core/provider/FontRequest;I)V
+.method public constructor <init>(Ljava/lang/String;Landroid/content/Context;Landroidx/core/provider/FontRequest;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "val$id",
-            "val$context",
-            "val$request",
-            "val$style"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/provider/FontRequestWorker$1;->val$id:Ljava/lang/String;
 
@@ -69,8 +46,13 @@
 
 
 # virtual methods
-.method public call()Landroidx/core/provider/FontRequestWorker$TypefaceResult;
+.method public final call()Ljava/lang/Object;
     .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
 
     iget-object v0, p0, Landroidx/core/provider/FontRequestWorker$1;->val$id:Ljava/lang/String;
 
@@ -81,21 +63,6 @@
     iget p0, p0, Landroidx/core/provider/FontRequestWorker$1;->val$style:I
 
     invoke-static {v0, v1, v2, p0}, Landroidx/core/provider/FontRequestWorker;->getFontSync(Ljava/lang/String;Landroid/content/Context;Landroidx/core/provider/FontRequest;I)Landroidx/core/provider/FontRequestWorker$TypefaceResult;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic call()Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Landroidx/core/provider/FontRequestWorker$1;->call()Landroidx/core/provider/FontRequestWorker$TypefaceResult;
 
     move-result-object p0
 

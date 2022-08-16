@@ -28,59 +28,38 @@
 
 
 # virtual methods
-.method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2}, Landroidx/activity/result/contract/ActivityResultContracts$RequestMultiplePermissions;->parseResult(ILandroid/content/Intent;)Ljava/util/Map;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public parseResult(ILandroid/content/Intent;)Ljava/util/Map;
+.method public final parseResult(Landroid/content/Intent;I)Ljava/lang/Object;
     .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Landroid/content/Intent;",
-            ")",
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Boolean;",
-            ">;"
-        }
-    .end annotation
 
     const/4 p0, -0x1
 
-    if-eq p1, p0, :cond_0
+    if-eq p2, p0, :cond_0
 
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object p0
 
-    return-object p0
+    goto :goto_3
 
     :cond_0
-    if-nez p2, :cond_1
+    if-nez p1, :cond_1
 
     invoke-static {}, Ljava/util/Collections;->emptyMap()Ljava/util/Map;
 
     move-result-object p0
 
-    return-object p0
+    goto :goto_3
 
     :cond_1
     const-string p0, "androidx.activity.result.contract.extra.PERMISSIONS"
 
-    invoke-virtual {p2, p0}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {p1, p0}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object p0
 
-    const-string p1, "androidx.activity.result.contract.extra.PERMISSION_GRANT_RESULTS"
+    const-string p2, "androidx.activity.result.contract.extra.PERMISSION_GRANT_RESULTS"
 
-    invoke-virtual {p2, p1}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
+    invoke-virtual {p1, p2}, Landroid/content/Intent;->getIntArrayExtra(Ljava/lang/String;)[I
 
     move-result-object p1
 
@@ -122,14 +101,16 @@
 
     move-result-object v4
 
-    invoke-interface {p2, v3, v4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v3, v4}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_4
-    return-object p2
+    move-object p0, p2
+
+    goto :goto_3
 
     :cond_5
     :goto_2
@@ -137,5 +118,6 @@
 
     move-result-object p0
 
+    :goto_3
     return-object p0
 .end method

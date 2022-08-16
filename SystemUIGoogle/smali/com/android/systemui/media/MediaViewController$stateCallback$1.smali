@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaViewController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/MediaHostStatesManager;)V
+    value = Lcom/android/systemui/media/MediaViewController;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/media/MediaHostStatesManager;Lcom/android/systemui/media/MediaViewLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaViewController;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaViewController;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaViewController$stateCallback$1;->this$0:Lcom/android/systemui/media/MediaViewController;
@@ -34,51 +34,27 @@
 
 
 # virtual methods
-.method public onHostStateChanged(ILcom/android/systemui/media/MediaHostState;)V
+.method public final onHostStateChanged(ILcom/android/systemui/media/MediaHostState;)V
     .locals 2
-
-    const-string v0, "mediaHostState"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p2, p0, Lcom/android/systemui/media/MediaViewController$stateCallback$1;->this$0:Lcom/android/systemui/media/MediaViewController;
-
-    invoke-virtual {p2}, Lcom/android/systemui/media/MediaViewController;->getCurrentEndLocation()I
-
-    move-result p2
-
-    if-eq p1, p2, :cond_0
-
-    iget-object p2, p0, Lcom/android/systemui/media/MediaViewController$stateCallback$1;->this$0:Lcom/android/systemui/media/MediaViewController;
-
-    invoke-static {p2}, Lcom/android/systemui/media/MediaViewController;->access$getCurrentStartLocation$p(Lcom/android/systemui/media/MediaViewController;)I
-
-    move-result p2
-
-    if-ne p1, p2, :cond_1
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/systemui/media/MediaViewController$stateCallback$1;->this$0:Lcom/android/systemui/media/MediaViewController;
-
-    invoke-static {p1}, Lcom/android/systemui/media/MediaViewController;->access$getCurrentStartLocation$p(Lcom/android/systemui/media/MediaViewController;)I
-
-    move-result p2
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaViewController$stateCallback$1;->this$0:Lcom/android/systemui/media/MediaViewController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaViewController;->getCurrentEndLocation()I
-
-    move-result v0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaViewController$stateCallback$1;->this$0:Lcom/android/systemui/media/MediaViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaViewController;->access$getCurrentTransitionProgress$p(Lcom/android/systemui/media/MediaViewController;)F
+    iget p2, p0, Lcom/android/systemui/media/MediaViewController;->currentEndLocation:I
 
-    move-result p0
+    if-eq p1, p2, :cond_0
+
+    iget v0, p0, Lcom/android/systemui/media/MediaViewController;->currentStartLocation:I
+
+    if-ne p1, v0, :cond_1
+
+    :cond_0
+    iget p1, p0, Lcom/android/systemui/media/MediaViewController;->currentStartLocation:I
+
+    iget v0, p0, Lcom/android/systemui/media/MediaViewController;->currentTransitionProgress:F
 
     const/4 v1, 0x0
 
-    invoke-virtual {p1, p2, v0, p0, v1}, Lcom/android/systemui/media/MediaViewController;->setCurrentState(IIFZ)V
+    invoke-virtual {p0, p1, p2, v0, v1}, Lcom/android/systemui/media/MediaViewController;->setCurrentState(IIFZ)V
 
     :cond_1
     return-void

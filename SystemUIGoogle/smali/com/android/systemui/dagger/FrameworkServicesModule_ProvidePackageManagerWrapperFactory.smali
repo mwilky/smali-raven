@@ -32,50 +32,12 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvidePackageManagerWrapperFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvidePackageManagerWrapperFactory$InstanceHolder;->access$000()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvidePackageManagerWrapperFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static providePackageManagerWrapper()Lcom/android/systemui/shared/system/PackageManagerWrapper;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule;->providePackageManagerWrapper()Lcom/android/systemui/shared/system/PackageManagerWrapper;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/shared/system/PackageManagerWrapper;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/shared/system/PackageManagerWrapper;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvidePackageManagerWrapperFactory;->providePackageManagerWrapper()Lcom/android/systemui/shared/system/PackageManagerWrapper;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvidePackageManagerWrapperFactory;->get()Lcom/android/systemui/shared/system/PackageManagerWrapper;
-
-    move-result-object p0
+    sget-object p0, Lcom/android/systemui/shared/system/PackageManagerWrapper;->sInstance:Lcom/android/systemui/shared/system/PackageManagerWrapper;
 
     return-object p0
 .end method

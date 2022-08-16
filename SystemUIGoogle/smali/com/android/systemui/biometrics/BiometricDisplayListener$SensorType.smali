@@ -23,18 +23,10 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;-><init>()V
 
     return-void
 .end method

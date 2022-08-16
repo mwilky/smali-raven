@@ -3,7 +3,7 @@
 .source "AnimationHandler.java"
 
 # interfaces
-.implements Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler;
+.implements Landroidx/dynamicanimation/animation/FrameCallbackScheduler;
 
 
 # annotations
@@ -12,27 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "FrameCallbackScheduler14"
 .end annotation
 
 
 # instance fields
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private mLastFrameTime:J
+.field public mLastFrameTime:J
 
 
 # direct methods
-.method public static synthetic $r8$lambda$igM0FoKbXBn0Emy1e_JJLMAMsj8(Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14;Ljava/lang/Runnable;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14;->lambda$postFrameCallback$0(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,23 +42,9 @@
     return-void
 .end method
 
-.method private synthetic lambda$postFrameCallback$0(Ljava/lang/Runnable;)V
-    .locals 2
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14;->mLastFrameTime:J
-
-    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public isCurrentThread()Z
+.method public final isCurrentThread()Z
     .locals 1
 
     invoke-static {}, Ljava/lang/Thread;->currentThread()Ljava/lang/Thread;
@@ -96,16 +74,8 @@
     return p0
 .end method
 
-.method public postFrameCallback(Ljava/lang/Runnable;)V
+.method public final postFrameCallback(Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda1;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "frameCallback"
-        }
-    .end annotation
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
@@ -129,7 +99,7 @@
 
     new-instance v3, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14$$ExternalSyntheticLambda0;
 
-    invoke-direct {v3, p0, p1}, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14$$ExternalSyntheticLambda0;-><init>(Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14;Ljava/lang/Runnable;)V
+    invoke-direct {v3, p0, p1}, Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14$$ExternalSyntheticLambda0;-><init>(Landroidx/dynamicanimation/animation/AnimationHandler$FrameCallbackScheduler14;Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda1;)V
 
     invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 

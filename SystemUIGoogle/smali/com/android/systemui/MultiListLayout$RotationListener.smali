@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "RotationListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onRotate(II)V
-.end method

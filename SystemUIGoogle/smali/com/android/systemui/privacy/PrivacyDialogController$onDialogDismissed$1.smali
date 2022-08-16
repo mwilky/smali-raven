@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/privacy/PrivacyDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/privacy/PrivacyDialogController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyDialogController$onDialogDismissed$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
@@ -34,22 +34,18 @@
 
 
 # virtual methods
-.method public onDialogDismissed()V
+.method public final onDialogDismissed()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialogController$onDialogDismissed$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
 
-    invoke-static {v0}, Lcom/android/systemui/privacy/PrivacyDialogController;->access$getPrivacyLogger$p(Lcom/android/systemui/privacy/PrivacyDialogController;)Lcom/android/systemui/privacy/logging/PrivacyLogger;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/privacy/PrivacyDialogController;->privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
 
     invoke-virtual {v0}, Lcom/android/systemui/privacy/logging/PrivacyLogger;->logPrivacyDialogDismissed()V
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialogController$onDialogDismissed$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
 
-    invoke-static {v0}, Lcom/android/systemui/privacy/PrivacyDialogController;->access$getUiEventLogger$p(Lcom/android/systemui/privacy/PrivacyDialogController;)Lcom/android/internal/logging/UiEventLogger;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/privacy/PrivacyDialogController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v1, Lcom/android/systemui/privacy/PrivacyDialogEvent;->PRIVACY_DIALOG_DISMISSED:Lcom/android/systemui/privacy/PrivacyDialogEvent;
 
@@ -59,7 +55,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/privacy/PrivacyDialogController;->access$setDialog$p(Lcom/android/systemui/privacy/PrivacyDialogController;Landroid/app/Dialog;)V
+    iput-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialogController;->dialog:Landroid/app/Dialog;
 
     return-void
 .end method

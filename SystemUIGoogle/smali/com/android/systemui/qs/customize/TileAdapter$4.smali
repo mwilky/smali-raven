@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/TileAdapter$4;
+.class public final Lcom/android/systemui/qs/customize/TileAdapter$4;
 .super Landroidx/recyclerview/widget/GridLayoutManager$SpanSizeLookup;
 .source "TileAdapter.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+.field public final synthetic this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter;)V
+.method public constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$4;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public getSpanSize(I)I
+.method public final getSpanSize(I)I
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$4;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
@@ -61,9 +61,7 @@
     :goto_0
     iget-object p0, p0, Lcom/android/systemui/qs/customize/TileAdapter$4;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1300(Lcom/android/systemui/qs/customize/TileAdapter;)I
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/qs/customize/TileAdapter;->mNumColumns:I
 
     return p0
 .end method

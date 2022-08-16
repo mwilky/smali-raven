@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/people/PeopleTileViewHelper$RemoteViewsAndSizes;
+.class public final Lcom/android/systemui/people/PeopleTileViewHelper$RemoteViewsAndSizes;
 .super Ljava/lang/Object;
 .source "PeopleTileViewHelper.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "RemoteViewsAndSizes"
 .end annotation
 
 
 # instance fields
-.field final mAvatarSize:I
+.field public final mAvatarSize:I
 
-.field final mRemoteViews:Landroid/widget/RemoteViews;
+.field public final mRemoteViews:Landroid/widget/RemoteViews;
 
 
 # direct methods
-.method constructor <init>(Landroid/widget/RemoteViews;I)V
+.method public constructor <init>(Landroid/widget/RemoteViews;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

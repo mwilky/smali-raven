@@ -22,7 +22,7 @@
 
 
 # virtual methods
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 6
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
@@ -33,7 +33,7 @@
 
     if-ne v0, v1, :cond_1
 
-    sget v0, Lcom/android/systemui/R$id;->keyboard_shortcuts_icon:I
+    const v0, 0x7f0b0338
 
     invoke-virtual {p0, v0}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -41,7 +41,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    sget v1, Lcom/android/systemui/R$id;->keyboard_shortcuts_keyword:I
+    const v1, 0x7f0b033a
 
     invoke-virtual {p0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -61,9 +61,9 @@
 
     move-result v4
 
-    add-int/2addr v3, v4
+    add-int/2addr v4, v3
 
-    sub-int/2addr v2, v3
+    sub-int/2addr v2, v4
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->getVisibility()I
 

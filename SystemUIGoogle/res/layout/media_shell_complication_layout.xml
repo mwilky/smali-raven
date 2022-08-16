@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="@dimen/dream_overlay_complication_cast_text_size" android:textColor="@color/media_shell_text_color" android:id="@id/media_shell_device_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:shadowColor="@color/keyguard_shadow_color" android:shadowRadius="?shadowRadius" android:drawablePadding="@dimen/dream_cast_complication_drawable_padding" android:drawableStart="@drawable/drawable_dream_cast_icon" android:paddingHorizontal="@dimen/dream_overlay_complication_shadow_padding"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

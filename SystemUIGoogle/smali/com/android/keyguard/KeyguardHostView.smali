@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field protected mViewMediatorCallback:Lcom/android/keyguard/ViewMediatorCallback;
+.field public mViewMediatorCallback:Lcom/android/keyguard/ViewMediatorCallback;
 
 
 # direct methods
@@ -28,7 +28,7 @@
 
 
 # virtual methods
-.method protected dispatchDraw(Landroid/graphics/Canvas;)V
+.method public final dispatchDraw(Landroid/graphics/Canvas;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->dispatchDraw(Landroid/graphics/Canvas;)V
@@ -40,13 +40,5 @@
     invoke-interface {p0}, Lcom/android/keyguard/ViewMediatorCallback;->keyguardDoneDrawing()V
 
     :cond_0
-    return-void
-.end method
-
-.method public setViewMediatorCallback(Lcom/android/keyguard/ViewMediatorCallback;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardHostView;->mViewMediatorCallback:Lcom/android/keyguard/ViewMediatorCallback;
-
     return-void
 .end method

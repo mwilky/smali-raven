@@ -19,185 +19,37 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 9
+    .locals 0
 
-    const/4 v1, 0x0
+    const/4 p0, 0x0
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    const/16 v7, 0x3f
-
-    const/4 v8, 0x0
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/qs/carrier/CellSignalState;-><init>(ZILjava/lang/String;Ljava/lang/String;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    return-void
+    throw p0
 .end method
 
-.method public constructor <init>(ZILjava/lang/String;Ljava/lang/String;ZZ)V
+.method public constructor <init>(Ljava/lang/String;IZZZLjava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean p1, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->visible:Z
+    iput-boolean p3, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->visible:Z
 
     iput p2, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->mobileSignalIconId:I
 
-    iput-object p3, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->contentDescription:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->contentDescription:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->typeContentDescription:Ljava/lang/String;
+    iput-object p6, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->typeContentDescription:Ljava/lang/String;
 
-    iput-boolean p5, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->roaming:Z
+    iput-boolean p4, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->roaming:Z
 
-    iput-boolean p6, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->providerModelBehavior:Z
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(ZILjava/lang/String;Ljava/lang/String;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 2
-
-    and-int/lit8 p8, p7, 0x1
-
-    const/4 v0, 0x0
-
-    if-eqz p8, :cond_0
-
-    move p1, v0
-
-    :cond_0
-    and-int/lit8 p8, p7, 0x2
-
-    if-eqz p8, :cond_1
-
-    move p2, v0
-
-    :cond_1
-    and-int/lit8 p8, p7, 0x4
-
-    const/4 v1, 0x0
-
-    if-eqz p8, :cond_2
-
-    move-object p3, v1
-
-    :cond_2
-    and-int/lit8 p8, p7, 0x8
-
-    if-eqz p8, :cond_3
-
-    move-object p4, v1
-
-    :cond_3
-    and-int/lit8 p8, p7, 0x10
-
-    if-eqz p8, :cond_4
-
-    move p5, v0
-
-    :cond_4
-    and-int/lit8 p7, p7, 0x20
-
-    if-eqz p7, :cond_5
-
-    move p6, v0
-
-    :cond_5
-    invoke-direct/range {p0 .. p6}, Lcom/android/systemui/qs/carrier/CellSignalState;-><init>(ZILjava/lang/String;Ljava/lang/String;ZZ)V
+    iput-boolean p5, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->providerModelBehavior:Z
 
     return-void
-.end method
-
-.method public static synthetic copy$default(Lcom/android/systemui/qs/carrier/CellSignalState;ZILjava/lang/String;Ljava/lang/String;ZZILjava/lang/Object;)Lcom/android/systemui/qs/carrier/CellSignalState;
-    .locals 4
-
-    and-int/lit8 p8, p7, 0x1
-
-    if-eqz p8, :cond_0
-
-    iget-boolean p1, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->visible:Z
-
-    :cond_0
-    and-int/lit8 p8, p7, 0x2
-
-    if-eqz p8, :cond_1
-
-    iget p2, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->mobileSignalIconId:I
-
-    :cond_1
-    move p8, p2
-
-    and-int/lit8 p2, p7, 0x4
-
-    if-eqz p2, :cond_2
-
-    iget-object p3, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->contentDescription:Ljava/lang/String;
-
-    :cond_2
-    move-object v0, p3
-
-    and-int/lit8 p2, p7, 0x8
-
-    if-eqz p2, :cond_3
-
-    iget-object p4, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->typeContentDescription:Ljava/lang/String;
-
-    :cond_3
-    move-object v1, p4
-
-    and-int/lit8 p2, p7, 0x10
-
-    if-eqz p2, :cond_4
-
-    iget-boolean p5, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->roaming:Z
-
-    :cond_4
-    move v2, p5
-
-    and-int/lit8 p2, p7, 0x20
-
-    if-eqz p2, :cond_5
-
-    iget-boolean p6, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->providerModelBehavior:Z
-
-    :cond_5
-    move v3, p6
-
-    move-object p2, p0
-
-    move p3, p1
-
-    move p4, p8
-
-    move-object p5, v0
-
-    move-object p6, v1
-
-    move p7, v2
-
-    move p8, v3
-
-    invoke-virtual/range {p2 .. p8}, Lcom/android/systemui/qs/carrier/CellSignalState;->copy(ZILjava/lang/String;Ljava/lang/String;ZZ)Lcom/android/systemui/qs/carrier/CellSignalState;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 
 # virtual methods
 .method public final changeVisibility(Z)Lcom/android/systemui/qs/carrier/CellSignalState;
-    .locals 10
+    .locals 8
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->visible:Z
 
@@ -206,56 +58,28 @@
     return-object p0
 
     :cond_0
-    const/4 v3, 0x0
+    iget v3, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->mobileSignalIconId:I
 
-    const/4 v4, 0x0
+    iget-object v2, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->contentDescription:Ljava/lang/String;
 
-    const/4 v5, 0x0
+    iget-object v7, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->typeContentDescription:Ljava/lang/String;
 
-    const/4 v6, 0x0
+    iget-boolean v5, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->roaming:Z
 
-    const/4 v7, 0x0
-
-    const/16 v8, 0x3e
-
-    const/4 v9, 0x0
-
-    move-object v1, p0
-
-    move v2, p1
-
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/carrier/CellSignalState;->copy$default(Lcom/android/systemui/qs/carrier/CellSignalState;ZILjava/lang/String;Ljava/lang/String;ZZILjava/lang/Object;)Lcom/android/systemui/qs/carrier/CellSignalState;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final copy(ZILjava/lang/String;Ljava/lang/String;ZZ)Lcom/android/systemui/qs/carrier/CellSignalState;
-    .locals 7
+    iget-boolean v6, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->providerModelBehavior:Z
 
     new-instance p0, Lcom/android/systemui/qs/carrier/CellSignalState;
 
-    move-object v0, p0
+    move-object v1, p0
 
-    move v1, p1
+    move v4, p1
 
-    move v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move v5, p5
-
-    move v6, p6
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/carrier/CellSignalState;-><init>(ZILjava/lang/String;Ljava/lang/String;ZZ)V
+    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/qs/carrier/CellSignalState;-><init>(Ljava/lang/String;IZZZLjava/lang/String;)V
 
     return-object p0
 .end method
 
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -341,7 +165,7 @@
     return v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->visible:Z
@@ -357,13 +181,11 @@
 
     iget v2, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->mobileSignalIconId:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v3, 0x1f
 
-    move-result v2
+    invoke-static {v2, v0, v3}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v2
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-object v2, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->contentDescription:Ljava/lang/String;
 
@@ -427,16 +249,14 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "CellSignalState(visible="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "CellSignalState(visible="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-boolean v1, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->visible:Z
 
@@ -480,13 +300,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/carrier/CellSignalState;->providerModelBehavior:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

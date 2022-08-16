@@ -12,58 +12,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "LockDownAction"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+.field public final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$OGZvxFca16HTsOFZGUhbWh4pk44(Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;->lambda$onPress$0()V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
+.method public constructor <init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
     .locals 2
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    const v0, 0x10803d7
+    const v0, 0x10803e3
 
-    const v1, 0x10403c9
+    const v1, 0x104040f
 
     invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SinglePressAction;-><init>(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;II)V
 
     return-void
 .end method
 
-.method private synthetic lambda$onPress$0()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1900(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onPress()V
+.method public final onPress()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1600(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/internal/widget/LockPatternUtils;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     const/16 v1, 0x20
 
@@ -73,9 +53,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$400(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/internal/logging/UiEventLogger;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;->GA_LOCKDOWN_PRESS:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$GlobalActionsEvent;
 
@@ -84,9 +62,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1700(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Landroid/view/IWindowManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mIWindowManager:Landroid/view/IWindowManager;
 
     const/4 v1, 0x0
 
@@ -94,9 +70,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1800(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Ljava/util/concurrent/Executor;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
     new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LockDownAction$$ExternalSyntheticLambda0;
 
@@ -121,7 +95,7 @@
     return-void
 .end method
 
-.method public showBeforeProvisioning()Z
+.method public final showBeforeProvisioning()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -129,10 +103,8 @@
     return p0
 .end method
 
-.method public showDuringKeyguard()Z
+.method public final showDuringKeyguard()V
     .locals 0
 
-    const/4 p0, 0x1
-
-    return p0
+    return-void
 .end method

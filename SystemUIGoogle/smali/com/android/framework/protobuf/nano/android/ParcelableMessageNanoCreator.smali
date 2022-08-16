@@ -20,7 +20,7 @@
 
 
 # direct methods
-.method static writeToParcel(Ljava/lang/Class;Lcom/android/framework/protobuf/nano/MessageNano;Landroid/os/Parcel;)V
+.method public static writeToParcel(Ljava/lang/Class;Lcom/android/framework/protobuf/nano/MessageNano;Landroid/os/Parcel;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

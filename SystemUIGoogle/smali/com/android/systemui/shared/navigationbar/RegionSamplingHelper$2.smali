@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper$2;
+.class public final Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper$2;
 .super Ljava/lang/Object;
 .source "RegionSamplingHelper.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
+.field public final synthetic this$0:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;)V
+.method public constructor <init>(Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper$2;->this$0:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper$2;->this$0:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
 
-    invoke-static {v0}, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->access$400(Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->mSampledView:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
@@ -49,9 +47,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper$2;->this$0:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
 
-    invoke-static {p0}, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->access$300(Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;)Landroid/view/ViewTreeObserver$OnDrawListener;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->mUpdateOnDraw:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper$1;
 
     invoke-virtual {v0, p0}, Landroid/view/ViewTreeObserver;->removeOnDrawListener(Landroid/view/ViewTreeObserver$OnDrawListener;)V
 

@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaPlayerData;-><clinit>()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/media/MediaPlayerData;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,13 +22,12 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
-        "TT;>;"
+        "Ljava/util/Comparator;"
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareByDescending$1\n+ 2 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n*L\n1#1,319:1\n900#2,2:320\n*E\n"
+    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareByDescending$1\n+ 2 MediaCarouselController.kt\ncom/android/systemui/media/MediaPlayerData\n*L\n1#1,320:1\n944#2:321\n*E\n"
 .end annotation
 
 
@@ -53,13 +52,9 @@
 
     check-cast p2, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;
 
-    invoke-virtual {p2}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getData()Lcom/android/systemui/media/MediaData;
+    iget-object p0, p2, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->data:Lcom/android/systemui/media/MediaData;
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaData;->isPlaying()Ljava/lang/Boolean;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/media/MediaData;->isPlaying:Ljava/lang/Boolean;
 
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 
@@ -73,13 +68,9 @@
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p2}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getData()Lcom/android/systemui/media/MediaData;
+    iget-object p0, p2, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->data:Lcom/android/systemui/media/MediaData;
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaData;->getPlaybackLocation()I
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
     if-nez p0, :cond_0
 
@@ -97,13 +88,9 @@
 
     check-cast p1, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;
 
-    invoke-virtual {p1}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getData()Lcom/android/systemui/media/MediaData;
+    iget-object p2, p1, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->data:Lcom/android/systemui/media/MediaData;
 
-    move-result-object p2
-
-    invoke-virtual {p2}, Lcom/android/systemui/media/MediaData;->isPlaying()Ljava/lang/Boolean;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/media/MediaData;->isPlaying:Ljava/lang/Boolean;
 
     invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -111,13 +98,9 @@
 
     if-eqz p2, :cond_1
 
-    invoke-virtual {p1}, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->getData()Lcom/android/systemui/media/MediaData;
+    iget-object p1, p1, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->data:Lcom/android/systemui/media/MediaData;
 
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/android/systemui/media/MediaData;->getPlaybackLocation()I
-
-    move-result p1
+    iget p1, p1, Lcom/android/systemui/media/MediaData;->playbackLocation:I
 
     if-nez p1, :cond_1
 
@@ -131,7 +114,7 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lkotlin/comparisons/ComparisonsKt;->compareValues(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
+    invoke-static {p0, p1}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->compareValues(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
 
     move-result p0
 

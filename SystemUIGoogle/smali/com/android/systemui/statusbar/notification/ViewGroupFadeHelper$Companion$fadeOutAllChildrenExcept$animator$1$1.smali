@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$1;
+.class public final Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$1;
 .super Ljava/lang/Object;
 .source "ViewGroupFadeHelper.kt"
 
@@ -6,21 +6,10 @@
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion;->fadeOutAllChildrenExcept(Landroid/view/ViewGroup;Landroid/view/View;JLjava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $root:Landroid/view/ViewGroup;
+.field public final synthetic $root:Landroid/view/ViewGroup;
 
-.field final synthetic $viewsToFadeOut:Ljava/util/Set;
+.field public final synthetic $viewsToFadeOut:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -32,17 +21,8 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/view/ViewGroup;Ljava/util/Set;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/phone/PanelView;Ljava/util/LinkedHashSet;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/view/ViewGroup;",
-            "Ljava/util/Set<",
-            "Landroid/view/View;",
-            ">;)V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$1;->$root:Landroid/view/ViewGroup;
 
@@ -56,11 +36,11 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$1;->$root:Landroid/view/ViewGroup;
 
-    sget v1, Lcom/android/systemui/R$id;->view_group_fade_helper_previous_value_tag:I
+    const v1, 0x7f0b074a
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->getTag(I)Ljava/lang/Object;
 
@@ -72,9 +52,7 @@
 
     move-result-object p1
 
-    const-string v1, "null cannot be cast to non-null type kotlin.Float"
-
-    invoke-static {p1, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p1, :cond_3
 
     check-cast p1, Ljava/lang/Float;
 
@@ -82,62 +60,83 @@
 
     move-result p1
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$1;->$viewsToFadeOut:Ljava/util/Set;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$1;->$viewsToFadeOut:Ljava/util/Set;
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
-    check-cast v2, Landroid/view/View;
-
-    invoke-virtual {v2}, Landroid/view/View;->getAlpha()F
-
-    move-result v3
-
-    invoke-static {v3, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(FLjava/lang/Float;)Z
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-eqz v3, :cond_2
 
-    sget v3, Lcom/android/systemui/R$id;->view_group_fade_helper_restore_tag:I
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-virtual {v2}, Landroid/view/View;->getAlpha()F
+    move-result-object v3
+
+    check-cast v3, Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getAlpha()F
 
     move-result v4
 
-    invoke-static {v4}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    if-eqz v0, :cond_0
 
-    move-result-object v4
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
 
-    invoke-virtual {v2, v3, v4}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    move-result v5
+
+    cmpl-float v4, v4, v5
+
+    if-nez v4, :cond_0
+
+    const/4 v4, 0x1
+
+    goto :goto_1
 
     :cond_0
-    invoke-virtual {v2, p1}, Landroid/view/View;->setAlpha(F)V
+    const/4 v4, 0x0
+
+    :goto_1
+    if-nez v4, :cond_1
+
+    const v4, 0x7f0b074b
+
+    invoke-virtual {v3}, Landroid/view/View;->getAlpha()F
+
+    move-result v5
+
+    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+
+    :cond_1
+    invoke-virtual {v3, p1}, Landroid/view/View;->setAlpha(F)V
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$1;->$root:Landroid/view/ViewGroup;
-
-    sget v0, Lcom/android/systemui/R$id;->view_group_fade_helper_previous_value_tag:I
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p1
 
-    invoke-virtual {p0, v0, p1}, Landroid/view/ViewGroup;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {p0, v1, p1}, Landroid/view/ViewGroup;->setTag(ILjava/lang/Object;)V
 
     return-void
+
+    :cond_3
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Float"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

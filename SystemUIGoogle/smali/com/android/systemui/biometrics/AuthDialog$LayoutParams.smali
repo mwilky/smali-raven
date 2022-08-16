@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;
+.class public final Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;
 .super Ljava/lang/Object;
 .source "AuthDialog.java"
 
@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field final mMediumHeight:I
+.field public final mMediumHeight:I
 
-.field final mMediumWidth:I
+.field public final mMediumWidth:I
 
 
 # direct methods
-.method constructor <init>(II)V
+.method public constructor <init>(II)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

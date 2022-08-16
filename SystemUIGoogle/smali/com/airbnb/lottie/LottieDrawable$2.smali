@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieDrawable$2;
+.class public final Lcom/airbnb/lottie/LottieDrawable$2;
 .super Ljava/lang/Object;
 .source "LottieDrawable.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
+.field public final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieDrawable;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$2;->this$0:Lcom/airbnb/lottie/LottieDrawable;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run(Lcom/airbnb/lottie/LottieComposition;)V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Lcom/airbnb/lottie/LottieDrawable$2;->this$0:Lcom/airbnb/lottie/LottieDrawable;

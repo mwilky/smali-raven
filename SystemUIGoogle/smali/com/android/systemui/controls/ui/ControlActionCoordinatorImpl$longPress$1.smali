@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,13 +27,13 @@
 
 
 # instance fields
-.field final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$longPress$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
@@ -49,17 +49,7 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$longPress$1;->invoke()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke()V
+.method public final invoke()Ljava/lang/Object;
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$longPress$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
@@ -68,9 +58,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/ui/ControlWithState;->getControl()Landroid/service/controls/Control;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
 
     if-nez v0, :cond_0
 
@@ -81,9 +69,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$longPress$1;->this$0:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;
 
-    invoke-virtual {v1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object v2
+    iget-object v2, v1, Lcom/android/systemui/controls/ui/ControlViewHolder;->layout:Landroid/view/ViewGroup;
 
     const/4 v3, 0x0
 
@@ -93,12 +79,16 @@
 
     move-result-object v0
 
-    const-string v2, "it.getAppIntent()"
+    iget-object v2, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->bgExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    new-instance v3, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showDetail$1;
 
-    invoke-static {p0, v1, v0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->access$showDetail(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/app/PendingIntent;)V
+    invoke-direct {v3, v0, p0, v1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showDetail$1;-><init>(Landroid/app/PendingIntent;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+
+    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     :goto_0
-    return-void
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

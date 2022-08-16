@@ -1,4 +1,4 @@
-.class final Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;
+.class public final Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;
 .super Ljava/lang/Object;
 .source "AdapterHelper.java"
 
@@ -9,110 +9,42 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "UpdateOp"
 .end annotation
 
 
 # instance fields
-.field cmd:I
+.field public cmd:I
 
-.field itemCount:I
+.field public itemCount:I
 
-.field payload:Ljava/lang/Object;
+.field public payload:Ljava/lang/Object;
 
-.field positionStart:I
+.field public positionStart:I
 
 
 # direct methods
-.method constructor <init>(IIILjava/lang/Object;)V
+.method public constructor <init>(Ljava/lang/Object;III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "cmd",
-            "positionStart",
-            "itemCount",
-            "payload"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->cmd:I
+    iput p2, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->cmd:I
 
-    iput p2, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->positionStart:I
+    iput p3, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->positionStart:I
 
-    iput p3, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->itemCount:I
+    iput p4, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->itemCount:I
 
-    iput-object p4, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->payload:Ljava/lang/Object;
+    iput-object p1, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->payload:Ljava/lang/Object;
 
     return-void
 .end method
 
 
 # virtual methods
-.method cmdToString()Ljava/lang/String;
-    .locals 1
-
-    iget p0, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->cmd:I
-
-    const/4 v0, 0x1
-
-    if-eq p0, v0, :cond_3
-
-    const/4 v0, 0x2
-
-    if-eq p0, v0, :cond_2
-
-    const/4 v0, 0x4
-
-    if-eq p0, v0, :cond_1
-
-    const/16 v0, 0x8
-
-    if-eq p0, v0, :cond_0
-
-    const-string p0, "??"
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "mv"
-
-    return-object p0
-
-    :cond_1
-    const-string p0, "up"
-
-    return-object p0
-
-    :cond_2
-    const-string p0, "rm"
-
-    return-object p0
-
-    :cond_3
-    const-string p0, "add"
-
-    return-object p0
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -215,7 +147,7 @@
     return v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget v0, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->cmd:I
@@ -235,8 +167,8 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 2
+.method public final toString()Ljava/lang/String;
+    .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -256,10 +188,47 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->cmdToString()Ljava/lang/String;
+    iget v1, p0, Landroidx/recyclerview/widget/AdapterHelper$UpdateOp;->cmd:I
 
-    move-result-object v1
+    const/4 v2, 0x1
 
+    if-eq v1, v2, :cond_3
+
+    const/4 v2, 0x2
+
+    if-eq v1, v2, :cond_2
+
+    const/4 v2, 0x4
+
+    if-eq v1, v2, :cond_1
+
+    const/16 v2, 0x8
+
+    if-eq v1, v2, :cond_0
+
+    const-string v1, "??"
+
+    goto :goto_0
+
+    :cond_0
+    const-string v1, "mv"
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v1, "up"
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v1, "rm"
+
+    goto :goto_0
+
+    :cond_3
+    const-string v1, "add"
+
+    :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, ",s:"

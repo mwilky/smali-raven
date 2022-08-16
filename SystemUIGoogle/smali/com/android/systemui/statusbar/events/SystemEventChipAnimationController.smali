@@ -2,38 +2,43 @@
 .super Ljava/lang/Object;
 .source "SystemEventChipAnimationController.kt"
 
+# interfaces
+.implements Lcom/android/systemui/statusbar/events/SystemStatusAnimationCallback;
+
 
 # instance fields
-.field private animationDotView:Landroid/view/View;
+.field public animRect:Landroid/graphics/Rect;
 
-.field private animationWindowView:Landroid/widget/FrameLayout;
+.field public animationDirection:I
 
-.field private final context:Landroid/content/Context;
+.field public animationWindowView:Landroid/widget/FrameLayout;
 
-.field private currentAnimatedView:Landroid/view/View;
+.field public chipLeft:I
 
-.field private initialized:Z
+.field public chipMinWidth:I
 
-.field private final locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
+.field public chipRight:I
 
-.field private final statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
+.field public chipWidth:I
+
+.field public final contentInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
+
+.field public final context:Landroid/content/Context;
+
+.field public currentAnimatedView:Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;
+
+.field public dotSize:I
+
+.field public initialized:Z
+
+.field public final statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
+
+.field public themedContext:Landroid/view/ContextThemeWrapper;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "statusBarWindowController"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "locationPublisher"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/window/StatusBarWindowController;Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -41,402 +46,624 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->contentInsetsProvider:Lcom/android/systemui/statusbar/phone/StatusBarContentInsetsProvider;
+
+    const/4 p2, 0x1
+
+    iput p2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationDirection:I
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p2
+
+    const p3, 0x7f070606
+
+    invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p2
+
+    iput p2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipMinWidth:I
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const p2, 0x7f07060d
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->dotSize:I
+
+    new-instance p1, Landroid/graphics/Rect;
+
+    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
 
     return-void
 .end method
 
-.method private final init()V
-    .locals 3
+.method public static final access$updateAnimatedViewBoundsHeight(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;II)V
+    .locals 4
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->initialized:Z
+    iget v1, v0, Landroid/graphics/Rect;->left:I
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->context:Landroid/content/Context;
+    int-to-float p1, p1
 
-    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    const/4 v2, 0x2
 
-    move-result-object v0
+    int-to-float v2, v2
 
-    sget v1, Lcom/android/systemui/R$layout;->system_event_animation_window:I
+    div-float/2addr p1, v2
 
-    const/4 v2, 0x0
+    invoke-static {p1}, Landroidx/slice/view/R$dimen;->roundToInt(F)I
 
-    invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    move-result v2
 
-    move-result-object v0
+    sub-int v2, p2, v2
 
-    const-string v1, "null cannot be cast to non-null type android.widget.FrameLayout"
+    iget-object v3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
 
-    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    iget v3, v3, Landroid/graphics/Rect;->right:I
 
-    check-cast v0, Landroid/widget/FrameLayout;
+    invoke-static {p1}, Landroidx/slice/view/R$dimen;->roundToInt(F)I
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationWindowView:Landroid/widget/FrameLayout;
+    move-result p1
 
-    sget v1, Lcom/android/systemui/R$id;->dot_view:I
+    add-int/2addr p1, p2
 
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v1, v2, v3, p1}, Landroid/graphics/Rect;->set(IIII)V
 
-    move-result-object v0
+    iget-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;
 
-    const-string v1, "animationWindowView.findViewById(R.id.dot_view)"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationDotView:Landroid/view/View;
-
-    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
-
-    const/4 v1, -0x1
-
-    invoke-direct {v0, v1, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    const v1, 0x800015
-
-    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->statusBarWindowController:Lcom/android/systemui/statusbar/window/StatusBarWindowController;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationWindowView:Landroid/widget/FrameLayout;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {v1, p0, v0}, Lcom/android/systemui/statusbar/window/StatusBarWindowController;->addViewToWindow(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    return-void
-
-    :cond_0
-    const-string p0, "animationWindowView"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-.end method
-
-.method private final layoutParamsDefault()Landroid/widget/FrameLayout$LayoutParams;
-    .locals 2
-
-    new-instance v0, Landroid/widget/FrameLayout$LayoutParams;
-
-    const/4 v1, -0x2
-
-    invoke-direct {v0, v1, v1}, Landroid/widget/FrameLayout$LayoutParams;-><init>(II)V
-
-    const v1, 0x800015
-
-    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->gravity:I
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->start()I
-
-    move-result p0
-
-    invoke-virtual {v0, p0}, Landroid/widget/FrameLayout$LayoutParams;->setMarginStart(I)V
-
-    return-object v0
-.end method
-
-.method private final left()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;->getMarginLeft()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private final right()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;->getMarginRight()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private final start()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationWindowView:Landroid/widget/FrameLayout;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Landroid/widget/FrameLayout;->isLayoutRtl()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->right()I
-
-    move-result p0
+    if-nez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->left()I
+    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
 
-    move-result p0
+    iget p2, p0, Landroid/graphics/Rect;->left:I
+
+    iget v0, p0, Landroid/graphics/Rect;->top:I
+
+    iget v1, p0, Landroid/graphics/Rect;->right:I
+
+    iget p0, p0, Landroid/graphics/Rect;->bottom:I
+
+    invoke-interface {p1, p2, v0, v1, p0}, Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;->setBoundsForAnimation(IIII)V
 
     :goto_0
-    return p0
+    return-void
+.end method
+
+.method public static final access$updateAnimatedViewBoundsWidth(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;I)V
+    .locals 4
+
+    iget v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationDirection:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipRight:I
+
+    sub-int p1, v1, p1
+
+    iget v2, v0, Landroid/graphics/Rect;->top:I
+
+    iget v3, v0, Landroid/graphics/Rect;->bottom:I
+
+    invoke-virtual {v0, p1, v2, v1, v3}, Landroid/graphics/Rect;->set(IIII)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
+
+    iget v1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipLeft:I
+
+    iget v2, v0, Landroid/graphics/Rect;->top:I
+
+    add-int/2addr p1, v1
+
+    iget v3, v0, Landroid/graphics/Rect;->bottom:I
+
+    invoke-virtual {v0, v1, v2, p1, v3}, Landroid/graphics/Rect;->set(IIII)V
+
+    :goto_0
+    iget-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;
+
+    if-nez p1, :cond_1
+
+    goto :goto_1
 
     :cond_1
-    const-string p0, "animationWindowView"
+    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    iget v0, p0, Landroid/graphics/Rect;->left:I
 
-    const/4 p0, 0x0
+    iget v1, p0, Landroid/graphics/Rect;->top:I
 
-    throw p0
+    iget v2, p0, Landroid/graphics/Rect;->right:I
+
+    iget p0, p0, Landroid/graphics/Rect;->bottom:I
+
+    invoke-interface {p1, v0, v1, v2, p0}, Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;->setBoundsForAnimation(IIII)V
+
+    :goto_1
+    return-void
 .end method
 
 
 # virtual methods
-.method public onChipAnimationEnd(I)V
-    .locals 1
+.method public final initializeAnimRect()V
+    .locals 4
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animRect:Landroid/graphics/Rect;
 
-    if-ne p1, v0, :cond_1
+    iget v1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipLeft:I
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;
 
-    if-nez p0, :cond_0
+    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    goto :goto_1
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;->getView()Landroid/view/View;
 
-    :cond_0
-    const/4 p1, 0x0
+    move-result-object v2
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setTranslationX(F)V
+    invoke-virtual {v2}, Landroid/view/View;->getTop()I
 
-    const/high16 p1, 0x3f800000    # 1.0f
+    move-result v2
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
+    iget v3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipRight:I
 
-    goto :goto_1
+    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;
 
-    :cond_1
-    iget-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Landroid/view/View;
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    if-nez p1, :cond_2
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;->getView()Landroid/view/View;
 
-    goto :goto_0
+    move-result-object p0
 
-    :cond_2
-    const/4 v0, 0x4
+    invoke-virtual {p0}, Landroid/view/View;->getBottom()I
 
-    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+    move-result p0
 
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationWindowView:Landroid/widget/FrameLayout;
+    invoke-virtual {v0, v1, v2, v3, p0}, Landroid/graphics/Rect;->set(IIII)V
 
-    if-eqz p1, :cond_3
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Landroid/view/View;
-
-    invoke-virtual {p1, p0}, Landroid/widget/FrameLayout;->removeView(Landroid/view/View;)V
-
-    :goto_1
     return-void
-
-    :cond_3
-    const-string p0, "animationWindowView"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
 .end method
 
-.method public onChipAnimationStart(Lkotlin/jvm/functions/Function1;I)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lkotlin/jvm/functions/Function1<",
-            "-",
-            "Landroid/content/Context;",
-            "+",
-            "Landroid/view/View;",
-            ">;I)V"
-        }
-    .end annotation
+.method public final onSystemEventAnimationBegin()Landroid/animation/Animator;
+    .locals 9
 
-    const-string/jumbo v0, "viewCreator"
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->initializeAnimRect()V
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v0, 0x2
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->initialized:Z
+    new-array v1, v0, [F
 
-    if-nez v0, :cond_0
+    fill-array-data v1, :array_0
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->init()V
+    invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
-    :cond_0
+    move-result-object v1
+
+    const/4 v2, 0x7
+
+    invoke-static {v2}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v3
+
+    invoke-virtual {v1, v3, v4}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+
+    const/4 v3, 0x5
+
+    invoke-static {v3}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v3
+
+    invoke-virtual {v1, v3, v4}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v3}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance v3, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$onSystemEventAnimationBegin$alphaIn$1$1;
+
+    invoke-direct {v3, p0, v1}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$onSystemEventAnimationBegin$alphaIn$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Landroid/animation/ValueAnimator;)V
+
+    invoke-virtual {v1, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    new-array v3, v0, [I
+
+    iget v4, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipMinWidth:I
+
+    const/4 v5, 0x0
+
+    aput v4, v3, v5
+
+    iget v4, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipWidth:I
+
+    const/4 v6, 0x1
+
+    aput v4, v3, v6
+
+    invoke-static {v3}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
+
+    move-result-object v3
+
+    invoke-static {v2}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v7
+
+    invoke-virtual {v3, v7, v8}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+
+    const/16 v2, 0x17
+
+    invoke-static {v2}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v7
+
+    invoke-virtual {v3, v7, v8}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    sget-object v2, Lcom/android/systemui/statusbar/events/SystemStatusAnimationSchedulerKt;->STATUS_BAR_X_MOVE_IN:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {v3, v2}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance v2, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$onSystemEventAnimationBegin$moveIn$1$1;
+
+    invoke-direct {v2, p0, v3}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$onSystemEventAnimationBegin$moveIn$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Landroid/animation/ValueAnimator;)V
+
+    invoke-virtual {v3, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    new-instance p0, Landroid/animation/AnimatorSet;
+
+    invoke-direct {p0}, Landroid/animation/AnimatorSet;-><init>()V
+
+    new-array v0, v0, [Landroid/animation/Animator;
+
+    aput-object v1, v0, v5
+
+    aput-object v3, v0, v6
+
+    invoke-virtual {p0, v0}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+
+    return-object p0
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+.end method
+
+.method public final onSystemEventAnimationFinish(Z)Landroid/animation/Animator;
+    .locals 10
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->initializeAnimRect()V
+
     const/4 v0, 0x1
 
     const/4 v1, 0x0
 
-    if-ne p2, v0, :cond_4
+    const/4 v2, 0x2
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->context:Landroid/content/Context;
+    if-eqz p1, :cond_0
 
-    invoke-interface {p1, p2}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    new-array p1, v2, [I
+
+    iget v3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipWidth:I
+
+    aput v3, p1, v1
+
+    iget v3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipMinWidth:I
+
+    aput v3, p1, v0
+
+    invoke-static {p1}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
 
     move-result-object p1
 
-    check-cast p1, Landroid/view/View;
+    const/16 v3, 0x9
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Landroid/view/View;
+    invoke-static {v3}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->animationWindowView:Landroid/widget/FrameLayout;
+    move-result-wide v4
 
-    if-eqz p2, :cond_3
+    invoke-virtual {p1, v4, v5}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->layoutParamsDefault()Landroid/widget/FrameLayout$LayoutParams;
+    sget-object v4, Lcom/android/systemui/statusbar/events/SystemStatusAnimationSchedulerKt;->STATUS_CHIP_WIDTH_TO_DOT_KEYFRAME_1:Landroid/view/animation/PathInterpolator;
 
-    move-result-object v0
+    invoke-virtual {p1, v4}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    invoke-virtual {p2, p1, v0}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+    new-instance v4, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$width1$1$1;
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Landroid/view/View;
+    invoke-direct {v4, p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$width1$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;)V
 
-    if-nez p1, :cond_1
+    invoke-virtual {p1, v4}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    goto :goto_0
+    new-array v4, v2, [I
 
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/View;->getWidth()I
+    iget v5, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipMinWidth:I
 
-    move-result p2
+    aput v5, v4, v1
 
-    int-to-float p2, p2
+    iget v5, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->dotSize:I
 
-    invoke-virtual {p1}, Landroid/view/View;->isLayoutRtl()Z
+    aput v5, v4, v0
 
-    move-result v0
+    invoke-static {v4}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
 
-    if-eqz v0, :cond_2
+    move-result-object v4
 
-    neg-float p2, p2
+    invoke-static {v3}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
 
-    :cond_2
-    invoke-virtual {p1, p2}, Landroid/view/View;->setTranslationX(F)V
+    move-result-wide v5
 
-    invoke-virtual {p1, v1}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v4, v5, v6}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
-    const/4 p2, 0x0
+    const/16 v3, 0x14
 
-    invoke-virtual {p1, p2}, Landroid/view/View;->setVisibility(I)V
+    invoke-static {v3}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
+    move-result-wide v5
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;->getMarginLeft()I
+    invoke-virtual {v4, v5, v6}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    move-result v0
+    sget-object v3, Lcom/android/systemui/statusbar/events/SystemStatusAnimationSchedulerKt;->STATUS_CHIP_WIDTH_TO_DOT_KEYFRAME_2:Landroid/view/animation/PathInterpolator;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->locationPublisher:Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;
+    invoke-virtual {v4, v3}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBarLocationPublisher;->getMarginRight()I
+    new-instance v3, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$width2$1$1;
 
-    move-result p0
+    invoke-direct {v3, p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$width2$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;)V
 
-    invoke-virtual {p1, v0, p2, p0, p2}, Landroid/view/View;->setPadding(IIII)V
+    invoke-virtual {v4, v3}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    goto :goto_0
+    iget v3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->dotSize:I
 
-    :cond_3
-    const-string p0, "animationWindowView"
+    mul-int/2addr v3, v2
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    iget-object v5, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;
 
-    const/4 p0, 0x0
+    invoke-static {v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    throw p0
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;->getView()Landroid/view/View;
 
-    :cond_4
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Landroid/view/View;
+    move-result-object v5
 
-    if-nez p0, :cond_5
+    invoke-virtual {v5}, Landroid/view/View;->getTop()I
 
-    goto :goto_0
+    move-result v6
 
-    :cond_5
-    invoke-virtual {p0, v1}, Landroid/view/View;->setTranslationX(F)V
+    invoke-virtual {v5}, Landroid/view/View;->getMeasuredHeight()I
 
-    const/high16 p1, 0x3f800000    # 1.0f
+    move-result v5
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
+    div-int/2addr v5, v2
 
-    :goto_0
-    return-void
-.end method
+    add-int/2addr v5, v6
 
-.method public onChipAnimationUpdate(Landroid/animation/ValueAnimator;I)V
-    .locals 1
+    new-array v6, v2, [I
 
-    const-string p2, "animator"
+    iget-object v7, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;
 
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v7}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->currentAnimatedView:Landroid/view/View;
+    invoke-interface {v7}, Lcom/android/systemui/statusbar/events/BackgroundAnimatableView;->getView()Landroid/view/View;
 
-    if-nez p0, :cond_0
+    move-result-object v7
+
+    invoke-virtual {v7}, Landroid/view/View;->getMeasuredHeight()I
+
+    move-result v7
+
+    aput v7, v6, v1
+
+    aput v3, v6, v0
+
+    invoke-static {v6}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
+
+    move-result-object v6
+
+    const/16 v7, 0x8
+
+    invoke-static {v7}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v7
+
+    invoke-virtual {v6, v7, v8}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+
+    const/4 v7, 0x6
+
+    invoke-static {v7}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v7
+
+    invoke-virtual {v6, v7, v8}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    sget-object v7, Lcom/android/systemui/statusbar/events/SystemStatusAnimationSchedulerKt;->STATUS_CHIP_HEIGHT_TO_DOT_KEYFRAME_1:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {v6, v7}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance v7, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$height1$1$1;
+
+    invoke-direct {v7, p0, v5}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$height1$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;I)V
+
+    invoke-virtual {v6, v7}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    new-array v7, v2, [I
+
+    aput v3, v7, v1
+
+    iget v3, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->dotSize:I
+
+    aput v3, v7, v0
+
+    invoke-static {v7}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
+
+    move-result-object v3
+
+    const/16 v7, 0xe
+
+    invoke-static {v7}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v7
+
+    invoke-virtual {v3, v7, v8}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+
+    const/16 v7, 0xf
+
+    invoke-static {v7}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v7
+
+    invoke-virtual {v3, v7, v8}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    sget-object v7, Lcom/android/systemui/statusbar/events/SystemStatusAnimationSchedulerKt;->STATUS_CHIP_HEIGHT_TO_DOT_KEYFRAME_2:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {v3, v7}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance v7, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$height2$1$1;
+
+    invoke-direct {v7, p0, v5}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$height2$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;I)V
+
+    invoke-virtual {v3, v7}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    new-array v5, v2, [I
+
+    aput v1, v5, v1
+
+    iget v7, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->dotSize:I
+
+    aput v7, v5, v0
+
+    invoke-static {v5}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
+
+    move-result-object v5
+
+    const/4 v7, 0x3
+
+    invoke-static {v7}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v8
+
+    invoke-virtual {v5, v8, v9}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+
+    const/16 v8, 0xb
+
+    invoke-static {v8}, Landroidx/viewpager2/R$styleable;->getFrames(I)J
+
+    move-result-wide v8
+
+    invoke-virtual {v5, v8, v9}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    sget-object v8, Lcom/android/systemui/statusbar/events/SystemStatusAnimationSchedulerKt;->STATUS_CHIP_MOVE_TO_DOT:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {v5, v8}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance v8, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$moveOut$1$1;
+
+    invoke-direct {v8, p0, v5}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationForDot$moveOut$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;Landroid/animation/ValueAnimator;)V
+
+    invoke-virtual {v5, v8}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    new-instance v8, Landroid/animation/AnimatorSet;
+
+    invoke-direct {v8}, Landroid/animation/AnimatorSet;-><init>()V
+
+    const/4 v9, 0x5
+
+    new-array v9, v9, [Landroid/animation/Animator;
+
+    aput-object p1, v9, v1
+
+    aput-object v4, v9, v0
+
+    aput-object v6, v9, v2
+
+    aput-object v3, v9, v7
+
+    const/4 p1, 0x4
+
+    aput-object v5, v9, p1
+
+    invoke-virtual {v8, v9}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+    new-array p1, v2, [I
 
-    move-result-object p1
+    iget v2, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipWidth:I
 
-    const-string p2, "null cannot be cast to non-null type kotlin.Float"
+    aput v2, p1, v1
 
-    invoke-static {p1, p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    iget v1, p0, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;->chipMinWidth:I
 
-    check-cast p1, Ljava/lang/Float;
+    aput v1, p1, v0
 
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+    invoke-static {p1}, Landroid/animation/ValueAnimator;->ofInt([I)Landroid/animation/ValueAnimator;
 
-    move-result p1
+    move-result-object v8
 
-    invoke-virtual {p0, p1}, Landroid/view/View;->setAlpha(F)V
+    const/16 p1, 0x17
 
-    invoke-virtual {p0}, Landroid/view/View;->getWidth()I
+    int-to-float p1, p1
 
-    move-result p2
+    const/high16 v0, 0x447a0000    # 1000.0f
 
-    const/4 v0, 0x1
+    mul-float/2addr p1, v0
 
-    int-to-float v0, v0
+    const/high16 v0, 0x42700000    # 60.0f
 
-    sub-float/2addr v0, p1
+    div-float/2addr p1, v0
 
-    int-to-float p1, p2
+    float-to-double v0, p1
 
-    mul-float/2addr v0, p1
-
-    invoke-virtual {p0}, Landroid/view/View;->isLayoutRtl()Z
+    invoke-static {v0, v1}, Ljava/lang/Double;->isNaN(D)Z
 
     move-result p1
 
-    if-eqz p1, :cond_1
+    if-nez p1, :cond_1
 
-    neg-float v0, v0
+    invoke-static {v0, v1}, Ljava/lang/Math;->round(D)J
 
-    :cond_1
-    invoke-virtual {p0, v0}, Landroid/view/View;->setTranslationX(F)V
+    move-result-wide v0
+
+    invoke-virtual {v8, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    new-instance p1, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationDefault$moveOut$1$1;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$createMoveOutAnimationDefault$moveOut$1$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;)V
+
+    invoke-virtual {v8, p1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
     :goto_0
-    return-void
+    new-instance p1, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$onSystemEventAnimationFinish$1;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController$onSystemEventAnimationFinish$1;-><init>(Lcom/android/systemui/statusbar/events/SystemEventChipAnimationController;)V
+
+    invoke-virtual {v8, p1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    return-object v8
+
+    :cond_1
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "Cannot round NaN value."
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method

@@ -1,4 +1,4 @@
-.class final Landroidx/localbroadcastmanager/content/LocalBroadcastManager$ReceiverRecord;
+.class public final Landroidx/localbroadcastmanager/content/LocalBroadcastManager$ReceiverRecord;
 .super Ljava/lang/Object;
 .source "LocalBroadcastManager.java"
 
@@ -9,45 +9,37 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ReceiverRecord"
 .end annotation
 
 
 # instance fields
-.field dead:Z
+.field public dead:Z
 
-.field final filter:Landroid/content/IntentFilter;
+.field public final filter:Landroid/content/IntentFilter;
 
-.field final receiver:Landroid/content/BroadcastReceiver;
+.field public final receiver:Landroid/content/BroadcastReceiver;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/IntentFilter;Landroid/content/BroadcastReceiver;)V
+.method public constructor <init>(Landroid/content/IntentFilter;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "_filter",
-            "_receiver"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Landroidx/localbroadcastmanager/content/LocalBroadcastManager$ReceiverRecord;->filter:Landroid/content/IntentFilter;
 
-    iput-object p2, p0, Landroidx/localbroadcastmanager/content/LocalBroadcastManager$ReceiverRecord;->receiver:Landroid/content/BroadcastReceiver;
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Landroidx/localbroadcastmanager/content/LocalBroadcastManager$ReceiverRecord;->receiver:Landroid/content/BroadcastReceiver;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;

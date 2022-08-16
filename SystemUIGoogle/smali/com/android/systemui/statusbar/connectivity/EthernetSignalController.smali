@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/connectivity/EthernetSignalController;
+.class public final Lcom/android/systemui/statusbar/connectivity/EthernetSignalController;
 .super Lcom/android/systemui/statusbar/connectivity/SignalController;
 .source "EthernetSignalController.java"
 
@@ -38,9 +38,9 @@
 
     new-instance p2, Lcom/android/settingslib/SignalIcon$IconGroup;
 
-    sget-object v2, Lcom/android/systemui/statusbar/connectivity/EthernetIcons;->ETHERNET_ICONS:[[I
+    sget-object v2, Landroidx/core/view/MotionEventCompat;->ETHERNET_ICONS:[[I
 
-    sget-object v4, Lcom/android/settingslib/AccessibilityContentDescriptions;->ETHERNET_CONNECTION_VALUES:[I
+    sget-object v4, Lkotlinx/coroutines/internal/LockFreeLinkedListKt;->ETHERNET_CONNECTION_VALUES:[I
 
     const/4 p3, 0x0
 
@@ -71,7 +71,7 @@
 
 
 # virtual methods
-.method public cleanState()Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+.method public final cleanState()Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
@@ -81,18 +81,16 @@
     return-object p0
 .end method
 
-.method public getContentDescription()I
+.method public final getContentDescription()I
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
-    iget-boolean v0, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getIcons()Lcom/android/settingslib/SignalIcon$IconGroup;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
 
     iget-object p0, p0, Lcom/android/settingslib/SignalIcon$IconGroup;->contentDesc:[I
 
@@ -103,16 +101,14 @@
     return p0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getIcons()Lcom/android/settingslib/SignalIcon$IconGroup;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->iconGroup:Lcom/android/settingslib/SignalIcon$IconGroup;
 
     iget p0, p0, Lcom/android/settingslib/SignalIcon$IconGroup;->discContentDesc:I
 
     return p0
 .end method
 
-.method public notifyListeners(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
+.method public final notifyListeners(Lcom/android/systemui/statusbar/connectivity/SignalCallback;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
@@ -137,14 +133,14 @@
 
     move-result p0
 
-    invoke-direct {v2, v0, p0, v1}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ZILjava/lang/String;)V
+    invoke-direct {v2, p0, v1, v0}, Lcom/android/systemui/statusbar/connectivity/IconState;-><init>(ILjava/lang/String;Z)V
 
     invoke-interface {p1, v2}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setEthernetIndicators(Lcom/android/systemui/statusbar/connectivity/IconState;)V
 
     return-void
 .end method
 
-.method public updateConnectivity(Ljava/util/BitSet;Ljava/util/BitSet;)V
+.method public final updateConnectivity(Ljava/util/BitSet;Ljava/util/BitSet;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
@@ -153,11 +149,21 @@
 
     invoke-virtual {p1, v1}, Ljava/util/BitSet;->get(I)Z
 
-    move-result v1
+    move-result p1
 
-    iput-boolean v1, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
+    iput-boolean p1, v0, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->connected:Z
 
-    invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/connectivity/SignalController;->updateConnectivity(Ljava/util/BitSet;Ljava/util/BitSet;)V
+    iget-object p1, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
+
+    iget v0, p0, Lcom/android/systemui/statusbar/connectivity/SignalController;->mTransportType:I
+
+    invoke-virtual {p2, v0}, Ljava/util/BitSet;->get(I)Z
+
+    move-result p2
+
+    iput p2, p1, Lcom/android/systemui/statusbar/connectivity/ConnectivityState;->inetCondition:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/SignalController;->notifyListenersIfNecessary()V
 
     return-void
 .end method

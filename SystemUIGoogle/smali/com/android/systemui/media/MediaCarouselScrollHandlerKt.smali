@@ -4,11 +4,11 @@
 
 
 # static fields
-.field private static final translationConfig:Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
+.field public static final translationConfig:Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     new-instance v0, Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
@@ -22,12 +22,4 @@
     sput-object v0, Lcom/android/systemui/media/MediaCarouselScrollHandlerKt;->translationConfig:Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
 
     return-void
-.end method
-
-.method public static final synthetic access$getTranslationConfig$p()Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/media/MediaCarouselScrollHandlerKt;->translationConfig:Lcom/android/wm/shell/animation/PhysicsAnimator$SpringConfig;
-
-    return-object v0
 .end method

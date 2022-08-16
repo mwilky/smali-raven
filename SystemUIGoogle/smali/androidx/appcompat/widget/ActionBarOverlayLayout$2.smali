@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ActionBarOverlayLayout$2;
+.class public final Landroidx/appcompat/widget/ActionBarOverlayLayout$2;
 .super Ljava/lang/Object;
 .source "ActionBarOverlayLayout.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActionBarOverlayLayout;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActionBarOverlayLayout;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout$2;->this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout$2;->this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
@@ -57,7 +57,7 @@
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout$2;->this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
 
-    iget-object p0, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout;->mTopAnimatorListener:Landroid/animation/AnimatorListenerAdapter;
+    iget-object p0, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout;->mTopAnimatorListener:Landroidx/appcompat/widget/ActionBarOverlayLayout$1;
 
     invoke-virtual {v1, p0}, Landroid/view/ViewPropertyAnimator;->setListener(Landroid/animation/Animator$AnimatorListener;)Landroid/view/ViewPropertyAnimator;
 

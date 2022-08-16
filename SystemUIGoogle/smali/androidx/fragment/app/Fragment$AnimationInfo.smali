@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/Fragment$AnimationInfo;
+.class public final Landroidx/fragment/app/Fragment$AnimationInfo;
 .super Ljava/lang/Object;
 .source "Fragment.java"
 
@@ -9,49 +9,35 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AnimationInfo"
 .end annotation
 
 
 # instance fields
-.field mAllowEnterTransitionOverlap:Ljava/lang/Boolean;
+.field public mEnterAnim:I
 
-.field mAllowReturnTransitionOverlap:Ljava/lang/Boolean;
+.field public mExitAnim:I
 
-.field mAnimatingAway:Landroid/view/View;
+.field public mFocusedView:Landroid/view/View;
 
-.field mAnimator:Landroid/animation/Animator;
+.field public mIsPop:Z
 
-.field mEnterTransition:Ljava/lang/Object;
+.field public mNextTransition:I
 
-.field mEnterTransitionCallback:Landroidx/core/app/SharedElementCallback;
+.field public mPopEnterAnim:I
 
-.field mEnterTransitionPostponed:Z
+.field public mPopExitAnim:I
 
-.field mExitTransition:Ljava/lang/Object;
+.field public mPostOnViewCreatedAlpha:F
 
-.field mExitTransitionCallback:Landroidx/core/app/SharedElementCallback;
+.field public mReenterTransition:Ljava/lang/Object;
 
-.field mFocusedView:Landroid/view/View;
+.field public mReturnTransition:Ljava/lang/Object;
 
-.field mIsHideReplaced:Z
+.field public mSharedElementReturnTransition:Ljava/lang/Object;
 
-.field mNextAnim:I
-
-.field mNextTransition:I
-
-.field mPostOnViewCreatedAlpha:F
-
-.field mReenterTransition:Ljava/lang/Object;
-
-.field mReturnTransition:Ljava/lang/Object;
-
-.field mSharedElementEnterTransition:Ljava/lang/Object;
-
-.field mSharedElementReturnTransition:Ljava/lang/Object;
-
-.field mSharedElementSourceNames:Ljava/util/ArrayList;
+.field public mSharedElementSourceNames:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -61,7 +47,7 @@
     .end annotation
 .end field
 
-.field mSharedElementTargetNames:Ljava/util/ArrayList;
+.field public mSharedElementTargetNames:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -70,35 +56,27 @@
         }
     .end annotation
 .end field
-
-.field mStartEnterTransitionListener:Landroidx/fragment/app/Fragment$OnStartEnterTransitionListener;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 2
+.method public constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    sget-object v0, Landroidx/fragment/app/Fragment;->USE_DEFAULT_TRANSITION:Ljava/lang/Object;
+
+    iput-object v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mReturnTransition:Ljava/lang/Object;
+
+    iput-object v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mReenterTransition:Ljava/lang/Object;
+
+    iput-object v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mSharedElementReturnTransition:Ljava/lang/Object;
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    iput v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mPostOnViewCreatedAlpha:F
+
     const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mEnterTransition:Ljava/lang/Object;
-
-    sget-object v1, Landroidx/fragment/app/Fragment;->USE_DEFAULT_TRANSITION:Ljava/lang/Object;
-
-    iput-object v1, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mReturnTransition:Ljava/lang/Object;
-
-    iput-object v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mExitTransition:Ljava/lang/Object;
-
-    iput-object v1, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mReenterTransition:Ljava/lang/Object;
-
-    iput-object v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mSharedElementEnterTransition:Ljava/lang/Object;
-
-    iput-object v1, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mSharedElementReturnTransition:Ljava/lang/Object;
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    iput v1, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mPostOnViewCreatedAlpha:F
 
     iput-object v0, p0, Landroidx/fragment/app/Fragment$AnimationInfo;->mFocusedView:Landroid/view/View;
 

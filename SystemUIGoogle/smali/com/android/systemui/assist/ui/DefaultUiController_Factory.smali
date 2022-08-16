@@ -6,129 +6,218 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/assist/ui/DefaultUiController;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final assistLoggerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/assist/AssistLogger;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final contextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final assistLoggerProvider:Ljavax/inject/Provider;
+
+.field public final assistManagerLazyProvider:Ljavax/inject/Provider;
+
+.field public final contextProvider:Ljavax/inject/Provider;
+
+.field public final metricsLoggerProvider:Ljavax/inject/Provider;
+
+.field public final windowManagerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/assist/AssistLogger;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p6, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->contextProvider:Ljavax/inject/Provider;
 
     iput-object p2, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
 
+    iput-object p3, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p4, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->assistManagerLazyProvider:Ljavax/inject/Provider;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/assist/ui/DefaultUiController_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/assist/AssistLogger;",
-            ">;)",
-            "Lcom/android/systemui/assist/ui/DefaultUiController_Factory;"
-        }
-    .end annotation
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/assist/ui/DefaultUiController_Factory;
+    .locals 8
 
-    new-instance v0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;
+    new-instance v7, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    const/4 v6, 0x0
 
-    return-object v0
+    move-object v0, v7
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    return-object v7
 .end method
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/assist/AssistLogger;)Lcom/android/systemui/assist/ui/DefaultUiController;
-    .locals 1
+.method public static create$1(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/assist/ui/DefaultUiController_Factory;
+    .locals 8
 
-    new-instance v0, Lcom/android/systemui/assist/ui/DefaultUiController;
+    new-instance v7, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/assist/ui/DefaultUiController;-><init>(Landroid/content/Context;Lcom/android/systemui/assist/AssistLogger;)V
+    const/4 v6, 0x1
 
-    return-object v0
+    move-object v0, v7
+
+    move-object v1, p0
+
+    move-object v2, p1
+
+    move-object v3, p2
+
+    move-object v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    return-object v7
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/assist/ui/DefaultUiController;
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 7
 
+    iget v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Landroid/content/Context;
+    move-object v2, v0
 
-    iget-object p0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
+    check-cast v2, Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/assist/AssistLogger;
+
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Landroid/view/WindowManager;
+
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/internal/logging/MetricsLogger;
+
+    iget-object p0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->assistManagerLazyProvider:Ljavax/inject/Provider;
+
+    invoke-static {p0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v6
+
+    new-instance p0, Lcom/android/systemui/assist/ui/DefaultUiController;
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/assist/ui/DefaultUiController;-><init>(Landroid/content/Context;Lcom/android/systemui/assist/AssistLogger;Landroid/view/WindowManager;Lcom/android/internal/logging/MetricsLogger;Ldagger/Lazy;)V
+
+    return-object p0
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->assistLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/wm/shell/common/ShellExecutor;
+
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/wm/shell/startingsurface/StartingWindowTypeAlgorithm;
+
+    iget-object v0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/launcher3/icons/IconProvider;
+
+    iget-object p0, p0, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->assistManagerLazyProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/assist/AssistLogger;
+    move-object v6, p0
 
-    invoke-static {v0, p0}, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/assist/AssistLogger;)Lcom/android/systemui/assist/ui/DefaultUiController;
+    check-cast v6, Lcom/android/wm/shell/common/TransactionPool;
 
-    move-result-object p0
+    new-instance p0, Lcom/android/wm/shell/startingsurface/StartingWindowController;
 
-    return-object p0
-.end method
+    move-object v1, p0
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->get()Lcom/android/systemui/assist/ui/DefaultUiController;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v6}, Lcom/android/wm/shell/startingsurface/StartingWindowController;-><init>(Landroid/content/Context;Lcom/android/wm/shell/common/ShellExecutor;Lcom/android/wm/shell/startingsurface/StartingWindowTypeAlgorithm;Lcom/android/launcher3/icons/IconProvider;Lcom/android/wm/shell/common/TransactionPool;)V
 
     return-object p0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

@@ -7,17 +7,17 @@
 
 
 # instance fields
-.field protected final mBottom:I
+.field public final mBottom:F
 
-.field private final mDarkColor:I
+.field public final mDarkColor:I
 
-.field private final mLightColor:I
+.field public final mLightColor:I
 
-.field protected final mPaint:Landroid/graphics/Paint;
+.field public final mPaint:Landroid/graphics/Paint;
 
-.field protected final mRadius:I
+.field public final mRadius:F
 
-.field private mRequiresInvalidate:Z
+.field public mRequiresInvalidate:Z
 
 
 # direct methods
@@ -46,29 +46,29 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->navigation_handle_radius:I
+    const v1, 0x7f0705a6
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
-    iput v1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:I
+    iput v1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:F
 
-    sget v1, Lcom/android/systemui/R$dimen;->navigation_handle_bottom:I
+    const v1, 0x7f0705a5
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v0
 
-    iput v0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:I
+    iput v0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:F
 
-    sget v0, Lcom/android/systemui/R$attr;->darkIconTheme:I
+    const v0, 0x7f040153
 
     invoke-static {p1, v0}, Lcom/android/settingslib/Utils;->getThemeAttr(Landroid/content/Context;I)I
 
     move-result v0
 
-    sget v1, Lcom/android/systemui/R$attr;->lightIconTheme:I
+    const v1, 0x7f040318
 
     invoke-static {p1, v1}, Lcom/android/settingslib/Utils;->getThemeAttr(Landroid/content/Context;I)I
 
@@ -82,7 +82,7 @@
 
     invoke-direct {v1, p1, v0}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
-    sget p1, Lcom/android/systemui/R$attr;->homeHandleColor:I
+    const p1, 0x7f040273
 
     invoke-static {v2, p1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
@@ -109,13 +109,13 @@
 
 
 # virtual methods
-.method public abortCurrentGesture()V
+.method public final abortCurrentGesture()V
     .locals 0
 
     return-void
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
+.method public onDraw(Landroid/graphics/Canvas;)V
     .locals 11
 
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -124,33 +124,29 @@
 
     move-result v0
 
-    iget v1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:I
+    iget v1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:F
 
-    mul-int/lit8 v1, v1, 0x2
+    const/high16 v2, 0x40000000    # 2.0f
+
+    mul-float/2addr v1, v2
 
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
 
     move-result v2
 
-    iget v3, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:I
+    int-to-float v0, v0
 
-    sub-int/2addr v0, v3
+    iget v3, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mBottom:F
 
-    sub-int/2addr v0, v1
+    sub-float/2addr v0, v3
 
-    int-to-float v5, v0
+    sub-float v5, v0, v1
 
     int-to-float v6, v2
 
-    add-int/2addr v0, v1
+    add-float v7, v5, v1
 
-    int-to-float v7, v0
-
-    iget v0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:I
-
-    int-to-float v8, v0
-
-    int-to-float v9, v0
+    iget v9, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mRadius:F
 
     iget-object v10, p0, Lcom/android/systemui/navigationbar/gestural/NavigationHandle;->mPaint:Landroid/graphics/Paint;
 
@@ -158,12 +154,14 @@
 
     move-object v3, p1
 
+    move v8, v9
+
     invoke-virtual/range {v3 .. v10}, Landroid/graphics/Canvas;->drawRoundRect(FFFFFFLandroid/graphics/Paint;)V
 
     return-void
 .end method
 
-.method public setAlpha(F)V
+.method public final setAlpha(F)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/view/View;->setAlpha(F)V
@@ -188,7 +186,7 @@
     return-void
 .end method
 
-.method public setDarkIntensity(F)V
+.method public final setDarkIntensity(F)V
     .locals 3
 
     invoke-static {}, Landroid/animation/ArgbEvaluator;->getInstance()Landroid/animation/ArgbEvaluator;
@@ -259,19 +257,13 @@
     return-void
 .end method
 
-.method public setDelayTouchFeedback(Z)V
+.method public final setImageDrawable(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     return-void
 .end method
 
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public setVertical(Z)V
+.method public final setVertical(Z)V
     .locals 0
 
     return-void

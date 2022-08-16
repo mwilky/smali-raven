@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,13 +27,13 @@
 
 
 # instance fields
-.field final synthetic $text:Ljava/lang/String;
+.field public final synthetic $text:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$setErrorStatus$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
@@ -49,30 +49,18 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlViewHolder$setErrorStatus$1;->invoke()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke()V
+.method public final invoke()Ljava/lang/Object;
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$setErrorStatus$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$setErrorStatus$1;->$text:Ljava/lang/String;
 
-    const-string v1, "text"
-
-    invoke-static {p0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     const/4 v1, 0x1
 
     invoke-virtual {v0, p0, v1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->setStatusText(Ljava/lang/CharSequence;Z)V
 
-    return-void
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/statusbar/StatusBarStateControllerImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -29,7 +30,9 @@
 
     check-cast p1, Lcom/android/systemui/statusbar/SysuiStatusBarStateController$RankedListener;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/StatusBarStateControllerImpl;->$r8$lambda$Tt1933kHGyvpETnvNAHk4CJisoQ(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;Lcom/android/systemui/statusbar/SysuiStatusBarStateController$RankedListener;)Z
+    iget-object p1, p1, Lcom/android/systemui/statusbar/SysuiStatusBarStateController$RankedListener;->mListener:Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
+
+    invoke-virtual {p1, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 

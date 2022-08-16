@@ -17,6 +17,7 @@
         <item>Nie meer as 3 prosesse nie</item>
         <item>Nie meer as 4 prosesse nie</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Af</item>
         <item>Aan</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Onbeskikbaar</item>
+        <item>Af</item>
+        <item>Aan</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Onbeskikbaar</item>
         <item>Af</item>
@@ -306,6 +312,16 @@
         <item>Aan</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Onbeskikbaar</item>
+        <item>Af</item>
+        <item>Aan</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Onbeskikbaar</item>
+        <item>Af</item>
+        <item>Aan</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Onbeskikbaar</item>
         <item>Af</item>
         <item>Aan</item>
@@ -374,6 +390,12 @@
         <item>Snel</item>
         <item>Baie snel</item>
         <item>Vinnigste</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Beweeg links</item>
+        <item>Beweeg af</item>
+        <item>Beweeg regs</item>
+        <item>Beweeg op</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Laai tans</item>

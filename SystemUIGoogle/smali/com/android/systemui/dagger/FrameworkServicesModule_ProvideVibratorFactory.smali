@@ -6,82 +6,88 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Landroid/os/Vibrator;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final contextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
+
+.field public final contextProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p2, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;)Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;)",
-            "Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;"
-        }
-    .end annotation
 
-    new-instance v0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;
+# virtual methods
+.method public final get()Ljava/lang/Object;
+    .locals 2
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;-><init>(Ljavax/inject/Provider;)V
+    iget v0, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->$r8$classId:I
 
-    return-object v0
-.end method
+    packed-switch v0, :pswitch_data_0
 
-.method public static provideVibrator(Landroid/content/Context;)Landroid/os/Vibrator;
-    .locals 0
+    goto :goto_0
 
-    invoke-static {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule;->provideVibrator(Landroid/content/Context;)Landroid/os/Vibrator;
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
+    check-cast p0, Landroid/os/Handler;
+
+    new-instance v0, Lcom/android/wm/shell/common/TaskStackListenerImpl;
+
+    invoke-direct {v0, p0}, Lcom/android/wm/shell/common/TaskStackListenerImpl;-><init>(Landroid/os/Handler;)V
+
+    return-object v0
+
+    :pswitch_1
+    iget-object p0, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;
+
+    const v0, 0x7f0b04a7
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
+
     return-object p0
-.end method
 
+    :pswitch_2
+    iget-object p0, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->contextProvider:Ljavax/inject/Provider;
 
-# virtual methods
-.method public get()Landroid/os/Vibrator;
-    .locals 0
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/log/LogBuffer;
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLogger;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLogger;-><init>(Lcom/android/systemui/log/LogBuffer;)V
+
+    return-object v0
+
+    :pswitch_3
     iget-object p0, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -90,19 +96,46 @@
 
     check-cast p0, Landroid/content/Context;
 
-    invoke-static {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->provideVibrator(Landroid/content/Context;)Landroid/os/Vibrator;
+    const-class v0, Landroid/os/Vibrator;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/os/Vibrator;
+
+    return-object p0
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroid/content/res/Resources;
+
+    const v0, 0x7f0c0022
+
+    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result p0
+
+    int-to-long v0, p0
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object p0
 
     return-object p0
-.end method
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    nop
 
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;->get()Landroid/os/Vibrator;
-
-    move-result-object p0
-
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

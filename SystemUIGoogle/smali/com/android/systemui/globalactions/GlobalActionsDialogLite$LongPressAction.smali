@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LongPressAction;
+.class public interface abstract Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LongPressAction;
 .super Ljava/lang/Object;
 .source "GlobalActionsDialogLite.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "LongPressAction"
 .end annotation
 

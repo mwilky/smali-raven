@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/EmergencyButtonController$1;
+.class public final Lcom/android/keyguard/EmergencyButtonController$1;
 .super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "EmergencyButtonController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/EmergencyButtonController;
+.field public final synthetic this$0:Lcom/android/keyguard/EmergencyButtonController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/EmergencyButtonController;)V
+.method public constructor <init>(Lcom/android/keyguard/EmergencyButtonController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/EmergencyButtonController$1;->this$0:Lcom/android/keyguard/EmergencyButtonController;
@@ -31,22 +31,22 @@
 
 
 # virtual methods
-.method public onPhoneStateChanged(I)V
+.method public final onPhoneStateChanged()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/EmergencyButtonController$1;->this$0:Lcom/android/keyguard/EmergencyButtonController;
 
-    invoke-static {p0}, Lcom/android/keyguard/EmergencyButtonController;->access$000(Lcom/android/keyguard/EmergencyButtonController;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/EmergencyButtonController;->updateEmergencyCallButton()V
 
     return-void
 .end method
 
-.method public onSimStateChanged(III)V
+.method public final onSimStateChanged(III)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/EmergencyButtonController$1;->this$0:Lcom/android/keyguard/EmergencyButtonController;
 
-    invoke-static {p0}, Lcom/android/keyguard/EmergencyButtonController;->access$000(Lcom/android/keyguard/EmergencyButtonController;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/EmergencyButtonController;->updateEmergencyCallButton()V
 
     return-void
 .end method

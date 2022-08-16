@@ -4,6 +4,9 @@
 
 
 # virtual methods
+.method public abstract getLogInBackgroundThread()Z
+.end method
+
 .method public abstract isBufferLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
 .end method
 

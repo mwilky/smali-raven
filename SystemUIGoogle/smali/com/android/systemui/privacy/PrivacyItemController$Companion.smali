@@ -26,7 +26,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/privacy/PrivacyItemController$Companion;-><init>()V
@@ -40,36 +40,4 @@
     .end annotation
 
     return-void
-.end method
-
-
-# virtual methods
-.method public final getOPS()[I
-    .locals 0
-
-    invoke-static {}, Lcom/android/systemui/privacy/PrivacyItemController;->access$getOPS$cp()[I
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final getOPS_LOCATION()[I
-    .locals 0
-
-    invoke-static {}, Lcom/android/systemui/privacy/PrivacyItemController;->access$getOPS_LOCATION$cp()[I
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final getOPS_MIC_CAMERA()[I
-    .locals 0
-
-    invoke-static {}, Lcom/android/systemui/privacy/PrivacyItemController;->access$getOPS_MIC_CAMERA$cp()[I
-
-    move-result-object p0
-
-    return-object p0
 .end method

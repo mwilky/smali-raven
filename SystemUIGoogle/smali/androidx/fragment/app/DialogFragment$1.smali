@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/DialogFragment$1;
+.class public final Landroidx/fragment/app/DialogFragment$1;
 .super Ljava/lang/Object;
 .source "DialogFragment.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/DialogFragment;
+.field public final synthetic this$0:Landroidx/fragment/app/DialogFragment;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/DialogFragment;)V
+.method public constructor <init>(Landroidx/fragment/app/DialogFragment;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment$1;->this$0:Landroidx/fragment/app/DialogFragment;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
     .annotation build Landroid/annotation/SuppressLint;
         value = {
@@ -42,19 +42,13 @@
         }
     .end annotation
 
-    iget-object v0, p0, Landroidx/fragment/app/DialogFragment$1;->this$0:Landroidx/fragment/app/DialogFragment;
-
-    invoke-static {v0}, Landroidx/fragment/app/DialogFragment;->access$100(Landroidx/fragment/app/DialogFragment;)Landroid/content/DialogInterface$OnDismissListener;
-
-    move-result-object v0
-
     iget-object p0, p0, Landroidx/fragment/app/DialogFragment$1;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    invoke-static {p0}, Landroidx/fragment/app/DialogFragment;->access$000(Landroidx/fragment/app/DialogFragment;)Landroid/app/Dialog;
+    iget-object v0, p0, Landroidx/fragment/app/DialogFragment;->mOnDismissListener:Landroidx/fragment/app/DialogFragment$3;
 
-    move-result-object p0
+    iget-object p0, p0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
-    invoke-interface {v0, p0}, Landroid/content/DialogInterface$OnDismissListener;->onDismiss(Landroid/content/DialogInterface;)V
+    invoke-virtual {v0, p0}, Landroidx/fragment/app/DialogFragment$3;->onDismiss(Landroid/content/DialogInterface;)V
 
     return-void
 .end method

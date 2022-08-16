@@ -27,19 +27,11 @@
         }
     .end annotation
 
-    const-string p0, "profiles"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     return-void
 .end method
 
-.method public onUserChanged(ILandroid/content/Context;)V
+.method public onUserChanged(I)V
     .locals 0
-
-    const-string/jumbo p0, "userContext"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1;
+.class public final Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1;
 .super Ljava/lang/Object;
 .source "AppAdapter.kt"
 
@@ -6,19 +6,8 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/AppAdapter$callback$1;->onServicesUpdated(Ljava/util/List;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $serviceInfos:Ljava/util/List;
+.field public final synthetic $serviceInfos:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -28,25 +17,14 @@
     .end annotation
 .end field
 
-.field final synthetic $uiExecutor:Ljava/util/concurrent/Executor;
+.field public final synthetic $uiExecutor:Ljava/util/concurrent/Executor;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/management/AppAdapter;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/AppAdapter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/AppAdapter;Ljava/util/List;Ljava/util/concurrent/Executor;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/AppAdapter;Ljava/util/ArrayList;Ljava/util/concurrent/Executor;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/controls/management/AppAdapter;",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlsServiceInfo;",
-            ">;",
-            "Ljava/util/concurrent/Executor;",
-            ")V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1;->this$0:Lcom/android/systemui/controls/management/AppAdapter;
 
@@ -66,9 +44,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1;->this$0:Lcom/android/systemui/controls/management/AppAdapter;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/management/AppAdapter;->access$getResources$p(Lcom/android/systemui/controls/management/AppAdapter;)Landroid/content/res/Resources;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/management/AppAdapter;->resources:Landroid/content/res/Resources;
 
     invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
@@ -88,23 +64,19 @@
 
     move-result-object v0
 
-    const-string v1, "collator"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     new-instance v1, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1$run$$inlined$compareBy$1;
 
-    invoke-direct {v1, v0}, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1$run$$inlined$compareBy$1;-><init>(Ljava/util/Comparator;)V
+    invoke-direct {v1, v0}, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1$run$$inlined$compareBy$1;-><init>(Ljava/text/Collator;)V
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1;->this$0:Lcom/android/systemui/controls/management/AppAdapter;
 
     iget-object v2, p0, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1;->$serviceInfos:Ljava/util/List;
 
-    invoke-static {v2, v1}, Lkotlin/collections/CollectionsKt;->sortedWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/util/List;
+    invoke-static {v2, v1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->sortedWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/util/List;
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/controls/management/AppAdapter;->access$setListOfServices$p(Lcom/android/systemui/controls/management/AppAdapter;Ljava/util/List;)V
+    iput-object v1, v0, Lcom/android/systemui/controls/management/AppAdapter;->listOfServices:Ljava/util/List;
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/AppAdapter$callback$1$onServicesUpdated$1;->$uiExecutor:Ljava/util/concurrent/Executor;
 

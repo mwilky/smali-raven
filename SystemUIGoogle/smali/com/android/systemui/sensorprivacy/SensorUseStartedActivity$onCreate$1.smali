@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;
+.class public final Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;
 .super Ljava/lang/Object;
 .source "SensorUseStartedActivity.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
+.field public final synthetic this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
+.method public constructor <init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
@@ -39,9 +39,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
 
-    invoke-static {p1}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->access$getSensorPrivacyController$p(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
     const/4 p2, 0x1
 
@@ -53,9 +51,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onCreate$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
 
-    invoke-static {p1}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->access$getSensorPrivacyController$p(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->sensorPrivacyController:Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
     const/4 p2, 0x2
 

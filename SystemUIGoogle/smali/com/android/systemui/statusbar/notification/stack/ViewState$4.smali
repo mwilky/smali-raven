@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/ViewState$4;
+.class public final Lcom/android/systemui/statusbar/notification/stack/ViewState$4;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ViewState.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -17,22 +17,18 @@
 # instance fields
 .field public mWasCancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/ViewState;
+.field public final synthetic val$child:Landroid/view/View;
 
-.field final synthetic val$child:Landroid/view/View;
-
-.field final synthetic val$newEndValue:F
+.field public final synthetic val$newEndValue:F
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/ViewState;Landroid/view/View;F)V
+.method public constructor <init>(Landroid/view/View;F)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->this$0:Lcom/android/systemui/statusbar/notification/stack/ViewState;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$child:Landroid/view/View;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$child:Landroid/view/View;
-
-    iput p3, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$newEndValue:F
+    iput p2, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$newEndValue:F
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -41,7 +37,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -51,7 +47,7 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$child:Landroid/view/View;
@@ -83,32 +79,26 @@
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$child:Landroid/view/View;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->access$000()I
-
-    move-result v0
+    sget v0, Lcom/android/systemui/statusbar/notification/stack/ViewState;->TAG_ANIMATOR_ALPHA:I
 
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$child:Landroid/view/View;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->access$100()I
-
-    move-result v0
+    sget v0, Lcom/android/systemui/statusbar/notification/stack/ViewState;->TAG_START_ALPHA:I
 
     invoke-virtual {p1, v0, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/ViewState$4;->val$child:Landroid/view/View;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->access$200()I
-
-    move-result p1
+    sget p1, Lcom/android/systemui/statusbar/notification/stack/ViewState;->TAG_END_ALPHA:I
 
     invoke-virtual {p0, p1, v1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x0

@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xc
+    accessFlags = 0x9
     name = "SavedState"
 .end annotation
 
@@ -27,19 +27,19 @@
 
 
 # instance fields
-.field lockModeEnd:I
+.field public lockModeEnd:I
 
-.field lockModeLeft:I
+.field public lockModeLeft:I
 
-.field lockModeRight:I
+.field public lockModeRight:I
 
-.field lockModeStart:I
+.field public lockModeStart:I
 
-.field openDrawerGravity:I
+.field public openDrawerGravity:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroidx/drawerlayout/widget/DrawerLayout$SavedState$1;
@@ -53,16 +53,6 @@
 
 .method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "in",
-            "loader"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;-><init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
 
@@ -105,14 +95,6 @@
 
 .method public constructor <init>(Landroid/os/Parcelable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "superState"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroidx/customview/view/AbsSavedState;-><init>(Landroid/os/Parcelable;)V
 
@@ -125,20 +107,12 @@
 
 
 # virtual methods
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dest",
-            "flags"
-        }
-    .end annotation
+.method public final writeToParcel(Landroid/os/Parcel;I)V
+    .locals 1
 
-    invoke-super {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
+    iget-object v0, p0, Landroidx/customview/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
+
+    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     iget p2, p0, Landroidx/drawerlayout/widget/DrawerLayout$SavedState;->openDrawerGravity:I
 

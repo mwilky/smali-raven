@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
@@ -28,16 +28,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlHolder;)V
+.method public constructor <init>(Ljava/lang/Object;)V
     .locals 7
 
     const-class v3, Lcom/android/systemui/controls/management/ControlHolder;
 
     const/4 v1, 0x1
 
-    const-string v4, "stateDescription"
+    const-string/jumbo v4, "stateDescription"
 
-    const-string v5, "stateDescription(Z)Ljava/lang/CharSequence;"
+    const-string/jumbo v5, "stateDescription(Z)Ljava/lang/CharSequence;"
 
     const/4 v6, 0x0
 
@@ -52,22 +52,8 @@
 
 
 # virtual methods
-.method public final invoke(Z)Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
-
-    check-cast p0, Lcom/android/systemui/controls/management/ControlHolder;
-
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/management/ControlHolder;->access$stateDescription(Lcom/android/systemui/controls/management/ControlHolder;Z)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
     check-cast p1, Ljava/lang/Boolean;
 
@@ -75,7 +61,13 @@
 
     move-result p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$1;->invoke(Z)Ljava/lang/CharSequence;
+    iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/controls/management/ControlHolder;
+
+    sget v0, Lcom/android/systemui/controls/management/ControlHolder;->$r8$clinit:I
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/ControlHolder;->stateDescription(Z)Ljava/lang/String;
 
     move-result-object p0
 

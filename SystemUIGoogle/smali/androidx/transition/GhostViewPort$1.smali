@@ -1,4 +1,4 @@
-.class Landroidx/transition/GhostViewPort$1;
+.class public final Landroidx/transition/GhostViewPort$1;
 .super Ljava/lang/Object;
 .source "GhostViewPort.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/transition/GhostViewPort;
+.field public final synthetic this$0:Landroidx/transition/GhostViewPort;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/GhostViewPort;)V
+.method public constructor <init>(Landroidx/transition/GhostViewPort;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
@@ -34,12 +34,14 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
+.method public final onPreDraw()Z
     .locals 2
 
     iget-object v0, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
 
-    invoke-static {v0}, Landroidx/core/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
+    sget-object v1, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {v0}, Landroidx/core/view/ViewCompat$Api16Impl;->postInvalidateOnAnimation(Landroid/view/View;)V
 
     iget-object v0, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
 
@@ -57,7 +59,7 @@
 
     iget-object v0, v0, Landroidx/transition/GhostViewPort;->mStartParent:Landroid/view/ViewGroup;
 
-    invoke-static {v0}, Landroidx/core/view/ViewCompat;->postInvalidateOnAnimation(Landroid/view/View;)V
+    invoke-static {v0}, Landroidx/core/view/ViewCompat$Api16Impl;->postInvalidateOnAnimation(Landroid/view/View;)V
 
     iget-object p0, p0, Landroidx/transition/GhostViewPort$1;->this$0:Landroidx/transition/GhostViewPort;
 

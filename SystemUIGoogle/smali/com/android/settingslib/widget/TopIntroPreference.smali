@@ -9,9 +9,9 @@
 
     invoke-direct {p0, p1, p2}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    sget p1, Lcom/android/settingslib/widget/R$layout;->top_intro_preference:I
+    const p1, 0x7f0e02ae
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    iput p1, p0, Landroidx/preference/Preference;->mLayoutResId:I
 
     const/4 p1, 0x0
 
@@ -22,16 +22,16 @@
 
 
 # virtual methods
-.method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+.method public final onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
     const/4 p0, 0x0
 
-    invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->setDividerAllowedAbove(Z)V
+    iput-boolean p0, p1, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedAbove:Z
 
-    invoke-virtual {p1, p0}, Landroidx/preference/PreferenceViewHolder;->setDividerAllowedBelow(Z)V
+    iput-boolean p0, p1, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedBelow:Z
 
     return-void
 .end method

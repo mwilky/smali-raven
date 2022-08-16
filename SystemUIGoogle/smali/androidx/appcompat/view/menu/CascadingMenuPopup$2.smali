@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/CascadingMenuPopup$2;
+.class public final Landroidx/appcompat/view/menu/CascadingMenuPopup$2;
 .super Ljava/lang/Object;
 .source "CascadingMenuPopup.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
+.field public final synthetic this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/view/menu/CascadingMenuPopup;)V
+.method public constructor <init>(Landroidx/appcompat/view/menu/CascadingMenuPopup;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$2;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
@@ -34,13 +34,13 @@
 
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
+.method public final onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
+.method public final onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 2
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$2;->this$0:Landroidx/appcompat/view/menu/CascadingMenuPopup;
@@ -68,7 +68,7 @@
 
     iget-object v1, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mTreeObserver:Landroid/view/ViewTreeObserver;
 
-    iget-object v0, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    iget-object v0, v0, Landroidx/appcompat/view/menu/CascadingMenuPopup;->mGlobalLayoutListener:Landroidx/appcompat/view/menu/CascadingMenuPopup$1;
 
     invoke-virtual {v1, v0}, Landroid/view/ViewTreeObserver;->removeGlobalOnLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 

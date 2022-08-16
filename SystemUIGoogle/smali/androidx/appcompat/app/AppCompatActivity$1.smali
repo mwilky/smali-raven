@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/app/AppCompatActivity$1;
+.class public final Landroidx/appcompat/app/AppCompatActivity$1;
 .super Ljava/lang/Object;
 .source "AppCompatActivity.java"
 
@@ -6,23 +6,12 @@
 .implements Landroidx/savedstate/SavedStateRegistry$SavedStateProvider;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/app/AppCompatActivity;->initDelegate()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/app/AppCompatActivity;
+.field public final synthetic this$0:Landroidx/appcompat/app/AppCompatActivity;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/app/AppCompatActivity;)V
+.method public constructor <init>(Landroidx/appcompat/app/AppCompatActivity;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatActivity$1;->this$0:Landroidx/appcompat/app/AppCompatActivity;
@@ -34,7 +23,7 @@
 
 
 # virtual methods
-.method public saveState()Landroid/os/Bundle;
+.method public final saveState()Landroid/os/Bundle;
     .locals 1
 
     new-instance v0, Landroid/os/Bundle;
@@ -47,7 +36,7 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, v0}, Landroidx/appcompat/app/AppCompatDelegate;->onSaveInstanceState(Landroid/os/Bundle;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-object v0
 .end method

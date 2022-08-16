@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/settings/brightness/BrightnessSliderView$DispatchTouchEventListener;
+.class public interface abstract Lcom/android/systemui/settings/brightness/BrightnessSliderView$DispatchTouchEventListener;
 .super Ljava/lang/Object;
 .source "BrightnessSliderView.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "DispatchTouchEventListener"
 .end annotation
 

@@ -26,7 +26,7 @@
 
 
 # virtual methods
-.method public abstract getDataSaverController()Lcom/android/systemui/statusbar/policy/DataSaverController;
+.method public abstract getDataSaverController()Lcom/android/systemui/statusbar/policy/DataSaverControllerImpl;
 .end method
 
 .method public abstract getMobileDataController()Lcom/android/settingslib/net/DataUsageController;

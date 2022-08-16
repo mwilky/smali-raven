@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "BatteryEstimateFetcher"
 .end annotation
-
-
-# virtual methods
-.method public abstract fetchBatteryTimeRemainingEstimate(Lcom/android/systemui/statusbar/policy/BatteryController$EstimateFetchCompletion;)V
-.end method

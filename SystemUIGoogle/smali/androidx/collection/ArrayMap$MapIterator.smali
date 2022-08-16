@@ -1,4 +1,4 @@
-.class final Landroidx/collection/ArrayMap$MapIterator;
+.class public final Landroidx/collection/ArrayMap$MapIterator;
 .super Ljava/lang/Object;
 .source "ArrayMap.java"
 
@@ -13,7 +13,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "MapIterator"
 .end annotation
 
@@ -30,17 +30,17 @@
 
 
 # instance fields
-.field mEnd:I
+.field public mEnd:I
 
-.field mEntryValid:Z
+.field public mEntryValid:Z
 
-.field mIndex:I
+.field public mIndex:I
 
-.field final synthetic this$0:Landroidx/collection/ArrayMap;
+.field public final synthetic this$0:Landroidx/collection/ArrayMap;
 
 
 # direct methods
-.method constructor <init>(Landroidx/collection/ArrayMap;)V
+.method public constructor <init>(Landroidx/collection/ArrayMap;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/collection/ArrayMap$MapIterator;->this$0:Landroidx/collection/ArrayMap;
@@ -62,12 +62,12 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     iget-boolean v0, p0, Landroidx/collection/ArrayMap$MapIterator;->mEntryValid:Z
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_6
 
     instance-of v0, p1, Ljava/util/Map$Entry;
 
@@ -92,11 +92,31 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Landroidx/collection/ContainerHelpers;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    const/4 v3, 0x1
+
+    if-eq v0, v2, :cond_2
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
     if-eqz v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    move v0, v3
+
+    :goto_1
+    if-eqz v0, :cond_5
 
     invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
 
@@ -110,18 +130,36 @@
 
     move-result-object p0
 
-    invoke-static {p1, p0}, Landroidx/collection/ContainerHelpers;->equal(Ljava/lang/Object;Ljava/lang/Object;)Z
+    if-eq p1, p0, :cond_4
+
+    if-eqz p1, :cond_3
+
+    invoke-virtual {p1, p0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_3
 
-    const/4 v1, 0x1
+    goto :goto_2
 
-    :cond_1
+    :cond_3
+    move p0, v1
+
+    goto :goto_3
+
+    :cond_4
+    :goto_2
+    move p0, v3
+
+    :goto_3
+    if-eqz p0, :cond_5
+
+    move v1, v3
+
+    :cond_5
     return v1
 
-    :cond_2
+    :cond_6
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "This container does not support retaining Map.Entry objects"
@@ -131,7 +169,7 @@
     throw p0
 .end method
 
-.method public getKey()Ljava/lang/Object;
+.method public final getKey()Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -163,7 +201,7 @@
     throw p0
 .end method
 
-.method public getValue()Ljava/lang/Object;
+.method public final getValue()Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -195,7 +233,7 @@
     throw p0
 .end method
 
-.method public hasNext()Z
+.method public final hasNext()Z
     .locals 1
 
     iget v0, p0, Landroidx/collection/ArrayMap$MapIterator;->mIndex:I
@@ -215,7 +253,7 @@
     return p0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-boolean v0, p0, Landroidx/collection/ArrayMap$MapIterator;->mEntryValid:Z
@@ -276,25 +314,8 @@
     throw p0
 .end method
 
-.method public bridge synthetic next()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Landroidx/collection/ArrayMap$MapIterator;->next()Ljava/util/Map$Entry;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public next()Ljava/util/Map$Entry;
+.method public final next()Ljava/lang/Object;
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Map$Entry<",
-            "TK;TV;>;"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/collection/ArrayMap$MapIterator;->hasNext()Z
 
@@ -322,7 +343,7 @@
     throw p0
 .end method
 
-.method public remove()V
+.method public final remove()V
     .locals 2
 
     iget-boolean v0, p0, Landroidx/collection/ArrayMap$MapIterator;->mEntryValid:Z
@@ -361,8 +382,8 @@
     throw p0
 .end method
 
-.method public setValue(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
+.method public final setValue(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)TV;"
@@ -377,11 +398,17 @@
 
     iget p0, p0, Landroidx/collection/ArrayMap$MapIterator;->mIndex:I
 
-    invoke-virtual {v0, p0, p1}, Landroidx/collection/SimpleArrayMap;->setValueAt(ILjava/lang/Object;)Ljava/lang/Object;
+    shl-int/lit8 p0, p0, 0x1
 
-    move-result-object p0
+    add-int/lit8 p0, p0, 0x1
 
-    return-object p0
+    iget-object v0, v0, Landroidx/collection/SimpleArrayMap;->mArray:[Ljava/lang/Object;
+
+    aget-object v1, v0, p0
+
+    aput-object p1, v0, p0
+
+    return-object v1
 
     :cond_0
     new-instance p0, Ljava/lang/IllegalStateException;
@@ -393,7 +420,7 @@
     throw p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;

@@ -1,4 +1,4 @@
-.class Landroidx/transition/TransitionManager$MultiListener$1;
+.class public final Landroidx/transition/TransitionManager$MultiListener$1;
 .super Landroidx/transition/TransitionListenerAdapter;
 .source "TransitionManager.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/transition/TransitionManager$MultiListener;
+.field public final synthetic this$0:Landroidx/transition/TransitionManager$MultiListener;
 
-.field final synthetic val$runningTransitions:Landroidx/collection/ArrayMap;
+.field public final synthetic val$runningTransitions:Landroidx/collection/ArrayMap;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/TransitionManager$MultiListener;Landroidx/collection/ArrayMap;)V
+.method public constructor <init>(Landroidx/transition/TransitionManager$MultiListener;Landroidx/collection/ArrayMap;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/transition/TransitionManager$MultiListener$1;->this$0:Landroidx/transition/TransitionManager$MultiListener;
@@ -35,8 +35,8 @@
 
 
 # virtual methods
-.method public onTransitionEnd(Landroidx/transition/Transition;)V
-    .locals 2
+.method public final onTransitionEnd(Landroidx/transition/Transition;)V
+    .locals 3
 
     iget-object v0, p0, Landroidx/transition/TransitionManager$MultiListener$1;->val$runningTransitions:Landroidx/collection/ArrayMap;
 
@@ -44,7 +44,9 @@
 
     iget-object v1, v1, Landroidx/transition/TransitionManager$MultiListener;->mSceneRoot:Landroid/view/ViewGroup;
 
-    invoke-virtual {v0, v1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Landroidx/collection/SimpleArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -52,7 +54,7 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)V
 
     return-void
 .end method

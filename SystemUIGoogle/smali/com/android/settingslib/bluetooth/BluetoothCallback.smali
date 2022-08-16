@@ -16,12 +16,6 @@
     return-void
 .end method
 
-.method public onAudioModeChanged()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public onBluetoothStateChanged(I)V
     .locals 0
 
@@ -53,12 +47,6 @@
 .end method
 
 .method public onProfileConnectionStateChanged(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;II)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onScanningStateChanged(Z)V
     .locals 0
 
     return-void

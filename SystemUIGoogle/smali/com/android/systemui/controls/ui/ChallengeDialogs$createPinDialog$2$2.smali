@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$2;
+.class public final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$2;
 .super Ljava/lang/Object;
 .source "ChallengeDialogs.kt"
 
@@ -6,19 +6,8 @@
 .implements Landroid/content/DialogInterface$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/ChallengeDialogs;->createPinDialog(Lcom/android/systemui/controls/ui/ControlViewHolder;ZZLkotlin/jvm/functions/Function0;)Landroid/app/Dialog;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $onCancel:Lkotlin/jvm/functions/Function0;
+.field public final synthetic $onCancel:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function0<",
@@ -30,7 +19,7 @@
 
 
 # direct methods
-.method constructor <init>(Lkotlin/jvm/functions/Function0;)V
+.method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

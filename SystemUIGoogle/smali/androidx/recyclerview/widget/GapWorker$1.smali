@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/GapWorker$1;
+.class public final Landroidx/recyclerview/widget/GapWorker$1;
 .super Ljava/lang/Object;
 .source "GapWorker.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,18 +37,12 @@
 
 
 # virtual methods
-.method public compare(Landroidx/recyclerview/widget/GapWorker$Task;Landroidx/recyclerview/widget/GapWorker$Task;)I
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "lhs",
-            "rhs"
-        }
-    .end annotation
+
+    check-cast p1, Landroidx/recyclerview/widget/GapWorker$Task;
+
+    check-cast p2, Landroidx/recyclerview/widget/GapWorker$Task;
 
     iget-object p0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->view:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -80,31 +74,31 @@
     :goto_1
     const/4 v4, -0x1
 
-    if-eq v2, v3, :cond_3
+    if-eq v2, v3, :cond_4
 
-    if-nez p0, :cond_2
-
-    goto :goto_2
+    if-nez p0, :cond_3
 
     :cond_2
-    move v1, v4
+    move v0, v1
 
-    :goto_2
-    return v1
+    goto :goto_4
 
     :cond_3
+    :goto_2
+    move v0, v4
+
+    goto :goto_4
+
+    :cond_4
     iget-boolean p0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
     iget-boolean v2, p2, Landroidx/recyclerview/widget/GapWorker$Task;->immediate:Z
 
     if-eq p0, v2, :cond_5
 
-    if-eqz p0, :cond_4
+    if-eqz p0, :cond_2
 
-    move v1, v4
-
-    :cond_4
-    return v1
+    goto :goto_2
 
     :cond_5
     iget p0, p2, Landroidx/recyclerview/widget/GapWorker$Task;->viewVelocity:I
@@ -115,7 +109,10 @@
 
     if-eqz p0, :cond_6
 
-    return p0
+    :goto_3
+    move v0, p0
+
+    goto :goto_4
 
     :cond_6
     iget p0, p1, Landroidx/recyclerview/widget/GapWorker$Task;->distanceToItem:I
@@ -126,32 +123,9 @@
 
     if-eqz p0, :cond_7
 
-    return p0
+    goto :goto_3
 
     :cond_7
+    :goto_4
     return v0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "lhs",
-            "rhs"
-        }
-    .end annotation
-
-    check-cast p1, Landroidx/recyclerview/widget/GapWorker$Task;
-
-    check-cast p2, Landroidx/recyclerview/widget/GapWorker$Task;
-
-    invoke-virtual {p0, p1, p2}, Landroidx/recyclerview/widget/GapWorker$1;->compare(Landroidx/recyclerview/widget/GapWorker$Task;Landroidx/recyclerview/widget/GapWorker$Task;)I
-
-    move-result p0
-
-    return p0
 .end method

@@ -1,33 +1,26 @@
 .class public final synthetic Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/systemui/screenshot/ScreenshotController$QuickShareActionReadyListener;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/screenshot/ScreenshotController;
+.implements Landroid/view/View$OnApplyWindowInsetsListener;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotController;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onActionsReady(Lcom/android/systemui/screenshot/ScreenshotController$QuickShareData;)V
+.method public final onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/screenshot/ScreenshotController;
+    sget-object p0, Landroid/view/WindowInsets;->CONSUMED:Landroid/view/WindowInsets;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/screenshot/ScreenshotController;->$r8$lambda$aXM_0RtlXjdqOGt2U9Oa-52Cqms(Lcom/android/systemui/screenshot/ScreenshotController;Lcom/android/systemui/screenshot/ScreenshotController$QuickShareData;)V
-
-    return-void
+    return-object p0
 .end method

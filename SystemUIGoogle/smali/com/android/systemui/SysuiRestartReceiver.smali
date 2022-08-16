@@ -3,17 +3,7 @@
 .source "SysuiRestartReceiver.java"
 
 
-# static fields
-.field public static ACTION:Ljava/lang/String; = "com.android.systemui.action.RESTART"
-
-
 # direct methods
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -24,16 +14,16 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
-
-    sget-object p0, Lcom/android/systemui/SysuiRestartReceiver;->ACTION:Ljava/lang/String;
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p0
 
-    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v0, "com.android.systemui.action.RESTART"
+
+    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p0
 

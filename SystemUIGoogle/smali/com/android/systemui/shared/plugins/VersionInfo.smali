@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/shared/plugins/VersionInfo;
+.class public final Lcom/android/systemui/shared/plugins/VersionInfo;
 .super Ljava/lang/Object;
 .source "VersionInfo.java"
 
@@ -13,7 +13,7 @@
 
 
 # instance fields
-.field private mDefault:Ljava/lang/Class;
+.field public mDefault:Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/Class<",
@@ -22,7 +22,7 @@
     .end annotation
 .end field
 
-.field private final mVersions:Landroid/util/ArrayMap;
+.field public final mVersions:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -50,17 +50,9 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/shared/plugins/VersionInfo;Ljava/lang/Class;)Lcom/android/systemui/shared/plugins/VersionInfo$Version;
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/shared/plugins/VersionInfo;->createVersion(Ljava/lang/Class;)Lcom/android/systemui/shared/plugins/VersionInfo$Version;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private addClass(Ljava/lang/Class;Z)V
+# virtual methods
+.method public final addClass(Ljava/lang/Class;Z)V
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -193,7 +185,7 @@
 
     move-result-object p2
 
-    invoke-direct {p0, p2, v1}, Lcom/android/systemui/shared/plugins/VersionInfo;->addClass(Ljava/lang/Class;Z)V
+    invoke-virtual {p0, p2, v1}, Lcom/android/systemui/shared/plugins/VersionInfo;->addClass(Ljava/lang/Class;Z)V
 
     :cond_4
     const-class p2, Lcom/android/systemui/plugins/annotations/Dependencies;
@@ -221,7 +213,7 @@
 
     move-result-object v0
 
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/shared/plugins/VersionInfo;->addClass(Ljava/lang/Class;Z)V
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/shared/plugins/VersionInfo;->addClass(Ljava/lang/Class;Z)V
 
     add-int/lit8 v2, v2, 0x1
 
@@ -229,156 +221,4 @@
 
     :cond_5
     return-void
-.end method
-
-.method private createVersion(Ljava/lang/Class;)Lcom/android/systemui/shared/plugins/VersionInfo$Version;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Class<",
-            "*>;)",
-            "Lcom/android/systemui/shared/plugins/VersionInfo$Version;"
-        }
-    .end annotation
-
-    const-class p0, Lcom/android/systemui/plugins/annotations/ProvidesInterface;
-
-    invoke-virtual {p1, p0}, Ljava/lang/Class;->getDeclaredAnnotation(Ljava/lang/Class;)Ljava/lang/annotation/Annotation;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/plugins/annotations/ProvidesInterface;
-
-    if-eqz p0, :cond_0
-
-    new-instance p1, Lcom/android/systemui/shared/plugins/VersionInfo$Version;
-
-    invoke-interface {p0}, Lcom/android/systemui/plugins/annotations/ProvidesInterface;->version()I
-
-    move-result p0
-
-    const/4 v0, 0x0
-
-    invoke-direct {p1, p0, v0}, Lcom/android/systemui/shared/plugins/VersionInfo$Version;-><init>(IZ)V
-
-    return-object p1
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-
-# virtual methods
-.method public addClass(Ljava/lang/Class;)Lcom/android/systemui/shared/plugins/VersionInfo;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Class<",
-            "*>;)",
-            "Lcom/android/systemui/shared/plugins/VersionInfo;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mDefault:Ljava/lang/Class;
-
-    if-nez v0, :cond_0
-
-    iput-object p1, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mDefault:Ljava/lang/Class;
-
-    :cond_0
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/shared/plugins/VersionInfo;->addClass(Ljava/lang/Class;Z)V
-
-    return-object p0
-.end method
-
-.method public checkVersion(Lcom/android/systemui/shared/plugins/VersionInfo;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Lcom/android/systemui/shared/plugins/VersionInfo$InvalidVersionException;
-        }
-    .end annotation
-
-    new-instance v0, Landroid/util/ArrayMap;
-
-    iget-object v1, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mVersions:Landroid/util/ArrayMap;
-
-    invoke-direct {v0, v1}, Landroid/util/ArrayMap;-><init>(Landroid/util/ArrayMap;)V
-
-    iget-object p1, p1, Lcom/android/systemui/shared/plugins/VersionInfo;->mVersions:Landroid/util/ArrayMap;
-
-    new-instance v1, Lcom/android/systemui/shared/plugins/VersionInfo$1;
-
-    invoke-direct {v1, p0, v0}, Lcom/android/systemui/shared/plugins/VersionInfo$1;-><init>(Lcom/android/systemui/shared/plugins/VersionInfo;Landroid/util/ArrayMap;)V
-
-    invoke-virtual {p1, v1}, Landroid/util/ArrayMap;->forEach(Ljava/util/function/BiConsumer;)V
-
-    new-instance p1, Lcom/android/systemui/shared/plugins/VersionInfo$2;
-
-    invoke-direct {p1, p0}, Lcom/android/systemui/shared/plugins/VersionInfo$2;-><init>(Lcom/android/systemui/shared/plugins/VersionInfo;)V
-
-    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->forEach(Ljava/util/function/BiConsumer;)V
-
-    return-void
-.end method
-
-.method public getDefaultVersion()I
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mVersions:Landroid/util/ArrayMap;
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mDefault:Ljava/lang/Class;
-
-    invoke-virtual {v0, p0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/shared/plugins/VersionInfo$Version;
-
-    invoke-static {p0}, Lcom/android/systemui/shared/plugins/VersionInfo$Version;->access$000(Lcom/android/systemui/shared/plugins/VersionInfo$Version;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public hasClass(Ljava/lang/Class;)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/lang/Class<",
-            "TT;>;)Z"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mVersions:Landroid/util/ArrayMap;
-
-    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public hasVersionInfo()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/shared/plugins/VersionInfo;->mVersions:Landroid/util/ArrayMap;
-
-    invoke-virtual {p0}, Landroid/util/ArrayMap;->isEmpty()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
-    return p0
 .end method

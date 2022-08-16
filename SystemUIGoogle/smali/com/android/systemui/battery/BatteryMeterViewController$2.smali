@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/battery/BatteryMeterViewController$2;
+.class public final Lcom/android/systemui/battery/BatteryMeterViewController$2;
 .super Ljava/lang/Object;
 .source "BatteryMeterViewController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
+.field public final synthetic this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/battery/BatteryMeterViewController;)V
+.method public constructor <init>(Lcom/android/systemui/battery/BatteryMeterViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/battery/BatteryMeterViewController$2;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
+.method public final onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 1
 
     const-string v0, "icon_blacklist"
@@ -47,7 +47,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterViewController$2;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    invoke-static {p1}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$100(Lcom/android/systemui/battery/BatteryMeterViewController;)Landroid/content/Context;
+    invoke-virtual {p1}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
 
     move-result-object p1
 
@@ -55,19 +55,13 @@
 
     move-result-object p1
 
-    iget-object p2, p0, Lcom/android/systemui/battery/BatteryMeterViewController$2;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
+    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$2;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    invoke-static {p2}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$300(Lcom/android/systemui/battery/BatteryMeterViewController;)Landroid/view/View;
-
-    move-result-object p2
+    iget-object p2, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p2, Lcom/android/systemui/battery/BatteryMeterView;
 
-    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$2;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
-
-    invoke-static {p0}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$200(Lcom/android/systemui/battery/BatteryMeterViewController;)Ljava/lang/String;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterViewController;->mSlotBattery:Ljava/lang/String;
 
     invoke-virtual {p1, p0}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 

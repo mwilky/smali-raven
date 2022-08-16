@@ -1,4 +1,4 @@
-.class Landroidx/viewpager2/widget/ViewPager2$4;
+.class public final Landroidx/viewpager2/widget/ViewPager2$4;
 .super Ljava/lang/Object;
 .source "ViewPager2.java"
 
@@ -6,26 +6,9 @@
 .implements Landroidx/recyclerview/widget/RecyclerView$OnChildAttachStateChangeListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/viewpager2/widget/ViewPager2;->enforceChildFillListener()Landroidx/recyclerview/widget/RecyclerView$OnChildAttachStateChangeListener;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
-# instance fields
-.field final synthetic this$0:Landroidx/viewpager2/widget/ViewPager2;
-
-
 # direct methods
-.method constructor <init>(Landroidx/viewpager2/widget/ViewPager2;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$4;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,7 +17,7 @@
 
 
 # virtual methods
-.method public onChildViewAttachedToWindow(Landroid/view/View;)V
+.method public final onChildViewAttachedToWindow(Landroid/view/View;)V
     .locals 1
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -65,7 +48,7 @@
     throw p0
 .end method
 
-.method public onChildViewDetachedFromWindow(Landroid/view/View;)V
+.method public final onChildViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
 
     return-void

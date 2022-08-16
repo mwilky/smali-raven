@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final accessibilityManagerProvider:Ljavax/inject/Provider;
+.field public final accessibilityManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final classifiersProvider:Ljavax/inject/Provider;
+.field public final classifiersProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -39,7 +39,7 @@
     .end annotation
 .end field
 
-.field private final doubleTapClassifierProvider:Ljavax/inject/Provider;
+.field public final doubleTapClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -49,7 +49,7 @@
     .end annotation
 .end field
 
-.field private final falsingDataProvider:Ljavax/inject/Provider;
+.field public final falsingDataProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -59,7 +59,7 @@
     .end annotation
 .end field
 
-.field private final historyTrackerProvider:Ljavax/inject/Provider;
+.field public final historyTrackerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -69,7 +69,7 @@
     .end annotation
 .end field
 
-.field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -79,7 +79,7 @@
     .end annotation
 .end field
 
-.field private final metricsLoggerProvider:Ljavax/inject/Provider;
+.field public final metricsLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -89,7 +89,7 @@
     .end annotation
 .end field
 
-.field private final singleTapClassifierProvider:Ljavax/inject/Provider;
+.field public final singleTapClassifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -99,7 +99,7 @@
     .end annotation
 .end field
 
-.field private final testHarnessProvider:Ljavax/inject/Provider;
+.field public final testHarnessProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -234,57 +234,10 @@
     return-object v10
 .end method
 
-.method public static newInstance(Lcom/android/systemui/classifier/FalsingDataProvider;Lcom/android/internal/logging/MetricsLogger;Ljava/util/Set;Lcom/android/systemui/classifier/SingleTapClassifier;Lcom/android/systemui/classifier/DoubleTapClassifier;Lcom/android/systemui/classifier/HistoryTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/accessibility/AccessibilityManager;Z)Lcom/android/systemui/classifier/BrightLineFalsingManager;
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/classifier/FalsingDataProvider;",
-            "Lcom/android/internal/logging/MetricsLogger;",
-            "Ljava/util/Set<",
-            "Lcom/android/systemui/classifier/FalsingClassifier;",
-            ">;",
-            "Lcom/android/systemui/classifier/SingleTapClassifier;",
-            "Lcom/android/systemui/classifier/DoubleTapClassifier;",
-            "Lcom/android/systemui/classifier/HistoryTracker;",
-            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
-            "Landroid/view/accessibility/AccessibilityManager;",
-            "Z)",
-            "Lcom/android/systemui/classifier/BrightLineFalsingManager;"
-        }
-    .end annotation
-
-    new-instance v10, Lcom/android/systemui/classifier/BrightLineFalsingManager;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/classifier/BrightLineFalsingManager;-><init>(Lcom/android/systemui/classifier/FalsingDataProvider;Lcom/android/internal/logging/MetricsLogger;Ljava/util/Set;Lcom/android/systemui/classifier/SingleTapClassifier;Lcom/android/systemui/classifier/DoubleTapClassifier;Lcom/android/systemui/classifier/HistoryTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/accessibility/AccessibilityManager;Z)V
-
-    return-object v10
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/classifier/BrightLineFalsingManager;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->falsingDataProvider:Ljavax/inject/Provider;
 
@@ -292,9 +245,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/classifier/FalsingDataProvider;
+    check-cast v2, Lcom/android/systemui/classifier/FalsingDataProvider;
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
@@ -302,9 +255,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/internal/logging/MetricsLogger;
+    check-cast v3, Lcom/android/internal/logging/MetricsLogger;
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->classifiersProvider:Ljavax/inject/Provider;
 
@@ -312,9 +265,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Ljava/util/Set;
+    check-cast v4, Ljava/util/Set;
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->singleTapClassifierProvider:Ljavax/inject/Provider;
 
@@ -322,9 +275,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/classifier/SingleTapClassifier;
+    check-cast v5, Lcom/android/systemui/classifier/SingleTapClassifier;
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->doubleTapClassifierProvider:Ljavax/inject/Provider;
 
@@ -332,9 +285,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/classifier/DoubleTapClassifier;
+    check-cast v6, Lcom/android/systemui/classifier/DoubleTapClassifier;
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->historyTrackerProvider:Ljavax/inject/Provider;
 
@@ -342,9 +295,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/classifier/HistoryTracker;
+    check-cast v7, Lcom/android/systemui/classifier/HistoryTracker;
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
@@ -352,9 +305,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v8, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     iget-object v0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->accessibilityManagerProvider:Ljavax/inject/Provider;
 
@@ -362,9 +315,9 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Landroid/view/accessibility/AccessibilityManager;
+    check-cast v9, Landroid/view/accessibility/AccessibilityManager;
 
     iget-object p0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->testHarnessProvider:Ljavax/inject/Provider;
 
@@ -376,21 +329,13 @@
 
     invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
 
-    move-result v9
+    move-result v10
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->newInstance(Lcom/android/systemui/classifier/FalsingDataProvider;Lcom/android/internal/logging/MetricsLogger;Ljava/util/Set;Lcom/android/systemui/classifier/SingleTapClassifier;Lcom/android/systemui/classifier/DoubleTapClassifier;Lcom/android/systemui/classifier/HistoryTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/accessibility/AccessibilityManager;Z)Lcom/android/systemui/classifier/BrightLineFalsingManager;
+    new-instance p0, Lcom/android/systemui/classifier/BrightLineFalsingManager;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/BrightLineFalsingManager_Factory;->get()Lcom/android/systemui/classifier/BrightLineFalsingManager;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/classifier/BrightLineFalsingManager;-><init>(Lcom/android/systemui/classifier/FalsingDataProvider;Lcom/android/internal/logging/MetricsLogger;Ljava/util/Set;Lcom/android/systemui/classifier/SingleTapClassifier;Lcom/android/systemui/classifier/DoubleTapClassifier;Lcom/android/systemui/classifier/HistoryTracker;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/accessibility/AccessibilityManager;Z)V
 
     return-object p0
 .end method

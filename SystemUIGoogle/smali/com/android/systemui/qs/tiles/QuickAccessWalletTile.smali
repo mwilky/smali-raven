@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
+.class public final Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;
 .super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "QuickAccessWalletTile.java"
 
@@ -20,37 +20,29 @@
 
 
 # instance fields
-.field private final mCardRetriever:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;
+.field public final mCardRetriever:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;
 
-.field mCardViewDrawable:Landroid/graphics/drawable/Drawable;
+.field public mCardViewDrawable:Landroid/graphics/drawable/Drawable;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private final mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
+.field public final mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-.field private mIsWalletUpdating:Z
+.field public mIsWalletUpdating:Z
 
-.field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.field public final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private final mLabel:Ljava/lang/CharSequence;
+.field public final mLabel:Ljava/lang/String;
 
-.field private final mPackageManager:Landroid/content/pm/PackageManager;
+.field public final mPackageManager:Landroid/content/pm/PackageManager;
 
-.field private final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+.field public final mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-.field private mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
+.field public mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$EuQEGzcUPDUHonbXRkk2TfbRaew(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->lambda$handleClick$0(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/content/pm/PackageManager;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/wallet/controller/QuickAccessWalletController;)V
     .locals 0
 
@@ -58,19 +50,17 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget p2, Lcom/android/systemui/R$string;->wallet_title:I
+    const p2, 0x7f13079b
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mLabel:Ljava/lang/CharSequence;
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mLabel:Ljava/lang/String;
 
     new-instance p1, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;
 
-    const/4 p2, 0x0
-
-    invoke-direct {p1, p0, p2}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;-><init>(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$1;)V
+    invoke-direct {p1, p0}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;-><init>(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mCardRetriever:Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$WalletCardRetriever;
 
@@ -89,108 +79,9 @@
     return-void
 .end method
 
-.method static synthetic access$102(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mIsWalletUpdating:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)Landroid/service/quickaccesswallet/WalletCard;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Landroid/service/quickaccesswallet/WalletCard;)Landroid/service/quickaccesswallet/WalletCard;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
-
-    return-object p1
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method private synthetic lambda$handleClick$0(Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSelectedCard:Landroid/service/quickaccesswallet/WalletCard;
-
-    if-eqz v0, :cond_0
-
-    new-instance v0, Landroid/content/Intent;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    const-class v2, Lcom/android/systemui/wallet/ui/WalletActivity;
-
-    invoke-direct {v0, v1, v2}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    const-string v1, "android.intent.action.VIEW"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    move-result-object v0
-
-    const/high16 v1, 0x14000000
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
-
-    move-result-object v0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-    const/4 v1, 0x1
-
-    invoke-interface {p0, v0, v1, p1, v1}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;ZLcom/android/systemui/animation/ActivityLaunchAnimator$Controller;Z)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->createWalletIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    if-nez v0, :cond_1
-
-    const-string p0, "QuickAccessWalletTile"
-
-    const-string p1, "Could not get intent of the wallet app."
-
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-    const/4 v1, 0x0
-
-    invoke-interface {p0, v0, v1, p1}, Lcom/android/systemui/plugins/ActivityStarter;->postStartActivityDismissingKeyguard(Landroid/content/Intent;ILcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
-
-    :goto_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 0
 
     const/4 p0, 0x0
@@ -198,7 +89,7 @@
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/4 p0, 0x0
@@ -206,14 +97,12 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
+.method public final getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->mQuickAccessWalletClient:Landroid/service/quickaccesswallet/QuickAccessWalletClient;
 
     invoke-interface {v0}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->getServiceLabel()Ljava/lang/CharSequence;
 
@@ -221,14 +110,14 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mLabel:Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mLabel:Ljava/lang/String;
 
     :cond_0
     return-object v0
 .end method
 
-.method protected handleClick(Landroid/view/View;)V
-    .locals 2
+.method public final handleClick(Landroid/view/View;)V
+    .locals 3
 
     if-nez p1, :cond_0
 
@@ -243,23 +132,25 @@
 
     move-result-object v0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->fromView(Landroid/view/View;Ljava/lang/Integer;)Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+    invoke-static {p1, v0}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->fromView(Landroid/view/View;Ljava/lang/Integer;)Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;
 
     move-result-object p1
 
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mUiHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/systemui/screenshot/ImageExporter$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2, p0, p1}, Lcom/android/systemui/screenshot/ImageExporter$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method protected handleDestroy()V
+.method public final handleDestroy()V
     .locals 3
 
     invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
@@ -281,7 +172,7 @@
     return-void
 .end method
 
-.method protected handleSetListening(Z)V
+.method public final handleSetListening(Z)V
     .locals 4
 
     invoke-super {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleSetListening(Z)V
@@ -306,9 +197,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    invoke-virtual {p1}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->mQuickAccessWalletClient:Landroid/service/quickaccesswallet/QuickAccessWalletClient;
 
     invoke-interface {p1}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->isWalletServiceAvailable()Z
 
@@ -318,9 +207,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    invoke-virtual {p1}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->mQuickAccessWalletClient:Landroid/service/quickaccesswallet/QuickAccessWalletClient;
 
     invoke-interface {p1}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->isWalletFeatureAvailable()Z
 
@@ -350,14 +237,12 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
+.method public final handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 3
 
     iget-object p2, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    invoke-virtual {p2}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->mQuickAccessWalletClient:Landroid/service/quickaccesswallet/QuickAccessWalletClient;
 
     invoke-interface {p2}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->getServiceLabel()Ljava/lang/CharSequence;
 
@@ -365,7 +250,7 @@
 
     if-nez p2, :cond_0
 
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mLabel:Ljava/lang/CharSequence;
+    iget-object p2, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mLabel:Ljava/lang/String;
 
     :cond_0
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
@@ -374,9 +259,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    invoke-virtual {p2}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->mQuickAccessWalletClient:Landroid/service/quickaccesswallet/QuickAccessWalletClient;
 
     invoke-interface {p2}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->getTileIcon()Landroid/graphics/drawable/Drawable;
 
@@ -384,7 +267,7 @@
 
     if-nez p2, :cond_1
 
-    sget p2, Lcom/android/systemui/R$drawable;->ic_wallet_lockscreen:I
+    const p2, 0x7f0806ab
 
     invoke-static {p2}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -414,9 +297,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    invoke-virtual {v1}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->mQuickAccessWalletClient:Landroid/service/quickaccesswallet/QuickAccessWalletClient;
 
     invoke-interface {v1}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->isWalletServiceAvailable()Z
 
@@ -428,9 +309,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mController:Lcom/android/systemui/wallet/controller/QuickAccessWalletController;
 
-    invoke-virtual {v1}, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->getWalletClient()Landroid/service/quickaccesswallet/QuickAccessWalletClient;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/wallet/controller/QuickAccessWalletController;->mQuickAccessWalletClient:Landroid/service/quickaccesswallet/QuickAccessWalletClient;
 
     invoke-interface {v1}, Landroid/service/quickaccesswallet/QuickAccessWalletClient;->isWalletFeatureAvailable()Z
 
@@ -444,26 +323,13 @@
 
     if-eqz p2, :cond_2
 
-    iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    sget p2, Lcom/android/systemui/R$string;->wallet_secondary_label_device_locked:I
-
-    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    iput-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
-
-    iput-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->sideViewCustomDrawable:Landroid/graphics/drawable/Drawable;
-
-    goto :goto_2
+    goto :goto_1
 
     :cond_2
-    const/4 p2, 0x2
+    const/4 v0, 0x2
 
-    iput p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+    :goto_1
+    iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
     invoke-virtual {v1}, Landroid/service/quickaccesswallet/WalletCard;->getContentDescription()Ljava/lang/CharSequence;
 
@@ -475,7 +341,7 @@
 
     iput-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->sideViewCustomDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_2
+    goto :goto_3
 
     :cond_3
     iput v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
@@ -486,14 +352,14 @@
 
     if-eqz p0, :cond_4
 
-    sget p0, Lcom/android/systemui/R$string;->wallet_secondary_label_updating:I
+    const p0, 0x7f13079a
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_4
-    sget p0, Lcom/android/systemui/R$string;->wallet_secondary_label_no_card:I
+    const p0, 0x7f130799
 
-    :goto_1
+    :goto_2
     invoke-virtual {p2, p0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
@@ -502,12 +368,12 @@
 
     iput-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->sideViewCustomDrawable:Landroid/graphics/drawable/Drawable;
 
-    :goto_2
+    :goto_3
     iget-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
     iput-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
 
-    goto :goto_3
+    goto :goto_4
 
     :cond_5
     const/4 p0, 0x0
@@ -518,11 +384,11 @@
 
     iput-object v2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->sideViewCustomDrawable:Landroid/graphics/drawable/Drawable;
 
-    :goto_3
+    :goto_4
     return-void
 .end method
 
-.method public isAvailable()Z
+.method public final isAvailable()Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mPackageManager:Landroid/content/pm/PackageManager;
@@ -537,7 +403,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    const-string v1, "org.chromium.arc"
+    const-string/jumbo v1, "org.chromium.arc"
 
     invoke-virtual {v0, v1}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
@@ -547,9 +413,11 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/QuickAccessWalletTile;->mSecureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-    const-string v0, "nfc_payment_default_component"
+    const/4 v0, -0x2
 
-    invoke-interface {p0, v0}, Lcom/android/systemui/util/settings/SettingsProxy;->getString(Ljava/lang/String;)Ljava/lang/String;
+    const-string v1, "nfc_payment_default_component"
+
+    invoke-interface {p0, v0, v1}, Lcom/android/systemui/util/settings/SettingsProxy;->getStringForUser(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -566,7 +434,7 @@
     return p0
 .end method
 
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 1
 
     new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$State;

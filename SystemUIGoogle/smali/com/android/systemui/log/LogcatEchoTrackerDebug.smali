@@ -7,63 +7,23 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/log/LogcatEchoTrackerDebug$Factory;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nLogcatEchoTrackerDebug.kt\nKotlin\n*S Kotlin\n*F\n+ 1 LogcatEchoTrackerDebug.kt\ncom/android/systemui/log/LogcatEchoTrackerDebug\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,134:1\n1#2:135\n*E\n"
+    value = "SMAP\nLogcatEchoTrackerDebug.kt\nKotlin\n*S Kotlin\n*F\n+ 1 LogcatEchoTrackerDebug.kt\ncom/android/systemui/log/LogcatEchoTrackerDebug\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,135:1\n1#2:136\n*E\n"
 .end annotation
-
-
-# static fields
-.field public static final Factory:Lcom/android/systemui/log/LogcatEchoTrackerDebug$Factory;
 
 
 # instance fields
-.field private final cachedBufferLevels:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Lcom/android/systemui/log/LogLevel;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final cachedBufferLevels:Ljava/util/LinkedHashMap;
 
-.field private final cachedTagLevels:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Lcom/android/systemui/log/LogLevel;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final cachedTagLevels:Ljava/util/LinkedHashMap;
 
-.field private final contentResolver:Landroid/content/ContentResolver;
+.field public final contentResolver:Landroid/content/ContentResolver;
+
+.field public final logInBackgroundThread:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/log/LogcatEchoTrackerDebug$Factory;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug$Factory;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->Factory:Lcom/android/systemui/log/LogcatEchoTrackerDebug$Factory;
-
-    return-void
-.end method
-
-.method private constructor <init>(Landroid/content/ContentResolver;)V
+.method public constructor <init>(Landroid/content/ContentResolver;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -74,121 +34,250 @@
 
     invoke-direct {p1}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedBufferLevels:Ljava/util/Map;
+    iput-object p1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedBufferLevels:Ljava/util/LinkedHashMap;
 
     new-instance p1, Ljava/util/LinkedHashMap;
 
     invoke-direct {p1}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedTagLevels:Ljava/util/Map;
+    iput-object p1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedTagLevels:Ljava/util/LinkedHashMap;
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->logInBackgroundThread:Z
 
     return-void
 .end method
 
-.method public synthetic constructor <init>(Landroid/content/ContentResolver;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+.method public static parseProp(Ljava/lang/String;)Lcom/android/systemui/log/LogLevel;
+    .locals 7
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;-><init>(Landroid/content/ContentResolver;)V
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->VERBOSE:Lcom/android/systemui/log/LogLevel;
 
-    return-void
-.end method
+    sget-object v1, Lcom/android/systemui/log/LogLevel;->INFO:Lcom/android/systemui/log/LogLevel;
 
-.method public static final synthetic access$attach(Lcom/android/systemui/log/LogcatEchoTrackerDebug;Landroid/os/Looper;)V
-    .locals 0
+    sget-object v2, Lcom/android/systemui/log/LogLevel;->ERROR:Lcom/android/systemui/log/LogLevel;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->attach(Landroid/os/Looper;)V
+    sget-object v3, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
 
-    return-void
-.end method
+    sget-object v4, Lcom/android/systemui/log/LogLevel;->WTF:Lcom/android/systemui/log/LogLevel;
 
-.method public static final synthetic access$getCachedBufferLevels$p(Lcom/android/systemui/log/LogcatEchoTrackerDebug;)Ljava/util/Map;
-    .locals 0
+    sget-object v5, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
 
-    iget-object p0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedBufferLevels:Ljava/util/Map;
+    if-nez p0, :cond_0
 
-    return-object p0
-.end method
+    const/4 p0, 0x0
 
-.method public static final synthetic access$getCachedTagLevels$p(Lcom/android/systemui/log/LogcatEchoTrackerDebug;)Ljava/util/Map;
-    .locals 0
+    goto :goto_0
 
-    iget-object p0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedTagLevels:Ljava/util/Map;
+    :cond_0
+    sget-object v6, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
 
-    return-object p0
-.end method
-
-.method private final attach(Landroid/os/Looper;)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->contentResolver:Landroid/content/ContentResolver;
-
-    const-string v1, "systemui/buffer"
-
-    invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    new-instance v2, Landroid/os/Handler;
-
-    invoke-direct {v2, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    new-instance v3, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$1;
-
-    invoke-direct {v3, p0, v2}, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$1;-><init>(Lcom/android/systemui/log/LogcatEchoTrackerDebug;Landroid/os/Handler;)V
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    iget-object v0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->contentResolver:Landroid/content/ContentResolver;
-
-    const-string v1, "systemui/tag"
-
-    invoke-static {v1}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    new-instance v3, Landroid/os/Handler;
-
-    invoke-direct {v3, p1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
-
-    new-instance p1, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$2;
-
-    invoke-direct {p1, p0, v3}, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$2;-><init>(Lcom/android/systemui/log/LogcatEchoTrackerDebug;Landroid/os/Handler;)V
-
-    invoke-virtual {v0, v1, v2, p1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
-
-    return-void
-.end method
-
-.method public static final create(Landroid/content/ContentResolver;Landroid/os/Looper;)Lcom/android/systemui/log/LogcatEchoTrackerDebug;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->Factory:Lcom/android/systemui/log/LogcatEchoTrackerDebug$Factory;
-
-    invoke-virtual {v0, p0, p1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug$Factory;->create(Landroid/content/ContentResolver;Landroid/os/Looper;)Lcom/android/systemui/log/LogcatEchoTrackerDebug;
+    invoke-virtual {p0, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
 
     move-result-object p0
 
-    return-object p0
+    :goto_0
+    if-eqz p0, :cond_5
+
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
+    move-result v6
+
+    sparse-switch v6, :sswitch_data_0
+
+    goto/16 :goto_2
+
+    :sswitch_0
+    const-string/jumbo v0, "warning"
+
+    goto :goto_1
+
+    :sswitch_1
+    const-string/jumbo v1, "verbose"
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_6
+
+    goto/16 :goto_2
+
+    :sswitch_2
+    const-string v0, "error"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_2
+
+    goto/16 :goto_2
+
+    :sswitch_3
+    const-string v0, "debug"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_3
+
+    goto :goto_2
+
+    :sswitch_4
+    const-string/jumbo v0, "warn"
+
+    goto :goto_1
+
+    :sswitch_5
+    const-string v0, "info"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    goto :goto_2
+
+    :sswitch_6
+    const-string/jumbo v0, "wtf"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_4
+
+    goto :goto_2
+
+    :sswitch_7
+    const-string/jumbo v0, "w"
+
+    :goto_1
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    goto :goto_2
+
+    :sswitch_8
+    const-string/jumbo v1, "v"
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_6
+
+    goto :goto_2
+
+    :sswitch_9
+    const-string v0, "i"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    goto :goto_2
+
+    :cond_1
+    move-object v0, v1
+
+    goto :goto_3
+
+    :sswitch_a
+    const-string v0, "e"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    move-object v0, v2
+
+    goto :goto_3
+
+    :sswitch_b
+    const-string v0, "d"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move-object v0, v3
+
+    goto :goto_3
+
+    :sswitch_c
+    const-string v0, "assert"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    move-object v0, v4
+
+    goto :goto_3
+
+    :cond_5
+    :goto_2
+    move-object v0, v5
+
+    :cond_6
+    :goto_3
+    return-object v0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x53ef8cba -> :sswitch_c
+        0x64 -> :sswitch_b
+        0x65 -> :sswitch_a
+        0x69 -> :sswitch_9
+        0x76 -> :sswitch_8
+        0x77 -> :sswitch_7
+        0x1cd29 -> :sswitch_6
+        0x3164ae -> :sswitch_5
+        0x379286 -> :sswitch_4
+        0x5b09653 -> :sswitch_3
+        0x5c4d208 -> :sswitch_2
+        0x14ed7982 -> :sswitch_1
+        0x4305af9c -> :sswitch_0
+    .end sparse-switch
 .end method
 
-.method private final getLogLevel(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/android/systemui/log/LogLevel;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Lcom/android/systemui/log/LogLevel;",
-            ">;)",
-            "Lcom/android/systemui/log/LogLevel;"
-        }
-    .end annotation
 
-    invoke-interface {p3, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+# virtual methods
+.method public final getLogInBackgroundThread()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->logInBackgroundThread:Z
+
+    return p0
+.end method
+
+.method public final getLogLevel(Ljava/lang/String;Ljava/lang/String;Ljava/util/LinkedHashMap;)Lcom/android/systemui/log/LogLevel;
+    .locals 1
+
+    invoke-virtual {p3, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -212,293 +301,14 @@
 
     move-result-object p2
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->readSetting(Ljava/lang/String;)Lcom/android/systemui/log/LogLevel;
-
-    move-result-object v0
-
-    invoke-interface {p3, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_0
-    return-object v0
-.end method
-
-.method private final parseProp(Ljava/lang/String;)Lcom/android/systemui/log/LogLevel;
-    .locals 0
-
-    if-nez p1, :cond_0
-
-    const/4 p0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "(this as java.lang.String).toLowerCase()"
-
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    :goto_0
-    if-eqz p0, :cond_e
-
-    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
-
-    move-result p1
-
-    sparse-switch p1, :sswitch_data_0
-
-    goto/16 :goto_1
-
-    :sswitch_0
-    const-string/jumbo p1, "warning"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_1
-
-    goto/16 :goto_1
-
-    :cond_1
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
-
-    goto/16 :goto_2
-
-    :sswitch_1
-    const-string/jumbo p1, "verbose"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_2
-
-    goto/16 :goto_1
-
-    :cond_2
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->VERBOSE:Lcom/android/systemui/log/LogLevel;
-
-    goto/16 :goto_2
-
-    :sswitch_2
-    const-string p1, "error"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_3
-
-    goto/16 :goto_1
-
-    :cond_3
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->ERROR:Lcom/android/systemui/log/LogLevel;
-
-    goto/16 :goto_2
-
-    :sswitch_3
-    const-string p1, "debug"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_4
-
-    goto/16 :goto_1
-
-    :cond_4
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    goto/16 :goto_2
-
-    :sswitch_4
-    const-string/jumbo p1, "warn"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_5
-
-    goto/16 :goto_1
-
-    :cond_5
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
-
-    goto/16 :goto_2
-
-    :sswitch_5
-    const-string p1, "info"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_6
-
-    goto :goto_1
-
-    :cond_6
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->INFO:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :sswitch_6
-    const-string/jumbo p1, "wtf"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_7
-
-    goto :goto_1
-
-    :cond_7
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->WTF:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :sswitch_7
-    const-string/jumbo p1, "w"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_8
-
-    goto :goto_1
-
-    :cond_8
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :sswitch_8
-    const-string/jumbo p1, "v"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_9
-
-    goto :goto_1
-
-    :cond_9
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->VERBOSE:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :sswitch_9
-    const-string p1, "i"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_a
-
-    goto :goto_1
-
-    :cond_a
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->INFO:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :sswitch_a
-    const-string p1, "e"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_b
-
-    goto :goto_1
-
-    :cond_b
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->ERROR:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :sswitch_b
-    const-string p1, "d"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_c
-
-    goto :goto_1
-
-    :cond_c
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :sswitch_c
-    const-string p1, "assert"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_d
-
-    goto :goto_1
-
-    :cond_d
-    sget-object p0, Lcom/android/systemui/log/LogLevel;->WTF:Lcom/android/systemui/log/LogLevel;
-
-    goto :goto_2
-
-    :cond_e
-    :goto_1
-    invoke-static {}, Lcom/android/systemui/log/LogcatEchoTrackerDebugKt;->access$getDEFAULT_LEVEL$p()Lcom/android/systemui/log/LogLevel;
-
-    move-result-object p0
-
-    :goto_2
-    return-object p0
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        -0x53ef8cba -> :sswitch_c
-        0x64 -> :sswitch_b
-        0x65 -> :sswitch_a
-        0x69 -> :sswitch_9
-        0x76 -> :sswitch_8
-        0x77 -> :sswitch_7
-        0x1cd29 -> :sswitch_6
-        0x3164ae -> :sswitch_5
-        0x379286 -> :sswitch_4
-        0x5b09653 -> :sswitch_3
-        0x5c4d208 -> :sswitch_2
-        0x14ed7982 -> :sswitch_1
-        0x4305af9c -> :sswitch_0
-    .end sparse-switch
-.end method
-
-.method private final readSetting(Ljava/lang/String;)Lcom/android/systemui/log/LogLevel;
-    .locals 1
-
     :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->contentResolver:Landroid/content/ContentResolver;
+    iget-object p0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->contentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {v0, p1}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {p0, p2}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->parseProp(Ljava/lang/String;)Lcom/android/systemui/log/LogLevel;
+    invoke-static {p0}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->parseProp(Ljava/lang/String;)Lcom/android/systemui/log/LogLevel;
 
     move-result-object p0
     :try_end_0
@@ -507,39 +317,32 @@
     goto :goto_0
 
     :catch_0
-    invoke-static {}, Lcom/android/systemui/log/LogcatEchoTrackerDebugKt;->access$getDEFAULT_LEVEL$p()Lcom/android/systemui/log/LogLevel;
-
-    move-result-object p0
+    sget-object p0, Lcom/android/systemui/log/LogLevel;->WARNING:Lcom/android/systemui/log/LogLevel;
 
     :goto_0
-    return-object p0
+    move-object v0, p0
+
+    invoke-interface {p3, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    return-object v0
 .end method
 
-
-# virtual methods
-.method public declared-synchronized isBufferLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
+.method public final declared-synchronized isBufferLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
     .locals 2
 
     monitor-enter p0
 
     :try_start_0
-    const-string v0, "bufferName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "level"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
     move-result p2
 
-    const-string v0, "systemui/buffer"
+    const-string/jumbo v0, "systemui/buffer"
 
-    iget-object v1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedBufferLevels:Ljava/util/Map;
+    iget-object v1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedBufferLevels:Ljava/util/LinkedHashMap;
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->getLogLevel(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/android/systemui/log/LogLevel;
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->getLogLevel(Ljava/lang/String;Ljava/lang/String;Ljava/util/LinkedHashMap;)Lcom/android/systemui/log/LogLevel;
 
     move-result-object p1
 
@@ -571,25 +374,17 @@
     throw p1
 .end method
 
-.method public declared-synchronized isTagLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
+.method public final declared-synchronized isTagLoggable(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;)Z
     .locals 2
 
     monitor-enter p0
 
     :try_start_0
-    const-string v0, "tagName"
+    const-string/jumbo v0, "systemui/tag"
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object v1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedTagLevels:Ljava/util/LinkedHashMap;
 
-    const-string v0, "level"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "systemui/tag"
-
-    iget-object v1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedTagLevels:Ljava/util/Map;
-
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->getLogLevel(Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lcom/android/systemui/log/LogLevel;
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->getLogLevel(Ljava/lang/String;Ljava/lang/String;Ljava/util/LinkedHashMap;)Lcom/android/systemui/log/LogLevel;
 
     move-result-object p1
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/QSCustomizerController$3;
+.class public final Lcom/android/systemui/qs/customize/QSCustomizerController$3;
 .super Ljava/lang/Object;
 .source "QSCustomizerController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/customize/QSCustomizerController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/customize/QSCustomizerController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
@@ -34,30 +34,22 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
+.method public final onConfigChanged(Landroid/content/res/Configuration;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$600(Lcom/android/systemui/qs/customize/QSCustomizerController;)Landroid/view/View;
+    iget-object v1, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    move-result-object v0
+    check-cast v1, Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    check-cast v0, Lcom/android/systemui/qs/customize/QSCustomizer;
+    iget-object v0, v0, Lcom/android/systemui/qs/customize/QSCustomizerController;->mLightBarController:Lcom/android/systemui/statusbar/phone/LightBarController;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
-
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$500(Lcom/android/systemui/qs/customize/QSCustomizerController;)Lcom/android/systemui/statusbar/phone/LightBarController;
-
-    move-result-object v1
-
-    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/qs/customize/QSCustomizer;->updateNavBackDrop(Landroid/content/res/Configuration;Lcom/android/systemui/statusbar/phone/LightBarController;)V
+    invoke-virtual {v1, p1, v0}, Lcom/android/systemui/qs/customize/QSCustomizer;->updateNavBackDrop(Landroid/content/res/Configuration;Lcom/android/systemui/statusbar/phone/LightBarController;)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$700(Lcom/android/systemui/qs/customize/QSCustomizerController;)Landroid/view/View;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p1, Lcom/android/systemui/qs/customize/QSCustomizer;
 
@@ -65,50 +57,58 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$800(Lcom/android/systemui/qs/customize/QSCustomizerController;)Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object p1, p1, Lcom/android/systemui/qs/customize/QSCustomizerController;->mTileAdapter:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    move-result-object p1
+    iget-object v0, p1, Lcom/android/systemui/qs/customize/TileAdapter;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/customize/TileAdapter;->updateNumColumns()Z
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result p1
+    move-result-object v0
 
-    if-eqz p1, :cond_0
+    const v1, 0x7f0c00c4
 
-    iget-object p1, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
-    invoke-static {p1}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$900(Lcom/android/systemui/qs/customize/QSCustomizerController;)Landroid/view/View;
+    move-result v0
 
-    move-result-object p1
+    iget v1, p1, Lcom/android/systemui/qs/customize/TileAdapter;->mNumColumns:I
 
-    check-cast p1, Lcom/android/systemui/qs/customize/QSCustomizer;
+    if-eq v0, v1, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/customize/QSCustomizer;->getRecyclerView()Landroidx/recyclerview/widget/RecyclerView;
+    iput v0, p1, Lcom/android/systemui/qs/customize/TileAdapter;->mNumColumns:I
 
-    move-result-object p1
+    const/4 p1, 0x1
 
-    invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+    goto :goto_0
 
-    move-result-object p1
+    :cond_0
+    const/4 p1, 0x0
 
-    instance-of v0, p1, Landroidx/recyclerview/widget/GridLayoutManager;
-
-    if-eqz v0, :cond_0
-
-    check-cast p1, Landroidx/recyclerview/widget/GridLayoutManager;
+    :goto_0
+    if-eqz p1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController$3;->this$0:Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/customize/QSCustomizerController;->access$800(Lcom/android/systemui/qs/customize/QSCustomizerController;)Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    move-result-object p0
+    check-cast p1, Lcom/android/systemui/qs/customize/QSCustomizer;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/customize/TileAdapter;->getNumColumns()I
+    iget-object p1, p1, Lcom/android/systemui/qs/customize/QSCustomizer;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    move-result p0
+    iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView;->mLayout:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
+
+    instance-of v0, p1, Landroidx/recyclerview/widget/GridLayoutManager;
+
+    if-eqz v0, :cond_1
+
+    check-cast p1, Landroidx/recyclerview/widget/GridLayoutManager;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController;->mTileAdapter:Lcom/android/systemui/qs/customize/TileAdapter;
+
+    iget p0, p0, Lcom/android/systemui/qs/customize/TileAdapter;->mNumColumns:I
 
     invoke-virtual {p1, p0}, Landroidx/recyclerview/widget/GridLayoutManager;->setSpanCount(I)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method

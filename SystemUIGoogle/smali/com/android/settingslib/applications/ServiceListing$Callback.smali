@@ -15,13 +15,5 @@
 
 
 # virtual methods
-.method public abstract onServicesReloaded(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Landroid/content/pm/ServiceInfo;",
-            ">;)V"
-        }
-    .end annotation
+.method public abstract onServicesReloaded(Ljava/util/ArrayList;)V
 .end method

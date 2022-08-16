@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$onNotificationPanelExpandStateChanged$1;
+.class public final Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$onNotificationPanelExpandStateChanged$1;
 .super Ljava/lang/Object;
 .source "ConversationNotifications.kt"
 
@@ -12,24 +12,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/Signature;
     value = {
+        "<T:",
         "Ljava/lang/Object;",
-        "Ljava/util/function/BiFunction<",
-        "Ljava/lang/String;",
-        "Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;",
-        "Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;",
-        ">;"
+        "U:",
+        "Ljava/lang/Object;",
+        "R:",
+        "Ljava/lang/Object;",
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/util/function/BiFunction;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic $expanded:Ljava/util/Map;
+.field public final synthetic $expanded:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -42,7 +45,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/Map;)V
+.method public constructor <init>(Ljava/util/Map;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,16 +66,12 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/String;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;)Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;
-    .locals 1
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    const-string v0, "key"
+    check-cast p1, Ljava/lang/String;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "state"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p2, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$onNotificationPanelExpandStateChanged$1;->$expanded:Ljava/util/Map;
 
@@ -84,28 +83,12 @@
 
     const/4 p0, 0x0
 
-    const/4 p1, 0x2
+    iget-object p1, p2, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;->notification:Landroid/app/Notification;
 
-    const/4 v0, 0x0
+    new-instance p2, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;
 
-    invoke-static {p2, p0, v0, p1, v0}, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;->copy$default(Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;ILandroid/app/Notification;ILjava/lang/Object;)Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;
-
-    move-result-object p2
+    invoke-direct {p2, p0, p1}, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;-><init>(ILandroid/app/Notification;)V
 
     :cond_0
     return-object p2
-.end method
-
-.method public bridge synthetic apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p1, Ljava/lang/String;
-
-    check-cast p2, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$onNotificationPanelExpandStateChanged$1;->apply(Ljava/lang/String;Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;)Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$ConversationState;
-
-    move-result-object p0
-
-    return-object p0
 .end method

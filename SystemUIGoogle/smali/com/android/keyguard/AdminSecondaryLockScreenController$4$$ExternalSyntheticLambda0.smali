@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/AdminSecondaryLockScreenController$4$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -33,7 +34,15 @@
 
     iget p0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$4$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController$4;->$r8$lambda$wRTXW5h9Q_l2_we862GBJJUaq1E(Lcom/android/keyguard/AdminSecondaryLockScreenController$4;I)V
+    iget-object v0, v0, Lcom/android/keyguard/AdminSecondaryLockScreenController$4;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+
+    invoke-virtual {v0, p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->dismiss(I)V
+
+    const-string p0, "AdminSecondaryLockScreenController"
+
+    const-string v0, "Timed out waiting for secondary lockscreen content."
+
+    invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

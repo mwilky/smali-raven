@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/NotificationPlayer$Command;
+.class public final Lcom/android/systemui/media/NotificationPlayer$Command;
 .super Ljava/lang/Object;
 .source "NotificationPlayer.java"
 
@@ -9,27 +9,35 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "Command"
 .end annotation
 
 
 # instance fields
-.field attributes:Landroid/media/AudioAttributes;
+.field public attributes:Landroid/media/AudioAttributes;
 
-.field code:I
+.field public code:I
 
-.field context:Landroid/content/Context;
+.field public context:Landroid/content/Context;
 
-.field looping:Z
+.field public looping:Z
 
-.field requestTime:J
+.field public requestTime:J
 
-.field uri:Landroid/net/Uri;
+.field public uri:Landroid/net/Uri;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,26 +45,16 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/media/NotificationPlayer$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/media/NotificationPlayer$Command;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "{ code="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "{ code="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/media/NotificationPlayer$Command;->code:I
 

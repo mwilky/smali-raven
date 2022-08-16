@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/Fragment$4;
+.class public final Landroidx/fragment/app/Fragment$4;
 .super Landroidx/fragment/app/FragmentContainer;
 .source "Fragment.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/Fragment;
+.field public final synthetic this$0:Landroidx/fragment/app/Fragment;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/Fragment;)V
+.method public constructor <init>(Landroidx/fragment/app/Fragment;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/Fragment$4;->this$0:Landroidx/fragment/app/Fragment;
@@ -31,8 +31,8 @@
 
 
 # virtual methods
-.method public onFindViewById(I)Landroid/view/View;
-    .locals 2
+.method public final onFindViewById(I)Landroid/view/View;
+    .locals 1
 
     iget-object v0, p0, Landroidx/fragment/app/Fragment$4;->this$0:Landroidx/fragment/app/Fragment;
 
@@ -49,13 +49,11 @@
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Fragment "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Fragment "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Landroidx/fragment/app/Fragment$4;->this$0:Landroidx/fragment/app/Fragment;
 
@@ -74,7 +72,7 @@
     throw p1
 .end method
 
-.method public onHasView()Z
+.method public final onHasView()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/Fragment$4;->this$0:Landroidx/fragment/app/Fragment;

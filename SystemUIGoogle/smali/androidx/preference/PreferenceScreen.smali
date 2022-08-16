@@ -4,14 +4,14 @@
 
 
 # instance fields
-.field private mShouldUseGeneratedIds:Z
+.field public mShouldUseGeneratedIds:Z
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    sget v0, Landroidx/preference/R$attr;->preferenceScreenStyle:I
+    const v0, 0x7f040421
 
     const v1, 0x101008b
 
@@ -30,26 +30,14 @@
 
 
 # virtual methods
-.method protected isOnSameScreenAsChildren()Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method protected onClick()V
+.method public final onClick()V
     .locals 1
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/preference/Preference;->mIntent:Landroid/content/Intent;
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getFragment()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/preference/Preference;->mFragment:Ljava/lang/String;
 
     if-nez v0, :cond_1
 
@@ -62,13 +50,9 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getPreferenceManager()Landroidx/preference/PreferenceManager;
+    iget-object v0, p0, Landroidx/preference/Preference;->mPreferenceManager:Landroidx/preference/PreferenceManager;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroidx/preference/PreferenceManager;->getOnNavigateToScreenListener()Landroidx/preference/PreferenceManager$OnNavigateToScreenListener;
-
-    move-result-object v0
+    iget-object v0, v0, Landroidx/preference/PreferenceManager;->mOnNavigateToScreenListener:Landroidx/preference/PreferenceManager$OnNavigateToScreenListener;
 
     if-eqz v0, :cond_1
 
@@ -77,12 +61,4 @@
     :cond_1
     :goto_0
     return-void
-.end method
-
-.method public shouldUseGeneratedIds()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/preference/PreferenceScreen;->mShouldUseGeneratedIds:Z
-
-    return p0
 .end method

@@ -13,12 +13,6 @@
     name = "TranslationApplier"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/shared/animation/UnfoldMoveFromCenterAnimator$TranslationApplier$DefaultImpls;
-    }
-.end annotation
-
 
 # virtual methods
 .method public abstract apply(Landroid/view/View;FF)V

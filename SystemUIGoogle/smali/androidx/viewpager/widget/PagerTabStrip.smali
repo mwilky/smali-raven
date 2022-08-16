@@ -4,35 +4,33 @@
 
 
 # instance fields
-.field private mDrawFullUnderline:Z
+.field public mDrawFullUnderline:Z
 
-.field private mDrawFullUnderlineSet:Z
+.field public mFullUnderlineHeight:I
 
-.field private mFullUnderlineHeight:I
+.field public mIgnoreTap:Z
 
-.field private mIgnoreTap:Z
+.field public mIndicatorColor:I
 
-.field private mIndicatorColor:I
+.field public mIndicatorHeight:I
 
-.field private mIndicatorHeight:I
+.field public mInitialMotionX:F
 
-.field private mInitialMotionX:F
+.field public mInitialMotionY:F
 
-.field private mInitialMotionY:F
+.field public mMinPaddingBottom:I
 
-.field private mMinPaddingBottom:I
+.field public mMinStripHeight:I
 
-.field private mMinStripHeight:I
+.field public mMinTextSpacing:I
 
-.field private mMinTextSpacing:I
+.field public mTabAlpha:I
 
-.field private mTabAlpha:I
+.field public mTabPadding:I
 
-.field private mTabPadding:I
+.field public final mTabPaint:Landroid/graphics/Paint;
 
-.field private final mTabPaint:Landroid/graphics/Paint;
-
-.field private mTouchSlop:I
+.field public mTouchSlop:I
 
 
 # direct methods
@@ -54,8 +52,6 @@
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderline:Z
-
-    iput-boolean v0, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderlineSet:Z
 
     iget v1, p0, Landroidx/viewpager/widget/PagerTitleStrip;->mTextColor:I
 
@@ -161,11 +157,18 @@
 
     invoke-virtual {p0, p1, p2, v1, v2}, Landroidx/viewpager/widget/PagerTabStrip;->setPadding(IIII)V
 
-    invoke-virtual {p0}, Landroidx/viewpager/widget/PagerTitleStrip;->getTextSpacing()I
+    iget p1, p0, Landroidx/viewpager/widget/PagerTitleStrip;->mScaledTextSpacing:I
 
-    move-result p1
+    iget p2, p0, Landroidx/viewpager/widget/PagerTabStrip;->mMinTextSpacing:I
 
-    invoke-virtual {p0, p1}, Landroidx/viewpager/widget/PagerTabStrip;->setTextSpacing(I)V
+    if-ge p1, p2, :cond_0
+
+    move p1, p2
+
+    :cond_0
+    iput p1, p0, Landroidx/viewpager/widget/PagerTitleStrip;->mScaledTextSpacing:I
+
+    invoke-virtual {p0}, Landroidx/viewpager/widget/PagerTitleStrip;->requestLayout()V
 
     invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setWillNotDraw(Z)V
 
@@ -199,17 +202,17 @@
 
     move-result-object p1
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     iput-boolean p2, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
 
 # virtual methods
-.method getMinHeight()I
+.method public final getMinHeight()I
     .locals 1
 
     invoke-super {p0}, Landroidx/viewpager/widget/PagerTitleStrip;->getMinHeight()I
@@ -225,7 +228,7 @@
     return p0
 .end method
 
-.method protected onDraw(Landroid/graphics/Canvas;)V
+.method public final onDraw(Landroid/graphics/Canvas;)V
     .locals 14
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onDraw(Landroid/graphics/Canvas;)V
@@ -340,7 +343,7 @@
     return-void
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 4
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -435,9 +438,7 @@
 
     iget-object p0, p0, Landroidx/viewpager/widget/PagerTitleStrip;->mPager:Landroidx/viewpager/widget/ViewPager;
 
-    invoke-virtual {p0}, Landroidx/viewpager/widget/ViewPager;->getCurrentItem()I
-
-    move-result p1
+    iget p1, p0, Landroidx/viewpager/widget/ViewPager;->mCurItem:I
 
     sub-int/2addr p1, v3
 
@@ -464,9 +465,7 @@
 
     iget-object p0, p0, Landroidx/viewpager/widget/PagerTitleStrip;->mPager:Landroidx/viewpager/widget/ViewPager;
 
-    invoke-virtual {p0}, Landroidx/viewpager/widget/ViewPager;->getCurrentItem()I
-
-    move-result p1
+    iget p1, p0, Landroidx/viewpager/widget/ViewPager;->mCurItem:I
 
     add-int/2addr p1, v3
 
@@ -486,14 +485,10 @@
     return v3
 .end method
 
-.method public setBackgroundColor(I)V
+.method public final setBackgroundColor(I)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->setBackgroundColor(I)V
-
-    iget-boolean v0, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderlineSet:Z
-
-    if-nez v0, :cond_1
 
     const/high16 v0, -0x1000000
 
@@ -511,19 +506,14 @@
     :goto_0
     iput-boolean p1, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_1
     return-void
 .end method
 
-.method public setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 1
+.method public final setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-boolean v0, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderlineSet:Z
-
-    if-nez v0, :cond_1
-
     if-nez p1, :cond_0
 
     const/4 p1, 0x1
@@ -536,19 +526,14 @@
     :goto_0
     iput-boolean p1, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_1
     return-void
 .end method
 
-.method public setBackgroundResource(I)V
-    .locals 1
+.method public final setBackgroundResource(I)V
+    .locals 0
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->setBackgroundResource(I)V
 
-    iget-boolean v0, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderlineSet:Z
-
-    if-nez v0, :cond_1
-
     if-nez p1, :cond_0
 
     const/4 p1, 0x1
@@ -561,11 +546,10 @@
     :goto_0
     iput-boolean p1, p0, Landroidx/viewpager/widget/PagerTabStrip;->mDrawFullUnderline:Z
 
-    :cond_1
     return-void
 .end method
 
-.method public setPadding(IIII)V
+.method public final setPadding(IIII)V
     .locals 1
 
     iget v0, p0, Landroidx/viewpager/widget/PagerTabStrip;->mMinPaddingBottom:I
@@ -580,31 +564,16 @@
     return-void
 .end method
 
-.method public setTextSpacing(I)V
-    .locals 1
-
-    iget v0, p0, Landroidx/viewpager/widget/PagerTabStrip;->mMinTextSpacing:I
-
-    if-ge p1, v0, :cond_0
-
-    move p1, v0
-
-    :cond_0
-    invoke-super {p0, p1}, Landroidx/viewpager/widget/PagerTitleStrip;->setTextSpacing(I)V
-
-    return-void
-.end method
-
-.method updateTextPositions(IFZ)V
+.method public final updateTextPositions(FIZ)V
     .locals 0
 
-    invoke-super {p0, p1, p2, p3}, Landroidx/viewpager/widget/PagerTitleStrip;->updateTextPositions(IFZ)V
+    invoke-super {p0, p1, p2, p3}, Landroidx/viewpager/widget/PagerTitleStrip;->updateTextPositions(FIZ)V
 
-    const/high16 p1, 0x3f000000    # 0.5f
+    const/high16 p2, 0x3f000000    # 0.5f
 
-    sub-float/2addr p2, p1
+    sub-float/2addr p1, p2
 
-    invoke-static {p2}, Ljava/lang/Math;->abs(F)F
+    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
 
     move-result p1
 

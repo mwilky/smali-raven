@@ -1,4 +1,4 @@
-.class public Landroidx/appcompat/text/AllCapsTransformationMethod;
+.class public final Landroidx/appcompat/text/AllCapsTransformationMethod;
 .super Ljava/lang/Object;
 .source "AllCapsTransformationMethod.java"
 
@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private mLocale:Ljava/util/Locale;
+.field public mLocale:Ljava/util/Locale;
 
 
 # direct methods
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
+.method public final getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
     .locals 0
 
     if-eqz p1, :cond_0
@@ -57,7 +57,7 @@
     return-object p0
 .end method
 
-.method public onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
+.method public final onFocusChanged(Landroid/view/View;Ljava/lang/CharSequence;ZILandroid/graphics/Rect;)V
     .locals 0
 
     return-void

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/StatusBehavior$showNotFoundDialog$builder$1$1;
+.class public final Lcom/android/systemui/controls/ui/StatusBehavior$showNotFoundDialog$builder$1$1;
 .super Ljava/lang/Object;
 .source "StatusBehavior.kt"
 
@@ -6,27 +6,16 @@
 .implements Landroid/content/DialogInterface$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/StatusBehavior;->showNotFoundDialog(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/ControlWithState;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-.field final synthetic $cws:Lcom/android/systemui/controls/ui/ControlWithState;
+.field public final synthetic $cws:Lcom/android/systemui/controls/ui/ControlWithState;
 
-.field final synthetic $this_apply:Landroid/app/AlertDialog$Builder;
+.field public final synthetic $this_apply:Landroid/app/AlertDialog$Builder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlWithState;Landroid/app/AlertDialog$Builder;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlWithState;Landroid/app/AlertDialog$Builder;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/StatusBehavior$showNotFoundDialog$builder$1$1;->$cws:Lcom/android/systemui/controls/ui/ControlWithState;
@@ -48,9 +37,7 @@
     :try_start_0
     iget-object p2, p0, Lcom/android/systemui/controls/ui/StatusBehavior$showNotFoundDialog$builder$1$1;->$cws:Lcom/android/systemui/controls/ui/ControlWithState;
 
-    invoke-virtual {p2}, Lcom/android/systemui/controls/ui/ControlWithState;->getControl()Landroid/service/controls/Control;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
 
     if-nez p2, :cond_0
 

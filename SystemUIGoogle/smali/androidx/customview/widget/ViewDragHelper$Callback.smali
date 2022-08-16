@@ -25,16 +25,10 @@
 
 
 # virtual methods
-.method public abstract clampViewPositionHorizontal(Landroid/view/View;II)I
+.method public abstract clampViewPositionHorizontal(Landroid/view/View;I)I
 .end method
 
-.method public abstract clampViewPositionVertical(Landroid/view/View;II)I
-.end method
-
-.method public getOrderedChildIndex(I)I
-    .locals 0
-
-    return p1
+.method public abstract clampViewPositionVertical(Landroid/view/View;I)I
 .end method
 
 .method public getViewHorizontalDragRange(Landroid/view/View;)I
@@ -45,7 +39,7 @@
     return p0
 .end method
 
-.method public getViewVerticalDragRange(Landroid/view/View;)I
+.method public getViewVerticalDragRange()I
     .locals 0
 
     const/4 p0, 0x0
@@ -59,15 +53,7 @@
     return-void
 .end method
 
-.method public onEdgeLock(I)Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public onEdgeTouched(II)V
+.method public onEdgeTouched()V
     .locals 0
 
     return-void
@@ -82,7 +68,7 @@
 .method public abstract onViewDragStateChanged(I)V
 .end method
 
-.method public abstract onViewPositionChanged(Landroid/view/View;IIII)V
+.method public abstract onViewPositionChanged(Landroid/view/View;II)V
 .end method
 
 .method public abstract onViewReleased(Landroid/view/View;FF)V

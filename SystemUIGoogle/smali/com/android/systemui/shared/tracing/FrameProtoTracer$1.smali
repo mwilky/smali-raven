@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/shared/tracing/FrameProtoTracer$1;
+.class public final Lcom/android/systemui/shared/tracing/FrameProtoTracer$1;
 .super Ljava/lang/Object;
 .source "FrameProtoTracer.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -20,17 +20,17 @@
     value = {
         "Ljava/lang/Object;",
         "Lcom/android/internal/util/TraceBuffer$ProtoProvider<",
-        "***>;"
+        "TP;TS;TT;>;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
+.field public final synthetic this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/shared/tracing/FrameProtoTracer;)V
+.method public constructor <init>(Lcom/android/systemui/shared/tracing/FrameProtoTracer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer$1;->this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
@@ -42,21 +42,17 @@
 
 
 # virtual methods
-.method public getBytes(Ljava/lang/Object;)[B
+.method public final getBytes(Ljava/lang/Object;)[B
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
-            "Ljava/lang/Object;",
-            ")[B"
+            "(TP;)[B"
         }
     .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer$1;->this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
 
-    invoke-static {p0}, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->access$000(Lcom/android/systemui/shared/tracing/FrameProtoTracer;)Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->mParams:Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;
 
     invoke-interface {p0, p1}, Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;->getProtoBytes(Ljava/lang/Object;)[B
 
@@ -65,21 +61,17 @@
     return-object p0
 .end method
 
-.method public getItemSize(Ljava/lang/Object;)I
+.method public final getItemSize(Ljava/lang/Object;)I
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
-            "Ljava/lang/Object;",
-            ")I"
+            "(TP;)I"
         }
     .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer$1;->this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
 
-    invoke-static {p0}, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->access$000(Lcom/android/systemui/shared/tracing/FrameProtoTracer;)Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->mParams:Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;
 
     invoke-interface {p0, p1}, Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;->getProtoSize(Ljava/lang/Object;)I
 
@@ -88,14 +80,13 @@
     return p0
 .end method
 
-.method public write(Ljava/lang/Object;Ljava/util/Queue;Ljava/io/OutputStream;)V
+.method public final write(Ljava/lang/Object;Ljava/util/Queue;Ljava/io/OutputStream;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
-            "Ljava/lang/Object;",
+            "(TS;",
             "Ljava/util/Queue<",
-            "*>;",
+            "TT;>;",
             "Ljava/io/OutputStream;",
             ")V"
         }
@@ -109,9 +100,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer$1;->this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
 
-    invoke-static {p0}, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->access$000(Lcom/android/systemui/shared/tracing/FrameProtoTracer;)Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->mParams:Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;
 
     invoke-interface {p0, p1, p2}, Lcom/android/systemui/shared/tracing/FrameProtoTracer$ProtoTraceParams;->serializeEncapsulatingProto(Ljava/lang/Object;Ljava/util/Queue;)[B
 

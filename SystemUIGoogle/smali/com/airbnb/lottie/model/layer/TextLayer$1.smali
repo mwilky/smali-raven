@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/model/layer/TextLayer$1;
+.class public final Lcom/airbnb/lottie/model/layer/TextLayer$1;
 .super Landroid/graphics/Paint;
 .source "TextLayer.java"
 
@@ -9,26 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/model/layer/TextLayer;
-
-
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/model/layer/TextLayer;I)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    iput-object p1, p0, Lcom/airbnb/lottie/model/layer/TextLayer$1;->this$0:Lcom/airbnb/lottie/model/layer/TextLayer;
+    const/4 v0, 0x1
 
-    invoke-direct {p0, p2}, Landroid/graphics/Paint;-><init>(I)V
+    invoke-direct {p0, v0}, Landroid/graphics/Paint;-><init>(I)V
 
-    sget-object p1, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
+    sget-object v0, Landroid/graphics/Paint$Style;->FILL:Landroid/graphics/Paint$Style;
 
-    invoke-virtual {p0, p1}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
+    invoke-virtual {p0, v0}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
     return-void
 .end method

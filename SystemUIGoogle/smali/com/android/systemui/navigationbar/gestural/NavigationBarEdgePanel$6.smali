@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$6;
+.class public final Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$6;
 .super Ljava/lang/Object;
 .source "NavigationBarEdgePanel.java"
 
@@ -6,30 +6,15 @@
 .implements Landroidx/dynamicanimation/animation/DynamicAnimation$OnAnimationEndListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;->triggerBack()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
-
-.field final synthetic val$translationEnd:Ljava/lang/Runnable;
+.field public final synthetic val$translationEnd:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/systemui/qs/external/CustomTile$$ExternalSyntheticLambda0;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$6;->this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
-
-    iput-object p2, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$6;->val$translationEnd:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$6;->val$translationEnd:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,17 +23,28 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroidx/dynamicanimation/animation/DynamicAnimation;ZFF)V
+.method public final onAnimationEnd(Landroidx/dynamicanimation/animation/DynamicAnimation;ZFF)V
     .locals 0
 
-    invoke-virtual {p1, p0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->removeEndListener(Landroidx/dynamicanimation/animation/DynamicAnimation$OnAnimationEndListener;)V
+    iget-object p1, p1, Landroidx/dynamicanimation/animation/DynamicAnimation;->mEndListeners:Ljava/util/ArrayList;
 
-    if-nez p2, :cond_0
+    invoke-virtual {p1, p0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+
+    move-result p3
+
+    if-ltz p3, :cond_0
+
+    const/4 p4, 0x0
+
+    invoke-virtual {p1, p3, p4}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    if-nez p2, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$6;->val$translationEnd:Ljava/lang/Runnable;
 
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method

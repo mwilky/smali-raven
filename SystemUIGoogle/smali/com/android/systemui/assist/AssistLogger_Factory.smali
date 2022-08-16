@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final assistUtilsProvider:Ljavax/inject/Provider;
+.field public final assistUtilsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final phoneStateMonitorProvider:Ljavax/inject/Provider;
+.field public final phoneStateMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -93,48 +93,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/assist/AssistLogger_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/app/AssistUtils;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/assist/PhoneStateMonitor;",
-            ">;)",
-            "Lcom/android/systemui/assist/AssistLogger_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/assist/AssistLogger_Factory;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/assist/AssistLogger_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/assist/PhoneStateMonitor;)Lcom/android/systemui/assist/AssistLogger;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/assist/AssistLogger;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/assist/AssistLogger;-><init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/assist/PhoneStateMonitor;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/assist/AssistLogger;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/assist/AssistLogger_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -168,19 +130,9 @@
 
     check-cast p0, Lcom/android/systemui/assist/PhoneStateMonitor;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/assist/AssistLogger_Factory;->newInstance(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/assist/PhoneStateMonitor;)Lcom/android/systemui/assist/AssistLogger;
+    new-instance v3, Lcom/android/systemui/assist/AssistLogger;
 
-    move-result-object p0
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/assist/AssistLogger;-><init>(Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/assist/PhoneStateMonitor;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/assist/AssistLogger_Factory;->get()Lcom/android/systemui/assist/AssistLogger;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v3
 .end method

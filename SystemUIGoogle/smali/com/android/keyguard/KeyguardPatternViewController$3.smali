@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardPatternViewController$3;
+.class public final Lcom/android/keyguard/KeyguardPatternViewController$3;
 .super Landroid/os/CountDownTimer;
 .source "KeyguardPatternViewController.java"
 
@@ -9,36 +9,36 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardPatternViewController;JJ)V
-    .locals 0
+.method public constructor <init>(Lcom/android/keyguard/KeyguardPatternViewController;J)V
+    .locals 2
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$3;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
+    const-wide/16 v0, 0x3e8
+
+    invoke-direct {p0, p2, p3, v0, v1}, Landroid/os/CountDownTimer;-><init>(JJ)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFinish()V
+.method public final onFinish()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPatternViewController$3;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$000(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPatternViewController;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     const/4 v1, 0x1
 
@@ -46,13 +46,17 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$3;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$1200(Lcom/android/keyguard/KeyguardPatternViewController;)V
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mMessageAreaController:Lcom/android/keyguard/KeyguardMessageAreaController;
+
+    const-string v0, ""
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardMessageAreaController;->setMessage(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
-.method public onTick(J)V
-    .locals 4
+.method public final onTick(J)V
+    .locals 2
 
     long-to-double p1, p1
 
@@ -66,17 +70,23 @@
 
     long-to-int p1, p1
 
-    iget-object p2, p0, Lcom/android/keyguard/KeyguardPatternViewController$3;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+    new-instance p2, Ljava/util/HashMap;
 
-    invoke-static {p2}, Lcom/android/keyguard/KeyguardPatternViewController;->access$200(Lcom/android/keyguard/KeyguardPatternViewController;)Lcom/android/keyguard/KeyguardMessageAreaController;
+    invoke-direct {p2}, Ljava/util/HashMap;-><init>()V
 
-    move-result-object p2
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    const-string v0, "count"
+
+    invoke-virtual {p2, v0, p1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$3;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardPatternViewController;->access$1100(Lcom/android/keyguard/KeyguardPatternViewController;)Landroid/view/View;
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController;->mMessageAreaController:Lcom/android/keyguard/KeyguardMessageAreaController;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/keyguard/KeyguardPatternView;
 
@@ -84,25 +94,13 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$plurals;->kg_too_many_failed_attempts_countdown:I
+    const v0, 0x7f1303db
 
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    const/4 v3, 0x0
-
-    aput-object v2, v1, v3
-
-    invoke-virtual {p0, v0, p1, v1}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p2, v0}, Landroid/util/PluralsMessageFormatter;->format(Landroid/content/res/Resources;Ljava/util/Map;I)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p2, p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->setMessage(Ljava/lang/CharSequence;)V
+    invoke-virtual {p1, p0}, Lcom/android/keyguard/KeyguardMessageAreaController;->setMessage(Ljava/lang/CharSequence;)V
 
     return-void
 .end method

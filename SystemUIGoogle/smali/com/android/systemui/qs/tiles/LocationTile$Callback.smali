@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/LocationTile$Callback;
+.class public final Lcom/android/systemui/qs/tiles/LocationTile$Callback;
 .super Ljava/lang/Object;
 .source "LocationTile.java"
 
@@ -13,17 +13,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Callback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/LocationTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/LocationTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
@@ -33,32 +33,28 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/LocationTile;Lcom/android/systemui/qs/tiles/LocationTile$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/LocationTile$Callback;-><init>(Lcom/android/systemui/qs/tiles/LocationTile;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onKeyguardShowingChanged()V
-    .locals 0
+.method public final onKeyguardShowingChanged()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/LocationTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public onLocationSettingsChanged(Z)V
-    .locals 0
+.method public final onLocationSettingsChanged()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/LocationTile$Callback;->this$0:Lcom/android/systemui/qs/tiles/LocationTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method

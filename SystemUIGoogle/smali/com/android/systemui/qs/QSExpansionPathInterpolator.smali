@@ -4,22 +4,18 @@
 
 
 # instance fields
-.field private pathInterpolatorBuilder:Lcom/android/systemui/qs/PathInterpolatorBuilder;
+.field public pathInterpolatorBuilder:Lcom/android/systemui/qs/PathInterpolatorBuilder;
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 3
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/android/systemui/qs/PathInterpolatorBuilder;
 
-    const/4 v1, 0x0
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    invoke-direct {v0, v1, v1, v1, v2}, Lcom/android/systemui/qs/PathInterpolatorBuilder;-><init>(FFFF)V
+    invoke-direct {v0}, Lcom/android/systemui/qs/PathInterpolatorBuilder;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->pathInterpolatorBuilder:Lcom/android/systemui/qs/PathInterpolatorBuilder;
 
@@ -28,34 +24,20 @@
 
 
 # virtual methods
-.method public final getXInterpolator()Landroid/view/animation/Interpolator;
-    .locals 1
+.method public final getYInterpolator()Lcom/android/systemui/qs/PathInterpolatorBuilder$PathInterpolator;
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->pathInterpolatorBuilder:Lcom/android/systemui/qs/PathInterpolatorBuilder;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/PathInterpolatorBuilder;->getXInterpolator()Landroid/view/animation/Interpolator;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    new-instance v0, Lcom/android/systemui/qs/PathInterpolatorBuilder$PathInterpolator;
 
-    const-string v0, "pathInterpolatorBuilder.xInterpolator"
+    iget-object v1, p0, Lcom/android/systemui/qs/PathInterpolatorBuilder;->mDist:[F
 
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/android/systemui/qs/PathInterpolatorBuilder;->mY:[F
 
-    return-object p0
-.end method
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/qs/PathInterpolatorBuilder$PathInterpolator;-><init>([F[F)V
 
-.method public final getYInterpolator()Landroid/view/animation/Interpolator;
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSExpansionPathInterpolator;->pathInterpolatorBuilder:Lcom/android/systemui/qs/PathInterpolatorBuilder;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/PathInterpolatorBuilder;->getYInterpolator()Landroid/view/animation/Interpolator;
-
-    move-result-object p0
-
-    const-string v0, "pathInterpolatorBuilder.yInterpolator"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    return-object p0
+    return-object v0
 .end method

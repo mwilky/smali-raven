@@ -18,5 +18,5 @@
 .method public abstract onHeightChanged(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
 .end method
 
-.method public abstract onReset(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+.method public abstract onReset(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 .end method

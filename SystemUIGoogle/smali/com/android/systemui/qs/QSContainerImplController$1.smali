@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QSContainerImplController$1;
+.class public final Lcom/android/systemui/qs/QSContainerImplController$1;
 .super Ljava/lang/Object;
 .source "QSContainerImplController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/QSContainerImplController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QSContainerImplController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSContainerImplController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSContainerImplController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSContainerImplController$1;->this$0:Lcom/android/systemui/qs/QSContainerImplController;
@@ -34,28 +34,18 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
+.method public final onConfigChanged(Landroid/content/res/Configuration;)V
     .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QSContainerImplController$1;->this$0:Lcom/android/systemui/qs/QSContainerImplController;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/QSContainerImplController;->access$200(Lcom/android/systemui/qs/QSContainerImplController;)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/qs/QSContainerImpl;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImplController$1;->this$0:Lcom/android/systemui/qs/QSContainerImplController;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/QSContainerImplController;->access$000(Lcom/android/systemui/qs/QSContainerImplController;)Lcom/android/systemui/qs/QSPanelController;
-
-    move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImplController$1;->this$0:Lcom/android/systemui/qs/QSContainerImplController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSContainerImplController;->access$100(Lcom/android/systemui/qs/QSContainerImplController;)Lcom/android/systemui/qs/QuickStatusBarHeaderController;
+    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    move-result-object p0
+    check-cast p1, Lcom/android/systemui/qs/QSContainerImpl;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSContainerImplController;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QSContainerImplController;->mQuickStatusBarHeaderController:Lcom/android/systemui/qs/QuickStatusBarHeaderController;
 
     invoke-virtual {p1, v0, p0}, Lcom/android/systemui/qs/QSContainerImpl;->updateResources(Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickStatusBarHeaderController;)V
 

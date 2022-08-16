@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/AirplaneModeTile$2;
+.class public final Lcom/android/systemui/qs/tiles/AirplaneModeTile$2;
 .super Landroid/content/BroadcastReceiver;
 .source "AirplaneModeTile.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/AirplaneModeTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$2;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -48,7 +48,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/AirplaneModeTile$2;->this$0:Lcom/android/systemui/qs/tiles/AirplaneModeTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     :cond_0
     return-void

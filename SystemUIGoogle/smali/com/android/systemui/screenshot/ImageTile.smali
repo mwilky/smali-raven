@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/ImageTile;
+.class public final Lcom/android/systemui/screenshot/ImageTile;
 .super Ljava/lang/Object;
 .source "ImageTile.java"
 
@@ -7,19 +7,19 @@
 
 
 # static fields
-.field private static final COLOR_SPACE:Landroid/graphics/ColorSpace;
+.field public static final COLOR_SPACE:Landroid/graphics/ColorSpace;
 
 
 # instance fields
-.field private final mImage:Landroid/media/Image;
+.field public final mImage:Landroid/media/Image;
 
-.field private final mLocation:Landroid/graphics/Rect;
+.field public final mLocation:Landroid/graphics/Rect;
 
-.field private mNode:Landroid/graphics/RenderNode;
+.field public mNode:Landroid/graphics/RenderNode;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     sget-object v0, Landroid/graphics/ColorSpace$Named;->SRGB:Landroid/graphics/ColorSpace$Named;
@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/media/Image;Landroid/graphics/Rect;)V
+.method public constructor <init>(Landroid/media/Image;Landroid/graphics/Rect;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,13 +42,17 @@
 
     invoke-static {p1, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
 
-    check-cast p1, Landroid/media/Image;
+    move-object v0, p1
+
+    check-cast v0, Landroid/media/Image;
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ImageTile;->mImage:Landroid/media/Image;
 
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast p2, Landroid/graphics/Rect;
+    move-object v0, p2
+
+    check-cast v0, Landroid/graphics/Rect;
 
     iput-object p2, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
 
@@ -65,7 +69,7 @@
 
 
 # virtual methods
-.method public declared-synchronized close()V
+.method public final declared-synchronized close()V
     .locals 1
 
     monitor-enter p0
@@ -96,207 +100,14 @@
     throw v0
 .end method
 
-.method declared-synchronized getDisplayList()Landroid/graphics/RenderNode;
-    .locals 4
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroid/graphics/RenderNode;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Tile{"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/ImageTile;->mImage:Landroid/media/Image;
-
-    invoke-virtual {v2}, Ljava/lang/Object;->hashCode()I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v2, "}"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Landroid/graphics/RenderNode;-><init>(Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-
-    invoke-virtual {v0}, Landroid/graphics/RenderNode;->hasDisplayList()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-object v0
-
-    :cond_1
-    :try_start_1
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ImageTile;->mImage:Landroid/media/Image;
-
-    invoke-virtual {v0}, Landroid/media/Image;->getWidth()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/screenshot/ImageTile;->mImage:Landroid/media/Image;
-
-    invoke-virtual {v1}, Landroid/media/Image;->getHeight()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
-
-    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(II)I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3, v3, v0, v1}, Landroid/graphics/RenderNode;->setPosition(IIII)Z
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-
-    invoke-virtual {v2, v0, v1}, Landroid/graphics/RenderNode;->beginRecording(II)Landroid/graphics/RecordingCanvas;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/graphics/RecordingCanvas;->save()I
-
-    iget-object v1, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
-
-    invoke-virtual {v2}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    invoke-virtual {v0, v3, v3, v1, v2}, Landroid/graphics/RecordingCanvas;->clipRect(IIII)Z
-
-    iget-object v1, p0, Lcom/android/systemui/screenshot/ImageTile;->mImage:Landroid/media/Image;
-
-    invoke-virtual {v1}, Landroid/media/Image;->getHardwareBuffer()Landroid/hardware/HardwareBuffer;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/android/systemui/screenshot/ImageTile;->COLOR_SPACE:Landroid/graphics/ColorSpace;
-
-    invoke-static {v1, v2}, Landroid/graphics/Bitmap;->wrapHardwareBuffer(Landroid/hardware/HardwareBuffer;Landroid/graphics/ColorSpace;)Landroid/graphics/Bitmap;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v3, v3, v2}, Landroid/graphics/RecordingCanvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    invoke-virtual {v0}, Landroid/graphics/RecordingCanvas;->restore()V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-
-    invoke-virtual {v0}, Landroid/graphics/RenderNode;->endRecording()V
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ImageTile;->mNode:Landroid/graphics/RenderNode;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    monitor-exit p0
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-.end method
-
-.method getLeft()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
-
-    iget p0, p0, Landroid/graphics/Rect;->left:I
-
-    return p0
-.end method
-
-.method getLocation()Landroid/graphics/Rect;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
-
-    return-object p0
-.end method
-
-.method getTop()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
-
-    iget p0, p0, Landroid/graphics/Rect;->top:I
-
-    return p0
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "{location="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string/jumbo v1, "{location="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/ImageTile;->mLocation:Landroid/graphics/Rect;
 

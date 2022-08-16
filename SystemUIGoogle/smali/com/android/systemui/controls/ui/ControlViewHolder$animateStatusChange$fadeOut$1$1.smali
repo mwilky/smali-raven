@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final synthetic $statusRowUpdater:Lkotlin/jvm/functions/Function0;
+.field public final synthetic $statusRowUpdater:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function0<",
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>(Lkotlin/jvm/functions/Function0;)V
+.method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,7 +47,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$animateStatusChange$fadeOut$1$1;->$statusRowUpdater:Lkotlin/jvm/functions/Function0;

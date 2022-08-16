@@ -1,4 +1,4 @@
-.class Landroidx/viewpager/widget/ViewPager$3;
+.class public final Landroidx/viewpager/widget/ViewPager$3;
 .super Ljava/lang/Object;
 .source "ViewPager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/viewpager/widget/ViewPager;
+.field public final synthetic this$0:Landroidx/viewpager/widget/ViewPager;
 
 
 # direct methods
-.method constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
+.method public constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/viewpager/widget/ViewPager$3;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 2
 
     iget-object v0, p0, Landroidx/viewpager/widget/ViewPager$3;->this$0:Landroidx/viewpager/widget/ViewPager;

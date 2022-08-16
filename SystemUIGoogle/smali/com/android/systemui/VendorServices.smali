@@ -1,5 +1,5 @@
 .class public Lcom/android/systemui/VendorServices;
-.super Lcom/android/systemui/SystemUI;
+.super Lcom/android/systemui/CoreStartable;
 .source "VendorServices.java"
 
 
@@ -7,7 +7,7 @@
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/SystemUI;-><init>(Landroid/content/Context;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/CoreStartable;-><init>(Landroid/content/Context;)V
 
     return-void
 .end method

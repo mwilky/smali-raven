@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 .super Lcom/airbnb/lottie/animation/keyframe/KeyframeAnimation;
 .source "FloatKeyframeAnimation.java"
 
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public getFloatValue()F
+.method public final getFloatValue()F
     .locals 2
 
     invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getCurrentKeyframe()Lcom/airbnb/lottie/value/Keyframe;
@@ -51,8 +51,8 @@
     return p0
 .end method
 
-.method getFloatValue(Lcom/airbnb/lottie/value/Keyframe;F)F
-    .locals 9
+.method public final getFloatValue(Lcom/airbnb/lottie/value/Keyframe;F)F
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -64,39 +64,27 @@
 
     iget-object v0, p1, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     iget-object v0, p1, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
-    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
+    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
 
-    if-eqz v1, :cond_0
+    if-eqz v0, :cond_0
 
-    iget v2, p1, Lcom/airbnb/lottie/value/Keyframe;->startFrame:F
+    iget-object v1, p1, Lcom/airbnb/lottie/value/Keyframe;->endFrame:Ljava/lang/Float;
 
-    iget-object v0, p1, Lcom/airbnb/lottie/value/Keyframe;->endFrame:Ljava/lang/Float;
+    invoke-virtual {v1}, Ljava/lang/Float;->floatValue()F
 
-    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+    iget-object v1, p1, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
 
-    move-result v3
-
-    iget-object v4, p1, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
-
-    iget-object v5, p1, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
+    iget-object v2, p1, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getLinearCurrentKeyframeProgress()F
 
-    move-result v7
-
-    invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getProgress()F
-
-    move-result v8
-
-    move v6, p2
-
-    invoke-virtual/range {v1 .. v8}, Lcom/airbnb/lottie/value/LottieValueCallback;->getValueInternal(FFLjava/lang/Object;Ljava/lang/Object;FFF)Ljava/lang/Object;
+    invoke-virtual {v0, v1, v2}, Lcom/airbnb/lottie/value/LottieValueCallback;->getValueInternal(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -111,21 +99,55 @@
     return p0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/airbnb/lottie/value/Keyframe;->getStartValueFloat()F
+    iget p0, p1, Lcom/airbnb/lottie/value/Keyframe;->startValueFloat:F
+
+    const v0, -0x358c9d09
+
+    cmpl-float p0, p0, v0
+
+    if-nez p0, :cond_1
+
+    iget-object p0, p1, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
+
+    check-cast p0, Ljava/lang/Float;
+
+    invoke-virtual {p0}, Ljava/lang/Float;->floatValue()F
 
     move-result p0
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/value/Keyframe;->getEndValueFloat()F
+    iput p0, p1, Lcom/airbnb/lottie/value/Keyframe;->startValueFloat:F
 
-    move-result p1
+    :cond_1
+    iget p0, p1, Lcom/airbnb/lottie/value/Keyframe;->startValueFloat:F
 
-    invoke-static {p0, p1, p2}, Lcom/airbnb/lottie/utils/MiscUtils;->lerp(FFF)F
+    iget v1, p1, Lcom/airbnb/lottie/value/Keyframe;->endValueFloat:F
+
+    cmpl-float v0, v1, v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p1, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
+
+    check-cast v0, Ljava/lang/Float;
+
+    invoke-virtual {v0}, Ljava/lang/Float;->floatValue()F
+
+    move-result v0
+
+    iput v0, p1, Lcom/airbnb/lottie/value/Keyframe;->endValueFloat:F
+
+    :cond_2
+    iget p1, p1, Lcom/airbnb/lottie/value/Keyframe;->endValueFloat:F
+
+    sget-object v0, Lcom/airbnb/lottie/utils/MiscUtils;->pathFromDataCurrentPoint:Landroid/graphics/PointF;
+
+    invoke-static {p1, p0, p2, p0}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
 
     move-result p0
 
     return p0
 
-    :cond_1
+    :cond_3
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Missing values for keyframe."
@@ -135,33 +157,14 @@
     throw p0
 .end method
 
-.method getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Float;
+.method public final getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/value/Keyframe<",
-            "Ljava/lang/Float;",
-            ">;F)",
-            "Ljava/lang/Float;"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1, p2}, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;->getFloatValue(Lcom/airbnb/lottie/value/Keyframe;F)F
 
     move-result p0
 
     invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method bridge synthetic getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2}, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;->getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Float;
 
     move-result-object p0
 

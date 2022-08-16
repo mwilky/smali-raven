@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/settings/brightness/BrightnessController$1;
+.class public final Lcom/android/systemui/settings/brightness/BrightnessController$1;
 .super Ljava/lang/Object;
 .source "BrightnessController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
+.field public final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessController;)V
+.method public constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
@@ -34,33 +34,27 @@
 
 
 # virtual methods
-.method public onDisplayAdded(I)V
+.method public final onDisplayAdded(I)V
     .locals 0
 
     return-void
 .end method
 
-.method public onDisplayChanged(I)V
+.method public final onDisplayChanged(I)V
     .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
-
-    invoke-static {p1}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$100(Lcom/android/systemui/settings/brightness/BrightnessController;)Landroid/os/Handler;
-
-    move-result-object p1
 
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessController;
 
-    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessController;->access$000(Lcom/android/systemui/settings/brightness/BrightnessController;)Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mBackgroundHandler:Landroid/os/Handler;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessController;->mUpdateSliderRunnable:Lcom/android/systemui/settings/brightness/BrightnessController$5;
 
     invoke-virtual {p1, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public onDisplayRemoved(I)V
+.method public final onDisplayRemoved(I)V
     .locals 0
 
     return-void

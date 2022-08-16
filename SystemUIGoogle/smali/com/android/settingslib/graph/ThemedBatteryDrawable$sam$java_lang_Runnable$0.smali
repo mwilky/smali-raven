@@ -1,4 +1,4 @@
-.class final Lcom/android/settingslib/graph/ThemedBatteryDrawable$sam$java_lang_Runnable$0;
+.class public final synthetic Lcom/android/settingslib/graph/ThemedBatteryDrawable$sam$java_lang_Runnable$0;
 .super Ljava/lang/Object;
 .source "ThemedBatteryDrawable.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = "sam$java_lang_Runnable$0"
+    accessFlags = 0x19
+    name = null
 .end annotation
 
 
 # instance fields
-.field private final synthetic function:Lkotlin/jvm/functions/Function0;
+.field public final synthetic function:Lkotlin/jvm/functions/Function0;
 
 
 # direct methods
-.method constructor <init>(Lkotlin/jvm/functions/Function0;)V
+.method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

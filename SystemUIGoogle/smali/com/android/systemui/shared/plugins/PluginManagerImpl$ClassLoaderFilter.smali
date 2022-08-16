@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/shared/plugins/PluginManagerImpl$ClassLoaderFilter;
+.class public final Lcom/android/systemui/shared/plugins/PluginManagerImpl$ClassLoaderFilter;
 .super Ljava/lang/ClassLoader;
 .source "PluginManagerImpl.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ClassLoaderFilter"
 .end annotation
 
 
 # instance fields
-.field private final mBase:Ljava/lang/ClassLoader;
+.field public final mBase:Ljava/lang/ClassLoader;
 
-.field private final mPackage:Ljava/lang/String;
+.field public final mPackage:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/ClassLoader;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/ClassLoader;)V
     .locals 1
 
     invoke-static {}, Ljava/lang/ClassLoader;->getSystemClassLoader()Ljava/lang/ClassLoader;
@@ -32,14 +32,16 @@
 
     iput-object p1, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$ClassLoaderFilter;->mBase:Ljava/lang/ClassLoader;
 
-    iput-object p2, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$ClassLoaderFilter;->mPackage:Ljava/lang/String;
+    const-string p1, "com.android.systemui.plugin"
+
+    iput-object p1, p0, Lcom/android/systemui/shared/plugins/PluginManagerImpl$ClassLoaderFilter;->mPackage:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected loadClass(Ljava/lang/String;Z)Ljava/lang/Class;
+.method public final loadClass(Ljava/lang/String;Z)Ljava/lang/Class;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnHeightChangedListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onHeightChanged(Lcom/android/systemui/statusbar/notification/row/NotificationGuts;)V
-.end method

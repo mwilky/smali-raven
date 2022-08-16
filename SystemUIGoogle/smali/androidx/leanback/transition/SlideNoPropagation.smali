@@ -14,14 +14,6 @@
 
 .method public constructor <init>(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slideEdge"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroid/transition/Slide;-><init>(I)V
 
@@ -30,16 +22,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/transition/Slide;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -48,16 +30,8 @@
 
 
 # virtual methods
-.method public setSlideEdge(I)V
+.method public final setSlideEdge(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slideEdge"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/transition/Slide;->setSlideEdge(I)V
 

@@ -1,9 +1,6 @@
-.class Lcom/android/systemui/navigationbar/buttons/DeadZone$1;
-.super Ljava/lang/Object;
+.class public final Lcom/android/systemui/navigationbar/buttons/DeadZone$1;
+.super Landroid/util/FloatProperty;
 .source "DeadZone.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -12,58 +9,56 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
-
-# instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/buttons/DeadZone;
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/util/FloatProperty<",
+        "Lcom/android/systemui/navigationbar/buttons/DeadZone;",
+        ">;"
+    }
+.end annotation
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/buttons/DeadZone;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/buttons/DeadZone$1;->this$0:Lcom/android/systemui/navigationbar/buttons/DeadZone;
+    const-string v0, "DeadZoneFlash"
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, v0}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 2
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/DeadZone$1;->this$0:Lcom/android/systemui/navigationbar/buttons/DeadZone;
+    check-cast p1, Lcom/android/systemui/navigationbar/buttons/DeadZone;
 
-    const/4 v0, 0x2
+    iget p0, p1, Lcom/android/systemui/navigationbar/buttons/DeadZone;->mFlashFrac:F
 
-    new-array v0, v0, [F
-
-    fill-array-data v0, :array_0
-
-    const-string v1, "flash"
-
-    invoke-static {p0, v1, v0}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p0
 
-    const-wide/16 v0, 0x96
+    return-object p0
+.end method
 
-    invoke-virtual {p0, v0, v1}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+.method public final setValue(Ljava/lang/Object;F)V
+    .locals 0
 
-    move-result-object p0
+    check-cast p1, Lcom/android/systemui/navigationbar/buttons/DeadZone;
 
-    invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->start()V
+    iput p2, p1, Lcom/android/systemui/navigationbar/buttons/DeadZone;->mFlashFrac:F
+
+    iget-object p0, p1, Lcom/android/systemui/navigationbar/buttons/DeadZone;->mNavigationBarView:Lcom/android/systemui/navigationbar/NavigationBarView;
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->postInvalidate()V
 
     return-void
-
-    :array_0
-    .array-data 4
-        0x3f800000    # 1.0f
-        0x0
-    .end array-data
 .end method

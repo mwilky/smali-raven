@@ -28,8 +28,10 @@
     return-void
 .end method
 
-.method private getTextView()Landroid/widget/TextView;
-    .locals 1
+
+# virtual methods
+.method public final isTruncated()Z
+    .locals 3
 
     const v0, 0x102000b
 
@@ -38,18 +40,6 @@
     move-result-object p0
 
     check-cast p0, Landroid/widget/TextView;
-
-    return-object p0
-.end method
-
-
-# virtual methods
-.method public isTruncated()Z
-    .locals 3
-
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsItem;->getTextView()Landroid/widget/TextView;
-
-    move-result-object p0
 
     const/4 v0, 0x0
 
@@ -85,28 +75,4 @@
 
     :cond_0
     return v0
-.end method
-
-.method public setMarquee(Z)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsItem;->getTextView()Landroid/widget/TextView;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setSingleLine(Z)V
-
-    if-eqz p1, :cond_0
-
-    sget-object p1, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
-
-    goto :goto_0
-
-    :cond_0
-    sget-object p1, Landroid/text/TextUtils$TruncateAt;->END:Landroid/text/TextUtils$TruncateAt;
-
-    :goto_0
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
-
-    return-void
 .end method

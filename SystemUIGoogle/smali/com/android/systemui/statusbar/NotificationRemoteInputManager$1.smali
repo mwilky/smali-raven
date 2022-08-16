@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;
+.class public final Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;
 .super Ljava/lang/Object;
 .source "NotificationRemoteInputManager.java"
 
@@ -12,35 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$IEwM2Zi1a7m0PhgfZVcYLdQqrqA(Landroid/view/View;Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->lambda$onInteraction$0(Landroid/view/View;Lcom/android/systemui/statusbar/phone/StatusBar;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$yuVpzya3VbjlocNfOJg-_NjUB3Q(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->lambda$onInteraction$1(Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method constructor <init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
@@ -50,464 +32,480 @@
     return-void
 .end method
 
-.method private getActionFromView(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Landroid/app/Notification$Action;
-    .locals 3
+.method public static getActionFromView(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Landroid/app/Notification$Action;
+    .locals 4
 
-    const p0, 0x10203b2
+    const v0, 0x10203e0
 
-    invoke-virtual {p1, p0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object p0
 
     check-cast p0, Ljava/lang/Integer;
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
     if-nez p0, :cond_0
 
-    return-object p1
+    return-object v0
 
     :cond_0
-    const-string v0, "NotifRemoteInputManager"
+    const-string v1, "NotifRemoteInputManager"
 
-    if-nez p2, :cond_1
+    if-nez p1, :cond_1
 
     const-string p0, "Couldn\'t determine notification for click."
 
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object p1
+    return-object v0
 
     :cond_1
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
-    move-result-object p2
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    invoke-virtual {p2}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    move-result-object v2
 
-    move-result-object v1
+    iget-object v2, v2, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
-    iget-object v1, v1, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
-
-    if-eqz v1, :cond_4
+    if-eqz v2, :cond_4
 
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
-    move-result v2
+    move-result v3
 
-    array-length v1, v1
+    array-length v2, v2
 
-    if-lt v2, v1, :cond_2
+    if-lt v3, v2, :cond_2
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {p2}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    move-result-object p2
+    move-result-object p1
 
-    iget-object p2, p2, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
+    iget-object p1, p1, Landroid/app/Notification;->actions:[Landroid/app/Notification$Action;
 
     invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
 
     move-result p0
 
-    aget-object p0, p2, p0
+    aget-object p0, p1, p0
 
-    iget-object p2, p0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
+    iget-object p1, p0, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
-    invoke-static {p2, p3}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result p2
+    move-result p1
 
-    if-nez p2, :cond_3
+    if-nez p1, :cond_3
 
     const-string p0, "actionIntent does not match"
 
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object p1
+    return-object v0
 
     :cond_3
     return-object p0
 
     :cond_4
     :goto_0
-    const-string p0, "statusBarNotification.getNotification().actions is null or invalid"
+    const-string/jumbo p0, "statusBarNotification.getNotification().actions is null or invalid"
 
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object p1
-.end method
-
-.method private getNotificationForParent(Landroid/view/ViewParent;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-    .locals 0
-
-    :goto_0
-    if-eqz p1, :cond_1
-
-    instance-of p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    invoke-interface {p1}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
-
-    move-result-object p1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-.method private handleRemoteInput(Landroid/view/View;Landroid/app/PendingIntent;)Z
-    .locals 9
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mCallback:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;->shouldHandleRemoteInput(Landroid/view/View;Landroid/app/PendingIntent;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    const v0, 0x1020429
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    instance-of v1, v0, [Landroid/app/RemoteInput;
-
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_1
-
-    check-cast v0, [Landroid/app/RemoteInput;
-
-    move-object v5, v0
-
-    goto :goto_0
-
-    :cond_1
-    move-object v5, v2
-
-    :goto_0
-    const/4 v0, 0x0
-
-    if-nez v5, :cond_2
-
-    return v0
-
-    :cond_2
-    array-length v1, v5
-
-    move-object v6, v2
-
-    move v2, v0
-
-    :goto_1
-    if-ge v2, v1, :cond_4
-
-    aget-object v3, v5, v2
-
-    invoke-virtual {v3}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3
-
-    move-object v6, v3
-
-    :cond_3
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    if-nez v6, :cond_5
-
-    return v0
-
-    :cond_5
-    iget-object v3, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    const/4 v8, 0x0
-
-    move-object v4, p1
-
-    move-object v7, p2
-
-    invoke-virtual/range {v3 .. v8}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->activateRemoteInput(Landroid/view/View;[Landroid/app/RemoteInput;Landroid/app/RemoteInput;Landroid/app/PendingIntent;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private static synthetic lambda$onInteraction$0(Landroid/view/View;Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 3
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    const-string v2, "NOTIFICATION_CLICK"
-
-    invoke-virtual {p1, v0, v1, p0, v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->wakeUpIfDozing(JLandroid/view/View;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onInteraction$1(Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Z
-    .locals 1
-
-    invoke-virtual {p1, p2}, Landroid/widget/RemoteViews$RemoteResponse;->getLaunchOptions(Landroid/view/View;)Landroid/util/Pair;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$100(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Lcom/android/systemui/statusbar/ActionClickLogger;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p3, p4}, Lcom/android/systemui/statusbar/ActionClickLogger;->logStartingIntentWithDefaultHandler(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)V
-
-    invoke-static {p2, p4, p1}, Landroid/widget/RemoteViews;->startPendingIntent(Landroid/view/View;Landroid/app/PendingIntent;Landroid/util/Pair;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    invoke-static {p0, p3}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$400(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    :cond_0
-    return p1
-.end method
-
-.method private logActionClick(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)V
-    .locals 6
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->getActionFromView(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Landroid/app/Notification$Action;
-
-    move-result-object v3
-
-    if-nez v3, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object p3
-
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v0, -0x1
-
-    invoke-virtual {p1}, Landroid/view/View;->getId()I
-
-    move-result v2
-
-    const v4, 0x102019c
-
-    if-ne v2, v4, :cond_1
-
-    if-eqz p3, :cond_1
-
-    instance-of v2, p3, Landroid/view/ViewGroup;
-
-    if-eqz v2, :cond_1
-
-    check-cast p3, Landroid/view/ViewGroup;
-
-    invoke-virtual {p3, p1}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
-
-    move-result p1
-
-    move v2, p1
-
-    goto :goto_0
-
-    :cond_1
-    move v2, v0
-
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    invoke-static {p1}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$200(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->getActiveNotificationsCount()I
-
-    move-result p1
-
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-
-    move-result-object p3
-
-    invoke-virtual {p3}, Landroid/service/notification/NotificationListenerService$Ranking;->getRank()I
-
-    move-result p3
-
-    invoke-static {p2}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->getNotificationLocation(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Lcom/android/internal/statusbar/NotificationVisibility$NotificationLocation;
-
-    move-result-object p2
-
-    const/4 v0, 0x1
-
-    invoke-static {v1, p3, p1, v0, p2}, Lcom/android/internal/statusbar/NotificationVisibility;->obtain(Ljava/lang/String;IIZLcom/android/internal/statusbar/NotificationVisibility$NotificationLocation;)Lcom/android/internal/statusbar/NotificationVisibility;
-
-    move-result-object v4
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$300(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Lcom/android/systemui/statusbar/NotificationClickNotifier;
-
-    move-result-object v0
-
-    const/4 v5, 0x0
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/NotificationClickNotifier;->onNotificationActionClick(Ljava/lang/String;ILandroid/app/Notification$Action;Lcom/android/internal/statusbar/NotificationVisibility;Z)V
-
-    return-void
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public onInteraction(Landroid/view/View;Landroid/app/PendingIntent;Landroid/widget/RemoteViews$RemoteResponse;)Z
-    .locals 9
+.method public final onInteraction(Landroid/view/View;Landroid/app/PendingIntent;Landroid/widget/RemoteViews$RemoteResponse;)Z
+    .locals 17
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    move-object/from16 v1, p0
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$000(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Ldagger/Lazy;
+    move-object/from16 v10, p1
+
+    move-object/from16 v11, p2
+
+    sget-object v0, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
+
+    iget-object v2, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mCentralSurfacesOptionalLazy:Ldagger/Lazy;
+
+    invoke-interface {v2}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/util/Optional;
+
+    new-instance v3, Lcom/android/wm/shell/splitscreen/StageCoordinator$$ExternalSyntheticLambda4;
+
+    const/4 v12, 0x1
+
+    invoke-direct {v3, v12, v10}, Lcom/android/wm/shell/splitscreen/StageCoordinator$$ExternalSyntheticLambda4;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v2
+
+    :goto_0
+    const/4 v13, 0x0
+
+    if-eqz v2, :cond_1
+
+    instance-of v3, v2, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v3, :cond_0
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    move-object v14, v2
+
+    goto :goto_1
+
+    :cond_0
+    invoke-interface {v2}, Landroid/view/ViewParent;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_1
+    move-object v14, v13
+
+    :goto_1
+    iget-object v2, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mLogger:Lcom/android/systemui/statusbar/ActionClickLogger;
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/ActionClickLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v3, Lcom/android/systemui/statusbar/ActionClickLogger$logInitialClick$2;->INSTANCE:Lcom/android/systemui/statusbar/ActionClickLogger$logInitialClick$2;
+
+    const-string v15, "ActionClickLogger"
+
+    invoke-virtual {v2, v15, v0, v3}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v3
+
+    if-nez v14, :cond_2
+
+    move-object v4, v13
+
+    goto :goto_2
+
+    :cond_2
+    iget-object v4, v14, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
+
+    :goto_2
+    iput-object v4, v3, Lcom/android/systemui/log/LogMessageImpl;->str1:Ljava/lang/String;
+
+    if-nez v14, :cond_3
+
+    goto :goto_3
+
+    :cond_3
+    iget-object v4, v14, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
+
+    if-nez v4, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    invoke-virtual {v4}, Landroid/service/notification/NotificationListenerService$Ranking;->getChannel()Landroid/app/NotificationChannel;
+
+    move-result-object v4
+
+    if-nez v4, :cond_5
+
+    :goto_3
+    move-object v4, v13
+
+    goto :goto_4
+
+    :cond_5
+    invoke-virtual {v4}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
+
+    move-result-object v4
+
+    :goto_4
+    iput-object v4, v3, Lcom/android/systemui/log/LogMessageImpl;->str2:Ljava/lang/String;
+
+    invoke-virtual/range {p2 .. p2}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Intent;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    iput-object v4, v3, Lcom/android/systemui/log/LogMessageImpl;->str3:Ljava/lang/String;
+
+    invoke-virtual {v2, v3}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
+
+    iget-object v2, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mCallback:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;->shouldHandleRemoteInput()Z
+
+    move-result v2
+
+    const/16 v16, 0x0
+
+    if-eqz v2, :cond_6
+
+    move v2, v12
+
+    goto :goto_8
+
+    :cond_6
+    const v2, 0x1020459
+
+    invoke-virtual {v10, v2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    instance-of v3, v2, [Landroid/app/RemoteInput;
+
+    if-eqz v3, :cond_7
+
+    check-cast v2, [Landroid/app/RemoteInput;
+
+    move-object v4, v2
+
+    goto :goto_5
+
+    :cond_7
+    move-object v4, v13
+
+    :goto_5
+    if-nez v4, :cond_8
+
+    goto :goto_7
+
+    :cond_8
+    array-length v2, v4
+
+    move-object v5, v13
+
+    move/from16 v3, v16
+
+    :goto_6
+    if-ge v3, v2, :cond_a
+
+    aget-object v6, v4, v3
+
+    invoke-virtual {v6}, Landroid/app/RemoteInput;->getAllowFreeFormInput()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_9
+
+    move-object v5, v6
+
+    :cond_9
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_6
+
+    :cond_a
+    if-nez v5, :cond_b
+
+    :goto_7
+    move/from16 v2, v16
+
+    goto :goto_8
+
+    :cond_b
+    iget-object v2, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    move-object/from16 v3, p1
+
+    move-object/from16 v6, p2
+
+    invoke-virtual/range {v2 .. v9}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->activateRemoteInput(Landroid/view/View;[Landroid/app/RemoteInput;Landroid/app/RemoteInput;Landroid/app/PendingIntent;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;Ljava/lang/String;Lcom/android/systemui/statusbar/NotificationRemoteInputManager$AuthBypassPredicate;)Z
+
+    move-result v2
+
+    :goto_8
+    if-eqz v2, :cond_d
+
+    iget-object v1, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+
+    iget-object v1, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mLogger:Lcom/android/systemui/statusbar/ActionClickLogger;
+
+    iget-object v1, v1, Lcom/android/systemui/statusbar/ActionClickLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v2, Lcom/android/systemui/statusbar/ActionClickLogger$logRemoteInputWasHandled$2;->INSTANCE:Lcom/android/systemui/statusbar/ActionClickLogger$logRemoteInputWasHandled$2;
+
+    invoke-virtual {v1, v15, v0, v2}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
 
     move-result-object v0
 
-    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
+    if-nez v14, :cond_c
 
-    move-result-object v0
+    goto :goto_9
 
-    check-cast v0, Ljava/util/Optional;
+    :cond_c
+    iget-object v13, v14, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
-    new-instance v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda1;
+    :goto_9
+    iput-object v13, v0, Lcom/android/systemui/log/LogMessageImpl;->str1:Ljava/lang/String;
 
-    invoke-direct {v1, p1}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda1;-><init>(Landroid/view/View;)V
+    invoke-virtual {v1, v0}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
 
-    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+    return v12
 
-    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->getNotificationForParent(Landroid/view/ViewParent;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    :cond_d
+    invoke-static {v10, v14, v11}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->getActionFromView(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Landroid/app/Notification$Action;
 
     move-result-object v5
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    if-nez v5, :cond_e
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$100(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Lcom/android/systemui/statusbar/ActionClickLogger;
+    goto :goto_b
+
+    :cond_e
+    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object v0
 
-    invoke-virtual {v0, v5, p2}, Lcom/android/systemui/statusbar/ActionClickLogger;->logInitialClick(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)V
+    iget-object v2, v14, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->handleRemoteInput(Landroid/view/View;Landroid/app/PendingIntent;)Z
+    invoke-virtual {v2}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+
+    move-result-object v8
+
+    const/4 v2, -0x1
+
+    invoke-virtual/range {p1 .. p1}, Landroid/view/View;->getId()I
+
+    move-result v3
+
+    const v4, 0x10201ae
+
+    if-ne v3, v4, :cond_f
+
+    if-eqz v0, :cond_f
+
+    instance-of v3, v0, Landroid/view/ViewGroup;
+
+    if-eqz v3, :cond_f
+
+    check-cast v0, Landroid/view/ViewGroup;
+
+    invoke-virtual {v0, v10}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    move v4, v0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    goto :goto_a
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$100(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Lcom/android/systemui/statusbar/ActionClickLogger;
+    :cond_f
+    move v4, v2
 
-    move-result-object p0
+    :goto_a
+    iget-object v0, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
-    invoke-virtual {p0, v5}, Lcom/android/systemui/statusbar/ActionClickLogger;->logRemoteInputWasHandled(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mVisibilityProvider:Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;
 
-    const/4 p0, 0x1
+    invoke-interface {v0, v14, v12}, Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;->obtain(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)Lcom/android/internal/statusbar/NotificationVisibility;
 
-    return p0
+    move-result-object v6
 
-    :cond_0
-    invoke-direct {p0, p1, v5, p2}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->logActionClick(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)V
+    iget-object v0, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mClickNotifier:Lcom/android/systemui/statusbar/NotificationClickNotifier;
+
+    const/4 v7, 0x0
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     :try_start_0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationClickNotifier;->barService:Lcom/android/internal/statusbar/IStatusBarService;
+
+    move-object v3, v8
+
+    invoke-interface/range {v2 .. v7}, Lcom/android/internal/statusbar/IStatusBarService;->onNotificationActionClick(Ljava/lang/String;ILandroid/app/Notification$Action;Lcom/android/internal/statusbar/NotificationVisibility;Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    iget-object v2, v0, Lcom/android/systemui/statusbar/NotificationClickNotifier;->mainExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v3, Lcom/android/systemui/statusbar/NotificationClickNotifier$onNotificationActionClick$1;
+
+    invoke-direct {v3, v0, v8}, Lcom/android/systemui/statusbar/NotificationClickNotifier$onNotificationActionClick$1;-><init>(Lcom/android/systemui/statusbar/NotificationClickNotifier;Ljava/lang/String;)V
+
+    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    :goto_b
+    :try_start_1
     invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
 
     move-result-object v0
 
     invoke-interface {v0}, Landroid/app/IActivityManager;->resumeAppSwitches()V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :catch_0
-    invoke-direct {p0, p1, v5, p2}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->getActionFromView(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Landroid/app/Notification$Action;
+    :catch_1
+    invoke-static {v10, v14, v11}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->getActionFromView(Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)Landroid/app/Notification$Action;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    iget-object v2, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
-    iget-object v7, v1, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mCallback:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;
+    iget-object v6, v2, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mCallback:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_10
 
-    const/4 v0, 0x0
+    goto :goto_c
 
-    goto :goto_0
-
-    :cond_1
+    :cond_10
     invoke-virtual {v0}, Landroid/app/Notification$Action;->isAuthenticationRequired()Z
+
+    move-result v16
+
+    :goto_c
+    move/from16 v7, v16
+
+    new-instance v8, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda0;
+
+    move-object v0, v8
+
+    move-object/from16 v1, p0
+
+    move-object/from16 v2, p3
+
+    move-object/from16 v3, p1
+
+    move-object v4, v14
+
+    move-object/from16 v5, p2
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)V
+
+    invoke-interface {v6, v11, v7, v8}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;->handleRemoteViewClick(Landroid/app/PendingIntent;ZLcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda0;)Z
 
     move-result v0
 
-    :goto_0
-    new-instance v8, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda0;
-
-    move-object v1, v8
-
-    move-object v2, p0
-
-    move-object v3, p3
-
-    move-object v4, p1
-
-    move-object v6, p2
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$1;Landroid/widget/RemoteViews$RemoteResponse;Landroid/view/View;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/app/PendingIntent;)V
-
-    invoke-interface {v7, p1, p2, v0, v8}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;->handleRemoteViewClick(Landroid/view/View;Landroid/app/PendingIntent;ZLcom/android/systemui/statusbar/NotificationRemoteInputManager$ClickHandler;)Z
-
-    move-result p0
-
-    return p0
+    return v0
 .end method

@@ -32,46 +32,14 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/classifier/FalsingModule_ProvidesDoubleTapTimeoutMsFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/classifier/FalsingModule_ProvidesDoubleTapTimeoutMsFactory$InstanceHolder;->access$000()Lcom/android/systemui/classifier/FalsingModule_ProvidesDoubleTapTimeoutMsFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static providesDoubleTapTimeoutMs()J
-    .locals 2
-
-    invoke-static {}, Lcom/android/systemui/classifier/FalsingModule;->providesDoubleTapTimeoutMs()J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
 
 # virtual methods
-.method public get()Ljava/lang/Long;
+.method public final get()Ljava/lang/Object;
     .locals 2
 
-    invoke-static {}, Lcom/android/systemui/classifier/FalsingModule_ProvidesDoubleTapTimeoutMsFactory;->providesDoubleTapTimeoutMs()J
-
-    move-result-wide v0
+    const-wide/16 v0, 0x4b0
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingModule_ProvidesDoubleTapTimeoutMsFactory;->get()Ljava/lang/Long;
 
     move-result-object p0
 

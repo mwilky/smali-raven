@@ -54,13 +54,13 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 0
 
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 0
 
     const/4 p1, 0x0
@@ -70,7 +70,7 @@
     return-void
 .end method
 
-.method public setVisibility(I)V
+.method public final setVisibility(I)V
     .locals 0
 
     return-void

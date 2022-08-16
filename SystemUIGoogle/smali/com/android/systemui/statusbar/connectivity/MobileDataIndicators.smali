@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZ)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/IconState;Lcom/android/systemui/statusbar/connectivity/IconState;IIZZLjava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;IZZ)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -64,7 +64,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -216,7 +216,7 @@
     return v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->statusIcon:Lcom/android/systemui/statusbar/connectivity/IconState;
@@ -257,23 +257,17 @@
 
     iget v2, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->statusType:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v3, 0x1f
 
-    move-result v2
+    invoke-static {v2, v0, v3}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v2
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget v2, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->qsType:I
 
-    invoke-static {v2}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v2, v0, v3}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v2
-
-    add-int/2addr v0, v2
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->activityIn:Z
 
@@ -353,13 +347,11 @@
 
     iget v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->subId:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v2, 0x1f
 
-    move-result v1
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->roaming:Z
 
@@ -387,7 +379,7 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -396,7 +388,7 @@
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v1, "statusIcon="
+    const-string/jumbo v1, "statusIcon="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -514,19 +506,11 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;->showTriangle:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x5d
 
-    const/16 p0, 0x5d
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
-
-    const-string v0, "StringBuilder(\"MobileDataIndicators[\")\n                .append(\"statusIcon=\").append(statusIcon?.toString() ?: \"\")\n                .append(\",qsIcon=\").append(qsIcon?.toString() ?: \"\")\n                .append(\",statusType=\").append(statusType)\n                .append(\",qsType=\").append(qsType)\n                .append(\",activityIn=\").append(activityIn)\n                .append(\",activityOut=\").append(activityOut)\n                .append(\",typeContentDescription=\").append(typeContentDescription)\n                .append(\",typeContentDescriptionHtml=\").append(typeContentDescriptionHtml)\n                .append(\",description=\").append(qsDescription)\n                .append(\",subId=\").append(subId)\n                .append(\",roaming=\").append(roaming)\n                .append(\",showTriangle=\").append(showTriangle)\n                .append(\']\').toString()"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-object p0
 .end method

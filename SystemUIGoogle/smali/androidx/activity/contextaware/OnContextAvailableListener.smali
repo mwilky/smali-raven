@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract onContextAvailable(Landroid/content/Context;)V
+.method public abstract onContextAvailable()V
 .end method

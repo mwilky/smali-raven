@@ -1,4 +1,4 @@
-.class Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;
+.class public final Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "TranslationAnimationCreator.java"
 
@@ -12,52 +12,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "TransitionPositionListener"
 .end annotation
 
 
 # instance fields
-.field private final mMovingView:Landroid/view/View;
+.field public final mMovingView:Landroid/view/View;
 
-.field private mPausedX:F
+.field public mPausedX:F
 
-.field private mPausedY:F
+.field public mPausedY:F
 
-.field private final mStartX:I
+.field public final mStartX:I
 
-.field private final mStartY:I
+.field public final mStartY:I
 
-.field private final mTerminalX:F
+.field public final mTerminalX:F
 
-.field private final mTerminalY:F
+.field public final mTerminalY:F
 
-.field private mTransitionPosition:[I
+.field public mTransitionPosition:[I
 
-.field private final mViewInHierarchy:Landroid/view/View;
+.field public final mViewInHierarchy:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;Landroid/view/View;IIFF)V
+.method public constructor <init>(Landroid/view/View;Landroid/view/View;IIFF)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "movingView",
-            "viewInHierarchy",
-            "startX",
-            "startY",
-            "terminalX",
-            "terminalY"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -93,7 +75,7 @@
 
     iput p6, p0, Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;->mTerminalY:F
 
-    sget p1, Landroidx/leanback/R$id;->transitionPosition:I
+    const p1, 0x7f0b06e6
 
     invoke-virtual {p2, p1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -115,16 +97,8 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
@@ -151,9 +125,9 @@
 
     move-result v2
 
-    add-float/2addr v1, v2
+    add-float/2addr v2, v1
 
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
     move-result v1
 
@@ -173,9 +147,9 @@
 
     move-result v2
 
-    add-float/2addr v1, v2
+    add-float/2addr v2, v1
 
-    invoke-static {v1}, Ljava/lang/Math;->round(F)I
+    invoke-static {v2}, Ljava/lang/Math;->round(F)I
 
     move-result v1
 
@@ -183,7 +157,7 @@
 
     iget-object p1, p0, Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;->mViewInHierarchy:Landroid/view/View;
 
-    sget v0, Landroidx/leanback/R$id;->transitionPosition:I
+    const v0, 0x7f0b06e6
 
     iget-object p0, p0, Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;->mTransitionPosition:[I
 
@@ -192,30 +166,14 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onAnimationPause(Landroid/animation/Animator;)V
+.method public final onAnimationPause(Landroid/animation/Animator;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;->mMovingView:Landroid/view/View;
 
@@ -248,16 +206,8 @@
     return-void
 .end method
 
-.method public onAnimationResume(Landroid/animation/Animator;)V
+.method public final onAnimationResume(Landroid/animation/Animator;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;->mMovingView:Landroid/view/View;
 
@@ -274,30 +224,14 @@
     return-void
 .end method
 
-.method public onTransitionCancel(Landroid/transition/Transition;)V
+.method public final onTransitionCancel(Landroid/transition/Transition;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transition"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onTransitionEnd(Landroid/transition/Transition;)V
+.method public final onTransitionEnd(Landroid/transition/Transition;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transition"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/transition/TranslationAnimationCreator$TransitionPositionListener;->mMovingView:Landroid/view/View;
 
@@ -314,44 +248,20 @@
     return-void
 .end method
 
-.method public onTransitionPause(Landroid/transition/Transition;)V
+.method public final onTransitionPause(Landroid/transition/Transition;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transition"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onTransitionResume(Landroid/transition/Transition;)V
+.method public final onTransitionResume(Landroid/transition/Transition;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transition"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onTransitionStart(Landroid/transition/Transition;)V
+.method public final onTransitionStart(Landroid/transition/Transition;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transition"
-        }
-    .end annotation
 
     return-void
 .end method

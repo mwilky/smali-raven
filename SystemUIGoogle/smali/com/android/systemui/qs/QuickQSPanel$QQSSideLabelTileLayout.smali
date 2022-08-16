@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;
+.class public final Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;
 .super Lcom/android/systemui/qs/SideLabelTileLayout;
 .source "QuickQSPanel.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "QQSSideLabelTileLayout"
 .end annotation
 
 
 # instance fields
-.field private mLastSelected:Z
+.field public mLastSelected:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 2
 
     const/4 v0, 0x0
@@ -51,7 +51,7 @@
 
 
 # virtual methods
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -61,7 +61,7 @@
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/TileLayout;->mRecords:Ljava/util/ArrayList;
@@ -79,7 +79,7 @@
     return-void
 .end method
 
-.method public setExpansion(FF)V
+.method public final setExpansion(FF)V
     .locals 3
 
     const/4 v0, 0x0
@@ -157,7 +157,7 @@
     return-void
 .end method
 
-.method public setListening(ZLcom/android/internal/logging/UiEventLogger;)V
+.method public final setListening(ZLcom/android/internal/logging/UiEventLogger;)V
     .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/TileLayout;->mListening:Z
@@ -219,10 +219,10 @@
     return-void
 .end method
 
-.method public updateResources()Z
+.method public final updateResources()Z
     .locals 3
 
-    sget v0, Lcom/android/systemui/R$dimen;->qs_quick_tile_size:I
+    const v0, 0x7f0706d6
 
     iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mCellHeightResId:I
 
@@ -234,7 +234,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$integer;->quick_qs_panel_max_rows:I
+    const v2, 0x7f0c00c0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 

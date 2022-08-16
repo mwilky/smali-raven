@@ -1,22 +1,12 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;
 .super Ljava/lang/Object;
 .source "MaskKeyframeAnimation.java"
 
 
 # instance fields
-.field private final maskAnimations:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "Lcom/airbnb/lottie/model/content/ShapeData;",
-            "Landroid/graphics/Path;",
-            ">;>;"
-        }
-    .end annotation
-.end field
+.field public final maskAnimations:Ljava/util/ArrayList;
 
-.field private final masks:Ljava/util/List;
+.field public final masks:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -26,17 +16,7 @@
     .end annotation
 .end field
 
-.field private final opacityAnimations:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/Integer;",
-            ">;>;"
-        }
-    .end annotation
-.end field
+.field public final opacityAnimations:Ljava/util/ArrayList;
 
 
 # direct methods
@@ -63,7 +43,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->maskAnimations:Ljava/util/List;
+    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->maskAnimations:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -73,7 +53,7 @@
 
     invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
 
-    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->opacityAnimations:Ljava/util/List;
+    iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->opacityAnimations:Ljava/util/ArrayList;
 
     const/4 v0, 0x0
 
@@ -84,7 +64,7 @@
 
     if-ge v0, v1, :cond_0
 
-    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->maskAnimations:Ljava/util/List;
+    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->maskAnimations:Ljava/util/ArrayList;
 
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -92,15 +72,13 @@
 
     check-cast v2, Lcom/airbnb/lottie/model/content/Mask;
 
-    invoke-virtual {v2}, Lcom/airbnb/lottie/model/content/Mask;->getMaskPath()Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/airbnb/lottie/model/content/Mask;->maskPath:Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;
 
     invoke-virtual {v2}, Lcom/airbnb/lottie/model/animatable/AnimatableShapeValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -108,17 +86,15 @@
 
     check-cast v1, Lcom/airbnb/lottie/model/content/Mask;
 
-    invoke-virtual {v1}, Lcom/airbnb/lottie/model/content/Mask;->getOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
+    iget-object v1, v1, Lcom/airbnb/lottie/model/content/Mask;->opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->opacityAnimations:Ljava/util/List;
+    iget-object v2, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->opacityAnimations:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v1
 
-    invoke-interface {v2, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v0, v0, 0x1
 
@@ -126,58 +102,4 @@
 
     :cond_0
     return-void
-.end method
-
-
-# virtual methods
-.method public getMaskAnimations()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "Lcom/airbnb/lottie/model/content/ShapeData;",
-            "Landroid/graphics/Path;",
-            ">;>;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->maskAnimations:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method public getMasks()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/model/content/Mask;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->masks:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method public getOpacityAnimations()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "Ljava/lang/Integer;",
-            "Ljava/lang/Integer;",
-            ">;>;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/MaskKeyframeAnimation;->opacityAnimations:Ljava/util/List;
-
-    return-object p0
 .end method

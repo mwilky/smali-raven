@@ -1,29 +1,19 @@
-.class public Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;
+.class public final Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;
 .super Landroid/app/slice/SliceProvider;
 .source "SliceProviderWrapperContainer.java"
 
 
 # instance fields
-.field private mAutoGrantPermissions:[Ljava/lang/String;
+.field public mAutoGrantPermissions:[Ljava/lang/String;
 
-.field private mSliceManager:Landroid/app/slice/SliceManager;
+.field public mSliceManager:Landroid/app/slice/SliceManager;
 
-.field private mSliceProvider:Landroidx/slice/SliceProvider;
+.field public mSliceProvider:Landroidx/slice/SliceProvider;
 
 
 # direct methods
 .method public constructor <init>(Landroidx/slice/SliceProvider;[Ljava/lang/String;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "provider",
-            "autoGrantPermissions"
-        }
-    .end annotation
 
     invoke-direct {p0, p2}, Landroid/app/slice/SliceProvider;-><init>([Ljava/lang/String;)V
 
@@ -44,16 +34,136 @@
     return-void
 .end method
 
-.method private checkPermissions(Landroid/net/Uri;)V
+
+# virtual methods
+.method public final attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+    .locals 1
+
+    iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
+
+    invoke-virtual {v0, p1, p2}, Landroidx/slice/SliceProvider;->attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+
+    invoke-super {p0, p1, p2}, Landroid/app/slice/SliceProvider;->attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
+
+    const-class p2, Landroid/app/slice/SliceManager;
+
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/app/slice/SliceManager;
+
+    iput-object p1, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceManager:Landroid/app/slice/SliceManager;
+
+    return-void
+.end method
+
+.method public final call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+    .locals 4
+
+    iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mAutoGrantPermissions:[Ljava/lang/String;
+
+    if-eqz v0, :cond_3
+
+    const-string v0, "bind_slice"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    if-eqz p3, :cond_2
+
+    const-string/jumbo v0, "slice_uri"
+
+    invoke-virtual {p3, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/net/Uri;
+
+    move-object v1, v0
+
+    goto :goto_0
+
+    :cond_0
+    const-string v0, "map_slice"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v0, "slice_intent"
+
+    invoke-virtual {p3, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Intent;
+
+    if-nez v0, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0, v0}, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->onMapIntentToUri(Landroid/content/Intent;)Landroid/net/Uri;
+
+    throw v1
+
+    :cond_2
+    :goto_0
+    if-eqz v1, :cond_3
+
+    iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceManager:Landroid/app/slice/SliceManager;
+
+    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
+
+    move-result v2
+
+    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
+
+    move-result v3
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/app/slice/SliceManager;->checkSlicePermission(Landroid/net/Uri;II)I
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0, v1}, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->checkPermissions(Landroid/net/Uri;)V
+
+    :cond_3
+    const-string v0, "androidx.remotecallback.method.PROVIDER_CALLBACK"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    iget-object p0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
+
+    invoke-virtual {p0, p1, p2, p3}, Landroidx/slice/SliceProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    move-result-object p0
+
+    return-object p0
+
+    :cond_4
+    invoke-super {p0, p1, p2, p3}, Landroid/app/slice/SliceProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final checkPermissions(Landroid/net/Uri;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "uri"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -105,166 +215,8 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "info"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
-
-    invoke-virtual {v0, p1, p2}, Landroidx/slice/SliceProvider;->attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
-
-    invoke-super {p0, p1, p2}, Landroid/app/slice/SliceProvider;->attachInfo(Landroid/content/Context;Landroid/content/pm/ProviderInfo;)V
-
-    const-class p2, Landroid/app/slice/SliceManager;
-
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Landroid/app/slice/SliceManager;
-
-    iput-object p1, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceManager:Landroid/app/slice/SliceManager;
-
-    return-void
-.end method
-
-.method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "method",
-            "arg",
-            "extras"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mAutoGrantPermissions:[Ljava/lang/String;
-
-    if-eqz v0, :cond_2
-
-    const-string v0, "bind_slice"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    if-eqz p3, :cond_1
-
-    const-string v0, "slice_uri"
-
-    invoke-virtual {p3, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/net/Uri;
-
-    move-object v1, v0
-
-    goto :goto_0
-
-    :cond_0
-    const-string v0, "map_slice"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "slice_intent"
-
-    invoke-virtual {p3, v0}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/content/Intent;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0, v0}, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->onMapIntentToUri(Landroid/content/Intent;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    :cond_1
-    :goto_0
-    if-eqz v1, :cond_2
-
-    iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceManager:Landroid/app/slice/SliceManager;
-
-    invoke-static {}, Landroid/os/Binder;->getCallingPid()I
-
-    move-result v2
-
-    invoke-static {}, Landroid/os/Binder;->getCallingUid()I
-
-    move-result v3
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/app/slice/SliceManager;->checkSlicePermission(Landroid/net/Uri;II)I
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-direct {p0, v1}, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->checkPermissions(Landroid/net/Uri;)V
-
-    :cond_2
-    const-string v0, "androidx.remotecallback.method.PROVIDER_CALLBACK"
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object p0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
-
-    invoke-virtual {p0, p1, p2, p3}, Landroidx/slice/SliceProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_3
-    invoke-super {p0, p1, p2, p3}, Landroid/app/slice/SliceProvider;->call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onBindSlice(Landroid/net/Uri;Ljava/util/Set;)Landroid/app/slice/Slice;
+.method public final onBindSlice(Landroid/net/Uri;Ljava/util/Set;)Landroid/app/slice/Slice;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "sliceUri",
-            "supportedVersions"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -276,18 +228,18 @@
         }
     .end annotation
 
-    invoke-static {p2}, Landroidx/slice/SliceConvert;->wrap(Ljava/util/Set;)Ljava/util/Set;
+    invoke-static {p2}, Landroidx/slice/SliceConvert;->wrap(Ljava/util/Set;)Landroidx/collection/ArraySet;
 
     move-result-object p2
 
-    invoke-static {p2}, Landroidx/slice/SliceProvider;->setSpecs(Ljava/util/Set;)V
+    sput-object p2, Landroidx/slice/SliceProvider;->sSpecs:Ljava/util/Set;
 
     const/4 p2, 0x0
 
     :try_start_0
     iget-object p0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
-    invoke-virtual {p0, p1}, Landroidx/slice/SliceProvider;->onBindSlice(Landroid/net/Uri;)Landroidx/slice/Slice;
+    invoke-virtual {p0}, Landroidx/slice/SliceProvider;->onBindSlice()Landroidx/slice/Slice;
 
     move-result-object p0
 
@@ -298,7 +250,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {p2}, Landroidx/slice/SliceProvider;->setSpecs(Ljava/util/Set;)V
+    sput-object p2, Landroidx/slice/SliceProvider;->sSpecs:Ljava/util/Set;
 
     return-object p0
 
@@ -339,17 +291,17 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    invoke-static {p2}, Landroidx/slice/SliceProvider;->setSpecs(Ljava/util/Set;)V
+    sput-object p2, Landroidx/slice/SliceProvider;->sSpecs:Ljava/util/Set;
 
     return-object p2
 
     :goto_0
-    invoke-static {p2}, Landroidx/slice/SliceProvider;->setSpecs(Ljava/util/Set;)V
+    sput-object p2, Landroidx/slice/SliceProvider;->sSpecs:Ljava/util/Set;
 
     throw p0
 .end method
 
-.method public onCreate()Z
+.method public final onCreate()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -357,39 +309,22 @@
     return p0
 .end method
 
-.method public onCreatePermissionRequest(Landroid/net/Uri;)Landroid/app/PendingIntent;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sliceUri"
-        }
-    .end annotation
+.method public final onCreatePermissionRequest(Landroid/net/Uri;)Landroid/app/PendingIntent;
+    .locals 1
 
     iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mAutoGrantPermissions:[Ljava/lang/String;
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->checkPermissions(Landroid/net/Uri;)V
+    invoke-virtual {p0, p1}, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->checkPermissions(Landroid/net/Uri;)V
 
     :cond_0
     iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
     invoke-virtual {p0}, Landroid/app/slice/SliceProvider;->getCallingPackage()Ljava/lang/String;
 
-    move-result-object v1
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v0, p1, v1}, Landroidx/slice/SliceProvider;->onCreatePermissionRequest(Landroid/net/Uri;Ljava/lang/String;)Landroid/app/PendingIntent;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    return-object v0
-
-    :cond_1
     invoke-super {p0, p1}, Landroid/app/slice/SliceProvider;->onCreatePermissionRequest(Landroid/net/Uri;)Landroid/app/PendingIntent;
 
     move-result-object p0
@@ -397,17 +332,8 @@
     return-object p0
 .end method
 
-.method public onGetSliceDescendants(Landroid/net/Uri;)Ljava/util/Collection;
+.method public final onGetSliceDescendants(Landroid/net/Uri;)Ljava/util/Collection;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "uri"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -421,73 +347,81 @@
 
     iget-object p0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
-    invoke-virtual {p0, p1}, Landroidx/slice/SliceProvider;->onGetSliceDescendants(Landroid/net/Uri;)Ljava/util/Collection;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public onMapIntentToUri(Landroid/content/Intent;)Landroid/net/Uri;
+.method public final onMapIntentToUri(Landroid/content/Intent;)Landroid/net/Uri;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "intent"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
-    invoke-virtual {p0, p1}, Landroidx/slice/SliceProvider;->onMapIntentToUri(Landroid/content/Intent;)Landroid/net/Uri;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    new-instance p0, Ljava/lang/UnsupportedOperationException;
 
-    return-object p0
+    const-string p1, "This provider has not implemented intent to uri mapping"
+
+    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
-.method public onSlicePinned(Landroid/net/Uri;)V
+.method public final onSlicePinned(Landroid/net/Uri;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sliceUri"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
-    invoke-virtual {v0, p1}, Landroidx/slice/SliceProvider;->onSlicePinned(Landroid/net/Uri;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iget-object p0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
-    invoke-virtual {p0, p1}, Landroidx/slice/SliceProvider;->handleSlicePinned(Landroid/net/Uri;)V
+    invoke-virtual {p0}, Landroidx/slice/SliceProvider;->getPinnedSlices()Ljava/util/List;
 
+    move-result-object p0
+
+    check-cast p0, Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_0
     return-void
 .end method
 
-.method public onSliceUnpinned(Landroid/net/Uri;)V
+.method public final onSliceUnpinned(Landroid/net/Uri;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sliceUri"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
-    invoke-virtual {v0, p1}, Landroidx/slice/SliceProvider;->onSliceUnpinned(Landroid/net/Uri;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iget-object p0, p0, Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;->mSliceProvider:Landroidx/slice/SliceProvider;
 
-    invoke-virtual {p0, p1}, Landroidx/slice/SliceProvider;->handleSliceUnpinned(Landroid/net/Uri;)V
+    invoke-virtual {p0}, Landroidx/slice/SliceProvider;->getPinnedSlices()Ljava/util/List;
 
+    move-result-object p0
+
+    check-cast p0, Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {p0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
+
+    :cond_0
     return-void
 .end method

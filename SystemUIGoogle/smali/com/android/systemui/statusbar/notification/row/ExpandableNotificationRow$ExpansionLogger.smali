@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "ExpansionLogger"
 .end annotation
-
-
-# virtual methods
-.method public abstract logNotificationExpansion(Ljava/lang/String;ZZ)V
-.end method

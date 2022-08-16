@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnCancelListener;
 
 
 # instance fields
@@ -22,12 +23,16 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onCancel(Landroid/content/DialogInterface;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda8;->f$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->$r8$lambda$l9U-_ej6YzFULyLkqNGrn60Ndf8(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/view/View;)V
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1}, Landroid/widget/Switch;->setChecked(Z)V
 
     return-void
 .end method

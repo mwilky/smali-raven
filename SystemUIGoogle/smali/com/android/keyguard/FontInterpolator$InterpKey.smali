@@ -1,4 +1,4 @@
-.class final Lcom/android/keyguard/FontInterpolator$InterpKey;
+.class public final Lcom/android/keyguard/FontInterpolator$InterpKey;
 .super Ljava/lang/Object;
 .source "FontInterpolator.kt"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "InterpKey"
 .end annotation
 
 
 # instance fields
-.field private l:Landroid/graphics/fonts/Font;
+.field public l:Landroid/graphics/fonts/Font;
 
-.field private progress:F
+.field public progress:F
 
-.field private r:Landroid/graphics/fonts/Font;
+.field public r:Landroid/graphics/fonts/Font;
 
 
 # direct methods
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -110,7 +110,7 @@
     return v0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/FontInterpolator$InterpKey;->l:Landroid/graphics/fonts/Font;
@@ -153,41 +153,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public final set(Landroid/graphics/fonts/Font;Landroid/graphics/fonts/Font;F)V
-    .locals 1
-
-    const-string v0, "l"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "r"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/keyguard/FontInterpolator$InterpKey;->l:Landroid/graphics/fonts/Font;
-
-    iput-object p2, p0, Lcom/android/keyguard/FontInterpolator$InterpKey;->r:Landroid/graphics/fonts/Font;
-
-    iput p3, p0, Lcom/android/keyguard/FontInterpolator$InterpKey;->progress:F
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "InterpKey(l="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "InterpKey(l="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/keyguard/FontInterpolator$InterpKey;->l:Landroid/graphics/fonts/Font;
 

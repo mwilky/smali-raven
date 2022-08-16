@@ -10,11 +10,15 @@
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">%d ປີກ່ອນ</item>
-        <item quantity="one">%d ປີກ່ອນ</item>
+        <item quantity="one">%d ປິກ່ອນ</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">ເພີ່ມ %s ການຄວບຄຸມແລ້ວ.</item>
         <item quantity="one">ເພີ່ມ %s ການຄວບຄຸມແລ້ວ.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s ແອັບນຳໃຊ້ຢູ່</item>
+        <item quantity="one">%s ແອັບນຳໃຊ້ຢູ່</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">ລະຫັດ SIM PIN ບໍ່ຖືກຕ້ອງ. ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອ.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">ລະຫັດ PUK ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອກ່ອນທີ່ SIM ຂອງທ່ານຈະໃຊ້ບໍ່ໄດ້ຢ່າງຖາວອນ.</item>
         <item quantity="one">ລະຫັດ PUK ຂອງ SIM ບໍ່ຖືກຕ້ອງ, ທ່ານສາມາດລອງໄດ້ອີກ %d ເທື່ອກ່ອນທີ່ SIM ຂອງທ່ານຈະໃຊ້ບໍ່ໄດ້ຢ່າງຖາວອນ.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">ລອງໃໝ່ໃນອີກ %d ວິນາທີ.</item>
-        <item quantity="one">ລອງໃໝ່ໃນອີກ 1 ວິນາທີ.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d ການແຈ້ງເຕືອນໃໝ່</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">ທ່ານສາມາດເພີ່ມໄດ້ສູງສຸດ %d ຄົນ.</item>
         <item quantity="one">ສາມາດສ້າງໄດ້ໜຶ່ງຜູ້ໃຊ້ເທົ່ານັ້ນ.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">ເຊື່ອມຕໍ່ %1$d ອຸປະກອນແລ້ວ</item>
-        <item quantity="one">ເຊື່ອມຕໍ່ %1$d ອຸປະກອນແລ້ວ</item>
     </plurals>
 </resources>

@@ -15,10 +15,10 @@
 
 
 # virtual methods
-.method public abstract onFragmentViewCreated(Ljava/lang/String;Landroid/app/Fragment;)V
+.method public abstract onFragmentViewCreated(Landroid/app/Fragment;)V
 .end method
 
-.method public onFragmentViewDestroyed(Ljava/lang/String;Landroid/app/Fragment;)V
+.method public onFragmentViewDestroyed(Landroid/app/Fragment;)V
     .locals 0
 
     return-void

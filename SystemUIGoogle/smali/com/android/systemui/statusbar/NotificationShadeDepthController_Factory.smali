@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final biometricUnlockControllerProvider:Ljavax/inject/Provider;
+.field public final biometricUnlockControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final blurUtilsProvider:Ljavax/inject/Provider;
+.field public final blurUtilsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final choreographerProvider:Ljavax/inject/Provider;
+.field public final choreographerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,27 @@
     .end annotation
 .end field
 
-.field private final dozeParametersProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final contextProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/content/Context;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final dozeParametersProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+.field public final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +108,7 @@
     .end annotation
 .end field
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +118,7 @@
     .end annotation
 .end field
 
-.field private final wallpaperControllerProvider:Ljavax/inject/Provider;
+.field public final wallpaperControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -110,7 +130,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -140,7 +160,13 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)V"
         }
     .end annotation
@@ -163,13 +189,17 @@
 
     iput-object p8, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    iput-object p10, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p11, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;
-    .locals 11
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -198,15 +228,21 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Landroid/content/Context;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
             ">;)",
             "Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;"
         }
     .end annotation
 
-    new-instance v10, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;
+    new-instance v12, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;
 
-    move-object v0, v10
+    move-object v0, v12
 
     move-object v1, p0
 
@@ -214,9 +250,9 @@
 
     move-object v3, p2
 
-    move-object v4, p3
+    move-object/from16 v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -226,45 +262,19 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v10, p9
 
-    return-object v10
-.end method
+    move-object/from16 v11, p10
 
-.method public static newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationShadeDepthController;
-    .locals 11
+    invoke-direct/range {v0 .. v11}, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    new-instance v10, Lcom/android/systemui/statusbar/NotificationShadeDepthController;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;-><init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)V
-
-    return-object v10
+    return-object v12
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/NotificationShadeDepthController;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 13
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
@@ -272,9 +282,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v2, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->blurUtilsProvider:Ljavax/inject/Provider;
 
@@ -282,9 +292,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/statusbar/BlurUtils;
+    check-cast v3, Lcom/android/systemui/statusbar/BlurUtils;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
 
@@ -292,9 +302,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
+    check-cast v4, Lcom/android/systemui/statusbar/phone/BiometricUnlockController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
@@ -302,9 +312,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v5, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->choreographerProvider:Ljavax/inject/Provider;
 
@@ -312,9 +322,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Landroid/view/Choreographer;
+    check-cast v6, Landroid/view/Choreographer;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->wallpaperControllerProvider:Ljavax/inject/Provider;
 
@@ -322,9 +332,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/util/WallpaperController;
+    check-cast v7, Lcom/android/systemui/util/WallpaperController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
@@ -332,9 +342,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    check-cast v8, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->dozeParametersProvider:Ljavax/inject/Provider;
 
@@ -342,33 +352,45 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Lcom/android/systemui/statusbar/phone/DozeParameters;
+    check-cast v9, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v10, v0
+
+    check-cast v10, Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v11, v0
+
+    check-cast v11, Lcom/android/systemui/dump/DumpManager;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v12, p0
 
-    check-cast v9, Lcom/android/systemui/dump/DumpManager;
+    check-cast v12, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+    new-instance p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/NotificationShadeDepthController_Factory;->get()Lcom/android/systemui/statusbar/NotificationShadeDepthController;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v12}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;-><init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Landroid/view/Choreographer;Lcom/android/systemui/util/WallpaperController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/phone/DozeParameters;Landroid/content/Context;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
 
     return-object p0
 .end method

@@ -17,6 +17,7 @@
         <item>Көп дегенде 3 үрдіс</item>
         <item>Көп дегенде 4 үрдіс</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -151,9 +152,9 @@
         <item>glGetError қоңыраулар тізімі</item>
     </string-array>
     <string-array name="hdcp_checking_summaries">
-        <item>Ешқашан HDCP (жоғары кең жолақты сандық мазмұн қорғаушы) тексерулерін қолданбаңыз</item>
+        <item>Ешқашан HDCP (жоғары кең жолақты цифрлық мазмұн қорғаушы) тексерулерін қолданбаңыз</item>
         <item>HDCP тексерісін DRM мазмұны үшін ғана қолдану</item>
-        <item>Әрқашан HDCP (жоғары кең жолақты сандық мазмұн қорғаушы) тексерулерін қолданыңыз</item>
+        <item>Әрқашан HDCP (жоғары кең жолақты цифрлық мазмұн қорғаушы) тексерулерін қолданыңыз</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
         <item>Ешқашан тексермеу</item>
@@ -260,6 +261,11 @@
         <item>Өшірулі</item>
         <item>Қосулы</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Қолжетімді емес</item>
+        <item>Өшірулі</item>
+        <item>Қосулы</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Қолжетімсіз</item>
         <item>Өшірулі</item>
@@ -307,6 +313,16 @@
     </string-array>
     <string-array name="tile_states_night">
         <item>Қолжетімсіз</item>
+        <item>Өшірулі</item>
+        <item>Қосулы</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Қолжетімді емес</item>
+        <item>Өшірулі</item>
+        <item>Қосулы</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Қолжетімді емес</item>
         <item>Өшірулі</item>
         <item>Қосулы</item>
     </string-array>
@@ -374,6 +390,12 @@
         <item>Тез</item>
         <item>Өте тез</item>
         <item>Ең тез</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Солға жылжыту</item>
+        <item>Төмен жылжыту</item>
+        <item>Оңға жылжыту</item>
+        <item>Жоғары жылжыту</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Зарядталуда</item>

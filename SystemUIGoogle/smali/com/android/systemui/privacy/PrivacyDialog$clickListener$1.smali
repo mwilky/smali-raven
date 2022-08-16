@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/privacy/PrivacyDialog$clickListener$1;
+.class public final Lcom/android/systemui/privacy/PrivacyDialog$clickListener$1;
 .super Ljava/lang/Object;
 .source "PrivacyDialog.kt"
 
@@ -6,24 +6,15 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/privacy/PrivacyDialog;-><init>(Landroid/content/Context;Ljava/util/List;Lkotlin/jvm/functions/Function2;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $activityStarter:Lkotlin/jvm/functions/Function2;
+.field public final synthetic $activityStarter:Lkotlin/jvm/functions/Function4;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "Lkotlin/jvm/functions/Function2<",
+            "Lkotlin/jvm/functions/Function4<",
             "Ljava/lang/String;",
             "Ljava/lang/Integer;",
+            "Ljava/lang/CharSequence;",
+            "Landroid/content/Intent;",
             "Lkotlin/Unit;",
             ">;"
         }
@@ -32,22 +23,26 @@
 
 
 # direct methods
-.method constructor <init>(Lkotlin/jvm/functions/Function2;)V
+.method public constructor <init>(Lkotlin/jvm/functions/Function4;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Lkotlin/jvm/functions/Function2<",
+            "Lkotlin/jvm/functions/Function4<",
             "-",
             "Ljava/lang/String;",
             "-",
             "Ljava/lang/Integer;",
+            "-",
+            "Ljava/lang/CharSequence;",
+            "-",
+            "Landroid/content/Intent;",
             "Lkotlin/Unit;",
             ">;)V"
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyDialog$clickListener$1;->$activityStarter:Lkotlin/jvm/functions/Function2;
+    iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyDialog$clickListener$1;->$activityStarter:Lkotlin/jvm/functions/Function4;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -57,7 +52,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 3
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -68,23 +63,23 @@
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$clickListener$1;->$activityStarter:Lkotlin/jvm/functions/Function2;
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$clickListener$1;->$activityStarter:Lkotlin/jvm/functions/Function4;
 
     check-cast p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;
 
-    invoke-virtual {p1}, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->getPackageName()Ljava/lang/String;
+    iget-object v0, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->packageName:Ljava/lang/String;
 
-    move-result-object v0
+    iget v1, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->userId:I
 
-    invoke-virtual {p1}, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->getUserId()I
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result p1
+    move-result-object v1
 
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget-object v2, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionTag:Ljava/lang/CharSequence;
 
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->navigationIntent:Landroid/content/Intent;
 
-    invoke-interface {p0, v0, p1}, Lkotlin/jvm/functions/Function2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p0, v0, v1, v2, p1}, Lkotlin/jvm/functions/Function4;->invoke(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/CharSequence;Landroid/content/Intent;)V
 
     :goto_0
     return-void

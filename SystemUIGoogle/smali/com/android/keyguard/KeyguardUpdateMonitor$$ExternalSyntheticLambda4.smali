@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/hardware/fingerprint/FingerprintManager$FingerprintDetectionCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onFingerprintDetected(IIZ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda4;->f$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->$r8$lambda$2pce8SMRRjyN9PAo4piMcCSJEtU(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-virtual {p0, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFingerprintAuthenticated(IZ)V
 
     return-void
 .end method

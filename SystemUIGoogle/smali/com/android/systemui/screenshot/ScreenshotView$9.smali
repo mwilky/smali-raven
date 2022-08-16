@@ -1,98 +1,35 @@
-.class synthetic Lcom/android/systemui/screenshot/ScreenshotView$9;
-.super Ljava/lang/Object;
+.class public final Lcom/android/systemui/screenshot/ScreenshotView$9;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "ScreenshotView.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/systemui/screenshot/ScreenshotView;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
-    name = null
-.end annotation
-
-
-# static fields
-.field static final synthetic $SwitchMap$com$android$systemui$screenshot$ScreenshotView$PendingInteraction:[I
+# instance fields
+.field public final synthetic this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method public constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;)V
+    .locals 0
 
-    invoke-static {}, Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;->values()[Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;
+    iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$9;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    move-result-object v0
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
-    array-length v0, v0
+    return-void
+.end method
 
-    new-array v0, v0, [I
 
-    sput-object v0, Lcom/android/systemui/screenshot/ScreenshotView$9;->$SwitchMap$com$android$systemui$screenshot$ScreenshotView$PendingInteraction:[I
+# virtual methods
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
 
-    :try_start_0
-    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;->PREVIEW:Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;
+    invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V
 
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$9;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    move-result v1
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mCallbacks:Lcom/android/systemui/screenshot/ScreenshotView$ScreenshotViewCallback;
 
-    const/4 v2, 0x1
+    invoke-interface {p0}, Lcom/android/systemui/screenshot/ScreenshotView$ScreenshotViewCallback;->onDismiss()V
 
-    aput v2, v0, v1
-    :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_0
-
-    :catch_0
-    :try_start_1
-    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotView$9;->$SwitchMap$com$android$systemui$screenshot$ScreenshotView$PendingInteraction:[I
-
-    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;->SHARE:Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1
-
-    :catch_1
-    :try_start_2
-    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotView$9;->$SwitchMap$com$android$systemui$screenshot$ScreenshotView$PendingInteraction:[I
-
-    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;->EDIT:Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
-
-    :catch_2
-    :try_start_3
-    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotView$9;->$SwitchMap$com$android$systemui$screenshot$ScreenshotView$PendingInteraction:[I
-
-    sget-object v1, Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;->QUICK_SHARE:Lcom/android/systemui/screenshot/ScreenshotView$PendingInteraction;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_3
-
-    :catch_3
     return-void
 .end method

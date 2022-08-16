@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/biometrics/AuthCredentialPasswordView$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnKeyListener;
@@ -27,9 +28,44 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialPasswordView$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/biometrics/AuthCredentialPasswordView;
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthCredentialPasswordView;->$r8$lambda$SFBFyvyzFIcRrwQMo5zWG7ZFpks(Lcom/android/systemui/biometrics/AuthCredentialPasswordView;Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    sget p1, Lcom/android/systemui/biometrics/AuthCredentialPasswordView;->$r8$clinit:I
 
-    move-result p0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
+    const/4 p1, 0x4
+
+    if-eq p2, p1, :cond_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
+
+    move-result p1
+
+    const/4 p2, 0x1
+
+    if-ne p1, p2, :cond_1
+
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mContainerView:Lcom/android/systemui/biometrics/AuthContainerView;
+
+    iget-object p1, p1, Lcom/android/systemui/biometrics/AuthContainerView;->mConfig:Lcom/android/systemui/biometrics/AuthContainerView$Config;
+
+    iget-object p1, p1, Lcom/android/systemui/biometrics/AuthContainerView$Config;->mCallback:Lcom/android/systemui/biometrics/AuthDialogCallback;
+
+    check-cast p1, Lcom/android/systemui/biometrics/AuthController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/biometrics/AuthController;->onSystemEvent()V
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mContainerView:Lcom/android/systemui/biometrics/AuthContainerView;
+
+    invoke-virtual {p0, p2, p2}, Lcom/android/systemui/biometrics/AuthContainerView;->animateAway(IZ)V
+
+    :cond_1
+    move p0, p2
+
+    :goto_0
     return p0
 .end method

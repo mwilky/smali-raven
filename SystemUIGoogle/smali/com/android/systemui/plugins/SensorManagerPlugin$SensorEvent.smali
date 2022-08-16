@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field mSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
+.field public mSensor:Lcom/android/systemui/plugins/SensorManagerPlugin$Sensor;
 
-.field mValues:[F
+.field public mValues:[F
 
-.field mVendorType:I
+.field public mVendorType:I
 
 
 # direct methods

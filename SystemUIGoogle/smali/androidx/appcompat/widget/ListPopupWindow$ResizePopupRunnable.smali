@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ListPopupWindow$ResizePopupRunnable;
+.class public final Landroidx/appcompat/widget/ListPopupWindow$ResizePopupRunnable;
 .super Ljava/lang/Object;
 .source "ListPopupWindow.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ResizePopupRunnable"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ListPopupWindow;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ListPopupWindow;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ListPopupWindow;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Landroidx/appcompat/widget/ListPopupWindow$ResizePopupRunnable;->this$0:Landroidx/appcompat/widget/ListPopupWindow;
@@ -43,7 +43,9 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0}, Landroidx/core/view/ViewCompat;->isAttachedToWindow(Landroid/view/View;)Z
+    sget-object v1, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {v0}, Landroidx/core/view/ViewCompat$Api19Impl;->isAttachedToWindow(Landroid/view/View;)Z
 
     move-result v0
 
@@ -81,7 +83,7 @@
 
     if-gt v0, v2, :cond_0
 
-    iget-object v0, v1, Landroidx/appcompat/widget/ListPopupWindow;->mPopup:Landroid/widget/PopupWindow;
+    iget-object v0, v1, Landroidx/appcompat/widget/ListPopupWindow;->mPopup:Landroidx/appcompat/widget/AppCompatPopupWindow;
 
     const/4 v1, 0x2
 

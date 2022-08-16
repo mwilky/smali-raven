@@ -7,17 +7,7 @@
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 p0, 0x0
 
-    return-void
-.end method
-
-.method static provideActivityStarter(Lcom/android/systemui/ActivityStarterDelegate;Lcom/android/systemui/plugins/PluginDependencyProvider;)Lcom/android/systemui/plugins/ActivityStarter;
-    .locals 1
-
-    const-class v0, Lcom/android/systemui/plugins/ActivityStarter;
-
-    invoke-virtual {p1, v0, p0}, Lcom/android/systemui/plugins/PluginDependencyProvider;->allowPluginDependency(Ljava/lang/Class;Ljava/lang/Object;)V
-
-    return-object p0
+    throw p0
 .end method

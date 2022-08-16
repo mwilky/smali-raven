@@ -16,12 +16,12 @@
 .end annotation
 
 .annotation runtime Lcom/android/systemui/plugins/annotations/ProvidesInterface;
-    version = 0x2
+    version = 0x3
 .end annotation
 
 
 # static fields
-.field public static final VERSION:I = 0x2
+.field public static final VERSION:I = 0x3
 
 
 # direct methods
@@ -42,6 +42,14 @@
 .end method
 
 .method public abstract getIconWithBackground()Landroid/view/View;
+.end method
+
+.method public getLabel()Landroid/view/View;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method public getLabelContainer()Landroid/view/View;
@@ -72,6 +80,9 @@
 .end method
 
 .method public abstract onStateChanged(Lcom/android/systemui/plugins/qs/QSTile$State;)V
+.end method
+
+.method public abstract setPosition(I)V
 .end method
 
 .method public abstract updateAccessibilityOrder(Landroid/view/View;)Landroid/view/View;

@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/SearchBar$4;
+.class public final Landroidx/leanback/widget/SearchBar$4;
 .super Ljava/lang/Object;
 .source "SearchBar.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/SearchBar;
+.field public final synthetic this$0:Landroidx/leanback/widget/SearchBar;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/SearchBar;)V
+.method public constructor <init>(Landroidx/leanback/widget/SearchBar;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/SearchBar$4;->this$0:Landroidx/leanback/widget/SearchBar;
 
@@ -42,19 +34,12 @@
 
 
 # virtual methods
-.method public onKeyboardDismiss()V
-    .locals 1
+.method public final onKeyboardDismiss()V
+    .locals 0
 
     iget-object p0, p0, Landroidx/leanback/widget/SearchBar$4;->this$0:Landroidx/leanback/widget/SearchBar;
 
-    iget-object v0, p0, Landroidx/leanback/widget/SearchBar;->mSearchBarListener:Landroidx/leanback/widget/SearchBar$SearchBarListener;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Landroidx/leanback/widget/SearchBar;->mSearchQuery:Ljava/lang/String;
-
-    invoke-interface {v0, p0}, Landroidx/leanback/widget/SearchBar$SearchBarListener;->onKeyboardDismiss(Ljava/lang/String;)V
-
-    :cond_0
     return-void
 .end method

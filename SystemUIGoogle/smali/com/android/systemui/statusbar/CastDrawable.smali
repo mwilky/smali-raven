@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mFillDrawable:Landroid/graphics/drawable/Drawable;
+.field public mFillDrawable:Landroid/graphics/drawable/Drawable;
 
-.field private mHorizontalPadding:I
+.field public mHorizontalPadding:I
 
 
 # direct methods
@@ -22,7 +22,7 @@
 
 
 # virtual methods
-.method public applyTheme(Landroid/content/res/Resources$Theme;)V
+.method public final applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/DrawableWrapper;->applyTheme(Landroid/content/res/Resources$Theme;)V
@@ -34,7 +34,7 @@
     return-void
 .end method
 
-.method public canApplyTheme()Z
+.method public final canApplyTheme()Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CastDrawable;->mFillDrawable:Landroid/graphics/drawable/Drawable;
@@ -66,7 +66,7 @@
     return p0
 .end method
 
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/DrawableWrapper;->draw(Landroid/graphics/Canvas;)V
@@ -78,7 +78,7 @@
     return-void
 .end method
 
-.method public getPadding(Landroid/graphics/Rect;)Z
+.method public final getPadding(Landroid/graphics/Rect;)Z
     .locals 1
 
     iget v0, p1, Landroid/graphics/Rect;->left:I
@@ -100,7 +100,7 @@
     return p0
 .end method
 
-.method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
+.method public final inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -111,7 +111,7 @@
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/graphics/drawable/DrawableWrapper;->inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
 
-    sget p2, Lcom/android/systemui/R$drawable;->ic_cast:I
+    const p2, 0x7f080484
 
     invoke-virtual {p1, p2, p4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -123,7 +123,7 @@
 
     invoke-virtual {p0, p2}, Landroid/graphics/drawable/DrawableWrapper;->setDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    sget p2, Lcom/android/systemui/R$drawable;->ic_cast_connected_fill:I
+    const p2, 0x7f080486
 
     invoke-virtual {p1, p2, p4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -135,7 +135,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/CastDrawable;->mFillDrawable:Landroid/graphics/drawable/Drawable;
 
-    sget p2, Lcom/android/systemui/R$dimen;->status_bar_horizontal_padding:I
+    const p2, 0x7f070777
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -146,7 +146,7 @@
     return-void
 .end method
 
-.method public mutate()Landroid/graphics/drawable/Drawable;
+.method public final mutate()Landroid/graphics/drawable/Drawable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CastDrawable;->mFillDrawable:Landroid/graphics/drawable/Drawable;
@@ -160,7 +160,7 @@
     return-object p0
 .end method
 
-.method protected onBoundsChange(Landroid/graphics/Rect;)V
+.method public final onBoundsChange(Landroid/graphics/Rect;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/DrawableWrapper;->onBoundsChange(Landroid/graphics/Rect;)V
@@ -172,7 +172,7 @@
     return-void
 .end method
 
-.method public onLayoutDirectionChanged(I)Z
+.method public final onLayoutDirectionChanged(I)Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CastDrawable;->mFillDrawable:Landroid/graphics/drawable/Drawable;
@@ -186,7 +186,7 @@
     return p0
 .end method
 
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/DrawableWrapper;->setAlpha(I)V
@@ -198,7 +198,7 @@
     return-void
 .end method
 
-.method public setVisible(ZZ)Z
+.method public final setVisible(ZZ)Z
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CastDrawable;->mFillDrawable:Landroid/graphics/drawable/Drawable;

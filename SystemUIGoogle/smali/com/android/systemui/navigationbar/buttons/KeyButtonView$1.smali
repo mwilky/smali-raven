@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
+.class public final Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 .super Ljava/lang/Object;
 .source "KeyButtonView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonView;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonView;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonView;
@@ -68,13 +68,9 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonView;
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->access$000(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)I
+    iget v2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
 
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;->this$0:Lcom/android/systemui/navigationbar/buttons/KeyButtonView;
+    if-eqz v2, :cond_1
 
     const/4 v2, 0x0
 

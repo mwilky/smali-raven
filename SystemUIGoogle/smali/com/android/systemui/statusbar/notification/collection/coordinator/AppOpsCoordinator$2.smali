@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator$2;
+.class public final Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator$2;
 .super Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;
 .source "AppOpsCoordinator.java"
 
@@ -9,48 +9,44 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator;Ljava/lang/String;I)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 2
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator$2;->this$0:Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator;
+    const/4 v0, 0x3
 
-    invoke-direct {p0, p2, p3}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;-><init>(Ljava/lang/String;I)V
+    const-string v1, "ForegroundService"
+
+    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifSectioner;-><init>(ILjava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public isInSection(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Z
+.method public final isInSection(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Z
     .locals 3
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getRepresentativeEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     move-result-object p0
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_3
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
-    move-result-object p0
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
-    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    move-result-object v0
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/app/Notification;->isForegroundService()Z
+    invoke-virtual {v0}, Landroid/app/Notification;->isForegroundService()Z
 
     move-result v1
 
@@ -58,24 +54,61 @@
 
     if-eqz v1, :cond_0
 
-    invoke-virtual {p0}, Landroid/app/Notification;->isColorized()Z
+    invoke-virtual {v0}, Landroid/app/Notification;->isColorized()Z
 
-    move-result p0
+    move-result v0
 
-    if-eqz p0, :cond_0
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getRepresentativeEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getImportance()I
 
-    move-result-object p0
+    move-result v0
+
+    if-le v0, v2, :cond_0
+
+    move v0, v2
+
+    goto :goto_0
+
+    :cond_0
+    move v0, p1
+
+    :goto_0
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getImportance()I
 
     move-result p0
 
-    if-le p0, v2, :cond_0
+    if-le p0, v2, :cond_1
 
-    move v0, v2
+    const-class p0, Landroid/app/Notification$CallStyle;
 
-    :cond_0
-    return v0
+    invoke-virtual {v0, p0}, Landroid/app/Notification;->isStyle(Ljava/lang/Class;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    move p0, v2
+
+    goto :goto_1
+
+    :cond_1
+    move p0, p1
+
+    :goto_1
+    if-eqz p0, :cond_3
+
+    :cond_2
+    move p1, v2
+
+    :cond_3
+    return p1
 .end method

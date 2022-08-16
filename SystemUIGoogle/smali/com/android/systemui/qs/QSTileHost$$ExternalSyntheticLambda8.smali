@@ -1,37 +1,57 @@
 .class public final synthetic Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Predicate;
+.implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Ljava/util/Collection;
+.field public final synthetic $r8$classId:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/Collection;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p1, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->$r8$classId:I
 
-    iput-object p1, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->f$0:Ljava/util/Collection;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final test(Ljava/lang/Object;)Z
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->f$0:Ljava/util/Collection;
+    iget p0, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda8;->$r8$classId:I
 
-    check-cast p1, Ljava/util/List;
+    packed-switch p0, :pswitch_data_0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$wJogp9E4Wei4cAKx9yhxpzodcvk(Ljava/util/Collection;Ljava/util/List;)Z
+    goto :goto_0
 
-    move-result p0
+    :pswitch_0
+    check-cast p1, Lcom/android/systemui/statusbar/phone/CentralSurfaces;
 
-    return p0
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->postAnimateForceCollapsePanels()V
+
+    return-void
+
+    :goto_0
+    check-cast p1, Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    const/4 p0, 0x0
+
+    invoke-interface {p1, p0, p0}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->animateCollapsePanels(IZ)V
+
+    return-void
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

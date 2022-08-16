@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationShelfController$1;
+.class public final Lcom/android/systemui/statusbar/NotificationShelfController$1;
 .super Ljava/lang/Object;
 .source "NotificationShelfController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/NotificationShelfController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/NotificationShelfController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/NotificationShelfController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/NotificationShelfController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationShelfController$1;->this$0:Lcom/android/systemui/statusbar/NotificationShelfController;
@@ -34,20 +34,14 @@
 
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
+.method public final onViewAttachedToWindow(Landroid/view/View;)V
     .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationShelfController$1;->this$0:Lcom/android/systemui/statusbar/NotificationShelfController;
-
-    invoke-static {p1}, Lcom/android/systemui/statusbar/NotificationShelfController;->access$100(Lcom/android/systemui/statusbar/NotificationShelfController;)Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    move-result-object p1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShelfController$1;->this$0:Lcom/android/systemui/statusbar/NotificationShelfController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/NotificationShelfController;->access$000(Lcom/android/systemui/statusbar/NotificationShelfController;)Lcom/android/systemui/statusbar/NotificationShelf;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationShelfController;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShelfController;->mView:Lcom/android/systemui/statusbar/NotificationShelf;
 
     const/4 v0, 0x3
 
@@ -56,20 +50,14 @@
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
+.method public final onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationShelfController$1;->this$0:Lcom/android/systemui/statusbar/NotificationShelfController;
-
-    invoke-static {p1}, Lcom/android/systemui/statusbar/NotificationShelfController;->access$100(Lcom/android/systemui/statusbar/NotificationShelfController;)Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
-
-    move-result-object p1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShelfController$1;->this$0:Lcom/android/systemui/statusbar/NotificationShelfController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/NotificationShelfController;->access$000(Lcom/android/systemui/statusbar/NotificationShelfController;)Lcom/android/systemui/statusbar/NotificationShelf;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationShelfController;->mStatusBarStateController:Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShelfController;->mView:Lcom/android/systemui/statusbar/NotificationShelf;
 
     invoke-interface {p1, p0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->removeCallback(Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;)V
 

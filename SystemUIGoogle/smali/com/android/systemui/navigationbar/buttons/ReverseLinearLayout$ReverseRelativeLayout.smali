@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout$ReverseRelativeLayout;
+.class public final Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout$ReverseRelativeLayout;
 .super Landroid/widget/RelativeLayout;
 .source "ReverseLinearLayout.java"
 
@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private mDefaultGravity:I
+.field public mDefaultGravity:I
 
 
 # direct methods
@@ -36,25 +36,7 @@
 
 
 # virtual methods
-.method public reverse(Z)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout$ReverseRelativeLayout;->updateGravity(Z)V
-
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->access$000(Landroid/view/ViewGroup;Z)V
-
-    return-void
-.end method
-
-.method public setDefaultGravity(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout$ReverseRelativeLayout;->mDefaultGravity:I
-
-    return-void
-.end method
-
-.method public updateGravity(Z)V
+.method public final reverse(Z)V
     .locals 3
 
     iget v0, p0, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout$ReverseRelativeLayout;->mDefaultGravity:I
@@ -67,7 +49,7 @@
 
     if-eq v0, v1, :cond_0
 
-    return-void
+    goto :goto_1
 
     :cond_0
     if-eqz p1, :cond_2
@@ -85,12 +67,15 @@
     :goto_0
     invoke-virtual {p0}, Landroid/widget/RelativeLayout;->getGravity()I
 
-    move-result p1
+    move-result v1
 
-    if-eq p1, v0, :cond_3
+    if-eq v1, v0, :cond_3
 
     invoke-virtual {p0, v0}, Landroid/widget/RelativeLayout;->setGravity(I)V
 
     :cond_3
+    :goto_1
+    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/buttons/ReverseLinearLayout;->reverseGroup(Landroid/view/ViewGroup;Z)V
+
     return-void
 .end method

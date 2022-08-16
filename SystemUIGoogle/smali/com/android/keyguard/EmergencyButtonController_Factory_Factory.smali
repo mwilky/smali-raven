@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final activityTaskManagerProvider:Ljavax/inject/Provider;
+.field public final activityTaskManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+.field public final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final metricsLoggerProvider:Ljavax/inject/Provider;
+.field public final metricsLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final powerManagerProvider:Ljavax/inject/Provider;
+.field public final powerManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final shadeControllerProvider:Ljavax/inject/Provider;
+.field public final shadeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final telecomManagerProvider:Ljavax/inject/Provider;
+.field public final telecomManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final telephonyManagerProvider:Ljavax/inject/Provider;
+.field public final telephonyManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -211,38 +211,10 @@
     return-object v9
 .end method
 
-.method public static newInstance(Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/telephony/TelephonyManager;Landroid/os/PowerManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/statusbar/phone/ShadeController;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;)Lcom/android/keyguard/EmergencyButtonController$Factory;
-    .locals 10
-
-    new-instance v9, Lcom/android/keyguard/EmergencyButtonController$Factory;
-
-    move-object v0, v9
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    invoke-direct/range {v0 .. v8}, Lcom/android/keyguard/EmergencyButtonController$Factory;-><init>(Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/telephony/TelephonyManager;Landroid/os/PowerManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/statusbar/phone/ShadeController;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;)V
-
-    return-object v9
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/keyguard/EmergencyButtonController$Factory;
-    .locals 9
+.method public final get()Ljava/lang/Object;
+    .locals 10
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
@@ -250,9 +222,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v2, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
@@ -260,9 +232,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    check-cast v3, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->telephonyManagerProvider:Ljavax/inject/Provider;
 
@@ -270,9 +242,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Landroid/telephony/TelephonyManager;
+    check-cast v4, Landroid/telephony/TelephonyManager;
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->powerManagerProvider:Ljavax/inject/Provider;
 
@@ -280,9 +252,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Landroid/os/PowerManager;
+    check-cast v5, Landroid/os/PowerManager;
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
 
@@ -290,9 +262,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Landroid/app/ActivityTaskManager;
+    check-cast v6, Landroid/app/ActivityTaskManager;
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->shadeControllerProvider:Ljavax/inject/Provider;
 
@@ -300,9 +272,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/statusbar/phone/ShadeController;
+    check-cast v7, Lcom/android/systemui/statusbar/phone/ShadeController;
 
     iget-object v0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->telecomManagerProvider:Ljavax/inject/Provider;
 
@@ -310,9 +282,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Landroid/telecom/TelecomManager;
+    check-cast v8, Landroid/telecom/TelecomManager;
 
     iget-object p0, p0, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
@@ -320,23 +292,15 @@
 
     move-result-object p0
 
-    move-object v8, p0
+    move-object v9, p0
 
-    check-cast v8, Lcom/android/internal/logging/MetricsLogger;
+    check-cast v9, Lcom/android/internal/logging/MetricsLogger;
 
-    invoke-static/range {v1 .. v8}, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->newInstance(Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/telephony/TelephonyManager;Landroid/os/PowerManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/statusbar/phone/ShadeController;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;)Lcom/android/keyguard/EmergencyButtonController$Factory;
+    new-instance p0, Lcom/android/keyguard/EmergencyButtonController$Factory;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/EmergencyButtonController_Factory_Factory;->get()Lcom/android/keyguard/EmergencyButtonController$Factory;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v9}, Lcom/android/keyguard/EmergencyButtonController$Factory;-><init>(Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/telephony/TelephonyManager;Landroid/os/PowerManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/statusbar/phone/ShadeController;Landroid/telecom/TelecomManager;Lcom/android/internal/logging/MetricsLogger;)V
 
     return-object p0
 .end method

@@ -8,22 +8,14 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSmartspaceMediaDataProvider.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,47:1\n1819#2,2:48\n*E\n*S KotlinDebug\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n*L\n42#1,2:48\n*E\n"
+    value = "SMAP\nSmartspaceMediaDataProvider.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,47:1\n1849#2,2:48\n*S KotlinDebug\n*F\n+ 1 SmartspaceMediaDataProvider.kt\ncom/android/systemui/media/SmartspaceMediaDataProvider\n*L\n42#1:48,2\n*E\n"
 .end annotation
 
 
 # instance fields
-.field private final smartspaceMediaTargetListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final smartspaceMediaTargetListeners:Ljava/util/ArrayList;
 
-.field private smartspaceMediaTargets:Ljava/util/List;
+.field public smartspaceMediaTargets:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -44,11 +36,9 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/ArrayList;
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object v0
+    sget-object v0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
     iput-object v0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargets:Ljava/util/List;
 
@@ -57,7 +47,7 @@
 
 
 # virtual methods
-.method public onTargetsAvailable(Ljava/util/List;)V
+.method public final onTargetsAvailable(Ljava/util/List;)V
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -67,10 +57,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "targets"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -102,12 +88,12 @@
 
     if-ne v2, v3, :cond_0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result p1
 
@@ -115,7 +101,7 @@
 
     const-string p1, "Forwarding Smartspace media updates "
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p1
 
@@ -126,9 +112,9 @@
     :cond_2
     iput-object v0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargets:Ljava/util/List;
 
-    iget-object p1, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/List;
+    iget-object p1, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/ArrayList;
 
-    invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
@@ -155,34 +141,22 @@
     return-void
 .end method
 
-.method public registerListener(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;)V
-    .locals 1
+.method public final registerListener(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;)V
+    .locals 0
 
-    const-string v0, "smartspaceTargetListener"
+    iget-object p0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/ArrayList;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public unregisterListener(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;)V
-    .locals 1
+.method public final unregisterListener(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$SmartspaceTargetListener;)V
+    .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/media/SmartspaceMediaDataProvider;->smartspaceMediaTargetListeners:Ljava/util/ArrayList;
 
-    const-string v0, "null cannot be cast to non-null type kotlin.collections.MutableCollection<T>"
-
-    invoke-static {p0, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    invoke-static {p0}, Lkotlin/jvm/internal/TypeIntrinsics;->asMutableCollection(Ljava/lang/Object;)Ljava/util/Collection;
-
-    move-result-object p0
-
-    invoke-interface {p0, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method

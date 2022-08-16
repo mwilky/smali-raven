@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QSPanelController$2;
+.class public final Lcom/android/systemui/qs/QSPanelController$2;
 .super Ljava/lang/Object;
 .source "QSPanelController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/QSPanelController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QSPanelController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSPanelController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSPanelController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSPanelController$2;->this$0:Lcom/android/systemui/qs/QSPanelController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -47,9 +47,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController$2;->this$0:Lcom/android/systemui/qs/QSPanelController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSPanelController;->access$500(Lcom/android/systemui/qs/QSPanelController;)Lcom/android/systemui/plugins/FalsingManager;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/QSPanelController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     const/16 p1, 0xf
 

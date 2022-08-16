@@ -9,58 +9,39 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Companion;,
         Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
     }
 .end annotation
 
 
-# static fields
-.field public static final Companion:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Companion;
-
-
 # instance fields
-.field private actionsInProgress:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public actionsInProgress:Ljava/util/LinkedHashSet;
 
 .field public activityContext:Landroid/content/Context;
 
-.field private final activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+.field public final activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-.field private final bgExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+.field public final bgExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-.field private final broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+.field public final broadcastSender:Lcom/android/systemui/broadcast/BroadcastSender;
 
-.field private final context:Landroid/content/Context;
+.field public final context:Landroid/content/Context;
 
-.field private final controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
+.field public final controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
 
-.field private dialog:Landroid/app/Dialog;
+.field public dialog:Landroid/app/Dialog;
 
-.field private final globalActionsComponent:Lcom/android/systemui/globalactions/GlobalActionsComponent;
+.field public final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.field public mAllowTrivialControls:Z
 
-.field private final lazyUiController:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/controls/ui/ControlsUiController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mShowDeviceControlsInLockscreen:Z
 
-.field private pendingAction:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+.field public pendingAction:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
-.field private final taskViewFactory:Ljava/util/Optional;
+.field public final secureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
+.field public final taskViewFactory:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -70,28 +51,16 @@
     .end annotation
 .end field
 
-.field private final uiExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+.field public final uiExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
-.field private final vibrator:Landroid/os/Vibrator;
+.field public final userContextProvider:Lcom/android/systemui/settings/UserContextProvider;
+
+.field public final vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->Companion:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Companion;
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/globalactions/GlobalActionsComponent;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/controls/ControlsMetricsLogger;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/broadcast/BroadcastSender;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ljava/util/Optional;Lcom/android/systemui/controls/ControlsMetricsLogger;Lcom/android/systemui/statusbar/VibratorHelper;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/settings/UserContextProvider;Landroid/os/Handler;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,59 +68,19 @@
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
             "Lcom/android/systemui/util/concurrency/DelayableExecutor;",
             "Lcom/android/systemui/plugins/ActivityStarter;",
+            "Lcom/android/systemui/broadcast/BroadcastSender;",
             "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
-            "Lcom/android/systemui/globalactions/GlobalActionsComponent;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/TaskViewFactory;",
             ">;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/controls/ui/ControlsUiController;",
-            ">;",
             "Lcom/android/systemui/controls/ControlsMetricsLogger;",
+            "Lcom/android/systemui/statusbar/VibratorHelper;",
+            "Lcom/android/systemui/util/settings/SecureSettings;",
+            "Lcom/android/systemui/settings/UserContextProvider;",
+            "Landroid/os/Handler;",
             ")V"
         }
     .end annotation
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "bgExecutor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "uiExecutor"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "activityStarter"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "keyguardStateController"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "globalActionsComponent"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "taskViewFactory"
-
-    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "broadcastDispatcher"
-
-    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "lazyUiController"
-
-    invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "controlsMetricsLogger"
-
-    invoke-static {p10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -163,185 +92,83 @@
 
     iput-object p4, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    iput-object p5, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    iput-object p5, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->broadcastSender:Lcom/android/systemui/broadcast/BroadcastSender;
 
-    iput-object p6, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->globalActionsComponent:Lcom/android/systemui/globalactions/GlobalActionsComponent;
+    iput-object p6, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     iput-object p7, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->taskViewFactory:Ljava/util/Optional;
 
-    iput-object p8, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    iput-object p8, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
 
-    iput-object p9, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->lazyUiController:Ldagger/Lazy;
+    iput-object p9, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
 
-    iput-object p10, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
+    iput-object p10, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->secureSettings:Lcom/android/systemui/util/settings/SecureSettings;
 
-    const-string/jumbo p2, "vibrator"
-
-    invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    const-string p2, "null cannot be cast to non-null type android.os.Vibrator"
-
-    invoke-static {p1, p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    check-cast p1, Landroid/os/Vibrator;
-
-    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->vibrator:Landroid/os/Vibrator;
+    iput-object p11, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->userContextProvider:Lcom/android/systemui/settings/UserContextProvider;
 
     new-instance p1, Ljava/util/LinkedHashSet;
 
     invoke-direct {p1}, Ljava/util/LinkedHashSet;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->actionsInProgress:Ljava/util/Set;
+    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->actionsInProgress:Ljava/util/LinkedHashSet;
 
-    return-void
-.end method
+    const-string p1, "lockscreen_allow_trivial_controls"
 
-.method public static final synthetic access$getActionsInProgress$p(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)Ljava/util/Set;
-    .locals 0
+    const/4 p2, 0x0
 
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->actionsInProgress:Ljava/util/Set;
+    const/4 p3, -0x2
 
-    return-object p0
-.end method
+    invoke-interface {p10, p1, p2, p3}, Lcom/android/systemui/util/settings/SettingsProxy;->getIntForUser(Ljava/lang/String;II)I
 
-.method public static final synthetic access$getContext$p(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)Landroid/content/Context;
-    .locals 0
+    move-result p4
 
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->context:Landroid/content/Context;
+    const/4 p5, 0x1
 
-    return-object p0
-.end method
+    if-eqz p4, :cond_0
 
-.method public static final synthetic access$getTaskViewFactory$p(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->taskViewFactory:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getUiExecutor$p(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)Lcom/android/systemui/util/concurrency/DelayableExecutor;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->uiExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getVibrator$p(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)Landroid/os/Vibrator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->vibrator:Landroid/os/Vibrator;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$setDialog$p(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Landroid/app/Dialog;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
-
-    return-void
-.end method
-
-.method public static final synthetic access$setPendingAction$p(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->pendingAction:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
-
-    return-void
-.end method
-
-.method public static final synthetic access$shouldRunAction(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->shouldRunAction(Ljava/lang/String;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static final synthetic access$showDetail(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/app/PendingIntent;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->showDetail(Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/app/PendingIntent;)V
-
-    return-void
-.end method
-
-.method private final isLocked()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isUnlocked()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
-    return p0
-.end method
-
-.method private final shouldRunAction(Ljava/lang/String;)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->actionsInProgress:Ljava/util/Set;
-
-    invoke-interface {v0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->uiExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
-
-    new-instance v1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$shouldRunAction$1;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$shouldRunAction$1;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;)V
-
-    const-wide/16 p0, 0xbb8
-
-    invoke-interface {v0, v1, p0, p1}, Lcom/android/systemui/util/concurrency/DelayableExecutor;->executeDelayed(Ljava/lang/Runnable;J)Ljava/lang/Runnable;
-
-    const/4 p0, 0x1
+    move p4, p5
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    move p4, p2
 
     :goto_0
-    return p0
-.end method
+    iput-boolean p4, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->mAllowTrivialControls:Z
 
-.method private final showDetail(Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/app/PendingIntent;)V
-    .locals 2
+    const-string p4, "lockscreen_show_controls"
 
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->bgExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+    invoke-interface {p10, p4, p2, p3}, Lcom/android/systemui/util/settings/SettingsProxy;->getIntForUser(Ljava/lang/String;II)I
 
-    new-instance v1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showDetail$1;
+    move-result p3
 
-    invoke-direct {v1, p0, p2, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showDetail$1;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Landroid/app/PendingIntent;Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+    if-eqz p3, :cond_1
 
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    goto :goto_1
 
-    return-void
-.end method
+    :cond_1
+    move p5, p2
 
-.method private final vibrate(Landroid/os/VibrationEffect;)V
-    .locals 2
+    :goto_1
+    iput-boolean p5, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->mShowDeviceControlsInLockscreen:Z
 
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->bgExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+    invoke-interface {p10, p1}, Lcom/android/systemui/util/settings/SettingsProxy;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    new-instance v1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$vibrate$1;
+    move-result-object p1
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$vibrate$1;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Landroid/os/VibrationEffect;)V
+    invoke-interface {p10, p4}, Lcom/android/systemui/util/settings/SettingsProxy;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    move-result-object p3
+
+    new-instance p4, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$controlsContentObserver$1;
+
+    invoke-direct {p4, p12, p1, p0, p3}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$controlsContentObserver$1;-><init>(Landroid/os/Handler;Landroid/net/Uri;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Landroid/net/Uri;)V
+
+    const/4 p0, -0x1
+
+    invoke-interface {p10, p1, p2, p4, p0}, Lcom/android/systemui/util/settings/SettingsProxy;->registerContentObserverForUser(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    invoke-interface {p10, p3, p2, p4, p0}, Lcom/android/systemui/util/settings/SettingsProxy;->registerContentObserverForUser(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     return-void
 .end method
@@ -353,61 +180,75 @@
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    const-string v0, "action"
+    iget-boolean v0, p1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->authIsRequired:Z
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v1, 0x1
 
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    if-nez v0, :cond_1
 
-    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isShowing()Z
+    iget-boolean v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->mAllowTrivialControls:Z
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v0, v1
+
+    :goto_1
+    iget-object v2, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isShowing()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
+    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->broadcastSender:Lcom/android/systemui/broadcast/BroadcastSender;
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->context:Landroid/content/Context;
-
-    new-instance v1, Landroid/content/Intent;
-
-    const-string v2, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
-
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0}, Lcom/android/systemui/broadcast/BroadcastSender;->closeSystemDialogs()V
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->pendingAction:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
-    :cond_0
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    new-instance v1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$bouncerOrRun$1;
+    new-instance v2, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$bouncerOrRun$1;
 
-    invoke-direct {v1, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$bouncerOrRun$1;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;)V
+    invoke-direct {v2, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$bouncerOrRun$1;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;)V
 
     new-instance p1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$bouncerOrRun$2;
 
     invoke-direct {p1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$bouncerOrRun$2;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)V
 
-    const/4 p0, 0x1
+    invoke-interface {v0, v2, p1, v1}, Lcom/android/systemui/plugins/ActivityStarter;->dismissKeyguardThenExecute(Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;Ljava/lang/Runnable;Z)V
 
-    invoke-interface {v0, v1, p1, p0}, Lcom/android/systemui/plugins/ActivityStarter;->dismissKeyguardThenExecute(Lcom/android/systemui/plugins/ActivityStarter$OnDismissAction;Ljava/lang/Runnable;Z)V
+    goto :goto_2
 
-    goto :goto_0
+    :cond_3
+    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->showSettingsDialogIfNeeded(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;)V
 
-    :cond_1
     invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->invoke()V
 
-    :goto_0
+    :goto_2
     return-void
 .end method
 
-.method public closeDialogs()V
+.method public final closeDialogs()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
@@ -427,8 +268,8 @@
     return-void
 .end method
 
-.method public final createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Z)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
-    .locals 1
+.method public final createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;ZZ)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+    .locals 7
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -438,97 +279,116 @@
             "Ljava/lang/String;",
             "Lkotlin/jvm/functions/Function0<",
             "Lkotlin/Unit;",
-            ">;Z)",
+            ">;ZZ)",
             "Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;"
         }
     .end annotation
 
-    const-string v0, "controlId"
+    new-instance v6, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object v0, v6
 
-    const-string v0, "f"
+    move-object v1, p0
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object v2, p1
 
-    new-instance v0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+    move-object v3, p2
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Z)V
+    move v4, p3
 
-    return-object v0
+    move v5, p4
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ZZ)V
+
+    return-object v6
 .end method
 
-.method public drag(Z)V
-    .locals 0
+.method public final drag(Z)V
+    .locals 3
 
-    if-eqz p1, :cond_0
+    const/4 v0, 0x0
 
-    sget-object p1, Lcom/android/systemui/controls/ui/Vibrations;->INSTANCE:Lcom/android/systemui/controls/ui/Vibrations;
+    if-eqz p1, :cond_1
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/Vibrations;->getRangeEdgeEffect()Landroid/os/VibrationEffect;
+    sget-object p1, Lcom/android/systemui/controls/ui/Vibrations;->rangeEdgeEffect:Landroid/os/VibrationEffect;
 
-    move-result-object p1
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->vibrate(Landroid/os/VibrationEffect;)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/VibratorHelper;->hasVibrator()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    sget-object p1, Lcom/android/systemui/controls/ui/Vibrations;->INSTANCE:Lcom/android/systemui/controls/ui/Vibrations;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/VibratorHelper;->mExecutor:Ljava/util/concurrent/Executor;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/Vibrations;->getRangeMiddleEffect()Landroid/os/VibrationEffect;
+    new-instance v2, Lcom/android/systemui/statusbar/VibratorHelper$$ExternalSyntheticLambda0;
 
-    move-result-object p1
+    invoke-direct {v2, v0, p0, p1}, Lcom/android/systemui/statusbar/VibratorHelper$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->vibrate(Landroid/os/VibrationEffect;)V
+    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    goto :goto_0
+
+    :cond_1
+    sget-object p1, Lcom/android/systemui/controls/ui/Vibrations;->rangeMiddleEffect:Landroid/os/VibrationEffect;
+
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->vibrator:Lcom/android/systemui/statusbar/VibratorHelper;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/VibratorHelper;->hasVibrator()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/systemui/statusbar/VibratorHelper;->mExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v2, Lcom/android/systemui/statusbar/VibratorHelper$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, v0, p0, p1}, Lcom/android/systemui/statusbar/VibratorHelper$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     :goto_0
     return-void
 .end method
 
-.method public enableActionOnTouch(Ljava/lang/String;)V
-    .locals 1
+.method public final enableActionOnTouch(Ljava/lang/String;)V
+    .locals 0
 
-    const-string v0, "controlId"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->actionsInProgress:Ljava/util/Set;
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->actionsInProgress:Ljava/util/LinkedHashSet;
 
     invoke-interface {p0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public getActivityContext()Landroid/content/Context;
+.method public final isLocked()Z
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->activityContext:Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    if-eqz p0, :cond_0
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isUnlocked()Z
 
-    return-object p0
+    move-result p0
 
-    :cond_0
-    const-string p0, "activityContext"
+    xor-int/lit8 p0, p0, 0x1
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
+    return p0
 .end method
 
-.method public longPress(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
-    .locals 2
-
-    const-string v0, "cvh"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final longPress(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
 
-    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
+    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
 
     move-result v1
 
@@ -538,21 +398,35 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/ui/ControlWithState;->getCi()Lcom/android/systemui/controls/controller/ControlInfo;
+    iget-object v0, v0, Lcom/android/systemui/controls/ui/ControlWithState;->ci:Lcom/android/systemui/controls/controller/ControlInfo;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/controls/controller/ControlInfo;->getControlId()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlInfo;->controlId:Ljava/lang/String;
 
     new-instance v1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$longPress$1;
 
     invoke-direct {v1, p1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$longPress$1;-><init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)V
 
-    const/4 p1, 0x0
+    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getCws()Lcom/android/systemui/controls/ui/ControlWithState;
 
-    invoke-virtual {p0, v0, v1, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Z)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+    move-result-object p1
+
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/service/controls/Control;->isAuthRequired()Z
+
+    move-result p1
+
+    :goto_0
+    const/4 v2, 0x0
+
+    invoke-virtual {p0, v0, v1, v2, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;ZZ)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
     move-result-object p1
 
@@ -561,14 +435,10 @@
     return-void
 .end method
 
-.method public runPendingAction(Ljava/lang/String;)V
+.method public final runPendingAction(Ljava/lang/String;)V
     .locals 2
 
-    const-string v0, "controlId"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
+    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
 
     move-result v0
 
@@ -588,9 +458,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->getControlId()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->controlId:Ljava/lang/String;
 
     :goto_0
     invoke-static {v0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
@@ -598,6 +466,12 @@
     move-result p1
 
     if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->pendingAction:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->showSettingsDialogIfNeeded(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;)V
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->pendingAction:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
@@ -615,32 +489,20 @@
     return-void
 .end method
 
-.method public setActivityContext(Landroid/content/Context;)V
-    .locals 1
-
-    const-string v0, "<set-?>"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final setActivityContext(Landroid/content/Context;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->activityContext:Landroid/content/Context;
 
     return-void
 .end method
 
-.method public setValue(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;F)V
+.method public final setValue(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;F)V
     .locals 2
-
-    const-string v0, "cvh"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "templateId"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
 
-    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
+    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
 
     move-result v1
 
@@ -650,21 +512,35 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/ui/ControlWithState;->getCi()Lcom/android/systemui/controls/controller/ControlInfo;
+    iget-object v0, v0, Lcom/android/systemui/controls/ui/ControlWithState;->ci:Lcom/android/systemui/controls/controller/ControlInfo;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/controls/controller/ControlInfo;->getControlId()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlInfo;->controlId:Ljava/lang/String;
 
     new-instance v1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$setValue$1;
 
     invoke-direct {v1, p1, p2, p3}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$setValue$1;-><init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;F)V
 
-    const/4 p1, 0x0
+    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getCws()Lcom/android/systemui/controls/ui/ControlWithState;
 
-    invoke-virtual {p0, v0, v1, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Z)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+    move-result-object p1
+
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/service/controls/Control;->isAuthRequired()Z
+
+    move-result p1
+
+    :goto_0
+    const/4 p2, 0x0
+
+    invoke-virtual {p0, v0, v1, p2, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;ZZ)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
     move-result-object p1
 
@@ -673,20 +549,191 @@
     return-void
 .end method
 
-.method public toggle(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Z)V
+.method public final showSettingsDialogIfNeeded(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;)V
+    .locals 4
+
+    iget-boolean p1, p1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->authIsRequired:Z
+
+    if-eqz p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->userContextProvider:Lcom/android/systemui/settings/UserContextProvider;
+
+    invoke-interface {p1}, Lcom/android/systemui/settings/UserContextProvider;->getUserContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    const-string v1, "controls_prefs"
+
+    invoke-virtual {p1, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object p1
+
+    const-string/jumbo v1, "show_settings_attempts"
+
+    invoke-interface {p1, v1, v0}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+
+    move-result v0
+
+    const/4 v1, 0x2
+
+    if-ge v0, v1, :cond_6
+
+    iget-boolean v1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->mShowDeviceControlsInLockscreen:Z
+
+    if-eqz v1, :cond_1
+
+    iget-boolean v1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->mAllowTrivialControls:Z
+
+    if-eqz v1, :cond_1
+
+    goto/16 :goto_3
+
+    :cond_1
+    new-instance v1, Landroid/app/AlertDialog$Builder;
+
+    iget-object v2, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->activityContext:Landroid/content/Context;
+
+    if-eqz v2, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v2, 0x0
+
+    :goto_0
+    const v3, 0x7f14044b
+
+    invoke-direct {v1, v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+
+    const v2, 0x7f0806ac
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setIcon(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$builder$1;
+
+    invoke-direct {v2, v0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$builder$1;-><init>(ILandroid/content/SharedPreferences;)V
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    const v2, 0x7f130258
+
+    new-instance v3, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$builder$2;
+
+    invoke-direct {v3, v0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$builder$2;-><init>(ILandroid/content/SharedPreferences;)V
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->mShowDeviceControlsInLockscreen:Z
+
+    const v3, 0x7f130259
+
+    if-eqz v2, :cond_3
+
+    const v2, 0x7f13025d
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    const v2, 0x7f13025c
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$1;
+
+    invoke-direct {v2, v0, p1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$1;-><init>(ILandroid/content/SharedPreferences;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)V
+
+    invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
+
+    goto :goto_1
+
+    :cond_3
+    const v2, 0x7f13025b
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    const v2, 0x7f13025a
+
+    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v1
+
+    new-instance v2, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$2;
+
+    invoke-direct {v2, v0, p1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$showSettingsDialogIfNeeded$2;-><init>(ILandroid/content/SharedPreferences;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;)V
+
+    invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
+
+    :goto_1
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->registerDismissListener(Landroid/app/Dialog;)V
+
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setDialogSize(Landroid/app/Dialog;)V
+
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
+
+    if-nez p1, :cond_4
+
+    goto :goto_2
+
+    :cond_4
+    invoke-virtual {p1}, Landroid/app/Dialog;->create()V
+
+    :goto_2
+    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->dialog:Landroid/app/Dialog;
+
+    if-nez p0, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    invoke-virtual {p0}, Landroid/app/Dialog;->show()V
+
+    :cond_6
+    :goto_3
+    return-void
+.end method
+
+.method public final toggle(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Z)V
     .locals 2
-
-    const-string v0, "cvh"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "templateId"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
 
-    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
+    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
 
     move-result v1
 
@@ -696,21 +743,35 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/ui/ControlWithState;->getCi()Lcom/android/systemui/controls/controller/ControlInfo;
+    iget-object v0, v0, Lcom/android/systemui/controls/ui/ControlWithState;->ci:Lcom/android/systemui/controls/controller/ControlInfo;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/controls/controller/ControlInfo;->getControlId()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlInfo;->controlId:Ljava/lang/String;
 
     new-instance v1, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$toggle$1;
 
     invoke-direct {v1, p1, p2, p3}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$toggle$1;-><init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Z)V
 
-    const/4 p1, 0x1
+    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getCws()Lcom/android/systemui/controls/ui/ControlWithState;
 
-    invoke-virtual {p0, v0, v1, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Z)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+    move-result-object p1
+
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
+
+    const/4 p2, 0x1
+
+    if-nez p1, :cond_0
+
+    move p1, p2
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/service/controls/Control;->isAuthRequired()Z
+
+    move-result p1
+
+    :goto_0
+    invoke-virtual {p0, v0, v1, p2, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;ZZ)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
     move-result-object p1
 
@@ -719,24 +780,12 @@
     return-void
 .end method
 
-.method public touch(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Landroid/service/controls/Control;)V
+.method public final touch(Lcom/android/systemui/controls/ui/ControlViewHolder;Ljava/lang/String;Landroid/service/controls/Control;)V
     .locals 3
-
-    const-string v0, "cvh"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "templateId"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "control"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->controlsMetricsLogger:Lcom/android/systemui/controls/ControlsMetricsLogger;
 
-    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
+    invoke-virtual {p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->isLocked()Z
 
     move-result v1
 
@@ -750,19 +799,33 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/systemui/controls/ui/ControlWithState;->getCi()Lcom/android/systemui/controls/controller/ControlInfo;
+    iget-object v1, v1, Lcom/android/systemui/controls/ui/ControlWithState;->ci:Lcom/android/systemui/controls/controller/ControlInfo;
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/systemui/controls/controller/ControlInfo;->getControlId()Ljava/lang/String;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/controls/controller/ControlInfo;->controlId:Ljava/lang/String;
 
     new-instance v2, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$touch$1;
 
     invoke-direct {v2, p1, p0, p3, p2}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$touch$1;-><init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Landroid/service/controls/Control;Ljava/lang/String;)V
 
-    invoke-virtual {p0, v1, v2, v0}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Z)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
+    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getCws()Lcom/android/systemui/controls/ui/ControlWithState;
+
+    move-result-object p1
+
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlWithState;->control:Landroid/service/controls/Control;
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/service/controls/Control;->isAuthRequired()Z
+
+    move-result p1
+
+    :goto_0
+    invoke-virtual {p0, v1, v2, v0, p1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->createAction(Ljava/lang/String;Lkotlin/jvm/functions/Function0;ZZ)Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;
 
     move-result-object p1
 

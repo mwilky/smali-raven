@@ -17,6 +17,7 @@
         <item>Paling banyak 3 proses</item>
         <item>Paling banyak 4 proses</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Mati</item>
         <item>Hidup</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Tidak tersedia</item>
+        <item>Mati</item>
+        <item>Hidup</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Tidak tersedia</item>
         <item>Mati</item>
@@ -306,6 +312,16 @@
         <item>Hidup</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Tidak tersedia</item>
+        <item>Mati</item>
+        <item>Hidup</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Tidak tersedia</item>
+        <item>Mati</item>
+        <item>Hidup</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Tidak tersedia</item>
         <item>Mati</item>
         <item>Hidup</item>
@@ -374,6 +390,12 @@
         <item>Pantas</item>
         <item>Sangat pantas</item>
         <item>Paling laju</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Alih ke kiri</item>
+        <item>Alih ke bawah</item>
+        <item>Alih ke kanan</item>
+        <item>Alih ke atas</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Mengecas</item>

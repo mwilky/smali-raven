@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/connectivity/CallbackHandler;
+.class public final Lcom/android/systemui/statusbar/connectivity/CallbackHandler;
 .super Landroid/os/Handler;
 .source "CallbackHandler.java"
 
@@ -8,11 +8,11 @@
 
 
 # static fields
-.field private static final SSDF:Ljava/text/SimpleDateFormat;
+.field public static final SSDF:Ljava/text/SimpleDateFormat;
 
 
 # instance fields
-.field private final mEmergencyListeners:Ljava/util/ArrayList;
+.field public final mEmergencyListeners:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -22,13 +22,13 @@
     .end annotation
 .end field
 
-.field private final mHistory:[Ljava/lang/String;
+.field public final mHistory:[Ljava/lang/String;
 
-.field private mHistoryIndex:I
+.field public mHistoryIndex:I
 
-.field private mLastCallback:Ljava/lang/String;
+.field public mLastCallback:Ljava/lang/String;
 
-.field private final mSignalCallbacks:Ljava/util/ArrayList;
+.field public final mSignalCallbacks:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -40,39 +40,7 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$5YEMIY7IAIEmUd8ZzzMP_wXY6hY(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->lambda$setWifiIndicators$0(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$HkZKXC9D4qH1FbDQi0hVqn5GK_8(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->lambda$setMobileDataIndicators$1(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$SBfe7-BNLUpVV_SdCbkoz1oa_NA(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/IconState;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->lambda$setCallIndicator$3(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$dN5sGxPHW7WqJbnVVSQr9sB5mP0(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;ZZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->lambda$setConnectivityStatus$2(ZZZ)V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -86,7 +54,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/Looper;)V
+.method public constructor <init>(Landroid/os/Looper;)V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -114,216 +82,9 @@
     return-void
 .end method
 
-.method private synthetic lambda$setCallIndicator$3(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mSignalCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/SignalCallback;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setCallIndicator(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private synthetic lambda$setConnectivityStatus$2(ZZZ)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mSignalCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/SignalCallback;
-
-    invoke-interface {v0, p1, p2, p3}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setConnectivityStatus(ZZZ)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private synthetic lambda$setMobileDataIndicators$1(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mSignalCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/SignalCallback;
-
-    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private synthetic lambda$setWifiIndicators$0(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mSignalCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/connectivity/SignalCallback;
-
-    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/connectivity/SignalCallback;->setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public dump(Ljava/io/PrintWriter;)V
-    .locals 6
-
-    const-string v0, "  - CallbackHandler -----"
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    move v1, v0
-
-    :goto_0
-    const/16 v2, 0x40
-
-    if-ge v0, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mHistory:[Ljava/lang/String;
-
-    aget-object v2, v2, v0
-
-    if-eqz v2, :cond_0
-
-    add-int/lit8 v1, v1, 0x1
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    iget v0, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mHistoryIndex:I
-
-    add-int/2addr v0, v2
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_1
-    iget v3, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mHistoryIndex:I
-
-    add-int/2addr v3, v2
-
-    sub-int/2addr v3, v1
-
-    if-lt v0, v3, :cond_2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "  Previous Callback("
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v4, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mHistoryIndex:I
-
-    add-int/2addr v4, v2
-
-    sub-int/2addr v4, v0
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    const-string v4, "): "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mHistory:[Ljava/lang/String;
-
-    and-int/lit8 v5, v0, 0x3f
-
-    aget-object v4, v4, v5
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_1
-
-    :cond_2
-    return-void
-.end method
-
-.method public handleMessage(Landroid/os/Message;)V
+.method public final handleMessage(Landroid/os/Message;)V
     .locals 5
 
     iget v0, p1, Landroid/os/Message;->what:I
@@ -609,7 +370,7 @@
     .end packed-switch
 .end method
 
-.method protected recordLastCallback(Ljava/lang/String;)V
+.method public final recordLastCallback(Ljava/lang/String;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->mHistory:[Ljava/lang/String;
@@ -627,18 +388,18 @@
     return-void
 .end method
 
-.method public setCallIndicator(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
+.method public final setCallIndicator(Lcom/android/systemui/statusbar/connectivity/IconState;I)V
     .locals 6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "setCallIndicator: "
+    const-string/jumbo v1, "setCallIndicator: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "statusIcon="
+    const-string/jumbo v1, "statusIcon="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -648,7 +409,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "subId="
+    const-string/jumbo v2, "subId="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -701,23 +462,23 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->recordLastCallback(Ljava/lang/String;)V
 
     :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda1;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/IconState;I)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/IconState;I)V
 
     invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public setConnectivityStatus(ZZZ)V
+.method public final setConnectivityStatus(ZZZ)V
     .locals 6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "setConnectivityStatus: "
+    const-string/jumbo v1, "setConnectivityStatus: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -792,16 +553,16 @@
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->recordLastCallback(Ljava/lang/String;)V
 
     :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda3;
+    new-instance v0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;ZZZ)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;ZZZ)V
 
     invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public setEmergencyCallsOnly(Z)V
+.method public final setEmergencyCallsOnly(Z)V
     .locals 1
 
     const/4 v0, 0x0
@@ -815,7 +576,7 @@
     return-void
 .end method
 
-.method public setEthernetIndicators(Lcom/android/systemui/statusbar/connectivity/IconState;)V
+.method public final setEthernetIndicators(Lcom/android/systemui/statusbar/connectivity/IconState;)V
     .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -842,7 +603,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "setEthernetIndicators: "
+    const-string/jumbo v1, "setEthernetIndicators: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -869,14 +630,14 @@
     return-void
 .end method
 
-.method public setIsAirplaneMode(Lcom/android/systemui/statusbar/connectivity/IconState;)V
+.method public final setIsAirplaneMode(Lcom/android/systemui/statusbar/connectivity/IconState;)V
     .locals 5
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "setIsAirplaneMode: "
+    const-string/jumbo v1, "setIsAirplaneMode: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -946,23 +707,7 @@
     return-void
 .end method
 
-.method setListening(Lcom/android/systemui/statusbar/connectivity/SignalCallback;Z)V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x7
-
-    invoke-virtual {p0, v1, p2, v0, p1}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
-.end method
-
-.method public setMobileDataEnabled(Z)V
+.method public final setMobileDataEnabled(Z)V
     .locals 2
 
     const/4 v0, 0x0
@@ -978,7 +723,7 @@
     return-void
 .end method
 
-.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
+.method public final setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
     .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1013,16 +758,18 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->recordLastCallback(Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda16;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
+    const/4 v1, 0x2
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda16;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public setNoSims(ZZ)V
+.method public final setNoSims(ZZ)V
     .locals 1
 
     const/4 v0, 0x2
@@ -1036,7 +783,7 @@
     return-void
 .end method
 
-.method public setSubs(Ljava/util/List;)V
+.method public final setSubs(Ljava/util/List;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1047,17 +794,13 @@
         }
     .end annotation
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "setSubs: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v1, "subs="
 
-    const-string v1, "setSubs: "
+    invoke-static {v0, v1}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "subs="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     if-nez p1, :cond_0
 
@@ -1133,7 +876,7 @@
     return-void
 .end method
 
-.method public setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
+.method public final setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
     .locals 4
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1168,9 +911,11 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->recordLastCallback(Ljava/lang/String;)V
 
-    new-instance v0, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda2;
+    new-instance v0, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
+    const/4 v1, 0x2
+
+    invoke-direct {v0, v1, p0, p1}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

@@ -16,6 +16,10 @@
         <item quantity="other">%s stýringum bætt við.</item>
         <item quantity="one">%s stýringu bætt við.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s forrit virk</item>
+        <item quantity="one">%s forrit virkt</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Sláðu inn PIN-númer SIM-korts. Þú átt %d tilraunir eftir.</item>
         <item quantity="one">Sláðu inn PIN-númer SIM-korts. Þú átt %d tilraun eftir.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Rangt PUK-númer SIM-korts. Þú átt %d tilraunir eftir áður en SIM-kortið verður ónothæft til frambúðar.</item>
         <item quantity="one">Rangt PUK-númer SIM-korts. Þú átt %d tilraun eftir áður en SIM-kortið verður ónothæft til frambúðar.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Reyndu aftur eftir %d sekúndur.</item>
-        <item quantity="one">Reyndu aftur eftir %d sekúndu.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d nýjar tilkynningar</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Þú getur bætt við allt að %d notendum.</item>
         <item quantity="one">Þú getur bætt við allt að %d notanda.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d tæki tengd</item>
-        <item quantity="one">%1$d tæki tengt</item>
     </plurals>
 </resources>

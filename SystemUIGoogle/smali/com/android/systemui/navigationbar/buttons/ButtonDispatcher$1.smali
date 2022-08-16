@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher$1;
+.class public final Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ButtonDispatcher.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher$1;->this$0:Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
@@ -31,16 +31,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher$1;->this$0:Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->access$002(Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
-
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher$1;->this$0:Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->mFadeAnimator:Landroid/animation/ValueAnimator;
 
     invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->getAlpha()F
 

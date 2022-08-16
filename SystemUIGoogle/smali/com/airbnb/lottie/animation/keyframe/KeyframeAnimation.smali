@@ -1,4 +1,4 @@
-.class abstract Lcom/airbnb/lottie/animation/keyframe/KeyframeAnimation;
+.class public abstract Lcom/airbnb/lottie/animation/keyframe/KeyframeAnimation;
 .super Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 .source "KeyframeAnimation.java"
 
@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/List;)V
+.method public constructor <init>(Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

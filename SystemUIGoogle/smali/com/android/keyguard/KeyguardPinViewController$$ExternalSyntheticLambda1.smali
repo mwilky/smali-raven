@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
@@ -27,7 +28,13 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinViewController$$ExternalSyntheticLambda1;->f$0:Lcom/android/keyguard/KeyguardPinViewController;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardPinViewController;->$r8$lambda$HXoGmbJopctUdV2R-DF_dy2JqOY(Lcom/android/keyguard/KeyguardPinViewController;I)V
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/keyguard/KeyguardPINView;
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardPINView;->mLastDevicePosture:I
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPINView;->updateMargins()V
 
     return-void
 .end method

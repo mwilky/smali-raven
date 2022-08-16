@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/QSFooterViewController;
+.class public final Lcom/android/systemui/qs/QSFooterViewController;
 .super Lcom/android/systemui/util/ViewController;
 .source "QSFooterViewController.java"
 
@@ -18,327 +18,271 @@
 
 
 # instance fields
-.field private final mBuildText:Landroid/widget/TextView;
+.field public final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-.field private final mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
+.field public final mBuildText:Landroid/widget/TextView;
 
-.field private final mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
+.field public final mEditButton:Landroid/view/View;
 
-.field private final mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+.field public final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-.field private final mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+.field public final mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
 
-.field private final mUserTracker:Lcom/android/systemui/settings/UserTracker;
+.field public final mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+
+.field public final mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$9A4T_43SBWj_Liw2YVUUP-Jl3ds(Lcom/android/systemui/qs/QSFooterViewController;Landroid/view/View;)Z
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/QSFooterViewController;->lambda$onViewAttached$1(Landroid/view/View;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public static synthetic $r8$lambda$NASq1B-6K5EFvckIHNgjIM4jWOM(Lcom/android/systemui/qs/QSFooterViewController;Landroid/view/View;IIIIIIII)V
-    .locals 0
-
-    invoke-direct/range {p0 .. p9}, Lcom/android/systemui/qs/QSFooterViewController;->lambda$onViewAttached$0(Landroid/view/View;IIIIIIII)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/qs/QSFooterView;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/FooterActionsController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSFooterView;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/QSPanelController;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
 
     iput-object p2, p0, Lcom/android/systemui/qs/QSFooterViewController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
-    iput-object p3, p0, Lcom/android/systemui/qs/QSFooterViewController;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
+    iput-object p5, p0, Lcom/android/systemui/qs/QSFooterViewController;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
 
-    iput-object p4, p0, Lcom/android/systemui/qs/QSFooterViewController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
+    iput-object p3, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    iput-object p5, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
+    iput-object p4, p0, Lcom/android/systemui/qs/QSFooterViewController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    move-object p2, p1
 
-    check-cast p1, Lcom/android/systemui/qs/QSFooterView;
+    check-cast p2, Lcom/android/systemui/qs/QSFooterView;
 
-    sget p2, Lcom/android/systemui/R$id;->build:I
+    const p2, 0x7f0b0142
+
+    invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/TextView;
+
+    iput-object p2, p0, Lcom/android/systemui/qs/QSFooterViewController;->mBuildText:Landroid/widget/TextView;
+
+    move-object p2, p1
+
+    check-cast p2, Lcom/android/systemui/qs/QSFooterView;
+
+    const p2, 0x7f0b02a6
+
+    invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Lcom/android/systemui/qs/PageIndicator;
+
+    iput-object p2, p0, Lcom/android/systemui/qs/QSFooterViewController;->mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
+
+    move-object p2, p1
+
+    check-cast p2, Lcom/android/systemui/qs/QSFooterView;
+
+    const p2, 0x1020003
 
     invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
-    check-cast p1, Landroid/widget/TextView;
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QSFooterViewController;->mBuildText:Landroid/widget/TextView;
-
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p1, Lcom/android/systemui/qs/QSFooterView;
-
-    sget p2, Lcom/android/systemui/R$id;->footer_page_indicator:I
-
-    invoke-virtual {p1, p2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/qs/PageIndicator;
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QSFooterViewController;->mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
+    iput-object p1, p0, Lcom/android/systemui/qs/QSFooterViewController;->mEditButton:Landroid/view/View;
 
     return-void
-.end method
-
-.method private synthetic lambda$onViewAttached$0(Landroid/view/View;IIIIIIII)V
-    .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p1, Lcom/android/systemui/qs/QSFooterView;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/QSFooterView;->updateExpansion()V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    sub-int/2addr p4, p2
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mQuickQSPanelController:Lcom/android/systemui/qs/QuickQSPanelController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanelController;->getNumQuickTiles()I
-
-    move-result p0
-
-    invoke-virtual {p1, p4, p0}, Lcom/android/systemui/qs/FooterActionsController;->updateAnimator(II)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onViewAttached$1(Landroid/view/View;)Z
-    .locals 4
-
-    iget-object p1, p0, Lcom/android/systemui/qs/QSFooterViewController;->mBuildText:Landroid/widget/TextView;
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
-
-    invoke-interface {v0}, Lcom/android/systemui/settings/UserContextProvider;->getUserContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const-class v2, Landroid/content/ClipboardManager;
-
-    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/content/ClipboardManager;
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v3, Lcom/android/systemui/R$string;->build_number_clip_data_label:I
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2, p1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
-
-    move-result-object p1
-
-    invoke-virtual {v0, p1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    sget p1, Lcom/android/systemui/R$string;->build_number_copy_toast:I
-
-    invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/widget/Toast;->show()V
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    return v1
 .end method
 
 
 # virtual methods
-.method public disable(IIZ)V
-    .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p1, Lcom/android/systemui/qs/QSFooterView;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/qs/QSFooterView;->disable(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    invoke-virtual {p0, p2}, Lcom/android/systemui/qs/FooterActionsController;->disable(I)V
-
-    return-void
-.end method
-
-.method protected onInit()V
-    .locals 0
-
-    invoke-super {p0}, Lcom/android/systemui/util/ViewController;->onInit()V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->init()V
-
-    return-void
-.end method
-
-.method protected onViewAttached()V
+.method public final disable(I)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast v0, Lcom/android/systemui/qs/QSFooterView;
+    check-cast p0, Lcom/android/systemui/qs/QSFooterView;
+
+    const/4 v0, 0x1
+
+    and-int/2addr p1, v0
+
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    iget-boolean p1, p0, Lcom/android/systemui/qs/QSFooterView;->mQsDisabled:Z
+
+    if-ne v0, p1, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    iput-boolean v0, p0, Lcom/android/systemui/qs/QSFooterView;->mQsDisabled:Z
+
+    new-instance p1, Lcom/android/systemui/qs/QSFooterView$$ExternalSyntheticLambda0;
+
+    invoke-direct {p1, v1, p0}, Lcom/android/systemui/qs/QSFooterView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
+
+    :goto_1
+    return-void
+.end method
+
+.method public final onViewAttached()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mBuildText:Landroid/widget/TextView;
 
     new-instance v1, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda0;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/QSFooterViewController;)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->addOnLayoutChangeListener(Landroid/view/View$OnLayoutChangeListener;)V
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mBuildText:Landroid/widget/TextView;
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mEditButton:Landroid/view/View;
 
     new-instance v1, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/QSFooterViewController;)V
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mQsPanelController:Lcom/android/systemui/qs/QSPanelController;
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSFooterViewController;->mPageIndicator:Lcom/android/systemui/qs/PageIndicator;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/QSPanelController;->setFooterPageIndicator(Lcom/android/systemui/qs/PageIndicator;)V
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/systemui/qs/QSPanel;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    instance-of v3, v3, Lcom/android/systemui/qs/PagedTileLayout;
+
+    if-eqz v3, :cond_0
+
+    iput-object v1, v0, Lcom/android/systemui/qs/QSPanel;->mFooterPageIndicator:Lcom/android/systemui/qs/PageIndicator;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanel;->updatePageIndicator()V
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/systemui/qs/QSFooterView;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v0, Lcom/android/systemui/qs/QSFooterView$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0, v2, p0}, Lcom/android/systemui/qs/QSFooterView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onViewDetached()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final setExpanded(Z)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/qs/QSFooterView;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSFooterView;->updateEverything()V
+    iget-boolean v0, p0, Lcom/android/systemui/qs/QSFooterView;->mExpanded:Z
 
-    return-void
-.end method
+    if-ne v0, p1, :cond_0
 
-.method protected onViewDetached()V
-    .locals 1
+    goto :goto_0
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/qs/QSFooterView;->mExpanded:Z
+
+    new-instance p1, Lcom/android/systemui/qs/QSFooterView$$ExternalSyntheticLambda0;
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QSFooterViewController;->setListening(Z)V
+    invoke-direct {p1, v0, p0}, Lcom/android/systemui/qs/QSFooterView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
+
+    :goto_0
     return-void
 .end method
 
-.method public setExpandClickListener(Landroid/view/View$OnClickListener;)V
+.method public final setExpansion(F)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/qs/QSFooterView;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSFooterView;->setExpandClickListener(Landroid/view/View$OnClickListener;)V
+    iput p1, p0, Lcom/android/systemui/qs/QSFooterView;->mExpansionAmount:F
 
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterView;->mFooterAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
+
+    :cond_0
     return-void
 .end method
 
-.method public setExpanded(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/FooterActionsController;->setExpanded(Z)V
+.method public final setKeyguardShowing(Z)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/qs/QSFooterView;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QSFooterView;->setExpanded(Z)V
+    iget p1, p0, Lcom/android/systemui/qs/QSFooterView;->mExpansionAmount:F
 
+    iput p1, p0, Lcom/android/systemui/qs/QSFooterView;->mExpansionAmount:F
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterView;->mFooterAnimator:Lcom/android/systemui/qs/TouchAnimator;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/TouchAnimator;->setPosition(F)V
+
+    :cond_0
     return-void
 .end method
 
-.method public setExpansion(F)V
+.method public final setVisibility(I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/qs/QSFooterView;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSFooterView;->setExpansion(F)V
+    invoke-virtual {v0, p1}, Landroid/widget/FrameLayout;->setVisibility(I)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mEditButton:Landroid/view/View;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsController;->setExpansion(F)V
+    if-nez p1, :cond_0
 
-    return-void
-.end method
+    const/4 p1, 0x1
 
-.method public setKeyguardShowing(Z)V
-    .locals 0
+    goto :goto_0
 
-    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    :cond_0
+    const/4 p1, 0x0
 
-    check-cast p1, Lcom/android/systemui/qs/QSFooterView;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/QSFooterView;->setKeyguardShowing()V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/FooterActionsController;->setKeyguardShowing()V
-
-    return-void
-.end method
-
-.method public setListening(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mFooterActionsController:Lcom/android/systemui/qs/FooterActionsController;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/FooterActionsController;->setListening(Z)V
-
-    return-void
-.end method
-
-.method public setVisibility(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/qs/QSFooterView;
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setVisibility(I)V
+    :goto_0
+    invoke-virtual {p0, p1}, Landroid/view/View;->setClickable(Z)V
 
     return-void
 .end method

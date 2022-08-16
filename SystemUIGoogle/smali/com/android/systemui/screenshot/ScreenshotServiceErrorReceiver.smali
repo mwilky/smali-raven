@@ -14,7 +14,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
 
     const-string/jumbo p0, "window"
@@ -29,7 +29,7 @@
 
     invoke-direct {p2, p1, p0}, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;-><init>(Landroid/content/Context;Landroid/view/WindowManager;)V
 
-    sget p0, Lcom/android/systemui/R$string;->screenshot_failed_to_save_unknown_text:I
+    const p0, 0x7f130659
 
     invoke-virtual {p2, p0}, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;->notifyScreenshotError(I)V
 

@@ -18,21 +18,17 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
-
-    const-string v0, "this$0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$ChargingRippleCommand;->this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
 
@@ -43,8 +39,8 @@
 
 
 # virtual methods
-.method public execute(Ljava/io/PrintWriter;Ljava/util/List;)V
-    .locals 1
+.method public final execute(Ljava/io/PrintWriter;Ljava/util/List;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -54,14 +50,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "args"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/charging/WiredChargingRippleController$ChargingRippleCommand;->this$0:Lcom/android/systemui/statusbar/charging/WiredChargingRippleController;
 

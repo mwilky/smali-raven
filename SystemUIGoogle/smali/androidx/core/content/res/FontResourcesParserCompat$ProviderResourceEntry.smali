@@ -18,32 +18,18 @@
 
 
 # instance fields
-.field private final mRequest:Landroidx/core/provider/FontRequest;
+.field public final mRequest:Landroidx/core/provider/FontRequest;
 
-.field private final mStrategy:I
+.field public final mStrategy:I
 
-.field private final mSystemFontFamilyName:Ljava/lang/String;
+.field public final mSystemFontFamilyName:Ljava/lang/String;
 
-.field private final mTimeoutMs:I
+.field public final mTimeoutMs:I
 
 
 # direct methods
 .method public constructor <init>(Landroidx/core/provider/FontRequest;IILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "request",
-            "strategy",
-            "timeoutMs",
-            "systemFontFamilyName"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -56,38 +42,4 @@
     iput-object p4, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mSystemFontFamilyName:Ljava/lang/String;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public getFetchStrategy()I
-    .locals 0
-
-    iget p0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mStrategy:I
-
-    return p0
-.end method
-
-.method public getRequest()Landroidx/core/provider/FontRequest;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mRequest:Landroidx/core/provider/FontRequest;
-
-    return-object p0
-.end method
-
-.method public getSystemFontFamilyName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mSystemFontFamilyName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getTimeout()I
-    .locals 0
-
-    iget p0, p0, Landroidx/core/content/res/FontResourcesParserCompat$ProviderResourceEntry;->mTimeoutMs:I
-
-    return p0
 .end method

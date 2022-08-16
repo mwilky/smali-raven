@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardHostViewController$3;
+.class public final Lcom/android/keyguard/KeyguardHostViewController$3;
 .super Ljava/lang/Object;
 .source "KeyguardHostViewController.java"
 
@@ -6,23 +6,12 @@
 .implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardHostViewController;->appear(I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardHostViewController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardHostViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardHostViewController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardHostViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardHostViewController$3;->this$0:Lcom/android/keyguard/KeyguardHostViewController;
@@ -34,14 +23,12 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
-    .locals 1
+.method public final onPreDraw()Z
+    .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardHostViewController$3;->this$0:Lcom/android/keyguard/KeyguardHostViewController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardHostViewController;->access$600(Lcom/android/keyguard/KeyguardHostViewController;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/keyguard/KeyguardHostView;
 
@@ -53,12 +40,29 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardHostViewController$3;->this$0:Lcom/android/keyguard/KeyguardHostViewController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardHostViewController;->access$000(Lcom/android/keyguard/KeyguardHostViewController;)Lcom/android/keyguard/KeyguardSecurityContainerController;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardHostViewController;->mKeyguardSecurityContainerController:Lcom/android/keyguard/KeyguardSecurityContainerController;
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mCurrentSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    sget-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v1, Lcom/android/keyguard/KeyguardSecurityContainer;
+
+    iget-object v1, v1, Lcom/android/keyguard/KeyguardSecurityContainer;->mViewMode:Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;
+
+    invoke-interface {v1, v0}, Lcom/android/keyguard/KeyguardSecurityContainer$ViewMode;->startAppearAnimation(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)V
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->getCurrentSecurityController()Lcom/android/keyguard/KeyguardInputViewController;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->startAppearAnimation()V
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->startAppearAnimation()V
 
+    :cond_0
     const/4 p0, 0x1
 
     return p0

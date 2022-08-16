@@ -15,6 +15,12 @@
 
 
 # virtual methods
+.method public abstract getCurrentCardTopPadding()I
+.end method
+
+.method public abstract getSelectedPage()I
+.end method
+
 .method public abstract registerDataProvider(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;)V
 .end method
 
@@ -28,6 +34,9 @@
 .end method
 
 .method public abstract setIntentStarter(Lcom/android/systemui/plugins/BcSmartspaceDataPlugin$IntentStarter;)V
+.end method
+
+.method public abstract setIsDreaming(Z)V
 .end method
 
 .method public abstract setMediaTarget(Landroid/app/smartspace/SmartspaceTarget;)V

@@ -36,11 +36,11 @@
 
 
 # instance fields
-.field mAnchorLayoutFromEnd:Z
+.field public mAnchorLayoutFromEnd:Z
 
-.field mAnchorPosition:I
+.field public mAnchorPosition:I
 
-.field mFullSpanItems:Ljava/util/List;
+.field public mFullSpanItems:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -50,23 +50,23 @@
     .end annotation
 .end field
 
-.field mLastLayoutRTL:Z
+.field public mLastLayoutRTL:Z
 
-.field mReverseLayout:Z
+.field public mReverseLayout:Z
 
-.field mSpanLookup:[I
+.field public mSpanLookup:[I
 
-.field mSpanLookupSize:I
+.field public mSpanLookupSize:I
 
-.field mSpanOffsets:[I
+.field public mSpanOffsets:[I
 
-.field mSpanOffsetsSize:I
+.field public mSpanOffsetsSize:I
 
-.field mVisibleAnchorPosition:I
+.field public mVisibleAnchorPosition:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState$1;
@@ -86,16 +86,8 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "in"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -205,14 +197,6 @@
 
 .method public constructor <init>(Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "other"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -261,7 +245,7 @@
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -269,58 +253,8 @@
     return p0
 .end method
 
-.method invalidateAnchorPositionInfo()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mSpanOffsets:[I
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mSpanOffsetsSize:I
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mAnchorPosition:I
-
-    iput v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mVisibleAnchorPosition:I
-
-    return-void
-.end method
-
-.method invalidateSpanInfo()V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mSpanOffsets:[I
-
-    const/4 v1, 0x0
-
-    iput v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mSpanOffsetsSize:I
-
-    iput v1, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mSpanLookupSize:I
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mSpanLookup:[I
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mFullSpanItems:Ljava/util/List;
-
-    return-void
-.end method
-
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dest",
-            "flags"
-        }
-    .end annotation
 
     iget p2, p0, Landroidx/recyclerview/widget/StaggeredGridLayoutManager$SavedState;->mAnchorPosition:I
 

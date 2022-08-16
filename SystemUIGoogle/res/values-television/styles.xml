@@ -7,9 +7,9 @@
     <style name="Theme.SystemUI.Dialog" parent="@android:style/Theme.DeviceDefault.Dialog" />
     <style name="Theme.SystemUI.Dialog.Alert" parent="@android:style/Theme.DeviceDefault.Dialog.Alert" />
     <style name="volume_dialog_theme" parent="@style/Theme.SystemUI">
-        <item name="android:textColorPrimaryInverse">@color/tv_volume_dialog_accent</item>
         <item name="android:colorAccent">@color/tv_volume_dialog_accent</item>
         <item name="android:dialogCornerRadius">@dimen/volume_dialog_panel_width_half</item>
+        <item name="android:textColorOnAccent">@color/tv_volume_dialog_accent</item>
     </style>
     <style name="BottomSheet" parent="@style/Theme.Leanback">
         <item name="android:backgroundDimAmount">0.2</item>

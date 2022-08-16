@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "KeyDownListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onKeyDown(ILandroid/view/KeyEvent;)Z
-.end method

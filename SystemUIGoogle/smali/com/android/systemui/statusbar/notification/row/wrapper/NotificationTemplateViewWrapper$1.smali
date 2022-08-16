@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$1;
+.class public final Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$1;
 .super Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;
 .source "NotificationTemplateViewWrapper.java"
 
@@ -9,28 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$1;->this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;-><init>()V
 
     return-void
 .end method
 
-.method private getTransformationY(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)F
-    .locals 1
+
+# virtual methods
+.method public final customTransformTarget(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)Z
+    .locals 2
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->getLaidOutLocationOnScreen()[I
 
@@ -38,66 +34,74 @@
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/TransformState;->getLaidOutLocationOnScreen()[I
 
-    move-result-object p1
+    move-result-object v0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    aget p0, p0, v0
+    aget p0, p0, v1
 
-    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->getTransformedView()Landroid/view/View;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
     invoke-virtual {p2}, Landroid/view/View;->getHeight()I
 
     move-result p2
 
-    add-int/2addr p0, p2
+    add-int/2addr p2, p0
 
-    aget p1, p1, v0
+    aget p0, v0, v1
 
-    sub-int/2addr p0, p1
+    sub-int/2addr p2, p0
 
-    int-to-float p0, p0
+    int-to-float p0, p2
 
-    const p1, 0x3ea8f5c3    # 0.33f
+    const p2, 0x3ea8f5c3    # 0.33f
 
-    mul-float/2addr p0, p1
+    mul-float/2addr p0, p2
 
-    return p0
+    iput p0, p1, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformationEndY:F
+
+    return v1
 .end method
 
+.method public final initTransformation(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)Z
+    .locals 2
 
-# virtual methods
-.method public customTransformTarget(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)Z
-    .locals 0
+    invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->getLaidOutLocationOnScreen()[I
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$1;->getTransformationY(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)F
+    move-result-object p0
 
-    move-result p0
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/TransformState;->getLaidOutLocationOnScreen()[I
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/TransformState;->setTransformationEndY(F)V
+    move-result-object v0
 
-    const/4 p0, 0x1
+    const/4 v1, 0x1
 
-    return p0
-.end method
+    aget p0, p0, v1
 
-.method public initTransformation(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)Z
-    .locals 0
+    iget-object p2, p2, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$1;->getTransformationY(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/notification/TransformState;)F
+    invoke-virtual {p2}, Landroid/view/View;->getHeight()I
 
-    move-result p0
+    move-result p2
+
+    add-int/2addr p2, p0
+
+    aget p0, v0, v1
+
+    sub-int/2addr p2, p0
+
+    int-to-float p0, p2
+
+    const p2, 0x3ea8f5c3    # 0.33f
+
+    mul-float/2addr p0, p2
 
     invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/TransformState;->setTransformationStartY(F)V
 
-    const/4 p0, 0x1
-
-    return p0
+    return v1
 .end method
 
-.method public transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+.method public final transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
     .locals 2
 
     instance-of v0, p2, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
@@ -115,15 +119,15 @@
 
     move-result-object p2
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/TransformState;->getTransformedView()Landroid/view/View;
+    iget-object v1, p1, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
-    move-result-object v1
-
-    invoke-static {v1, p3, v0}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeIn(Landroid/view/View;FZ)V
+    invoke-static {v1, p3, v0}, Landroidx/leanback/R$style;->fadeIn(Landroid/view/View;FZ)V
 
     if-eqz p2, :cond_1
 
-    invoke-virtual {p1, p2, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewVerticalFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
+    const/16 v1, 0x10
+
+    invoke-virtual {p1, p2, v1, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFrom(Lcom/android/systemui/statusbar/notification/TransformState;ILcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
 
@@ -131,7 +135,7 @@
     return v0
 .end method
 
-.method public transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+.method public final transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
     .locals 2
 
     instance-of v0, p2, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
@@ -149,15 +153,15 @@
 
     move-result-object p2
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/TransformState;->getTransformedView()Landroid/view/View;
+    iget-object v1, p1, Lcom/android/systemui/statusbar/notification/TransformState;->mTransformedView:Landroid/view/View;
 
-    move-result-object v1
-
-    invoke-static {v1, p3}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeOut(Landroid/view/View;F)V
+    invoke-static {v1, p3, v0}, Landroidx/leanback/R$style;->fadeOut(Landroid/view/View;FZ)V
 
     if-eqz p2, :cond_1
 
-    invoke-virtual {p1, p2, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewVerticalTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
+    const/16 v1, 0x10
+
+    invoke-virtual {p1, p2, v1, p0, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewTo(Lcom/android/systemui/statusbar/notification/TransformState;ILcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/screenrecord/ScreenMediaRecorder$SavedRecording;
+.class public final Lcom/android/systemui/screenrecord/ScreenMediaRecorder$SavedRecording;
 .super Ljava/lang/Object;
 .source "ScreenMediaRecorder.java"
 
@@ -15,27 +15,23 @@
 
 
 # instance fields
-.field private mThumbnailBitmap:Landroid/graphics/Bitmap;
+.field public mThumbnailBitmap:Landroid/graphics/Bitmap;
 
-.field private mUri:Landroid/net/Uri;
-
-.field final synthetic this$0:Lcom/android/systemui/screenrecord/ScreenMediaRecorder;
+.field public mUri:Landroid/net/Uri;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/systemui/screenrecord/ScreenMediaRecorder;Landroid/net/Uri;Ljava/io/File;Landroid/util/Size;)V
+.method public constructor <init>(Landroid/net/Uri;Ljava/io/File;Landroid/util/Size;)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/screenrecord/ScreenMediaRecorder$SavedRecording;->this$0:Lcom/android/systemui/screenrecord/ScreenMediaRecorder;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p2, p0, Lcom/android/systemui/screenrecord/ScreenMediaRecorder$SavedRecording;->mUri:Landroid/net/Uri;
+    iput-object p1, p0, Lcom/android/systemui/screenrecord/ScreenMediaRecorder$SavedRecording;->mUri:Landroid/net/Uri;
 
     const/4 p1, 0x0
 
     :try_start_0
-    invoke-static {p3, p4, p1}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/io/File;Landroid/util/Size;Landroid/os/CancellationSignal;)Landroid/graphics/Bitmap;
+    invoke-static {p2, p3, p1}, Landroid/media/ThumbnailUtils;->createVideoThumbnail(Ljava/io/File;Landroid/util/Size;Landroid/os/CancellationSignal;)Landroid/graphics/Bitmap;
 
     move-result-object p1
 
@@ -56,22 +52,4 @@
 
     :goto_0
     return-void
-.end method
-
-
-# virtual methods
-.method public getThumbnail()Landroid/graphics/Bitmap;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenrecord/ScreenMediaRecorder$SavedRecording;->mThumbnailBitmap:Landroid/graphics/Bitmap;
-
-    return-object p0
-.end method
-
-.method public getUri()Landroid/net/Uri;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/screenrecord/ScreenMediaRecorder$SavedRecording;->mUri:Landroid/net/Uri;
-
-    return-object p0
 .end method

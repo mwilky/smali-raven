@@ -22,23 +22,3 @@
 
     return-void
 .end method
-
-
-# virtual methods
-.method protected createEdgeEffect(Landroidx/recyclerview/widget/RecyclerView;I)Landroid/widget/EdgeEffect;
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "direction"
-        }
-    .end annotation
-
-    const p0, 0x0
-
-    throw p0
-.end method

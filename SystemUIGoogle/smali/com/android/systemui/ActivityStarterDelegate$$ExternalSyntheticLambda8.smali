@@ -1,25 +1,30 @@
 .class public final synthetic Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
 
 
 # instance fields
-.field public final synthetic f$0:Landroid/content/Intent;
+.field public final synthetic $r8$classId:I
 
-.field public final synthetic f$1:Z
+.field public final synthetic f$0:Ljava/lang/Object;
+
+.field public final synthetic f$1:Ljava/lang/Object;
 
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/Intent;Z)V
+.method public synthetic constructor <init>(ILjava/lang/Object;Ljava/lang/Object;)V
     .locals 0
 
+    iput p1, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->$r8$classId:I
+
+    iput-object p2, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$0:Ljava/lang/Object;
+
+    iput-object p3, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$1:Ljava/lang/Object;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$0:Landroid/content/Intent;
-
-    iput-boolean p2, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$1:Z
 
     return-void
 .end method
@@ -29,13 +34,40 @@
 .method public final accept(Ljava/lang/Object;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$0:Landroid/content/Intent;
+    iget v0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->$r8$classId:I
 
-    iget-boolean p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$1:Z
+    packed-switch v0, :pswitch_data_0
 
-    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
+    goto :goto_0
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$1-tafwhcnKhh2KzVOZOpFUZ51XA(Landroid/content/Intent;ZLcom/android/systemui/statusbar/phone/StatusBar;)V
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$0:Ljava/lang/Object;
+
+    check-cast v0, Landroid/app/PendingIntent;
+
+    iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$1:Ljava/lang/Object;
+
+    check-cast p0, Ljava/lang/Runnable;
+
+    check-cast p1, Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    invoke-interface {p1, v0, p0}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->startPendingIntentDismissingKeyguard(Landroid/app/PendingIntent;Ljava/lang/Runnable;)V
 
     return-void
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda8;->f$1:Ljava/lang/Object;
+
+    check-cast p0, Landroid/app/Fragment;
+
+    check-cast p1, Lcom/android/systemui/fragments/FragmentHostManager$FragmentListener;
+
+    invoke-interface {p1, p0}, Lcom/android/systemui/fragments/FragmentHostManager$FragmentListener;->onFragmentViewDestroyed(Landroid/app/Fragment;)V
+
+    return-void
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

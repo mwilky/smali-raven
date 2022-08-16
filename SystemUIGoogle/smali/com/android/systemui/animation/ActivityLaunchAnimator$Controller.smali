@@ -16,45 +16,80 @@
     name = "Controller"
 .end annotation
 
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;,
-        Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$DefaultImpls;
-    }
-.end annotation
-
-
-# static fields
-.field public static final Companion:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;
-
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
+.method public static fromView(Landroid/view/View;Ljava/lang/Integer;)Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;
+    .locals 2
 
-    sget-object v0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;->$$INSTANCE:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;
+    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
-    sput-object v0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->Companion:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;
+    move-result-object v0
 
-    return-void
-.end method
+    instance-of v0, v0, Landroid/view/ViewGroup;
 
-.method public static fromView(Landroid/view/View;Ljava/lang/Integer;)Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
-    .locals 1
+    if-nez v0, :cond_0
 
-    sget-object v0, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;->Companion:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p0, p1}, Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller$Companion;->fromView(Landroid/view/View;Ljava/lang/Integer;)Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "Skipping animation as view "
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p0, " is not attached to a ViewGroup"
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
+    new-instance p1, Ljava/lang/Exception;
+
+    invoke-direct {p1}, Ljava/lang/Exception;-><init>()V
+
+    const-string v0, "ActivityLaunchAnimator"
+
+    invoke-static {v0, p0, p1}, Landroid/util/Log;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;
+
+    const/4 v1, 0x4
+
+    invoke-direct {v0, p0, p1, v1}, Lcom/android/systemui/animation/GhostedViewLaunchAnimatorController;-><init>(Landroid/view/View;Ljava/lang/Integer;I)V
+
+    move-object p0, v0
+
+    :goto_0
     return-object p0
 .end method
 
 
 # virtual methods
-.method public abstract onIntentStarted(Z)V
+.method public isDialogLaunch()Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
 .end method
 
-.method public abstract onLaunchAnimationCancelled()V
+.method public onIntentStarted(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onLaunchAnimationCancelled()V
+    .locals 0
+
+    return-void
 .end method

@@ -11,14 +11,19 @@
         <item quantity="few">Prije %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">Prije %d godina</item>
-        <item quantity="one">Prije %d godinu</item>
-        <item quantity="few">Prije %d godine</item>
+        <item quantity="other">Prije %d god.</item>
+        <item quantity="one">Prije %d god.</item>
+        <item quantity="few">Prije %d god.</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">Dodano je %s kontrola.</item>
         <item quantity="one">Dodana je %s kontrola.</item>
         <item quantity="few">Dodane su %s kontrole.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s aplikacija je aktivno</item>
+        <item quantity="one">%s aplikacija je aktivna</item>
+        <item quantity="few">%s aplikacije su aktivne</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Unesite PIN za SIM. Imate još %d pokušaja.</item>
@@ -39,11 +44,6 @@
         <item quantity="other">PUK kôd SIM-a nije točan. Imate još %d pokušaja, a ako ne uspijete, SIM će postati trajno neupotrebljiv.</item>
         <item quantity="one">PUK kôd SIM-a nije točan. Imate još %d pokušaj, a ako ne uspijete, SIM će postati trajno neupotrebljiv.</item>
         <item quantity="few">PUK kôd SIM-a nije točan. Imate još %d pokušaja, a ako ne uspijete, SIM će postati trajno neupotrebljiv.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Pokušajte ponovo za %d sekundi</item>
-        <item quantity="one">Pokušajte ponovo za %d sekundu</item>
-        <item quantity="few">Pokušajte ponovo za %d sekunde</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d novih obavijesti</item>
@@ -84,10 +84,5 @@
         <item quantity="other">Možete dodati najviše %d korisnika.</item>
         <item quantity="one">Možete dodati najviše %d korisnika.</item>
         <item quantity="few">Možete dodati najviše %d korisnika.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Povezano je %1$d uređaja</item>
-        <item quantity="one">Povezan je %1$d uređaj</item>
-        <item quantity="few">Povezana su %1$d uređaja</item>
     </plurals>
 </resources>

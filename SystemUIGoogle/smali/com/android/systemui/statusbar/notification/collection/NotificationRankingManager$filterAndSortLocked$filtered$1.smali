@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;)V
+.method public constructor <init>(Ljava/lang/Object;)V
     .locals 7
 
     const-class v3, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
@@ -52,36 +52,31 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 2
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager$filterAndSortLocked$filtered$1;->invoke(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public final invoke(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-    .locals 1
-
-    const-string v0, "p0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
 
     check-cast p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;->access$filter(Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;->notifFilter:Lcom/android/systemui/statusbar/notification/NotificationFilter;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFilter;->shouldFilterOut(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
 
     move-result p0
 
-    return p0
+    if-eqz p0, :cond_0
+
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->initializationTime:J
+
+    :cond_0
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
 .end method

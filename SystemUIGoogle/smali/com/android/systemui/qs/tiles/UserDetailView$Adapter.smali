@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
+.class public final Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
 .super Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;
 .source "UserDetailView.java"
 
@@ -18,17 +18,17 @@
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field protected mController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+.field public mController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-.field private mCurrentUserView:Landroid/view/View;
+.field public mCurrentUserView:Lcom/android/systemui/qs/tiles/UserDetailItemView;
 
-.field private mDialogShower:Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
+.field public mDialogShower:Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
 
-.field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+.field public final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
 
 # direct methods
@@ -48,263 +48,279 @@
     return-void
 .end method
 
-.method private static getDrawable(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Landroid/graphics/drawable/Drawable;
-    .locals 4
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getIconDrawable(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
-
-    if-eqz v1, :cond_0
-
-    sget v1, Lcom/android/systemui/R$color;->qs_user_switcher_selected_avatar_icon_color:I
-
-    goto :goto_0
-
-    :cond_0
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isSwitchToEnabled:Z
-
-    if-nez v1, :cond_1
-
-    sget v1, Lcom/android/systemui/R$color;->GM2_grey_600:I
-
-    goto :goto_0
-
-    :cond_1
-    sget v1, Lcom/android/systemui/R$color;->qs_user_switcher_avatar_icon_color:I
-
-    :goto_0
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v1, v3}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
-
-    iget-boolean p1, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
-
-    if-eqz p1, :cond_2
-
-    sget p1, Lcom/android/systemui/R$drawable;->bg_avatar_selected:I
-
-    goto :goto_1
-
-    :cond_2
-    sget p1, Lcom/android/systemui/R$drawable;->qs_bg_avatar:I
-
-    :goto_1
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    new-instance p1, Landroid/graphics/drawable/LayerDrawable;
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Landroid/graphics/drawable/Drawable;
-
-    const/4 v2, 0x0
-
-    aput-object p0, v1, v2
-
-    const/4 p0, 0x1
-
-    aput-object v0, v1, p0
-
-    invoke-direct {p1, v1}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
-
-    return-object p1
-.end method
-
 
 # virtual methods
-.method public createUserDetailItemView(Landroid/view/View;Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Lcom/android/systemui/qs/tiles/UserDetailItemView;
-    .locals 4
+.method public final getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+    .locals 7
 
-    invoke-virtual {p2}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {v0, p1, p2}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->convertOrInflate(Landroid/content/Context;Landroid/view/View;Landroid/view/ViewGroup;)Lcom/android/systemui/qs/tiles/UserDetailItemView;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getItem(I)Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
 
     move-result-object p1
 
-    iget-boolean p2, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+    invoke-virtual {p3}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
 
-    const/4 v0, 0x0
+    move-result-object v0
 
-    if-eqz p2, :cond_1
+    sget v1, Lcom/android/systemui/qs/tiles/UserDetailItemView;->$r8$clinit:I
 
-    iget-boolean p2, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isGuest:Z
+    instance-of v1, p2, Lcom/android/systemui/qs/tiles/UserDetailItemView;
 
-    if-eqz p2, :cond_0
+    const/4 v2, 0x0
 
-    goto :goto_0
+    if-nez v1, :cond_0
 
-    :cond_0
-    invoke-virtual {p1, v0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->setClickable(Z)V
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    invoke-virtual {p1, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    :goto_1
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0, p2, p3}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getName(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Ljava/lang/String;
+    invoke-static {v0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p2
 
-    iget-object v1, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->picture:Landroid/graphics/Bitmap;
+    const v0, 0x7f0e01ea
 
-    if-nez v1, :cond_2
+    invoke-virtual {p2, v0, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object p2
+
+    :cond_0
+    check-cast p2, Lcom/android/systemui/qs/tiles/UserDetailItemView;
+
+    iget-boolean p3, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+
+    const/4 v0, 0x0
+
+    if-eqz p3, :cond_2
+
+    iget-boolean p3, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isGuest:Z
+
+    if-eqz p3, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p2, v0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    invoke-virtual {p2, v2}, Landroid/widget/LinearLayout;->setClickable(Z)V
+
+    goto :goto_1
+
+    :cond_2
+    :goto_0
+    invoke-virtual {p2, p0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :goto_1
+    iget-object p3, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0, p3, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getName(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Ljava/lang/String;
+
+    move-result-object p3
+
+    iget-object v1, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->picture:Landroid/graphics/Bitmap;
+
+    const/4 v3, 0x1
+
+    if-nez v1, :cond_6
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mContext:Landroid/content/Context;
 
-    invoke-static {v0, p3}, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->getDrawable(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Landroid/graphics/drawable/Drawable;
+    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getIconDrawable(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+    iget-boolean v4, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
 
-    move-result-object v0
+    if-eqz v4, :cond_3
 
-    invoke-virtual {p3}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->resolveId()I
+    const v4, 0x7f060367
 
-    move-result v1
+    goto :goto_2
 
-    invoke-virtual {p1, p2, v0, v1}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->bind(Ljava/lang/String;Landroid/graphics/drawable/Drawable;I)V
+    :cond_3
+    iget-boolean v4, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isSwitchToEnabled:Z
+
+    if-nez v4, :cond_4
+
+    const v4, 0x7f060007
+
+    goto :goto_2
+
+    :cond_4
+    const v4, 0x7f060366
+
+    :goto_2
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v4, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+
+    move-result v4
+
+    invoke-virtual {v1, v4}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    iget-boolean v4, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+
+    if-eqz v4, :cond_5
+
+    const v4, 0x7f0803d6
 
     goto :goto_3
 
-    :cond_2
+    :cond_5
+    const v4, 0x7f0807a8
+
+    :goto_3
+    invoke-virtual {v0, v4}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    new-instance v4, Landroid/graphics/drawable/LayerDrawable;
+
+    const/4 v5, 0x2
+
+    new-array v5, v5, [Landroid/graphics/drawable/Drawable;
+
+    aput-object v0, v5, v2
+
+    aput-object v1, v5, v3
+
+    invoke-direct {v4, v5}, Landroid/graphics/drawable/LayerDrawable;-><init>([Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {v4}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->resolveId()I
+
+    move-result v1
+
+    iget-object v4, p2, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mName:Landroid/widget/TextView;
+
+    invoke-virtual {v4, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object p3, p2, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mAvatar:Lcom/android/systemui/statusbar/phone/UserAvatarView;
+
+    invoke-virtual {p3, v1, v0}, Lcom/android/systemui/statusbar/phone/UserAvatarView;->setDrawableWithBadge(ILandroid/graphics/drawable/Drawable;)V
+
+    goto :goto_5
+
+    :cond_6
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mContext:Landroid/content/Context;
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->qs_framed_avatar_size:I
+    const v4, 0x7f0706b0
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
     float-to-int v1, v1
 
-    new-instance v2, Lcom/android/settingslib/drawable/CircleFramedDrawable;
+    new-instance v4, Lcom/android/settingslib/drawable/CircleFramedDrawable;
 
-    iget-object v3, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->picture:Landroid/graphics/Bitmap;
+    iget-object v5, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->picture:Landroid/graphics/Bitmap;
 
-    invoke-direct {v2, v3, v1}, Lcom/android/settingslib/drawable/CircleFramedDrawable;-><init>(Landroid/graphics/Bitmap;I)V
+    invoke-direct {v4, v5, v1}, Lcom/android/settingslib/drawable/CircleFramedDrawable;-><init>(Landroid/graphics/Bitmap;I)V
 
-    iget-boolean v1, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isSwitchToEnabled:Z
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isSwitchToEnabled:Z
 
-    if-eqz v1, :cond_3
-
-    goto :goto_2
-
-    :cond_3
-    invoke-static {}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getDisabledUserAvatarColorFilter()Landroid/graphics/ColorFilter;
-
-    move-result-object v0
-
-    :goto_2
-    invoke-virtual {v2, v0}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
-
-    iget-object v0, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
-
-    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
-
-    invoke-virtual {p1, p2, v2, v0}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->bind(Ljava/lang/String;Landroid/graphics/drawable/Drawable;I)V
-
-    :goto_3
-    iget-boolean p2, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
-
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->setActivated(Z)V
-
-    iget-boolean p2, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isDisabledByAdmin:Z
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->setDisabledByAdmin(Z)V
-
-    iget-boolean p2, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isSwitchToEnabled:Z
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->setEnabled(Z)V
-
-    invoke-virtual {p1}, Landroid/widget/LinearLayout;->isEnabled()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_4
-
-    const/high16 p2, 0x3f800000    # 1.0f
+    if-eqz v1, :cond_7
 
     goto :goto_4
 
-    :cond_4
-    const p2, 0x3ec28f5c    # 0.38f
+    :cond_7
+    new-instance v0, Landroid/graphics/ColorMatrix;
+
+    invoke-direct {v0}, Landroid/graphics/ColorMatrix;-><init>()V
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/graphics/ColorMatrix;->setSaturation(F)V
+
+    new-instance v1, Landroid/graphics/ColorMatrixColorFilter;
+
+    invoke-direct {v1, v0}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+
+    move-object v0, v1
 
     :goto_4
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->setAlpha(F)V
+    invoke-virtual {v4, v0}, Lcom/android/settingslib/drawable/CircleFramedDrawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
-    iget-boolean p2, p3, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+    iget-object v0, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
-    if-eqz p2, :cond_5
+    iget v0, v0, Landroid/content/pm/UserInfo;->id:I
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mCurrentUserView:Landroid/view/View;
+    iget-object v1, p2, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mName:Landroid/widget/TextView;
 
-    :cond_5
-    invoke-virtual {p1, p3}, Landroid/widget/LinearLayout;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v1, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    return-object p1
+    iget-object p3, p2, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mAvatar:Lcom/android/systemui/statusbar/phone/UserAvatarView;
+
+    invoke-virtual {p3, v0, v4}, Lcom/android/systemui/statusbar/phone/UserAvatarView;->setDrawableWithBadge(ILandroid/graphics/drawable/Drawable;)V
+
+    :goto_5
+    iget-boolean p3, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+
+    invoke-virtual {p2, p3}, Landroid/widget/LinearLayout;->setActivated(Z)V
+
+    iget-boolean p3, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isDisabledByAdmin:Z
+
+    iget-object v0, p2, Lcom/android/systemui/qs/tiles/UserDetailItemView;->mRestrictedPadlock:Landroid/view/View;
+
+    if-eqz v0, :cond_9
+
+    if-eqz p3, :cond_8
+
+    goto :goto_6
+
+    :cond_8
+    const/16 v2, 0x8
+
+    :goto_6
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_9
+    xor-int/2addr p3, v3
+
+    invoke-virtual {p2, p3}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->setEnabled(Z)V
+
+    iget-boolean p3, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isSwitchToEnabled:Z
+
+    invoke-virtual {p2, p3}, Lcom/android/systemui/qs/tiles/UserDetailItemView;->setEnabled(Z)V
+
+    invoke-virtual {p2}, Landroid/widget/LinearLayout;->isEnabled()Z
+
+    move-result p3
+
+    if-eqz p3, :cond_a
+
+    const/high16 p3, 0x3f800000    # 1.0f
+
+    goto :goto_7
+
+    :cond_a
+    const p3, 0x3ec28f5c    # 0.38f
+
+    :goto_7
+    invoke-virtual {p2, p3}, Landroid/widget/LinearLayout;->setAlpha(F)V
+
+    iget-boolean p3, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+
+    if-eqz p3, :cond_b
+
+    iput-object p2, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mCurrentUserView:Lcom/android/systemui/qs/tiles/UserDetailItemView;
+
+    :cond_b
+    invoke-virtual {p2, p1}, Landroid/widget/LinearLayout;->setTag(Ljava/lang/Object;)V
+
+    return-object p2
 .end method
 
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$BaseUserAdapter;->getItem(I)Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p2, p3, p1}, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->createUserDetailItemView(Landroid/view/View;Landroid/view/ViewGroup;Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)Lcom/android/systemui/qs/tiles/UserDetailItemView;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public injectDialogShower(Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mDialogShower:Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
-
-    return-void
-.end method
-
-.method public linkToViewGroup(Landroid/view/ViewGroup;)V
-    .locals 0
-
-    invoke-static {p1, p0}, Lcom/android/systemui/qs/PseudoGridView$ViewGroupAdapterBridge;->link(Landroid/view/ViewGroup;Landroid/widget/BaseAdapter;)V
-
-    return-void
-.end method
-
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
@@ -320,6 +336,10 @@
     return-void
 
     :cond_0
+    const-string v0, "UserDetailView.Adapter#onClick"
+
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
     move-result-object v0
@@ -330,17 +350,17 @@
 
     if-eqz v2, :cond_1
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mContext:Landroid/content/Context;
+    iget-object p1, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->enforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
-    iget-object v0, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->enforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
-
-    invoke-static {p1, v0}, Lcom/android/settingslib/RestrictedLockUtils;->getShowAdminSupportDetailsIntent(Landroid/content/Context;Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
+    invoke-static {p1}, Lcom/android/settingslib/RestrictedLockUtils;->getShowAdminSupportDetailsIntent(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Landroid/content/Intent;
 
     move-result-object p1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->startActivity(Landroid/content/Intent;)V
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-interface {p0, p1, v1}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
 
     goto :goto_0
 
@@ -373,7 +393,7 @@
 
     if-nez v2, :cond_3
 
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mCurrentUserView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mCurrentUserView:Lcom/android/systemui/qs/tiles/UserDetailItemView;
 
     if-eqz v2, :cond_2
 
@@ -391,5 +411,7 @@
 
     :cond_4
     :goto_0
+    invoke-static {}, Landroid/os/Trace;->endSection()V
+
     return-void
 .end method

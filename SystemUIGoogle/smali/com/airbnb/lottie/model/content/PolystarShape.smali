@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/content/PolystarShape;
+.class public final Lcom/airbnb/lottie/model/content/PolystarShape;
 .super Ljava/lang/Object;
 .source "PolystarShape.java"
 
@@ -15,21 +15,21 @@
 
 
 # instance fields
-.field private final hidden:Z
+.field public final hidden:Z
 
-.field private final innerRadius:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final innerRadius:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final innerRoundedness:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final innerRoundedness:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final name:Ljava/lang/String;
+.field public final name:Ljava/lang/String;
 
-.field private final outerRadius:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final outerRadius:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final outerRoundedness:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final outerRoundedness:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final points:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final points:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
+.field public final position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/model/animatable/AnimatableValue<",
@@ -40,9 +40,9 @@
     .end annotation
 .end field
 
-.field private final rotation:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final rotation:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final type:Lcom/airbnb/lottie/model/content/PolystarShape$Type;
+.field public final type:Lcom/airbnb/lottie/model/content/PolystarShape$Type;
 
 
 # direct methods
@@ -94,96 +94,7 @@
 
 
 # virtual methods
-.method public getInnerRadius()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->innerRadius:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getInnerRoundedness()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->innerRoundedness:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->name:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getOuterRadius()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->outerRadius:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getOuterRoundedness()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->outerRoundedness:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getPoints()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->points:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getPosition()Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/airbnb/lottie/model/animatable/AnimatableValue<",
-            "Landroid/graphics/PointF;",
-            "Landroid/graphics/PointF;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-
-    return-object p0
-.end method
-
-.method public getRotation()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->rotation:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getType()Lcom/airbnb/lottie/model/content/PolystarShape$Type;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->type:Lcom/airbnb/lottie/model/content/PolystarShape$Type;
-
-    return-object p0
-.end method
-
-.method public isHidden()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/PolystarShape;->hidden:Z
-
-    return p0
-.end method
-
-.method public toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
+.method public final toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
     .locals 1
 
     new-instance v0, Lcom/airbnb/lottie/animation/content/PolystarContent;

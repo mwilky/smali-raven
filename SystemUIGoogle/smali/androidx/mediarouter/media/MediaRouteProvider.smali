@@ -16,54 +16,26 @@
 
 
 # instance fields
-.field private mCallback:Landroidx/mediarouter/media/MediaRouteProvider$Callback;
+.field public mCallback:Landroidx/mediarouter/media/MediaRouteProvider$Callback;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
+.field public mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
 
-.field private mDiscoveryRequest:Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
+.field public mDiscoveryRequest:Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
 
-.field private final mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
+.field public final mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
 
-.field private final mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
+.field public final mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
 
-.field private mPendingDescriptorChange:Z
+.field public mPendingDescriptorChange:Z
 
-.field private mPendingDiscoveryRequestChange:Z
+.field public mPendingDiscoveryRequestChange:Z
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Landroidx/mediarouter/media/MediaRouteProvider;-><init>(Landroid/content/Context;Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;)V
+.method public constructor <init>(Landroid/content/Context;Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "metadata"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -113,89 +85,8 @@
 
 
 # virtual methods
-.method deliverDescriptorChanged()V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDescriptorChange:Z
-
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mCallback:Landroidx/mediarouter/media/MediaRouteProvider$Callback;
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
-
-    invoke-virtual {v0, p0, v1}, Landroidx/mediarouter/media/MediaRouteProvider$Callback;->onDescriptorChanged(Landroidx/mediarouter/media/MediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method deliverDiscoveryRequestChanged()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDiscoveryRequestChange:Z
-
-    iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDiscoveryRequest:Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
-
-    invoke-virtual {p0, v0}, Landroidx/mediarouter/media/MediaRouteProvider;->onDiscoveryRequestChanged(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
-
-    return-void
-.end method
-
-.method public final getContext()Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method public final getDescriptor()Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDescriptor:Landroidx/mediarouter/media/MediaRouteProviderDescriptor;
-
-    return-object p0
-.end method
-
-.method public final getDiscoveryRequest()Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDiscoveryRequest:Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
-
-    return-object p0
-.end method
-
-.method public final getHandler()Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mHandler:Landroidx/mediarouter/media/MediaRouteProvider$ProviderHandler;
-
-    return-object p0
-.end method
-
-.method public final getMetadata()Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mMetadata:Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;
-
-    return-object p0
-.end method
-
 .method public onCreateDynamicGroupRouteController(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "initialMemberRouteId"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -215,14 +106,6 @@
 
 .method public onCreateRouteController(Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteProvider$RouteController;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeId"
-        }
-    .end annotation
 
     if-eqz p1, :cond_0
 
@@ -233,7 +116,7 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "routeId cannot be null"
+    const-string/jumbo p1, "routeId cannot be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -242,16 +125,6 @@
 
 .method public onCreateRouteController(Ljava/lang/String;Ljava/lang/String;)Landroidx/mediarouter/media/MediaRouteProvider$RouteController;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "routeId",
-            "routeGroupId"
-        }
-    .end annotation
 
     if-eqz p1, :cond_1
 
@@ -266,7 +139,7 @@
     :cond_0
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "routeGroupId cannot be null"
+    const-string/jumbo p1, "routeGroupId cannot be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -275,7 +148,7 @@
     :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "routeId cannot be null"
+    const-string/jumbo p1, "routeId cannot be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
@@ -284,46 +157,12 @@
 
 .method public onDiscoveryRequestChanged(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "request"
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public final setCallback(Landroidx/mediarouter/media/MediaRouteProvider$Callback;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "callback"
-        }
-    .end annotation
-
-    invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->checkCallingThread()V
-
-    iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mCallback:Landroidx/mediarouter/media/MediaRouteProvider$Callback;
 
     return-void
 .end method
 
 .method public final setDescriptor(Landroidx/mediarouter/media/MediaRouteProviderDescriptor;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "descriptor"
-        }
-    .end annotation
 
     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->checkCallingThread()V
 
@@ -351,20 +190,12 @@
 
 .method public final setDiscoveryRequest(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "request"
-        }
-    .end annotation
 
     invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->checkCallingThread()V
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDiscoveryRequest:Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
 
-    invoke-static {v0, p1}, Landroidx/core/util/ObjectsCompat;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -373,27 +204,11 @@
     return-void
 
     :cond_0
-    invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouteProvider;->setDiscoveryRequestInternal(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
-
-    return-void
-.end method
-
-.method final setDiscoveryRequestInternal(Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "request"
-        }
-    .end annotation
-
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mDiscoveryRequest:Landroidx/mediarouter/media/MediaRouteDiscoveryRequest;
 
     iget-boolean p1, p0, Landroidx/mediarouter/media/MediaRouteProvider;->mPendingDiscoveryRequestChange:Z
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
     const/4 p1, 0x1
 
@@ -405,6 +220,6 @@
 
     invoke-virtual {p0, p1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
-    :cond_0
+    :cond_1
     return-void
 .end method

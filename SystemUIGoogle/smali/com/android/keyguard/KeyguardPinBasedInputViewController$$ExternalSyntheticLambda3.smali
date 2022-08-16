@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardPinBasedInputViewController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/View$OnTouchListener;
@@ -27,9 +28,24 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputViewController$$ExternalSyntheticLambda3;->f$0:Lcom/android/keyguard/KeyguardPinBasedInputViewController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/keyguard/KeyguardPinBasedInputViewController;->$r8$lambda$9AInmX4hth5EzN384_m5GkcsZWQ(Lcom/android/keyguard/KeyguardPinBasedInputViewController;Landroid/view/View;Landroid/view/MotionEvent;)Z
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result p0
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/keyguard/KeyguardPinBasedInputView;
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1, p1}, Landroid/widget/LinearLayout;->performHapticFeedback(II)Z
+
+    :cond_0
+    const/4 p0, 0x0
 
     return p0
 .end method

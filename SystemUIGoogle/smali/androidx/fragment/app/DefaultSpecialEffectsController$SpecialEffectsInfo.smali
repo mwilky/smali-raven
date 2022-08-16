@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;
+.class public Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;
 .super Ljava/lang/Object;
 .source "DefaultSpecialEffectsController.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SpecialEffectsInfo"
 .end annotation
 
 
 # instance fields
-.field private final mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
+.field public final mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
 
-.field private final mSignal:Landroidx/core/os/CancellationSignal;
+.field public final mSignal:Landroidx/core/os/CancellationSignal;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation;Landroidx/core/os/CancellationSignal;)V
+.method public constructor <init>(Landroidx/fragment/app/SpecialEffectsController$Operation;Landroidx/core/os/CancellationSignal;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -35,42 +35,41 @@
 
 
 # virtual methods
-.method completeSpecialEffect()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
-
-    iget-object p0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mSignal:Landroidx/core/os/CancellationSignal;
-
-    invoke-virtual {v0, p0}, Landroidx/fragment/app/SpecialEffectsController$Operation;->completeSpecialEffect(Landroidx/core/os/CancellationSignal;)V
-
-    return-void
-.end method
-
-.method getOperation()Landroidx/fragment/app/SpecialEffectsController$Operation;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
-
-    return-object p0
-.end method
-
-.method getSignal()Landroidx/core/os/CancellationSignal;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mSignal:Landroidx/core/os/CancellationSignal;
-
-    return-object p0
-.end method
-
-.method isVisibilityUnchanged()Z
+.method public final completeSpecialEffect()V
     .locals 2
 
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
 
-    invoke-virtual {v0}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFragment()Landroidx/fragment/app/Fragment;
+    iget-object p0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mSignal:Landroidx/core/os/CancellationSignal;
 
-    move-result-object v0
+    iget-object v1, v0, Landroidx/fragment/app/SpecialEffectsController$Operation;->mSpecialEffectsSignals:Ljava/util/HashSet;
+
+    invoke-virtual {v1, p0}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    iget-object p0, v0, Landroidx/fragment/app/SpecialEffectsController$Operation;->mSpecialEffectsSignals:Ljava/util/HashSet;
+
+    invoke-virtual {p0}, Ljava/util/HashSet;->isEmpty()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {v0}, Landroidx/fragment/app/SpecialEffectsController$Operation;->complete()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final isVisibilityUnchanged()Z
+    .locals 2
+
+    iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
+
+    iget-object v0, v0, Landroidx/fragment/app/SpecialEffectsController$Operation;->mFragment:Landroidx/fragment/app/Fragment;
 
     iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
 
@@ -80,9 +79,7 @@
 
     iget-object p0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$SpecialEffectsInfo;->mOperation:Landroidx/fragment/app/SpecialEffectsController$Operation;
 
-    invoke-virtual {p0}, Landroidx/fragment/app/SpecialEffectsController$Operation;->getFinalState()Landroidx/fragment/app/SpecialEffectsController$Operation$State;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/fragment/app/SpecialEffectsController$Operation;->mFinalState:Landroidx/fragment/app/SpecialEffectsController$Operation$State;
 
     if-eq v0, p0, :cond_1
 

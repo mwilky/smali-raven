@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/biometrics/AuthCredentialView$2;
+.class public final Lcom/android/systemui/biometrics/AuthCredentialView$2;
 .super Lcom/android/systemui/biometrics/AuthCredentialView$ErrorTimer;
 .source "AuthCredentialView.java"
 
@@ -9,39 +9,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/AuthCredentialView;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/AuthCredentialView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/AuthCredentialView;Landroid/content/Context;JJLandroid/widget/TextView;)V
-    .locals 7
+.method public constructor <init>(Lcom/android/systemui/biometrics/AuthCredentialView;Landroid/content/Context;JLandroid/widget/TextView;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthCredentialView$2;->this$0:Lcom/android/systemui/biometrics/AuthCredentialView;
 
-    move-object v0, p0
-
-    move-object v1, p2
-
-    move-wide v2, p3
-
-    move-wide v4, p5
-
-    move-object v6, p7
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/biometrics/AuthCredentialView$ErrorTimer;-><init>(Landroid/content/Context;JJLandroid/widget/TextView;)V
+    invoke-direct {p0, p2, p3, p4, p5}, Lcom/android/systemui/biometrics/AuthCredentialView$ErrorTimer;-><init>(Landroid/content/Context;JLandroid/widget/TextView;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onFinish()V
+.method public final onFinish()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthCredentialView$2;->this$0:Lcom/android/systemui/biometrics/AuthCredentialView;
@@ -50,9 +40,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialView$2;->this$0:Lcom/android/systemui/biometrics/AuthCredentialView;
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mClearErrorRunnable:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mClearErrorRunnable:Lcom/android/systemui/biometrics/AuthCredentialView$1;
 
-    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthCredentialView$1;->run()V
 
     return-void
 .end method

@@ -1,5 +1,5 @@
-.class Landroidx/appcompat/app/WindowDecorActionBar$2;
-.super Landroidx/core/view/ViewPropertyAnimatorListenerAdapter;
+.class public final Landroidx/appcompat/app/WindowDecorActionBar$2;
+.super Lkotlinx/coroutines/EventLoop_commonKt;
 .source "WindowDecorActionBar.java"
 
 
@@ -9,36 +9,36 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/app/WindowDecorActionBar;
+.field public final synthetic this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/app/WindowDecorActionBar;)V
+.method public constructor <init>(Landroidx/appcompat/app/WindowDecorActionBar;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/app/WindowDecorActionBar$2;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
-    invoke-direct {p0}, Landroidx/core/view/ViewPropertyAnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Lkotlinx/coroutines/EventLoop_commonKt;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/View;)V
-    .locals 0
+.method public final onAnimationEnd()V
+    .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$2;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mCurrentShowAnim:Landroidx/appcompat/view/ViewPropertyAnimatorCompatSet;
+    iput-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mCurrentShowAnim:Landroidx/appcompat/view/ViewPropertyAnimatorCompatSet;
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContainerView:Landroidx/appcompat/widget/ActionBarContainer;
 

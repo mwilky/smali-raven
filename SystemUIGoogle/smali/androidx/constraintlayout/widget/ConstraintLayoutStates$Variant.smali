@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/widget/ConstraintLayoutStates$Variant;
+.class public final Landroidx/constraintlayout/widget/ConstraintLayoutStates$Variant;
 .super Ljava/lang/Object;
 .source "ConstraintLayoutStates.java"
 
@@ -9,28 +9,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Variant"
 .end annotation
 
 
 # instance fields
-.field mConstraintID:I
+.field public mConstraintID:I
 
-.field mConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
+.field public mMaxHeight:F
 
-.field mMaxHeight:F
+.field public mMaxWidth:F
 
-.field mMaxWidth:F
+.field public mMinHeight:F
 
-.field mMinHeight:F
-
-.field mMinWidth:F
+.field public mMinWidth:F
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;)V
-    .locals 5
+.method public constructor <init>(Landroid/content/Context;Landroid/content/res/XmlResourceParser;)V
+    .locals 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -71,9 +69,7 @@
 
     move-result v2
 
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->Variant_constraints:I
-
-    if-ne v2, v3, :cond_0
+    if-nez v2, :cond_0
 
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$Variant;->mConstraintID:I
 
@@ -113,16 +109,26 @@
 
     invoke-direct {v2}, Landroidx/constraintlayout/widget/ConstraintSet;-><init>()V
 
-    iput-object v2, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$Variant;->mConstraintSet:Landroidx/constraintlayout/widget/ConstraintSet;
-
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintLayoutStates$Variant;->mConstraintID:I
 
-    invoke-virtual {v2, p1, v3}, Landroidx/constraintlayout/widget/ConstraintSet;->clone(Landroid/content/Context;I)V
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v3, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroidx/constraintlayout/widget/ConstraintLayout;
+
+    invoke-virtual {v2, v3}, Landroidx/constraintlayout/widget/ConstraintSet;->clone(Landroidx/constraintlayout/widget/ConstraintLayout;)V
 
     goto :goto_1
 
     :cond_0
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_heightLessThan:I
+    const/4 v3, 0x1
 
     if-ne v2, v3, :cond_1
 
@@ -137,7 +143,7 @@
     goto :goto_1
 
     :cond_1
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_heightMoreThan:I
+    const/4 v3, 0x2
 
     if-ne v2, v3, :cond_2
 
@@ -152,7 +158,7 @@
     goto :goto_1
 
     :cond_2
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_widthLessThan:I
+    const/4 v3, 0x3
 
     if-ne v2, v3, :cond_3
 
@@ -167,7 +173,7 @@
     goto :goto_1
 
     :cond_3
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->Variant_region_widthMoreThan:I
+    const/4 v3, 0x4
 
     if-ne v2, v3, :cond_4
 

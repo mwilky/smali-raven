@@ -32,50 +32,22 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIAudioServiceFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIAudioServiceFactory$InstanceHolder;->access$000()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIAudioServiceFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static provideIAudioService()Landroid/media/IAudioService;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule;->provideIAudioService()Landroid/media/IAudioService;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/media/IAudioService;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Landroid/media/IAudioService;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIAudioServiceFactory;->provideIAudioService()Landroid/media/IAudioService;
+    const-string p0, "audio"
+
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIAudioServiceFactory;->get()Landroid/media/IAudioService;
+    invoke-static {p0}, Landroid/media/IAudioService$Stub;->asInterface(Landroid/os/IBinder;)Landroid/media/IAudioService;
 
     move-result-object p0
+
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object p0
 .end method

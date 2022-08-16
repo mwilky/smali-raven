@@ -21,7 +21,7 @@
 
 
 # instance fields
-.field private mListener:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;
+.field public mListener:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener<",
@@ -30,11 +30,11 @@
     .end annotation
 .end field
 
-.field private final mName:Ljava/lang/String;
+.field public final mName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,14 +46,6 @@
 
 
 # virtual methods
-.method public final getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->mName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 .method public final invalidateList()V
     .locals 2
 
@@ -61,13 +53,11 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Pluggable<"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Pluggable<"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->mName:Ljava/lang/String;
 
@@ -95,21 +85,6 @@
 
 .method public onCleanup()V
     .locals 0
-
-    return-void
-.end method
-
-.method public final setInvalidationListener(Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener<",
-            "TThis;>;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable;->mListener:Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/Pluggable$PluggableListener;
 
     return-void
 .end method

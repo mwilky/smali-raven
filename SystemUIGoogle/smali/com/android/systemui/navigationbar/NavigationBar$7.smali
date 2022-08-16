@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationBar$7;
+.class public final Lcom/android/systemui/navigationbar/NavigationBar$7;
 .super Ljava/lang/Object;
 .source "NavigationBar.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field mHasBlurs:Z
+.field public mHasBlurs:Z
 
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBar$7;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
@@ -36,7 +36,7 @@
 
 
 # virtual methods
-.method public onBlurRadiusChanged(I)V
+.method public final onBlurRadiusChanged(I)V
     .locals 1
 
     if-eqz p1, :cond_0
@@ -60,16 +60,16 @@
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$7;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$300(Lcom/android/systemui/navigationbar/NavigationBar;)Lcom/android/systemui/navigationbar/NavigationBarView;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mRegionSamplingHelper:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
 
-    move-result-object p0
+    iput-boolean p1, p0, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->mWindowHasBlurs:Z
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBarView;->setWindowHasBlurs(Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->updateSamplingListener()V
 
     return-void
 .end method
 
-.method public onWallpaperZoomOutChanged(F)V
+.method public final onWallpaperZoomOutChanged(F)V
     .locals 0
 
     return-void

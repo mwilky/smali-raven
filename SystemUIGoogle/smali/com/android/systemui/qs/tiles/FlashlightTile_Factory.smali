@@ -6,146 +6,33 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/qs/tiles/FlashlightTile;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final activityStarterProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/ActivityStarter;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final backgroundLooperProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final activityStarterProvider:Ljavax/inject/Provider;
 
-.field private final falsingManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final backgroundLooperProvider:Ljavax/inject/Provider;
 
-.field private final flashlightControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/FlashlightController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final falsingManagerProvider:Ljavax/inject/Provider;
 
-.field private final hostProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSHost;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final flashlightControllerProvider:Ljavax/inject/Provider;
 
-.field private final mainHandlerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final hostProvider:Ljavax/inject/Provider;
 
-.field private final metricsLoggerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/MetricsLogger;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mainHandlerProvider:Ljavax/inject/Provider;
 
-.field private final qsLoggerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final metricsLoggerProvider:Ljavax/inject/Provider;
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final qsLoggerProvider:Ljavax/inject/Provider;
+
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/MetricsLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/ActivityStarter;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/FlashlightController;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p10, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->hostProvider:Ljavax/inject/Provider;
 
@@ -165,48 +52,19 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->flashlightControllerProvider:Ljavax/inject/Provider;
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
 .end method
 
 .method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/MetricsLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/ActivityStarter;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/FlashlightController;",
-            ">;)",
-            "Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;"
-        }
-    .end annotation
+    .locals 12
 
-    new-instance v10, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;
+    new-instance v11, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;
 
-    move-object v0, v10
+    const/4 v10, 0x0
+
+    move-object v0, v11
 
     move-object v1, p0
 
@@ -216,7 +74,7 @@
 
     move-object v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -226,17 +84,19 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
 
-    return-object v10
+    return-object v11
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/FlashlightController;)Lcom/android/systemui/qs/tiles/FlashlightTile;
-    .locals 11
+.method public static create$1(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;
+    .locals 12
 
-    new-instance v10, Lcom/android/systemui/qs/tiles/FlashlightTile;
+    new-instance v11, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;
 
-    move-object v0, v10
+    const/4 v10, 0x1
+
+    move-object v0, v11
 
     move-object v1, p0
 
@@ -246,7 +106,7 @@
 
     move-object v4, p3
 
-    move-object v5, p4
+    move-object/from16 v5, p4
 
     move-object/from16 v6, p5
 
@@ -256,27 +116,24 @@
 
     move-object/from16 v9, p8
 
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/FlashlightTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/FlashlightController;)V
+    invoke-direct/range {v0 .. v10}, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
 
-    return-object v10
+    return-object v11
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/tiles/FlashlightTile;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
+    iget v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->hostProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/qs/QSHost;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->backgroundLooperProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -284,9 +141,9 @@
 
     move-object v2, v0
 
-    check-cast v2, Landroid/os/Looper;
+    check-cast v2, Lcom/android/systemui/qs/QSHost;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->backgroundLooperProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -294,9 +151,9 @@
 
     move-object v3, v0
 
-    check-cast v3, Landroid/os/Handler;
+    check-cast v3, Landroid/os/Looper;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -304,9 +161,9 @@
 
     move-object v4, v0
 
-    check-cast v4, Lcom/android/systemui/plugins/FalsingManager;
+    check-cast v4, Landroid/os/Handler;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -314,9 +171,9 @@
 
     move-object v5, v0
 
-    check-cast v5, Lcom/android/internal/logging/MetricsLogger;
+    check-cast v5, Lcom/android/systemui/plugins/FalsingManager;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -324,9 +181,9 @@
 
     move-object v6, v0
 
-    check-cast v6, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v6, Lcom/android/internal/logging/MetricsLogger;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->activityStarterProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -334,9 +191,9 @@
 
     move-object v7, v0
 
-    check-cast v7, Lcom/android/systemui/plugins/ActivityStarter;
+    check-cast v7, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->activityStarterProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -344,7 +201,17 @@
 
     move-object v8, v0
 
-    check-cast v8, Lcom/android/systemui/qs/logging/QSLogger;
+    check-cast v8, Lcom/android/systemui/plugins/ActivityStarter;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Lcom/android/systemui/qs/logging/QSLogger;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->flashlightControllerProvider:Ljavax/inject/Provider;
 
@@ -352,23 +219,119 @@
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Lcom/android/systemui/statusbar/policy/FlashlightController;
+    check-cast v10, Lcom/android/systemui/statusbar/policy/FlashlightController;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->newInstance(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/FlashlightController;)Lcom/android/systemui/qs/tiles/FlashlightTile;
+    new-instance p0, Lcom/android/systemui/qs/tiles/FlashlightTile;
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/qs/tiles/FlashlightTile;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/statusbar/policy/FlashlightController;)V
+
+    return-object p0
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->hostProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->backgroundLooperProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/wm/shell/pip/phone/PhonePipMenuController;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/wm/shell/pip/PipBoundsState;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/wm/shell/pip/PipTaskOrganizer;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Lcom/android/wm/shell/pip/phone/PipMotionHelper;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->activityStarterProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v8, v0
+
+    check-cast v8, Lcom/android/wm/shell/common/FloatingContentCoordinator;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Lcom/android/wm/shell/pip/PipUiEventLogger;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->flashlightControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
+    move-object v10, p0
+
+    check-cast v10, Lcom/android/wm/shell/common/ShellExecutor;
+
+    new-instance p0, Lcom/android/wm/shell/pip/phone/PipTouchHandler;
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v10}, Lcom/android/wm/shell/pip/phone/PipTouchHandler;-><init>(Landroid/content/Context;Lcom/android/wm/shell/pip/phone/PhonePipMenuController;Lcom/android/wm/shell/pip/PipBoundsAlgorithm;Lcom/android/wm/shell/pip/PipBoundsState;Lcom/android/wm/shell/pip/PipTaskOrganizer;Lcom/android/wm/shell/pip/phone/PipMotionHelper;Lcom/android/wm/shell/common/FloatingContentCoordinator;Lcom/android/wm/shell/pip/PipUiEventLogger;Lcom/android/wm/shell/common/ShellExecutor;)V
+
     return-object p0
-.end method
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->get()Lcom/android/systemui/qs/tiles/FlashlightTile;
-
-    move-result-object p0
-
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/hardware/face/FaceManager$FaceDetectionCallback;
 
 
 # instance fields
@@ -22,12 +23,12 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onFaceDetected(IIZ)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda5;->f$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->$r8$lambda$6lT4f6JcVvl3z_tv5zbzGPXFYLM(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+    invoke-virtual {p0, p2, p3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->handleFaceAuthenticated(IZ)V
 
     return-void
 .end method

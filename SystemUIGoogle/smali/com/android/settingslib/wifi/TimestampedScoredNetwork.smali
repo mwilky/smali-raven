@@ -19,13 +19,13 @@
 
 
 # instance fields
-.field private mScore:Landroid/net/ScoredNetwork;
+.field public mScore:Landroid/net/ScoredNetwork;
 
-.field private mUpdatedTimestampMillis:J
+.field public mUpdatedTimestampMillis:J
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/settingslib/wifi/TimestampedScoredNetwork$1;
@@ -37,7 +37,7 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/net/ScoredNetwork;J)V
+.method public constructor <init>(Landroid/net/ScoredNetwork;J)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -49,7 +49,7 @@
     return-void
 .end method
 
-.method protected constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -79,7 +79,7 @@
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -87,33 +87,7 @@
     return p0
 .end method
 
-.method public getScore()Landroid/net/ScoredNetwork;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;->mScore:Landroid/net/ScoredNetwork;
-
-    return-object p0
-.end method
-
-.method public getUpdatedTimestampMillis()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;->mUpdatedTimestampMillis:J
-
-    return-wide v0
-.end method
-
-.method public update(Landroid/net/ScoredNetwork;J)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;->mScore:Landroid/net/ScoredNetwork;
-
-    iput-wide p2, p0, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;->mUpdatedTimestampMillis:J
-
-    return-void
-.end method
-
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;->mScore:Landroid/net/ScoredNetwork;

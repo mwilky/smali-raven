@@ -14,15 +14,15 @@
 # static fields
 .field public static NAMED_EASING:[Ljava/lang/String;
 
-.field static sDefault:Landroidx/constraintlayout/motion/utils/Easing;
+.field public static sDefault:Landroidx/constraintlayout/motion/utils/Easing;
 
 
 # instance fields
-.field str:Ljava/lang/String;
+.field public str:Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     new-instance v0, Landroidx/constraintlayout/motion/utils/Easing;
@@ -31,7 +31,7 @@
 
     sput-object v0, Landroidx/constraintlayout/motion/utils/Easing;->sDefault:Landroidx/constraintlayout/motion/utils/Easing;
 
-    const-string v0, "standard"
+    const-string/jumbo v0, "standard"
 
     const-string v1, "accelerate"
 
@@ -85,6 +85,8 @@
     return-object v0
 
     :cond_1
+    invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
+
     const/4 v0, -0x1
 
     invoke-virtual {p0}, Ljava/lang/String;->hashCode()I
@@ -96,7 +98,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v1, "standard"
+    const-string/jumbo v1, "standard"
 
     invoke-virtual {p0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -160,13 +162,11 @@
     :goto_0
     packed-switch v0, :pswitch_data_0
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    const-string/jumbo p0, "transitionEasing syntax error syntax:transitionEasing=\"cubic(1.0,0.5,0.0,0.6)\" or "
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "transitionEasing syntax error syntax:transitionEasing=\"cubic(1.0,0.5,0.0,0.6)\" or "
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p0
 
     sget-object v0, Landroidx/constraintlayout/motion/utils/Easing;->NAMED_EASING:[Ljava/lang/String;
 
@@ -224,6 +224,8 @@
 
     return-object p0
 
+    nop
+
     :sswitch_data_0
     .sparse-switch
         -0x50bb8523 -> :sswitch_3
@@ -257,7 +259,7 @@
     return-wide p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Landroidx/constraintlayout/motion/utils/Easing;->str:Ljava/lang/String;

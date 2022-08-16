@@ -1,12 +1,12 @@
-.class abstract Landroidx/appcompat/view/menu/BaseMenuWrapper;
+.class public abstract Landroidx/appcompat/view/menu/BaseMenuWrapper;
 .super Ljava/lang/Object;
 .source "BaseMenuWrapper.java"
 
 
 # instance fields
-.field final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mMenuItems:Landroidx/collection/SimpleArrayMap;
+.field public mMenuItems:Landroidx/collection/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/collection/SimpleArrayMap<",
@@ -17,7 +17,7 @@
     .end annotation
 .end field
 
-.field private mSubMenus:Landroidx/collection/SimpleArrayMap;
+.field public mSubMenus:Landroidx/collection/SimpleArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/collection/SimpleArrayMap<",
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,8 +42,8 @@
 
 
 # virtual methods
-.method final getMenuItemWrapper(Landroid/view/MenuItem;)Landroid/view/MenuItem;
-    .locals 2
+.method public final getMenuItemWrapper(Landroid/view/MenuItem;)Landroid/view/MenuItem;
+    .locals 3
 
     instance-of v0, p1, Landroidx/core/internal/view/SupportMenuItem;
 
@@ -66,7 +66,9 @@
     :cond_0
     iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v1, p1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, p1, v2}, Landroidx/collection/SimpleArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -88,7 +90,7 @@
     return-object p1
 .end method
 
-.method final getSubMenuWrapper(Landroid/view/SubMenu;)Landroid/view/SubMenu;
+.method public final getSubMenuWrapper(Landroid/view/SubMenu;)Landroid/view/SubMenu;
     .locals 2
 
     instance-of v0, p1, Landroidx/core/internal/view/SupportSubMenu;
@@ -110,7 +112,9 @@
     :cond_0
     iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mSubMenus:Landroidx/collection/SimpleArrayMap;
 
-    invoke-virtual {v0, p1}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, p1, v1}, Landroidx/collection/SimpleArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -133,125 +137,4 @@
 
     :cond_2
     return-object p1
-.end method
-
-.method final internalClear()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Landroidx/collection/SimpleArrayMap;->clear()V
-
-    :cond_0
-    iget-object p0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mSubMenus:Landroidx/collection/SimpleArrayMap;
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p0}, Landroidx/collection/SimpleArrayMap;->clear()V
-
-    :cond_1
-    return-void
-.end method
-
-.method final internalRemoveGroup(I)V
-    .locals 2
-
-    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    invoke-virtual {v1}, Landroidx/collection/SimpleArrayMap;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_2
-
-    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroidx/core/internal/view/SupportMenuItem;
-
-    invoke-interface {v1}, Landroid/view/MenuItem;->getGroupId()I
-
-    move-result v1
-
-    if-ne v1, p1, :cond_1
-
-    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->removeAt(I)Ljava/lang/Object;
-
-    add-int/lit8 v0, v0, -0x1
-
-    :cond_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    return-void
-.end method
-
-.method final internalRemoveItem(I)V
-    .locals 2
-
-    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    invoke-virtual {v1}, Landroidx/collection/SimpleArrayMap;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_2
-
-    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->keyAt(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroidx/core/internal/view/SupportMenuItem;
-
-    invoke-interface {v1}, Landroid/view/MenuItem;->getItemId()I
-
-    move-result v1
-
-    if-ne v1, p1, :cond_1
-
-    iget-object p0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
-
-    invoke-virtual {p0, v0}, Landroidx/collection/SimpleArrayMap;->removeAt(I)Ljava/lang/Object;
-
-    goto :goto_1
-
-    :cond_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_2
-    :goto_1
-    return-void
 .end method

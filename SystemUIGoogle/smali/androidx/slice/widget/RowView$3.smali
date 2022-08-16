@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/RowView$3;
+.class public final Landroidx/slice/widget/RowView$3;
 .super Ljava/lang/Object;
 .source "RowView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/slice/widget/RowView;
+.field public final synthetic this$0:Landroidx/slice/widget/RowView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/RowView;)V
+.method public constructor <init>(Landroidx/slice/widget/RowView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/RowView$3;->this$0:Landroidx/slice/widget/RowView;
 
@@ -42,20 +34,8 @@
 
 
 # virtual methods
-.method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
+.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "seekBar",
-            "progress",
-            "fromUser"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/slice/widget/RowView$3;->this$0:Landroidx/slice/widget/RowView;
 
@@ -93,7 +73,7 @@
 
     iget-object p1, p3, Landroidx/slice/widget/RowView;->mHandler:Landroid/os/Handler;
 
-    iget-object p2, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Ljava/lang/Runnable;
+    iget-object p2, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Landroidx/slice/widget/RowView$2;
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -114,7 +94,7 @@
 
     iget-object p0, p3, Landroidx/slice/widget/RowView;->mHandler:Landroid/os/Handler;
 
-    iget-object p1, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Ljava/lang/Runnable;
+    iget-object p1, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Landroidx/slice/widget/RowView$2;
 
     invoke-virtual {p0, p1, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
@@ -123,16 +103,8 @@
     return-void
 .end method
 
-.method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "seekBar"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/slice/widget/RowView$3;->this$0:Landroidx/slice/widget/RowView;
 
@@ -143,16 +115,8 @@
     return-void
 .end method
 
-.method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStopTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "seekBar"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/widget/RowView$3;->this$0:Landroidx/slice/widget/RowView;
 
@@ -164,18 +128,14 @@
 
     if-nez v2, :cond_0
 
-    iget-boolean v2, v0, Landroidx/slice/widget/RowView;->mRangeHasPendingUpdate:Z
-
-    if-eqz v2, :cond_1
+    goto :goto_0
 
     :cond_0
     iput-boolean v1, v0, Landroidx/slice/widget/RowView;->mRangeUpdaterRunning:Z
 
-    iput-boolean v1, v0, Landroidx/slice/widget/RowView;->mRangeHasPendingUpdate:Z
-
     iget-object v1, v0, Landroidx/slice/widget/RowView;->mHandler:Landroid/os/Handler;
 
-    iget-object v0, v0, Landroidx/slice/widget/RowView;->mRangeUpdater:Ljava/lang/Runnable;
+    iget-object v0, v0, Landroidx/slice/widget/RowView;->mRangeUpdater:Landroidx/slice/widget/RowView$2;
 
     invoke-virtual {v1, v0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -195,6 +155,6 @@
 
     invoke-virtual {p0}, Landroidx/slice/widget/RowView;->sendSliderValue()V
 
-    :cond_1
+    :goto_0
     return-void
 .end method

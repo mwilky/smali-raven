@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnAnimationEndListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onAnimationEnd()V
-.end method

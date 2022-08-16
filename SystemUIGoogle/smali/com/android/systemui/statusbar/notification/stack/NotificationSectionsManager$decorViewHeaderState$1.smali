@@ -7,62 +7,49 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager;->decorViewHeaderState(Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
         "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-        "TT;>;"
+        "Ljava/lang/Object;",
+        ">;"
     }
 .end annotation
 
 
 # instance fields
-.field private final synthetic $$delegate_0:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+.field public final synthetic $$delegate_0:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "TT;>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 .end field
 
-.field final synthetic $header:Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;
+.field public final synthetic $header:Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "TT;"
+            "Ljava/lang/Object;"
         }
     .end annotation
 .end field
 
-.field final synthetic $inner:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
+.field public final synthetic $inner:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "TT;>;"
+            "Ljava/lang/Object;",
+            ">;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$expandableViewHeaderState$1;Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState<",
-            "+TT;>;TT;)V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->$inner:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
 
@@ -77,7 +64,7 @@
 
 
 # virtual methods
-.method public adjustViewPosition()V
+.method public final adjustViewPosition()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->$inner:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
@@ -106,7 +93,7 @@
     return-void
 .end method
 
-.method public getCurrentPosition()Ljava/lang/Integer;
+.method public final getCurrentPosition()Ljava/lang/Integer;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->$$delegate_0:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
@@ -118,7 +105,7 @@
     return-object p0
 .end method
 
-.method public getTargetPosition()Ljava/lang/Integer;
+.method public final getTargetPosition()Ljava/lang/Integer;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->$$delegate_0:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
@@ -130,7 +117,7 @@
     return-object p0
 .end method
 
-.method public setCurrentPosition(Ljava/lang/Integer;)V
+.method public final setCurrentPosition(Ljava/lang/Integer;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->$$delegate_0:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;
@@ -140,7 +127,7 @@
     return-void
 .end method
 
-.method public setTargetPosition(Ljava/lang/Integer;)V
+.method public final setTargetPosition(Ljava/lang/Integer;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$decorViewHeaderState$1;->$$delegate_0:Lcom/android/systemui/statusbar/notification/stack/NotificationSectionsManager$SectionUpdateState;

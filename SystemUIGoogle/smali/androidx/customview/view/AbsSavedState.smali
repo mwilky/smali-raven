@@ -29,7 +29,7 @@
 
 
 # instance fields
-.field private final mSuperState:Landroid/os/Parcelable;
+.field public final mSuperState:Landroid/os/Parcelable;
 
 
 # direct methods
@@ -51,7 +51,7 @@
     return-void
 .end method
 
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,7 +63,7 @@
     return-void
 .end method
 
-.method protected constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
+.method public constructor <init>(Landroid/os/Parcel;Ljava/lang/ClassLoader;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -85,7 +85,7 @@
     return-void
 .end method
 
-.method protected constructor <init>(Landroid/os/Parcelable;)V
+.method public constructor <init>(Landroid/os/Parcelable;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -109,37 +109,21 @@
     :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    const-string p1, "superState must not be null"
+    const-string/jumbo p1, "superState must not be null"
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw p0
 .end method
 
-.method synthetic constructor <init>(Landroidx/customview/view/AbsSavedState$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Landroidx/customview/view/AbsSavedState;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
 
     return p0
-.end method
-
-.method public final getSuperState()Landroid/os/Parcelable;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/customview/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
-
-    return-object p0
 .end method
 
 .method public writeToParcel(Landroid/os/Parcel;I)V

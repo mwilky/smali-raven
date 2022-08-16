@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/content/Repeater;
+.class public final Lcom/airbnb/lottie/model/content/Repeater;
 .super Ljava/lang/Object;
 .source "Repeater.java"
 
@@ -7,15 +7,15 @@
 
 
 # instance fields
-.field private final copies:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final copies:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final hidden:Z
+.field public final hidden:Z
 
-.field private final name:Ljava/lang/String;
+.field public final name:Ljava/lang/String;
 
-.field private final offset:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final offset:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final transform:Lcom/airbnb/lottie/model/animatable/AnimatableTransform;
+.field public final transform:Lcom/airbnb/lottie/model/animatable/AnimatableTransform;
 
 
 # direct methods
@@ -39,47 +39,7 @@
 
 
 # virtual methods
-.method public getCopies()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/Repeater;->copies:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/Repeater;->name:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getOffset()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/Repeater;->offset:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    return-object p0
-.end method
-
-.method public getTransform()Lcom/airbnb/lottie/model/animatable/AnimatableTransform;
-    .locals 0
-
-    iget-object p0, p0, Lcom/airbnb/lottie/model/content/Repeater;->transform:Lcom/airbnb/lottie/model/animatable/AnimatableTransform;
-
-    return-object p0
-.end method
-
-.method public isHidden()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/airbnb/lottie/model/content/Repeater;->hidden:Z
-
-    return p0
-.end method
-
-.method public toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
+.method public final toContent(Lcom/airbnb/lottie/LottieDrawable;Lcom/airbnb/lottie/model/layer/BaseLayer;)Lcom/airbnb/lottie/animation/content/Content;
     .locals 1
 
     new-instance v0, Lcom/airbnb/lottie/animation/content/RepeaterContent;

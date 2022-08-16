@@ -1,105 +1,11 @@
-.class public Lcom/android/systemui/statusbar/notification/PropertyAnimator;
+.class public final Lcom/android/systemui/statusbar/notification/PropertyAnimator;
 .super Ljava/lang/Object;
 .source "PropertyAnimator.java"
 
 
 # direct methods
-.method public static synthetic $r8$lambda$T5f-JIfwsdoPWaJ1XCzMTWFCDI4(Landroid/util/Property;Landroid/view/View;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->lambda$startAnimation$0(Landroid/util/Property;Landroid/view/View;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static applyImmediately(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;F)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Landroid/view/View;",
-            ">(TT;",
-            "Lcom/android/systemui/statusbar/notification/AnimatableProperty;",
-            "F)V"
-        }
-    .end annotation
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->cancelAnimation(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;)V
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->getProperty()Landroid/util/Property;
-
-    move-result-object p1
-
-    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p0, p2}, Landroid/util/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public static cancelAnimation(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;)V
-    .locals 0
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->getAnimatorTag()I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/animation/ValueAnimator;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->cancel()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public static isAnimating(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;)Z
-    .locals 0
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->getAnimatorTag()I
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method private static synthetic lambda$startAnimation$0(Landroid/util/Property;Landroid/view/View;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p2}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Ljava/lang/Float;
-
-    invoke-virtual {p0, p1, p2}, Landroid/util/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
 .method public static setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -116,7 +22,9 @@
 
     move-result v0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    sget-object v1, Lcom/android/systemui/statusbar/notification/stack/ViewState;->NO_NEW_ANIMATIONS:Lcom/android/systemui/statusbar/notification/stack/ViewState$1;
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -158,7 +66,7 @@
 .end method
 
 .method public static startAnimation(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;)V
-    .locals 11
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -183,13 +91,15 @@
 
     move-result v2
 
-    invoke-static {p0, v1}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    sget-object v3, Lcom/android/systemui/statusbar/notification/stack/ViewState;->NO_NEW_ANIMATIONS:Lcom/android/systemui/statusbar/notification/stack/ViewState$1;
+
+    invoke-virtual {p0, v1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Ljava/lang/Float;
 
-    invoke-static {p0, v2}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    invoke-virtual {p0, v2}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v4
 
@@ -212,7 +122,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->getChildTag(Landroid/view/View;I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -238,7 +148,7 @@
 
     const/4 v10, 0x0
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     invoke-virtual {v7, v0}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->shouldAnimateProperty(Landroid/util/Property;)Z
 
@@ -282,57 +192,66 @@
     return-void
 
     :cond_5
-    new-array v6, v9, [F
+    new-array v7, v9, [F
 
     invoke-virtual {v3}, Ljava/lang/Float;->floatValue()F
 
-    move-result v7
+    move-result v9
 
-    aput v7, v6, v10
+    aput v9, v7, v10
 
-    aput p2, v6, v8
+    aput p2, v7, v8
 
-    invoke-static {v6}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+    invoke-static {v7}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
-    move-result-object v6
+    move-result-object v7
 
-    new-instance v7, Lcom/android/systemui/statusbar/notification/PropertyAnimator$$ExternalSyntheticLambda0;
+    new-instance v8, Lcom/android/systemui/statusbar/notification/PropertyAnimator$$ExternalSyntheticLambda0;
 
-    invoke-direct {v7, v0, p0}, Lcom/android/systemui/statusbar/notification/PropertyAnimator$$ExternalSyntheticLambda0;-><init>(Landroid/util/Property;Landroid/view/View;)V
+    invoke-direct {v8, v0, p0}, Lcom/android/systemui/statusbar/notification/PropertyAnimator$$ExternalSyntheticLambda0;-><init>(Landroid/util/Property;Landroid/view/View;)V
 
-    invoke-virtual {v6, v7}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v7, v8}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    invoke-virtual {p3, p0, v0}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->getCustomInterpolator(Landroid/view/View;Landroid/util/Property;)Landroid/view/animation/Interpolator;
+    iget-object v8, p3, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->mInterpolatorMap:Landroid/util/ArrayMap;
+
+    if-eqz v8, :cond_6
+
+    invoke-virtual {v8, v0}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_6
+    move-object v6, v0
+
+    check-cast v6, Landroid/view/animation/Interpolator;
+
+    :cond_6
+    if-eqz v6, :cond_7
 
     goto :goto_1
 
-    :cond_6
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    :cond_7
+    sget-object v6, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
 
     :goto_1
-    invoke-virtual {v6, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v7, v6}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
-    iget-wide v7, p3, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->duration:J
+    iget-wide v8, p3, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->duration:J
 
-    invoke-static {v7, v8, v5}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->cancelAnimatorAndGetNewDuration(JLandroid/animation/ValueAnimator;)J
+    invoke-static {v8, v9, v5}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->cancelAnimatorAndGetNewDuration(JLandroid/animation/ValueAnimator;)J
 
-    move-result-wide v7
+    move-result-wide v8
 
-    invoke-virtual {v6, v7, v8}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {v7, v8, v9}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    iget-wide v7, p3, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->delay:J
+    iget-wide v8, p3, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->delay:J
 
-    const-wide/16 v9, 0x0
+    const-wide/16 v10, 0x0
 
-    cmp-long v0, v7, v9
+    cmp-long v0, v8, v10
 
-    if-lez v0, :cond_8
+    if-lez v0, :cond_9
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_8
 
     invoke-virtual {v5}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
 
@@ -342,28 +261,28 @@
 
     cmpl-float v0, v0, v5
 
-    if-nez v0, :cond_8
-
-    :cond_7
-    iget-wide v7, p3, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->delay:J
-
-    invoke-virtual {v6, v7, v8}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
+    if-nez v0, :cond_9
 
     :cond_8
-    if-eqz v4, :cond_9
+    iget-wide v5, p3, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->delay:J
 
-    invoke-virtual {v6, v4}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v7, v5, v6}, Landroid/animation/ValueAnimator;->setStartDelay(J)V
 
     :cond_9
+    if-eqz v4, :cond_a
+
+    invoke-virtual {v7, v4}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    :cond_a
     new-instance p3, Lcom/android/systemui/statusbar/notification/PropertyAnimator$1;
 
     invoke-direct {p3, p0, p1, v1, v2}, Lcom/android/systemui/statusbar/notification/PropertyAnimator$1;-><init>(Landroid/view/View;III)V
 
-    invoke-virtual {v6, p3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {v7, p3}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-static {v6, v4}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->startAnimator(Landroid/animation/Animator;Landroid/animation/AnimatorListenerAdapter;)V
+    invoke-static {v7, v4}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->startAnimator(Landroid/animation/ValueAnimator;Landroid/animation/AnimatorListenerAdapter;)V
 
-    invoke-virtual {p0, p1, v6}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {p0, p1, v7}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     invoke-virtual {p0, v1, v3}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -375,9 +294,9 @@
 
     return-void
 
-    :cond_a
+    :cond_b
     :goto_2
-    if-eqz v5, :cond_b
+    if-eqz v5, :cond_c
 
     invoke-virtual {v5}, Landroid/animation/ValueAnimator;->getValues()[Landroid/animation/PropertyValuesHolder;
 
@@ -425,7 +344,7 @@
 
     return-void
 
-    :cond_b
+    :cond_c
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p1

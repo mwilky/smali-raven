@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/SidefpsController;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/SidefpsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController$orientationListener$1;->this$0:Lcom/android/systemui/biometrics/SidefpsController;
@@ -45,22 +45,19 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/SidefpsController$orientationListener$1;->invoke()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke()V
-    .locals 0
+.method public final invoke()Ljava/lang/Object;
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController$orientationListener$1;->this$0:Lcom/android/systemui/biometrics/SidefpsController;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/SidefpsController;->access$onOrientationChanged(Lcom/android/systemui/biometrics/SidefpsController;)V
+    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayView:Landroid/view/View;
 
-    return-void
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/SidefpsController;->createOverlayForDisplay()V
+
+    :cond_0
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

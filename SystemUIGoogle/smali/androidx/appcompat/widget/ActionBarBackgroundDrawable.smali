@@ -1,10 +1,10 @@
-.class Landroidx/appcompat/widget/ActionBarBackgroundDrawable;
+.class public final Landroidx/appcompat/widget/ActionBarBackgroundDrawable;
 .super Landroid/graphics/drawable/Drawable;
 .source "ActionBarBackgroundDrawable.java"
 
 
 # instance fields
-.field final mContainer:Landroidx/appcompat/widget/ActionBarContainer;
+.field public final mContainer:Landroidx/appcompat/widget/ActionBarContainer;
 
 
 # direct methods
@@ -20,7 +20,7 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 2
 
     iget-object v0, p0, Landroidx/appcompat/widget/ActionBarBackgroundDrawable;->mContainer:Landroidx/appcompat/widget/ActionBarContainer;
@@ -62,7 +62,7 @@
     return-void
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, 0x0
@@ -70,7 +70,7 @@
     return p0
 .end method
 
-.method public getOutline(Landroid/graphics/Outline;)V
+.method public final getOutline(Landroid/graphics/Outline;)V
     .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActionBarBackgroundDrawable;->mContainer:Landroidx/appcompat/widget/ActionBarContainer;
@@ -99,13 +99,13 @@
     return-void
 .end method
 
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 0
 
     return-void
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
 
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/StatusBarIconView$3;
+.class public final Lcom/android/systemui/statusbar/StatusBarIconView$3;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "StatusBarIconView.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/StatusBarIconView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/StatusBarIconView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/StatusBarIconView$3;->this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
@@ -31,20 +31,18 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/StatusBarIconView$3;->this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;->access$002(Lcom/android/systemui/statusbar/StatusBarIconView;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/StatusBarIconView$3;->this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/StatusBarIconView;->access$102(Lcom/android/systemui/statusbar/StatusBarIconView;I)I
+    iput-object p1, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mColorAnimator:Landroid/animation/ValueAnimator;
+
+    const/4 p1, 0x0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/StatusBarIconView;->mAnimationStartColor:I
 
     return-void
 .end method

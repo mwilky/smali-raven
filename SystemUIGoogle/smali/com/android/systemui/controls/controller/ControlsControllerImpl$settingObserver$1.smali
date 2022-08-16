@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)V
+.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$settingObserver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public onChange(ZLjava/util/Collection;II)V
+.method public final onChange(ZLjava/util/Collection;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -45,19 +45,11 @@
         }
     .end annotation
 
-    const-string/jumbo p1, "uris"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$settingObserver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
-    invoke-static {p1}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$getUserChanging$p(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)Z
+    iget-boolean p2, p1, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->userChanging:Z
 
-    move-result p1
-
-    if-nez p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$settingObserver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
+    if-nez p2, :cond_1
 
     invoke-virtual {p1}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->getCurrentUserId()I
 
@@ -70,7 +62,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$settingObserver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$resetFavorites(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)V
+    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->resetFavorites()V
 
     :cond_1
     :goto_0

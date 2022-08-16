@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$2;
+.class public final Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$2;
 .super Ljava/lang/Object;
 .source "VisualStabilityManager.java"
 
@@ -8,21 +8,21 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)V
+    value = Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/provider/VisualStabilityProvider;Landroid/os/Handler;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/systemui/dump/DumpManager;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$2;->this$0:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
@@ -34,22 +34,34 @@
 
 
 # virtual methods
-.method public onExpandedChanged(Z)V
+.method public final onExpandedChanged(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$2;->this$0:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->access$200(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Z)V
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->mPanelExpanded:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->updateAllowedStates()V
 
     return-void
 .end method
 
-.method public onPulsingChanged(Z)V
-    .locals 0
+.method public final onPulsingChanged(Z)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager$2;->this$0:Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->access$100(Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Z)V
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->mPulsing:Z
 
+    if-ne v0, p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->mPulsing:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;->updateAllowedStates()V
+
+    :goto_0
     return-void
 .end method

@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field final synthetic $onAnimationEnd:Ljava/lang/Runnable;
+.field public final synthetic $onAnimationEnd:Ljava/lang/Runnable;
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/charging/ChargingRippleView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/charging/ChargingRippleView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/charging/ChargingRippleView;Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/charging/ChargingRippleView;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/charging/ChargingRippleView$startRipple$2;->this$0:Lcom/android/systemui/statusbar/charging/ChargingRippleView;
@@ -35,20 +35,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/charging/ChargingRippleView$startRipple$2;->this$0:Lcom/android/systemui/statusbar/charging/ChargingRippleView;
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/charging/ChargingRippleView;->setRippleInProgress(Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/charging/ChargingRippleView$startRipple$2;->this$0:Lcom/android/systemui/statusbar/charging/ChargingRippleView;
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+    iput-boolean v0, p1, Lcom/android/systemui/statusbar/charging/ChargingRippleView;->rippleInProgress:Z
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/charging/ChargingRippleView$startRipple$2;->$onAnimationEnd:Ljava/lang/Runnable;
 

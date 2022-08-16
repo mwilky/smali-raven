@@ -12,15 +12,15 @@
 
 
 # instance fields
-.field private mChangeFlags:I
+.field public mChangeFlags:I
 
-.field mCurrentListeners:I
+.field public mCurrentListeners:I
 
-.field private mPlayTogether:Z
+.field public mPlayTogether:Z
 
-.field mStarted:Z
+.field public mStarted:Z
 
-.field private mTransitions:Ljava/util/ArrayList;
+.field public mTransitions:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -90,108 +90,30 @@
 
     check-cast p2, Landroid/content/res/XmlResourceParser;
 
-    const-string v1, "transitionOrdering"
+    const-string/jumbo v1, "transitionOrdering"
 
     invoke-static {p1, p2, v1, v0, v0}, Landroidx/core/content/res/TypedArrayUtils;->getNamedInt(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;II)I
 
     move-result p2
 
-    invoke-virtual {p0, p2}, Landroidx/transition/TransitionSet;->setOrdering(I)Landroidx/transition/TransitionSet;
+    invoke-virtual {p0, p2}, Landroidx/transition/TransitionSet;->setOrdering(I)V
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
     return-void
 .end method
 
-.method private addTransitionInternal(Landroidx/transition/Transition;)V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    iput-object p0, p1, Landroidx/transition/Transition;->mParent:Landroidx/transition/TransitionSet;
-
-    return-void
-.end method
-
-.method private setupStartEndListeners()V
-    .locals 3
-
-    new-instance v0, Landroidx/transition/TransitionSet$TransitionSetListener;
-
-    invoke-direct {v0, p0}, Landroidx/transition/TransitionSet$TransitionSetListener;-><init>(Landroidx/transition/TransitionSet;)V
-
-    iget-object v1, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
-
-    :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroidx/transition/Transition;
-
-    invoke-virtual {v2, v0}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    iput v0, p0, Landroidx/transition/TransitionSet;->mCurrentListeners:I
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public bridge synthetic addListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+.method public final addListener(Landroidx/transition/Transition$TransitionListener;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Landroidx/transition/TransitionSet;->addListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/TransitionSet;
+    invoke-super {p0, p1}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method public addListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/TransitionSet;
-    .locals 0
-
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/transition/TransitionSet;
-
-    return-object p0
-.end method
-
-.method public bridge synthetic addTarget(Landroid/view/View;)Landroidx/transition/Transition;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/transition/TransitionSet;->addTarget(Landroid/view/View;)Landroidx/transition/TransitionSet;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public addTarget(Landroid/view/View;)Landroidx/transition/TransitionSet;
+.method public final addTarget(Landroid/view/View;)V
     .locals 2
 
     const/4 v0, 0x0
@@ -213,26 +135,28 @@
 
     check-cast v1, Landroidx/transition/Transition;
 
-    invoke-virtual {v1, p1}, Landroidx/transition/Transition;->addTarget(Landroid/view/View;)Landroidx/transition/Transition;
+    invoke-virtual {v1, p1}, Landroidx/transition/Transition;->addTarget(Landroid/view/View;)V
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->addTarget(Landroid/view/View;)Landroidx/transition/Transition;
+    iget-object p0, p0, Landroidx/transition/Transition;->mTargets:Ljava/util/ArrayList;
 
-    move-result-object p0
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    check-cast p0, Landroidx/transition/TransitionSet;
-
-    return-object p0
+    return-void
 .end method
 
-.method public addTransition(Landroidx/transition/Transition;)Landroidx/transition/TransitionSet;
+.method public final addTransition(Landroidx/transition/Transition;)V
     .locals 4
 
-    invoke-direct {p0, p1}, Landroidx/transition/TransitionSet;->addTransitionInternal(Landroidx/transition/Transition;)V
+    iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iput-object p0, p1, Landroidx/transition/Transition;->mParent:Landroidx/transition/TransitionSet;
 
     iget-wide v0, p0, Landroidx/transition/Transition;->mDuration:J
 
@@ -242,7 +166,7 @@
 
     if-ltz v2, :cond_0
 
-    invoke-virtual {p1, v0, v1}, Landroidx/transition/Transition;->setDuration(J)Landroidx/transition/Transition;
+    invoke-virtual {p1, v0, v1}, Landroidx/transition/Transition;->setDuration(J)V
 
     :cond_0
     iget v0, p0, Landroidx/transition/TransitionSet;->mChangeFlags:I
@@ -251,11 +175,9 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Landroidx/transition/Transition;->getInterpolator()Landroid/animation/TimeInterpolator;
+    iget-object v0, p0, Landroidx/transition/Transition;->mInterpolator:Landroid/animation/TimeInterpolator;
 
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroidx/transition/Transition;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroidx/transition/Transition;
+    invoke-virtual {p1, v0}, Landroidx/transition/Transition;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     :cond_1
     iget v0, p0, Landroidx/transition/TransitionSet;->mChangeFlags:I
@@ -264,9 +186,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-virtual {p0}, Landroidx/transition/Transition;->getPropagation()Landroidx/transition/TransitionPropagation;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/transition/Transition;->mPropagation:Landroidx/transition/TransitionPropagation;
 
     invoke-virtual {p1, v0}, Landroidx/transition/Transition;->setPropagation(Landroidx/transition/TransitionPropagation;)V
 
@@ -277,9 +197,7 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {p0}, Landroidx/transition/Transition;->getPathMotion()Landroidx/transition/PathMotion;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/transition/Transition;->mPathMotion:Landroidx/transition/PathMotion;
 
     invoke-virtual {p1, v0}, Landroidx/transition/Transition;->setPathMotion(Landroidx/transition/PathMotion;)V
 
@@ -290,17 +208,15 @@
 
     if-eqz v0, :cond_4
 
-    invoke-virtual {p0}, Landroidx/transition/Transition;->getEpicenterCallback()Landroidx/transition/Transition$EpicenterCallback;
+    iget-object p0, p0, Landroidx/transition/Transition;->mEpicenterCallback:Landroidx/transition/Transition$EpicenterCallback;
 
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroidx/transition/Transition;->setEpicenterCallback(Landroidx/transition/Transition$EpicenterCallback;)V
+    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->setEpicenterCallback(Landroidx/transition/Transition$EpicenterCallback;)V
 
     :cond_4
-    return-object p0
+    return-void
 .end method
 
-.method protected cancel()V
+.method public final cancel()V
     .locals 3
 
     invoke-super {p0}, Landroidx/transition/Transition;->cancel()V
@@ -334,7 +250,7 @@
     return-void
 .end method
 
-.method public captureEndValues(Landroidx/transition/TransitionValues;)V
+.method public final captureEndValues(Landroidx/transition/TransitionValues;)V
     .locals 2
 
     iget-object v0, p1, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
@@ -385,7 +301,7 @@
     return-void
 .end method
 
-.method capturePropagationValues(Landroidx/transition/TransitionValues;)V
+.method public final capturePropagationValues(Landroidx/transition/TransitionValues;)V
     .locals 3
 
     invoke-super {p0, p1}, Landroidx/transition/Transition;->capturePropagationValues(Landroidx/transition/TransitionValues;)V
@@ -419,7 +335,7 @@
     return-void
 .end method
 
-.method public captureStartValues(Landroidx/transition/TransitionValues;)V
+.method public final captureStartValues(Landroidx/transition/TransitionValues;)V
     .locals 2
 
     iget-object v0, p1, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
@@ -470,8 +386,8 @@
     return-void
 .end method
 
-.method public clone()Landroidx/transition/Transition;
-    .locals 4
+.method public final clone()Landroidx/transition/Transition;
+    .locals 5
 
     invoke-super {p0}, Landroidx/transition/Transition;->clone()Landroidx/transition/Transition;
 
@@ -508,7 +424,11 @@
 
     move-result-object v3
 
-    invoke-direct {v0, v3}, Landroidx/transition/TransitionSet;->addTransitionInternal(Landroidx/transition/Transition;)V
+    iget-object v4, v0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iput-object v0, v3, Landroidx/transition/Transition;->mParent:Landroidx/transition/TransitionSet;
 
     add-int/lit8 v2, v2, 0x1
 
@@ -518,7 +438,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic clone()Ljava/lang/Object;
+.method public final bridge synthetic clone()Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -533,7 +453,7 @@
     return-object p0
 .end method
 
-.method createAnimators(Landroid/view/ViewGroup;Landroidx/transition/TransitionValuesMaps;Landroidx/transition/TransitionValuesMaps;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+.method public final createAnimators(Landroid/view/ViewGroup;Landroidx/transition/TransitionValuesMaps;Landroidx/transition/TransitionValuesMaps;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -552,9 +472,7 @@
 
     move-object v0, p0
 
-    invoke-virtual {p0}, Landroidx/transition/Transition;->getStartDelay()J
-
-    move-result-wide v1
+    iget-wide v1, v0, Landroidx/transition/Transition;->mStartDelay:J
 
     iget-object v3, v0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
 
@@ -590,9 +508,7 @@
     if-nez v4, :cond_2
 
     :cond_0
-    invoke-virtual {v6}, Landroidx/transition/Transition;->getStartDelay()J
-
-    move-result-wide v9
+    iget-wide v9, v6, Landroidx/transition/Transition;->mStartDelay:J
 
     cmp-long v5, v9, v7
 
@@ -600,12 +516,12 @@
 
     add-long/2addr v9, v1
 
-    invoke-virtual {v6, v9, v10}, Landroidx/transition/Transition;->setStartDelay(J)Landroidx/transition/Transition;
+    invoke-virtual {v6, v9, v10}, Landroidx/transition/Transition;->setStartDelay(J)V
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v6, v1, v2}, Landroidx/transition/Transition;->setStartDelay(J)Landroidx/transition/Transition;
+    invoke-virtual {v6, v1, v2}, Landroidx/transition/Transition;->setStartDelay(J)V
 
     :cond_2
     :goto_1
@@ -629,52 +545,7 @@
     return-void
 .end method
 
-.method public getTransitionAt(I)Landroidx/transition/Transition;
-    .locals 1
-
-    if-ltz p1, :cond_1
-
-    iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-lt p1, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/transition/Transition;
-
-    return-object p0
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-.method public getTransitionCount()I
-    .locals 0
-
-    iget-object p0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public pause(Landroid/view/View;)V
+.method public final pause(Landroid/view/View;)V
     .locals 3
 
     invoke-super {p0, p1}, Landroidx/transition/Transition;->pause(Landroid/view/View;)V
@@ -708,39 +579,15 @@
     return-void
 .end method
 
-.method public bridge synthetic removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+.method public final removeListener(Landroidx/transition/Transition$TransitionListener;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Landroidx/transition/TransitionSet;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/TransitionSet;
+    invoke-super {p0, p1}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method public removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/TransitionSet;
-    .locals 0
-
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/transition/TransitionSet;
-
-    return-object p0
-.end method
-
-.method public bridge synthetic removeTarget(Landroid/view/View;)Landroidx/transition/Transition;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/transition/TransitionSet;->removeTarget(Landroid/view/View;)Landroidx/transition/TransitionSet;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public removeTarget(Landroid/view/View;)Landroidx/transition/TransitionSet;
+.method public final removeTarget(Landroid/view/View;)V
     .locals 2
 
     const/4 v0, 0x0
@@ -762,26 +609,24 @@
 
     check-cast v1, Landroidx/transition/Transition;
 
-    invoke-virtual {v1, p1}, Landroidx/transition/Transition;->removeTarget(Landroid/view/View;)Landroidx/transition/Transition;
+    invoke-virtual {v1, p1}, Landroidx/transition/Transition;->removeTarget(Landroid/view/View;)V
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->removeTarget(Landroid/view/View;)Landroidx/transition/Transition;
+    iget-object p0, p0, Landroidx/transition/Transition;->mTargets:Ljava/util/ArrayList;
 
-    move-result-object p0
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    check-cast p0, Landroidx/transition/TransitionSet;
-
-    return-object p0
+    return-void
 .end method
 
-.method public resume(Landroid/view/View;)V
+.method public final resume(Landroid/view/ViewGroup;)V
     .locals 3
 
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->resume(Landroid/view/View;)V
+    invoke-super {p0, p1}, Landroidx/transition/Transition;->resume(Landroid/view/ViewGroup;)V
 
     iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
 
@@ -802,7 +647,7 @@
 
     check-cast v2, Landroidx/transition/Transition;
 
-    invoke-virtual {v2, p1}, Landroidx/transition/Transition;->resume(Landroid/view/View;)V
+    invoke-virtual {v2, p1}, Landroidx/transition/Transition;->resume(Landroid/view/ViewGroup;)V
 
     add-int/lit8 v1, v1, 0x1
 
@@ -812,7 +657,7 @@
     return-void
 .end method
 
-.method protected runAnimators()V
+.method public final runAnimators()V
     .locals 4
 
     iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
@@ -830,22 +675,56 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Landroidx/transition/TransitionSet;->setupStartEndListeners()V
+    new-instance v0, Landroidx/transition/TransitionSet$TransitionSetListener;
+
+    invoke-direct {v0, p0}, Landroidx/transition/TransitionSet$TransitionSetListener;-><init>(Landroidx/transition/TransitionSet;)V
+
+    iget-object v1, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroidx/transition/Transition;
+
+    invoke-virtual {v2, v0}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    iput v0, p0, Landroidx/transition/TransitionSet;->mCurrentListeners:I
 
     iget-boolean v0, p0, Landroidx/transition/TransitionSet;->mPlayTogether:Z
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const/4 v0, 0x1
 
-    :goto_0
+    :goto_1
     iget-object v1, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
 
@@ -867,15 +746,15 @@
 
     new-instance v3, Landroidx/transition/TransitionSet$1;
 
-    invoke-direct {v3, p0, v2}, Landroidx/transition/TransitionSet$1;-><init>(Landroidx/transition/TransitionSet;Landroidx/transition/Transition;)V
+    invoke-direct {v3, v2}, Landroidx/transition/TransitionSet$1;-><init>(Landroidx/transition/Transition;)V
 
-    invoke-virtual {v1, v3}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+    invoke-virtual {v1, v3}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)V
 
     add-int/lit8 v0, v0, 0x1
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
+    :cond_2
     iget-object p0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
 
     const/4 v0, 0x0
@@ -886,25 +765,25 @@
 
     check-cast p0, Landroidx/transition/Transition;
 
-    if-eqz p0, :cond_3
+    if-eqz p0, :cond_4
 
     invoke-virtual {p0}, Landroidx/transition/Transition;->runAnimators()V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_2
+    :cond_3
     iget-object p0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
 
     invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
-    :goto_1
+    :goto_2
     invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -914,33 +793,29 @@
 
     invoke-virtual {v0}, Landroidx/transition/Transition;->runAnimators()V
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_3
-    :goto_2
+    :cond_4
+    :goto_3
     return-void
 .end method
 
-.method public bridge synthetic setDuration(J)Landroidx/transition/Transition;
+.method public final bridge synthetic setDuration(J)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Landroidx/transition/TransitionSet;->setDuration(J)Landroidx/transition/TransitionSet;
+    invoke-virtual {p0, p1, p2}, Landroidx/transition/TransitionSet;->setDuration$1(J)V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method public setDuration(J)Landroidx/transition/TransitionSet;
-    .locals 4
+.method public final setDuration$1(J)V
+    .locals 3
 
-    invoke-super {p0, p1, p2}, Landroidx/transition/Transition;->setDuration(J)Landroidx/transition/Transition;
+    iput-wide p1, p0, Landroidx/transition/Transition;->mDuration:J
 
-    iget-wide v0, p0, Landroidx/transition/Transition;->mDuration:J
+    const-wide/16 v0, 0x0
 
-    const-wide/16 v2, 0x0
-
-    cmp-long v0, v0, v2
+    cmp-long v0, p1, v0
 
     if-ltz v0, :cond_0
 
@@ -965,20 +840,20 @@
 
     check-cast v2, Landroidx/transition/Transition;
 
-    invoke-virtual {v2, p1, p2}, Landroidx/transition/Transition;->setDuration(J)Landroidx/transition/Transition;
+    invoke-virtual {v2, p1, p2}, Landroidx/transition/Transition;->setDuration(J)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    return-object p0
+    return-void
 .end method
 
-.method public setEpicenterCallback(Landroidx/transition/Transition$EpicenterCallback;)V
+.method public final setEpicenterCallback(Landroidx/transition/Transition$EpicenterCallback;)V
     .locals 3
 
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->setEpicenterCallback(Landroidx/transition/Transition$EpicenterCallback;)V
+    iput-object p1, p0, Landroidx/transition/Transition;->mEpicenterCallback:Landroidx/transition/Transition$EpicenterCallback;
 
     iget v0, p0, Landroidx/transition/TransitionSet;->mChangeFlags:I
 
@@ -1015,17 +890,15 @@
     return-void
 .end method
 
-.method public bridge synthetic setInterpolator(Landroid/animation/TimeInterpolator;)Landroidx/transition/Transition;
+.method public final bridge synthetic setInterpolator(Landroid/animation/TimeInterpolator;)V
     .locals 0
 
-    invoke-virtual {p0, p1}, Landroidx/transition/TransitionSet;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroidx/transition/TransitionSet;
+    invoke-virtual {p0, p1}, Landroidx/transition/TransitionSet;->setInterpolator$1(Landroid/animation/TimeInterpolator;)V
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method public setInterpolator(Landroid/animation/TimeInterpolator;)Landroidx/transition/TransitionSet;
+.method public final setInterpolator$1(Landroid/animation/TimeInterpolator;)V
     .locals 3
 
     iget v0, p0, Landroidx/transition/TransitionSet;->mChangeFlags:I
@@ -1055,24 +928,20 @@
 
     check-cast v2, Landroidx/transition/Transition;
 
-    invoke-virtual {v2, p1}, Landroidx/transition/Transition;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroidx/transition/Transition;
+    invoke-virtual {v2, p1}, Landroidx/transition/Transition;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->setInterpolator(Landroid/animation/TimeInterpolator;)Landroidx/transition/Transition;
+    iput-object p1, p0, Landroidx/transition/Transition;->mInterpolator:Landroid/animation/TimeInterpolator;
 
-    move-result-object p0
-
-    check-cast p0, Landroidx/transition/TransitionSet;
-
-    return-object p0
+    return-void
 .end method
 
-.method public setOrdering(I)Landroidx/transition/TransitionSet;
-    .locals 2
+.method public final setOrdering(I)V
+    .locals 1
 
     const/4 v0, 0x1
 
@@ -1089,17 +958,9 @@
     :cond_0
     new-instance p0, Landroid/util/AndroidRuntimeException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Invalid parameter for TransitionSet ordering: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Invalid parameter for TransitionSet ordering: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p1}, Lcom/android/systemui/tuner/NavBarTuner$$ExternalSyntheticLambda2;->m(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p1
 
@@ -1111,10 +972,10 @@
     iput-boolean v0, p0, Landroidx/transition/TransitionSet;->mPlayTogether:Z
 
     :goto_0
-    return-object p0
+    return-void
 .end method
 
-.method public setPathMotion(Landroidx/transition/PathMotion;)V
+.method public final setPathMotion(Landroidx/transition/PathMotion;)V
     .locals 2
 
     invoke-super {p0, p1}, Landroidx/transition/Transition;->setPathMotion(Landroidx/transition/PathMotion;)V
@@ -1158,10 +1019,10 @@
     return-void
 .end method
 
-.method public setPropagation(Landroidx/transition/TransitionPropagation;)V
+.method public final setPropagation(Landroidx/transition/TransitionPropagation;)V
     .locals 3
 
-    invoke-super {p0, p1}, Landroidx/transition/Transition;->setPropagation(Landroidx/transition/TransitionPropagation;)V
+    iput-object p1, p0, Landroidx/transition/Transition;->mPropagation:Landroidx/transition/TransitionPropagation;
 
     iget v0, p0, Landroidx/transition/TransitionSet;->mChangeFlags:I
 
@@ -1198,29 +1059,15 @@
     return-void
 .end method
 
-.method public bridge synthetic setStartDelay(J)Landroidx/transition/Transition;
+.method public final setStartDelay(J)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Landroidx/transition/TransitionSet;->setStartDelay(J)Landroidx/transition/TransitionSet;
+    iput-wide p1, p0, Landroidx/transition/Transition;->mStartDelay:J
 
-    move-result-object p0
-
-    return-object p0
+    return-void
 .end method
 
-.method public setStartDelay(J)Landroidx/transition/TransitionSet;
-    .locals 0
-
-    invoke-super {p0, p1, p2}, Landroidx/transition/Transition;->setStartDelay(J)Landroidx/transition/Transition;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/transition/TransitionSet;
-
-    return-object p0
-.end method
-
-.method toString(Ljava/lang/String;)Ljava/lang/String;
+.method public final toString(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
 
     invoke-super {p0, p1}, Landroidx/transition/Transition;->toString(Ljava/lang/String;)Ljava/lang/String;
@@ -1238,23 +1085,19 @@
 
     if-ge v1, v2, :cond_0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, "\n"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v0, "\n"
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v0, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-static {v0, v2}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    check-cast v0, Landroidx/transition/Transition;
+    iget-object v2, p0, Landroidx/transition/TransitionSet;->mTransitions:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroidx/transition/Transition;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1270,13 +1113,13 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v3}, Landroidx/transition/Transition;->toString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v2, v3}, Landroidx/transition/Transition;->toString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 

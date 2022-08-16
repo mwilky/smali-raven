@@ -1,14 +1,10 @@
-.class public Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;
+.class public final Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;
 .super Ljava/lang/Object;
 .source "ScreenRecordingMuxer.java"
 
 
-# static fields
-.field private static TAG:Ljava/lang/String; = "ScreenRecordingMuxer"
-
-
 # instance fields
-.field private mExtractorIndexToMuxerIndex:Landroid/util/ArrayMap;
+.field public mExtractorIndexToMuxerIndex:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -22,7 +18,7 @@
     .end annotation
 .end field
 
-.field private mExtractors:Ljava/util/ArrayList;
+.field public mExtractors:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -32,21 +28,15 @@
     .end annotation
 .end field
 
-.field private mFiles:[Ljava/lang/String;
+.field public mFiles:[Ljava/lang/String;
 
-.field private mFormat:I
+.field public mFormat:I
 
-.field private mOutFile:Ljava/lang/String;
+.field public mOutFile:Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public varargs constructor <init>(ILjava/lang/String;[Ljava/lang/String;)V
+.method public varargs constructor <init>(Ljava/lang/String;[Ljava/lang/String;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -63,50 +53,42 @@
 
     iput-object v0, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mExtractors:Ljava/util/ArrayList;
 
-    iput-object p3, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mFiles:[Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mFiles:[Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mOutFile:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mOutFile:Ljava/lang/String;
+
+    const/4 p1, 0x0
 
     iput p1, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mFormat:I
 
-    sget-object p1, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->TAG:Ljava/lang/String;
+    const-string/jumbo p2, "out: "
 
-    new-instance p2, Ljava/lang/StringBuilder;
+    invoke-static {p2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object p2
 
-    const-string p3, "out: "
+    iget-object v0, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mOutFile:Ljava/lang/String;
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p3, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mOutFile:Ljava/lang/String;
+    const-string v0, " , in: "
 
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p3, " , in: "
-
-    invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-object p0, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mFiles:[Ljava/lang/String;
 
-    const/4 p3, 0x0
+    aget-object p0, p0, p1
 
-    aget-object p0, p0, p3
+    const-string p1, "ScreenRecordingMuxer"
 
-    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p2, p0, p1}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public mux()V
+.method public final mux()V
     .locals 11
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -131,75 +113,67 @@
     move v4, v3
 
     :goto_0
+    const-string v5, "ScreenRecordingMuxer"
+
     if-ge v4, v2, :cond_1
 
-    aget-object v5, v1, v4
+    aget-object v6, v1, v4
 
-    new-instance v6, Landroid/media/MediaExtractor;
+    new-instance v7, Landroid/media/MediaExtractor;
 
-    invoke-direct {v6}, Landroid/media/MediaExtractor;-><init>()V
+    invoke-direct {v7}, Landroid/media/MediaExtractor;-><init>()V
 
     :try_start_0
-    invoke-virtual {v6, v5}, Landroid/media/MediaExtractor;->setDataSource(Ljava/lang/String;)V
+    invoke-virtual {v7, v6}, Landroid/media/MediaExtractor;->setDataSource(Ljava/lang/String;)V
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
-    sget-object v7, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->TAG:Ljava/lang/String;
+    const-string v8, " track count: "
 
-    new-instance v8, Ljava/lang/StringBuilder;
+    invoke-static {v6, v8}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v6
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7}, Landroid/media/MediaExtractor;->getTrackCount()I
 
-    const-string v5, " track count: "
+    move-result v8
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v6}, Landroid/media/MediaExtractor;->getTrackCount()I
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result v5
+    move-result-object v6
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mExtractors:Ljava/util/ArrayList;
 
-    move-result-object v5
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {v7, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v5, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mExtractors:Ljava/util/ArrayList;
-
-    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    move v5, v3
+    move v6, v3
 
     :goto_1
-    invoke-virtual {v6}, Landroid/media/MediaExtractor;->getTrackCount()I
+    invoke-virtual {v7}, Landroid/media/MediaExtractor;->getTrackCount()I
 
-    move-result v7
+    move-result v8
 
-    if-ge v5, v7, :cond_0
+    if-ge v6, v8, :cond_0
 
-    invoke-virtual {v6, v5}, Landroid/media/MediaExtractor;->getTrackFormat(I)Landroid/media/MediaFormat;
+    invoke-virtual {v7, v6}, Landroid/media/MediaExtractor;->getTrackFormat(I)Landroid/media/MediaFormat;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v0, v7}, Landroid/media/MediaMuxer;->addTrack(Landroid/media/MediaFormat;)I
+    invoke-virtual {v0, v8}, Landroid/media/MediaMuxer;->addTrack(Landroid/media/MediaFormat;)I
 
-    move-result v7
+    move-result v8
 
-    sget-object v8, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->TAG:Ljava/lang/String;
+    const-string v9, "created extractor format"
 
-    new-instance v9, Ljava/lang/StringBuilder;
+    invoke-static {v9}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v9
 
-    const-string v10, "created extractor format"
-
-    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v6, v5}, Landroid/media/MediaExtractor;->getTrackFormat(I)Landroid/media/MediaFormat;
+    invoke-virtual {v7, v6}, Landroid/media/MediaExtractor;->getTrackFormat(I)Landroid/media/MediaFormat;
 
     move-result-object v10
 
@@ -213,32 +187,30 @@
 
     move-result-object v9
 
-    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v8, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mExtractorIndexToMuxerIndex:Landroid/util/ArrayMap;
+    iget-object v9, p0, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->mExtractorIndexToMuxerIndex:Landroid/util/ArrayMap;
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v6, v9}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
+    invoke-static {v7, v10}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    move-result-object v9
+    move-result-object v10
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v8, v9, v7}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v9, v10, v8}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_1
 
     :catch_0
-    move-exception v6
-
-    sget-object v7, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->TAG:Ljava/lang/String;
+    move-exception v7
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -248,20 +220,20 @@
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v8, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v7, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v6}, Ljava/io/IOException;->printStackTrace()V
+    invoke-virtual {v7}, Ljava/io/IOException;->printStackTrace()V
 
     :cond_0
     add-int/lit8 v4, v4, 0x1
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_1
     invoke-virtual {v0}, Landroid/media/MediaMuxer;->start()V
@@ -315,15 +287,11 @@
 
     move-result v4
 
-    sget-object v5, Lcom/android/systemui/screenrecord/ScreenRecordingMuxer;->TAG:Ljava/lang/String;
+    const-string/jumbo v6, "track format: "
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-static {v6}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "track format: "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v6
 
     iget-object v2, v2, Landroid/util/Pair;->second:Ljava/lang/Object;
 
@@ -345,11 +313,11 @@
 
     invoke-static {v5, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-wide/16 v5, 0x0
+    const-wide/16 v6, 0x0
 
     const/4 v2, 0x2
 
-    invoke-virtual {v3, v5, v6, v2}, Landroid/media/MediaExtractor;->seekTo(JI)V
+    invoke-virtual {v3, v6, v7, v2}, Landroid/media/MediaExtractor;->seekTo(JI)V
 
     const/high16 v2, 0x400000
 
@@ -357,39 +325,39 @@
 
     move-result-object v2
 
-    new-instance v5, Landroid/media/MediaCodec$BufferInfo;
+    new-instance v6, Landroid/media/MediaCodec$BufferInfo;
 
-    invoke-direct {v5}, Landroid/media/MediaCodec$BufferInfo;-><init>()V
+    invoke-direct {v6}, Landroid/media/MediaCodec$BufferInfo;-><init>()V
 
     :goto_3
     invoke-virtual {v2}, Ljava/nio/ByteBuffer;->arrayOffset()I
 
-    move-result v6
+    move-result v7
 
-    invoke-virtual {v3, v2, v6}, Landroid/media/MediaExtractor;->readSampleData(Ljava/nio/ByteBuffer;I)I
+    invoke-virtual {v3, v2, v7}, Landroid/media/MediaExtractor;->readSampleData(Ljava/nio/ByteBuffer;I)I
 
-    move-result v6
+    move-result v7
 
-    iput v6, v5, Landroid/media/MediaCodec$BufferInfo;->size:I
+    iput v7, v6, Landroid/media/MediaCodec$BufferInfo;->size:I
 
-    if-gez v6, :cond_2
+    if-gez v7, :cond_2
 
     goto :goto_2
 
     :cond_2
     invoke-virtual {v3}, Landroid/media/MediaExtractor;->getSampleTime()J
 
-    move-result-wide v6
+    move-result-wide v7
 
-    iput-wide v6, v5, Landroid/media/MediaCodec$BufferInfo;->presentationTimeUs:J
+    iput-wide v7, v6, Landroid/media/MediaCodec$BufferInfo;->presentationTimeUs:J
 
     invoke-virtual {v3}, Landroid/media/MediaExtractor;->getSampleFlags()I
 
-    move-result v6
+    move-result v7
 
-    iput v6, v5, Landroid/media/MediaCodec$BufferInfo;->flags:I
+    iput v7, v6, Landroid/media/MediaCodec$BufferInfo;->flags:I
 
-    invoke-virtual {v0, v4, v2, v5}, Landroid/media/MediaMuxer;->writeSampleData(ILjava/nio/ByteBuffer;Landroid/media/MediaCodec$BufferInfo;)V
+    invoke-virtual {v0, v4, v2, v6}, Landroid/media/MediaMuxer;->writeSampleData(ILjava/nio/ByteBuffer;Landroid/media/MediaCodec$BufferInfo;)V
 
     invoke-virtual {v3}, Landroid/media/MediaExtractor;->advance()Z
 

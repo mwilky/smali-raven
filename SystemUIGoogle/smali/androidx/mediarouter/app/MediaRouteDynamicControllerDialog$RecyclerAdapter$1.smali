@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;
+.class public final Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;
 .super Landroid/view/animation/Animation;
 .source "MediaRouteDynamicControllerDialog.java"
 
@@ -9,46 +9,28 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;
+.field public final synthetic val$endValue:I
 
-.field final synthetic val$endValue:I
+.field public final synthetic val$startValue:I
 
-.field final synthetic val$startValue:I
-
-.field final synthetic val$view:Landroid/view/View;
+.field public final synthetic val$view:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;IILandroid/view/View;)V
+.method public constructor <init>(IILandroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$1",
-            "val$endValue",
-            "val$startValue",
-            "val$view"
-        }
-    .end annotation
 
-    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->this$1:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter;
+    iput p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$endValue:I
 
-    iput p2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$endValue:I
+    iput p2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$startValue:I
 
-    iput p3, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$startValue:I
-
-    iput-object p4, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$view:Landroid/view/View;
+    iput-object p3, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$view:Landroid/view/View;
 
     invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
 
@@ -57,18 +39,8 @@
 
 
 # virtual methods
-.method protected applyTransformation(FLandroid/view/animation/Transformation;)V
+.method public final applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "interpolatedTime",
-            "t"
-        }
-    .end annotation
 
     iget p2, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$RecyclerAdapter$1;->val$endValue:I
 
@@ -86,7 +58,15 @@
 
     add-int/2addr v0, p1
 
-    invoke-static {p0, v0}, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->setLayoutHeight(Landroid/view/View;I)V
+    sget-boolean p1, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->DEBUG:Z
+
+    invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object p1
+
+    iput v0, p1, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 .end method

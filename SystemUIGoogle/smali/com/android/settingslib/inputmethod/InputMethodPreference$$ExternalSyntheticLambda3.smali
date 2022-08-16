@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/settingslib/inputmethod/InputMethodPreference$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -27,7 +28,35 @@
 
     iget-object p0, p0, Lcom/android/settingslib/inputmethod/InputMethodPreference$$ExternalSyntheticLambda3;->f$0:Lcom/android/settingslib/inputmethod/InputMethodPreference;
 
-    invoke-static {p0, p1, p2}, Lcom/android/settingslib/inputmethod/InputMethodPreference;->$r8$lambda$ZBUsct81AZ11G2q-s50nSHtPbX0(Lcom/android/settingslib/inputmethod/InputMethodPreference;Landroid/content/DialogInterface;I)V
+    iget-object p1, p0, Lcom/android/settingslib/inputmethod/InputMethodPreference;->mImi:Landroid/view/inputmethod/InputMethodInfo;
 
+    invoke-virtual {p1}, Landroid/view/inputmethod/InputMethodInfo;->getServiceInfo()Landroid/content/pm/ServiceInfo;
+
+    move-result-object p1
+
+    iget-boolean p1, p1, Landroid/content/pm/ServiceInfo;->directBootAware:Z
+
+    if-nez p1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settingslib/inputmethod/InputMethodPreference;->isTv()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/settingslib/inputmethod/InputMethodPreference;->showDirectBootWarnDialog()V
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/inputmethod/InputMethodPreference;->setCheckedInternal(Z)V
+
+    :goto_1
     return-void
 .end method

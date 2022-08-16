@@ -1,4 +1,4 @@
-.class Landroidx/arch/core/internal/SafeIterableMap$DescendingIterator;
+.class public final Landroidx/arch/core/internal/SafeIterableMap$DescendingIterator;
 .super Landroidx/arch/core/internal/SafeIterableMap$ListIterator;
 .source "SafeIterableMap.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "DescendingIterator"
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroidx/arch/core/internal/SafeIterableMap$Entry;Landroidx/arch/core/internal/SafeIterableMap$Entry;)V
+.method public constructor <init>(Landroidx/arch/core/internal/SafeIterableMap$Entry;Landroidx/arch/core/internal/SafeIterableMap$Entry;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,7 +46,7 @@
 
 
 # virtual methods
-.method backward(Landroidx/arch/core/internal/SafeIterableMap$Entry;)Landroidx/arch/core/internal/SafeIterableMap$Entry;
+.method public final backward(Landroidx/arch/core/internal/SafeIterableMap$Entry;)Landroidx/arch/core/internal/SafeIterableMap$Entry;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -63,7 +63,7 @@
     return-object p0
 .end method
 
-.method forward(Landroidx/arch/core/internal/SafeIterableMap$Entry;)Landroidx/arch/core/internal/SafeIterableMap$Entry;
+.method public final forward(Landroidx/arch/core/internal/SafeIterableMap$Entry;)Landroidx/arch/core/internal/SafeIterableMap$Entry;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -9,24 +9,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xc
+    accessFlags = 0x9
     name = "ErrorTimer"
 .end annotation
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mErrorView:Landroid/widget/TextView;
+.field public final mErrorView:Landroid/widget/TextView;
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;JJLandroid/widget/TextView;)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;JLandroid/widget/TextView;)V
+    .locals 2
 
-    invoke-direct {p0, p2, p3, p4, p5}, Landroid/os/CountDownTimer;-><init>(JJ)V
+    const-wide/16 v0, 0x3e8
 
-    iput-object p6, p0, Lcom/android/systemui/biometrics/AuthCredentialView$ErrorTimer;->mErrorView:Landroid/widget/TextView;
+    invoke-direct {p0, p2, p3, v0, v1}, Landroid/os/CountDownTimer;-><init>(JJ)V
+
+    iput-object p4, p0, Lcom/android/systemui/biometrics/AuthCredentialView$ErrorTimer;->mErrorView:Landroid/widget/TextView;
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthCredentialView$ErrorTimer;->mContext:Landroid/content/Context;
 
@@ -35,8 +37,8 @@
 
 
 # virtual methods
-.method public onTick(J)V
-    .locals 3
+.method public final onTick(J)V
+    .locals 2
 
     const-wide/16 v0, 0x3e8
 
@@ -48,21 +50,21 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialView$ErrorTimer;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->biometric_dialog_credential_too_many_attempts:I
+    const/4 v0, 0x1
 
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Ljava/lang/Object;
+    new-array v0, v0, [Ljava/lang/Object;
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p1
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object p1, v1, v2
+    aput-object p1, v0, v1
 
-    invoke-virtual {p0, v0, v1}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    const p1, 0x7f130136
+
+    invoke-virtual {p0, p1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object p0
 

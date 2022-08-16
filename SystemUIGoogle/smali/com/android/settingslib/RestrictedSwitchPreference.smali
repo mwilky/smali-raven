@@ -4,30 +4,26 @@
 
 
 # instance fields
-.field mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+.field public mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-.field private mIconSize:I
+.field public mRestrictedSwitchSummary:Ljava/lang/CharSequence;
 
-.field mRestrictedSwitchSummary:Ljava/lang/CharSequence;
-
-.field mUseAdditionalSummary:Z
+.field public mUseAdditionalSummary:Z
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/settingslib/RestrictedSwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
+    throw p0
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    sget v0, Lcom/android/settingslib/R$attr;->switchPreferenceStyle:I
+    const v0, 0x7f040549
 
     const v1, 0x101036d
 
@@ -41,90 +37,74 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 1
+    .locals 4
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/settingslib/RestrictedSwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p0, p1, p2, p3, v0}, Landroidx/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    return-void
-.end method
+    iput-boolean v0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mUseAdditionalSummary:Z
 
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 2
+    new-instance p3, Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-direct {p0, p1, p2, p3, p4}, Landroidx/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p3, p1, p0, p2, v0}, Lcom/android/settingslib/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;Landroidx/preference/Preference;Landroid/util/AttributeSet;I)V
 
-    const/4 p3, 0x0
-
-    iput-boolean p3, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mUseAdditionalSummary:Z
-
-    sget p4, Lcom/android/settingslib/R$layout;->restricted_switch_widget:I
-
-    invoke-virtual {p0, p4}, Landroidx/preference/Preference;->setWidgetLayoutResource(I)V
-
-    new-instance p4, Lcom/android/settingslib/RestrictedPreferenceHelper;
-
-    invoke-direct {p4, p1, p0, p2}, Lcom/android/settingslib/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;Landroidx/preference/Preference;Landroid/util/AttributeSet;)V
-
-    iput-object p4, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+    iput-object p3, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
     if-eqz p2, :cond_3
 
-    sget-object p4, Lcom/android/settingslib/R$styleable;->RestrictedSwitchPreference:[I
+    sget-object p3, Landroidx/leanback/R$layout;->RestrictedSwitchPreference:[I
 
-    invoke-virtual {p1, p2, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, p2, p3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object p2
 
-    sget p4, Lcom/android/settingslib/R$styleable;->RestrictedSwitchPreference_useAdditionalSummary:I
+    const/4 p3, 0x1
 
-    invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+    invoke-virtual {p2, p3}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
-    move-result-object p4
+    move-result-object v1
 
-    if-eqz p4, :cond_1
+    if-eqz v1, :cond_1
 
-    iget v0, p4, Landroid/util/TypedValue;->type:I
+    iget v2, v1, Landroid/util/TypedValue;->type:I
 
-    const/16 v1, 0x12
+    const/16 v3, 0x12
 
-    if-ne v0, v1, :cond_0
+    if-ne v2, v3, :cond_0
 
-    iget p4, p4, Landroid/util/TypedValue;->data:I
+    iget v1, v1, Landroid/util/TypedValue;->data:I
 
-    if-eqz p4, :cond_0
-
-    const/4 p4, 0x1
+    if-eqz v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    move p4, p3
+    move p3, v0
 
     :goto_0
-    iput-boolean p4, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mUseAdditionalSummary:Z
+    iput-boolean p3, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mUseAdditionalSummary:Z
 
     :cond_1
-    sget p4, Lcom/android/settingslib/R$styleable;->RestrictedSwitchPreference_restrictedSwitchSummary:I
+    invoke-virtual {p2, v0}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
 
-    invoke-virtual {p2, p4}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+    move-result-object p3
 
-    move-result-object p2
+    invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
-    if-eqz p2, :cond_3
+    if-eqz p3, :cond_3
 
-    iget p4, p2, Landroid/util/TypedValue;->type:I
+    iget p2, p3, Landroid/util/TypedValue;->type:I
 
-    const/4 v0, 0x3
+    const/4 v1, 0x3
 
-    if-ne p4, v0, :cond_3
+    if-ne p2, v1, :cond_3
 
-    iget p4, p2, Landroid/util/TypedValue;->resourceId:I
+    iget p2, p3, Landroid/util/TypedValue;->resourceId:I
 
-    if-eqz p4, :cond_2
+    if-eqz p2, :cond_2
 
-    invoke-virtual {p1, p4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p1
 
@@ -133,7 +113,7 @@
     goto :goto_1
 
     :cond_2
-    iget-object p1, p2, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
+    iget-object p1, p3, Landroid/util/TypedValue;->string:Ljava/lang/CharSequence;
 
     iput-object p1, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mRestrictedSwitchSummary:Ljava/lang/CharSequence;
 
@@ -143,11 +123,13 @@
 
     if-eqz p1, :cond_4
 
-    sget p1, Lcom/android/settingslib/R$layout;->restricted_switch_preference:I
+    const p1, 0x7f0e01f8
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    iput p1, p0, Landroidx/preference/Preference;->mLayoutResId:I
 
-    invoke-virtual {p0, p3}, Lcom/android/settingslib/RestrictedSwitchPreference;->useAdminDisabledSummary(Z)V
+    iget-object p0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+
+    iput-boolean v0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledSummary:Z
 
     :cond_4
     return-void
@@ -155,19 +137,7 @@
 
 
 # virtual methods
-.method public isDisabledByAdmin()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->isDisabledByAdmin()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method protected onAttachedToHierarchy(Landroidx/preference/PreferenceManager;)V
+.method public final onAttachedToHierarchy(Landroidx/preference/PreferenceManager;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
@@ -179,96 +149,97 @@
     return-void
 .end method
 
-.method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
-    .locals 6
+.method public final onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+    .locals 4
 
     invoke-super {p0, p1}, Landroidx/preference/SwitchPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
+    const v0, 0x1020040
+
+    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/View;->getRootView()Landroid/view/View;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setFilterTouchesWhenObscured(Z)V
+
+    :cond_0
     iget-object v0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
     invoke-virtual {v0, p1}, Lcom/android/settingslib/RestrictedPreferenceHelper;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
     iget-object v0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mRestrictedSwitchSummary:Ljava/lang/CharSequence;
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
+    iget-boolean v0, p0, Landroidx/preference/TwoStatePreference;->mChecked:Z
 
-    move-result-object v0
+    if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Landroidx/preference/TwoStatePreference;->isChecked()Z
+    iget-object v0, p0, Landroidx/preference/Preference;->mContext:Landroid/content/Context;
 
-    move-result v1
+    const v1, 0x7f1302e4
 
-    if-eqz v1, :cond_0
+    const-class v2, Landroid/app/admin/DevicePolicyManager;
 
-    sget v1, Lcom/android/settingslib/R$string;->enabled_by_admin:I
-
-    goto :goto_0
-
-    :cond_0
-    sget v1, Lcom/android/settingslib/R$string;->disabled_by_admin:I
-
-    :goto_0
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    :cond_1
-    sget v1, Lcom/android/settingslib/R$id;->restricted_icon:I
-
-    invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const v2, 0x1020040
-
-    invoke-virtual {p1, v2}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object v2
 
-    const/16 v3, 0x8
+    check-cast v2, Landroid/app/admin/DevicePolicyManager;
 
-    const/4 v4, 0x0
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
 
-    if-eqz v1, :cond_3
+    move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->isDisabledByAdmin()Z
+    new-instance v3, Lcom/android/settingslib/RestrictedSwitchPreference$$ExternalSyntheticLambda0;
 
-    move-result v5
+    invoke-direct {v3, v0, v1}, Lcom/android/settingslib/RestrictedSwitchPreference$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;I)V
 
-    if-eqz v5, :cond_2
+    const-string v0, "Settings.ENABLED_BY_ADMIN_SWITCH_SUMMARY"
 
-    move v5, v4
+    invoke-virtual {v2, v0, v3}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
 
-    goto :goto_1
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, p0, Landroidx/preference/Preference;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f1302ad
+
+    const-class v2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/app/admin/DevicePolicyManager;
+
+    invoke-virtual {v2}, Landroid/app/admin/DevicePolicyManager;->getResources()Landroid/app/admin/DevicePolicyResourcesManager;
+
+    move-result-object v2
+
+    new-instance v3, Lcom/android/settingslib/RestrictedSwitchPreference$$ExternalSyntheticLambda0;
+
+    invoke-direct {v3, v0, v1}, Lcom/android/settingslib/RestrictedSwitchPreference$$ExternalSyntheticLambda0;-><init>(Landroid/content/Context;I)V
+
+    const-string v0, "Settings.DISABLED_BY_ADMIN_SWITCH_SUMMARY"
+
+    invoke-virtual {v2, v0, v3}, Landroid/app/admin/DevicePolicyResourcesManager;->getString(Ljava/lang/String;Ljava/util/function/Supplier;)Ljava/lang/String;
+
+    move-result-object v0
 
     :cond_2
-    move v5, v3
-
-    :goto_1
-    invoke-virtual {v1, v5}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_3
-    if-eqz v2, :cond_5
-
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->isDisabledByAdmin()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_4
-
-    move v1, v3
-
-    goto :goto_2
-
-    :cond_4
-    move v1, v4
-
-    :goto_2
-    invoke-virtual {v2, v1}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_5
+    :goto_0
     iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
     const v2, 0x1020006
@@ -279,24 +250,13 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    iget v2, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mIconSize:I
-
-    if-lez v2, :cond_6
-
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    iget v5, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mIconSize:I
-
-    invoke-direct {v2, v5, v5}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_6
     iget-boolean v1, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mUseAdditionalSummary:Z
 
-    if-eqz v1, :cond_8
+    const/4 v2, 0x0
 
-    sget v1, Lcom/android/settingslib/R$id;->additional_summary:I
+    if-eqz v1, :cond_4
+
+    const v1, 0x7f0b0087
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
@@ -304,26 +264,28 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_5
 
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->isDisabledByAdmin()Z
+    iget-object p0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
 
-    if-eqz p0, :cond_7
+    if-eqz p0, :cond_3
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p1, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {p1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_3
+    goto :goto_1
 
-    :cond_7
-    invoke-virtual {p1, v3}, Landroid/widget/TextView;->setVisibility(I)V
+    :cond_3
+    const/16 p0, 0x8
 
-    goto :goto_3
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_8
+    goto :goto_1
+
+    :cond_4
     const v1, 0x1020010
 
     invoke-virtual {p1, v1}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
@@ -332,24 +294,24 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_5
 
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->isDisabledByAdmin()Z
+    iget-object p0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
 
-    if-eqz p0, :cond_9
+    if-eqz p0, :cond_5
 
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {p1, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {p1, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_9
-    :goto_3
+    :cond_5
+    :goto_1
     return-void
 .end method
 
-.method public performClick()V
+.method public final performClick()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
@@ -366,37 +328,64 @@
     return-void
 .end method
 
-.method public setEnabled(Z)V
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedSwitchPreference;->isDisabledByAdmin()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/RestrictedPreferenceHelper;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Z
-
-    return-void
-
-    :cond_0
-    invoke-super {p0, p1}, Landroidx/preference/Preference;->setEnabled(Z)V
+.method public setAppOps(Landroid/app/AppOpsManager;)V
+    .locals 0
 
     return-void
 .end method
 
-.method public useAdminDisabledSummary(Z)V
-    .locals 0
+.method public final setEnabled(Z)V
+    .locals 5
 
-    iget-object p0, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+    const/4 v0, 0x1
 
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/RestrictedPreferenceHelper;->useAdminDisabledSummary(Z)V
+    const/4 v1, 0x0
 
+    if-eqz p1, :cond_0
+
+    iget-object v2, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+
+    iget-boolean v3, v2, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
+
+    if-eqz v3, :cond_0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Lcom/android/settingslib/RestrictedPreferenceHelper;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
+
+    move v2, v0
+
+    goto :goto_0
+
+    :cond_0
+    move v2, v1
+
+    :goto_0
+    if-eqz p1, :cond_1
+
+    iget-object v3, p0, Lcom/android/settingslib/RestrictedSwitchPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+
+    iget-boolean v4, v3, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    if-eqz v4, :cond_1
+
+    if-eqz v4, :cond_2
+
+    iput-boolean v1, v3, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAppOps:Z
+
+    invoke-virtual {v3}, Lcom/android/settingslib/RestrictedPreferenceHelper;->updateDisabledState()V
+
+    goto :goto_1
+
+    :cond_1
+    move v0, v2
+
+    :cond_2
+    :goto_1
+    if-nez v0, :cond_3
+
+    invoke-super {p0, p1}, Landroidx/preference/Preference;->setEnabled(Z)V
+
+    :cond_3
     return-void
 .end method

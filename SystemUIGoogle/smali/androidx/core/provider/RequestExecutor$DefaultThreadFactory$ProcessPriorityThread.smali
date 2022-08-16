@@ -1,4 +1,4 @@
-.class Landroidx/core/provider/RequestExecutor$DefaultThreadFactory$ProcessPriorityThread;
+.class public final Landroidx/core/provider/RequestExecutor$DefaultThreadFactory$ProcessPriorityThread;
 .super Ljava/lang/Thread;
 .source "RequestExecutor.java"
 
@@ -9,30 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ProcessPriorityThread"
 .end annotation
 
 
 # instance fields
-.field private final mPriority:I
+.field public final mPriority:I
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Runnable;Ljava/lang/String;I)V
+.method public constructor <init>(Ljava/lang/Runnable;Ljava/lang/String;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "target",
-            "name",
-            "priority"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;Ljava/lang/String;)V
 
@@ -43,7 +31,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget v0, p0, Landroidx/core/provider/RequestExecutor$DefaultThreadFactory$ProcessPriorityThread;->mPriority:I

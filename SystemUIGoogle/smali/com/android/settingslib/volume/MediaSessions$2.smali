@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/volume/MediaSessions$2;
+.class public final Lcom/android/settingslib/volume/MediaSessions$2;
 .super Ljava/lang/Object;
 .source "MediaSessions.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/volume/MediaSessions;
+.field public final synthetic this$0:Lcom/android/settingslib/volume/MediaSessions;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/volume/MediaSessions;)V
+.method public constructor <init>(Lcom/android/settingslib/volume/MediaSessions;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/volume/MediaSessions$2;->this$0:Lcom/android/settingslib/volume/MediaSessions;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onDefaultRemoteSessionChanged(Landroid/media/session/MediaSession$Token;)V
+.method public final onDefaultRemoteSessionChanged(Landroid/media/session/MediaSession$Token;)V
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/volume/MediaSessions$2;->this$0:Lcom/android/settingslib/volume/MediaSessions;
 
-    invoke-static {p0}, Lcom/android/settingslib/volume/MediaSessions;->access$600(Lcom/android/settingslib/volume/MediaSessions;)Lcom/android/settingslib/volume/MediaSessions$H;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/settingslib/volume/MediaSessions;->mHandler:Lcom/android/settingslib/volume/MediaSessions$H;
 
     const/4 v0, 0x3
 
@@ -54,14 +52,12 @@
     return-void
 .end method
 
-.method public onVolumeChanged(Landroid/media/session/MediaSession$Token;I)V
+.method public final onVolumeChanged(Landroid/media/session/MediaSession$Token;I)V
     .locals 2
 
     iget-object p0, p0, Lcom/android/settingslib/volume/MediaSessions$2;->this$0:Lcom/android/settingslib/volume/MediaSessions;
 
-    invoke-static {p0}, Lcom/android/settingslib/volume/MediaSessions;->access$600(Lcom/android/settingslib/volume/MediaSessions;)Lcom/android/settingslib/volume/MediaSessions$H;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/settingslib/volume/MediaSessions;->mHandler:Lcom/android/settingslib/volume/MediaSessions$H;
 
     const/4 v0, 0x2
 

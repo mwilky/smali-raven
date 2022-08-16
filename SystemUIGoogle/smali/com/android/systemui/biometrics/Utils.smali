@@ -1,18 +1,24 @@
-.class public Lcom/android/systemui/biometrics/Utils;
+.class public final Lcom/android/systemui/biometrics/Utils;
 .super Ljava/lang/Object;
-.source "Utils.java"
+.source "Utils.kt"
+
+
+# annotations
+.annotation system Ldalvik/annotation/SourceDebugExtension;
+    value = "SMAP\nUtils.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Utils.kt\ncom/android/systemui/biometrics/Utils\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,120:1\n286#2,2:121\n*S KotlinDebug\n*F\n+ 1 Utils.kt\ncom/android/systemui/biometrics/Utils\n*L\n107#1:121,2\n*E\n"
+.end annotation
 
 
 # direct methods
-.method static containsSensorId(Ljava/util/List;I)Z
-    .locals 2
+.method public static final findFirstSensorProperties(Ljava/util/List;[I)Landroid/hardware/biometrics/SensorPropertiesInternal;
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            "(",
-            "Ljava/util/List<",
-            "+",
+            "<T:",
             "Landroid/hardware/biometrics/SensorPropertiesInternal;",
-            ">;I)Z"
+            ">(",
+            "Ljava/util/List<",
+            "+TT;>;[I)TT;"
         }
     .end annotation
 
@@ -20,10 +26,12 @@
 
     if-nez p0, :cond_0
 
-    return v0
+    goto :goto_0
 
     :cond_0
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    check-cast p0, Ljava/lang/Iterable;
+
+    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
@@ -38,56 +46,37 @@
 
     move-result-object v1
 
-    check-cast v1, Landroid/hardware/biometrics/SensorPropertiesInternal;
+    move-object v2, v1
 
-    iget v1, v1, Landroid/hardware/biometrics/SensorPropertiesInternal;->sensorId:I
+    check-cast v2, Landroid/hardware/biometrics/SensorPropertiesInternal;
 
-    if-ne v1, p1, :cond_1
+    iget v2, v2, Landroid/hardware/biometrics/SensorPropertiesInternal;->sensorId:I
 
-    const/4 p0, 0x1
+    invoke-static {v2, p1}, Lkotlin/collections/ArraysKt___ArraysKt;->contains(I[I)Z
 
-    return p0
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    move-object v0, v1
 
     :cond_2
-    return v0
+    check-cast v0, Landroid/hardware/biometrics/SensorPropertiesInternal;
+
+    :goto_0
+    return-object v0
 .end method
 
-.method static dpToPixels(Landroid/content/Context;F)F
+.method public static final getCredentialType(Lcom/android/internal/widget/LockPatternUtils;I)I
     .locals 1
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object p0
-
-    iget p0, p0, Landroid/util/DisplayMetrics;->densityDpi:I
-
-    int-to-float p0, p0
-
-    const/high16 v0, 0x43200000    # 160.0f
-
-    div-float/2addr p0, v0
-
-    mul-float/2addr p1, p0
-
-    return p1
-.end method
-
-.method static getCredentialType(Landroid/content/Context;I)I
-    .locals 1
-
-    new-instance v0, Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-direct {v0, p0}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v0, p1}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality(I)I
+    invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternUtils;->getKeyguardStoredPasswordQuality(I)I
 
     move-result p0
 
     const/high16 p1, 0x10000
+
+    const/4 v0, 0x3
 
     if-eq p0, p1, :cond_1
 
@@ -99,128 +88,36 @@
 
     if-eq p0, p1, :cond_0
 
-    const/4 p0, 0x3
+    const/high16 p1, 0x40000
 
-    return p0
+    if-eq p0, p1, :cond_2
 
-    :cond_0
-    const/4 p0, 0x1
+    const/high16 p1, 0x50000
 
-    return p0
+    if-eq p0, p1, :cond_2
 
-    :cond_1
-    const/4 p0, 0x2
+    const/high16 p1, 0x60000
 
-    return p0
-.end method
+    if-eq p0, p1, :cond_2
 
-.method static isBiometricAllowed(Landroid/hardware/biometrics/PromptInfo;)Z
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/hardware/biometrics/PromptInfo;->getAuthenticators()I
-
-    move-result p0
-
-    and-int/lit16 p0, p0, 0xff
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
+    const/high16 p1, 0x80000
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method static isDeviceCredentialAllowed(Landroid/hardware/biometrics/PromptInfo;)Z
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/hardware/biometrics/PromptInfo;->getAuthenticators()I
-
-    move-result p0
-
-    const v0, 0x8000
-
-    and-int/2addr p0, v0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method static isManagedProfile(Landroid/content/Context;I)Z
-    .locals 1
-
-    const-class v0, Landroid/os/UserManager;
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroid/os/UserManager;
-
-    invoke-virtual {p0, p1}, Landroid/os/UserManager;->isManagedProfile(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static isSystem(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 2
-
-    const-string v0, "android.permission.USE_BIOMETRIC_INTERNAL"
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->checkCallingOrSelfPermission(Ljava/lang/String;)I
-
-    move-result p0
-
     const/4 v0, 0x1
 
-    const/4 v1, 0x0
-
-    if-nez p0, :cond_0
-
-    move p0, v0
-
     goto :goto_0
 
-    :cond_0
-    move p0, v1
-
-    :goto_0
-    if-eqz p0, :cond_1
-
-    const-string p0, "android"
-
-    invoke-virtual {p0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_1
-
-    goto :goto_1
-
     :cond_1
-    move v0, v1
+    const/4 v0, 0x2
 
-    :goto_1
+    :cond_2
+    :goto_0
     return v0
 .end method
 
-.method static notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
+.method public static final notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
     .locals 1
 
     invoke-virtual {p0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z

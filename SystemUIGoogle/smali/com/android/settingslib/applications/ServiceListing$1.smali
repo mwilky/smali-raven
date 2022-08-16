@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/applications/ServiceListing$1;
+.class public final Lcom/android/settingslib/applications/ServiceListing$1;
 .super Landroid/database/ContentObserver;
 .source "ServiceListing.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/applications/ServiceListing;
+.field public final synthetic this$0:Lcom/android/settingslib/applications/ServiceListing;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/applications/ServiceListing;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/settingslib/applications/ServiceListing;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/applications/ServiceListing$1;->this$0:Lcom/android/settingslib/applications/ServiceListing;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;)V
+.method public final onChange(ZLandroid/net/Uri;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/applications/ServiceListing$1;->this$0:Lcom/android/settingslib/applications/ServiceListing;

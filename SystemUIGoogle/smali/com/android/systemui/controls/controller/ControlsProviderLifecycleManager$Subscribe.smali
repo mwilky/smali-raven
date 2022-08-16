@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final list:Ljava/util/List;
+.field public final list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -25,36 +25,14 @@
     .end annotation
 .end field
 
-.field private final subscriber:Landroid/service/controls/IControlsSubscriber;
+.field public final subscriber:Landroid/service/controls/IControlsSubscriber;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
+.field public final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;Ljava/util/List;Landroid/service/controls/IControlsSubscriber;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;",
-            "Landroid/service/controls/IControlsSubscriber;",
-            ")V"
-        }
-    .end annotation
-
-    const-string v0, "this$0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "list"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "subscriber"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;Ljava/util/ArrayList;Lcom/android/systemui/controls/controller/StatefulControlSubscriber;)V
+    .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager$Subscribe;->this$0:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
@@ -69,28 +47,22 @@
 
 
 # virtual methods
-.method public callWrapper$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Z
+.method public final callWrapper$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Z
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager$Subscribe;->this$0:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->access$getTAG$p(Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;)Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->TAG:Ljava/lang/String;
 
-    move-result-object v0
+    const-string/jumbo v1, "subscribe "
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "subscribe "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     iget-object v2, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager$Subscribe;->this$0:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
-    invoke-virtual {v2}, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->getComponentName()Landroid/content/ComponentName;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->componentName:Landroid/content/ComponentName;
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -110,25 +82,39 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager$Subscribe;->this$0:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->access$getWrapper$p(Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;)Lcom/android/systemui/controls/controller/ServiceWrapper;
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->wrapper:Lcom/android/systemui/controls/controller/ServiceWrapper;
 
-    move-result-object v0
+    const/4 v1, 0x0
 
     if-nez v0, :cond_0
-
-    const/4 p0, 0x0
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager$Subscribe;->list:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager$Subscribe;->list:Ljava/util/List;
 
     iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager$Subscribe;->subscriber:Landroid/service/controls/IControlsSubscriber;
 
-    invoke-virtual {v0, v1, p0}, Lcom/android/systemui/controls/controller/ServiceWrapper;->subscribe(Ljava/util/List;Landroid/service/controls/IControlsSubscriber;)Z
+    :try_start_0
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ServiceWrapper;->service:Landroid/service/controls/IControlsProvider;
 
-    move-result p0
+    invoke-interface {v0, v2, p0}, Landroid/service/controls/IControlsProvider;->subscribe(Ljava/util/List;Landroid/service/controls/IControlsSubscriber;)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    const/4 v1, 0x1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string v0, "ServiceWrapper"
+
+    const-string v2, "Caught exception from ControlsProviderService"
+
+    invoke-static {v0, v2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    return p0
+    return v1
 .end method

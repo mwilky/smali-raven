@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/NotificationShadeDepthController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$keyguardStateCallback$1$onKeyguardFadingAwayChanged$1$2;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
@@ -31,20 +31,22 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$keyguardStateCallback$1$onKeyguardFadingAwayChanged$1$2;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->access$setKeyguardAnimator$p(Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/animation/Animator;)V
+    iput-object v0, p1, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->keyguardAnimator:Landroid/animation/Animator;
+
+    const/4 v1, 0x0
+
+    invoke-static {p1, v1}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->access$setWakeAndUnlockBlurRadius(Lcom/android/systemui/statusbar/NotificationShadeDepthController;F)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShadeDepthController$keyguardStateCallback$1$onKeyguardFadingAwayChanged$1$2;->this$0:Lcom/android/systemui/statusbar/NotificationShadeDepthController;
 
-    const/4 p1, 0x1
-
-    invoke-static {p0, v0, p1, v0}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate$default(Lcom/android/systemui/statusbar/NotificationShadeDepthController;Landroid/view/View;ILjava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/NotificationShadeDepthController;->scheduleUpdate(Landroid/view/View;)V
 
     return-void
 .end method

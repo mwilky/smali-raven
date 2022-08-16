@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/QSSecurityFooter$VpnSpan;
+.class public final Lcom/android/systemui/qs/QSSecurityFooter$VpnSpan;
 .super Landroid/text/style/ClickableSpan;
 .source "QSSecurityFooter.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x4
+    accessFlags = 0x1
     name = "VpnSpan"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/QSSecurityFooter;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QSSecurityFooter;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/systemui/qs/QSSecurityFooter;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSSecurityFooter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSSecurityFooter$VpnSpan;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 0
 
     instance-of p0, p1, Lcom/android/systemui/qs/QSSecurityFooter$VpnSpan;
@@ -39,7 +39,7 @@
     return p0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 0
 
     const p0, 0x12b9b099
@@ -47,7 +47,7 @@
     return p0
 .end method
 
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 1
 
     new-instance p1, Landroid/content/Intent;
@@ -58,17 +58,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSSecurityFooter$VpnSpan;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/QSSecurityFooter;->access$1200(Lcom/android/systemui/qs/QSSecurityFooter;)Landroid/app/AlertDialog;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/QSSecurityFooter;->mDialog:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSSecurityFooter$VpnSpan;->this$0:Lcom/android/systemui/qs/QSSecurityFooter;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/QSSecurityFooter;->access$1300(Lcom/android/systemui/qs/QSSecurityFooter;)Lcom/android/systemui/plugins/ActivityStarter;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/QSSecurityFooter;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
     const/4 v0, 0x0
 

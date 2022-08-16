@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationBarController$1;
+.class public final Lcom/android/systemui/navigationbar/NavigationBarController$1;
 .super Ljava/lang/Object;
 .source "NavigationBarController.java"
 
@@ -12,32 +12,28 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBarController;
+.field public final synthetic val$display:Landroid/view/Display;
 
-.field final synthetic val$display:Landroid/view/Display;
+.field public final synthetic val$navBar:Lcom/android/systemui/navigationbar/NavigationBar;
 
-.field final synthetic val$navBar:Lcom/android/systemui/navigationbar/NavigationBar;
-
-.field final synthetic val$result:Lcom/android/internal/statusbar/RegisterStatusBarResult;
+.field public final synthetic val$result:Lcom/android/internal/statusbar/RegisterStatusBarResult;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationBarController;Lcom/android/internal/statusbar/RegisterStatusBarResult;Lcom/android/systemui/navigationbar/NavigationBar;Landroid/view/Display;)V
+.method public constructor <init>(Lcom/android/internal/statusbar/RegisterStatusBarResult;Lcom/android/systemui/navigationbar/NavigationBar;Landroid/view/Display;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->this$0:Lcom/android/systemui/navigationbar/NavigationBarController;
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->val$result:Lcom/android/internal/statusbar/RegisterStatusBarResult;
 
-    iput-object p2, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->val$result:Lcom/android/internal/statusbar/RegisterStatusBarResult;
+    iput-object p2, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->val$navBar:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    iput-object p3, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->val$navBar:Lcom/android/systemui/navigationbar/NavigationBar;
-
-    iput-object p4, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->val$display:Landroid/view/Display;
+    iput-object p3, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->val$display:Landroid/view/Display;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,7 +42,7 @@
 
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
+.method public final onViewAttachedToWindow(Landroid/view/View;)V
     .locals 6
 
     iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarController$1;->val$result:Lcom/android/internal/statusbar/RegisterStatusBarResult;
@@ -77,7 +73,7 @@
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
+.method public final onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 0
 
     invoke-virtual {p1, p0}, Landroid/view/View;->removeOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V

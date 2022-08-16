@@ -1,4 +1,4 @@
-.class Landroidx/asynclayoutinflater/view/AsyncLayoutInflater$BasicInflater;
+.class public final Landroidx/asynclayoutinflater/view/AsyncLayoutInflater$BasicInflater;
 .super Landroid/view/LayoutInflater;
 .source "AsyncLayoutInflater.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "BasicInflater"
 .end annotation
 
 
 # static fields
-.field private static final sClassPrefixList:[Ljava/lang/String;
+.field public static final sClassPrefixList:[Ljava/lang/String;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const-string v0, "android.widget."
@@ -37,16 +37,8 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Landroid/view/LayoutInflater;-><init>(Landroid/content/Context;)V
 
@@ -55,16 +47,8 @@
 
 
 # virtual methods
-.method public cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
+.method public final cloneInContext(Landroid/content/Context;)Landroid/view/LayoutInflater;
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "newContext"
-        }
-    .end annotation
 
     new-instance p0, Landroidx/asynclayoutinflater/view/AsyncLayoutInflater$BasicInflater;
 
@@ -73,19 +57,8 @@
     return-object p0
 .end method
 
-.method protected onCreateView(Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "name",
-            "attrs"
-        }
-    .end annotation
-
+.method public final onCreateView(Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/ClassNotFoundException;
@@ -94,29 +67,29 @@
 
     sget-object v0, Landroidx/asynclayoutinflater/view/AsyncLayoutInflater$BasicInflater;->sClassPrefixList:[Ljava/lang/String;
 
-    array-length v1, v0
-
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_1
+    const/4 v2, 0x3
 
-    aget-object v3, v0, v2
+    if-ge v1, v2, :cond_1
+
+    aget-object v2, v0, v1
 
     :try_start_0
-    invoke-virtual {p0, p1, v3, p2}, Landroid/view/LayoutInflater;->createView(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
+    invoke-virtual {p0, p1, v2, p2}, Landroid/view/LayoutInflater;->createView(Ljava/lang/String;Ljava/lang/String;Landroid/util/AttributeSet;)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v2
     :try_end_0
     .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v3, :cond_0
+    if-eqz v2, :cond_0
 
-    return-object v3
+    return-object v2
 
     :catch_0
     :cond_0
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 

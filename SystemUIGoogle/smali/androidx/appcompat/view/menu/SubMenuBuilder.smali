@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field private mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
+.field public mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-.field private mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
+.field public mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
 
 # direct methods
@@ -27,7 +27,7 @@
 
 
 # virtual methods
-.method public collapseItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
+.method public final collapseItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -39,7 +39,7 @@
     return p0
 .end method
 
-.method dispatchMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
+.method public final dispatchMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 1
 
     invoke-super {p0, p1, p2}, Landroidx/appcompat/view/menu/MenuBuilder;->dispatchMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
@@ -71,7 +71,7 @@
     return p0
 .end method
 
-.method public expandItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
+.method public final expandItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -83,54 +83,50 @@
     return p0
 .end method
 
-.method public getActionViewStatesKey()Ljava/lang/String;
+.method public final getActionViewStatesKey()Ljava/lang/String;
     .locals 2
 
-    iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
+    iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    if-eqz v0, :cond_0
+    if-eqz p0, :cond_0
 
-    invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuItemImpl;->getItemId()I
-
-    move-result v0
+    iget p0, p0, Landroidx/appcompat/view/menu/MenuItemImpl;->mId:I
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
     :goto_0
-    if-nez v0, :cond_1
+    if-nez p0, :cond_1
 
     const/4 p0, 0x0
 
     return-object p0
 
     :cond_1
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-super {p0}, Landroidx/appcompat/view/menu/MenuBuilder;->getActionViewStatesKey()Ljava/lang/String;
+    const-string v1, "android:menu:actionviewstates"
 
-    move-result-object p0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ":"
 
-    const-string p0, ":"
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public getItem()Landroid/view/MenuItem;
+.method public final getItem()Landroid/view/MenuItem;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -138,15 +134,7 @@
     return-object p0
 .end method
 
-.method public getParentMenu()Landroid/view/Menu;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
-
-    return-object p0
-.end method
-
-.method public getRootMenu()Landroidx/appcompat/view/menu/MenuBuilder;
+.method public final getRootMenu()Landroidx/appcompat/view/menu/MenuBuilder;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -158,7 +146,7 @@
     return-object p0
 .end method
 
-.method public isGroupDividerEnabled()Z
+.method public final isGroupDividerEnabled()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -170,7 +158,7 @@
     return p0
 .end method
 
-.method public isQwertyMode()Z
+.method public final isQwertyMode()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -182,7 +170,7 @@
     return p0
 .end method
 
-.method public isShortcutsVisible()Z
+.method public final isShortcutsVisible()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -194,17 +182,7 @@
     return p0
 .end method
 
-.method public setCallback(Landroidx/appcompat/view/menu/MenuBuilder$Callback;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/view/menu/MenuBuilder;->setCallback(Landroidx/appcompat/view/menu/MenuBuilder$Callback;)V
-
-    return-void
-.end method
-
-.method public setGroupDividerEnabled(Z)V
+.method public final setGroupDividerEnabled(Z)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -214,67 +192,107 @@
     return-void
 .end method
 
-.method public setHeaderIcon(I)Landroid/view/SubMenu;
-    .locals 0
+.method public final setHeaderIcon(I)Landroid/view/SubMenu;
+    .locals 6
 
-    invoke-super {p0, p1}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderIconInt(I)Landroidx/appcompat/view/menu/MenuBuilder;
+    const/4 v1, 0x0
 
-    move-result-object p0
+    const/4 v2, 0x0
 
-    check-cast p0, Landroid/view/SubMenu;
+    const/4 v4, 0x0
 
-    return-object p0
-.end method
+    const/4 v5, 0x0
 
-.method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
-    .locals 0
+    move-object v0, p0
 
-    invoke-super {p0, p1}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderIconInt(Landroid/graphics/drawable/Drawable;)Landroidx/appcompat/view/menu/MenuBuilder;
+    move v3, p1
 
-    move-result-object p0
-
-    check-cast p0, Landroid/view/SubMenu;
+    invoke-virtual/range {v0 .. v5}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
     return-object p0
 .end method
 
-.method public setHeaderTitle(I)Landroid/view/SubMenu;
-    .locals 0
+.method public final setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
+    .locals 6
 
-    invoke-super {p0, p1}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderTitleInt(I)Landroidx/appcompat/view/menu/MenuBuilder;
+    const/4 v1, 0x0
 
-    move-result-object p0
+    const/4 v2, 0x0
 
-    check-cast p0, Landroid/view/SubMenu;
+    const/4 v3, 0x0
 
-    return-object p0
-.end method
+    const/4 v5, 0x0
 
-.method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
-    .locals 0
+    move-object v0, p0
 
-    invoke-super {p0, p1}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderTitleInt(Ljava/lang/CharSequence;)Landroidx/appcompat/view/menu/MenuBuilder;
+    move-object v4, p1
 
-    move-result-object p0
-
-    check-cast p0, Landroid/view/SubMenu;
+    invoke-virtual/range {v0 .. v5}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
     return-object p0
 .end method
 
-.method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
-    .locals 0
+.method public final setHeaderTitle(I)Landroid/view/SubMenu;
+    .locals 6
 
-    invoke-super {p0, p1}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderViewInt(Landroid/view/View;)Landroidx/appcompat/view/menu/MenuBuilder;
+    const/4 v2, 0x0
 
-    move-result-object p0
+    const/4 v3, 0x0
 
-    check-cast p0, Landroid/view/SubMenu;
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    move v1, p1
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
 
     return-object p0
 .end method
 
-.method public setIcon(I)Landroid/view/SubMenu;
+.method public final setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
+    .locals 6
+
+    const/4 v1, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    move-object v2, p1
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
+
+    return-object p0
+.end method
+
+.method public final setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
+    .locals 6
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    move-object v0, p0
+
+    move-object v5, p1
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/appcompat/view/menu/MenuBuilder;->setHeaderInternal(ILjava/lang/CharSequence;ILandroid/graphics/drawable/Drawable;Landroid/view/View;)V
+
+    return-object p0
+.end method
+
+.method public final setIcon(I)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -284,7 +302,7 @@
     return-object p0
 .end method
 
-.method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
+.method public final setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
@@ -294,7 +312,7 @@
     return-object p0
 .end method
 
-.method public setQwertyMode(Z)V
+.method public final setQwertyMode(Z)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mParentMenu:Landroidx/appcompat/view/menu/MenuBuilder;

@@ -43,7 +43,7 @@
     .end annotation
 .end field
 
-.field private mHashCode:I
+.field public mHashCode:I
 
 .field public final sourceComponent:Landroid/content/ComponentName;
 
@@ -61,7 +61,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/shared/recents/model/Task$TaskKey$1;
@@ -92,122 +92,48 @@
 
     iput p8, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->displayId:I
 
-    invoke-direct {p0}, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->updateHashCode()V
+    const/4 p2, 0x3
 
-    return-void
-.end method
+    new-array p2, p2, [Ljava/lang/Object;
 
-.method static synthetic access$000(Landroid/os/Parcel;)Lcom/android/systemui/shared/recents/model/Task$TaskKey;
-    .locals 0
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-static {p0}, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->readFromParcel(Landroid/os/Parcel;)Lcom/android/systemui/shared/recents/model/Task$TaskKey;
+    move-result-object p1
 
-    move-result-object p0
+    const/4 p3, 0x0
 
-    return-object p0
-.end method
+    aput-object p1, p2, p3
 
-.method private static readFromParcel(Landroid/os/Parcel;)Lcom/android/systemui/shared/recents/model/Task$TaskKey;
-    .locals 9
+    iget p1, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->windowingMode:I
 
-    invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v1
+    move-result-object p1
 
-    invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
+    const/4 p3, 0x1
 
-    move-result v2
+    aput-object p1, p2, p3
 
-    sget-object v0, Landroid/content/Intent;->CREATOR:Landroid/os/Parcelable$Creator;
+    invoke-static {p5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-virtual {p0, v0}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
+    move-result-object p1
 
-    move-result-object v0
+    const/4 p3, 0x2
 
-    move-object v3, v0
+    aput-object p1, p2, p3
 
-    check-cast v3, Landroid/content/Intent;
+    invoke-static {p2}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 
-    invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
+    move-result p1
 
-    move-result v5
-
-    invoke-virtual {p0}, Landroid/os/Parcel;->readLong()J
-
-    move-result-wide v6
-
-    invoke-virtual {p0}, Landroid/os/Parcel;->readInt()I
-
-    move-result v8
-
-    sget-object v0, Landroid/content/ComponentName;->CREATOR:Landroid/os/Parcelable$Creator;
-
-    invoke-virtual {p0, v0}, Landroid/os/Parcel;->readTypedObject(Landroid/os/Parcelable$Creator;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    move-object v4, p0
-
-    check-cast v4, Landroid/content/ComponentName;
-
-    new-instance p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/shared/recents/model/Task$TaskKey;-><init>(IILandroid/content/Intent;Landroid/content/ComponentName;IJI)V
-
-    return-object p0
-.end method
-
-.method private updateHashCode()V
-    .locals 3
-
-    const/4 v0, 0x3
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    iget v1, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->id:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    iget v1, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->windowingMode:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    iget v1, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->userId:I
-
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    aput-object v1, v0, v2
-
-    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->mHashCode:I
+    iput p1, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->mHashCode:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -215,7 +141,7 @@
     return p0
 .end method
 
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 3
 
     instance-of v0, p1, Lcom/android/systemui/shared/recents/model/Task$TaskKey;
@@ -253,7 +179,7 @@
     return v1
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->mHashCode:I
@@ -261,16 +187,14 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "id="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "id="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/shared/recents/model/Task$TaskKey;->id:I
 

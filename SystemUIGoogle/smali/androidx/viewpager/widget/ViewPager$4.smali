@@ -1,4 +1,4 @@
-.class Landroidx/viewpager/widget/ViewPager$4;
+.class public final Landroidx/viewpager/widget/ViewPager$4;
 .super Ljava/lang/Object;
 .source "ViewPager.java"
 
@@ -6,25 +6,14 @@
 .implements Landroidx/core/view/OnApplyWindowInsetsListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/viewpager/widget/ViewPager;->initViewPager()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field private final mTempRect:Landroid/graphics/Rect;
+.field public final mTempRect:Landroid/graphics/Rect;
 
-.field final synthetic this$0:Landroidx/viewpager/widget/ViewPager;
+.field public final synthetic this$0:Landroidx/viewpager/widget/ViewPager;
 
 
 # direct methods
-.method constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
+.method public constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/viewpager/widget/ViewPager$4;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -42,14 +31,16 @@
 
 
 # virtual methods
-.method public onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
+.method public final onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
     .locals 5
 
     invoke-static {p1, p2}, Landroidx/core/view/ViewCompat;->onApplyWindowInsets(Landroid/view/View;Landroidx/core/view/WindowInsetsCompat;)Landroidx/core/view/WindowInsetsCompat;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroidx/core/view/WindowInsetsCompat;->isConsumed()Z
+    iget-object p2, p1, Landroidx/core/view/WindowInsetsCompat;->mImpl:Landroidx/core/view/WindowInsetsCompat$Impl;
+
+    invoke-virtual {p2}, Landroidx/core/view/WindowInsetsCompat$Impl;->isConsumed()Z
 
     move-result p2
 
@@ -158,19 +149,25 @@
     goto :goto_0
 
     :cond_1
-    new-instance p0, Landroidx/core/view/WindowInsetsCompat$Builder;
+    new-instance p0, Landroidx/core/view/WindowInsetsCompat$BuilderImpl30;
 
-    invoke-direct {p0, p1}, Landroidx/core/view/WindowInsetsCompat$Builder;-><init>(Landroidx/core/view/WindowInsetsCompat;)V
+    invoke-direct {p0, p1}, Landroidx/core/view/WindowInsetsCompat$BuilderImpl30;-><init>(Landroidx/core/view/WindowInsetsCompat;)V
 
-    invoke-static {p2}, Landroidx/core/graphics/Insets;->of(Landroid/graphics/Rect;)Landroidx/core/graphics/Insets;
+    iget p1, p2, Landroid/graphics/Rect;->left:I
+
+    iget v0, p2, Landroid/graphics/Rect;->top:I
+
+    iget v1, p2, Landroid/graphics/Rect;->right:I
+
+    iget p2, p2, Landroid/graphics/Rect;->bottom:I
+
+    invoke-static {p1, v0, v1, p2}, Landroidx/core/graphics/Insets;->of(IIII)Landroidx/core/graphics/Insets;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Landroidx/core/view/WindowInsetsCompat$Builder;->setSystemWindowInsets(Landroidx/core/graphics/Insets;)Landroidx/core/view/WindowInsetsCompat$Builder;
+    invoke-virtual {p0, p1}, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->setSystemWindowInsets(Landroidx/core/graphics/Insets;)V
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$Builder;->build()Landroidx/core/view/WindowInsetsCompat;
+    invoke-virtual {p0}, Landroidx/core/view/WindowInsetsCompat$BuilderImpl29;->build()Landroidx/core/view/WindowInsetsCompat;
 
     move-result-object p0
 

@@ -17,6 +17,7 @@
         <item>Højst 3 processer</item>
         <item>Højst 4 processer</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Fra</item>
         <item>Til</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Ikke tilgængelig</item>
+        <item>Fra</item>
+        <item>Til</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Ikke tilgængelig</item>
         <item>Fra</item>
@@ -306,6 +312,16 @@
         <item>Til</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Ikke tilgængelig</item>
+        <item>Fra</item>
+        <item>Til</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Ikke tilgængelig</item>
+        <item>Fra</item>
+        <item>Til</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Ikke tilgængelig</item>
         <item>Fra</item>
         <item>Til</item>
@@ -374,6 +390,12 @@
         <item>Lynhurtig</item>
         <item>Ekstra lynhurtig</item>
         <item>Hurtigst</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Flyt til venstre</item>
+        <item>Flyt ned</item>
+        <item>Flyt til højre</item>
+        <item>Flyt op</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Oplader</item>

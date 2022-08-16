@@ -3,14 +3,18 @@
 .source "KeyguardPinBasedInputView.java"
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mButtons:[Lcom/android/keyguard/NumPadKey;
+.field public mButtons:[Lcom/android/keyguard/NumPadKey;
 
-.field private mDeleteButton:Lcom/android/keyguard/NumPadButton;
+.field public mDeleteButton:Lcom/android/keyguard/NumPadButton;
 
-.field private mOkButton:Lcom/android/keyguard/NumPadButton;
+.field public mOkButton:Lcom/android/keyguard/NumPadButton;
 
-.field protected mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
+.field public mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
 
 # direct methods
@@ -38,43 +42,14 @@
     return-void
 .end method
 
-.method private performNumberClick(I)V
-    .locals 1
-
-    if-ltz p1, :cond_0
-
-    const/16 v0, 0x9
-
-    if-gt p1, v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
-
-    aget-object p0, p0, p1
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->performClick()Z
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method getButtons()[Lcom/android/keyguard/NumPadKey;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
-
-    return-object p0
-.end method
-
-.method protected getEnteredCredential()Lcom/android/internal/widget/LockscreenCredential;
+.method public final getEnteredCredential()Lcom/android/internal/widget/LockscreenCredential;
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/PasswordTextView;->getText()Ljava/lang/String;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/PasswordTextView;->mText:Ljava/lang/String;
 
     invoke-static {p0}, Lcom/android/internal/widget/LockscreenCredential;->createPinOrNone(Ljava/lang/CharSequence;)Lcom/android/internal/widget/LockscreenCredential;
 
@@ -83,74 +58,56 @@
     return-object p0
 .end method
 
-.method protected getPromptReasonStringRes(I)I
+.method public getPromptReasonStringRes(I)I
     .locals 0
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_3
 
     const/4 p0, 0x1
 
-    if-eq p1, p0, :cond_4
-
-    const/4 p0, 0x2
-
-    if-eq p1, p0, :cond_3
+    if-eq p1, p0, :cond_2
 
     const/4 p0, 0x3
 
-    if-eq p1, p0, :cond_2
+    if-eq p1, p0, :cond_1
 
     const/4 p0, 0x4
 
-    if-eq p1, p0, :cond_1
-
-    const/4 p0, 0x6
-
     if-eq p1, p0, :cond_0
 
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_timeout_pin:I
+    const p0, 0x7f1303d2
 
     return p0
 
     :cond_0
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_timeout_pin:I
+    const p0, 0x7f1303d3
 
     return p0
 
     :cond_1
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_user_request:I
+    const p0, 0x7f1303cc
 
     return p0
 
     :cond_2
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_device_admin:I
+    const p0, 0x7f1303cf
 
     return p0
 
     :cond_3
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_timeout_pin:I
-
-    return p0
-
-    :cond_4
-    sget p0, Lcom/android/systemui/R$string;->kg_prompt_reason_restart_pin:I
-
-    return p0
-
-    :cond_5
     const/4 p0, 0x0
 
     return p0
 .end method
 
-.method public getTitle()Ljava/lang/CharSequence;
+.method public getTitle()Ljava/lang/String;
     .locals 1
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    const v0, 0x104043d
+    const v0, 0x1040487
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -159,7 +116,7 @@
     return-object p0
 .end method
 
-.method protected onFinishInflate()V
+.method public onFinishInflate()V
     .locals 4
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->getPasswordTextViewId()I
@@ -178,7 +135,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setSelected(Z)V
 
-    sget v0, Lcom/android/systemui/R$id;->key_enter:I
+    const v0, 0x7f0b0334
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -188,7 +145,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mOkButton:Lcom/android/keyguard/NumPadButton;
 
-    sget v0, Lcom/android/systemui/R$id;->delete_button:I
+    const v0, 0x7f0b01f2
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -204,7 +161,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v3, Lcom/android/systemui/R$id;->key0:I
+    const v3, 0x7f0b032a
 
     invoke-virtual {p0, v3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -216,7 +173,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v2, Lcom/android/systemui/R$id;->key1:I
+    const v2, 0x7f0b032b
 
     invoke-virtual {p0, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -228,7 +185,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key2:I
+    const v1, 0x7f0b032c
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -242,7 +199,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key3:I
+    const v1, 0x7f0b032d
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -256,7 +213,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key4:I
+    const v1, 0x7f0b032e
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -270,7 +227,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key5:I
+    const v1, 0x7f0b032f
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +241,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key6:I
+    const v1, 0x7f0b0330
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -298,7 +255,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key7:I
+    const v1, 0x7f0b0331
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -312,7 +269,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key8:I
+    const v1, 0x7f0b0332
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -326,7 +283,7 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
-    sget v1, Lcom/android/systemui/R$id;->key9:I
+    const v1, 0x7f0b0333
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -349,8 +306,8 @@
     return-void
 .end method
 
-.method public onKeyDown(ILandroid/view/KeyEvent;)Z
-    .locals 3
+.method public final onKeyDown(ILandroid/view/KeyEvent;)Z
+    .locals 4
 
     invoke-static {p1}, Landroid/view/KeyEvent;->isConfirmKey(I)Z
 
@@ -380,42 +337,62 @@
     :cond_1
     const/4 v0, 0x7
 
-    if-lt p1, v0, :cond_2
-
-    const/16 v2, 0x10
-
-    if-gt p1, v2, :cond_2
-
-    sub-int/2addr p1, v0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->performNumberClick(I)V
-
-    return v1
-
-    :cond_2
-    const/16 v0, 0x90
+    const/16 v2, 0x9
 
     if-lt p1, v0, :cond_3
 
-    const/16 v2, 0x99
+    const/16 v3, 0x10
 
-    if-gt p1, v2, :cond_3
+    if-gt p1, v3, :cond_3
 
     sub-int/2addr p1, v0
 
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardPinBasedInputView;->performNumberClick(I)V
+    if-ltz p1, :cond_2
 
+    if-gt p1, v2, :cond_2
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
+
+    aget-object p0, p0, p1
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->performClick()Z
+
+    :cond_2
     return v1
 
     :cond_3
+    const/16 v0, 0x90
+
+    if-lt p1, v0, :cond_5
+
+    const/16 v3, 0x99
+
+    if-gt p1, v3, :cond_5
+
+    sub-int/2addr p1, v0
+
+    if-ltz p1, :cond_4
+
+    if-gt p1, v2, :cond_4
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
+
+    aget-object p0, p0, p1
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->performClick()Z
+
+    :cond_4
+    return v1
+
+    :cond_5
     invoke-super {p0, p1, p2}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->onKeyDown(ILandroid/view/KeyEvent;)Z
 
-    move-result p0
+    const/4 p0, 0x0
 
     return p0
 .end method
 
-.method protected onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
+.method public final onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
@@ -428,7 +405,7 @@
 .end method
 
 .method public reloadColors()V
-    .locals 4
+    .locals 7
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mButtons:[Lcom/android/keyguard/NumPadKey;
 
@@ -437,20 +414,79 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v1, :cond_0
+    const v3, 0x1010036
 
-    aget-object v3, v0, v2
+    if-ge v2, v1, :cond_1
 
-    invoke-virtual {v3}, Lcom/android/keyguard/NumPadKey;->reloadColors()V
+    aget-object v4, v0, v2
 
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-static {v5, v3}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+
+    move-result v3
+
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    const v6, 0x1010038
+
+    invoke-static {v5, v6}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+
+    move-result v5
+
+    iget-object v6, v4, Lcom/android/keyguard/NumPadKey;->mDigitText:Landroid/widget/TextView;
+
+    invoke-virtual {v6, v3}, Landroid/widget/TextView;->setTextColor(I)V
+
+    iget-object v3, v4, Lcom/android/keyguard/NumPadKey;->mKlondikeText:Landroid/widget/TextView;
+
+    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setTextColor(I)V
+
+    iget-object v3, v4, Lcom/android/keyguard/NumPadKey;->mAnimator:Lcom/android/keyguard/NumPadAnimator;
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/keyguard/NumPadAnimator;->reloadColors(Landroid/content/Context;)V
+
+    :cond_0
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->reloadColors()V
+    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, v3}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+
+    move-result v1
+
+    iget-object v0, v0, Lcom/android/keyguard/PasswordTextView;->mDrawPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mDeleteButton:Lcom/android/keyguard/NumPadButton;
 
@@ -463,23 +499,131 @@
     return-void
 .end method
 
-.method protected resetPasswordText(ZZ)V
-    .locals 0
+.method public final resetPasswordText(ZZ)V
+    .locals 16
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
+    move-object/from16 v0, p0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/keyguard/PasswordTextView;->reset(ZZ)V
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
+    invoke-virtual {v0}, Lcom/android/keyguard/PasswordTextView;->getTransformedText()Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ""
+
+    iput-object v2, v0, Lcom/android/keyguard/PasswordTextView;->mText:Ljava/lang/String;
+
+    iget-object v2, v0, Lcom/android/keyguard/PasswordTextView;->mTextChars:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    add-int/lit8 v3, v2, -0x1
+
+    div-int/lit8 v4, v3, 0x2
+
+    const/4 v5, 0x0
+
+    move v6, v5
+
+    :goto_0
+    if-ge v6, v2, :cond_2
+
+    iget-object v7, v0, Lcom/android/keyguard/PasswordTextView;->mTextChars:Ljava/util/ArrayList;
+
+    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/keyguard/PasswordTextView$CharState;
+
+    if-eqz p1, :cond_1
+
+    if-gt v6, v4, :cond_0
+
+    mul-int/lit8 v8, v6, 0x2
+
+    goto :goto_1
+
+    :cond_0
+    sub-int v8, v6, v4
+
+    add-int/lit8 v8, v8, -0x1
+
+    mul-int/lit8 v8, v8, 0x2
+
+    sub-int v8, v3, v8
+
+    :goto_1
+    int-to-long v8, v8
+
+    const-wide/16 v10, 0x28
+
+    mul-long/2addr v8, v10
+
+    const-wide/16 v12, 0xc8
+
+    invoke-static {v8, v9, v12, v13}, Ljava/lang/Math;->min(JJ)J
+
+    move-result-wide v8
+
+    int-to-long v14, v3
+
+    mul-long/2addr v14, v10
+
+    invoke-static {v14, v15, v12, v13}, Ljava/lang/Math;->min(JJ)J
+
+    move-result-wide v10
+
+    const-wide/16 v12, 0xa0
+
+    add-long/2addr v10, v12
+
+    invoke-virtual {v7, v8, v9, v10, v11}, Lcom/android/keyguard/PasswordTextView$CharState;->startRemoveAnimation(JJ)V
+
+    iget-object v8, v7, Lcom/android/keyguard/PasswordTextView$CharState;->this$0:Lcom/android/keyguard/PasswordTextView;
+
+    iget-object v9, v7, Lcom/android/keyguard/PasswordTextView$CharState;->dotSwapperRunnable:Lcom/android/keyguard/PasswordTextView$CharState$10;
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    iput-boolean v5, v7, Lcom/android/keyguard/PasswordTextView$CharState;->isDotSwapPending:Z
+
+    goto :goto_2
+
+    :cond_1
+    iget-object v8, v0, Lcom/android/keyguard/PasswordTextView;->mCharPool:Ljava/util/Stack;
+
+    invoke-virtual {v8, v7}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :goto_2
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    if-nez p1, :cond_3
+
+    iget-object v2, v0, Lcom/android/keyguard/PasswordTextView;->mTextChars:Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
+
+    :cond_3
+    if-eqz p2, :cond_4
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v2
+
+    invoke-virtual {v0, v5, v2, v5, v1}, Lcom/android/keyguard/PasswordTextView;->sendAccessibilityEventTypeViewTextChanged(IIILjava/lang/StringBuilder;)V
+
+    :cond_4
     return-void
 .end method
 
-.method protected resetState()V
-    .locals 0
-
-    return-void
-.end method
-
-.method protected setPasswordEntryEnabled(Z)V
+.method public final setPasswordEntryEnabled(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
@@ -508,7 +652,7 @@
     return-void
 .end method
 
-.method protected setPasswordEntryInputEnabled(Z)V
+.method public final setPasswordEntryInputEnabled(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardPinBasedInputView;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/keyboard/KeyboardUI$BluetoothDialogClickListener;
+.class public final Lcom/android/systemui/keyboard/KeyboardUI$BluetoothDialogClickListener;
 .super Ljava/lang/Object;
 .source "KeyboardUI.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "BluetoothDialogClickListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
+.field public final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
+.method public constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothDialogClickListener;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
@@ -32,17 +32,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;Lcom/android/systemui/keyboard/KeyboardUI$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothDialogClickListener;-><init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 2
 
     const/4 p1, 0x0
@@ -61,9 +53,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothDialogClickListener;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
-    invoke-static {v0}, Lcom/android/systemui/keyboard/KeyboardUI;->access$1700(Lcom/android/systemui/keyboard/KeyboardUI;)Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/keyboard/KeyboardUI;->mHandler:Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
 
     const/4 v1, 0x3
 
@@ -77,7 +67,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/keyboard/KeyboardUI;->access$302(Lcom/android/systemui/keyboard/KeyboardUI;Lcom/android/systemui/keyboard/BluetoothDialog;)Lcom/android/systemui/keyboard/BluetoothDialog;
+    iput-object p1, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mDialog:Lcom/android/systemui/keyboard/BluetoothDialog;
 
     return-void
 .end method

@@ -1,35 +1,42 @@
 .class public final synthetic Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
-
-
-# instance fields
-.field public final synthetic f$0:D
+.implements Ljava/util/function/BinaryOperator;
 
 
 # direct methods
-.method public synthetic constructor <init>(D)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-wide p1, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;->f$0:D
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final apply(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 2
 
-    iget-wide v0, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;->f$0:D
+    check-cast p1, Ljava/lang/Double;
 
-    check-cast p1, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;
+    invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
 
-    invoke-static {v0, v1, p1}, Lcom/android/systemui/classifier/HistoryTracker;->$r8$lambda$NsXRZjeRU1zndXn4-WHgJ341TE8(DLcom/android/systemui/classifier/HistoryTracker$CombinedResult;)Ljava/lang/Double;
+    move-result-wide p0
+
+    check-cast p2, Ljava/lang/Double;
+
+    invoke-virtual {p2}, Ljava/lang/Double;->doubleValue()D
+
+    move-result-wide v0
+
+    invoke-static {p0, p1, v0, v1}, Ljava/lang/Double;->sum(DD)D
+
+    move-result-wide p0
+
+    invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
     move-result-object p0
 

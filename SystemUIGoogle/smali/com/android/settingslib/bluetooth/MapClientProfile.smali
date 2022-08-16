@@ -15,21 +15,19 @@
 
 
 # static fields
-.field static final UUIDS:[Landroid/os/ParcelUuid;
+.field public static final UUIDS:[Landroid/os/ParcelUuid;
 
 
 # instance fields
-.field private final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+.field public final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
-.field private mIsProfileReady:Z
+.field public final mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
-.field private final mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-.field private mService:Landroid/bluetooth/BluetoothMapClient;
+.field public mService:Landroid/bluetooth/BluetoothMapClient;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const/4 v0, 0x1
@@ -47,8 +45,8 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -62,9 +60,7 @@
 
     new-instance p3, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p3, p0, v0}, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;-><init>(Lcom/android/settingslib/bluetooth/MapClientProfile;Lcom/android/settingslib/bluetooth/MapClientProfile$1;)V
+    invoke-direct {p3, p0}, Lcom/android/settingslib/bluetooth/MapClientProfile$MapClientServiceListener;-><init>(Lcom/android/settingslib/bluetooth/MapClientProfile;)V
 
     const/16 p0, 0x12
 
@@ -73,49 +69,9 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/bluetooth/MapClientProfile;)Landroid/bluetooth/BluetoothMapClient;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/MapClientProfile;->mService:Landroid/bluetooth/BluetoothMapClient;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/bluetooth/MapClientProfile;Landroid/bluetooth/BluetoothMapClient;)Landroid/bluetooth/BluetoothMapClient;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/bluetooth/MapClientProfile;->mService:Landroid/bluetooth/BluetoothMapClient;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/MapClientProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/settingslib/bluetooth/MapClientProfile;)Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/MapClientProfile;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$302(Lcom/android/settingslib/bluetooth/MapClientProfile;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/bluetooth/MapClientProfile;->mIsProfileReady:Z
-
-    return p1
-.end method
-
 
 # virtual methods
-.method public accessProfileEnabled()Z
+.method public final accessProfileEnabled()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -123,7 +79,7 @@
     return p0
 .end method
 
-.method protected finalize()V
+.method public final finalize()V
     .locals 4
 
     const-string v0, "MapClientProfile"
@@ -167,7 +123,7 @@
     return-void
 .end method
 
-.method public getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
+.method public final getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/MapClientProfile;->mService:Landroid/bluetooth/BluetoothMapClient;
@@ -186,15 +142,15 @@
     return p0
 .end method
 
-.method public getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
+.method public final getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
     .locals 0
 
-    const p0, 0x1080515
+    const p0, 0x1080520
 
     return p0
 .end method
 
-.method public getProfileId()I
+.method public final getProfileId()I
     .locals 0
 
     const/16 p0, 0x12
@@ -202,7 +158,7 @@
     return p0
 .end method
 
-.method public setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
+.method public final setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/MapClientProfile;->mService:Landroid/bluetooth/BluetoothMapClient;
@@ -242,7 +198,7 @@
     return v1
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     const-string p0, "MAP Client"

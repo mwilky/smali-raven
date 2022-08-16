@@ -15,14 +15,12 @@
 
 
 # direct methods
-.method public static synthetic onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZILjava/lang/Object;)V
+.method public static synthetic onMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZI)V
     .locals 7
 
-    if-nez p8, :cond_3
+    and-int/lit8 v0, p7, 0x8
 
-    and-int/lit8 p8, p7, 0x8
-
-    if-eqz p8, :cond_0
+    if-eqz v0, :cond_0
 
     const/4 p4, 0x1
 
@@ -31,11 +29,11 @@
 
     and-int/lit8 p4, p7, 0x10
 
-    const/4 p8, 0x0
+    const/4 v0, 0x0
 
     if-eqz p4, :cond_1
 
-    move v5, p8
+    move v5, v0
 
     goto :goto_0
 
@@ -47,7 +45,7 @@
 
     if-eqz p4, :cond_2
 
-    move v6, p8
+    move v6, v0
 
     goto :goto_1
 
@@ -66,85 +64,14 @@
     invoke-interface/range {v0 .. v6}, Lcom/android/systemui/media/MediaDataManager$Listener;->onMediaDataLoaded(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;ZIZ)V
 
     return-void
-
-    :cond_3
-    new-instance p0, Ljava/lang/UnsupportedOperationException;
-
-    const-string p1, "Super calls with default arguments not supported in this target, function: onMediaDataLoaded"
-
-    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw p0
 .end method
 
-.method public static onMediaDataRemoved(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;)V
+.method public static synthetic onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;)V
     .locals 1
 
-    const-string v0, "this"
+    const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "key"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static onSmartspaceMediaDataLoaded(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
-    .locals 0
-
-    const-string p3, "this"
-
-    invoke-static {p0, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "key"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "data"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static synthetic onSmartspaceMediaDataLoaded$default(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;ZILjava/lang/Object;)V
-    .locals 0
-
-    if-nez p5, :cond_1
-
-    and-int/lit8 p4, p4, 0x4
-
-    if-eqz p4, :cond_0
-
-    const/4 p3, 0x0
-
-    :cond_0
-    invoke-interface {p0, p1, p2, p3}, Lcom/android/systemui/media/MediaDataManager$Listener;->onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
-
-    return-void
-
-    :cond_1
-    new-instance p0, Ljava/lang/UnsupportedOperationException;
-
-    const-string p1, "Super calls with default arguments not supported in this target, function: onSmartspaceMediaDataLoaded"
-
-    invoke-direct {p0, p1}, Ljava/lang/UnsupportedOperationException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
-.method public static onSmartspaceMediaDataRemoved(Lcom/android/systemui/media/MediaDataManager$Listener;Ljava/lang/String;Z)V
-    .locals 0
-
-    const-string p2, "this"
-
-    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "key"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-interface {p0, p1, p2, v0}, Lcom/android/systemui/media/MediaDataManager$Listener;->onSmartspaceMediaDataLoaded(Ljava/lang/String;Lcom/android/systemui/media/SmartspaceMediaData;Z)V
 
     return-void
 .end method

@@ -17,6 +17,7 @@
         <item>Daugiausia 3 procesai</item>
         <item>Daugiausia 4 procesai</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Išjungta</item>
         <item>Įjungta</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Nepasiekiama</item>
+        <item>Išjungta</item>
+        <item>Įjungta</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Nepasiekiama</item>
         <item>Išjungta</item>
@@ -306,6 +312,16 @@
         <item>Įjungta</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Nepasiekiama</item>
+        <item>Išjungta</item>
+        <item>Įjungta</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Nepasiekiama</item>
+        <item>Išjungta</item>
+        <item>Įjungta</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Nepasiekiama</item>
         <item>Išjungta</item>
         <item>Įjungta</item>
@@ -374,6 +390,12 @@
         <item>Spartus</item>
         <item>Labai spartus</item>
         <item>Greičiausias</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Perkelti kairėn</item>
+        <item>Perkelti žemyn</item>
+        <item>Perkelti dešinėn</item>
+        <item>Perkelti aukštyn</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Kraunama</item>

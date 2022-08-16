@@ -12,17 +12,17 @@
 
 
 # instance fields
-.field private mDialogIcon:Landroid/graphics/drawable/Drawable;
+.field public mDialogIcon:Landroid/graphics/drawable/Drawable;
 
-.field private mDialogLayoutResId:I
+.field public mDialogLayoutResId:I
 
-.field private mDialogMessage:Ljava/lang/CharSequence;
+.field public mDialogMessage:Ljava/lang/String;
 
-.field private mDialogTitle:Ljava/lang/CharSequence;
+.field public mDialogTitle:Ljava/lang/CharSequence;
 
-.field private mNegativeButtonText:Ljava/lang/CharSequence;
+.field public mNegativeButtonText:Ljava/lang/String;
 
-.field private mPositiveButtonText:Ljava/lang/CharSequence;
+.field public mPositiveButtonText:Ljava/lang/String;
 
 
 # direct methods
@@ -39,7 +39,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    sget v0, Landroidx/preference/R$attr;->dialogPreferenceStyle:I
+    const v0, 0x7f040174
 
     const v1, 0x1010091
 
@@ -67,15 +67,15 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
-    sget-object v0, Landroidx/preference/R$styleable;->DialogPreference:[I
+    sget-object v0, Landroidx/cardview/R$attr;->DialogPreference:[I
 
     invoke-virtual {p1, p2, v0, p3, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
-    sget p2, Landroidx/preference/R$styleable;->DialogPreference_dialogTitle:I
+    const/16 p2, 0x9
 
-    sget p3, Landroidx/preference/R$styleable;->DialogPreference_android_dialogTitle:I
+    const/4 p3, 0x0
 
     invoke-static {p1, p2, p3}, Landroidx/core/content/res/TypedArrayUtils;->getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
 
@@ -85,60 +85,67 @@
 
     if-nez p2, :cond_0
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object p2
+    iget-object p2, p0, Landroidx/preference/Preference;->mTitle:Ljava/lang/CharSequence;
 
     iput-object p2, p0, Landroidx/preference/DialogPreference;->mDialogTitle:Ljava/lang/CharSequence;
 
     :cond_0
-    sget p2, Landroidx/preference/R$styleable;->DialogPreference_dialogMessage:I
+    const/16 p2, 0x8
 
-    sget p3, Landroidx/preference/R$styleable;->DialogPreference_android_dialogMessage:I
+    const/4 p4, 0x1
 
-    invoke-static {p1, p2, p3}, Landroidx/core/content/res/TypedArrayUtils;->getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
-
-    move-result-object p2
-
-    iput-object p2, p0, Landroidx/preference/DialogPreference;->mDialogMessage:Ljava/lang/CharSequence;
-
-    sget p2, Landroidx/preference/R$styleable;->DialogPreference_dialogIcon:I
-
-    sget p3, Landroidx/preference/R$styleable;->DialogPreference_android_dialogIcon:I
-
-    invoke-static {p1, p2, p3}, Landroidx/core/content/res/TypedArrayUtils;->getDrawable(Landroid/content/res/TypedArray;II)Landroid/graphics/drawable/Drawable;
+    invoke-static {p1, p2, p4}, Landroidx/core/content/res/TypedArrayUtils;->getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
 
     move-result-object p2
 
+    iput-object p2, p0, Landroidx/preference/DialogPreference;->mDialogMessage:Ljava/lang/String;
+
+    const/4 p2, 0x6
+
+    const/4 p4, 0x2
+
+    invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p2
+
+    if-nez p2, :cond_1
+
+    invoke-virtual {p1, p4}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p2
+
+    :cond_1
     iput-object p2, p0, Landroidx/preference/DialogPreference;->mDialogIcon:Landroid/graphics/drawable/Drawable;
 
-    sget p2, Landroidx/preference/R$styleable;->DialogPreference_positiveButtonText:I
+    const/16 p2, 0xb
 
-    sget p3, Landroidx/preference/R$styleable;->DialogPreference_android_positiveButtonText:I
+    const/4 p4, 0x3
 
-    invoke-static {p1, p2, p3}, Landroidx/core/content/res/TypedArrayUtils;->getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
-
-    move-result-object p2
-
-    iput-object p2, p0, Landroidx/preference/DialogPreference;->mPositiveButtonText:Ljava/lang/CharSequence;
-
-    sget p2, Landroidx/preference/R$styleable;->DialogPreference_negativeButtonText:I
-
-    sget p3, Landroidx/preference/R$styleable;->DialogPreference_android_negativeButtonText:I
-
-    invoke-static {p1, p2, p3}, Landroidx/core/content/res/TypedArrayUtils;->getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
+    invoke-static {p1, p2, p4}, Landroidx/core/content/res/TypedArrayUtils;->getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
 
     move-result-object p2
 
-    iput-object p2, p0, Landroidx/preference/DialogPreference;->mNegativeButtonText:Ljava/lang/CharSequence;
+    iput-object p2, p0, Landroidx/preference/DialogPreference;->mPositiveButtonText:Ljava/lang/String;
 
-    sget p2, Landroidx/preference/R$styleable;->DialogPreference_dialogLayout:I
+    const/16 p2, 0xa
 
-    sget p3, Landroidx/preference/R$styleable;->DialogPreference_android_dialogLayout:I
+    const/4 p4, 0x4
 
-    const/4 p4, 0x0
+    invoke-static {p1, p2, p4}, Landroidx/core/content/res/TypedArrayUtils;->getString(Landroid/content/res/TypedArray;II)Ljava/lang/String;
 
-    invoke-static {p1, p2, p3, p4}, Landroidx/core/content/res/TypedArrayUtils;->getResourceId(Landroid/content/res/TypedArray;III)I
+    move-result-object p2
+
+    iput-object p2, p0, Landroidx/preference/DialogPreference;->mNegativeButtonText:Ljava/lang/String;
+
+    const/4 p2, 0x7
+
+    const/4 p4, 0x5
+
+    invoke-virtual {p1, p4, p3}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result p3
+
+    invoke-virtual {p1, p2, p3}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result p2
 
@@ -151,62 +158,17 @@
 
 
 # virtual methods
-.method public getDialogIcon()Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/preference/DialogPreference;->mDialogIcon:Landroid/graphics/drawable/Drawable;
-
-    return-object p0
-.end method
-
-.method public getDialogLayoutResource()I
-    .locals 0
-
-    iget p0, p0, Landroidx/preference/DialogPreference;->mDialogLayoutResId:I
-
-    return p0
-.end method
-
-.method public getDialogMessage()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/preference/DialogPreference;->mDialogMessage:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public getDialogTitle()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/preference/DialogPreference;->mDialogTitle:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public getNegativeButtonText()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/preference/DialogPreference;->mNegativeButtonText:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public getPositiveButtonText()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/preference/DialogPreference;->mPositiveButtonText:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method protected onClick()V
+.method public onClick()V
     .locals 1
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getPreferenceManager()Landroidx/preference/PreferenceManager;
+    iget-object v0, p0, Landroidx/preference/Preference;->mPreferenceManager:Landroidx/preference/PreferenceManager;
 
-    move-result-object v0
+    iget-object v0, v0, Landroidx/preference/PreferenceManager;->mOnDisplayPreferenceDialogListener:Landroidx/preference/PreferenceManager$OnDisplayPreferenceDialogListener;
 
-    invoke-virtual {v0, p0}, Landroidx/preference/PreferenceManager;->showDialog(Landroidx/preference/Preference;)V
+    if-eqz v0, :cond_0
 
+    invoke-interface {v0, p0}, Landroidx/preference/PreferenceManager$OnDisplayPreferenceDialogListener;->onDisplayPreferenceDialog(Landroidx/preference/Preference;)V
+
+    :cond_0
     return-void
 .end method

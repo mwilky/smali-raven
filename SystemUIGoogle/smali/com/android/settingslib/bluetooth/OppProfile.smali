@@ -1,4 +1,4 @@
-.class final Lcom/android/settingslib/bluetooth/OppProfile;
+.class public final Lcom/android/settingslib/bluetooth/OppProfile;
 .super Ljava/lang/Object;
 .source "OppProfile.java"
 
@@ -7,7 +7,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -17,7 +17,7 @@
 
 
 # virtual methods
-.method public accessProfileEnabled()Z
+.method public final accessProfileEnabled()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -25,7 +25,7 @@
     return p0
 .end method
 
-.method public getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
+.method public final getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
     .locals 0
 
     const/4 p0, 0x0
@@ -33,7 +33,7 @@
     return p0
 .end method
 
-.method public getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
+.method public final getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
     .locals 0
 
     const/4 p0, 0x0
@@ -41,7 +41,7 @@
     return p0
 .end method
 
-.method public getProfileId()I
+.method public final getProfileId()I
     .locals 0
 
     const/16 p0, 0x14
@@ -49,7 +49,7 @@
     return p0
 .end method
 
-.method public setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
+.method public final setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
     .locals 0
 
     const/4 p0, 0x0
@@ -57,7 +57,7 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     const-string p0, "OPP"

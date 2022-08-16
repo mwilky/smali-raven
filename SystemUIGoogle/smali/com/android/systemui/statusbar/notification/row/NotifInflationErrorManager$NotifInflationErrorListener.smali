@@ -18,7 +18,7 @@
 .method public abstract onNotifInflationError(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Ljava/lang/Exception;)V
 .end method
 
-.method public onNotifInflationErrorCleared(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public onNotifInflationErrorCleared()V
     .locals 0
 
     return-void

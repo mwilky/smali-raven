@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/AdminSecondaryLockScreenController$2;
+.class public final Lcom/android/keyguard/AdminSecondaryLockScreenController$2;
 .super Landroid/app/admin/IKeyguardCallback$Stub;
 .source "AdminSecondaryLockScreenController.java"
 
@@ -9,33 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+.field public final synthetic this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$WBdouuANIhDEtwtB0KSDRkT2on8(Lcom/android/keyguard/AdminSecondaryLockScreenController$2;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->lambda$onRemoteContentReady$1()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$mSbM06vdwCMMjQKvXz4jsuDC1bk(Lcom/android/keyguard/AdminSecondaryLockScreenController$2;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->lambda$onDismiss$0()V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/keyguard/AdminSecondaryLockScreenController;)V
+.method public constructor <init>(Lcom/android/keyguard/AdminSecondaryLockScreenController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
@@ -45,70 +29,34 @@
     return-void
 .end method
 
-.method private synthetic lambda$onDismiss$0()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
-
-    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
-
-    move-result v0
-
-    invoke-static {p0, v0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$400(Lcom/android/keyguard/AdminSecondaryLockScreenController;I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onRemoteContentReady$1()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v0
-
-    invoke-static {p0, v0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$400(Lcom/android/keyguard/AdminSecondaryLockScreenController;I)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onDismiss()V
-    .locals 2
+.method public final onDismiss()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {v0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$500(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Landroid/os/Handler;
+    iget-object v0, v0, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mHandler:Landroid/os/Handler;
 
-    move-result-object v0
+    new-instance v1, Lcom/android/wifitrackerlib/BaseWifiTracker$$ExternalSyntheticLambda0;
 
-    new-instance v1, Lcom/android/keyguard/AdminSecondaryLockScreenController$2$$ExternalSyntheticLambda1;
+    const/4 v2, 0x2
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController$2$$ExternalSyntheticLambda1;-><init>(Lcom/android/keyguard/AdminSecondaryLockScreenController$2;)V
+    invoke-direct {v1, v2, p0}, Lcom/android/wifitrackerlib/BaseWifiTracker$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public onRemoteContentReady(Landroid/view/SurfaceControlViewHost$SurfacePackage;)V
+.method public final onRemoteContentReady(Landroid/view/SurfaceControlViewHost$SurfacePackage;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {v0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$500(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Landroid/os/Handler;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mHandler:Landroid/os/Handler;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
-
-    invoke-static {v0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$500(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Landroid/os/Handler;
-
-    move-result-object v0
 
     const/4 v1, 0x0
 
@@ -119,9 +67,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$100(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mView:Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;
 
     invoke-virtual {p0, p1}, Landroid/view/SurfaceView;->setChildSurfacePackage(Landroid/view/SurfaceControlViewHost$SurfacePackage;)V
 
@@ -130,13 +76,13 @@
     :cond_1
     iget-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {p1}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->access$500(Lcom/android/keyguard/AdminSecondaryLockScreenController;)Landroid/os/Handler;
+    iget-object p1, p1, Lcom/android/keyguard/AdminSecondaryLockScreenController;->mHandler:Landroid/os/Handler;
 
-    move-result-object p1
+    new-instance v0, Lcom/android/systemui/qs/external/CustomTile$$ExternalSyntheticLambda0;
 
-    new-instance v0, Lcom/android/keyguard/AdminSecondaryLockScreenController$2$$ExternalSyntheticLambda0;
+    const/4 v1, 0x2
 
-    invoke-direct {v0, p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController$2$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/AdminSecondaryLockScreenController$2;)V
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/qs/external/CustomTile$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

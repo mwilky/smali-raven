@@ -1,12 +1,12 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender$OnEndLifetimeExtensionCallback;
+.source "R8$$SyntheticClass"
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+
+.field public final synthetic f$1:Ljava/lang/String;
 
 
 # direct methods
@@ -17,17 +17,9 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
 
-    return-void
-.end method
+    const-string p1, "RemoteInputCoordinator"
 
-
-# virtual methods
-.method public final onEndLifetimeExtension(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/NotifCollection;->$r8$lambda$Fn1mjyWSB9lXBkhCorT8hZOGt1o(Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifCollection$$ExternalSyntheticLambda2;->f$1:Ljava/lang/String;
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;
+.class public final Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;
 .super Ljava/lang/Object;
 .source "SettingsSpinnerPreference.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
+.field public final synthetic this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)V
+.method public constructor <init>(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
@@ -34,8 +34,8 @@
 
 
 # virtual methods
-.method public onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 6
+.method public final onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -46,51 +46,24 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
+    iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$000(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)I
+    iget p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
 
-    move-result v0
-
-    if-ne v0, p3, :cond_0
+    if-ne p1, p3, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
+    iput p3, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
 
-    invoke-static {v0, p3}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$002(Lcom/android/settingslib/widget/SettingsSpinnerPreference;I)I
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
-
-    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
-
-    invoke-static {p0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
-
-    move-result-object v0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move v3, p3
-
-    move-wide v4, p4
-
-    invoke-interface/range {v0 .. v5}, Landroid/widget/AdapterView$OnItemSelectedListener;->onItemSelected(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-
-    :cond_1
     return-void
 .end method
 
-.method public onNothingSelected(Landroid/widget/AdapterView;)V
-    .locals 1
+.method public final onNothingSelected(Landroid/widget/AdapterView;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,22 +72,9 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
-
-    invoke-static {v0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
     iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;->this$0:Lcom/android/settingslib/widget/SettingsSpinnerPreference;
 
-    invoke-static {p0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
-
-    invoke-interface {p0, p1}, Landroid/widget/AdapterView$OnItemSelectedListener;->onNothingSelected(Landroid/widget/AdapterView;)V
-
-    :cond_0
     return-void
 .end method

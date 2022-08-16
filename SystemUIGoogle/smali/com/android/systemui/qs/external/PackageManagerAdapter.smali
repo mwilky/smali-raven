@@ -1,12 +1,12 @@
-.class public Lcom/android/systemui/qs/external/PackageManagerAdapter;
+.class public final Lcom/android/systemui/qs/external/PackageManagerAdapter;
 .super Ljava/lang/Object;
 .source "PackageManagerAdapter.java"
 
 
 # instance fields
-.field private mIPackageManager:Landroid/content/pm/IPackageManager;
+.field public mIPackageManager:Landroid/content/pm/IPackageManager;
 
-.field private mPackageManager:Landroid/content/pm/PackageManager;
+.field public mPackageManager:Landroid/content/pm/PackageManager;
 
 
 # direct methods
@@ -28,57 +28,4 @@
     iput-object p1, p0, Lcom/android/systemui/qs/external/PackageManagerAdapter;->mIPackageManager:Landroid/content/pm/IPackageManager;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/PackageManagerAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
-
-    invoke-virtual {p0, p1, p2, p3}, Landroid/content/pm/PackageManager;->getPackageInfoAsUser(Ljava/lang/String;II)Landroid/content/pm/PackageInfo;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/content/pm/PackageManager$NameNotFoundException;
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/PackageManagerAdapter;->mPackageManager:Landroid/content/pm/PackageManager;
-
-    invoke-virtual {p0, p1, p2}, Landroid/content/pm/PackageManager;->getServiceInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ServiceInfo;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/qs/external/PackageManagerAdapter;->mIPackageManager:Landroid/content/pm/IPackageManager;
-
-    invoke-interface {p0, p1, p2, p3}, Landroid/content/pm/IPackageManager;->getServiceInfo(Landroid/content/ComponentName;II)Landroid/content/pm/ServiceInfo;
-
-    move-result-object p0
-
-    return-object p0
 .end method

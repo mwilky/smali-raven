@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;
 .super Landroid/widget/BaseAdapter;
 .source "GlobalActionsDialogLite.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+.field public final synthetic this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
 
 # direct methods
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public getCount()I
+.method public final getCount()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
@@ -45,7 +45,7 @@
     return p0
 .end method
 
-.method public getItem(I)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$Action;
+.method public final getItem(I)Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
@@ -61,17 +61,7 @@
     return-object p0
 .end method
 
-.method public bridge synthetic getItem(I)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->getItem(I)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$Action;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getItemId(I)J
+.method public final getItemId(I)J
     .locals 0
 
     int-to-long p0, p1
@@ -79,39 +69,33 @@
     return-wide p0
 .end method
 
-.method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
+.method public final getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->getItem(I)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$Action;
+    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+
+    iget-object v0, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mOverflowItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$Action;
+
     if-nez v0, :cond_0
 
-    new-instance p0, Ljava/lang/StringBuilder;
+    const-string p0, "No overflow action found at position: "
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string p2, "GlobalActionsDialogLite"
 
-    const-string p2, "No overflow action found at position: "
-
-    invoke-virtual {p0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string p1, "GlobalActionsDialogLite"
-
-    invoke-static {p1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1, p2}, Landroidx/recyclerview/widget/GridLayoutManager$$ExternalSyntheticOutline0;->m(Ljava/lang/String;ILjava/lang/String;)V
 
     const/4 p0, 0x0
 
     return-object p0
 
     :cond_0
-    sget p1, Lcom/android/systemui/R$layout;->controls_more_item:I
+    const p1, 0x7f0e0077
 
     if-eqz p2, :cond_1
 
@@ -120,9 +104,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    invoke-static {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$1100(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Landroid/content/Context;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mContext:Landroid/content/Context;
 
     invoke-static {p0}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
@@ -160,102 +142,4 @@
 
     :goto_1
     return-object p2
-.end method
-
-.method protected onClickItem(I)V
-    .locals 2
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->getItem(I)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$Action;
-
-    move-result-object p1
-
-    instance-of v0, p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$SilentModeTriStateAction;
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-
-    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
-
-    if-eqz v1, :cond_0
-
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismiss()V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "GlobalActionsDialogLite"
-
-    const-string v0, "Action clicked while mDialog is null."
-
-    invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    invoke-interface {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$Action;->onPress()V
-
-    :cond_1
-    return-void
-.end method
-
-.method protected onLongClickItem(I)Z
-    .locals 2
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->getItem(I)Lcom/android/systemui/globalactions/GlobalActionsDialogLite$Action;
-
-    move-result-object p1
-
-    instance-of v0, p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LongPressAction;
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-
-    iget-object v1, v0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
-
-    if-eqz v1, :cond_0
-
-    invoke-static {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->access$2200(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;)Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/animation/DialogLaunchAnimator;->disableAllCurrentDialogsExitAnimations()V
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyOverflowAdapter;->this$0:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$ActionsDialogLite;->dismiss()V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "GlobalActionsDialogLite"
-
-    const-string v0, "Action long-clicked while mDialog is null."
-
-    invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    check-cast p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LongPressAction;
-
-    invoke-interface {p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$LongPressAction;->onLongPress()Z
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    return p0
 .end method

@@ -7,28 +7,19 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/settings/UserTrackerImpl;->handleSwitchUser(I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nUserTrackerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 UserTrackerImpl.kt\ncom/android/systemui/settings/UserTrackerImpl$notifySubscribers$1$1\n+ 2 UserTrackerImpl.kt\ncom/android/systemui/settings/UserTrackerImpl\n*L\n1#1,246:1\n159#2,3:247\n*E\n"
+    value = "SMAP\nUserTrackerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 UserTrackerImpl.kt\ncom/android/systemui/settings/UserTrackerImpl$notifySubscribers$1$1\n+ 2 UserTrackerImpl.kt\ncom/android/systemui/settings/UserTrackerImpl\n*L\n1#1,258:1\n171#2,3:259\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic $ctx$inlined:Landroid/content/Context;
+.field public final synthetic $ctx$inlined:Landroid/content/Context;
 
-.field final synthetic $it:Lcom/android/systemui/settings/DataItem;
+.field public final synthetic $it:Lcom/android/systemui/settings/DataItem;
 
-.field final synthetic $newUser$inlined:I
+.field public final synthetic $newUser$inlined:I
 
-.field final synthetic $profiles$inlined:Ljava/util/List;
+.field public final synthetic $profiles$inlined:Ljava/util/List;
 
 
 # direct methods
@@ -51,13 +42,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/settings/UserTrackerImpl$handleSwitchUser$$inlined$notifySubscribers$1;->$it:Lcom/android/systemui/settings/DataItem;
 
-    invoke-virtual {v0}, Lcom/android/systemui/settings/DataItem;->getCallback()Ljava/lang/ref/WeakReference;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/settings/DataItem;->callback:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
@@ -72,9 +61,7 @@
     :cond_0
     iget v1, p0, Lcom/android/systemui/settings/UserTrackerImpl$handleSwitchUser$$inlined$notifySubscribers$1;->$newUser$inlined:I
 
-    iget-object v2, p0, Lcom/android/systemui/settings/UserTrackerImpl$handleSwitchUser$$inlined$notifySubscribers$1;->$ctx$inlined:Landroid/content/Context;
-
-    invoke-interface {v0, v1, v2}, Lcom/android/systemui/settings/UserTracker$Callback;->onUserChanged(ILandroid/content/Context;)V
+    invoke-interface {v0, v1}, Lcom/android/systemui/settings/UserTracker$Callback;->onUserChanged(I)V
 
     iget-object p0, p0, Lcom/android/systemui/settings/UserTrackerImpl$handleSwitchUser$$inlined$notifySubscribers$1;->$profiles$inlined:Ljava/util/List;
 

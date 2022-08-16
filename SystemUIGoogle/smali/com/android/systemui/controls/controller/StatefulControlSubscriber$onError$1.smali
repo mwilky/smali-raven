@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,13 +27,13 @@
 
 
 # instance fields
-.field final synthetic $error:Ljava/lang/String;
+.field public final synthetic $error:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
+.field public final synthetic this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onError$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
@@ -49,50 +49,30 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onError$1;->invoke()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke()V
+.method public final invoke()Ljava/lang/Object;
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onError$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->access$getSubscriptionOpen$p(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->subscriptionOpen:Z
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onError$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->access$setSubscriptionOpen$p(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;Z)V
+    iput-boolean v1, v0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->subscriptionOpen:Z
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "onError receive from \'"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "onError receive from \'"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onError$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
 
-    invoke-static {v1}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->access$getProvider$p(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;)Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
+    iget-object v1, v1, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->provider:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->getComponentName()Landroid/content/ComponentName;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->componentName:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -113,5 +93,7 @@
     invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    return-void
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

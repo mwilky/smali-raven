@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/SearchBar$8;
+.class public final Landroidx/leanback/widget/SearchBar$8;
 .super Ljava/lang/Object;
 .source "SearchBar.java"
 
@@ -6,32 +6,13 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/leanback/widget/SearchBar;->showNativeKeyboard()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/SearchBar;
+.field public final synthetic this$0:Landroidx/leanback/widget/SearchBar;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/SearchBar;)V
+.method public constructor <init>(Landroidx/leanback/widget/SearchBar;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/SearchBar$8;->this$0:Landroidx/leanback/widget/SearchBar;
 
@@ -42,7 +23,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 9
 
     iget-object v0, p0, Landroidx/leanback/widget/SearchBar$8;->this$0:Landroidx/leanback/widget/SearchBar;

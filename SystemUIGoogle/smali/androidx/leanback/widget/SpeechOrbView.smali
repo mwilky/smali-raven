@@ -4,28 +4,12 @@
 
 
 # instance fields
-.field private mCurrentLevel:I
-
-.field private mListening:Z
-
-.field private mListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
-
-.field private mNotListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
-
-.field private final mSoundLevelMaxZoom:F
+.field public mNotListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -36,16 +20,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -56,68 +30,46 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyle"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroidx/leanback/widget/SearchOrbView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    const/4 p2, 0x0
-
-    iput p2, p0, Landroidx/leanback/widget/SpeechOrbView;->mCurrentLevel:I
-
-    iput-boolean p2, p0, Landroidx/leanback/widget/SpeechOrbView;->mListening:Z
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    sget p3, Landroidx/leanback/R$fraction;->lb_search_bar_speech_orb_max_level_zoom:I
+    const p2, 0x7f0a0013
 
-    const/4 v0, 0x1
+    const/4 p3, 0x1
 
-    invoke-virtual {p1, p3, v0, v0}, Landroid/content/res/Resources;->getFraction(III)F
+    invoke-virtual {p1, p2, p3, p3}, Landroid/content/res/Resources;->getFraction(III)F
 
-    move-result p3
+    new-instance p2, Landroidx/leanback/widget/SearchOrbView$Colors;
 
-    iput p3, p0, Landroidx/leanback/widget/SpeechOrbView;->mSoundLevelMaxZoom:F
-
-    new-instance p3, Landroidx/leanback/widget/SearchOrbView$Colors;
-
-    sget v0, Landroidx/leanback/R$color;->lb_speech_orb_not_recording:I
+    const v0, 0x7f060123
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v0
 
-    sget v1, Landroidx/leanback/R$color;->lb_speech_orb_not_recording_pulsed:I
+    const v1, 0x7f060125
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v1
 
-    sget v2, Landroidx/leanback/R$color;->lb_speech_orb_not_recording_icon:I
+    const v2, 0x7f060124
 
     invoke-virtual {p1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v2
 
-    invoke-direct {p3, v0, v1, v2}, Landroidx/leanback/widget/SearchOrbView$Colors;-><init>(III)V
+    invoke-direct {p2, v0, v1, v2}, Landroidx/leanback/widget/SearchOrbView$Colors;-><init>(III)V
 
-    iput-object p3, p0, Landroidx/leanback/widget/SpeechOrbView;->mNotListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
+    iput-object p2, p0, Landroidx/leanback/widget/SpeechOrbView;->mNotListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
 
-    new-instance p3, Landroidx/leanback/widget/SearchOrbView$Colors;
+    new-instance p2, Landroidx/leanback/widget/SearchOrbView$Colors;
 
-    sget v0, Landroidx/leanback/R$color;->lb_speech_orb_recording:I
+    const v0, 0x7f060126
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -127,166 +79,96 @@
 
     move-result p1
 
-    invoke-direct {p3, v1, p1, p2}, Landroidx/leanback/widget/SearchOrbView$Colors;-><init>(III)V
+    const/4 v0, 0x0
 
-    iput-object p3, p0, Landroidx/leanback/widget/SpeechOrbView;->mListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
+    invoke-direct {p2, v1, p1, v0}, Landroidx/leanback/widget/SearchOrbView$Colors;-><init>(III)V
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/SpeechOrbView;->showNotListening()V
+    iget-object p1, p0, Landroidx/leanback/widget/SpeechOrbView;->mNotListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
+
+    iput-object p1, p0, Landroidx/leanback/widget/SearchOrbView;->mColors:Landroidx/leanback/widget/SearchOrbView$Colors;
+
+    iget-object p2, p0, Landroidx/leanback/widget/SearchOrbView;->mIcon:Landroid/widget/ImageView;
+
+    iget p1, p1, Landroidx/leanback/widget/SearchOrbView$Colors;->iconColor:I
+
+    invoke-virtual {p2, p1}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    iget-object p1, p0, Landroidx/leanback/widget/SearchOrbView;->mColorAnimator:Landroid/animation/ValueAnimator;
+
+    if-nez p1, :cond_0
+
+    iget-object p1, p0, Landroidx/leanback/widget/SearchOrbView;->mColors:Landroidx/leanback/widget/SearchOrbView$Colors;
+
+    iget p1, p1, Landroidx/leanback/widget/SearchOrbView$Colors;->color:I
+
+    iget-object p2, p0, Landroidx/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p2
+
+    instance-of p2, p2, Landroid/graphics/drawable/GradientDrawable;
+
+    if-eqz p2, :cond_1
+
+    iget-object p2, p0, Landroidx/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
+
+    invoke-virtual {p2}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/graphics/drawable/GradientDrawable;
+
+    invoke-virtual {p2, p1}, Landroid/graphics/drawable/GradientDrawable;->setColor(I)V
+
+    goto :goto_0
+
+    :cond_0
+    iput-boolean p3, p0, Landroidx/leanback/widget/SearchOrbView;->mColorAnimationEnabled:Z
+
+    invoke-virtual {p0}, Landroidx/leanback/widget/SearchOrbView;->updateColorAnimator()V
+
+    :cond_1
+    :goto_0
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const p2, 0x7f0806e0
+
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p1
+
+    iget-object p2, p0, Landroidx/leanback/widget/SearchOrbView;->mIcon:Landroid/widget/ImageView;
+
+    invoke-virtual {p2, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->hasFocus()Z
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Landroidx/leanback/widget/SearchOrbView;->animateOnFocus(Z)V
+
+    const/high16 p1, 0x3f800000    # 1.0f
+
+    iget-object p2, p0, Landroidx/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
+
+    invoke-virtual {p2, p1}, Landroid/view/View;->setScaleX(F)V
+
+    iget-object p0, p0, Landroidx/leanback/widget/SearchOrbView;->mSearchOrbView:Landroid/view/View;
+
+    invoke-virtual {p0, p1}, Landroid/view/View;->setScaleY(F)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method getLayoutResourceId()I
+.method public final getLayoutResourceId()I
     .locals 0
 
-    sget p0, Landroidx/leanback/R$layout;->lb_speech_orb:I
+    const p0, 0x7f0e011c
 
     return p0
-.end method
-
-.method public setSoundLevel(I)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "level"
-        }
-    .end annotation
-
-    iget-boolean v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mListening:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mCurrentLevel:I
-
-    if-le p1, v0, :cond_1
-
-    sub-int/2addr p1, v0
-
-    div-int/lit8 p1, p1, 0x2
-
-    add-int/2addr v0, p1
-
-    iput v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mCurrentLevel:I
-
-    goto :goto_0
-
-    :cond_1
-    int-to-float p1, v0
-
-    const v0, 0x3f333333    # 0.7f
-
-    mul-float/2addr p1, v0
-
-    float-to-int p1, p1
-
-    iput p1, p0, Landroidx/leanback/widget/SpeechOrbView;->mCurrentLevel:I
-
-    :goto_0
-    const/high16 p1, 0x3f800000    # 1.0f
-
-    iget v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mSoundLevelMaxZoom:F
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/SearchOrbView;->getFocusedZoom()F
-
-    move-result v1
-
-    sub-float/2addr v0, v1
-
-    iget v1, p0, Landroidx/leanback/widget/SpeechOrbView;->mCurrentLevel:I
-
-    int-to-float v1, v1
-
-    mul-float/2addr v0, v1
-
-    const/high16 v1, 0x42c80000    # 100.0f
-
-    div-float/2addr v0, v1
-
-    add-float/2addr v0, p1
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->scaleOrbViewOnly(F)V
-
-    return-void
-.end method
-
-.method public showListening()V
-    .locals 3
-
-    iget-object v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->setOrbColors(Landroidx/leanback/widget/SearchOrbView$Colors;)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Landroidx/leanback/R$drawable;->lb_ic_search_mic:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->setOrbIcon(Landroid/graphics/drawable/Drawable;)V
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->animateOnFocus(Z)V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, v1}, Landroidx/leanback/widget/SearchOrbView;->enableOrbColorAnimation(Z)V
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    invoke-virtual {p0, v2}, Landroidx/leanback/widget/SearchOrbView;->scaleOrbViewOnly(F)V
-
-    iput v1, p0, Landroidx/leanback/widget/SpeechOrbView;->mCurrentLevel:I
-
-    iput-boolean v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mListening:Z
-
-    return-void
-.end method
-
-.method public showNotListening()V
-    .locals 2
-
-    iget-object v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mNotListeningOrbColors:Landroidx/leanback/widget/SearchOrbView$Colors;
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->setOrbColors(Landroidx/leanback/widget/SearchOrbView$Colors;)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Landroidx/leanback/R$drawable;->lb_ic_search_mic_out:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->setOrbIcon(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->hasFocus()Z
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->animateOnFocus(Z)V
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    invoke-virtual {p0, v0}, Landroidx/leanback/widget/SearchOrbView;->scaleOrbViewOnly(F)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/leanback/widget/SpeechOrbView;->mListening:Z
-
-    return-void
 .end method

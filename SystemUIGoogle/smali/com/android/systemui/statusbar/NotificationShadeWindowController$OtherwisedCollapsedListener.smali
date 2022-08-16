@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OtherwisedCollapsedListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract setWouldOtherwiseCollapse(Z)V
-.end method

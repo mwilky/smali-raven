@@ -4,14 +4,22 @@
 
 
 # instance fields
-.field private mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+.field public mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
 
 # direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 2
 
-    sget v0, Lcom/android/settingslib/R$attr;->preferenceStyle:I
+    const v0, 0x7f040422
 
     const v1, 0x101008e
 
@@ -29,19 +37,11 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/settingslib/RestrictedTopLevelPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p0, p1, p2, p3, v0}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     new-instance p3, Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    invoke-direct {p3, p1, p0, p2}, Lcom/android/settingslib/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;Landroidx/preference/Preference;Landroid/util/AttributeSet;)V
+    invoke-direct {p3, p1, p0, p2, v0}, Lcom/android/settingslib/RestrictedPreferenceHelper;-><init>(Landroid/content/Context;Landroidx/preference/Preference;Landroid/util/AttributeSet;I)V
 
     iput-object p3, p0, Lcom/android/settingslib/RestrictedTopLevelPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
@@ -50,19 +50,7 @@
 
 
 # virtual methods
-.method public isDisabledByAdmin()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/RestrictedTopLevelPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->isDisabledByAdmin()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method protected onAttachedToHierarchy(Landroidx/preference/PreferenceManager;)V
+.method public final onAttachedToHierarchy(Landroidx/preference/PreferenceManager;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/RestrictedTopLevelPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
@@ -74,7 +62,7 @@
     return-void
 .end method
 
-.method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+.method public final onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
@@ -86,7 +74,7 @@
     return-void
 .end method
 
-.method public performClick()V
+.method public final performClick()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/RestrictedTopLevelPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
@@ -103,22 +91,20 @@
     return-void
 .end method
 
-.method public setEnabled(Z)V
-    .locals 1
+.method public final setEnabled(Z)V
+    .locals 2
 
     if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/settingslib/RestrictedTopLevelPreference;->isDisabledByAdmin()Z
+    iget-object v0, p0, Lcom/android/settingslib/RestrictedTopLevelPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
 
-    move-result v0
+    iget-boolean v1, v0, Lcom/android/settingslib/RestrictedPreferenceHelper;->mDisabledByAdmin:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object p0, p0, Lcom/android/settingslib/RestrictedTopLevelPreference;->mHelper:Lcom/android/settingslib/RestrictedPreferenceHelper;
+    const/4 p0, 0x0
 
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/RestrictedPreferenceHelper;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)Z
+    invoke-virtual {v0, p0}, Lcom/android/settingslib/RestrictedPreferenceHelper;->setDisabledByAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
 
     return-void
 

@@ -4,51 +4,49 @@
 
 
 # instance fields
-.field private final biometricEnabledForUser:Z
+.field public final biometricEnabledForUser:Z
 
-.field private final bouncer:Z
+.field public final bouncerIsOrWillShow:Z
 
-.field private final canSkipBouncer:Z
+.field public final canSkipBouncer:Z
 
-.field private final credentialAttempted:Z
+.field public final credentialAttempted:Z
 
-.field private final deviceInteractive:Z
+.field public final deviceInteractive:Z
 
-.field private final dreaming:Z
+.field public final dreaming:Z
 
-.field private final encryptedOrLockdown:Z
+.field public final encryptedOrLockdown:Z
 
-.field private final fingerprintDisabled:Z
+.field public final fingerprintDisabled:Z
 
-.field private final fingerprintLockedOut:Z
+.field public final fingerprintLockedOut:Z
 
-.field private final goingToSleep:Z
+.field public final goingToSleep:Z
 
-.field private final keyguardGoingAway:Z
+.field public final keyguardGoingAway:Z
 
-.field private final keyguardIsVisible:Z
+.field public final keyguardIsVisible:Z
 
-.field private final keyguardOccluded:Z
+.field public final keyguardOccluded:Z
 
-.field private final listening:Z
+.field public final listening:Z
 
-.field private final modality:I
+.field public final occludingAppRequestingFp:Z
 
-.field private final occludingAppRequestingFp:Z
+.field public final primaryUser:Z
 
-.field private final primaryUser:Z
+.field public final shouldListenForFingerprintAssistant:Z
 
-.field private final shouldListenForFingerprintAssistant:Z
+.field public final switchingUser:Z
 
-.field private final switchingUser:Z
+.field public final timeMillis:J
 
-.field private final timeMillis:J
+.field public final udfps:Z
 
-.field private final udfps:Z
+.field public final userDoesNotHaveTrust:Z
 
-.field private final userDoesNotHaveTrust:Z
-
-.field private final userId:I
+.field public final userId:I
 
 
 # direct methods
@@ -59,7 +57,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardListenModel;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardListenModel;-><init>(I)V
 
     move-wide v1, p1
 
@@ -79,7 +77,7 @@
 
     move v1, p6
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncer:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncerIsOrWillShow:Z
 
     move v1, p7
 
@@ -149,16 +147,12 @@
 
     iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
 
-    const/16 v1, 0x8
-
-    iput v1, v0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->modality:I
-
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 7
 
     const/4 v0, 0x1
@@ -179,13 +173,9 @@
     :cond_1
     check-cast p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getTimeMillis()J
+    iget-wide v3, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->timeMillis:J
 
-    move-result-wide v3
-
-    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getTimeMillis()J
-
-    move-result-wide v5
+    iget-wide v5, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->timeMillis:J
 
     cmp-long v1, v3, v5
 
@@ -194,26 +184,18 @@
     return v2
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getUserId()I
+    iget v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userId:I
 
-    move-result v1
-
-    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getUserId()I
-
-    move-result v3
+    iget v3, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userId:I
 
     if-eq v1, v3, :cond_3
 
     return v2
 
     :cond_3
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getListening()Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->listening:Z
 
-    move-result v1
-
-    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getListening()Z
-
-    move-result v3
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->listening:Z
 
     if-eq v1, v3, :cond_4
 
@@ -229,9 +211,9 @@
     return v2
 
     :cond_5
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncer:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncerIsOrWillShow:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncer:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncerIsOrWillShow:Z
 
     if-eq v1, v3, :cond_6
 
@@ -394,7 +376,7 @@
     return v0
 .end method
 
-.method public getListening()Z
+.method public final getListening()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->listening:Z
@@ -402,7 +384,7 @@
     return p0
 .end method
 
-.method public getTimeMillis()J
+.method public final getTimeMillis()J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->timeMillis:J
@@ -410,20 +392,10 @@
     return-wide v0
 .end method
 
-.method public getUserId()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userId:I
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getTimeMillis()J
-
-    move-result-wide v0
+    iget-wide v0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->timeMillis:J
 
     invoke-static {v0, v1}, Ljava/lang/Long;->hashCode(J)I
 
@@ -431,21 +403,15 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getUserId()I
+    iget v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userId:I
 
-    move-result v1
+    const/16 v2, 0x1f
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v1
+    move-result v0
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getListening()Z
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->listening:Z
 
     const/4 v2, 0x1
 
@@ -469,7 +435,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncer:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncerIsOrWillShow:Z
 
     if-eqz v1, :cond_2
 
@@ -671,20 +637,16 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "KeyguardFingerprintListenModel(timeMillis="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "KeyguardFingerprintListenModel(timeMillis="
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getTimeMillis()J
-
-    move-result-wide v1
+    iget-wide v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->timeMillis:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -692,9 +654,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getUserId()I
-
-    move-result v1
+    iget v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -702,9 +662,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFingerprintListenModel;->getListening()Z
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->listening:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -716,11 +674,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v1, ", bouncer="
+    const-string v1, ", bouncerIsOrWillShow="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncer:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->bouncerIsOrWillShow:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -858,13 +816,9 @@
 
     iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFingerprintListenModel;->userDoesNotHaveTrust:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

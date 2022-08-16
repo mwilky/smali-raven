@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/clock/ViewPreviewer$1;
+.class public final Lcom/android/keyguard/clock/ViewPreviewer$1;
 .super Ljava/lang/Object;
 .source "ViewPreviewer.java"
 
@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/clock/ViewPreviewer;->createPreview(Landroid/view/View;II)Landroid/graphics/Bitmap;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -27,17 +18,17 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/clock/ViewPreviewer;
+.field public final synthetic this$0:Lcom/android/keyguard/clock/ViewPreviewer;
 
-.field final synthetic val$height:I
+.field public final synthetic val$height:I
 
-.field final synthetic val$view:Landroid/view/View;
+.field public final synthetic val$view:Landroid/view/View;
 
-.field final synthetic val$width:I
+.field public final synthetic val$width:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/clock/ViewPreviewer;IILandroid/view/View;)V
+.method public constructor <init>(Lcom/android/keyguard/clock/ViewPreviewer;IILandroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/clock/ViewPreviewer$1;->this$0:Lcom/android/keyguard/clock/ViewPreviewer;
@@ -55,8 +46,13 @@
 
 
 # virtual methods
-.method public call()Landroid/graphics/Bitmap;
+.method public final call()Ljava/lang/Object;
     .locals 6
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/Exception;
+        }
+    .end annotation
 
     iget v0, p0, Lcom/android/keyguard/clock/ViewPreviewer$1;->val$width:I
 
@@ -80,9 +76,11 @@
 
     iget-object v3, p0, Lcom/android/keyguard/clock/ViewPreviewer$1;->val$view:Landroid/view/View;
 
-    const/4 v4, 0x1
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {v2, v3, v4}, Lcom/android/keyguard/clock/ViewPreviewer;->access$000(Lcom/android/keyguard/clock/ViewPreviewer;Landroid/view/View;Z)V
+    const/4 v2, 0x1
+
+    invoke-static {v3, v2}, Lcom/android/keyguard/clock/ViewPreviewer;->dispatchVisibilityAggregated(Landroid/view/View;Z)V
 
     iget-object v2, p0, Lcom/android/keyguard/clock/ViewPreviewer$1;->val$view:Landroid/view/View;
 
@@ -117,19 +115,4 @@
     invoke-virtual {p0, v1}, Landroid/view/View;->draw(Landroid/graphics/Canvas;)V
 
     return-object v0
-.end method
-
-.method public bridge synthetic call()Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/android/keyguard/clock/ViewPreviewer$1;->call()Landroid/graphics/Bitmap;
-
-    move-result-object p0
-
-    return-object p0
 .end method

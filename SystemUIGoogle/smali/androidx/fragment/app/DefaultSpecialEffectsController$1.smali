@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/DefaultSpecialEffectsController$1;
+.class public final Landroidx/fragment/app/DefaultSpecialEffectsController$1;
 .super Ljava/lang/Object;
 .source "DefaultSpecialEffectsController.java"
 
@@ -6,27 +6,16 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/fragment/app/DefaultSpecialEffectsController;->executeOperations(Ljava/util/List;Z)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/DefaultSpecialEffectsController;
+.field public final synthetic this$0:Landroidx/fragment/app/DefaultSpecialEffectsController;
 
-.field final synthetic val$awaitingContainerChanges:Ljava/util/List;
+.field public final synthetic val$awaitingContainerChanges:Ljava/util/List;
 
-.field final synthetic val$operation:Landroidx/fragment/app/SpecialEffectsController$Operation;
+.field public final synthetic val$operation:Landroidx/fragment/app/SpecialEffectsController$Operation;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Ljava/util/List;Landroidx/fragment/app/SpecialEffectsController$Operation;)V
+.method public constructor <init>(Landroidx/fragment/app/DefaultSpecialEffectsController;Ljava/util/ArrayList;Landroidx/fragment/app/SpecialEffectsController$Operation;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$1;->this$0:Landroidx/fragment/app/DefaultSpecialEffectsController;
@@ -42,7 +31,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 2
 
     iget-object v0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$1;->val$awaitingContainerChanges:Ljava/util/List;
@@ -65,7 +54,15 @@
 
     iget-object p0, p0, Landroidx/fragment/app/DefaultSpecialEffectsController$1;->val$operation:Landroidx/fragment/app/SpecialEffectsController$Operation;
 
-    invoke-virtual {v0, p0}, Landroidx/fragment/app/DefaultSpecialEffectsController;->applyContainerChanges(Landroidx/fragment/app/SpecialEffectsController$Operation;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget-object v0, p0, Landroidx/fragment/app/SpecialEffectsController$Operation;->mFragment:Landroidx/fragment/app/Fragment;
+
+    iget-object v0, v0, Landroidx/fragment/app/Fragment;->mView:Landroid/view/View;
+
+    iget-object p0, p0, Landroidx/fragment/app/SpecialEffectsController$Operation;->mFinalState:Landroidx/fragment/app/SpecialEffectsController$Operation$State;
+
+    invoke-virtual {p0, v0}, Landroidx/fragment/app/SpecialEffectsController$Operation$State;->applyState(Landroid/view/View;)V
 
     :cond_0
     return-void

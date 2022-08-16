@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;
+.class public final Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;
 .super Ljava/lang/Object;
 .source "ActionReceiver.kt"
 
@@ -12,25 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $context:Landroid/content/Context;
+.field public final synthetic $context:Landroid/content/Context;
 
-.field final synthetic $id:I
+.field public final synthetic $id:I
 
-.field final synthetic $intent:Landroid/content/Intent;
+.field public final synthetic $intent:Landroid/content/Intent;
 
-.field final synthetic $it:Lcom/android/systemui/broadcast/ReceiverData;
+.field public final synthetic $it:Lcom/android/systemui/broadcast/ReceiverData;
 
-.field final synthetic this$0:Lcom/android/systemui/broadcast/ActionReceiver;
+.field public final synthetic this$0:Lcom/android/systemui/broadcast/ActionReceiver;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/broadcast/ReceiverData;Lcom/android/systemui/broadcast/ActionReceiver;Landroid/content/Context;Landroid/content/Intent;I)V
+.method public constructor <init>(Lcom/android/systemui/broadcast/ReceiverData;Lcom/android/systemui/broadcast/ActionReceiver;Landroid/content/Context;Landroid/content/Intent;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->$it:Lcom/android/systemui/broadcast/ReceiverData;
@@ -55,9 +55,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->$it:Lcom/android/systemui/broadcast/ReceiverData;
 
-    invoke-virtual {v0}, Lcom/android/systemui/broadcast/ReceiverData;->getReceiver()Landroid/content/BroadcastReceiver;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/broadcast/ReceiverData;->receiver:Landroid/content/BroadcastReceiver;
 
     iget-object v1, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->this$0:Lcom/android/systemui/broadcast/ActionReceiver;
 
@@ -69,9 +67,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->$it:Lcom/android/systemui/broadcast/ReceiverData;
 
-    invoke-virtual {v0}, Lcom/android/systemui/broadcast/ReceiverData;->getReceiver()Landroid/content/BroadcastReceiver;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/broadcast/ReceiverData;->receiver:Landroid/content/BroadcastReceiver;
 
     iget-object v1, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->$context:Landroid/content/Context;
 
@@ -81,25 +77,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->this$0:Lcom/android/systemui/broadcast/ActionReceiver;
 
-    invoke-static {v0}, Lcom/android/systemui/broadcast/ActionReceiver;->access$getLogger$p(Lcom/android/systemui/broadcast/ActionReceiver;)Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
+    iget-object v1, v0, Lcom/android/systemui/broadcast/ActionReceiver;->logger:Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
 
-    move-result-object v0
+    iget v2, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->$id:I
 
-    iget v1, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->$id:I
-
-    iget-object v2, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->this$0:Lcom/android/systemui/broadcast/ActionReceiver;
-
-    invoke-static {v2}, Lcom/android/systemui/broadcast/ActionReceiver;->access$getAction$p(Lcom/android/systemui/broadcast/ActionReceiver;)Ljava/lang/String;
-
-    move-result-object v2
+    iget-object v0, v0, Lcom/android/systemui/broadcast/ActionReceiver;->action:Ljava/lang/String;
 
     iget-object p0, p0, Lcom/android/systemui/broadcast/ActionReceiver$onReceive$1$1$1;->$it:Lcom/android/systemui/broadcast/ReceiverData;
 
-    invoke-virtual {p0}, Lcom/android/systemui/broadcast/ReceiverData;->getReceiver()Landroid/content/BroadcastReceiver;
+    iget-object p0, p0, Lcom/android/systemui/broadcast/ReceiverData;->receiver:Landroid/content/BroadcastReceiver;
 
-    move-result-object p0
-
-    invoke-virtual {v0, v1, v2, p0}, Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;->logBroadcastDispatched(ILjava/lang/String;Landroid/content/BroadcastReceiver;)V
+    invoke-virtual {v1, v2, v0, p0}, Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;->logBroadcastDispatched(ILjava/lang/String;Landroid/content/BroadcastReceiver;)V
 
     return-void
 .end method

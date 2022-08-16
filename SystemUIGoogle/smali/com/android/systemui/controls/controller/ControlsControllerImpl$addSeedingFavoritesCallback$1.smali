@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/controller/ControlsControllerImpl$addSeedingFavoritesCallback$1;
+.class public final Lcom/android/systemui/controls/controller/ControlsControllerImpl$addSeedingFavoritesCallback$1;
 .super Ljava/lang/Object;
 .source "ControlsControllerImpl.kt"
 
@@ -6,19 +6,8 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/controller/ControlsControllerImpl;->addSeedingFavoritesCallback(Ljava/util/function/Consumer;)Z
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $callback:Ljava/util/function/Consumer;
+.field public final synthetic $callback:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -28,21 +17,12 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/controller/ControlsControllerImpl;Ljava/util/function/Consumer;)V
+.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsControllerImpl;Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$onSeedingComplete$1;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/controls/controller/ControlsControllerImpl;",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Boolean;",
-            ">;)V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$addSeedingFavoritesCallback$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
@@ -56,25 +36,19 @@
 
 # virtual methods
 .method public final run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$addSeedingFavoritesCallback$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$getSeedingInProgress$p(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->seedingInProgress:Z
 
-    move-result v0
+    if-eqz v1, :cond_0
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$addSeedingFavoritesCallback$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
-
-    invoke-static {v0}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$getSeedingCallbacks$p(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)Ljava/util/List;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->seedingCallbacks:Ljava/util/ArrayList;
 
     iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$addSeedingFavoritesCallback$1;->$callback:Ljava/util/function/Consumer;
 
-    invoke-interface {v0, p0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 

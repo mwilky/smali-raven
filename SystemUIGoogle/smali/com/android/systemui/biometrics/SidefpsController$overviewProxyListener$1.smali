@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/SidefpsController;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/SidefpsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1;->this$0:Lcom/android/systemui/biometrics/SidefpsController;
@@ -34,29 +34,23 @@
 
 
 # virtual methods
-.method public onTaskbarStatusUpdated(ZZ)V
+.method public final onTaskbarStatusUpdated(ZZ)V
     .locals 1
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1;->this$0:Lcom/android/systemui/biometrics/SidefpsController;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1;->this$0:Lcom/android/systemui/biometrics/SidefpsController;
 
-    invoke-static {p1}, Lcom/android/systemui/biometrics/SidefpsController;->access$getOverlayView$p(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/view/View;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayView:Landroid/view/View;
 
     if-nez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1;->this$0:Lcom/android/systemui/biometrics/SidefpsController;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/SidefpsController;->access$getHandler$p(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/os/Handler;
-
-    move-result-object p2
+    iget-object p2, p0, Lcom/android/systemui/biometrics/SidefpsController;->handler:Landroid/os/Handler;
 
     new-instance v0, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1$onTaskbarStatusUpdated$1$1;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1$onTaskbarStatusUpdated$1$1;-><init>(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/View;)V
+    invoke-direct {v0, p1, p0}, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1$onTaskbarStatusUpdated$1$1;-><init>(Landroid/view/View;Lcom/android/systemui/biometrics/SidefpsController;)V
 
     const-wide/16 p0, 0x1f4
 

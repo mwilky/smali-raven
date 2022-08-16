@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/mobile/MobileStatusTracker$SubscriptionDefaults;
+.class public final Lcom/android/settingslib/mobile/MobileStatusTracker$SubscriptionDefaults;
 .super Ljava/lang/Object;
 .source "MobileStatusTracker.java"
 
@@ -21,36 +21,4 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-
-# virtual methods
-.method public getActiveDataSubId()I
-    .locals 0
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->getActiveDataSubscriptionId()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getDefaultDataSubId()I
-    .locals 0
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getDefaultVoiceSubId()I
-    .locals 0
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultVoiceSubscriptionId()I
-
-    move-result p0
-
-    return p0
 .end method

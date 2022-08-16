@@ -3,19 +3,8 @@
 .source "ChallengeDialogs.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/ChallengeDialogs;->createPinDialog(Lcom/android/systemui/controls/ui/ControlViewHolder;ZZLkotlin/jvm/functions/Function0;)Landroid/app/Dialog;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # direct methods
-.method constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
     const v0, 0x10302d1
@@ -27,7 +16,7 @@
 
 
 # virtual methods
-.method public dismiss()V
+.method public final dismiss()V
     .locals 3
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;

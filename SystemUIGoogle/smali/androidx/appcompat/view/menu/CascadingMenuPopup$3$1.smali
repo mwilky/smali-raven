@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/CascadingMenuPopup$3$1;
+.class public final Landroidx/appcompat/view/menu/CascadingMenuPopup$3$1;
 .super Ljava/lang/Object;
 .source "CascadingMenuPopup.java"
 
@@ -6,29 +6,18 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/view/menu/CascadingMenuPopup$3;->onItemHoverEnter(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$1:Landroidx/appcompat/view/menu/CascadingMenuPopup$3;
+.field public final synthetic this$1:Landroidx/appcompat/view/menu/CascadingMenuPopup$3;
 
-.field final synthetic val$item:Landroid/view/MenuItem;
+.field public final synthetic val$item:Landroid/view/MenuItem;
 
-.field final synthetic val$menu:Landroidx/appcompat/view/menu/MenuBuilder;
+.field public final synthetic val$menu:Landroidx/appcompat/view/menu/MenuBuilder;
 
-.field final synthetic val$nextInfo:Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;
+.field public final synthetic val$nextInfo:Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/view/menu/CascadingMenuPopup$3;Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;Landroid/view/MenuItem;Landroidx/appcompat/view/menu/MenuBuilder;)V
+.method public constructor <init>(Landroidx/appcompat/view/menu/CascadingMenuPopup$3;Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;Landroidx/appcompat/view/menu/MenuItemImpl;Landroidx/appcompat/view/menu/MenuBuilder;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$3$1;->this$1:Landroidx/appcompat/view/menu/CascadingMenuPopup$3;
@@ -46,7 +35,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/CascadingMenuPopup$3$1;->val$nextInfo:Landroidx/appcompat/view/menu/CascadingMenuPopup$CascadingMenuInfo;
@@ -96,7 +85,9 @@
 
     const/4 v1, 0x4
 
-    invoke-virtual {v0, p0, v1}, Landroidx/appcompat/view/menu/MenuBuilder;->performItemAction(Landroid/view/MenuItem;I)Z
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, p0, v2, v1}, Landroidx/appcompat/view/menu/MenuBuilder;->performItemAction(Landroid/view/MenuItem;Landroidx/appcompat/view/menu/MenuPresenter;I)Z
 
     :cond_1
     return-void

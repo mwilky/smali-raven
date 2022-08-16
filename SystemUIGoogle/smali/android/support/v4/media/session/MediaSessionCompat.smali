@@ -1,4 +1,4 @@
-.class public Landroid/support/v4/media/session/MediaSessionCompat;
+.class public final Landroid/support/v4/media/session/MediaSessionCompat;
 .super Ljava/lang/Object;
 .source "MediaSessionCompat.java"
 
@@ -6,8 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;,
-        Landroid/support/v4/media/session/MediaSessionCompat$OnActiveChangeListener;,
         Landroid/support/v4/media/session/MediaSessionCompat$ResultReceiverWrapper;,
         Landroid/support/v4/media/session/MediaSessionCompat$QueueItem;,
         Landroid/support/v4/media/session/MediaSessionCompat$Token;
@@ -15,21 +13,9 @@
 .end annotation
 
 
-# instance fields
-.field private final mImpl:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;
-
-
 # direct methods
 .method public static ensureClassLoader(Landroid/os/Bundle;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bundle"
-        }
-    .end annotation
 
     if-eqz p0, :cond_0
 
@@ -47,14 +33,6 @@
 
 .method public static unparcelWithClassLoader(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "bundle"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -80,18 +58,4 @@
     invoke-static {p0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     return-object v0
-.end method
-
-
-# virtual methods
-.method public getSessionToken()Landroid/support/v4/media/session/MediaSessionCompat$Token;
-    .locals 0
-
-    iget-object p0, p0, Landroid/support/v4/media/session/MediaSessionCompat;->mImpl:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;
-
-    invoke-interface {p0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;->getSessionToken()Landroid/support/v4/media/session/MediaSessionCompat$Token;
-
-    move-result-object p0
-
-    return-object p0
 .end method

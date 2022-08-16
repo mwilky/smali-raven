@@ -1,4 +1,4 @@
-.class Landroidx/transition/TransitionSet$TransitionSetListener;
+.class public final Landroidx/transition/TransitionSet$TransitionSetListener;
 .super Landroidx/transition/TransitionListenerAdapter;
 .source "TransitionSet.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "TransitionSetListener"
 .end annotation
 
 
 # instance fields
-.field mTransitionSet:Landroidx/transition/TransitionSet;
+.field public mTransitionSet:Landroidx/transition/TransitionSet;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/TransitionSet;)V
+.method public constructor <init>(Landroidx/transition/TransitionSet;)V
     .locals 0
 
     invoke-direct {p0}, Landroidx/transition/TransitionListenerAdapter;-><init>()V
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onTransitionEnd(Landroidx/transition/Transition;)V
+.method public final onTransitionEnd(Landroidx/transition/Transition;)V
     .locals 2
 
     iget-object v0, p0, Landroidx/transition/TransitionSet$TransitionSetListener;->mTransitionSet:Landroidx/transition/TransitionSet;
@@ -51,12 +51,12 @@
     invoke-virtual {v0}, Landroidx/transition/Transition;->end()V
 
     :cond_0
-    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)V
 
     return-void
 .end method
 
-.method public onTransitionStart(Landroidx/transition/Transition;)V
+.method public final onTransitionStart(Landroidx/transition/Transition;)V
     .locals 1
 
     iget-object p1, p0, Landroidx/transition/TransitionSet$TransitionSetListener;->mTransitionSet:Landroidx/transition/TransitionSet;

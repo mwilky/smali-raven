@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/PageIndicator$1;
+.class public final Lcom/android/systemui/qs/PageIndicator$1;
 .super Landroid/graphics/drawable/Animatable2$AnimationCallback;
 .source "PageIndicator.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/PageIndicator;
+.field public final synthetic this$0:Lcom/android/systemui/qs/PageIndicator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/PageIndicator;)V
+.method public constructor <init>(Lcom/android/systemui/qs/PageIndicator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/PageIndicator$1;->this$0:Lcom/android/systemui/qs/PageIndicator;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
+.method public final onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/Animatable2$AnimationCallback;->onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
@@ -44,9 +44,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/PageIndicator$1;->this$0:Lcom/android/systemui/qs/PageIndicator;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/PageIndicator;->access$000(Lcom/android/systemui/qs/PageIndicator;)Landroid/graphics/drawable/Animatable2$AnimationCallback;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/PageIndicator;->mAnimationCallback:Lcom/android/systemui/qs/PageIndicator$1;
 
     invoke-virtual {p1, v0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->unregisterAnimationCallback(Landroid/graphics/drawable/Animatable2$AnimationCallback;)Z
 
@@ -55,13 +53,9 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/qs/PageIndicator;->access$102(Lcom/android/systemui/qs/PageIndicator;Z)Z
+    iput-boolean v0, p1, Lcom/android/systemui/qs/PageIndicator;->mAnimating:Z
 
-    iget-object p1, p0, Lcom/android/systemui/qs/PageIndicator$1;->this$0:Lcom/android/systemui/qs/PageIndicator;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/PageIndicator;->access$200(Lcom/android/systemui/qs/PageIndicator;)Ljava/util/ArrayList;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/PageIndicator;->mQueuedPositions:Ljava/util/ArrayList;
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
@@ -71,9 +65,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/PageIndicator$1;->this$0:Lcom/android/systemui/qs/PageIndicator;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/PageIndicator;->access$200(Lcom/android/systemui/qs/PageIndicator;)Ljava/util/ArrayList;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/systemui/qs/PageIndicator;->mQueuedPositions:Ljava/util/ArrayList;
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
@@ -85,7 +77,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/qs/PageIndicator;->access$300(Lcom/android/systemui/qs/PageIndicator;I)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/PageIndicator;->setPosition(I)V
 
     :cond_1
     return-void

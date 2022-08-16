@@ -1,34 +1,26 @@
-.class Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;
+.class public final Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;
 .super Landroid/util/FloatProperty;
 .source "AnimatableProperty.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/AnimatableProperty;->from(Ljava/lang/String;Ljava/util/function/BiConsumer;Ljava/util/function/Function;III)Lcom/android/systemui/statusbar/notification/AnimatableProperty;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Landroid/util/FloatProperty<",
-        "TT;>;"
+        "Ljava/lang/Object;",
+        ">;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic val$getter:Ljava/util/function/Function;
+.field public final synthetic val$getter:Ljava/util/function/Function;
 
-.field final synthetic val$setter:Ljava/util/function/BiConsumer;
+.field public final synthetic val$setter:Ljava/util/function/BiConsumer;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Ljava/util/function/Function;Ljava/util/function/BiConsumer;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/util/function/Function;Ljava/util/function/BiConsumer;)V
     .locals 0
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;->val$getter:Ljava/util/function/Function;
@@ -42,14 +34,10 @@
 
 
 # virtual methods
-.method public get(Landroid/view/View;)Ljava/lang/Float;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)",
-            "Ljava/lang/Float;"
-        }
-    .end annotation
+
+    check-cast p1, Landroid/view/View;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;->val$getter:Ljava/util/function/Function;
 
@@ -62,25 +50,10 @@
     return-object p0
 .end method
 
-.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final setValue(Ljava/lang/Object;F)V
     .locals 0
 
     check-cast p1, Landroid/view/View;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;->get(Landroid/view/View;)Ljava/lang/Float;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public setValue(Landroid/view/View;F)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;F)V"
-        }
-    .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;->val$setter:Ljava/util/function/BiConsumer;
 
@@ -89,16 +62,6 @@
     move-result-object p2
 
     invoke-interface {p0, p1, p2}, Ljava/util/function/BiConsumer;->accept(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic setValue(Ljava/lang/Object;F)V
-    .locals 0
-
-    check-cast p1, Landroid/view/View;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;->setValue(Landroid/view/View;F)V
 
     return-void
 .end method

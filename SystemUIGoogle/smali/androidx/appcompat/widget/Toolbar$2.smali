@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/Toolbar$2;
+.class public final Landroidx/appcompat/widget/Toolbar$2;
 .super Ljava/lang/Object;
 .source "Toolbar.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/Toolbar;
+.field public final synthetic this$0:Landroidx/appcompat/widget/Toolbar;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/Toolbar;)V
+.method public constructor <init>(Landroidx/appcompat/widget/Toolbar;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/Toolbar$2;->this$0:Landroidx/appcompat/widget/Toolbar;
@@ -34,12 +34,21 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/Toolbar$2;->this$0:Landroidx/appcompat/widget/Toolbar;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/Toolbar;->showOverflowMenu()Z
+    iget-object p0, p0, Landroidx/appcompat/widget/Toolbar;->mMenuView:Landroidx/appcompat/widget/ActionMenuView;
 
+    if-eqz p0, :cond_0
+
+    iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuView;->mPresenter:Landroidx/appcompat/widget/ActionMenuPresenter;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionMenuPresenter;->showOverflowMenu()Z
+
+    :cond_0
     return-void
 .end method

@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$NotificationStateChangedListener;,
         Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$KeyguardNotificationSuppressor;,
         Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$UserChangedListener;
     }
@@ -13,7 +14,10 @@
 
 
 # virtual methods
-.method public abstract addKeyguardNotificationSuppressor(Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$KeyguardNotificationSuppressor;)V
+.method public abstract addKeyguardNotificationSuppressor(Lcom/android/systemui/statusbar/notification/collection/coordinator/SmartspaceDedupingCoordinator$attach$2;)V
+.end method
+
+.method public abstract addNotificationStateChangedListener(Lcom/android/systemui/statusbar/notification/collection/inflation/NotifUiAdjustmentProvider$notifStateChangedListener$1;)V
 .end method
 
 .method public abstract addUserChangedListener(Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$UserChangedListener;)V
@@ -42,7 +46,7 @@
     return p0
 .end method
 
-.method public abstract removeUserChangedListener(Lcom/android/systemui/statusbar/NotificationLockscreenUserManager$UserChangedListener;)V
+.method public abstract removeUserChangedListener(Lcom/google/android/systemui/statusbar/notification/voicereplies/NotificationVoiceReplyController$resetStateOnUserChange$listener$1;)V
 .end method
 
 .method public abstract setUpWithPresenter(Lcom/android/systemui/statusbar/NotificationPresenter;)V

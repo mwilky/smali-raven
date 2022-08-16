@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/appops/AppOpsControllerImpl$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/lang/Runnable;
@@ -51,7 +52,7 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl$$ExternalSyntheticLambda1;->f$4:Z
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/appops/AppOpsControllerImpl;->$r8$lambda$wxZ9nVuJ6nZ2-M8FJ3w80hwdnE4(Lcom/android/systemui/appops/AppOpsControllerImpl;IILjava/lang/String;Z)V
+    invoke-virtual {v0, v1, v2, v3, p0}, Lcom/android/systemui/appops/AppOpsControllerImpl;->notifySuscribersWorker(IILjava/lang/String;Z)V
 
     return-void
 .end method

@@ -3,4 +3,5 @@
     <bool name="config_changeVolumeRowTintWhenInactive">false</bool>
     <bool name="config_showLowMediaVolumeIcon">true</bool>
     <bool name="config_volumeDialogUseBackgroundBlur">true</bool>
+    <bool name="config_unblockHwSensorIconEnableTint">true</bool>
 </resources>

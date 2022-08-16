@@ -17,6 +17,7 @@
         <item>Maksimal 3 proses</item>
         <item>Maksimal 4 proses</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -152,7 +153,7 @@
     </string-array>
     <string-array name="hdcp_checking_summaries">
         <item>Jangan gunakan pemeriksaan HDCP</item>
-        <item>Gunakan pemeriksaan HDCP untuk konten DRM saja</item>
+        <item>Menggunakan pemeriksaan HDCP untuk konten DRM saja</item>
         <item>Selalu gunakan pemeriksaan HDCP</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
@@ -260,6 +261,11 @@
         <item>Nonaktif</item>
         <item>Aktif</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Tidak tersedia</item>
+        <item>Nonaktif</item>
+        <item>Aktif</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Tidak tersedia</item>
         <item>Nonaktif</item>
@@ -306,6 +312,16 @@
         <item>Aktif</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Tidak tersedia</item>
+        <item>Nonaktif</item>
+        <item>Aktif</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Tidak tersedia</item>
+        <item>Nonaktif</item>
+        <item>Aktif</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Tidak tersedia</item>
         <item>Nonaktif</item>
         <item>Aktif</item>
@@ -374,6 +390,12 @@
         <item>Cepat sekali</item>
         <item>Sangat cepat sekali</item>
         <item>Tercepat</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Pindah ke kiri</item>
+        <item>Pindah ke bawah</item>
+        <item>Pindah ke kanan</item>
+        <item>Pindah ke atas</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Mengisi daya</item>

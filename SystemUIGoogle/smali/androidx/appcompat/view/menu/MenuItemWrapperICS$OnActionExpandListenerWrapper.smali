@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;
+.class public final Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;
 .super Ljava/lang/Object;
 .source "MenuItemWrapperICS.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "OnActionExpandListenerWrapper"
 .end annotation
 
 
 # instance fields
-.field private final mObject:Landroid/view/MenuItem$OnActionExpandListener;
+.field public final mObject:Landroid/view/MenuItem$OnActionExpandListener;
 
-.field final synthetic this$0:Landroidx/appcompat/view/menu/MenuItemWrapperICS;
+.field public final synthetic this$0:Landroidx/appcompat/view/menu/MenuItemWrapperICS;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnActionExpandListener;)V
+.method public constructor <init>(Landroidx/appcompat/view/menu/MenuItemWrapperICS;Landroid/view/MenuItem$OnActionExpandListener;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->this$0:Landroidx/appcompat/view/menu/MenuItemWrapperICS;
@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method public onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
+.method public final onMenuItemActionCollapse(Landroid/view/MenuItem;)Z
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->mObject:Landroid/view/MenuItem$OnActionExpandListener;
@@ -56,7 +56,7 @@
     return p0
 .end method
 
-.method public onMenuItemActionExpand(Landroid/view/MenuItem;)Z
+.method public final onMenuItemActionExpand(Landroid/view/MenuItem;)Z
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuItemWrapperICS$OnActionExpandListenerWrapper;->mObject:Landroid/view/MenuItem$OnActionExpandListener;

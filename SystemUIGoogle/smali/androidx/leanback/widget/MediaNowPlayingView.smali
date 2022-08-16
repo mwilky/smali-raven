@@ -4,34 +4,22 @@
 
 
 # instance fields
-.field private final mImage1:Landroid/widget/ImageView;
+.field public final mImage1:Landroid/widget/ImageView;
 
-.field private final mImage2:Landroid/widget/ImageView;
+.field public final mImage2:Landroid/widget/ImageView;
 
-.field private final mImage3:Landroid/widget/ImageView;
+.field public final mImage3:Landroid/widget/ImageView;
 
-.field protected final mLinearInterpolator:Landroid/view/animation/LinearInterpolator;
+.field public final mObjectAnimator1:Landroid/animation/ObjectAnimator;
 
-.field private final mObjectAnimator1:Landroid/animation/ObjectAnimator;
+.field public final mObjectAnimator2:Landroid/animation/ObjectAnimator;
 
-.field private final mObjectAnimator2:Landroid/animation/ObjectAnimator;
-
-.field private final mObjectAnimator3:Landroid/animation/ObjectAnimator;
+.field public final mObjectAnimator3:Landroid/animation/ObjectAnimator;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -39,19 +27,17 @@
 
     invoke-direct {p2}, Landroid/view/animation/LinearInterpolator;-><init>()V
 
-    iput-object p2, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mLinearInterpolator:Landroid/view/animation/LinearInterpolator;
-
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
 
-    sget v0, Landroidx/leanback/R$layout;->lb_playback_now_playing_bars:I
+    const v0, 0x7f0e010f
 
     const/4 v1, 0x1
 
     invoke-virtual {p1, v0, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    sget p1, Landroidx/leanback/R$id;->bar1:I
+    const p1, 0x7f0b00e2
 
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -61,7 +47,7 @@
 
     iput-object p1, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mImage1:Landroid/widget/ImageView;
 
-    sget v0, Landroidx/leanback/R$id;->bar2:I
+    const v0, 0x7f0b00e3
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -71,7 +57,7 @@
 
     iput-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mImage2:Landroid/widget/ImageView;
 
-    sget v1, Landroidx/leanback/R$id;->bar3:I
+    const v1, 0x7f0b00e4
 
     invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -117,11 +103,13 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setPivotY(F)V
 
-    invoke-static {p1}, Landroidx/leanback/widget/MediaNowPlayingView;->setDropScale(Landroid/view/View;)V
+    const v2, 0x3daaaaab
 
-    invoke-static {v0}, Landroidx/leanback/widget/MediaNowPlayingView;->setDropScale(Landroid/view/View;)V
+    invoke-virtual {p1, v2}, Landroid/view/View;->setScaleY(F)V
 
-    invoke-static {v1}, Landroidx/leanback/widget/MediaNowPlayingView;->setDropScale(Landroid/view/View;)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setScaleY(F)V
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setScaleY(F)V
 
     const/16 v2, 0x1e
 
@@ -129,7 +117,7 @@
 
     fill-array-data v2, :array_0
 
-    const-string v3, "scaleY"
+    const-string/jumbo v3, "scaleY"
 
     invoke-static {p1, v3, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -287,39 +275,91 @@
     .end array-data
 .end method
 
-.method static setDropScale(Landroid/view/View;)V
+
+# virtual methods
+.method public final onAttachedToWindow()V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
-    const v0, 0x3daaaaab
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
-    invoke-virtual {p0, v0}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getVisibility()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->startAnimation()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onDetachedFromWindow()V
+    .locals 0
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
+
+    invoke-virtual {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->stopAnimation()V
 
     return-void
 .end method
 
-.method private startAnimation()V
+.method public final setVisibility(I)V
+    .locals 1
+
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    const/16 v0, 0x8
+
+    if-ne p1, v0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->stopAnimation()V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->startAnimation()V
+
+    :goto_0
+    return-void
+.end method
+
+.method public final startAnimation()V
     .locals 2
 
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mObjectAnimator1:Landroid/animation/ObjectAnimator;
 
-    invoke-direct {p0, v0}, Landroidx/leanback/widget/MediaNowPlayingView;->startAnimation(Landroid/animation/Animator;)V
+    invoke-virtual {v0}, Landroid/animation/Animator;->isStarted()Z
 
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
+
+    :cond_0
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mObjectAnimator2:Landroid/animation/ObjectAnimator;
 
-    invoke-direct {p0, v0}, Landroidx/leanback/widget/MediaNowPlayingView;->startAnimation(Landroid/animation/Animator;)V
+    invoke-virtual {v0}, Landroid/animation/Animator;->isStarted()Z
 
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
+
+    :cond_1
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mObjectAnimator3:Landroid/animation/ObjectAnimator;
 
-    invoke-direct {p0, v0}, Landroidx/leanback/widget/MediaNowPlayingView;->startAnimation(Landroid/animation/Animator;)V
+    invoke-virtual {v0}, Landroid/animation/Animator;->isStarted()Z
 
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->start()V
+
+    :cond_2
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mImage1:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
@@ -337,50 +377,56 @@
     return-void
 .end method
 
-.method private startAnimation(Landroid/animation/Animator;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroid/animation/Animator;->isStarted()Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    invoke-virtual {p1}, Landroid/animation/Animator;->start()V
-
-    :cond_0
-    return-void
-.end method
-
-.method private stopAnimation()V
-    .locals 2
+.method public final stopAnimation()V
+    .locals 4
 
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mObjectAnimator1:Landroid/animation/ObjectAnimator;
 
     iget-object v1, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mImage1:Landroid/widget/ImageView;
 
-    invoke-direct {p0, v0, v1}, Landroidx/leanback/widget/MediaNowPlayingView;->stopAnimation(Landroid/animation/Animator;Landroid/view/View;)V
+    invoke-virtual {v0}, Landroid/animation/Animator;->isStarted()Z
 
+    move-result v2
+
+    const v3, 0x3daaaaab
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setScaleY(F)V
+
+    :cond_0
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mObjectAnimator2:Landroid/animation/ObjectAnimator;
 
     iget-object v1, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mImage2:Landroid/widget/ImageView;
 
-    invoke-direct {p0, v0, v1}, Landroidx/leanback/widget/MediaNowPlayingView;->stopAnimation(Landroid/animation/Animator;Landroid/view/View;)V
+    invoke-virtual {v0}, Landroid/animation/Animator;->isStarted()Z
 
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setScaleY(F)V
+
+    :cond_1
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mObjectAnimator3:Landroid/animation/ObjectAnimator;
 
     iget-object v1, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mImage3:Landroid/widget/ImageView;
 
-    invoke-direct {p0, v0, v1}, Landroidx/leanback/widget/MediaNowPlayingView;->stopAnimation(Landroid/animation/Animator;Landroid/view/View;)V
+    invoke-virtual {v0}, Landroid/animation/Animator;->isStarted()Z
 
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v0}, Landroid/animation/Animator;->cancel()V
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->setScaleY(F)V
+
+    :cond_2
     iget-object v0, p0, Landroidx/leanback/widget/MediaNowPlayingView;->mImage1:Landroid/widget/ImageView;
 
     const/16 v1, 0x8
@@ -395,89 +441,5 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
-    return-void
-.end method
-
-.method private stopAnimation(Landroid/animation/Animator;Landroid/view/View;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "animator",
-            "view"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroid/animation/Animator;->isStarted()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p1}, Landroid/animation/Animator;->cancel()V
-
-    invoke-static {p2}, Landroidx/leanback/widget/MediaNowPlayingView;->setDropScale(Landroid/view/View;)V
-
-    :cond_0
-    return-void
-.end method
-
-
-# virtual methods
-.method protected onAttachedToWindow()V
-    .locals 1
-
-    invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getVisibility()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->startAnimation()V
-
-    :cond_0
-    return-void
-.end method
-
-.method protected onDetachedFromWindow()V
-    .locals 0
-
-    invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
-
-    invoke-direct {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->stopAnimation()V
-
-    return-void
-.end method
-
-.method public setVisibility(I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "visibility"
-        }
-    .end annotation
-
-    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    const/16 v0, 0x8
-
-    if-ne p1, v0, :cond_0
-
-    invoke-direct {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->stopAnimation()V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0}, Landroidx/leanback/widget/MediaNowPlayingView;->startAnimation()V
-
-    :goto_0
     return-void
 .end method

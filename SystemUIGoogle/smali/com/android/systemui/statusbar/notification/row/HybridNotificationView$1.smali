@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/HybridNotificationView$1;
+.class public final Lcom/android/systemui/statusbar/notification/row/HybridNotificationView$1;
 .super Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;
 .source "HybridNotificationView.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView$1;->this$0:Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
@@ -31,8 +31,8 @@
 
 
 # virtual methods
-.method public transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
-    .locals 1
+.method public final transformFrom(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+    .locals 2
 
     const/4 v0, 0x1
 
@@ -44,11 +44,15 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTextView:Landroid/widget/TextView;
 
-    invoke-static {p0, p3, v0}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeIn(Landroid/view/View;FZ)V
+    invoke-static {p0, p3, v0}, Landroidx/leanback/R$style;->fadeIn(Landroid/view/View;FZ)V
 
     if-eqz p2, :cond_0
 
-    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewVerticalFrom(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+    const/16 p0, 0x10
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, p2, p0, v1, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFrom(Lcom/android/systemui/statusbar/notification/TransformState;ILcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
 
@@ -56,8 +60,8 @@
     return v0
 .end method
 
-.method public transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
-    .locals 1
+.method public final transformTo(Lcom/android/systemui/statusbar/notification/TransformState;Lcom/android/systemui/statusbar/TransformableView;F)Z
+    .locals 2
 
     const/4 v0, 0x1
 
@@ -69,11 +73,15 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTextView:Landroid/widget/TextView;
 
-    invoke-static {p0, p3}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeOut(Landroid/view/View;F)V
+    invoke-static {p0, p3, v0}, Landroidx/leanback/R$style;->fadeOut(Landroid/view/View;FZ)V
 
     if-eqz p2, :cond_0
 
-    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewVerticalTo(Lcom/android/systemui/statusbar/notification/TransformState;F)V
+    const/16 p0, 0x10
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, p2, p0, v1, p3}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewTo(Lcom/android/systemui/statusbar/notification/TransformState;ILcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;F)V
 
     invoke-virtual {p2}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
 

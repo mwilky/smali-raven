@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/navigationbar/buttons/RotationContextButton;
+.class public final Lcom/android/systemui/navigationbar/buttons/RotationContextButton;
 .super Lcom/android/systemui/navigationbar/buttons/ContextualButton;
 .source "RotationContextButton.java"
 
@@ -7,45 +7,28 @@
 
 
 # instance fields
-.field private mRotationButtonController:Lcom/android/systemui/shared/rotation/RotationButtonController;
+.field public mRotationButtonController:Lcom/android/systemui/shared/rotation/RotationButtonController;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$HjirEcqfxRslE8fKkZ_Iuoysuxg(Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;Lcom/android/systemui/navigationbar/buttons/ContextualButton;Z)V
-    .locals 0
+.method public constructor <init>(Landroid/content/Context;)V
+    .locals 2
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/navigationbar/buttons/RotationContextButton;->lambda$setUpdatesCallback$0(Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;Lcom/android/systemui/navigationbar/buttons/ContextualButton;Z)V
+    const v0, 0x7f0b0568
 
-    return-void
-.end method
+    const v1, 0x7f080683
 
-.method public constructor <init>(ILandroid/content/Context;I)V
-    .locals 0
+    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/navigationbar/buttons/ContextualButton;-><init>(Landroid/content/Context;II)V
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/navigationbar/buttons/ContextualButton;-><init>(ILandroid/content/Context;I)V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$setUpdatesCallback$0(Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;Lcom/android/systemui/navigationbar/buttons/ContextualButton;Z)V
-    .locals 0
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p2}, Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;->onVisibilityChanged(Z)V
-
-    :cond_0
     return-void
 .end method
 
 
 # virtual methods
-.method public acceptRotationProposal()Z
+.method public final acceptRotationProposal()Z
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->getCurrentView()Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->mCurrentView:Landroid/view/View;
 
     if-eqz p0, :cond_0
 
@@ -66,47 +49,33 @@
     return p0
 .end method
 
-.method public bridge synthetic getImageDrawable()Landroid/graphics/drawable/Drawable;
+.method public final getImageDrawable()Landroid/graphics/drawable/Drawable;
     .locals 0
 
-    invoke-super {p0}, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->getImageDrawable()Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
 
     return-object p0
 .end method
 
-.method protected getNewDrawable(II)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/RotationContextButton;->mRotationButtonController:Lcom/android/systemui/shared/rotation/RotationButtonController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/shared/rotation/RotationButtonController;->getContext()Landroid/content/Context;
-
-    move-result-object v1
+.method public final getNewDrawable(II)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/RotationContextButton;->mRotationButtonController:Lcom/android/systemui/shared/rotation/RotationButtonController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/shared/rotation/RotationButtonController;->getIconResId()I
+    iget-object v0, p0, Lcom/android/systemui/shared/rotation/RotationButtonController;->mContext:Landroid/content/Context;
 
-    move-result v4
+    iget p0, p0, Lcom/android/systemui/shared/rotation/RotationButtonController;->mIconResId:I
 
-    const/4 v5, 0x0
+    const/4 v1, 0x0
 
-    const/4 v6, 0x0
-
-    move v2, p1
-
-    move v3, p2
-
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->create(Landroid/content/Context;IIIZLandroid/graphics/Color;)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
+    invoke-static {v0, p1, p2, p0, v1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->create(Landroid/content/Context;IIIZ)Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public setRotationButtonController(Lcom/android/systemui/shared/rotation/RotationButtonController;)V
+.method public final setRotationButtonController(Lcom/android/systemui/shared/rotation/RotationButtonController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/buttons/RotationContextButton;->mRotationButtonController:Lcom/android/systemui/shared/rotation/RotationButtonController;
@@ -114,35 +83,42 @@
     return-void
 .end method
 
-.method public setUpdatesCallback(Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;)V
+.method public final setUpdatesCallback(Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;)V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/navigationbar/buttons/RotationContextButton$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p1}, Lcom/android/systemui/navigationbar/buttons/RotationContextButton$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/shared/rotation/RotationButton$RotationButtonUpdatesCallback;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/navigationbar/buttons/ContextualButton;->setListener(Lcom/android/systemui/navigationbar/buttons/ContextualButton$ContextButtonListener;)V
+    iput-object v0, p0, Lcom/android/systemui/navigationbar/buttons/ContextualButton;->mListener:Lcom/android/systemui/navigationbar/buttons/ContextualButton$ContextButtonListener;
 
     return-void
 .end method
 
-.method public setVisibility(I)V
+.method public final setVisibility(I)V
     .locals 0
 
     invoke-super {p0, p1}, Lcom/android/systemui/navigationbar/buttons/ContextualButton;->setVisibility(I)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->getImageDrawable()Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/ButtonDispatcher;->mImageDrawable:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;
 
-    move-result-object p0
+    if-nez p1, :cond_1
 
-    if-nez p1, :cond_0
+    if-eqz p0, :cond_1
 
-    if-eqz p0, :cond_0
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->resetAnimation()V
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->startAnimation()V
+    invoke-virtual {p1}, Landroid/graphics/drawable/AnimatedVectorDrawable;->reset()V
 
     :cond_0
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mAnimatedDrawable:Landroid/graphics/drawable/AnimatedVectorDrawable;
+
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/AnimatedVectorDrawable;->start()V
+
+    :cond_1
     return-void
 .end method

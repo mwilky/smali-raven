@@ -15,22 +15,20 @@
 
 
 # instance fields
-.field private final startingUser:I
+.field public final startingUser:I
 
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity$currentUserTracker$1;->this$0:Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;
 
     invoke-direct {p0, p2}, Lcom/android/systemui/settings/CurrentUserTracker;-><init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
 
-    invoke-static {p1}, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;->access$getListingController$p(Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;)Lcom/android/systemui/controls/management/ControlsListingController;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity;->listingController:Lcom/android/systemui/controls/management/ControlsListingController;
 
     invoke-interface {p1}, Lcom/android/systemui/util/UserAwareController;->getCurrentUserId()I
 
@@ -43,7 +41,7 @@
 
 
 # virtual methods
-.method public onUserSwitched(I)V
+.method public final onUserSwitched(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity$currentUserTracker$1;->startingUser:I

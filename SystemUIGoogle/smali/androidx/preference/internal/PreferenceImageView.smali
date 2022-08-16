@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private mMaxHeight:I
+.field public mMaxHeight:I
 
-.field private mMaxWidth:I
+.field public mMaxWidth:I
 
 
 # direct methods
@@ -49,7 +49,7 @@
 
     iput v0, p0, Landroidx/preference/internal/PreferenceImageView;->mMaxHeight:I
 
-    sget-object v1, Landroidx/preference/R$styleable;->PreferenceImageView:[I
+    sget-object v1, Landroidx/cardview/R$attr;->PreferenceImageView:[I
 
     const/4 v2, 0x0
 
@@ -57,7 +57,7 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/preference/R$styleable;->PreferenceImageView_maxWidth:I
+    const/4 p2, 0x3
 
     invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -65,7 +65,7 @@
 
     invoke-virtual {p0, p2}, Landroidx/preference/internal/PreferenceImageView;->setMaxWidth(I)V
 
-    sget p2, Landroidx/preference/R$styleable;->PreferenceImageView_maxHeight:I
+    const/4 p2, 0x2
 
     invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -80,7 +80,7 @@
 
 
 # virtual methods
-.method public getMaxHeight()I
+.method public final getMaxHeight()I
     .locals 0
 
     iget p0, p0, Landroidx/preference/internal/PreferenceImageView;->mMaxHeight:I
@@ -88,7 +88,7 @@
     return p0
 .end method
 
-.method public getMaxWidth()I
+.method public final getMaxWidth()I
     .locals 0
 
     iget p0, p0, Landroidx/preference/internal/PreferenceImageView;->mMaxWidth:I
@@ -96,7 +96,7 @@
     return p0
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 5
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
@@ -166,7 +166,7 @@
     return-void
 .end method
 
-.method public setMaxHeight(I)V
+.method public final setMaxHeight(I)V
     .locals 0
 
     iput p1, p0, Landroidx/preference/internal/PreferenceImageView;->mMaxHeight:I
@@ -176,7 +176,7 @@
     return-void
 .end method
 
-.method public setMaxWidth(I)V
+.method public final setMaxWidth(I)V
     .locals 0
 
     iput p1, p0, Landroidx/preference/internal/PreferenceImageView;->mMaxWidth:I

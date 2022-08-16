@@ -1,14 +1,14 @@
-.class public Lcom/android/systemui/classifier/SingleTapClassifier;
+.class public final Lcom/android/systemui/classifier/SingleTapClassifier;
 .super Lcom/android/systemui/classifier/FalsingClassifier;
 .source "SingleTapClassifier.java"
 
 
 # instance fields
-.field private final mTouchSlop:F
+.field public final mTouchSlop:F
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/FalsingDataProvider;F)V
+.method public constructor <init>(Lcom/android/systemui/classifier/FalsingDataProvider;F)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/classifier/FalsingClassifier;-><init>(Lcom/android/systemui/classifier/FalsingDataProvider;)V
@@ -20,23 +20,23 @@
 
 
 # virtual methods
-.method calculateFalsingResult(IDD)Lcom/android/systemui/classifier/FalsingClassifier$Result;
-    .locals 0
+.method public final calculateFalsingResult(I)Lcom/android/systemui/classifier/FalsingClassifier$Result;
+    .locals 2
 
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingClassifier;->getRecentMotionEvents()Ljava/util/List;
+    iget-object p1, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
 
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/classifier/FalsingDataProvider;->mRecentMotionEvents:Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;
 
-    const-wide/high16 p2, 0x3fe0000000000000L    # 0.5
+    const-wide/high16 v0, 0x3fe0000000000000L    # 0.5
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/classifier/SingleTapClassifier;->isTap(Ljava/util/List;D)Lcom/android/systemui/classifier/FalsingClassifier$Result;
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/systemui/classifier/SingleTapClassifier;->isTap(Ljava/util/List;D)Lcom/android/systemui/classifier/FalsingClassifier$Result;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public isTap(Ljava/util/List;D)Lcom/android/systemui/classifier/FalsingClassifier$Result;
+.method public final isTap(Ljava/util/List;D)Lcom/android/systemui/classifier/FalsingClassifier$Result;
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -120,13 +120,11 @@
 
     if-ltz v5, :cond_2
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "dX too big for a tap: "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "dX too big for a tap: "
-
-    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     invoke-virtual {v4}, Landroid/view/MotionEvent;->getX()F
 
@@ -175,13 +173,11 @@
 
     if-ltz v5, :cond_1
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "dY too big for a tap: "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "dY too big for a tap: "
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     invoke-virtual {v4}, Landroid/view/MotionEvent;->getY()F
 

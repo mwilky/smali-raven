@@ -14,22 +14,52 @@
 
 
 # virtual methods
-.method protected addToListView(Landroid/view/View;Z)V
-    .locals 0
+.method public final addToListView(Landroid/view/View;Z)V
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->getListView()Lcom/android/systemui/globalactions/ListGridLayout;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/globalactions/ListGridLayout;->addItem(Landroid/view/View;)V
+    iget p2, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mCurrentCount:I
+
+    iget-boolean v0, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mReverseSublists:Z
+
+    iget-boolean v1, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mSwapRowsAndColumns:Z
+
+    invoke-virtual {p0, p2, v0, v1}, Lcom/android/systemui/globalactions/ListGridLayout;->getParentView(IZZ)Landroid/view/ViewGroup;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mReverseItems:Z
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p2, p1, v1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
+
+    goto :goto_0
 
     :cond_0
+    invoke-virtual {p2, p1}, Landroid/view/ViewGroup;->addView(Landroid/view/View;)V
+
+    :goto_0
+    invoke-virtual {p2, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    iget p1, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mCurrentCount:I
+
+    add-int/lit8 p1, p1, 0x1
+
+    iput p1, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mCurrentCount:I
+
+    :cond_1
     return-void
 .end method
 
-.method protected getAnimationDistance()F
+.method public getAnimationDistance()F
     .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -50,7 +80,7 @@
 
     move-result-object p0
 
-    sget v1, Lcom/android/systemui/R$dimen;->global_actions_grid_item_height:I
+    const v1, 0x7f070257
 
     invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -67,7 +97,7 @@
     return v0
 .end method
 
-.method protected bridge synthetic getListView()Landroid/view/ViewGroup;
+.method public final bridge synthetic getListView()Landroid/view/ViewGroup;
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->getListView()Lcom/android/systemui/globalactions/ListGridLayout;
@@ -77,7 +107,7 @@
     return-object p0
 .end method
 
-.method protected getListView()Lcom/android/systemui/globalactions/ListGridLayout;
+.method public final getListView()Lcom/android/systemui/globalactions/ListGridLayout;
     .locals 0
 
     invoke-super {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getListView()Landroid/view/ViewGroup;
@@ -89,7 +119,7 @@
     return-object p0
 .end method
 
-.method public onUpdateList()V
+.method public final onUpdateList()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->setupListView()V
@@ -101,8 +131,8 @@
     return-void
 .end method
 
-.method public removeAllItems()V
-    .locals 1
+.method public final removeAllItems()V
+    .locals 4
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getSeparatedView()Landroid/view/ViewGroup;
 
@@ -117,31 +147,89 @@
     invoke-virtual {v0}, Landroid/view/ViewGroup;->removeAllViews()V
 
     :cond_0
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_3
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/ListGridLayout;->removeAllItems()V
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_2
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/globalactions/ListGridLayout;->getSublist(I)Landroid/view/ViewGroup;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->removeAllViews()V
+
+    const/16 v3, 0x8
+
+    invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     :cond_1
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    iput v0, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mCurrentCount:I
+
+    :cond_3
     return-void
 .end method
 
-.method protected removeAllListViews()V
-    .locals 0
+.method public final removeAllListViews()V
+    .locals 4
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->getListView()Lcom/android/systemui/globalactions/ListGridLayout;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/ListGridLayout;->removeAllItems()V
+    const/4 v0, 0x0
+
+    move v1, v0
+
+    :goto_0
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result v2
+
+    if-ge v1, v2, :cond_1
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/globalactions/ListGridLayout;->getSublist(I)Landroid/view/ViewGroup;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->removeAllViews()V
+
+    const/16 v3, 0x8
+
+    invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    iput v0, p0, Lcom/android/systemui/globalactions/ListGridLayout;->mCurrentCount:I
+
+    :cond_2
     return-void
 .end method
 
-.method protected setupListView()V
-    .locals 2
+.method public setupListView()V
+    .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -151,34 +239,38 @@
 
     iget-object v1, p0, Lcom/android/systemui/MultiListLayout;->mAdapter:Lcom/android/systemui/MultiListLayout$MultiListAdapter;
 
-    invoke-virtual {v1}, Lcom/android/systemui/MultiListLayout$MultiListAdapter;->countListItems()I
+    check-cast v1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite$MyAdapter;->countItems(Z)I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/globalactions/ListGridLayout;->setExpectedCount(I)V
+    iput v1, v0, Lcom/android/systemui/globalactions/ListGridLayout;->mExpectedCount:I
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->shouldReverseSublists()Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/globalactions/ListGridLayout;->setReverseSublists(Z)V
+    iput-boolean v1, v0, Lcom/android/systemui/globalactions/ListGridLayout;->mReverseSublists:Z
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->shouldReverseListItems()Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/globalactions/ListGridLayout;->setReverseItems(Z)V
+    iput-boolean v1, v0, Lcom/android/systemui/globalactions/ListGridLayout;->mReverseItems:Z
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsGridLayout;->shouldSwapRowsAndColumns()Z
 
     move-result p0
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/globalactions/ListGridLayout;->setSwapRowsAndColumns(Z)V
+    iput-boolean p0, v0, Lcom/android/systemui/globalactions/ListGridLayout;->mSwapRowsAndColumns:Z
 
     return-void
 .end method
 
-.method protected shouldReverseListItems()Z
+.method public final shouldReverseListItems()Z
     .locals 3
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getCurrentRotation()I
@@ -217,7 +309,7 @@
     return v0
 .end method
 
-.method protected shouldReverseSublists()Z
+.method public shouldReverseSublists()Z
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -240,7 +332,7 @@
     return p0
 .end method
 
-.method protected shouldSwapRowsAndColumns()Z
+.method public shouldSwapRowsAndColumns()Z
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -261,7 +353,7 @@
     return p0
 .end method
 
-.method protected updateSeparatedItemSize()V
+.method public updateSeparatedItemSize()V
     .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation

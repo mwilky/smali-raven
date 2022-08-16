@@ -17,6 +17,7 @@
         <item>Izinqubo okungenani ezingu-3</item>
         <item>Izinguquko ezingingadluli ezingu-4</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Valiwe</item>
         <item>Vuliwe</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Akutholakali</item>
+        <item>Valiwe</item>
+        <item>Vuliwe</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Akutholakali</item>
         <item>Valiwe</item>
@@ -306,6 +312,16 @@
         <item>Vuliwe</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Akutholakali</item>
+        <item>Valiwe</item>
+        <item>Vuliwe</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Akutholakali</item>
+        <item>Valiwe</item>
+        <item>Vuliwe</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Akutholakali</item>
         <item>Valiwe</item>
         <item>Vuliwe</item>
@@ -374,6 +390,12 @@
         <item>Esheshisayo</item>
         <item>Esheshisa kakhulu</item>
         <item>Esheshisa kakhulukhulu</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Yisa kwesokunxele</item>
+        <item>Yehlisa</item>
+        <item>Yisa kwesokudla</item>
+        <item>Khuphula</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Iyashaja</item>

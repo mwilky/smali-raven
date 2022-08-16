@@ -4,47 +4,56 @@
 
 
 # annotations
+.annotation build Lcom/android/internal/annotations/VisibleForTesting;
+.end annotation
+
 .annotation system Ldalvik/annotation/EnclosingClass;
     value = Lcom/android/systemui/biometrics/AuthContainerView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Config"
 .end annotation
 
 
 # instance fields
-.field mCallback:Lcom/android/systemui/biometrics/AuthDialogCallback;
+.field public mCallback:Lcom/android/systemui/biometrics/AuthDialogCallback;
 
-.field mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field mCredentialAllowed:Z
+.field public mOpPackageName:Ljava/lang/String;
 
-.field mMultiSensorConfig:I
+.field public mOperationId:J
 
-.field mOpPackageName:Ljava/lang/String;
+.field public mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
 
-.field mOperationId:J
+.field public mRequestId:J
 
-.field mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+.field public mRequireConfirmation:Z
 
-.field mRequestId:J
+.field public mSensorIds:[I
 
-.field mRequireConfirmation:Z
+.field public mSkipAnimation:Z
 
-.field mSensorIds:[I
+.field public mSkipIntro:Z
 
-.field mSkipIntro:Z
-
-.field mUserId:I
+.field public mUserId:I
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 0
+.method public constructor <init>()V
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const-wide/16 v0, -0x1
+
+    iput-wide v0, p0, Lcom/android/systemui/biometrics/AuthContainerView$Config;->mRequestId:J
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/systemui/biometrics/AuthContainerView$Config;->mSkipAnimation:Z
 
     return-void
 .end method

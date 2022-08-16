@@ -1,10 +1,10 @@
-.class public Lcom/android/systemui/statusbar/notification/ProgressTransformState;
+.class public final Lcom/android/systemui/statusbar/notification/ProgressTransformState;
 .super Lcom/android/systemui/statusbar/notification/TransformState;
 .source "ProgressTransformState.java"
 
 
 # static fields
-.field private static sInstancePool:Landroid/util/Pools$SimplePool;
+.field public static sInstancePool:Landroid/util/Pools$SimplePool;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Pools$SimplePool<",
@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     new-instance v0, Landroid/util/Pools$SimplePool;
@@ -38,32 +38,9 @@
     return-void
 .end method
 
-.method public static obtain()Lcom/android/systemui/statusbar/notification/ProgressTransformState;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/statusbar/notification/ProgressTransformState;->sInstancePool:Landroid/util/Pools$SimplePool;
-
-    invoke-virtual {v0}, Landroid/util/Pools$SimplePool;->acquire()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/notification/ProgressTransformState;
-
-    if-eqz v0, :cond_0
-
-    return-object v0
-
-    :cond_0
-    new-instance v0, Lcom/android/systemui/statusbar/notification/ProgressTransformState;
-
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/ProgressTransformState;-><init>()V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public recycle()V
+.method public final recycle()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/notification/TransformState;->recycle()V
@@ -75,21 +52,19 @@
     return-void
 .end method
 
-.method protected sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
-    .locals 1
+.method public final sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
+    .locals 0
 
-    instance-of v0, p1, Lcom/android/systemui/statusbar/notification/ProgressTransformState;
+    instance-of p1, p1, Lcom/android/systemui/statusbar/notification/ProgressTransformState;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
     const/4 p0, 0x1
 
     return p0
 
     :cond_0
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/TransformState;->sameAs(Lcom/android/systemui/statusbar/notification/TransformState;)Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/TransformState;->mSameAsAny:Z
 
     return p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationRemoteInputManager$3;
+.class public final Lcom/android/systemui/statusbar/NotificationRemoteInputManager$3;
 .super Ljava/lang/Object;
 .source "NotificationRemoteInputManager.java"
 
@@ -6,23 +6,12 @@
 .implements Lcom/android/systemui/statusbar/RemoteInputController$Callback;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->setUpWithCallback(Lcom/android/systemui/statusbar/NotificationRemoteInputManager$Callback;Lcom/android/systemui/statusbar/RemoteInputController$Delegate;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$3;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
@@ -34,22 +23,14 @@
 
 
 # virtual methods
-.method public onRemoteInputSent(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final onRemoteInputSent(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$3;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$600(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Lcom/android/systemui/statusbar/NotificationRemoteInputManager$RemoteInputListener;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mRemoteInputListener:Lcom/android/systemui/statusbar/NotificationRemoteInputManager$RemoteInputListener;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$3;->this$0:Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->access$600(Lcom/android/systemui/statusbar/NotificationRemoteInputManager;)Lcom/android/systemui/statusbar/NotificationRemoteInputManager$RemoteInputListener;
-
-    move-result-object v0
 
     invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/NotificationRemoteInputManager$RemoteInputListener;->onRemoteInputSent(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
@@ -59,9 +40,7 @@
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v1
+    iget-object v1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
@@ -97,9 +76,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object p0
+    iget-object p0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 

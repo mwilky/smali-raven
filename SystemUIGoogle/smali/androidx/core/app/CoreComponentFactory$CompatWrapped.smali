@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract getWrapper()Ljava/lang/Object;
+.method public abstract getWrapper()Landroidx/slice/compat/SliceProviderWrapperContainer$SliceProviderWrapper;
 .end method

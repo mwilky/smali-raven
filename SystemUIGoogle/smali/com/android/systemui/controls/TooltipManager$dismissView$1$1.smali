@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/TooltipManager$dismissView$1$1;
+.class public final Lcom/android/systemui/controls/TooltipManager$dismissView$1$1;
 .super Ljava/lang/Object;
 .source "TooltipManager.kt"
 
@@ -6,23 +6,12 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/TooltipManager;-><init>(Landroid/content/Context;Ljava/lang/String;IZ)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/TooltipManager;
+.field public final synthetic this$0:Lcom/android/systemui/controls/TooltipManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/TooltipManager;)V
+.method public constructor <init>(Lcom/android/systemui/controls/TooltipManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/TooltipManager$dismissView$1$1;->this$0:Lcom/android/systemui/controls/TooltipManager;

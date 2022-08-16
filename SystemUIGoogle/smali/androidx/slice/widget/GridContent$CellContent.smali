@@ -1,4 +1,4 @@
-.class public Landroidx/slice/widget/GridContent$CellContent;
+.class public final Landroidx/slice/widget/GridContent$CellContent;
 .super Ljava/lang/Object;
 .source "GridContent.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mCellItems:Ljava/util/ArrayList;
+.field public final mCellItems:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -25,38 +25,30 @@
     .end annotation
 .end field
 
-.field private mContentDescr:Landroidx/slice/SliceItem;
+.field public mContentDescr:Landroidx/slice/SliceItem;
 
-.field private mContentIntent:Landroidx/slice/SliceItem;
+.field public mContentIntent:Landroidx/slice/SliceItem;
 
-.field private mImage:Landroidx/core/graphics/drawable/IconCompat;
+.field public mImage:Landroidx/core/graphics/drawable/IconCompat;
 
-.field private mImageCount:I
+.field public mImageCount:I
 
-.field private mImageMode:I
+.field public mImageMode:I
 
-.field private mOverlayItem:Landroidx/slice/SliceItem;
+.field public mOverlayItem:Landroidx/slice/SliceItem;
 
-.field private mPicker:Landroidx/slice/SliceItem;
+.field public mPicker:Landroidx/slice/SliceItem;
 
-.field private mTextCount:I
+.field public mTextCount:I
 
-.field private mTitleItem:Landroidx/slice/SliceItem;
+.field public mTitleItem:Landroidx/slice/SliceItem;
 
-.field private mToggleItem:Landroidx/slice/SliceItem;
+.field public mToggleItem:Landroidx/slice/SliceItem;
 
 
 # direct methods
 .method public constructor <init>(Landroidx/slice/SliceItem;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cellItem"
-        }
-    .end annotation
+    .locals 10
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -66,26 +58,268 @@
 
     iput-object v0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
 
-    const/4 v0, -0x1
+    const/4 v1, -0x1
 
-    iput v0, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageMode:I
+    iput v1, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageMode:I
 
-    invoke-virtual {p0, p1}, Landroidx/slice/widget/GridContent$CellContent;->populate(Landroidx/slice/SliceItem;)Z
+    iget-object v1, p1, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
+    const-string/jumbo v2, "shortcut"
+
+    invoke-virtual {p1, v2}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
+
+    move-result v2
+
+    const/4 v3, 0x0
+
+    if-nez v2, :cond_6
+
+    const-string/jumbo v2, "slice"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    const-string v5, "action"
+
+    if-nez v4, :cond_0
+
+    invoke-virtual {v5, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    :cond_0
+    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getSlice()Landroidx/slice/Slice;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroidx/slice/Slice;->getItems()Ljava/util/List;
+
+    move-result-object v0
+
+    const/4 v4, 0x0
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_1
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroidx/slice/SliceItem;
+
+    iget-object v8, v7, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
+
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_2
+
+    iget-object v8, v7, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
+
+    invoke-virtual {v2, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    :cond_2
+    iget-object v8, v7, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
+
+    const-string v9, "date_picker"
+
+    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    iget-object v8, v7, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
+
+    const-string/jumbo v9, "time_picker"
+
+    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-nez v8, :cond_1
+
+    invoke-virtual {v7}, Landroidx/slice/SliceItem;->getSlice()Landroidx/slice/Slice;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroidx/slice/Slice;->getItems()Ljava/util/List;
+
+    move-result-object v4
+
+    new-instance v2, Landroidx/slice/core/SliceActionImpl;
+
+    invoke-direct {v2, v7}, Landroidx/slice/core/SliceActionImpl;-><init>(Landroidx/slice/SliceItem;)V
+
+    invoke-virtual {v2}, Landroidx/slice/core/SliceActionImpl;->isToggle()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    iput-object v7, p0, Landroidx/slice/widget/GridContent$CellContent;->mToggleItem:Landroidx/slice/SliceItem;
+
+    goto :goto_0
+
+    :cond_3
+    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroidx/slice/SliceItem;
+
+    iput-object v2, p0, Landroidx/slice/widget/GridContent$CellContent;->mContentIntent:Landroidx/slice/SliceItem;
+
+    :cond_4
+    :goto_0
+    invoke-virtual {v5, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    iput-object p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mContentIntent:Landroidx/slice/SliceItem;
+
+    :cond_5
+    iput v3, p0, Landroidx/slice/widget/GridContent$CellContent;->mTextCount:I
+
+    iput v3, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageCount:I
+
+    invoke-virtual {p0, v0}, Landroidx/slice/widget/GridContent$CellContent;->fillCellItems(Ljava/util/List;)V
+
+    iget p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mTextCount:I
+
+    if-nez p1, :cond_b
+
+    iget p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageCount:I
+
+    if-nez p1, :cond_b
+
+    if-eqz v4, :cond_b
+
+    invoke-virtual {p0, v4}, Landroidx/slice/widget/GridContent$CellContent;->fillCellItems(Ljava/util/List;)V
+
+    goto :goto_3
+
+    :cond_6
+    iget-object v1, p1, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
+
+    iget-object v2, p1, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
+
+    const-string v4, "content_description"
+
+    invoke-virtual {v4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    const/4 v4, 0x1
+
+    if-nez v2, :cond_8
+
+    const-string v2, "keywords"
+
+    const-string/jumbo v5, "ttl"
+
+    const-string v6, "last_updated"
+
+    filled-new-array {v2, v5, v6}, [Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroidx/slice/SliceItem;->hasAnyHints([Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    goto :goto_1
+
+    :cond_7
+    move v2, v3
+
+    goto :goto_2
+
+    :cond_8
+    :goto_1
+    move v2, v4
+
+    :goto_2
+    if-nez v2, :cond_a
+
+    const-string/jumbo v2, "text"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_9
+
+    const-string v2, "long"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_9
+
+    const-string v2, "image"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_a
+
+    :cond_9
+    move v3, v4
+
+    :cond_a
+    if-eqz v3, :cond_b
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_b
+    :goto_3
+    iget-object p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mPicker:Landroidx/slice/SliceItem;
+
+    if-nez p1, :cond_c
+
+    iget-object p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result p1
+
+    if-lez p1, :cond_c
+
+    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
+
+    :cond_c
     return-void
 .end method
 
-.method private fillCellItems(Ljava/util/List;)V
-    .locals 6
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "items"
-        }
-    .end annotation
 
+# virtual methods
+.method public final fillCellItems(Ljava/util/List;)V
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -110,17 +344,13 @@
 
     check-cast v1, Landroidx/slice/SliceItem;
 
-    invoke-virtual {v1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v2
+    iget-object v2, v1, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
     iget-object v3, p0, Landroidx/slice/widget/GridContent$CellContent;->mPicker:Landroidx/slice/SliceItem;
 
     if-nez v3, :cond_1
 
-    invoke-virtual {v1}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object v3
+    iget-object v3, v1, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     const-string v4, "date_picker"
 
@@ -130,11 +360,9 @@
 
     if-nez v3, :cond_0
 
-    invoke-virtual {v1}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
+    iget-object v3, v1, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
-    move-result-object v3
-
-    const-string v4, "time_picker"
+    const-string/jumbo v4, "time_picker"
 
     invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -148,9 +376,7 @@
     goto/16 :goto_1
 
     :cond_1
-    invoke-virtual {v1}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object v3
+    iget-object v3, v1, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
     const-string v4, "content_description"
 
@@ -173,7 +399,7 @@
 
     if-ge v3, v4, :cond_7
 
-    const-string v3, "text"
+    const-string/jumbo v3, "text"
 
     invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -194,7 +420,7 @@
 
     if-eqz v2, :cond_4
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     invoke-virtual {v2, v3}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -212,7 +438,7 @@
     iput-object v1, p0, Landroidx/slice/widget/GridContent$CellContent;->mTitleItem:Landroidx/slice/SliceItem;
 
     :cond_5
-    const-string v2, "overlay"
+    const-string/jumbo v2, "overlay"
 
     invoke-virtual {v1, v2}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 
@@ -246,9 +472,7 @@
 
     if-ge v2, v5, :cond_8
 
-    invoke-virtual {v1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v2
+    iget-object v2, v1, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
     const-string v3, "image"
 
@@ -258,7 +482,7 @@
 
     if-eqz v2, :cond_8
 
-    invoke-static {v1}, Landroidx/slice/SliceUtils;->parseImageMode(Landroidx/slice/SliceItem;)I
+    invoke-static {v1}, Landroidx/slice/core/SliceActionImpl;->parseImageMode(Landroidx/slice/SliceItem;)I
 
     move-result v2
 
@@ -270,9 +494,9 @@
 
     iput v2, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageCount:I
 
-    invoke-virtual {v1}, Landroidx/slice/SliceItem;->getIcon()Landroidx/core/graphics/drawable/IconCompat;
+    iget-object v2, v1, Landroidx/slice/SliceItem;->mObj:Ljava/lang/Object;
 
-    move-result-object v2
+    check-cast v2, Landroidx/core/graphics/drawable/IconCompat;
 
     iput-object v2, p0, Landroidx/slice/widget/GridContent$CellContent;->mImage:Landroidx/core/graphics/drawable/IconCompat;
 
@@ -288,493 +512,4 @@
 
     :cond_9
     return-void
-.end method
-
-.method private isValidCellContent(Landroidx/slice/SliceItem;)Z
-    .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cellItem"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "content_description"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-nez v0, :cond_1
-
-    const-string v0, "keywords"
-
-    const-string v3, "ttl"
-
-    const-string v4, "last_updated"
-
-    filled-new-array {v0, v3, v4}, [Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroidx/slice/SliceItem;->hasAnyHints([Ljava/lang/String;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    move p1, v1
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    move p1, v2
-
-    :goto_1
-    if-nez p1, :cond_3
-
-    const-string p1, "text"
-
-    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_2
-
-    const-string p1, "long"
-
-    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_2
-
-    const-string p1, "image"
-
-    invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_3
-
-    :cond_2
-    move v1, v2
-
-    :cond_3
-    return v1
-.end method
-
-
-# virtual methods
-.method public getCellItems()Ljava/util/ArrayList;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/ArrayList<",
-            "Landroidx/slice/SliceItem;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method public getContentDescription()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mContentDescr:Landroidx/slice/SliceItem;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getText()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return-object p0
-.end method
-
-.method public getContentIntent()Landroidx/slice/SliceItem;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mContentIntent:Landroidx/slice/SliceItem;
-
-    return-object p0
-.end method
-
-.method public getImageIcon()Landroidx/core/graphics/drawable/IconCompat;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mImage:Landroidx/core/graphics/drawable/IconCompat;
-
-    return-object p0
-.end method
-
-.method public getImageMode()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageMode:I
-
-    return p0
-.end method
-
-.method public getOverlayItem()Landroidx/slice/SliceItem;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mOverlayItem:Landroidx/slice/SliceItem;
-
-    return-object p0
-.end method
-
-.method public getPicker()Landroidx/slice/SliceItem;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mPicker:Landroidx/slice/SliceItem;
-
-    return-object p0
-.end method
-
-.method public getTextCount()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mTextCount:I
-
-    return p0
-.end method
-
-.method public getTitleItem()Landroidx/slice/SliceItem;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mTitleItem:Landroidx/slice/SliceItem;
-
-    return-object p0
-.end method
-
-.method public getToggleItem()Landroidx/slice/SliceItem;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mToggleItem:Landroidx/slice/SliceItem;
-
-    return-object p0
-.end method
-
-.method public hasImage()Z
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mImage:Landroidx/core/graphics/drawable/IconCompat;
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isImageOnly()Z
-    .locals 3
-
-    iget-object v0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-ne v0, v2, :cond_0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/slice/SliceItem;
-
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object p0
-
-    const-string v0, "image"
-
-    invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    move v1, v2
-
-    :cond_0
-    return v1
-.end method
-
-.method public isValid()Z
-    .locals 1
-
-    iget-object v0, p0, Landroidx/slice/widget/GridContent$CellContent;->mPicker:Landroidx/slice/SliceItem;
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    if-lez v0, :cond_0
-
-    iget-object p0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
-
-    move-result p0
-
-    const/4 v0, 0x3
-
-    if-gt p0, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method public populate(Landroidx/slice/SliceItem;)Z
-    .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "cellItem"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "shortcut"
-
-    invoke-virtual {p1, v1}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_6
-
-    const-string v1, "slice"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    const-string v3, "action"
-
-    if-nez v2, :cond_0
-
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    :cond_0
-    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getSlice()Landroidx/slice/Slice;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroidx/slice/Slice;->getItems()Ljava/util/List;
-
-    move-result-object v2
-
-    const/4 v4, 0x0
-
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    :cond_1
-    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v6
-
-    const/4 v7, 0x0
-
-    if-eqz v6, :cond_4
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroidx/slice/SliceItem;
-
-    invoke-virtual {v6}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v3, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_2
-
-    invoke-virtual {v6}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_1
-
-    :cond_2
-    invoke-virtual {v6}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object v8
-
-    const-string v9, "date_picker"
-
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_1
-
-    invoke-virtual {v6}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
-
-    move-result-object v8
-
-    const-string v9, "time_picker"
-
-    invoke-virtual {v9, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_1
-
-    invoke-virtual {v6}, Landroidx/slice/SliceItem;->getSlice()Landroidx/slice/Slice;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroidx/slice/Slice;->getItems()Ljava/util/List;
-
-    move-result-object v4
-
-    new-instance v1, Landroidx/slice/core/SliceActionImpl;
-
-    invoke-direct {v1, v6}, Landroidx/slice/core/SliceActionImpl;-><init>(Landroidx/slice/SliceItem;)V
-
-    invoke-interface {v1}, Landroidx/slice/core/SliceAction;->isToggle()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iput-object v6, p0, Landroidx/slice/widget/GridContent$CellContent;->mToggleItem:Landroidx/slice/SliceItem;
-
-    goto :goto_0
-
-    :cond_3
-    invoke-interface {v2, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroidx/slice/SliceItem;
-
-    iput-object v1, p0, Landroidx/slice/widget/GridContent$CellContent;->mContentIntent:Landroidx/slice/SliceItem;
-
-    :cond_4
-    :goto_0
-    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    iput-object p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mContentIntent:Landroidx/slice/SliceItem;
-
-    :cond_5
-    iput v7, p0, Landroidx/slice/widget/GridContent$CellContent;->mTextCount:I
-
-    iput v7, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageCount:I
-
-    invoke-direct {p0, v2}, Landroidx/slice/widget/GridContent$CellContent;->fillCellItems(Ljava/util/List;)V
-
-    iget p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mTextCount:I
-
-    if-nez p1, :cond_7
-
-    iget p1, p0, Landroidx/slice/widget/GridContent$CellContent;->mImageCount:I
-
-    if-nez p1, :cond_7
-
-    if-eqz v4, :cond_7
-
-    invoke-direct {p0, v4}, Landroidx/slice/widget/GridContent$CellContent;->fillCellItems(Ljava/util/List;)V
-
-    goto :goto_1
-
-    :cond_6
-    invoke-direct {p0, p1}, Landroidx/slice/widget/GridContent$CellContent;->isValidCellContent(Landroidx/slice/SliceItem;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    iget-object v0, p0, Landroidx/slice/widget/GridContent$CellContent;->mCellItems:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_7
-    :goto_1
-    invoke-virtual {p0}, Landroidx/slice/widget/GridContent$CellContent;->isValid()Z
-
-    move-result p0
-
-    return p0
 .end method

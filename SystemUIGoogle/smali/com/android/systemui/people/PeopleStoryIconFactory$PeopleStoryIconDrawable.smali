@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;
+.class public final Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;
 .super Landroid/graphics/drawable/Drawable;
 .source "PeopleStoryIconFactory.java"
 
@@ -15,34 +15,58 @@
 
 
 # instance fields
-.field private mAvatar:Landroidx/core/graphics/drawable/RoundedBitmapDrawable;
+.field public mAvatar:Landroidx/core/graphics/drawable/RoundedBitmapDrawable;
 
-.field private mBadgeIcon:Landroid/graphics/drawable/Drawable;
+.field public mBadgeIcon:Landroid/graphics/drawable/Drawable;
 
-.field private mDensity:F
+.field public mDensity:F
 
-.field private mFullIconSize:F
+.field public mFullIconSize:F
 
-.field private mIconSize:I
+.field public mIconSize:I
 
-.field private mPriorityRingPaint:Landroid/graphics/Paint;
+.field public mPriorityRingPaint:Landroid/graphics/Paint;
 
-.field private mShowImportantRing:Z
+.field public mShowImportantRing:Z
 
-.field private mShowStoryRing:Z
+.field public mShowStoryRing:Z
 
-.field private mStoryPaint:Landroid/graphics/Paint;
+.field public mStoryPaint:Landroid/graphics/Paint;
 
 
 # direct methods
-.method constructor <init>(Landroidx/core/graphics/drawable/RoundedBitmapDrawable;Landroid/graphics/drawable/Drawable;IIZFFIZ)V
-    .locals 1
+.method public constructor <init>(Landroidx/core/graphics/drawable/RoundedBitmapDrawable21;Landroid/graphics/drawable/Drawable;IIZFFIZ)V
+    .locals 2
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
     const/4 v0, 0x1
 
-    invoke-virtual {p1, v0}, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->setCircular(Z)V
+    iput-boolean v0, p1, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mIsCircular:Z
+
+    iput-boolean v0, p1, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mApplyGravity:Z
+
+    iget v0, p1, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mBitmapHeight:I
+
+    iget v1, p1, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mBitmapWidth:I
+
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    int-to-float v0, v0
+
+    iput v0, p1, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mCornerRadius:F
+
+    iget-object v0, p1, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mPaint:Landroid/graphics/Paint;
+
+    iget-object v1, p1, Landroidx/core/graphics/drawable/RoundedBitmapDrawable;->mBitmapShader:Landroid/graphics/BitmapShader;
+
+    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setShader(Landroid/graphics/Shader;)Landroid/graphics/Shader;
+
+    invoke-virtual {p1}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     iput-object p1, p0, Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;->mAvatar:Landroidx/core/graphics/drawable/RoundedBitmapDrawable;
 
@@ -89,19 +113,9 @@
     return-void
 .end method
 
-.method private getRadius(II)I
-    .locals 0
-
-    sub-int/2addr p1, p2
-
-    div-int/lit8 p1, p1, 0x2
-
-    return p1
-.end method
-
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 10
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -174,9 +188,9 @@
 
     int-to-float v6, v6
 
-    invoke-direct {p0, v2, v1}, Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;->getRadius(II)I
+    sub-int v7, v2, v1
 
-    move-result v7
+    div-int/lit8 v7, v7, 0x2
 
     int-to-float v7, v7
 
@@ -243,9 +257,9 @@
 
     int-to-float v4, v4
 
-    invoke-direct {p0, v2, v1}, Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;->getRadius(II)I
+    sub-int/2addr v2, v1
 
-    move-result v2
+    div-int/lit8 v2, v2, 0x2
 
     int-to-float v2, v2
 
@@ -277,7 +291,7 @@
     return-void
 .end method
 
-.method public getIntrinsicHeight()I
+.method public final getIntrinsicHeight()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;->mIconSize:I
@@ -285,7 +299,7 @@
     return p0
 .end method
 
-.method public getIntrinsicWidth()I
+.method public final getIntrinsicWidth()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;->mIconSize:I
@@ -293,7 +307,7 @@
     return p0
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, -0x3
@@ -301,13 +315,13 @@
     return p0
 .end method
 
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 0
 
     return-void
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/people/PeopleStoryIconFactory$PeopleStoryIconDrawable;->mAvatar:Landroidx/core/graphics/drawable/RoundedBitmapDrawable;

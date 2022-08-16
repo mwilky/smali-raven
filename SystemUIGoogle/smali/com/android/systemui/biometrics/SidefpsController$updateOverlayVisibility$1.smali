@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field final synthetic $view:Landroid/view/View;
+.field public final synthetic $view:Landroid/view/View;
 
-.field final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;Lcom/android/systemui/biometrics/SidefpsController;)V
+.method public constructor <init>(Landroid/view/View;Lcom/android/systemui/biometrics/SidefpsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController$updateOverlayVisibility$1;->$view:Landroid/view/View;
@@ -35,12 +35,8 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
-
-    const-string v0, "animation"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController$updateOverlayVisibility$1;->$view:Landroid/view/View;
 
@@ -52,7 +48,7 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/SidefpsController;->access$setOverlayHideAnimator$p(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/ViewPropertyAnimator;)V
+    iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayHideAnimator:Landroid/view/ViewPropertyAnimator;
 
     return-void
 .end method

@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "RowTranslationScaler"
 .end annotation
-
-
-# virtual methods
-.method public abstract getRowTranslationScale(II)F
-.end method

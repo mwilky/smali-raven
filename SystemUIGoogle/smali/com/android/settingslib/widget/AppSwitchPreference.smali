@@ -9,16 +9,16 @@
 
     invoke-direct {p0, p1, p2}, Landroidx/preference/SwitchPreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    sget p1, Lcom/android/settingslib/widget/R$layout;->preference_app:I
+    const p1, 0x7f0e01b8
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    iput p1, p0, Landroidx/preference/Preference;->mLayoutResId:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+.method public final onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroidx/preference/SwitchPreference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V

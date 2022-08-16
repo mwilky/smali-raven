@@ -1,4 +1,4 @@
-.class public Landroidx/interpolator/view/animation/FastOutLinearInInterpolator;
+.class public final Landroidx/interpolator/view/animation/FastOutLinearInInterpolator;
 .super Ljava/lang/Object;
 .source "FastOutLinearInInterpolator.java"
 
@@ -7,13 +7,13 @@
 
 
 # static fields
-.field private static final STEP:F
+.field public static final STEP:F
 
-.field private static final VALUES:[F
+.field public static final VALUES:[F
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const/16 v0, 0xc9
@@ -256,22 +256,14 @@
 
 
 # virtual methods
-.method public getInterpolation(F)F
+.method public final getInterpolation(F)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "input"
-        }
-    .end annotation
 
     sget-object p0, Landroidx/interpolator/view/animation/FastOutLinearInInterpolator;->VALUES:[F
 
     sget v0, Landroidx/interpolator/view/animation/FastOutLinearInInterpolator;->STEP:F
 
-    invoke-static {p0, v0, p1}, Landroidx/interpolator/view/animation/LookupTableInterpolator;->interpolate([FFF)F
+    invoke-static {v0, p1, p0}, Lkotlin/ExceptionsKt;->interpolate(FF[F)F
 
     move-result p0
 

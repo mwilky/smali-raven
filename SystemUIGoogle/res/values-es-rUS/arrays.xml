@@ -17,6 +17,7 @@
         <item>Máximo 3 procesos</item>
         <item>Máximo 4 procesos</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Desactivado</item>
         <item>Activado</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>No disponible</item>
+        <item>Desactivada</item>
+        <item>Activada</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>No disponible</item>
         <item>Desactivado</item>
@@ -287,8 +293,8 @@
     </string-array>
     <string-array name="tile_states_internet">
         <item>No disponible</item>
-        <item>Desactivado</item>
-        <item>Activado</item>
+        <item>Desactivada</item>
+        <item>Activada</item>
     </string-array>
     <string-array name="tile_states_inversion">
         <item>No disponible</item>
@@ -309,6 +315,16 @@
         <item>No disponible</item>
         <item>Desactivada</item>
         <item>Activada</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>No disponible</item>
+        <item>Desactivado</item>
+        <item>Sí</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>No disponible</item>
+        <item>No</item>
+        <item>Sí</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>No disponible</item>
@@ -374,6 +390,12 @@
         <item>Rápida</item>
         <item>Muy rápida</item>
         <item>A velocidad máxima</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Mover hacia la izquierda</item>
+        <item>Mover hacia abajo</item>
+        <item>Mover hacia la derecha</item>
+        <item>Mover hacia arriba</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>En carga</item>

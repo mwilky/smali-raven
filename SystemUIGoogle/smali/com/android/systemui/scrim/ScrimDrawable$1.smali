@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/scrim/ScrimDrawable$1;
+.class public final Lcom/android/systemui/scrim/ScrimDrawable$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ScrimDrawable.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/scrim/ScrimDrawable;
+.field public final synthetic this$0:Lcom/android/systemui/scrim/ScrimDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/scrim/ScrimDrawable;)V
+.method public constructor <init>(Lcom/android/systemui/scrim/ScrimDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/scrim/ScrimDrawable$1;->this$0:Lcom/android/systemui/scrim/ScrimDrawable;
@@ -31,22 +31,18 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;Z)V
+.method public final onAnimationEnd(Landroid/animation/Animator;Z)V
     .locals 0
-
-    iget-object p2, p0, Lcom/android/systemui/scrim/ScrimDrawable$1;->this$0:Lcom/android/systemui/scrim/ScrimDrawable;
-
-    invoke-static {p2}, Lcom/android/systemui/scrim/ScrimDrawable;->access$000(Lcom/android/systemui/scrim/ScrimDrawable;)Landroid/animation/ValueAnimator;
-
-    move-result-object p2
-
-    if-ne p2, p1, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/scrim/ScrimDrawable$1;->this$0:Lcom/android/systemui/scrim/ScrimDrawable;
 
+    iget-object p2, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mColorAnimation:Landroid/animation/ValueAnimator;
+
+    if-ne p2, p1, :cond_0
+
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/scrim/ScrimDrawable;->access$002(Lcom/android/systemui/scrim/ScrimDrawable;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    iput-object p1, p0, Lcom/android/systemui/scrim/ScrimDrawable;->mColorAnimation:Landroid/animation/ValueAnimator;
 
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class Landroidx/activity/OnBackPressedDispatcher$OnBackPressedCancellable;
+.class public final Landroidx/activity/OnBackPressedDispatcher$OnBackPressedCancellable;
 .super Ljava/lang/Object;
 .source "OnBackPressedDispatcher.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "OnBackPressedCancellable"
 .end annotation
 
 
 # instance fields
-.field private final mOnBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
+.field public final mOnBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
 
-.field final synthetic this$0:Landroidx/activity/OnBackPressedDispatcher;
+.field public final synthetic this$0:Landroidx/activity/OnBackPressedDispatcher;
 
 
 # direct methods
-.method constructor <init>(Landroidx/activity/OnBackPressedDispatcher;Landroidx/activity/OnBackPressedCallback;)V
+.method public constructor <init>(Landroidx/activity/OnBackPressedDispatcher;Landroidx/activity/OnBackPressedCallback;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/activity/OnBackPressedDispatcher$OnBackPressedCancellable;->this$0:Landroidx/activity/OnBackPressedDispatcher;
@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method public cancel()V
+.method public final cancel()V
     .locals 2
 
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$OnBackPressedCancellable;->this$0:Landroidx/activity/OnBackPressedDispatcher;
@@ -51,7 +51,9 @@
 
     iget-object v0, p0, Landroidx/activity/OnBackPressedDispatcher$OnBackPressedCancellable;->mOnBackPressedCallback:Landroidx/activity/OnBackPressedCallback;
 
-    invoke-virtual {v0, p0}, Landroidx/activity/OnBackPressedCallback;->removeCancellable(Landroidx/activity/Cancellable;)V
+    iget-object v0, v0, Landroidx/activity/OnBackPressedCallback;->mCancellables:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v0, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method

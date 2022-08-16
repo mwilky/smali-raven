@@ -5,31 +5,18 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nPrivacyChipBuilder.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PrivacyChipBuilder.kt\ncom/android/systemui/privacy/PrivacyChipBuilder\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n*L\n1#1,52:1\n1458#2:53\n1488#2,3:54\n1491#2,3:64\n1517#2:67\n1588#2,3:68\n1517#2:71\n1588#2,3:72\n1517#2:75\n1588#2,3:76\n355#3,7:57\n*E\n*S KotlinDebug\n*F\n+ 1 PrivacyChipBuilder.kt\ncom/android/systemui/privacy/PrivacyChipBuilder\n*L\n28#1:53\n28#1,3:54\n28#1,3:64\n32#1:67\n32#1,3:68\n35#1:71\n35#1,3:72\n48#1:75\n48#1,3:76\n28#1,7:57\n*E\n"
+    value = "SMAP\nPrivacyChipBuilder.kt\nKotlin\n*S Kotlin\n*F\n+ 1 PrivacyChipBuilder.kt\ncom/android/systemui/privacy/PrivacyChipBuilder\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n+ 3 Maps.kt\nkotlin/collections/MapsKt__MapsKt\n*L\n1#1,52:1\n1488#2:53\n1518#2,3:54\n1521#2,3:64\n1547#2:67\n1618#2,3:68\n1547#2:71\n1618#2,3:72\n1547#2:75\n1618#2,3:76\n357#3,7:57\n*S KotlinDebug\n*F\n+ 1 PrivacyChipBuilder.kt\ncom/android/systemui/privacy/PrivacyChipBuilder\n*L\n28#1:53\n28#1:54,3\n28#1:64,3\n32#1:67\n32#1:68,3\n35#1:71\n35#1:72,3\n48#1:75\n48#1:76,3\n28#1:57,7\n*E\n"
 .end annotation
 
 
 # instance fields
-.field private final appsAndTypes:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lkotlin/Pair<",
-            "Lcom/android/systemui/privacy/PrivacyApplication;",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/privacy/PrivacyType;",
-            ">;>;>;"
-        }
-    .end annotation
-.end field
+.field public final context:Landroid/content/Context;
 
-.field private final context:Landroid/content/Context;
+.field public final lastSeparator:Ljava/lang/String;
 
-.field private final lastSeparator:Ljava/lang/String;
+.field public final separator:Ljava/lang/String;
 
-.field private final separator:Ljava/lang/String;
-
-.field private final types:Ljava/util/List;
+.field public final types:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -53,19 +40,11 @@
         }
     .end annotation
 
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "itemsList"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->context:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->ongoing_privacy_dialog_separator:I
+    const v0, 0x7f13053e
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -73,7 +52,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->separator:Ljava/lang/String;
 
-    sget v0, Lcom/android/systemui/R$string;->ongoing_privacy_dialog_last_separator:I
+    const v0, 0x7f13053b
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -102,11 +81,9 @@
 
     check-cast v1, Lcom/android/systemui/privacy/PrivacyItem;
 
-    invoke-virtual {v1}, Lcom/android/systemui/privacy/PrivacyItem;->getApplication()Lcom/android/systemui/privacy/PrivacyApplication;
+    iget-object v2, v1, Lcom/android/systemui/privacy/PrivacyItem;->application:Lcom/android/systemui/privacy/PrivacyApplication;
 
-    move-result-object v2
-
-    invoke-interface {p1, v2}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v2}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -121,50 +98,153 @@
     :cond_0
     check-cast v3, Ljava/util/List;
 
-    invoke-virtual {v1}, Lcom/android/systemui/privacy/PrivacyItem;->getPrivacyType()Lcom/android/systemui/privacy/PrivacyType;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/privacy/PrivacyItem;->privacyType:Lcom/android/systemui/privacy/PrivacyType;
 
     invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_1
-    invoke-static {p1}, Lkotlin/collections/MapsKt;->toList(Ljava/util/Map;)Ljava/util/List;
+    invoke-interface {p1}, Ljava/util/Map;->size()I
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    sget-object p1, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {p1}, Ljava/util/LinkedHashMap;->entrySet()Ljava/util/Set;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    sget-object p1, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
+
+    goto :goto_1
+
+    :cond_3
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/Map$Entry;
+
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    new-instance p1, Lkotlin/Pair;
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-direct {p1, v0, v1}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-static {p1}, Ljava/util/Collections;->singletonList(Ljava/lang/Object;)Ljava/util/List;
 
     move-result-object p1
 
+    goto :goto_1
+
+    :cond_4
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-interface {p1}, Ljava/util/Map;->size()I
+
+    move-result p1
+
+    invoke-direct {v2, p1}, Ljava/util/ArrayList;-><init>(I)V
+
+    new-instance p1, Lkotlin/Pair;
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-interface {v1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object v1
+
+    invoke-direct {p1, v3, v1}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_5
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/util/Map$Entry;
+
+    new-instance v1, Lkotlin/Pair;
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getKey()Ljava/lang/Object;
+
+    move-result-object v3
+
+    invoke-interface {p1}, Ljava/util/Map$Entry;->getValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    invoke-direct {v1, v3, p1}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p1
+
+    if-nez p1, :cond_5
+
+    move-object p1, v2
+
+    :goto_1
     const/4 v0, 0x2
 
     new-array v0, v0, [Lkotlin/jvm/functions/Function1;
 
-    const/4 v1, 0x0
+    sget-object v1, Lcom/android/systemui/privacy/PrivacyChipBuilder$3;->INSTANCE:Lcom/android/systemui/privacy/PrivacyChipBuilder$3;
 
-    sget-object v2, Lcom/android/systemui/privacy/PrivacyChipBuilder$3;->INSTANCE:Lcom/android/systemui/privacy/PrivacyChipBuilder$3;
+    const/4 v2, 0x0
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v2
 
-    const/4 v1, 0x1
+    sget-object v1, Lcom/android/systemui/privacy/PrivacyChipBuilder$4;->INSTANCE:Lcom/android/systemui/privacy/PrivacyChipBuilder$4;
 
-    sget-object v2, Lcom/android/systemui/privacy/PrivacyChipBuilder$4;->INSTANCE:Lcom/android/systemui/privacy/PrivacyChipBuilder$4;
+    const/4 v3, 0x1
 
-    aput-object v2, v0, v1
+    aput-object v1, v0, v3
 
-    invoke-static {v0}, Lkotlin/comparisons/ComparisonsKt;->compareBy([Lkotlin/jvm/functions/Function1;)Ljava/util/Comparator;
+    new-instance v1, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$1;
 
-    move-result-object v0
+    invoke-direct {v1, v0}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$1;-><init>([Lkotlin/jvm/functions/Function1;)V
 
-    invoke-static {p1, v0}, Lkotlin/collections/CollectionsKt;->sortedWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/util/List;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->appsAndTypes:Ljava/util/List;
+    invoke-static {p1, v1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->sortedWith(Ljava/lang/Iterable;Ljava/util/Comparator;)Ljava/util/List;
 
     new-instance p1, Ljava/util/ArrayList;
 
     const/16 v0, 0xa
 
-    invoke-static {p2, v0}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {p2, v0}, Lkotlin/collections/CollectionsKt__IteratorsJVMKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
     move-result v0
 
@@ -174,12 +254,12 @@
 
     move-result-object p2
 
-    :goto_1
+    :goto_2
     invoke-interface {p2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_6
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -187,108 +267,96 @@
 
     check-cast v0, Lcom/android/systemui/privacy/PrivacyItem;
 
-    invoke-virtual {v0}, Lcom/android/systemui/privacy/PrivacyItem;->getPrivacyType()Lcom/android/systemui/privacy/PrivacyType;
+    iget-object v0, v0, Lcom/android/systemui/privacy/PrivacyItem;->privacyType:Lcom/android/systemui/privacy/PrivacyType;
 
-    move-result-object v0
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    goto :goto_2
 
-    goto :goto_1
-
-    :cond_2
-    invoke-static {p1}, Lkotlin/collections/CollectionsKt;->distinct(Ljava/lang/Iterable;)Ljava/util/List;
+    :cond_6
+    invoke-static {p1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->distinct(Ljava/util/ArrayList;)Ljava/util/List;
 
     move-result-object p1
 
-    invoke-static {p1}, Lkotlin/collections/CollectionsKt;->sorted(Ljava/lang/Iterable;)Ljava/util/List;
+    instance-of p2, p1, Ljava/util/Collection;
+
+    if-eqz p2, :cond_a
+
+    invoke-interface {p1}, Ljava/util/Collection;->size()I
+
+    move-result p2
+
+    if-gt p2, v3, :cond_7
+
+    invoke-static {p1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
     move-result-object p1
 
+    goto :goto_3
+
+    :cond_7
+    new-array p2, v2, [Ljava/lang/Comparable;
+
+    invoke-interface {p1, p2}, Ljava/util/Collection;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_9
+
+    move-object p2, p1
+
+    check-cast p2, [Ljava/lang/Comparable;
+
+    array-length v0, p2
+
+    if-le v0, v3, :cond_8
+
+    invoke-static {p2}, Ljava/util/Arrays;->sort([Ljava/lang/Object;)V
+
+    :cond_8
+    invoke-static {p1}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+
+    move-result-object p1
+
+    goto :goto_3
+
+    :cond_9
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_a
+    invoke-static {p1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->toMutableList(Ljava/lang/Iterable;)Ljava/util/List;
+
+    move-result-object p1
+
+    move-object p2, p1
+
+    check-cast p2, Ljava/util/ArrayList;
+
+    invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
+
+    move-result p2
+
+    if-le p2, v3, :cond_b
+
+    invoke-static {p1}, Ljava/util/Collections;->sort(Ljava/util/List;)V
+
+    :cond_b
+    :goto_3
     iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->types:Ljava/util/List;
 
     return-void
 .end method
 
-.method private final joinWithAnd(Ljava/util/List;)Ljava/lang/StringBuilder;
-    .locals 12
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(",
-            "Ljava/util/List<",
-            "+TT;>;)",
-            "Ljava/lang/StringBuilder;"
-        }
-    .end annotation
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    const/4 v1, 0x0
-
-    invoke-interface {p1, v1, v0}, Ljava/util/List;->subList(II)Ljava/util/List;
-
-    move-result-object v2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v4, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->separator:Ljava/lang/String;
-
-    const-string v0, "separator"
-
-    invoke-static {v4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/16 v10, 0x7c
-
-    const/4 v11, 0x0
-
-    invoke-static/range {v2 .. v11}, Lkotlin/collections/CollectionsKt;->joinTo$default(Ljava/lang/Iterable;Ljava/lang/Appendable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/Appendable;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/StringBuilder;
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->lastSeparator:Ljava/lang/String;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {p1}, Lkotlin/collections/CollectionsKt;->last(Ljava/util/List;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public final generateIcons()Ljava/util/List;
+.method public final generateIcons()Ljava/util/ArrayList;
     .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Landroid/graphics/drawable/Drawable;",
-            ">;"
-        }
-    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->types:Ljava/util/List;
 
@@ -296,7 +364,7 @@
 
     const/16 v2, 0xa
 
-    invoke-static {v0, v2}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {v0, v2}, Lkotlin/collections/CollectionsKt__IteratorsJVMKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
     move-result v2
 
@@ -325,7 +393,7 @@
 
     move-result-object v2
 
-    invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -334,7 +402,7 @@
 .end method
 
 .method public final joinTypes()Ljava/lang/String;
-    .locals 4
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->types:Ljava/util/List;
 
@@ -346,19 +414,21 @@
 
     const/4 v1, 0x1
 
+    const/4 v2, 0x0
+
     if-eq v0, v1, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->types:Ljava/util/List;
 
     new-instance v1, Ljava/util/ArrayList;
 
-    const/16 v2, 0xa
+    const/16 v3, 0xa
 
-    invoke-static {v0, v2}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {v0, v3}, Lkotlin/collections/CollectionsKt__IteratorsJVMKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
-    move-result v2
+    move-result v3
 
-    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+    invoke-direct {v1, v3}, Ljava/util/ArrayList;-><init>(I)V
 
     invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -367,47 +437,65 @@
     :goto_0
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v3
 
-    check-cast v2, Lcom/android/systemui/privacy/PrivacyType;
+    check-cast v3, Lcom/android/systemui/privacy/PrivacyType;
 
-    iget-object v3, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->context:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->context:Landroid/content/Context;
 
-    invoke-virtual {v2, v3}, Lcom/android/systemui/privacy/PrivacyType;->getName(Landroid/content/Context;)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Lcom/android/systemui/privacy/PrivacyType;->getName(Landroid/content/Context;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0, v1}, Lcom/android/systemui/privacy/PrivacyChipBuilder;->joinWithAnd(Ljava/util/List;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, -0x1
+
+    invoke-virtual {v1, v2, v0}, Ljava/util/ArrayList;->subList(II)Ljava/util/List;
+
+    move-result-object v0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v3, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->separator:Ljava/lang/String;
+
+    invoke-static {v0, v2, v3}, Lkotlin/collections/CollectionsKt___CollectionsKt;->joinTo$default(Ljava/lang/Iterable;Ljava/lang/StringBuilder;Ljava/lang/String;)V
+
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->lastSeparator:Ljava/lang/String;
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->last(Ljava/util/List;)Ljava/lang/Object;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
-
-    const-string v0, "types.map { it.getName(context) }.joinWithAnd().toString()"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     goto :goto_1
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyChipBuilder;->types:Ljava/util/List;
 
-    const/4 v1, 0x0
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -418,10 +506,6 @@
     invoke-virtual {v0, p0}, Lcom/android/systemui/privacy/PrivacyType;->getName(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object p0
-
-    const-string v0, "types[0].getName(context)"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     goto :goto_1
 

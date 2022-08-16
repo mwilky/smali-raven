@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextClock android:textSize="@dimen/dream_overlay_complication_clock_time_text_size" android:textColor="@android:color/white" android:id="@id/time_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:includeFontPadding="false" android:shadowColor="@color/keyguard_shadow_color" android:shadowRadius="?shadowRadius" android:fontFamily="@font/clock" android:format12Hour="h:mm" android:format24Hour="kk:mm"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

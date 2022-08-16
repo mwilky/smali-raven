@@ -15,30 +15,14 @@
 .method public abstract addCallback([ILcom/android/systemui/appops/AppOpsController$Callback;)V
 .end method
 
-.method public abstract getActiveAppOps()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/appops/AppOpItem;",
-            ">;"
-        }
-    .end annotation
+.method public abstract getActiveAppOps()Ljava/util/ArrayList;
 .end method
 
-.method public abstract getActiveAppOps(Z)Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(Z)",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/appops/AppOpItem;",
-            ">;"
-        }
-    .end annotation
+.method public abstract getActiveAppOps(Z)Ljava/util/ArrayList;
 .end method
 
 .method public abstract isMicMuted()Z
 .end method
 
-.method public abstract removeCallback([ILcom/android/systemui/appops/AppOpsController$Callback;)V
+.method public abstract removeCallback([ILcom/android/systemui/privacy/AppOpsPrivacyItemMonitor$appOpsCallback$1;)V
 .end method

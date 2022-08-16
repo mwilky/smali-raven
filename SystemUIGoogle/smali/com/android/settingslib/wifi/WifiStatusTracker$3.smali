@@ -1,86 +1,51 @@
-.class Lcom/android/settingslib/wifi/WifiStatusTracker$3;
-.super Landroid/net/ConnectivityManager$NetworkCallback;
+.class public final Lcom/android/settingslib/wifi/WifiStatusTracker$3;
+.super Landroid/net/wifi/WifiNetworkScoreCache$CacheListener;
 .source "WifiStatusTracker.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/settingslib/wifi/WifiStatusTracker;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
+.field public final synthetic this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/wifi/WifiStatusTracker;I)V
+.method public constructor <init>(Lcom/android/settingslib/wifi/WifiStatusTracker;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
-    invoke-direct {p0, p2}, Landroid/net/ConnectivityManager$NetworkCallback;-><init>(I)V
+    invoke-direct {p0, p2}, Landroid/net/wifi/WifiNetworkScoreCache$CacheListener;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-static {v0, p1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$602(Lcom/android/settingslib/wifi/WifiStatusTracker;Landroid/net/Network;)Landroid/net/Network;
-
-    iget-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-static {p1, p2}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$702(Lcom/android/settingslib/wifi/WifiStatusTracker;Landroid/net/NetworkCapabilities;)Landroid/net/NetworkCapabilities;
-
-    iget-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$000(Lcom/android/settingslib/wifi/WifiStatusTracker;)V
-
-    iget-object p0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
-
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$100(Lcom/android/settingslib/wifi/WifiStatusTracker;)Ljava/lang/Runnable;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
-
-    return-void
-.end method
-
-.method public onLost(Landroid/net/Network;)V
-    .locals 1
+.method public final networkCacheUpdated(Ljava/util/List;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/net/ScoredNetwork;",
+            ">;)V"
+        }
+    .end annotation
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$602(Lcom/android/settingslib/wifi/WifiStatusTracker;Landroid/net/Network;)Landroid/net/Network;
+    invoke-virtual {p1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->updateStatusLabel()V
 
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
 
-    invoke-static {p1, v0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$702(Lcom/android/settingslib/wifi/WifiStatusTracker;Landroid/net/NetworkCapabilities;)Landroid/net/NetworkCapabilities;
+    iget-object p1, p1, Lcom/android/settingslib/wifi/WifiStatusTracker;->mMainThreadHandler:Landroid/os/Handler;
 
-    iget-object p1, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
+    new-instance v0, Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$000(Lcom/android/settingslib/wifi/WifiStatusTracker;)V
+    const/4 v1, 0x1
 
-    iget-object p0, p0, Lcom/android/settingslib/wifi/WifiStatusTracker$3;->this$0:Lcom/android/settingslib/wifi/WifiStatusTracker;
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiStatusTracker;->access$100(Lcom/android/settingslib/wifi/WifiStatusTracker;)Ljava/lang/Runnable;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method

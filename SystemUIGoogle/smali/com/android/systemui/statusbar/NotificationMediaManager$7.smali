@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationMediaManager$7;
+.class public final Lcom/android/systemui/statusbar/NotificationMediaManager$7;
 .super Ljava/lang/Object;
 .source "NotificationMediaManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/NotificationMediaManager;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$7;->this$0:Lcom/android/systemui/statusbar/NotificationMediaManager;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$7;->this$0:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationMediaManager;->access$1000(Lcom/android/systemui/statusbar/NotificationMediaManager;)Landroid/widget/ImageView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mBackdropFront:Landroid/widget/ImageView;
 
     const/4 v1, 0x4
 
@@ -49,9 +47,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$7;->this$0:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/NotificationMediaManager;->access$1000(Lcom/android/systemui/statusbar/NotificationMediaManager;)Landroid/widget/ImageView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mBackdropFront:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
 
@@ -61,9 +57,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$7;->this$0:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/NotificationMediaManager;->access$1000(Lcom/android/systemui/statusbar/NotificationMediaManager;)Landroid/widget/ImageView;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationMediaManager;->mBackdropFront:Landroid/widget/ImageView;
 
     const/4 v0, 0x0
 

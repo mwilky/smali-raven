@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationGroupingUtil$3;
+.class public final Lcom/android/systemui/statusbar/NotificationGroupingUtil$3;
 .super Lcom/android/systemui/statusbar/NotificationGroupingUtil$IconComparator;
 .source "NotificationGroupingUtil.java"
 
@@ -9,50 +9,66 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$IconComparator;-><init>(Lcom/android/systemui/statusbar/NotificationGroupingUtil$1;)V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$IconComparator;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public compare(Landroid/view/View;Landroid/view/View;Ljava/lang/Object;Ljava/lang/Object;)Z
+.method public final compare(Landroid/view/View;Landroid/view/View;Ljava/lang/Object;Ljava/lang/Object;)Z
     .locals 0
 
-    invoke-virtual {p0, p3, p4}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$IconComparator;->hasSameIcon(Ljava/lang/Object;Ljava/lang/Object;)Z
+    check-cast p3, Landroid/app/Notification;
 
-    move-result p1
+    invoke-virtual {p3}, Landroid/app/Notification;->getSmallIcon()Landroid/graphics/drawable/Icon;
 
-    if-eqz p1, :cond_1
+    move-result-object p0
 
-    invoke-virtual {p0, p3, p4}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$IconComparator;->hasSameColor(Ljava/lang/Object;Ljava/lang/Object;)Z
+    check-cast p4, Landroid/app/Notification;
+
+    invoke-virtual {p4}, Landroid/app/Notification;->getSmallIcon()Landroid/graphics/drawable/Icon;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Icon;->sameAs(Landroid/graphics/drawable/Icon;)Z
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    const/4 p1, 0x0
+
+    const/4 p2, 0x1
+
+    if-eqz p0, :cond_1
+
+    iget p0, p3, Landroid/app/Notification;->color:I
+
+    iget p3, p4, Landroid/app/Notification;->color:I
+
+    if-ne p0, p3, :cond_0
+
+    move p0, p2
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    move p0, p1
 
-    goto :goto_1
+    :goto_0
+    if-eqz p0, :cond_2
 
     :cond_1
-    :goto_0
-    const/4 p0, 0x1
+    move p1, p2
 
-    :goto_1
-    return p0
+    :cond_2
+    return p1
 .end method

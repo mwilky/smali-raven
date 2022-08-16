@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/TileAdapter$MarginTileDecoration;
+.class public final Lcom/android/systemui/qs/customize/TileAdapter$MarginTileDecoration;
 .super Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;
 .source "TileAdapter.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "MarginTileDecoration"
 .end annotation
 
 
 # instance fields
-.field private mHalfMargin:I
+.field public mHalfMargin:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$ItemDecoration;-><init>()V
@@ -27,32 +27,18 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/customize/TileAdapter$MarginTileDecoration;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
+.method public final getItemOffsets(Landroid/graphics/Rect;Landroid/view/View;Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$State;)V
     .locals 3
 
-    invoke-virtual {p3}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-
-    move-result-object v0
+    iget-object v0, p3, Landroidx/recyclerview/widget/RecyclerView;->mLayout:Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
 
     if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    invoke-virtual {p3}, Landroidx/recyclerview/widget/RecyclerView;->getLayoutManager()Landroidx/recyclerview/widget/RecyclerView$LayoutManager;
-
-    move-result-object v0
-
     check-cast v0, Landroidx/recyclerview/widget/GridLayoutManager;
 
     invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -61,9 +47,7 @@
 
     check-cast v1, Landroidx/recyclerview/widget/GridLayoutManager$LayoutParams;
 
-    invoke-virtual {v1}, Landroidx/recyclerview/widget/GridLayoutManager$LayoutParams;->getSpanIndex()I
-
-    move-result v1
+    iget v1, v1, Landroidx/recyclerview/widget/GridLayoutManager$LayoutParams;->mSpanIndex:I
 
     instance-of v2, p2, Landroid/widget/TextView;
 
@@ -76,9 +60,7 @@
     :cond_1
     if-eqz v1, :cond_2
 
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/GridLayoutManager;->getSpanCount()I
-
-    move-result p2
+    iget p2, v0, Landroidx/recyclerview/widget/GridLayoutManager;->mSpanCount:I
 
     add-int/lit8 p2, p2, -0x1
 
@@ -139,13 +121,5 @@
     iput p3, p1, Landroid/graphics/Rect;->right:I
 
     :goto_0
-    return-void
-.end method
-
-.method public setHalfMargin(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$MarginTileDecoration;->mHalfMargin:I
-
     return-void
 .end method

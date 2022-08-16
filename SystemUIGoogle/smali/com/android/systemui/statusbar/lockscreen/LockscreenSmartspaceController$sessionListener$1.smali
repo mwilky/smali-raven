@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1;
+.class public final Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1;
 .super Ljava/lang/Object;
 .source "LockscreenSmartspaceController.kt"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nLockscreenSmartspaceController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 LockscreenSmartspaceController.kt\ncom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,336:1\n734#2:337\n825#2,2:338\n*E\n*S KotlinDebug\n*F\n+ 1 LockscreenSmartspaceController.kt\ncom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1\n*L\n111#1:337\n111#1,2:338\n*E\n"
+    value = "SMAP\nLockscreenSmartspaceController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 LockscreenSmartspaceController.kt\ncom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,358:1\n764#2:359\n855#2,2:360\n*S KotlinDebug\n*F\n+ 1 LockscreenSmartspaceController.kt\ncom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1\n*L\n114#1:359\n114#1:360,2\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public final onTargetsAvailable(Ljava/util/List;)V
-    .locals 4
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -51,15 +51,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->access$getExecution$p(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)Lcom/android/systemui/util/concurrency/Execution;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->execution:Lcom/android/systemui/util/concurrency/Execution;
 
     invoke-interface {v0}, Lcom/android/systemui/util/concurrency/Execution;->assertIsMainThread()V
 
-    const-string v0, "targets"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p1, Ljava/lang/Iterable;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
@@ -77,7 +73,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_5
 
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -87,30 +83,105 @@
 
     check-cast v3, Landroid/app/smartspace/SmartspaceTarget;
 
-    invoke-static {v0, v3}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->access$filterSmartspaceTarget(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;Landroid/app/smartspace/SmartspaceTarget;)Z
+    iget-boolean v4, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->showNotifications:Z
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x1
+
+    if-nez v4, :cond_1
+
+    invoke-virtual {v3}, Landroid/app/smartspace/SmartspaceTarget;->getFeatureType()I
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-ne v3, v6, :cond_4
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v3}, Landroid/app/smartspace/SmartspaceTarget;->getUserHandle()Landroid/os/UserHandle;
+
+    move-result-object v4
+
+    iget-object v7, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->userTracker:Lcom/android/systemui/settings/UserTracker;
+
+    invoke-interface {v7}, Lcom/android/systemui/settings/UserTracker;->getUserHandle()Landroid/os/UserHandle;
+
+    move-result-object v7
+
+    invoke-static {v4, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v3}, Landroid/app/smartspace/SmartspaceTarget;->isSensitive()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget-boolean v3, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->showSensitiveContentForCurrentUser:Z
+
+    if-eqz v3, :cond_4
+
+    goto :goto_1
+
+    :cond_2
+    iget-object v7, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->managedUserHandle:Landroid/os/UserHandle;
+
+    invoke-static {v4, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    iget-object v4, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->userTracker:Lcom/android/systemui/settings/UserTracker;
+
+    invoke-interface {v4}, Lcom/android/systemui/settings/UserTracker;->getUserHandle()Landroid/os/UserHandle;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v4
+
+    if-nez v4, :cond_4
+
+    invoke-virtual {v3}, Landroid/app/smartspace/SmartspaceTarget;->isSensitive()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget-boolean v3, v0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->showSensitiveContentForManagedUser:Z
+
+    if-eqz v3, :cond_4
+
+    :cond_3
+    :goto_1
+    move v5, v6
+
+    :cond_4
+    if-eqz v5, :cond_0
 
     invoke-interface {v1, v2}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    :cond_1
+    :cond_5
     iget-object p0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController$sessionListener$1;->this$0:Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->access$getPlugin$p(Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;)Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/lockscreen/LockscreenSmartspaceController;->plugin:Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;
 
-    move-result-object p0
+    if-nez p0, :cond_6
 
-    if-nez p0, :cond_2
+    goto :goto_2
 
-    goto :goto_1
-
-    :cond_2
+    :cond_6
     invoke-interface {p0, v1}, Lcom/android/systemui/plugins/BcSmartspaceDataPlugin;->onTargetsAvailable(Ljava/util/List;)V
 
-    :goto_1
+    :goto_2
     return-void
 .end method

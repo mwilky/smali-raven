@@ -7,17 +7,15 @@
 
 
 # instance fields
-.field private final centerX:F
+.field public final centerX:F
 
-.field private final centerY:F
+.field public final centerY:F
 
-.field private final endRadius:F
-
-.field private final startRadius:F
+.field public final endRadius:F
 
 
 # direct methods
-.method public constructor <init>(FFFF)V
+.method public constructor <init>(FFF)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,45 +24,46 @@
 
     iput p2, p0, Lcom/android/systemui/statusbar/CircleReveal;->centerY:F
 
-    iput p3, p0, Lcom/android/systemui/statusbar/CircleReveal;->startRadius:F
-
-    iput p4, p0, Lcom/android/systemui/statusbar/CircleReveal;->endRadius:F
+    iput p3, p0, Lcom/android/systemui/statusbar/CircleReveal;->endRadius:F
 
     return-void
 .end method
 
 
 # virtual methods
-.method public setRevealAmountOnScrim(FLcom/android/systemui/statusbar/LightRevealScrim;)V
-    .locals 3
+.method public final setRevealAmountOnScrim(FLcom/android/systemui/statusbar/LightRevealScrim;)V
+    .locals 4
 
-    const-string v0, "scrim"
+    const/high16 v0, 0x3f000000    # 0.5f
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    sub-float v0, p1, v0
 
-    sget-object v0, Lcom/android/systemui/statusbar/LightRevealEffect;->Companion:Lcom/android/systemui/statusbar/LightRevealEffect$Companion;
+    const/4 v1, 0x0
 
-    const/high16 v1, 0x3f000000    # 0.5f
+    cmpg-float v2, v0, v1
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/LightRevealEffect$Companion;->getPercentPastThreshold(FF)F
+    if-gez v2, :cond_0
 
-    move-result v0
+    move v0, v1
 
-    iget v1, p0, Lcom/android/systemui/statusbar/CircleReveal;->startRadius:F
+    :cond_0
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    iget v2, p0, Lcom/android/systemui/statusbar/CircleReveal;->endRadius:F
+    const/high16 v3, 0x40000000    # 2.0f
 
-    sub-float/2addr v2, v1
+    mul-float/2addr v0, v3
 
-    mul-float/2addr v2, p1
+    iget v3, p0, Lcom/android/systemui/statusbar/CircleReveal;->endRadius:F
 
-    add-float/2addr v1, v2
+    invoke-static {v3, v1, p1, v1}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
 
-    const/high16 p1, 0x3f800000    # 1.0f
+    move-result v1
 
-    sub-float/2addr p1, v0
+    iput p1, p2, Lcom/android/systemui/statusbar/LightRevealScrim;->interpolatedRevealAmount:F
 
-    invoke-virtual {p2, p1}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealGradientEndColorAlpha(F)V
+    sub-float/2addr v2, v0
+
+    invoke-virtual {p2, v2}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealGradientEndColorAlpha(F)V
 
     iget p1, p0, Lcom/android/systemui/statusbar/CircleReveal;->centerX:F
 

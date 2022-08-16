@@ -10,5 +10,5 @@
 .method public abstract removeAllIds()V
 .end method
 
-.method public abstract updateConstraints(Landroidx/constraintlayout/solver/widgets/ConstraintWidgetContainer;)V
+.method public abstract updateConstraints()V
 .end method

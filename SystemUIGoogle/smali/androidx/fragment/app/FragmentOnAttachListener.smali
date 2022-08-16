@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract onAttachFragment(Landroidx/fragment/app/FragmentManager;Landroidx/fragment/app/Fragment;)V
+.method public abstract onAttachFragment$1()V
 .end method

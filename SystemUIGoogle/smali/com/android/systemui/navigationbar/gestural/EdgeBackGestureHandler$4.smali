@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$4;
+.class public final Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$4;
 .super Ljava/lang/Object;
 .source "EdgeBackGestureHandler.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$4;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
@@ -34,14 +34,14 @@
 
 
 # virtual methods
-.method public onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
+.method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
     .locals 2
 
     invoke-virtual {p1}, Landroid/provider/DeviceConfig$Properties;->getNamespace()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "systemui"
+    const-string/jumbo v1, "systemui"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -88,7 +88,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$4;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1100(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->updateMLModelState()V
 
     :cond_1
     return-void

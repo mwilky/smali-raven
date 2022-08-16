@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;
+.class public final Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;
 .super Ljava/lang/Object;
 .source "MediaSessionBasedFilter.kt"
 
@@ -12,38 +12,38 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nMediaSessionBasedFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,212:1\n1#2:213\n734#3:214\n825#3,2:215\n*E\n*S KotlinDebug\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1\n*L\n121#1:214\n121#1,2:215\n*E\n"
+    value = "SMAP\nMediaSessionBasedFilter.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,212:1\n1#2:213\n764#3:214\n855#3,2:215\n*S KotlinDebug\n*F\n+ 1 MediaSessionBasedFilter.kt\ncom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1\n*L\n121#1:214\n121#1:215,2\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic $data:Lcom/android/systemui/media/MediaData;
+.field public final synthetic $data:Lcom/android/systemui/media/MediaData;
 
-.field final synthetic $immediately:Z
+.field public final synthetic $immediately:Z
 
-.field final synthetic $key:Ljava/lang/String;
+.field public final synthetic $key:Ljava/lang/String;
 
-.field final synthetic $oldKey:Ljava/lang/String;
+.field public final synthetic $oldKey:Ljava/lang/String;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaData;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaSessionBasedFilter;Z)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaData;Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    iput-object p2, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$oldKey:Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$oldKey:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
+    iput-object p4, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
+    iput-object p2, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
     iput-boolean p5, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$immediately:Z
 
@@ -55,13 +55,11 @@
 
 # virtual methods
 .method public final run()V
-    .locals 9
+    .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/MediaData;->getToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/MediaData;->token:Landroid/media/session/MediaSession$Token;
 
     if-nez v0, :cond_0
 
@@ -70,9 +68,7 @@
     :cond_0
     iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v1}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getTokensWithNotifications$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Set;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/MediaSessionBasedFilter;->tokensWithNotifications:Ljava/util/LinkedHashSet;
 
     invoke-interface {v1, v0}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -105,19 +101,9 @@
 
     iget-object v3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v3}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getKeyedTokens$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Map;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/media/MediaSessionBasedFilter;->keyedTokens:Ljava/util/LinkedHashMap;
 
     iget-object v4, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$oldKey:Ljava/lang/String;
-
-    const-string v5, "null cannot be cast to non-null type kotlin.collections.MutableMap<K, V>"
-
-    invoke-static {v3, v5}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    invoke-static {v3}, Lkotlin/jvm/internal/TypeIntrinsics;->asMutableMap(Ljava/lang/Object;)Ljava/util/Map;
-
-    move-result-object v3
 
     invoke-interface {v3, v4}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -134,9 +120,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
 
-    invoke-static {v4}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getKeyedTokens$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Map;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/media/MediaSessionBasedFilter;->keyedTokens:Ljava/util/LinkedHashMap;
 
     invoke-interface {v4, v5, v3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -148,23 +132,19 @@
     :goto_2
     iget-object v3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    invoke-virtual {v3}, Lcom/android/systemui/media/MediaData;->getToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/media/MediaData;->token:Landroid/media/session/MediaSession$Token;
 
     const/4 v4, 0x0
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     iget-object v3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v3}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getKeyedTokens$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Map;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/media/MediaSessionBasedFilter;->keyedTokens:Ljava/util/LinkedHashMap;
 
     iget-object v5, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
 
-    invoke-interface {v3, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v3, v5}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -179,9 +159,7 @@
     :cond_4
     iget-object v5, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    invoke-virtual {v5}, Lcom/android/systemui/media/MediaData;->getToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v5
+    iget-object v5, v5, Lcom/android/systemui/media/MediaData;->token:Landroid/media/session/MediaSession$Token;
 
     invoke-interface {v3, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
@@ -192,7 +170,7 @@
     move-result-object v3
 
     :goto_3
-    if-nez v3, :cond_5
+    if-nez v3, :cond_6
 
     iget-object v3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
@@ -202,19 +180,33 @@
 
     new-array v7, v2, [Landroid/media/session/MediaSession$Token;
 
-    invoke-virtual {v5}, Lcom/android/systemui/media/MediaData;->getToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v5
+    iget-object v5, v5, Lcom/android/systemui/media/MediaData;->token:Landroid/media/session/MediaSession$Token;
 
     aput-object v5, v7, v1
 
-    invoke-static {v7}, Lkotlin/collections/SetsKt;->mutableSetOf([Ljava/lang/Object;)Ljava/util/Set;
+    new-instance v5, Ljava/util/LinkedHashSet;
 
-    move-result-object v5
+    invoke-static {v2}, Lkotlin/collections/MapsKt__MapsJVMKt;->mapCapacity(I)I
 
-    invoke-static {v3}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getKeyedTokens$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Map;
+    move-result v8
 
-    move-result-object v3
+    invoke-direct {v5, v8}, Ljava/util/LinkedHashSet;-><init>(I)V
+
+    move v8, v1
+
+    :goto_4
+    if-ge v8, v2, :cond_5
+
+    aget-object v9, v7, v8
+
+    add-int/lit8 v8, v8, 0x1
+
+    invoke-interface {v5, v9}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+
+    goto :goto_4
+
+    :cond_5
+    iget-object v3, v3, Lcom/android/systemui/media/MediaSessionBasedFilter;->keyedTokens:Ljava/util/LinkedHashMap;
 
     invoke-interface {v3, v6, v5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -222,18 +214,14 @@
 
     check-cast v3, Ljava/util/Set;
 
-    :cond_5
+    :cond_6
     iget-object v3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v3}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getPackageControllers$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/LinkedHashMap;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/media/MediaSessionBasedFilter;->packageControllers:Ljava/util/LinkedHashMap;
 
     iget-object v5, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    invoke-virtual {v5}, Lcom/android/systemui/media/MediaData;->getPackageName()Ljava/lang/String;
-
-    move-result-object v5
+    iget-object v5, v5, Lcom/android/systemui/media/MediaData;->packageName:Ljava/lang/String;
 
     invoke-virtual {v3, v5}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -241,13 +229,13 @@
 
     check-cast v3, Ljava/util/List;
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_7
 
     move-object v5, v4
 
     goto :goto_8
 
-    :cond_6
+    :cond_7
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
@@ -256,8 +244,8 @@
 
     move-result-object v3
 
-    :cond_7
-    :goto_4
+    :cond_8
+    :goto_5
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
@@ -276,32 +264,16 @@
 
     move-result-object v7
 
-    if-nez v7, :cond_8
-
-    move-object v7, v4
-
-    goto :goto_5
-
-    :cond_8
-    invoke-virtual {v7}, Landroid/media/session/MediaController$PlaybackInfo;->getPlaybackType()I
-
-    move-result v7
-
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    :goto_5
-    const/4 v8, 0x2
-
     if-nez v7, :cond_9
 
     goto :goto_6
 
     :cond_9
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Landroid/media/session/MediaController$PlaybackInfo;->getPlaybackType()I
 
     move-result v7
+
+    const/4 v8, 0x2
 
     if-ne v7, v8, :cond_a
 
@@ -314,42 +286,32 @@
     move v7, v1
 
     :goto_7
-    if-eqz v7, :cond_7
+    if-eqz v7, :cond_8
 
-    invoke-interface {v5, v6}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_4
+    goto :goto_5
 
     :cond_b
     :goto_8
     if-nez v5, :cond_c
-
-    move-object v1, v4
 
     goto :goto_9
 
     :cond_c
     invoke-interface {v5}, Ljava/util/List;->size()I
 
-    move-result v1
+    move-result v3
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    if-ne v3, v2, :cond_d
 
-    move-result-object v1
-
-    :goto_9
-    if-nez v1, :cond_d
-
-    goto :goto_a
+    move v1, v2
 
     :cond_d
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+    :goto_9
+    if-eqz v1, :cond_e
 
-    move-result v1
-
-    if-ne v1, v2, :cond_e
-
-    invoke-static {v5}, Lkotlin/collections/CollectionsKt;->firstOrNull(Ljava/util/List;)Ljava/lang/Object;
+    invoke-static {v5}, Lkotlin/collections/CollectionsKt___CollectionsKt;->firstOrNull(Ljava/util/List;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -358,7 +320,6 @@
     check-cast v4, Landroid/media/session/MediaController;
 
     :cond_e
-    :goto_a
     if-nez v0, :cond_10
 
     if-eqz v4, :cond_10
@@ -369,9 +330,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaData;->getToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/MediaData;->token:Landroid/media/session/MediaSession$Token;
 
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -381,9 +340,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getTokensWithNotifications$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Set;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/MediaSessionBasedFilter;->tokensWithNotifications:Ljava/util/LinkedHashSet;
 
     invoke-virtual {v4}, Landroid/media/session/MediaController;->getSessionToken()Landroid/media/session/MediaSession$Token;
 
@@ -395,16 +352,14 @@
 
     if-nez v0, :cond_f
 
-    goto :goto_b
+    goto :goto_a
 
     :cond_f
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "filtering key="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "filtering key="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
 
@@ -416,9 +371,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaData;->getToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/MediaData;->token:Landroid/media/session/MediaSession$Token;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -442,19 +395,17 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getKeyedTokens$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Ljava/util/Map;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/MediaSessionBasedFilter;->keyedTokens:Ljava/util/LinkedHashMap;
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
 
-    invoke-interface {v0, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
-    check-cast v0, Ljava/util/Set;
-
     invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    check-cast v0, Ljava/util/Set;
 
     invoke-virtual {v4}, Landroid/media/session/MediaController;->getSessionToken()Landroid/media/session/MediaSession$Token;
 
@@ -470,25 +421,39 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$dispatchMediaDataRemoved(Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/lang/String;)V
+    iget-object v1, v0, Lcom/android/systemui/media/MediaSessionBasedFilter;->foregroundExecutor:Ljava/util/concurrent/Executor;
 
-    goto :goto_c
+    new-instance v2, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1;
+
+    invoke-direct {v2, v0, p0}, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataRemoved$1;-><init>(Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/lang/String;)V
+
+    invoke-interface {v1, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    goto :goto_b
 
     :cond_10
-    :goto_b
-    iget-object v0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
+    :goto_a
+    iget-object v5, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$key:Ljava/lang/String;
 
-    iget-object v2, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$oldKey:Ljava/lang/String;
+    iget-object v7, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$oldKey:Ljava/lang/String;
 
-    iget-object v3, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
+    iget-object v4, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$data:Lcom/android/systemui/media/MediaData;
 
-    iget-boolean p0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$immediately:Z
+    iget-boolean v8, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$onMediaDataLoaded$1;->$immediately:Z
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$dispatchMediaDataLoaded(Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaData;Z)V
+    iget-object p0, v5, Lcom/android/systemui/media/MediaSessionBasedFilter;->foregroundExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v0, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;
+
+    move-object v3, v0
+
+    invoke-direct/range {v3 .. v8}, Lcom/android/systemui/media/MediaSessionBasedFilter$dispatchMediaDataLoaded$1;-><init>(Lcom/android/systemui/media/MediaData;Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-interface {p0, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     :cond_11
-    :goto_c
+    :goto_b
     return-void
 .end method

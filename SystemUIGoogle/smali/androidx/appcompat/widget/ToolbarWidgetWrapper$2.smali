@@ -1,36 +1,25 @@
-.class Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;
-.super Landroidx/core/view/ViewPropertyAnimatorListenerAdapter;
+.class public final Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;
+.super Lkotlinx/coroutines/EventLoop_commonKt;
 .source "ToolbarWidgetWrapper.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/ToolbarWidgetWrapper;->setupAnimatorToVisibility(IJ)Landroidx/core/view/ViewPropertyAnimatorCompat;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field private mCanceled:Z
+.field public mCanceled:Z
 
-.field final synthetic this$0:Landroidx/appcompat/widget/ToolbarWidgetWrapper;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ToolbarWidgetWrapper;
 
-.field final synthetic val$visibility:I
+.field public final synthetic val$visibility:I
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ToolbarWidgetWrapper;I)V
+.method public constructor <init>(Landroidx/appcompat/widget/ToolbarWidgetWrapper;I)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->this$0:Landroidx/appcompat/widget/ToolbarWidgetWrapper;
 
     iput p2, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->val$visibility:I
 
-    invoke-direct {p0}, Landroidx/core/view/ViewPropertyAnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Lkotlinx/coroutines/EventLoop_commonKt;-><init>()V
 
     const/4 p1, 0x0
 
@@ -41,7 +30,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/view/View;)V
+.method public final onAnimationCancel(Landroid/view/View;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -51,35 +40,35 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/view/View;)V
-    .locals 0
+.method public final onAnimationEnd()V
+    .locals 1
 
-    iget-boolean p1, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
+    iget-boolean v0, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->mCanceled:Z
 
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object p1, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->this$0:Landroidx/appcompat/widget/ToolbarWidgetWrapper;
+    iget-object v0, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->this$0:Landroidx/appcompat/widget/ToolbarWidgetWrapper;
 
-    iget-object p1, p1, Landroidx/appcompat/widget/ToolbarWidgetWrapper;->mToolbar:Landroidx/appcompat/widget/Toolbar;
+    iget-object v0, v0, Landroidx/appcompat/widget/ToolbarWidgetWrapper;->mToolbar:Landroidx/appcompat/widget/Toolbar;
 
     iget p0, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->val$visibility:I
 
-    invoke-virtual {p1, p0}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     :cond_0
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/view/View;)V
-    .locals 0
+.method public final onAnimationStart()V
+    .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper$2;->this$0:Landroidx/appcompat/widget/ToolbarWidgetWrapper;
 
     iget-object p0, p0, Landroidx/appcompat/widget/ToolbarWidgetWrapper;->mToolbar:Landroidx/appcompat/widget/Toolbar;
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     return-void
 .end method

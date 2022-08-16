@@ -15,19 +15,19 @@
 
 
 # virtual methods
-.method public onDozeSuppressedChanged(Z)V
+.method public onAlwaysOnSuppressedChanged(Z)V
     .locals 0
 
     return-void
 .end method
 
-.method public onNotificationAlerted(Ljava/lang/Runnable;)V
+.method public onNotificationAlerted(Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda1;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onPowerSaveChanged(Z)V
+.method public onPowerSaveChanged()V
     .locals 0
 
     return-void

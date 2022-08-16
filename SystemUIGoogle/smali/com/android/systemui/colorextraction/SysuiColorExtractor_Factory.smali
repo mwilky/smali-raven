@@ -6,68 +6,21 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/colorextraction/SysuiColorExtractor;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final contextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final contextProvider:Ljavax/inject/Provider;
+
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p4, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -75,49 +28,78 @@
 
     iput-object p3, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;)",
-            "Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/colorextraction/SysuiColorExtractor;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/colorextraction/SysuiColorExtractor;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/colorextraction/SysuiColorExtractor;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 8
 
+    iget v0, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Landroid/content/Context;
+
+    iget-object v0, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+
+    iget-object p0, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    move-object v6, p0
+
+    check-cast v6, Lcom/android/systemui/dump/DumpManager;
+
+    new-instance p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+
+    new-instance v3, Lcom/android/internal/colorextraction/types/Tonal;
+
+    invoke-direct {v3, v2}, Lcom/android/internal/colorextraction/types/Tonal;-><init>(Landroid/content/Context;)V
+
+    const-class v0, Landroid/app/WallpaperManager;
+
+    invoke-virtual {v2, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Landroid/app/WallpaperManager;
+
+    const/4 v7, 0x0
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/colorextraction/SysuiColorExtractor;-><init>(Landroid/content/Context;Lcom/android/internal/colorextraction/types/ExtractionType;Lcom/android/systemui/statusbar/policy/ConfigurationController;Landroid/app/WallpaperManager;Lcom/android/systemui/dump/DumpManager;Z)V
+
+    return-object p0
+
+    :goto_0
     iget-object v0, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -132,7 +114,7 @@
 
     move-result-object v1
 
-    check-cast v1, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v1, Lcom/android/systemui/recents/RecentsImplementation;
 
     iget-object p0, p0, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -140,21 +122,18 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/dump/DumpManager;
+    check-cast p0, Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/colorextraction/SysuiColorExtractor;
+    new-instance v2, Lcom/android/systemui/recents/Recents;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/recents/Recents;-><init>(Landroid/content/Context;Lcom/android/systemui/recents/RecentsImplementation;Lcom/android/systemui/statusbar/CommandQueue;)V
 
-    return-object p0
-.end method
+    return-object v2
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    nop
 
-    invoke-virtual {p0}, Lcom/android/systemui/colorextraction/SysuiColorExtractor_Factory;->get()Lcom/android/systemui/colorextraction/SysuiColorExtractor;
-
-    move-result-object p0
-
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

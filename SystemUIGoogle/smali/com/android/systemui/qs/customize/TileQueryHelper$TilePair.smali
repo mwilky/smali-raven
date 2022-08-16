@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/TileQueryHelper$TilePair;
+.class public final Lcom/android/systemui/qs/customize/TileQueryHelper$TilePair;
 .super Ljava/lang/Object;
 .source "TileQueryHelper.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "TilePair"
 .end annotation
 
 
 # instance fields
-.field mReady:Z
+.field public mReady:Z
 
-.field mTile:Lcom/android/systemui/plugins/qs/QSTile;
+.field public mTile:Lcom/android/systemui/plugins/qs/QSTile;
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>(Lcom/android/systemui/plugins/qs/QSTile;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -30,13 +30,7 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/qs/customize/TileQueryHelper$TilePair;->mReady:Z
 
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/qs/customize/TileQueryHelper$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/customize/TileQueryHelper$TilePair;-><init>()V
+    iput-object p1, p0, Lcom/android/systemui/qs/customize/TileQueryHelper$TilePair;->mTile:Lcom/android/systemui/plugins/qs/QSTile;
 
     return-void
 .end method

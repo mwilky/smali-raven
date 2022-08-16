@@ -1,4 +1,4 @@
-.class Landroidx/core/provider/FontRequestWorker$4;
+.class public final Landroidx/core/provider/FontRequestWorker$4;
 .super Ljava/lang/Object;
 .source "FontRequestWorker.java"
 
@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/core/provider/FontRequestWorker;->requestFontAsync(Landroid/content/Context;Landroidx/core/provider/FontRequest;ILjava/util/concurrent/Executor;Landroidx/core/provider/CallbackWithHandler;)Landroid/graphics/Typeface;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -27,20 +18,12 @@
 
 
 # instance fields
-.field final synthetic val$id:Ljava/lang/String;
+.field public final synthetic val$id:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "val$id"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/core/provider/FontRequestWorker$4;->val$id:Ljava/lang/String;
 
@@ -51,16 +34,8 @@
 
 
 # virtual methods
-.method public accept(Landroidx/core/provider/FontRequestWorker$TypefaceResult;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "typefaceResult"
-        }
-    .end annotation
+.method public final accept(Landroidx/core/provider/FontRequestWorker$TypefaceResult;)V
+    .locals 4
 
     sget-object v0, Landroidx/core/provider/FontRequestWorker;->LOCK:Ljava/lang/Object;
 
@@ -71,7 +46,9 @@
 
     iget-object v2, p0, Landroidx/core/provider/FontRequestWorker$4;->val$id:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Landroidx/collection/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroidx/collection/SimpleArrayMap;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -127,16 +104,8 @@
     throw p0
 .end method
 
-.method public bridge synthetic accept(Ljava/lang/Object;)V
+.method public final bridge synthetic accept(Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000
-        }
-        names = {
-            "typefaceResult"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/core/provider/FontRequestWorker$TypefaceResult;
 

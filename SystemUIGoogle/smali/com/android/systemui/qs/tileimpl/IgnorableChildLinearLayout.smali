@@ -4,96 +4,80 @@
 
 
 # instance fields
-.field private forceUnspecifiedMeasure:Z
+.field public forceUnspecifiedMeasure:Z
 
-.field private ignoreLastView:Z
+.field public ignoreLastView:Z
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 8
+    .locals 7
 
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v2, 0x0
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    const/16 v5, 0xe
 
-    const/16 v6, 0xe
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    move-object v0, p0
 
-    move-object v1, p0
+    move-object v1, p1
 
-    move-object v2, p1
-
-    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 8
+    .locals 7
 
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    const/16 v5, 0xc
 
-    const/16 v6, 0xc
+    const/4 v6, 0x0
 
-    const/4 v7, 0x0
+    move-object v0, p0
 
-    move-object v1, p0
+    move-object v1, p1
 
-    move-object v2, p1
+    move-object v2, p2
 
-    move-object v3, p2
-
-    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 8
+    .locals 7
 
-    const-string v0, "context"
+    const/4 v4, 0x0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const/16 v5, 0x8
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
-    const/16 v6, 0x8
+    move-object v0, p0
 
-    const/4 v7, 0x0
+    move-object v1, p1
 
-    move-object v1, p0
+    move-object v2, p2
 
-    move-object v2, p1
+    move v3, p3
 
-    move-object v3, p2
-
-    move v4, p3
-
-    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -133,7 +117,7 @@
 
 
 # virtual methods
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->forceUnspecifiedMeasure:Z
@@ -174,13 +158,13 @@
 
     iget-boolean p1, p0, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->ignoreLastView:Z
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_4
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
 
     move-result p1
 
-    if-lez p1, :cond_3
+    if-lez p1, :cond_4
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
 
@@ -198,15 +182,13 @@
 
     const/16 v0, 0x8
 
-    if-eq p2, v0, :cond_3
+    if-eq p2, v0, :cond_4
 
     invoke-virtual {p1}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object p2
 
-    const-string v0, "null cannot be cast to non-null type android.view.ViewGroup.MarginLayoutParams"
-
-    invoke-static {p2, v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
+    if-eqz p2, :cond_3
 
     check-cast p2, Landroid/view/ViewGroup$MarginLayoutParams;
 
@@ -267,23 +249,18 @@
 
     invoke-virtual {p0, p2, p1}, Landroid/widget/LinearLayout;->setMeasuredDimension(II)V
 
+    goto :goto_0
+
     :cond_3
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string p1, "null cannot be cast to non-null type android.view.ViewGroup.MarginLayoutParams"
+
+    invoke-direct {p0, p1}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_4
     :goto_0
-    return-void
-.end method
-
-.method public final setForceUnspecifiedMeasure(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->forceUnspecifiedMeasure:Z
-
-    return-void
-.end method
-
-.method public final setIgnoreLastView(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tileimpl/IgnorableChildLinearLayout;->ignoreLastView:Z
-
     return-void
 .end method

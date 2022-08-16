@@ -23,103 +23,54 @@
     return-void
 .end method
 
-.method public static getHandler(Landroid/os/Handler;)Landroid/os/Handler;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "handler"
-        }
-    .end annotation
 
-    if-nez p0, :cond_0
+# virtual methods
+.method public final callbackFailAsync(I)V
+    .locals 3
 
-    new-instance p0, Landroid/os/Handler;
+    new-instance v0, Landroid/os/Handler;
 
     invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p0, v0}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    :cond_0
-    return-object p0
-.end method
+    new-instance v1, Lcom/android/systemui/qs/customize/TileAdapter$$ExternalSyntheticLambda0;
 
+    const/4 v2, 0x1
 
-# virtual methods
-.method public final callbackFailAsync(ILandroid/os/Handler;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0
-        }
-        names = {
-            "reason",
-            "handler"
-        }
-    .end annotation
+    invoke-direct {v1, p1, v2, p0}, Lcom/android/systemui/qs/customize/TileAdapter$$ExternalSyntheticLambda0;-><init>(IILjava/lang/Object;)V
 
-    invoke-static {p2}, Landroidx/core/content/res/ResourcesCompat$FontCallback;->getHandler(Landroid/os/Handler;)Landroid/os/Handler;
-
-    move-result-object p2
-
-    new-instance v0, Landroidx/core/content/res/ResourcesCompat$FontCallback$2;
-
-    invoke-direct {v0, p0, p1}, Landroidx/core/content/res/ResourcesCompat$FontCallback$2;-><init>(Landroidx/core/content/res/ResourcesCompat$FontCallback;I)V
-
-    invoke-virtual {p2, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public final callbackSuccessAsync(Landroid/graphics/Typeface;Landroid/os/Handler;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10,
-            0x0
-        }
-        names = {
-            "typeface",
-            "handler"
-        }
-    .end annotation
+.method public final callbackSuccessAsync(Landroid/graphics/Typeface;)V
+    .locals 3
 
-    invoke-static {p2}, Landroidx/core/content/res/ResourcesCompat$FontCallback;->getHandler(Landroid/os/Handler;)Landroid/os/Handler;
+    new-instance v0, Landroid/os/Handler;
 
-    move-result-object p2
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
 
-    new-instance v0, Landroidx/core/content/res/ResourcesCompat$FontCallback$1;
+    move-result-object v1
 
-    invoke-direct {v0, p0, p1}, Landroidx/core/content/res/ResourcesCompat$FontCallback$1;-><init>(Landroidx/core/content/res/ResourcesCompat$FontCallback;Landroid/graphics/Typeface;)V
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    invoke-virtual {p2, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    new-instance v1, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda0;
+
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2, p0, p1}, Lcom/android/systemui/wmshell/BubblesManager$5$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
 .method public abstract onFontRetrievalFailed(I)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "reason"
-        }
-    .end annotation
 .end method
 
 .method public abstract onFontRetrieved(Landroid/graphics/Typeface;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "typeface"
-        }
-    .end annotation
 .end method

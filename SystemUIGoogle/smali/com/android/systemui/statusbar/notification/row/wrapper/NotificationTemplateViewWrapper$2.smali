@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;
+.class public final Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;
 .super Ljava/lang/Object;
 .source "NotificationTemplateViewWrapper.java"
 
@@ -6,43 +6,16 @@
 .implements Landroid/view/View$OnAttachStateChangeListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->performOnPendingIntentCancellation(Landroid/view/View;Ljava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;
 
-.field final synthetic val$listener:Landroid/app/PendingIntent$CancelListener;
+.field public final synthetic val$listener:Landroid/app/PendingIntent$CancelListener;
 
-.field final synthetic val$pendingIntent:Landroid/app/PendingIntent;
+.field public final synthetic val$pendingIntent:Landroid/app/PendingIntent;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$XlMBDmpzWm6NUJ3wQOnpreMNBaA(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->lambda$onViewDetachedFromWindow$1(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$m_Le_jtH3o5gc1fpuiwB0r9VfOc(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->lambda$onViewAttachedToWindow$0(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;Landroid/app/PendingIntent;Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$$ExternalSyntheticLambda0;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;
@@ -56,64 +29,52 @@
     return-void
 .end method
 
-.method private static synthetic lambda$onViewAttachedToWindow$0(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/app/PendingIntent;->registerCancelListener(Landroid/app/PendingIntent$CancelListener;)V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$onViewDetachedFromWindow$1(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/app/PendingIntent;->unregisterCancelListener(Landroid/app/PendingIntent$CancelListener;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
-    .locals 2
+.method public final onViewAttachedToWindow(Landroid/view/View;)V
+    .locals 3
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->access$000(Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;)Lcom/android/systemui/UiOffloadThread;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->mUiOffloadThread:Lcom/android/systemui/UiOffloadThread;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->val$pendingIntent:Landroid/app/PendingIntent;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->val$listener:Landroid/app/PendingIntent$CancelListener;
 
-    new-instance v1, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2$$ExternalSyntheticLambda1;
+    new-instance v1, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, v0, p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2$$ExternalSyntheticLambda1;-><init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
+    const/4 v2, 0x2
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/UiOffloadThread;->execute(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+    invoke-direct {v1, v2, v0, p0}, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    iget-object p0, p1, Lcom/android/systemui/UiOffloadThread;->mExecutorService:Ljava/util/concurrent/ExecutorService;
+
+    invoke-interface {p0, v1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
-    .locals 2
+.method public final onViewDetachedFromWindow(Landroid/view/View;)V
+    .locals 3
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->this$0:Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->access$000(Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;)Lcom/android/systemui/UiOffloadThread;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->mUiOffloadThread:Lcom/android/systemui/UiOffloadThread;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->val$pendingIntent:Landroid/app/PendingIntent;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2;->val$listener:Landroid/app/PendingIntent$CancelListener;
 
-    new-instance v1, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, v0, p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper$2$$ExternalSyntheticLambda0;-><init>(Landroid/app/PendingIntent;Landroid/app/PendingIntent$CancelListener;)V
+    const/4 v2, 0x1
 
-    invoke-virtual {p1, v1}, Lcom/android/systemui/UiOffloadThread;->execute(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
+    invoke-direct {v1, v2, v0, p0}, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
+
+    iget-object p0, p1, Lcom/android/systemui/UiOffloadThread;->mExecutorService:Ljava/util/concurrent/ExecutorService;
+
+    invoke-interface {p0, v1}, Ljava/util/concurrent/ExecutorService;->submit(Ljava/lang/Runnable;)Ljava/util/concurrent/Future;
 
     return-void
 .end method

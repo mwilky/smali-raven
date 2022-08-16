@@ -75,6 +75,12 @@
     return-void
 .end method
 
+.method public cancelRequestAddTile(Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public clickTile(Landroid/content/ComponentName;)V
     .locals 0
 
@@ -105,7 +111,7 @@
     return-void
 .end method
 
-.method public handleShowShutdownUi(ZLjava/lang/String;)V
+.method public handleShowShutdownUi(Ljava/lang/String;Z)V
     .locals 0
 
     return-void
@@ -123,7 +129,7 @@
     return-void
 .end method
 
-.method public hideAuthenticationDialog()V
+.method public hideAuthenticationDialog(J)V
     .locals 0
 
     return-void
@@ -141,7 +147,7 @@
     return-void
 .end method
 
-.method public onBiometricAuthenticated()V
+.method public onBiometricAuthenticated(I)V
     .locals 0
 
     return-void
@@ -213,6 +219,12 @@
     return-void
 .end method
 
+.method public registerNearbyMediaDevicesProvider(Landroid/media/INearbyMediaDevicesProvider;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public remQsTile(Landroid/content/ComponentName;)V
     .locals 0
 
@@ -225,7 +237,25 @@
     return-void
 .end method
 
+.method public requestAddTile(Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/graphics/drawable/Icon;Lcom/android/internal/statusbar/IAddTileResultCallback;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public requestTileServiceListeningState(Landroid/content/ComponentName;)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public requestWindowMagnificationConnection(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setBiometicContextListener(Landroid/hardware/biometrics/IBiometricContextListener;)V
     .locals 0
 
     return-void
@@ -315,13 +345,7 @@
     return-void
 .end method
 
-.method public showToast(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/CharSequence;Landroid/os/IBinder;ILandroid/app/ITransientNotificationCallback;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public showTransient(I[I)V
+.method public showToast(ILjava/lang/String;Landroid/os/IBinder;Ljava/lang/CharSequence;Landroid/os/IBinder;ILandroid/app/ITransientNotificationCallback;I)V
     .locals 0
 
     return-void
@@ -329,8 +353,6 @@
 
 .method public showTransient(I[IZ)V
     .locals 0
-
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/statusbar/CommandQueue$Callbacks;->showTransient(I[I)V
 
     return-void
 .end method
@@ -372,6 +394,24 @@
 .end method
 
 .method public toggleSplitScreen()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public unregisterNearbyMediaDevicesProvider(Landroid/media/INearbyMediaDevicesProvider;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public updateMediaTapToTransferReceiverDisplay(ILandroid/media/MediaRoute2Info;Landroid/graphics/drawable/Icon;Ljava/lang/CharSequence;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public updateMediaTapToTransferSenderDisplay(ILandroid/media/MediaRoute2Info;Lcom/android/internal/statusbar/IUndoMediaTransferCallback;)V
     .locals 0
 
     return-void

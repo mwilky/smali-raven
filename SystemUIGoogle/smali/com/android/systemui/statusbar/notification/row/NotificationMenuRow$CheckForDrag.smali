@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;
 .super Ljava/lang/Object;
 .source "NotificationMenuRow.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "CheckForDrag"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
@@ -32,24 +32,14 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;-><init>(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->access$100(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;)F
-
-    move-result v0
+    iget v0, v0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->mTranslation:F
 
     invoke-static {v0}, Ljava/lang/Math;->abs(F)F
 
@@ -65,9 +55,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
-    invoke-static {v2}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->access$200(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;)Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->mParent:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
     invoke-virtual {v2}, Landroid/widget/FrameLayout;->getWidth()I
 
@@ -89,7 +77,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
-    invoke-static {v3}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->access$300(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;)Z
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->isMenuLocationChange()Z
 
     move-result v3
 
@@ -114,7 +102,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$CheckForDrag;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;
 
-    invoke-static {p0, v2}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->access$400(Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;F)V
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow;->fadeInMenu(F)V
 
     :cond_1
     return-void

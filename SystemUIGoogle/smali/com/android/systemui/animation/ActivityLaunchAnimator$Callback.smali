@@ -12,17 +12,3 @@
     accessFlags = 0x609
     name = "Callback"
 .end annotation
-
-
-# virtual methods
-.method public abstract getBackgroundColor(Landroid/app/TaskInfo;)I
-.end method
-
-.method public abstract hideKeyguardWithAnimation(Landroid/view/IRemoteAnimationRunner;)V
-.end method
-
-.method public abstract isOnKeyguard()Z
-.end method
-
-.method public abstract setBlursDisabledForAppLaunch(Z)V
-.end method

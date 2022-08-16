@@ -4,13 +4,13 @@
 
 
 # static fields
-.field private static final CONNECTIVITY_INTENTS:[Ljava/lang/String;
+.field public static final CONNECTIVITY_INTENTS:[Ljava/lang/String;
 
-.field static final KEY_IMS_REGISTRATION_STATE:Ljava/lang/String; = "ims_reg_state"
+.field public static final KEY_IMS_REGISTRATION_STATE:Ljava/lang/String; = "ims_reg_state"
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     const-string v0, "android.bluetooth.adapter.action.STATE_CHANGED"
@@ -32,7 +32,7 @@
 
 
 # virtual methods
-.method protected getConnectivityIntents()[Ljava/lang/String;
+.method public final getConnectivityIntents()[Ljava/lang/String;
     .locals 0
 
     sget-object p0, Lcom/android/settingslib/deviceinfo/AbstractImsStatusPreferenceController;->CONNECTIVITY_INTENTS:[Ljava/lang/String;

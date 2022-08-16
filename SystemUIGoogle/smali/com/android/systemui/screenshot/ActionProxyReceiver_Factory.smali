@@ -6,134 +6,108 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/screenshot/ActionProxyReceiver;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final activityManagerWrapperProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/system/ActivityManagerWrapper;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final screenshotSmartActionsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotSmartActions;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final activityManagerWrapperProvider:Ljavax/inject/Provider;
 
-.field private final statusBarProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;"
-        }
-    .end annotation
-.end field
+.field public final centralSurfacesOptionalProvider:Ljavax/inject/Provider;
+
+.field public final screenshotSmartActionsProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/system/ActivityManagerWrapper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotSmartActions;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p4, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->$r8$classId:I
 
-    iput-object p1, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->centralSurfacesOptionalProvider:Ljavax/inject/Provider;
 
     iput-object p2, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->activityManagerWrapperProvider:Ljavax/inject/Provider;
 
     iput-object p3, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->screenshotSmartActionsProvider:Ljavax/inject/Provider;
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/system/ActivityManagerWrapper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/screenshot/ScreenshotSmartActions;",
-            ">;)",
-            "Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Ljava/util/Optional;Lcom/android/systemui/shared/system/ActivityManagerWrapper;Lcom/android/systemui/screenshot/ScreenshotSmartActions;)Lcom/android/systemui/screenshot/ActionProxyReceiver;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
-            "Lcom/android/systemui/shared/system/ActivityManagerWrapper;",
-            "Lcom/android/systemui/screenshot/ScreenshotSmartActions;",
-            ")",
-            "Lcom/android/systemui/screenshot/ActionProxyReceiver;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/screenshot/ActionProxyReceiver;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/screenshot/ActionProxyReceiver;-><init>(Ljava/util/Optional;Lcom/android/systemui/shared/system/ActivityManagerWrapper;Lcom/android/systemui/screenshot/ScreenshotSmartActions;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/screenshot/ActionProxyReceiver;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->statusBarProvider:Ljavax/inject/Provider;
+    iget v0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->centralSurfacesOptionalProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->activityManagerWrapperProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/content/Context;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->screenshotSmartActionsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/util/DeviceConfigProxy;
+
+    new-instance v2, Lcom/android/systemui/statusbar/policy/SmartReplyConstants;
+
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/policy/SmartReplyConstants;-><init>(Landroid/os/Handler;Landroid/content/Context;Lcom/android/systemui/util/DeviceConfigProxy;)V
+
+    return-object v2
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->centralSurfacesOptionalProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/ForegroundServiceController;
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->activityManagerWrapperProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/appops/AppOpsController;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->screenshotSmartActionsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
+    new-instance v2, Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator;
+
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/notification/collection/coordinator/AppOpsCoordinator;-><init>(Lcom/android/systemui/ForegroundServiceController;Lcom/android/systemui/appops/AppOpsController;Lcom/android/systemui/util/concurrency/DelayableExecutor;)V
+
+    return-object v2
+
+    :pswitch_2
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->centralSurfacesOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -157,19 +131,47 @@
 
     check-cast p0, Lcom/android/systemui/screenshot/ScreenshotSmartActions;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->newInstance(Ljava/util/Optional;Lcom/android/systemui/shared/system/ActivityManagerWrapper;Lcom/android/systemui/screenshot/ScreenshotSmartActions;)Lcom/android/systemui/screenshot/ActionProxyReceiver;
+    new-instance v2, Lcom/android/systemui/screenshot/ActionProxyReceiver;
+
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/screenshot/ActionProxyReceiver;-><init>(Ljava/util/Optional;Lcom/android/systemui/shared/system/ActivityManagerWrapper;Lcom/android/systemui/screenshot/ScreenshotSmartActions;)V
+
+    return-object v2
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->centralSurfacesOptionalProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->activityManagerWrapperProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/google/android/systemui/columbus/gates/SilenceAlertsDisabled;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->screenshotSmartActionsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    check-cast p0, Landroid/app/IActivityManager;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    new-instance v2, Lcom/google/android/systemui/columbus/actions/SnoozeAlarm;
 
-    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ActionProxyReceiver_Factory;->get()Lcom/android/systemui/screenshot/ActionProxyReceiver;
+    invoke-direct {v2, v0, v1, p0}, Lcom/google/android/systemui/columbus/actions/SnoozeAlarm;-><init>(Landroid/content/Context;Lcom/google/android/systemui/columbus/gates/SilenceAlertsDisabled;Landroid/app/IActivityManager;)V
 
-    move-result-object p0
+    return-object v2
 
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

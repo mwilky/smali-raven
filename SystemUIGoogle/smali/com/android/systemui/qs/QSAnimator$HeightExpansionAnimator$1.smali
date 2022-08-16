@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;
+.class public final Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;
 .super Ljava/lang/Object;
 .source "QSAnimator.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field mLastT:F
+.field public mLastT:F
 
-.field final synthetic this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
+.field public final synthetic this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)V
+.method public constructor <init>(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
@@ -40,7 +40,7 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 5
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
@@ -49,11 +49,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->access$100(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)Ljava/util/List;
+    iget-object v1, v1, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/ArrayList;
 
-    move-result-object v1
-
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
@@ -74,11 +72,9 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-static {v3}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->access$100(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)Ljava/util/List;
+    iget-object v3, v3, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mViews:Ljava/util/ArrayList;
 
-    move-result-object v3
-
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -117,9 +113,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->access$200(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)Lcom/android/systemui/qs/TouchAnimator$Listener;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
     invoke-interface {p1}, Lcom/android/systemui/qs/TouchAnimator$Listener;->onAnimationAtStart()V
 
@@ -134,9 +128,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->access$200(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)Lcom/android/systemui/qs/TouchAnimator$Listener;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
     invoke-interface {p1}, Lcom/android/systemui/qs/TouchAnimator$Listener;->onAnimationAtEnd()V
 
@@ -156,9 +148,7 @@
     :cond_4
     iget-object p1, p0, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator$1;->this$0:Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->access$200(Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;)Lcom/android/systemui/qs/TouchAnimator$Listener;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/QSAnimator$HeightExpansionAnimator;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
     invoke-interface {p1}, Lcom/android/systemui/qs/TouchAnimator$Listener;->onAnimationStarted()V
 

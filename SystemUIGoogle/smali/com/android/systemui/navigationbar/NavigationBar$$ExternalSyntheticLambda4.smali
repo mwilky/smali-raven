@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda4;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnLongClickListener;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # instance fields
@@ -22,14 +23,19 @@
 
 
 # virtual methods
-.method public final onLongClick(Landroid/view/View;)Z
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda4;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$HPyc8leQZCHqPWbDVB3bTeaa9y4(Lcom/android/systemui/navigationbar/NavigationBar;Landroid/view/View;)Z
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mAutoHideController:Lcom/android/systemui/statusbar/phone/AutoHideController;
 
-    move-result p0
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/phone/AutoHideController;->checkUserAutoHide(Landroid/view/MotionEvent;)V
+
+    :cond_0
+    const/4 p0, 0x0
 
     return p0
 .end method

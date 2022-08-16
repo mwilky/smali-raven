@@ -32,50 +32,22 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIBatteryStatsFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIBatteryStatsFactory$InstanceHolder;->access$000()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIBatteryStatsFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static provideIBatteryStats()Lcom/android/internal/app/IBatteryStats;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule;->provideIBatteryStats()Lcom/android/internal/app/IBatteryStats;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/internal/app/IBatteryStats;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/internal/app/IBatteryStats;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIBatteryStatsFactory;->provideIBatteryStats()Lcom/android/internal/app/IBatteryStats;
+    const-string p0, "batterystats"
+
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIBatteryStatsFactory;->get()Lcom/android/internal/app/IBatteryStats;
+    invoke-static {p0}, Lcom/android/internal/app/IBatteryStats$Stub;->asInterface(Landroid/os/IBinder;)Lcom/android/internal/app/IBatteryStats;
 
     move-result-object p0
+
+    invoke-static {p0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object p0
 .end method

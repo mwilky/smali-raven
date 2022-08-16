@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/RowView$4;
+.class public final Landroidx/slice/widget/RowView$4;
 .super Ljava/lang/Object;
 .source "RowView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/slice/widget/RowView;
+.field public final synthetic this$0:Landroidx/slice/widget/RowView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/RowView;)V
+.method public constructor <init>(Landroidx/slice/widget/RowView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/RowView$4;->this$0:Landroidx/slice/widget/RowView;
 
@@ -42,20 +34,8 @@
 
 
 # virtual methods
-.method public onRatingChanged(Landroid/widget/RatingBar;FZ)V
+.method public final onRatingChanged(Landroid/widget/RatingBar;FZ)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "ratingBar",
-            "rating",
-            "fromUser"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/slice/widget/RowView$4;->this$0:Landroidx/slice/widget/RowView;
 
@@ -99,7 +79,7 @@
 
     iget-object p1, p3, Landroidx/slice/widget/RowView;->mHandler:Landroid/os/Handler;
 
-    iget-object p2, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Ljava/lang/Runnable;
+    iget-object p2, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Landroidx/slice/widget/RowView$2;
 
     invoke-virtual {p1, p2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -120,7 +100,7 @@
 
     iget-object p0, p3, Landroidx/slice/widget/RowView;->mHandler:Landroid/os/Handler;
 
-    iget-object p1, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Ljava/lang/Runnable;
+    iget-object p1, p3, Landroidx/slice/widget/RowView;->mRangeUpdater:Landroidx/slice/widget/RowView$2;
 
     invoke-virtual {p0, p1, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 

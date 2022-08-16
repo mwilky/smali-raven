@@ -4,50 +4,18 @@
 
 
 # instance fields
-.field private mForeground:Landroid/graphics/drawable/Drawable;
+.field public mForeground:Landroid/graphics/drawable/Drawable;
 
-.field private mForegroundBoundsChanged:Z
-
-.field private mHeaderDock:Landroid/view/ViewGroup;
+.field public mForegroundBoundsChanged:Z
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Landroidx/leanback/widget/RowContainerView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyle"
-        }
-    .end annotation
-
-    invoke-direct {p0, p1, p2, p3}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
+    invoke-direct {p0, p1, p2, v0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
     const/4 p2, 0x1
 
@@ -59,19 +27,17 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/leanback/R$layout;->lb_row_container:I
+    const p2, 0x7f0e0112
 
     invoke-virtual {p1, p2, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    sget p1, Landroidx/leanback/R$id;->lb_row_container_header_dock:I
+    const p1, 0x7f0b037e
 
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
     check-cast p1, Landroid/view/ViewGroup;
-
-    iput-object p1, p0, Landroidx/leanback/widget/RowContainerView;->mHeaderDock:Landroid/view/ViewGroup;
 
     new-instance p1, Landroid/widget/LinearLayout$LayoutParams;
 
@@ -86,16 +52,8 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->draw(Landroid/graphics/Canvas;)V
 
@@ -130,7 +88,7 @@
     return-void
 .end method
 
-.method public getForeground()Landroid/graphics/drawable/Drawable;
+.method public final getForeground()Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iget-object p0, p0, Landroidx/leanback/widget/RowContainerView;->mForeground:Landroid/graphics/drawable/Drawable;
@@ -138,7 +96,7 @@
     return-object p0
 .end method
 
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -146,22 +104,8 @@
     return p0
 .end method
 
-.method protected onSizeChanged(IIII)V
+.method public final onSizeChanged(IIII)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "w",
-            "h",
-            "oldw",
-            "oldh"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/LinearLayout;->onSizeChanged(IIII)V
 
@@ -172,16 +116,8 @@
     return-void
 .end method
 
-.method public setForeground(Landroid/graphics/drawable/Drawable;)V
+.method public final setForeground(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "d"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/RowContainerView;->mForeground:Landroid/graphics/drawable/Drawable;
 

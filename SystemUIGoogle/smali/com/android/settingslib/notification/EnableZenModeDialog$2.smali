@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/notification/EnableZenModeDialog$2;
+.class public final Lcom/android/settingslib/notification/EnableZenModeDialog$2;
 .super Ljava/lang/Object;
 .source "EnableZenModeDialog.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/notification/EnableZenModeDialog;
+.field public final synthetic this$0:Lcom/android/settingslib/notification/EnableZenModeDialog;
 
-.field final synthetic val$conditionId:Landroid/net/Uri;
+.field public final synthetic val$conditionId:Landroid/net/Uri;
 
-.field final synthetic val$tag:Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;
+.field public final synthetic val$tag:Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/notification/EnableZenModeDialog;Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;Landroid/net/Uri;)V
+.method public constructor <init>(Lcom/android/settingslib/notification/EnableZenModeDialog;Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;Landroid/net/Uri;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/notification/EnableZenModeDialog$2;->this$0:Lcom/android/settingslib/notification/EnableZenModeDialog;
@@ -42,10 +42,10 @@
 
 
 # virtual methods
-.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 0
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 1
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     iget-object p1, p0, Lcom/android/settingslib/notification/EnableZenModeDialog$2;->val$tag:Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;
 
@@ -55,19 +55,15 @@
 
     invoke-virtual {p1, p2}, Landroid/widget/RadioButton;->setChecked(Z)V
 
-    invoke-static {}, Lcom/android/settingslib/notification/EnableZenModeDialog;->access$300()Z
-
-    move-result p1
+    sget-boolean p1, Lcom/android/settingslib/notification/EnableZenModeDialog;->DEBUG:Z
 
     if-eqz p1, :cond_0
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "onCheckedChanged "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "onCheckedChanged "
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget-object p2, p0, Lcom/android/settingslib/notification/EnableZenModeDialog$2;->val$conditionId:Landroid/net/Uri;
 
@@ -84,11 +80,21 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settingslib/notification/EnableZenModeDialog$2;->this$0:Lcom/android/settingslib/notification/EnableZenModeDialog;
 
-    iget-object p1, p1, Lcom/android/settingslib/notification/EnableZenModeDialog;->mContext:Landroid/content/Context;
+    iget-object p1, p1, Lcom/android/settingslib/notification/EnableZenModeDialog;->mMetricsLogger:Lcom/android/settingslib/notification/ZenModeDialogMetricsLogger;
 
-    const/16 p2, 0xa4
+    check-cast p1, Lcom/android/systemui/qs/tiles/dialog/QSZenModeDialogMetricsLogger;
 
-    invoke-static {p1, p2}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;I)V
+    iget-object p2, p1, Lcom/android/settingslib/notification/ZenModeDialogMetricsLogger;->mContext:Landroid/content/Context;
+
+    const/16 v0, 0xa4
+
+    invoke-static {p2, v0}, Lcom/android/internal/logging/MetricsLogger;->action(Landroid/content/Context;I)V
+
+    iget-object p1, p1, Lcom/android/systemui/qs/tiles/dialog/QSZenModeDialogMetricsLogger;->mUiEventLogger:Lcom/android/internal/logging/UiEventLoggerImpl;
+
+    sget-object p2, Lcom/android/systemui/qs/QSDndEvent;->QS_DND_CONDITION_SELECT:Lcom/android/systemui/qs/QSDndEvent;
+
+    invoke-virtual {p1, p2}, Lcom/android/internal/logging/UiEventLoggerImpl;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     iget-object p1, p0, Lcom/android/settingslib/notification/EnableZenModeDialog$2;->this$0:Lcom/android/settingslib/notification/EnableZenModeDialog;
 
@@ -96,8 +102,28 @@
 
     iget-object p0, p0, Lcom/android/settingslib/notification/EnableZenModeDialog$ConditionTag;->condition:Landroid/service/notification/Condition;
 
-    invoke-static {p1, p0}, Lcom/android/settingslib/notification/EnableZenModeDialog;->access$400(Lcom/android/settingslib/notification/EnableZenModeDialog;Landroid/service/notification/Condition;)V
+    invoke-virtual {p1, p0}, Lcom/android/settingslib/notification/EnableZenModeDialog;->computeAlarmWarningText(Landroid/service/notification/Condition;)Ljava/lang/String;
+
+    move-result-object p0
+
+    iget-object p2, p1, Lcom/android/settingslib/notification/EnableZenModeDialog;->mZenAlarmWarning:Landroid/widget/TextView;
+
+    invoke-virtual {p2, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object p1, p1, Lcom/android/settingslib/notification/EnableZenModeDialog;->mZenAlarmWarning:Landroid/widget/TextView;
+
+    if-nez p0, :cond_1
+
+    const/16 p0, 0x8
+
+    goto :goto_0
 
     :cond_1
+    const/4 p0, 0x0
+
+    :goto_0
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :cond_2
     return-void
 .end method

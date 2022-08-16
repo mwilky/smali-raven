@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/CastTile$1;
+.class public final Lcom/android/systemui/qs/tiles/CastTile$1;
 .super Ljava/lang/Object;
 .source "CastTile.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/CastTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/CastTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/CastTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/CastTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/CastTile$1;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
+.method public final setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
     .locals 1
 
     iget-boolean v0, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->enabled:Z
@@ -61,29 +61,21 @@
     const/4 p1, 0x0
 
     :goto_1
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile$1;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile$1;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/CastTile;->access$300(Lcom/android/systemui/qs/tiles/CastTile;)Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/CastTile;->mWifiConnected:Z
 
     if-eq p1, v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/CastTile$1;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/CastTile;->mWifiConnected:Z
 
-    invoke-static {v0, p1}, Lcom/android/systemui/qs/tiles/CastTile;->access$302(Lcom/android/systemui/qs/tiles/CastTile;Z)Z
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/CastTile$1;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/CastTile;->access$400(Lcom/android/systemui/qs/tiles/CastTile;)Z
-
-    move-result p1
+    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/CastTile;->mHotspotConnected:Z
 
     if-nez p1, :cond_2
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/CastTile$1;->this$0:Lcom/android/systemui/qs/tiles/CastTile;
+    const/4 p1, 0x0
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     :cond_2
     return-void

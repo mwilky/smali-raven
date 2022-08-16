@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnLongClickListener;
+.implements Lcom/android/systemui/navigationbar/NavigationBarTransitions$Listener;
 
 
 # instance fields
@@ -22,14 +23,38 @@
 
 
 # virtual methods
-.method public final onLongClick(Landroid/view/View;)Z
-    .locals 0
+.method public final onTransition(I)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->onHomeLongClick(Landroid/view/View;)Z
+    const/4 v0, 0x4
 
-    move-result p0
+    if-ne p1, v0, :cond_0
 
-    return p0
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mRegionSamplingHelper:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
+
+    invoke-virtual {p1}, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->stop()V
+
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mNavigationBarTransitions:Lcom/android/systemui/navigationbar/NavigationBarTransitions;
+
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarTransitions;->mLightTransitionsController:Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
+
+    const/4 p1, 0x0
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;->setIconsDark(ZZ)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mRegionSamplingHelper:Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;
+
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mSamplingBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/shared/navigationbar/RegionSamplingHelper;->start(Landroid/graphics/Rect;)V
+
+    :goto_0
+    return-void
 .end method

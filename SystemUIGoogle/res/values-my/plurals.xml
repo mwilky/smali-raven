@@ -5,16 +5,20 @@
         <item quantity="one">ပြီးခဲ့သော %d ရက်</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">ပြီးခဲ့သော%dမိနစ်</item>
-        <item quantity="one">ပြီးခဲ့သော%dမိနစ်</item>
+        <item quantity="other">ပြီးခဲ့သော %d မိနစ်</item>
+        <item quantity="one">ပြီးခဲ့သော %d မိနစ်</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">ပြီးခဲ့သော %dနှစ်</item>
-        <item quantity="one">ပြီးခဲ့သော %dနှစ်</item>
+        <item quantity="other">ပြီးခဲ့သော %d နှစ်</item>
+        <item quantity="one">ပြီးခဲ့သော %d နှစ်</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">ခလုတ် %s ခု ထည့်လိုက်သည်။</item>
         <item quantity="one">ခလုတ် %s ခု ထည့်လိုက်သည်။</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">အက်ပ် %s ခု ပွင့်နေသည်</item>
+        <item quantity="one">အက်ပ် %s ခု ပွင့်နေသည်</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">ဆင်းမ်ကတ် ပင်နံပါတ် ထည့်ပါ။ %d ကြိမ် စမ်းသပ်ခွင့်ရှိပါသေးသည်။</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">ဆင်းမ် ပင်နံပါတ် ပြန်ဖွင့်သည့်ကုဒ် မှန်ကန်မှုမရှိပါ။ ဆင်းမ်ကဒ်ကို အပြီးအပိုင်မပိတ်ခင် %d ကြိမ်စမ်းသပ်ခွင့် ရှိပါသေးသည်။</item>
         <item quantity="one">ဆင်းမ် ပင်နံပါတ် ပြန်ဖွင့်သည့်ကုဒ် မှန်ကန်မှုမရှိပါ။ ဆင်းမ်ကဒ်ကို အပြီးအပိုင်မပိတ်ခင် %d ကြိမ်စမ်းသပ်ခွင့် ရှိပါသေးသည်။</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d စက္ကန့် အကြာတွင် ထပ်လုပ်ကြည့်ပါ</item>
-        <item quantity="one">၁ စက္ကန့် အကြာတွင် ထပ်လုပ်ကြည့်ပါ</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">အကြောင်းကြားချက်အသစ် %d ခု</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">အသုံးပြုသူ %d ဦးအထိ ထည့်နိုင်သည်။</item>
         <item quantity="one">အသုံးပြုသူ တစ်ဦးသာ ထည့်နိုင်သည်။</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">စက် %1$d ခု ချိတ်ဆက်ထားသည်</item>
-        <item quantity="one">စက် %1$d ခု ချိတ်ဆက်ထားသည်</item>
     </plurals>
 </resources>

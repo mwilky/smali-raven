@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;
+.class public final Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;
 .super Ljava/lang/Object;
 .source "NotifInflaterImpl.java"
 
@@ -7,90 +7,58 @@
 
 
 # instance fields
-.field private final mNotifCollection:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
+.field public final mNotifErrorManager:Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
 
-.field private final mNotifErrorManager:Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
-
-.field private final mNotifPipeline:Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
-
-.field private mNotificationRowBinder:Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;
-
-.field private final mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
+.field public mNotificationRowBinder:Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/notification/collection/NotifCollection;Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mStatusBarService:Lcom/android/internal/statusbar/IStatusBarService;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotifCollection:Lcom/android/systemui/statusbar/notification/collection/NotifCollection;
-
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotifErrorManager:Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
-
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotifPipeline:Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotifErrorManager:Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;)Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotifErrorManager:Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
-
-    return-object p0
-.end method
-
-.method private requireBinder()Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotificationRowBinder:Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;
-
-    if-eqz p0, :cond_0
-
-    return-object p0
-
-    :cond_0
-    new-instance p0, Ljava/lang/RuntimeException;
-
-    const-string v0, "NotificationRowBinder must be attached before using NotifInflaterImpl."
-
-    invoke-direct {p0, v0}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
-
-    throw p0
-.end method
-
-.method private wrapInflationCallback(Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$InflationCallback;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public inflateViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
-    .locals 1
+.method public final abortInflation(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    .locals 0
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->abortTask()V
+
+    return-void
+.end method
+
+.method public final inflateViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$Params;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
+    .locals 2
 
     :try_start_0
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->requireBinder()Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotificationRowBinder:Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;
 
-    move-result-object v0
+    if-eqz v0, :cond_0
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->wrapInflationCallback(Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$InflationCallback;
+    new-instance v1, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;
 
-    move-result-object p2
+    invoke-direct {v1, p0, p3}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl$1;-><init>(Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;->inflateViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$InflationCallback;)V
-    :try_end_0
-    .catch Lcom/android/systemui/statusbar/notification/InflationException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v0, p1, p2, v1}, Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;->inflateViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$Params;Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder$InflationCallback;)V
 
     goto :goto_0
+
+    :cond_0
+    new-instance p2, Ljava/lang/RuntimeException;
+
+    const-string p3, "NotificationRowBinder must be attached before using NotifInflaterImpl."
+
+    invoke-direct {p2, p3}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw p2
+    :try_end_0
+    .catch Lcom/android/systemui/statusbar/notification/InflationException; {:try_start_0 .. :try_end_0} :catch_0
 
     :catch_0
     move-exception p2
@@ -103,18 +71,10 @@
     return-void
 .end method
 
-.method public rebindViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
+.method public final rebindViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$Params;Lcom/android/systemui/statusbar/notification/collection/coordinator/PreparationCoordinator$$ExternalSyntheticLambda0;)V
     .locals 0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->inflateViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
-
-    return-void
-.end method
-
-.method public setRowBinder(Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->mNotificationRowBinder:Lcom/android/systemui/statusbar/notification/collection/inflation/NotificationRowBinderImpl;
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/collection/NotifInflaterImpl;->inflateViews(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$Params;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;)V
 
     return-void
 .end method

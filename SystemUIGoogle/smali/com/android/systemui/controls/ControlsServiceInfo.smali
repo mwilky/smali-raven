@@ -4,20 +4,12 @@
 
 
 # instance fields
-.field private final serviceInfo:Landroid/content/pm/ServiceInfo;
+.field public final serviceInfo:Landroid/content/pm/ServiceInfo;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/content/pm/ServiceInfo;)V
     .locals 3
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "serviceInfo"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
@@ -36,14 +28,4 @@
     iput-object p2, p0, Lcom/android/systemui/controls/ControlsServiceInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public final getServiceInfo()Landroid/content/pm/ServiceInfo;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ControlsServiceInfo;->serviceInfo:Landroid/content/pm/ServiceInfo;
-
-    return-object p0
 .end method

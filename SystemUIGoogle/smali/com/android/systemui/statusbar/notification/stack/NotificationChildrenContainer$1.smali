@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$1;
+.class public final Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$1;
 .super Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 .source "NotificationChildrenContainer.java"
 
@@ -9,18 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.field public mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 1
+.method public constructor <init>()V
+    .locals 2
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;-><init>()V
 
@@ -28,9 +28,9 @@
 
     invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;-><init>()V
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+    const/4 v1, 0x1
 
-    move-result-object v0
+    iput-boolean v1, v0, Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;->animateAlpha:Z
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$1;->mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
 
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method public getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
+.method public final getAnimationFilter()Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$1;->mAnimationFilter:Lcom/android/systemui/statusbar/notification/stack/AnimationFilter;

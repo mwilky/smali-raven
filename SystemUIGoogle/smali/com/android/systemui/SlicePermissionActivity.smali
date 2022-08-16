@@ -8,13 +8,13 @@
 
 
 # instance fields
-.field private mAllCheckbox:Landroid/widget/CheckBox;
+.field public mAllCheckbox:Landroid/widget/CheckBox;
 
-.field private mCallingPkg:Ljava/lang/String;
+.field public mCallingPkg:Ljava/lang/String;
 
-.field private mProviderPkg:Ljava/lang/String;
+.field public mProviderPkg:Ljava/lang/String;
 
-.field private mUri:Landroid/net/Uri;
+.field public mUri:Landroid/net/Uri;
 
 
 # direct methods
@@ -26,122 +26,9 @@
     return-void
 .end method
 
-.method private getCallingPkg()Ljava/lang/String;
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getReferrer()Landroid/net/Uri;
-
-    move-result-object p0
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x0
-
-    return-object p0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/net/Uri;->getHost()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private getUid(Ljava/lang/String;)I
-    .locals 2
-
-    const/4 v0, -0x1
-
-    if-nez p1, :cond_0
-
-    return v0
-
-    :cond_0
-    :try_start_0
-    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object p0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p0, p1, v1}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object p0
-
-    iget p0, p0, Landroid/content/pm/ApplicationInfo;->uid:I
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    return p0
-
-    :catch_0
-    return v0
-.end method
-
-.method private verifyCallingPkg()V
-    .locals 5
-
-    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
-
-    move-result-object v0
-
-    const-string v1, "provider_pkg"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/SlicePermissionActivity;->mProviderPkg:Ljava/lang/String;
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/SlicePermissionActivity;->getCallingPkg()Ljava/lang/String;
-
-    move-result-object v0
-
-    const v1, 0x534e4554
-
-    const/4 v2, 0x2
-
-    new-array v2, v2, [Ljava/lang/Object;
-
-    const/4 v3, 0x0
-
-    const-string v4, "159145361"
-
-    aput-object v4, v2, v3
-
-    const/4 v3, 0x1
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/SlicePermissionActivity;->getUid(Ljava/lang/String;)I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    aput-object p0, v2, v3
-
-    invoke-static {v1, v2}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 2
 
     const/4 p1, -0x1
@@ -174,7 +61,7 @@
     return-void
 .end method
 
-.method protected onCreate(Landroid/os/Bundle;)V
+.method public final onCreate(Landroid/os/Bundle;)V
     .locals 8
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
@@ -183,7 +70,7 @@
 
     move-result-object p1
 
-    const-string v0, "slice_uri"
+    const-string/jumbo v0, "slice_uri"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -197,7 +84,7 @@
 
     move-result-object p1
 
-    const-string v0, "pkg"
+    const-string/jumbo v0, "pkg"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
@@ -209,15 +96,43 @@
 
     const-string v0, "SlicePermissionActivity"
 
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p1
+
+    iget-object v1, p0, Lcom/android/systemui/SlicePermissionActivity;->mUri:Landroid/net/Uri;
+
+    invoke-virtual {p1, v1}, Landroid/content/ContentResolver;->getType(Landroid/net/Uri;)Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string/jumbo v1, "vnd.android.slice"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v1, "com.android.intent.action.REQUEST_SLICE_PERMISSION"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
     if-nez p1, :cond_0
 
-    const-string p1, "slice_uri wasn\'t provided"
-
-    invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
-
-    return-void
+    goto/16 :goto_1
 
     :cond_0
     :try_start_0
@@ -243,7 +158,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/SlicePermissionActivity;->mProviderPkg:Ljava/lang/String;
 
-    invoke-direct {p0}, Lcom/android/systemui/SlicePermissionActivity;->verifyCallingPkg()V
+    invoke-virtual {p0}, Lcom/android/systemui/SlicePermissionActivity;->verifyCallingPkg()V
 
     invoke-static {}, Landroid/text/BidiFormatter;->getInstance()Landroid/text/BidiFormatter;
 
@@ -299,7 +214,7 @@
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    sget v4, Lcom/android/systemui/R$string;->slice_permission_title:I
+    const v4, 0x7f1306a7
 
     const/4 v5, 0x2
 
@@ -319,19 +234,19 @@
 
     move-result-object v2
 
-    sget v4, Lcom/android/systemui/R$layout;->slice_permission_request:I
+    const v4, 0x7f0e0220
 
     invoke-virtual {v2, v4}, Landroid/app/AlertDialog$Builder;->setView(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    sget v4, Lcom/android/systemui/R$string;->slice_permission_deny:I
+    const v4, 0x7f1306a4
 
     invoke-virtual {v2, v4, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    sget v4, Lcom/android/systemui/R$string;->slice_permission_allow:I
+    const v4, 0x7f1306a2
 
     invoke-virtual {v2, v4, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -363,7 +278,7 @@
 
     move-result-object v4
 
-    sget v5, Lcom/android/systemui/R$id;->text1:I
+    const v5, 0x7f0b06a4
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -371,7 +286,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    sget v5, Lcom/android/systemui/R$string;->slice_permission_text_1:I
+    const v5, 0x7f1306a5
 
     new-array v7, v6, [Ljava/lang/Object;
 
@@ -391,7 +306,7 @@
 
     move-result-object v4
 
-    sget v5, Lcom/android/systemui/R$id;->text2:I
+    const v5, 0x7f0b06a5
 
     invoke-virtual {v4, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -399,7 +314,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    sget v5, Lcom/android/systemui/R$string;->slice_permission_text_2:I
+    const v5, 0x7f1306a6
 
     new-array v7, v6, [Ljava/lang/Object;
 
@@ -419,7 +334,7 @@
 
     move-result-object p1
 
-    sget v2, Lcom/android/systemui/R$id;->slice_permission_checkbox:I
+    const v2, 0x7f0b0606
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -429,7 +344,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/SlicePermissionActivity;->mAllCheckbox:Landroid/widget/CheckBox;
 
-    sget v2, Lcom/android/systemui/R$string;->slice_permission_checkbox:I
+    const v2, 0x7f1306a3
 
     new-array v4, v6, [Ljava/lang/Object;
 
@@ -456,12 +371,113 @@
 
     :goto_0
     return-void
+
+    :cond_1
+    :goto_1
+    const-string p1, "Intent is not valid"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Landroid/app/Activity;->finish()V
+
+    return-void
 .end method
 
-.method public onDismiss(Landroid/content/DialogInterface;)V
+.method public final onDismiss(Landroid/content/DialogInterface;)V
     .locals 0
 
     invoke-virtual {p0}, Landroid/app/Activity;->finish()V
 
+    return-void
+.end method
+
+.method public final verifyCallingPkg()V
+    .locals 6
+
+    invoke-virtual {p0}, Landroid/app/Activity;->getIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "provider_pkg"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v1, p0, Lcom/android/systemui/SlicePermissionActivity;->mProviderPkg:Ljava/lang/String;
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/app/Activity;->getReferrer()Landroid/net/Uri;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v0}, Landroid/net/Uri;->getHost()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    const v1, 0x534e4554
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const-string v3, "159145361"
+
+    const/4 v4, 0x0
+
+    aput-object v3, v2, v4
+
+    const/4 v3, 0x1
+
+    const/4 v5, -0x1
+
+    if-nez v0, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    :try_start_0
+    invoke-virtual {p0}, Landroid/app/Activity;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v0, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object p0
+
+    iget v5, p0, Landroid/content/pm/ApplicationInfo;->uid:I
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    :goto_1
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
+    aput-object p0, v2, v3
+
+    invoke-static {v1, v2}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    :cond_3
+    :goto_2
     return-void
 .end method

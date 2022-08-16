@@ -1,4 +1,4 @@
-.class public Landroidx/constraintlayout/widget/ConstraintSet$Motion;
+.class public final Landroidx/constraintlayout/widget/ConstraintSet$Motion;
 .super Ljava/lang/Object;
 .source "ConstraintSet.java"
 
@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static mapToConstant:Landroid/util/SparseIntArray;
+.field public static mapToConstant:Landroid/util/SparseIntArray;
 
 
 # instance fields
@@ -35,8 +35,8 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method public static constructor <clinit>()V
+    .locals 5
 
     new-instance v0, Landroid/util/SparseIntArray;
 
@@ -44,7 +44,7 @@
 
     sput-object v0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
 
-    sget v1, Landroidx/constraintlayout/widget/R$styleable;->Motion_motionPathRotate:I
+    const/4 v1, 0x2
 
     const/4 v2, 0x1
 
@@ -52,43 +52,33 @@
 
     sget-object v0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
 
-    sget v1, Landroidx/constraintlayout/widget/R$styleable;->Motion_pathMotionArc:I
+    const/4 v3, 0x4
 
-    const/4 v2, 0x2
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
+    invoke-virtual {v0, v3, v1}, Landroid/util/SparseIntArray;->append(II)V
 
     sget-object v0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
 
-    sget v1, Landroidx/constraintlayout/widget/R$styleable;->Motion_transitionEasing:I
+    const/4 v1, 0x5
 
-    const/4 v2, 0x3
+    const/4 v4, 0x3
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
-
-    sget-object v0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
-
-    sget v1, Landroidx/constraintlayout/widget/R$styleable;->Motion_drawPath:I
-
-    const/4 v2, 0x4
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
+    invoke-virtual {v0, v1, v4}, Landroid/util/SparseIntArray;->append(II)V
 
     sget-object v0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
 
-    sget v1, Landroidx/constraintlayout/widget/R$styleable;->Motion_animate_relativeTo:I
-
-    const/4 v2, 0x5
-
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
+    invoke-virtual {v0, v2, v3}, Landroid/util/SparseIntArray;->append(II)V
 
     sget-object v0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
 
-    sget v1, Landroidx/constraintlayout/widget/R$styleable;->Motion_motionStagger:I
+    const/4 v2, 0x0
 
-    const/4 v2, 0x6
+    invoke-virtual {v0, v2, v1}, Landroid/util/SparseIntArray;->append(II)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/util/SparseIntArray;->append(II)V
+    sget-object v0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mapToConstant:Landroid/util/SparseIntArray;
+
+    const/4 v1, 0x6
+
+    invoke-virtual {v0, v4, v1}, Landroid/util/SparseIntArray;->append(II)V
 
     return-void
 .end method
@@ -125,7 +115,7 @@
 
 
 # virtual methods
-.method public copyFrom(Landroidx/constraintlayout/widget/ConstraintSet$Motion;)V
+.method public final copyFrom(Landroidx/constraintlayout/widget/ConstraintSet$Motion;)V
     .locals 1
 
     iget-boolean v0, p1, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mApply:Z
@@ -159,7 +149,7 @@
     return-void
 .end method
 
-.method fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
+.method public final fillFromAttributeList(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 5
 
     sget-object v0, Landroidx/constraintlayout/widget/R$styleable;->Motion:[I
@@ -211,7 +201,7 @@
     :pswitch_1
     iget v3, p0, Landroidx/constraintlayout/widget/ConstraintSet$Motion;->mAnimateRelativeTo:I
 
-    invoke-static {p1, v2, v3}, Landroidx/constraintlayout/widget/ConstraintSet;->access$100(Landroid/content/res/TypedArray;II)I
+    invoke-static {p1, v2, v3}, Landroidx/constraintlayout/widget/ConstraintSet;->lookupID(Landroid/content/res/TypedArray;II)I
 
     move-result v2
 

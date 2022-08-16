@@ -15,15 +15,15 @@
 
 
 # static fields
-.field private static final CHECKED_STATE_SET:[I
+.field public static final CHECKED_STATE_SET:[I
 
 
 # instance fields
-.field private mChecked:Z
+.field public mChecked:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const/4 v0, 0x1
@@ -43,14 +43,6 @@
 
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -61,16 +53,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -81,18 +63,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -101,7 +71,7 @@
 
 
 # virtual methods
-.method public isChecked()Z
+.method public final isChecked()Z
     .locals 0
 
     iget-boolean p0, p0, Landroidx/leanback/widget/CheckableImageView;->mChecked:Z
@@ -109,16 +79,8 @@
     return p0
 .end method
 
-.method public onCreateDrawableState(I)[I
+.method public final onCreateDrawableState(I)[I
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "extraSpace"
-        }
-    .end annotation
 
     add-int/lit8 p1, p1, 0x1
 
@@ -140,16 +102,8 @@
     return-object p1
 .end method
 
-.method public setChecked(Z)V
+.method public final setChecked(Z)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "checked"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/leanback/widget/CheckableImageView;->mChecked:Z
 
@@ -163,7 +117,7 @@
     return-void
 .end method
 
-.method public toggle()V
+.method public final toggle()V
     .locals 1
 
     iget-boolean v0, p0, Landroidx/leanback/widget/CheckableImageView;->mChecked:Z

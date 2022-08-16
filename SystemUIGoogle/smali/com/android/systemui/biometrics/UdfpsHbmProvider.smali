@@ -4,8 +4,8 @@
 
 
 # virtual methods
-.method public abstract disableHbm(Ljava/lang/Runnable;)V
+.method public abstract disableHbm()V
 .end method
 
-.method public abstract enableHbm(ILandroid/view/Surface;Ljava/lang/Runnable;)V
+.method public abstract enableHbm(Lcom/android/systemui/biometrics/UdfpsView$doIlluminate$1;Z)V
 .end method

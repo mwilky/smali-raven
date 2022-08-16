@@ -1,79 +1,62 @@
-.class Lcom/android/keyguard/KeyguardUpdateMonitor$16;
-.super Ljava/lang/Object;
+.class public final Lcom/android/keyguard/KeyguardUpdateMonitor$16;
+.super Landroid/database/ContentObserver;
 .source "KeyguardUpdateMonitor.java"
-
-# interfaces
-.implements Lcom/android/systemui/biometrics/AuthController$Callback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/util/RingerModeTracker;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;)V
+    value = Lcom/android/keyguard/KeyguardUpdateMonitor;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/biometrics/AuthController;Lcom/android/systemui/telephony/TelephonyListenerManager;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/util/LatencyTracker;Lcom/android/keyguard/ActiveUnlockConfig;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-.field final synthetic val$mainExecutor:Ljava/util/concurrent/Executor;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$CkWuGyrmBU0b7MBcZlafaa5EdCI(Lcom/android/keyguard/KeyguardUpdateMonitor$16;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$16;->lambda$onEnrollmentsChanged$0()V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Ljava/util/concurrent/Executor;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$16;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    iput-object p2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$16;->val$mainExecutor:Ljava/util/concurrent/Executor;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onEnrollmentsChanged$0()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$16;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    const/4 v0, 0x2
-
-    invoke-static {p0, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->access$400(Lcom/android/keyguard/KeyguardUpdateMonitor;I)V
+    invoke-direct {p0, p2}, Landroid/database/ContentObserver;-><init>(Landroid/os/Handler;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAllAuthenticatorsRegistered()V
-    .locals 0
+.method public final onChange(Z)V
+    .locals 1
 
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$16;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-.method public onEnrollmentsChanged()V
-    .locals 2
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mHandler:Lcom/android/keyguard/KeyguardUpdateMonitor$14;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$16;->val$mainExecutor:Ljava/util/concurrent/Executor;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mContext:Landroid/content/Context;
 
-    new-instance v1, Lcom/android/keyguard/KeyguardUpdateMonitor$16$$ExternalSyntheticLambda0;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$16$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor$16;)V
+    move-result-object p0
 
-    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+    const-string/jumbo v0, "time_12_24"
+
+    invoke-static {p0, v0}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    const/16 v0, 0x158
+
+    invoke-virtual {p1, v0, p0}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
 
     return-void
 .end method

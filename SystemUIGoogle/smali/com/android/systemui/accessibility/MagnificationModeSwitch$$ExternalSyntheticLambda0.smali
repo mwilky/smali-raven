@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/Choreographer$FrameCallback;
@@ -33,13 +34,35 @@
 .method public final doFrame(J)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/accessibility/MagnificationModeSwitch;
+    iget-object p1, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/accessibility/MagnificationModeSwitch;
 
-    iget v1, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda0;->f$1:F
+    iget p2, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda0;->f$1:F
 
     iget p0, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda0;->f$2:F
 
-    invoke-static {v0, v1, p0, p1, p2}, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->$r8$lambda$0kHB47NtIAsUuOsXeXiZAoRTDqI(Lcom/android/systemui/accessibility/MagnificationModeSwitch;FFJ)V
+    iget-object v0, p1, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->mParams:Landroid/view/WindowManager$LayoutParams;
+
+    iget v1, v0, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    int-to-float v1, v1
+
+    add-float/2addr v1, p2
+
+    float-to-int p2, v1
+
+    iput p2, v0, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    iget p2, v0, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    int-to-float p2, p2
+
+    add-float/2addr p2, p0
+
+    float-to-int p0, p2
+
+    iput p0, v0, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    invoke-virtual {p1}, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->updateButtonViewLayoutIfNeeded()V
 
     return-void
 .end method

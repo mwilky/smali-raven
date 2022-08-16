@@ -5,7 +5,7 @@
 
 # annotations
 .annotation runtime Lcom/android/systemui/plugins/annotations/ProvidesInterface;
-    version = 0x1
+    version = 0x2
 .end annotation
 
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -19,9 +19,17 @@
 
 
 # static fields
-.field public static final VERSION:I = 0x1
+.field public static final VERSION:I = 0x2
 
 
 # virtual methods
-.method public abstract onDarkChanged(Landroid/graphics/Rect;FI)V
+.method public abstract onDarkChanged(Ljava/util/ArrayList;FI)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList<",
+            "Landroid/graphics/Rect;",
+            ">;FI)V"
+        }
+    .end annotation
 .end method

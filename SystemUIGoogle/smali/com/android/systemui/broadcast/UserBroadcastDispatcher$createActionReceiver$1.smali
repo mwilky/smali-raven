@@ -8,11 +8,11 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->createActionReceiver$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Ljava/lang/String;)Lcom/android/systemui/broadcast/ActionReceiver;
+    value = Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->createActionReceiver$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Ljava/lang/String;Ljava/lang/String;I)Lcom/android/systemui/broadcast/ActionReceiver;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -29,14 +29,22 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
+.field public final synthetic $flags:I
+
+.field public final synthetic $permission:Ljava/lang/String;
+
+.field public final synthetic this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/broadcast/UserBroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/systemui/broadcast/UserBroadcastDispatcher;Ljava/lang/String;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
+
+    iput-object p2, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->$permission:Ljava/lang/String;
+
+    iput p3, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->$flags:I
 
     const/4 p1, 0x2
 
@@ -47,74 +55,48 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 7
 
-    check-cast p1, Landroid/content/BroadcastReceiver;
+    move-object v1, p1
+
+    check-cast v1, Landroid/content/BroadcastReceiver;
 
     check-cast p2, Landroid/content/IntentFilter;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->invoke(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)V
+    iget-object p1, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
+
+    iget-object v0, p1, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->context:Landroid/content/Context;
+
+    iget p1, p1, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->userId:I
+
+    invoke-static {p1}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
+
+    move-result-object v2
+
+    iget-object v4, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->$permission:Ljava/lang/String;
+
+    iget-object p1, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
+
+    iget-object v5, p1, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->bgHandler:Landroid/os/Handler;
+
+    iget v6, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->$flags:I
+
+    move-object v3, p2
+
+    invoke-virtual/range {v0 .. v6}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;I)Landroid/content/Intent;
+
+    iget-object p1, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
+
+    iget-object v0, p1, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->logger:Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
+
+    iget p1, p1, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->userId:I
+
+    iget p0, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->$flags:I
+
+    invoke-virtual {v0, p1, p0, p2}, Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;->logContextReceiverRegistered(IILandroid/content/IntentFilter;)V
 
     sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
     return-object p0
-.end method
-
-.method public final invoke(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)V
-    .locals 7
-
-    const-string v0, "$this$$receiver"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "it"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
-
-    invoke-static {v0}, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->access$getContext$p(Lcom/android/systemui/broadcast/UserBroadcastDispatcher;)Landroid/content/Context;
-
-    move-result-object v1
-
-    iget-object v0, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
-
-    invoke-static {v0}, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->access$getUserId$p(Lcom/android/systemui/broadcast/UserBroadcastDispatcher;)I
-
-    move-result v0
-
-    invoke-static {v0}, Landroid/os/UserHandle;->of(I)Landroid/os/UserHandle;
-
-    move-result-object v3
-
-    iget-object v0, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
-
-    invoke-static {v0}, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->access$getBgHandler$p(Lcom/android/systemui/broadcast/UserBroadcastDispatcher;)Lcom/android/systemui/broadcast/UserBroadcastDispatcher$bgHandler$1;
-
-    move-result-object v6
-
-    const/4 v5, 0x0
-
-    move-object v2, p1
-
-    move-object v4, p2
-
-    invoke-virtual/range {v1 .. v6}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-
-    iget-object p1, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
-
-    invoke-static {p1}, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->access$getLogger$p(Lcom/android/systemui/broadcast/UserBroadcastDispatcher;)Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;
-
-    move-result-object p1
-
-    iget-object p0, p0, Lcom/android/systemui/broadcast/UserBroadcastDispatcher$createActionReceiver$1;->this$0:Lcom/android/systemui/broadcast/UserBroadcastDispatcher;
-
-    invoke-static {p0}, Lcom/android/systemui/broadcast/UserBroadcastDispatcher;->access$getUserId$p(Lcom/android/systemui/broadcast/UserBroadcastDispatcher;)I
-
-    move-result p0
-
-    invoke-virtual {p1, p0, p2}, Lcom/android/systemui/broadcast/logging/BroadcastDispatcherLogger;->logContextReceiverRegistered(ILandroid/content/IntentFilter;)V
-
-    return-void
 .end method

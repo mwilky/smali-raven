@@ -1,12 +1,12 @@
-.class public Landroidx/preference/PreferenceViewHolder;
+.class public final Landroidx/preference/PreferenceViewHolder;
 .super Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 .source "PreferenceViewHolder.java"
 
 
 # instance fields
-.field private mBackground:Landroid/graphics/drawable/Drawable;
+.field public mBackground:Landroid/graphics/drawable/Drawable;
 
-.field private final mCachedViews:Landroid/util/SparseArray;
+.field public final mCachedViews:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -16,15 +16,15 @@
     .end annotation
 .end field
 
-.field private mDividerAllowedAbove:Z
+.field public mDividerAllowedAbove:Z
 
-.field private mDividerAllowedBelow:Z
+.field public mDividerAllowedBelow:Z
 
-.field private mTitleTextColors:Landroid/content/res/ColorStateList;
+.field public mTitleTextColors:Landroid/content/res/ColorStateList;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/View;)V
     .locals 4
 
     invoke-direct {p0, p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;-><init>(Landroid/view/View;)V
@@ -63,7 +63,7 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    sget v1, Landroidx/preference/R$id;->icon_frame:I
+    const v1, 0x7f0b0301
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -99,7 +99,7 @@
 
 
 # virtual methods
-.method public findViewById(I)Landroid/view/View;
+.method public final findViewById(I)Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Landroidx/preference/PreferenceViewHolder;->mCachedViews:Landroid/util/SparseArray;
@@ -129,88 +129,4 @@
 
     :cond_1
     return-object v0
-.end method
-
-.method public isDividerAllowedAbove()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedAbove:Z
-
-    return p0
-.end method
-
-.method public isDividerAllowedBelow()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedBelow:Z
-
-    return p0
-.end method
-
-.method resetState()V
-    .locals 3
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroidx/preference/PreferenceViewHolder;->mBackground:Landroid/graphics/drawable/Drawable;
-
-    if-eq v0, v1, :cond_0
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-static {v0, v1}, Landroidx/core/view/ViewCompat;->setBackground(Landroid/view/View;Landroid/graphics/drawable/Drawable;)V
-
-    :cond_0
-    const v0, 0x1020016
-
-    invoke-virtual {p0, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/TextView;
-
-    if-eqz v0, :cond_1
-
-    iget-object v1, p0, Landroidx/preference/PreferenceViewHolder;->mTitleTextColors:Landroid/content/res/ColorStateList;
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getTextColors()Landroid/content/res/ColorStateList;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroidx/preference/PreferenceViewHolder;->mTitleTextColors:Landroid/content/res/ColorStateList;
-
-    invoke-virtual {v1, v2}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object p0, p0, Landroidx/preference/PreferenceViewHolder;->mTitleTextColors:Landroid/content/res/ColorStateList;
-
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setTextColor(Landroid/content/res/ColorStateList;)V
-
-    :cond_1
-    return-void
-.end method
-
-.method public setDividerAllowedAbove(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedAbove:Z
-
-    return-void
-.end method
-
-.method public setDividerAllowedBelow(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedBelow:Z
-
-    return-void
 .end method

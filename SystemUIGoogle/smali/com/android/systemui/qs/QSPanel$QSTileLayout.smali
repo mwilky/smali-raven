@@ -24,9 +24,6 @@
 .method public abstract getNumVisibleTiles()I
 .end method
 
-.method public abstract getOffsetTop(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;)I
-.end method
-
 .method public abstract getTilesHeight()I
 .end method
 

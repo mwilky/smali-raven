@@ -15,22 +15,26 @@
 
 
 # virtual methods
+.method public onAboutToConnectDeviceAdded(Landroid/graphics/drawable/Drawable;Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAboutToConnectDeviceRemoved()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onDeviceAttributesChanged()V
     .locals 0
 
     return-void
 .end method
 
-.method public onDeviceListUpdate(Ljava/util/List;)V
+.method public onDeviceListUpdate(Ljava/util/ArrayList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;)V"
-        }
-    .end annotation
 
     return-void
 .end method
@@ -41,7 +45,7 @@
     return-void
 .end method
 
-.method public onSelectedDeviceStateChanged(Lcom/android/settingslib/media/MediaDevice;I)V
+.method public onSelectedDeviceStateChanged(Lcom/android/settingslib/media/MediaDevice;)V
     .locals 0
 
     return-void

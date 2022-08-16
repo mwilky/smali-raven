@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/solver/widgets/analyzer/DimensionDependency;
+.class public Landroidx/constraintlayout/solver/widgets/analyzer/DimensionDependency;
 .super Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;
 .source "DimensionDependency.java"
 
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public resolve(I)V
+.method public final resolve(I)V
     .locals 1
 
     iget-boolean v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->resolved:Z
@@ -50,9 +50,9 @@
 
     iput p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->value:I
 
-    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/List;
+    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 

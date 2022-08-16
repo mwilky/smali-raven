@@ -1,10 +1,10 @@
-.class public Lcom/android/systemui/keyguard/DismissCallbackRegistry;
+.class public final Lcom/android/systemui/keyguard/DismissCallbackRegistry;
 .super Ljava/lang/Object;
 .source "DismissCallbackRegistry.java"
 
 
 # instance fields
-.field private final mDismissCallbacks:Ljava/util/ArrayList;
+.field public final mDismissCallbacks:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -14,7 +14,7 @@
     .end annotation
 .end field
 
-.field private final mUiBgExecutor:Ljava/util/concurrent/Executor;
+.field public final mUiBgExecutor:Ljava/util/concurrent/Executor;
 
 
 # direct methods
@@ -30,110 +30,6 @@
     iput-object v0, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mUiBgExecutor:Ljava/util/concurrent/Executor;
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public addCallback(Lcom/android/internal/policy/IKeyguardDismissCallback;)V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
-
-    new-instance v0, Lcom/android/systemui/keyguard/DismissCallbackWrapper;
-
-    invoke-direct {v0, p1}, Lcom/android/systemui/keyguard/DismissCallbackWrapper;-><init>(Lcom/android/internal/policy/IKeyguardDismissCallback;)V
-
-    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public notifyDismissCancelled()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/keyguard/DismissCallbackWrapper;
-
-    iget-object v2, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mUiBgExecutor:Ljava/util/concurrent/Executor;
-
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/keyguard/DismissCallbackRegistry$$ExternalSyntheticLambda0;
-
-    invoke-direct {v3, v1}, Lcom/android/systemui/keyguard/DismissCallbackRegistry$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/keyguard/DismissCallbackWrapper;)V
-
-    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->clear()V
-
-    return-void
-.end method
-
-.method public notifyDismissSucceeded()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/keyguard/DismissCallbackWrapper;
-
-    iget-object v2, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mUiBgExecutor:Ljava/util/concurrent/Executor;
-
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v3, Lcom/android/systemui/keyguard/DismissCallbackRegistry$$ExternalSyntheticLambda1;
-
-    invoke-direct {v3, v1}, Lcom/android/systemui/keyguard/DismissCallbackRegistry$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/keyguard/DismissCallbackWrapper;)V
-
-    invoke-interface {v2, v3}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/keyguard/DismissCallbackRegistry;->mDismissCallbacks:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Ljava/util/ArrayList;->clear()V
 
     return-void
 .end method

@@ -1,9 +1,9 @@
-.class Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;
+.class public final Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;
 .super Ljava/lang/Object;
 .source "UdfpsKeyguardViewController.java"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager$AlternateAuthInterceptor;
+.implements Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
 
 # annotations
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
@@ -34,220 +34,89 @@
 
 
 # virtual methods
-.method public dump(Ljava/io/PrintWriter;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->getTag()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public hideAlternateAuthBouncer()Z
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$100(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public isAnimating()Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public isShowingAlternateAuthBouncer()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$500(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public onBouncerVisibilityChanged()V
+.method public final onDozeAmountChanged(FF)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1400(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iget v1, v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLastDozeAmount:F
 
-    move-result-object v1
+    cmpg-float v1, v1, p1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isBouncerShowing()Z
+    if-gez v1, :cond_0
 
-    move-result v1
+    const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1302(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1300(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    invoke-static {v0, v1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1202(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;F)F
-
-    goto :goto_0
+    invoke-static {v0, v1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->-$$Nest$mshowUdfpsBouncer(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1400(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUnlockedScreenOffDozeAnimator:Landroid/animation/ValueAnimator;
 
-    move-result-object v0
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isBouncerShowing()Z
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUnlockedScreenOffAnimationController:Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;->isAnimationPlaying()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    cmpl-float v0, p1, v0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1202(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;F)F
+    if-eqz v0, :cond_1
+
+    iget-object p2, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+
+    iget-object p2, p2, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mUnlockedScreenOffDozeAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p2}, Landroid/animation/ValueAnimator;->start()V
+
+    goto :goto_0
 
     :cond_1
-    :goto_0
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$800(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->updatePauseAuth()V
-
-    return-void
-.end method
-
-.method public onTouch(Landroid/view/MotionEvent;)Z
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1000(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)F
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    cmpl-float v0, v0, v1
-
-    if-eqz v0, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1100(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Lcom/android/systemui/biometrics/UdfpsController;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/UdfpsController;->onTouch(Landroid/view/MotionEvent;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public requestUdfps(ZI)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$602(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$700(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v0, Lcom/android/systemui/biometrics/UdfpsKeyguardView;
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/biometrics/UdfpsKeyguardView;->requestUdfps(ZI)V
+    const/4 v1, 0x1
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+    iput v1, v0, Lcom/android/systemui/biometrics/UdfpsKeyguardView;->mAnimationType:I
 
-    invoke-static {p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$800(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    iput p2, v0, Lcom/android/systemui/biometrics/UdfpsKeyguardView;->mInterpolatedDarkAmount:F
 
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardView;->updateAlpha()I
+
+    :goto_0
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
+
+    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mLastDozeAmount:F
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->updatePauseAuth()V
 
     return-void
 .end method
 
-.method public setBouncerExpansionChanged(F)V
+.method public final onStateChanged(I)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$1202(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;F)F
+    iput p1, v0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->mStatusBarState:I
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$800(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;)V
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->updateAlpha()V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->updatePauseAuth()V
 
     return-void
-.end method
-
-.method public setQsExpanded(Z)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$902(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->updatePauseAuth()V
-
-    return-void
-.end method
-
-.method public showAlternateAuthBouncer()Z
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController$2;->this$0:Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;
-
-    const/4 v0, 0x1
-
-    invoke-static {p0, v0}, Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;->access$100(Lcom/android/systemui/biometrics/UdfpsKeyguardViewController;Z)Z
-
-    move-result p0
-
-    return p0
 .end method

@@ -4,49 +4,13 @@
 
 
 # virtual methods
-.method public cancelPreloadRecentApps()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public dump(Ljava/io/PrintWriter;)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public hideRecentApps(ZZ)V
     .locals 0
 
     return-void
 .end method
 
-.method public onAppTransitionFinished()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onBootCompleted()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onStart(Landroid/content/Context;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public preloadRecentApps()V
+.method public onStart()V
     .locals 0
 
     return-void

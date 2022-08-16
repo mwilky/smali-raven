@@ -41,7 +41,7 @@
 .method public abstract onScreenOff()V
 .end method
 
-.method public abstract onShowRequested(I)V
+.method public abstract onShowRequested(IZI)V
 .end method
 
 .method public abstract onShowSafetyWarning(I)V

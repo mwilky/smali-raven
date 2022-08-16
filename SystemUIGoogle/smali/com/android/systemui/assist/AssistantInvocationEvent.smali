@@ -7,12 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Enum<",
@@ -24,7 +18,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/assist/AssistantInvocationEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/assist/AssistantInvocationEvent;
 
 .field public static final enum ASSISTANT_INVOCATION_HOME_LONG_PRESS:Lcom/android/systemui/assist/AssistantInvocationEvent;
 
@@ -44,11 +38,7 @@
 
 .field public static final enum ASSISTANT_INVOCATION_TOUCH_GESTURE:Lcom/android/systemui/assist/AssistantInvocationEvent;
 
-.field public static final enum ASSISTANT_INVOCATION_TOUCH_GESTURE_ALT:Lcom/android/systemui/assist/AssistantInvocationEvent;
-
 .field public static final enum ASSISTANT_INVOCATION_UNKNOWN:Lcom/android/systemui/assist/AssistantInvocationEvent;
-
-.field public static final Companion:Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;
 
 
 # instance fields
@@ -56,7 +46,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 16
 
     new-instance v0, Lcom/android/systemui/assist/AssistantInvocationEvent;
@@ -92,8 +82,6 @@
     const/16 v7, 0x1bc
 
     invoke-direct {v3, v5, v6, v7}, Lcom/android/systemui/assist/AssistantInvocationEvent;-><init>(Ljava/lang/String;II)V
-
-    sput-object v3, Lcom/android/systemui/assist/AssistantInvocationEvent;->ASSISTANT_INVOCATION_TOUCH_GESTURE_ALT:Lcom/android/systemui/assist/AssistantInvocationEvent;
 
     new-instance v5, Lcom/android/systemui/assist/AssistantInvocationEvent;
 
@@ -235,18 +223,10 @@
 
     sput-object v6, Lcom/android/systemui/assist/AssistantInvocationEvent;->$VALUES:[Lcom/android/systemui/assist/AssistantInvocationEvent;
 
-    new-instance v0, Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->Companion:Lcom/android/systemui/assist/AssistantInvocationEvent$Companion;
-
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -264,10 +244,6 @@
 .method public static valueOf(Ljava/lang/String;)Lcom/android/systemui/assist/AssistantInvocationEvent;
     .locals 1
 
-    const-string/jumbo v0, "value"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const-class v0, Lcom/android/systemui/assist/AssistantInvocationEvent;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -280,26 +256,22 @@
 .end method
 
 .method public static values()[Lcom/android/systemui/assist/AssistantInvocationEvent;
-    .locals 4
+    .locals 1
 
     sget-object v0, Lcom/android/systemui/assist/AssistantInvocationEvent;->$VALUES:[Lcom/android/systemui/assist/AssistantInvocationEvent;
 
-    array-length v1, v0
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    new-array v1, v1, [Lcom/android/systemui/assist/AssistantInvocationEvent;
+    move-result-object v0
 
-    array-length v2, v0
+    check-cast v0, [Lcom/android/systemui/assist/AssistantInvocationEvent;
 
-    const/4 v3, 0x0
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    return-object v1
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/assist/AssistantInvocationEvent;->id:I

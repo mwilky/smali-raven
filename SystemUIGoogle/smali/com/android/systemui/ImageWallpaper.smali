@@ -12,13 +12,11 @@
 
 
 # static fields
-.field private static final LOCAL_COLOR_BOUNDS:Landroid/graphics/RectF;
-
-.field private static final TAG:Ljava/lang/String;
+.field public static final LOCAL_COLOR_BOUNDS:Landroid/graphics/RectF;
 
 
 # instance fields
-.field private final mColorAreas:Landroid/util/ArraySet;
+.field public final mColorAreas:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -28,7 +26,7 @@
     .end annotation
 .end field
 
-.field private final mLocalColorsToAdd:Ljava/util/ArrayList;
+.field public final mLocalColorsToAdd:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -38,24 +36,18 @@
     .end annotation
 .end field
 
-.field private mMiniBitmap:Landroid/graphics/Bitmap;
+.field public mMiniBitmap:Landroid/graphics/Bitmap;
 
-.field private volatile mPages:I
+.field public volatile mPages:I
 
-.field private mWorker:Landroid/os/HandlerThread;
+.field public mWorker:Landroid/os/HandlerThread;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const-class v0, Lcom/android/systemui/ImageWallpaper;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/systemui/ImageWallpaper;->TAG:Ljava/lang/String;
 
     new-instance v0, Landroid/graphics/RectF;
 
@@ -94,88 +86,16 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/ImageWallpaper;)Landroid/os/HandlerThread;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/ImageWallpaper;->mWorker:Landroid/os/HandlerThread;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/ImageWallpaper;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/ImageWallpaper;->mPages:I
-
-    return p0
-.end method
-
-.method static synthetic access$102(Lcom/android/systemui/ImageWallpaper;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/ImageWallpaper;->mPages:I
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/ImageWallpaper;)Landroid/graphics/Bitmap;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/ImageWallpaper;->mMiniBitmap:Landroid/graphics/Bitmap;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/systemui/ImageWallpaper;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/ImageWallpaper;->mMiniBitmap:Landroid/graphics/Bitmap;
-
-    return-object p1
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/ImageWallpaper;)Ljava/util/ArrayList;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/ImageWallpaper;->mLocalColorsToAdd:Ljava/util/ArrayList;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/ImageWallpaper;)Landroid/util/ArraySet;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/ImageWallpaper;->mColorAreas:Landroid/util/ArraySet;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/ImageWallpaper;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$600()Landroid/graphics/RectF;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/ImageWallpaper;->LOCAL_COLOR_BOUNDS:Landroid/graphics/RectF;
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public onCreate()V
+.method public final onCreate()V
     .locals 2
 
     invoke-super {p0}, Landroid/service/wallpaper/WallpaperService;->onCreate()V
 
     new-instance v0, Landroid/os/HandlerThread;
 
-    sget-object v1, Lcom/android/systemui/ImageWallpaper;->TAG:Ljava/lang/String;
+    const-string v1, "ImageWallpaper"
 
     invoke-direct {v0, v1}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
@@ -186,7 +106,7 @@
     return-void
 .end method
 
-.method public onCreateEngine()Landroid/service/wallpaper/WallpaperService$Engine;
+.method public final onCreateEngine()Landroid/service/wallpaper/WallpaperService$Engine;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/ImageWallpaper$GLEngine;
@@ -196,7 +116,7 @@
     return-object v0
 .end method
 
-.method public onDestroy()V
+.method public final onDestroy()V
     .locals 1
 
     invoke-super {p0}, Landroid/service/wallpaper/WallpaperService;->onDestroy()V

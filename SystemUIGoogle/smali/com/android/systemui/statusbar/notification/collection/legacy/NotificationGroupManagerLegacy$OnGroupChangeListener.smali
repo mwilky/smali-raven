@@ -15,7 +15,7 @@
 
 
 # virtual methods
-.method public onGroupAlertOverrideChanged(Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public onGroupAlertOverrideChanged(Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 0
 
     return-void
@@ -27,13 +27,7 @@
     return-void
 .end method
 
-.method public onGroupCreatedFromChildren(Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onGroupRemoved(Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy$NotificationGroup;Ljava/lang/String;)V
+.method public onGroupRemoved(Ljava/lang/String;)V
     .locals 0
 
     return-void

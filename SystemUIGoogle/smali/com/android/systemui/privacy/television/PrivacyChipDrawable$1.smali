@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/privacy/television/PrivacyChipDrawable$1;
+.class public final Lcom/android/systemui/privacy/television/PrivacyChipDrawable$1;
 .super Ljava/lang/Object;
 .source "PrivacyChipDrawable.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private mCancelled:Z
+.field public mCancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
+.field public final synthetic this$0:Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/privacy/television/PrivacyChipDrawable;)V
+.method public constructor <init>(Lcom/android/systemui/privacy/television/PrivacyChipDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable$1;->this$0:Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
@@ -36,7 +36,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -46,26 +46,18 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-boolean p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable$1;->mCancelled:Z
 
     if-nez p1, :cond_0
 
-    iget-object p1, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable$1;->this$0:Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
-
-    invoke-static {p1}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->access$000(Lcom/android/systemui/privacy/television/PrivacyChipDrawable;)Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_0
-
     iget-object p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable$1;->this$0:Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
 
-    invoke-static {p0}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->access$000(Lcom/android/systemui/privacy/television/PrivacyChipDrawable;)Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
+    iget-object p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mListener:Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
 
-    move-result-object p0
+    if-eqz p0, :cond_0
 
     invoke-interface {p0}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;->onFadeOutFinished()V
 
@@ -73,13 +65,13 @@
     return-void
 .end method
 
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
+.method public final onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x0

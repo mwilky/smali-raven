@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;
 .super Ljava/lang/Object;
 .source "NotifBindPipeline.java"
 
@@ -9,50 +9,30 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "BindEntry"
 .end annotation
 
 
 # instance fields
-.field public final callbacks:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindCallback;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final callbacks:Landroid/util/ArraySet;
 
 .field public invalidated:Z
 
 .field public row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
-
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
+.method public constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance p1, Landroid/util/ArraySet;
+    new-instance v0, Landroid/util/ArraySet;
 
-    invoke-direct {p1}, Landroid/util/ArraySet;-><init>()V
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;->callbacks:Ljava/util/Set;
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;-><init>(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)V
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;->callbacks:Landroid/util/ArraySet;
 
     return-void
 .end method

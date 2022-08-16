@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;
+.class public final Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;
 .super Landroid/content/BroadcastReceiver;
 .source "PowerNotificationWarnings.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "Receiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+.field public final synthetic this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+.method public constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
@@ -29,96 +29,10 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/power/PowerNotificationWarnings;Lcom/android/systemui/power/PowerNotificationWarnings$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public init()V
-    .locals 6
-
-    new-instance v3, Landroid/content/IntentFilter;
-
-    invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
-
-    const-string v0, "PNW.batterySettings"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.startSaver"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.dismissedWarning"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.clickedTempWarning"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.dismissedTempWarning"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.clickedThermalShutdownWarning"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.dismissedThermalShutdownWarning"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.startSaverConfirmation"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.autoSaverSuggestion"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.enableAutoSaver"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.autoSaverNoThanks"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    const-string v0, "PNW.dismissAutoSaverSuggestion"
-
-    invoke-virtual {v3, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$400(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/content/Context;
-
-    move-result-object v0
-
-    sget-object v2, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
-
-    iget-object v1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
-
-    invoke-static {v1}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$500(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/os/Handler;
-
-    move-result-object v5
-
-    const-string v4, "android.permission.DEVICE_POWER"
-
-    move-object v1, p0
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-
-    return-void
-.end method
-
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 13
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -142,7 +56,7 @@
 
     invoke-static {v2, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v1, "PNW.batterySettings"
+    const-string v1, "PNW.batterySaverSettings"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -152,25 +66,25 @@
 
     iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$600(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    sget-object p2, Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;->LOW_BATTERY_NOTIFICATION_SETTINGS:Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;
+
+    invoke-virtual {p1, p2}, Lcom/android/systemui/power/PowerNotificationWarnings;->logEvent(Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;)V
 
     iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$400(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/content/Context;
-
-    move-result-object p1
+    invoke-virtual {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissLowBatteryNotification()V
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$700(Lcom/android/systemui/power/PowerNotificationWarnings;)Landroid/content/Intent;
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mOpenBatterySaverSettings:Landroid/content/Intent;
 
     sget-object p2, Landroid/os/UserHandle;->CURRENT:Landroid/os/UserHandle;
 
     invoke-virtual {p1, p0, p2}, Landroid/content/Context;->startActivityAsUser(Landroid/content/Intent;Landroid/os/UserHandle;)V
 
-    goto/16 :goto_0
+    goto/16 :goto_5
 
     :cond_0
     const-string v1, "PNW.startSaver"
@@ -179,19 +93,27 @@
 
     move-result v1
 
+    const/4 v2, 0x1
+
     if-eqz v1, :cond_1
 
     iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    const/4 p2, 0x1
+    sget-object p2, Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;->LOW_BATTERY_NOTIFICATION_TURN_ON:Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;
 
-    invoke-static {p1, p2, p2}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$800(Lcom/android/systemui/power/PowerNotificationWarnings;ZZ)V
+    invoke-virtual {p1, p2}, Lcom/android/systemui/power/PowerNotificationWarnings;->logEvent(Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;)V
+
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iget-object p1, p1, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
+
+    invoke-static {p1, v2, v2}, Lcom/android/settingslib/fuelgauge/BatterySaverUtils;->setPowerSaveMode(Landroid/content/Context;ZZ)V
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$600(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissLowBatteryNotification()V
 
-    goto/16 :goto_0
+    goto/16 :goto_5
 
     :cond_1
     const-string v1, "PNW.startSaverConfirmation"
@@ -200,11 +122,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_9
 
     iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$600(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-virtual {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissLowBatteryNotification()V
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
@@ -212,127 +136,292 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$900(Lcom/android/systemui/power/PowerNotificationWarnings;Landroid/os/Bundle;)V
+    iget-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mSaverConfirmation:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
-    goto/16 :goto_0
+    if-eqz p2, :cond_2
+
+    goto/16 :goto_5
 
     :cond_2
-    const-string p2, "PNW.dismissedWarning"
+    new-instance p2, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
-    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
 
-    move-result p2
+    invoke-direct {p2, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
-    if-eqz p2, :cond_3
+    const-string v0, "extra_confirm_only"
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissLowBatteryWarning()V
+    move-result v0
 
-    goto/16 :goto_0
+    const-string v1, "extra_power_save_mode_trigger"
+
+    invoke-virtual {p1, v1, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result v1
+
+    const-string v2, "extra_power_save_mode_trigger_level"
+
+    invoke-virtual {p1, v2, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+
+    move-result p1
+
+    iget-object v2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f130333
+
+    invoke-virtual {v2, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    iget-object v2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f130128
+
+    invoke-virtual {v2, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    goto :goto_2
 
     :cond_3
-    const-string p2, "PNW.clickedTempWarning"
+    iget-object v4, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const v5, 0x10401b6
 
-    move-result p2
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
-    if-eqz p2, :cond_4
+    move-result-object v4
 
-    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    new-instance v5, Landroid/text/SpannableString;
 
-    invoke-static {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1000(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-direct {v5, v4}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    new-instance v4, Landroid/text/SpannableStringBuilder;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1100(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-direct {v4, v5}, Landroid/text/SpannableStringBuilder;-><init>(Ljava/lang/CharSequence;)V
 
-    goto/16 :goto_0
+    invoke-virtual {v5}, Landroid/text/SpannableString;->length()I
+
+    move-result v6
+
+    const-class v7, Landroid/text/Annotation;
+
+    invoke-virtual {v5, v3, v6, v7}, Landroid/text/SpannableString;->getSpans(IILjava/lang/Class;)[Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, [Landroid/text/Annotation;
+
+    array-length v7, v6
+
+    move v8, v3
+
+    :goto_0
+    if-ge v8, v7, :cond_5
+
+    aget-object v9, v6, v8
+
+    invoke-virtual {v9}, Landroid/text/Annotation;->getValue()Ljava/lang/String;
+
+    move-result-object v10
+
+    const-string/jumbo v11, "url"
+
+    invoke-virtual {v11, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_4
+
+    goto :goto_1
 
     :cond_4
-    const-string p2, "PNW.dismissedTempWarning"
+    invoke-virtual {v5, v9}, Landroid/text/SpannableString;->getSpanStart(Ljava/lang/Object;)I
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v10
 
-    move-result p2
+    invoke-virtual {v5, v9}, Landroid/text/SpannableString;->getSpanEnd(Ljava/lang/Object;)I
 
-    if-eqz p2, :cond_5
+    move-result v9
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    new-instance v11, Lcom/android/systemui/power/PowerNotificationWarnings$3;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1000(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-direct {v11, p0, v2}, Lcom/android/systemui/power/PowerNotificationWarnings$3;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;Ljava/lang/String;)V
+
+    invoke-virtual {v5, v11}, Landroid/text/SpannableString;->getSpanFlags(Ljava/lang/Object;)I
+
+    move-result v12
+
+    invoke-virtual {v4, v11, v10, v9, v12}, Landroid/text/SpannableStringBuilder;->setSpan(Ljava/lang/Object;III)V
+
+    :goto_1
+    add-int/lit8 v8, v8, 0x1
 
     goto :goto_0
 
     :cond_5
-    const-string p2, "PNW.clickedThermalShutdownWarning"
+    move-object v2, v4
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :goto_2
+    invoke-virtual {p2, v2}, Landroid/app/AlertDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    move-result p2
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 
-    if-eqz p2, :cond_6
+    move-result-object v2
 
-    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    invoke-virtual {v2}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    invoke-virtual {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissThermalShutdownWarning()V
+    move-result-object v2
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    sget-object v4, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1200(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-virtual {v4}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    goto :goto_0
+    move-result-object v4
+
+    invoke-static {v2, v4}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    invoke-virtual {p2, v3}, Landroid/app/AlertDialog;->setMessageHyphenationFrequency(I)V
 
     :cond_6
-    const-string p2, "PNW.dismissedThermalShutdownWarning"
+    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v2
 
-    move-result p2
+    invoke-virtual {p2, v2}, Landroid/app/AlertDialog;->setMessageMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    if-eqz p2, :cond_7
+    if-eqz v0, :cond_7
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    const v0, 0x7f13012e
 
-    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissThermalShutdownWarning()V
+    invoke-virtual {p2, v0}, Landroid/app/AlertDialog;->setTitle(I)V
 
-    goto :goto_0
+    const v0, 0x10402cc
+
+    new-instance v2, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda4;
+
+    invoke-direct {v2, p0, v1, p1}, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;II)V
+
+    invoke-virtual {p2, v0, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
+
+    goto :goto_3
 
     :cond_7
-    const-string p2, "PNW.autoSaverSuggestion"
+    const p1, 0x7f13012d
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Landroid/app/AlertDialog;->setTitle(I)V
 
-    move-result p2
+    const p1, 0x7f13012c
 
-    if-eqz p2, :cond_8
+    new-instance v0, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda5;
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    invoke-direct {v0, p0}, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1300(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-virtual {p2, p1, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    goto :goto_0
+    const/high16 p1, 0x1040000
+
+    new-instance v0, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda6;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+
+    invoke-virtual {p2, p1, v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
+
+    :goto_3
+    invoke-static {p2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Landroid/app/Dialog;)V
+
+    new-instance p1, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda7;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+
+    invoke-virtual {p2, p1}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mBatteryControllerLazy:Ldagger/Lazy;
+
+    invoke-interface {p1}, Ldagger/Lazy;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/BatteryController;->getLastPowerSaverStartView()Ljava/lang/ref/WeakReference;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_8
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_8
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/View;
+
+    invoke-virtual {v0}, Landroid/view/View;->isAggregatedVisible()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mDialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/view/View;
+
+    invoke-virtual {v0, p2, p1, v3}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;Z)V
+
+    goto :goto_4
 
     :cond_8
-    const-string p2, "PNW.dismissAutoSaverSuggestion"
+    invoke-virtual {p2}, Landroid/app/AlertDialog;->show()V
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    :goto_4
+    sget-object p1, Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;->SAVER_CONFIRM_DIALOG:Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;
 
-    move-result p2
+    invoke-virtual {p0, p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->logEvent(Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;)V
 
-    if-eqz p2, :cond_9
+    iput-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mSaverConfirmation:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
-    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mBatteryControllerLazy:Ldagger/Lazy;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1400(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-interface {p0}, Ldagger/Lazy;->get()Ljava/lang/Object;
 
-    goto :goto_0
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/BatteryController;->clearLastPowerSaverStartView()V
+
+    goto/16 :goto_5
 
     :cond_9
-    const-string p2, "PNW.enableAutoSaver"
+    const-string p2, "PNW.dismissedWarning"
 
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p2
 
@@ -340,30 +429,301 @@
 
     iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1400(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    sget-object p2, Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;->LOW_BATTERY_NOTIFICATION_CANCEL:Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;
+
+    invoke-virtual {p1, p2}, Lcom/android/systemui/power/PowerNotificationWarnings;->logEvent(Lcom/android/systemui/power/BatteryWarningEvents$LowBatteryWarningEvent;)V
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1500(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissLowBatteryWarning()V
 
-    goto :goto_0
+    goto/16 :goto_5
 
     :cond_a
+    const-string p2, "PNW.clickedTempWarning"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    const/4 v1, 0x0
+
+    const v4, 0x104000a
+
+    const v5, 0x1010355
+
+    const/4 v6, -0x3
+
+    if-eqz p2, :cond_d
+
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-virtual {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissHighTemperatureWarningInternal()V
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mHighTempDialog:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+
+    if-eqz p1, :cond_b
+
+    goto/16 :goto_5
+
+    :cond_b
+    new-instance p1, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+
+    iget-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
+
+    invoke-direct {p1, p2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p1, v5}, Landroid/app/AlertDialog;->setIconAttribute(I)V
+
+    const p2, 0x7f13033d
+
+    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->setTitle(I)V
+
+    const p2, 0x7f13033b
+
+    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
+
+    invoke-virtual {p1, v4, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Landroid/app/Dialog;)V
+
+    new-instance p2, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda8;
+
+    invoke-direct {p2, p0}, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+
+    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    iget-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f13033a
+
+    invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_c
+
+    const v0, 0x7f130339
+
+    new-instance v1, Lcom/android/systemui/power/PowerNotificationWarnings$1;
+
+    invoke-direct {v1, p0, p2}, Lcom/android/systemui/power/PowerNotificationWarnings$1;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;Ljava/lang/String;)V
+
+    invoke-virtual {p1, v6, v0, v1, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setButton(IILandroid/content/DialogInterface$OnClickListener;Z)V
+
+    :cond_c
+    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+
+    iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mHighTempDialog:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+
+    goto/16 :goto_5
+
+    :cond_d
+    const-string p2, "PNW.dismissedTempWarning"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_e
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissHighTemperatureWarningInternal()V
+
+    goto/16 :goto_5
+
+    :cond_e
+    const-string p2, "PNW.clickedThermalShutdownWarning"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_11
+
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-virtual {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissThermalShutdownWarning()V
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mThermalShutdownDialog:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+
+    if-eqz p1, :cond_f
+
+    goto/16 :goto_5
+
+    :cond_f
+    new-instance p1, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+
+    iget-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
+
+    invoke-direct {p1, p2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p1, v5}, Landroid/app/AlertDialog;->setIconAttribute(I)V
+
+    const p2, 0x7f1306f4
+
+    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->setTitle(I)V
+
+    const p2, 0x7f1306f2
+
+    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(I)V
+
+    invoke-virtual {p1, v4, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
+
+    invoke-static {p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Landroid/app/Dialog;)V
+
+    new-instance p2, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda3;
+
+    invoke-direct {p2, p0}, Lcom/android/systemui/power/PowerNotificationWarnings$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+
+    invoke-virtual {p1, p2}, Landroid/app/AlertDialog;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)V
+
+    iget-object p2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mContext:Landroid/content/Context;
+
+    const v0, 0x7f1306f1
+
+    invoke-virtual {p2, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_10
+
+    const v0, 0x7f1306f0
+
+    new-instance v1, Lcom/android/systemui/power/PowerNotificationWarnings$2;
+
+    invoke-direct {v1, p0, p2}, Lcom/android/systemui/power/PowerNotificationWarnings$2;-><init>(Lcom/android/systemui/power/PowerNotificationWarnings;Ljava/lang/String;)V
+
+    invoke-virtual {p1, v6, v0, v1, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setButton(IILandroid/content/DialogInterface$OnClickListener;Z)V
+
+    :cond_10
+    invoke-virtual {p1}, Landroid/app/AlertDialog;->show()V
+
+    iput-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mThermalShutdownDialog:Lcom/android/systemui/statusbar/phone/SystemUIDialog;
+
+    goto :goto_5
+
+    :cond_11
+    const-string p2, "PNW.dismissedThermalShutdownWarning"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_12
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->dismissThermalShutdownWarning()V
+
+    goto :goto_5
+
+    :cond_12
+    const-string p2, "PNW.autoSaverSuggestion"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_13
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iput-boolean v2, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mShowAutoSaverSuggestion:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->updateNotification()V
+
+    goto :goto_5
+
+    :cond_13
+    const-string p2, "PNW.dismissAutoSaverSuggestion"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_14
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iput-boolean v3, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mShowAutoSaverSuggestion:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->updateNotification()V
+
+    goto :goto_5
+
+    :cond_14
+    const-string p2, "PNW.enableAutoSaver"
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p2
+
+    if-eqz p2, :cond_15
+
+    iget-object p1, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    iput-boolean v3, p1, Lcom/android/systemui/power/PowerNotificationWarnings;->mShowAutoSaverSuggestion:Z
+
+    invoke-virtual {p1}, Lcom/android/systemui/power/PowerNotificationWarnings;->updateNotification()V
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance p1, Landroid/content/Intent;
+
+    const-string p2, "com.android.settings.BATTERY_SAVER_SCHEDULE_SETTINGS"
+
+    invoke-direct {p1, p2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const p2, 0x10008000
+
+    invoke-virtual {p1, p2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    invoke-interface {p0, p1, v2}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
+
+    goto :goto_5
+
+    :cond_15
     const-string p2, "PNW.autoSaverNoThanks"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result p2
 
-    if-eqz p2, :cond_b
+    if-eqz p2, :cond_16
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerNotificationWarnings$Receiver;->this$0:Lcom/android/systemui/power/PowerNotificationWarnings;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->access$1400(Lcom/android/systemui/power/PowerNotificationWarnings;)V
+    iput-boolean v3, p0, Lcom/android/systemui/power/PowerNotificationWarnings;->mShowAutoSaverSuggestion:Z
 
-    invoke-static {p1}, Lcom/android/settingslib/fuelgauge/BatterySaverUtils;->suppressAutoBatterySaver(Landroid/content/Context;)V
+    invoke-virtual {p0}, Lcom/android/systemui/power/PowerNotificationWarnings;->updateNotification()V
 
-    :cond_b
-    :goto_0
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const-string/jumbo p1, "suppress_auto_battery_saver_suggestion"
+
+    invoke-static {p0, p1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :cond_16
+    :goto_5
     return-void
 .end method

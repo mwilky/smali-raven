@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$1;
+.class public final Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$1;
 .super Landroid/graphics/drawable/Animatable2$AnimationCallback;
 .source "QSIconViewImpl.java"
 
@@ -9,24 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;
-
-.field final synthetic val$a:Landroid/graphics/drawable/Animatable2;
+.field public final synthetic val$a:Landroid/graphics/drawable/Animatable2;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;Landroid/graphics/drawable/Animatable2;)V
+.method public constructor <init>(Landroid/graphics/drawable/Animatable2;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$1;->this$0:Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;
-
-    iput-object p2, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$1;->val$a:Landroid/graphics/drawable/Animatable2;
+    iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$1;->val$a:Landroid/graphics/drawable/Animatable2;
 
     invoke-direct {p0}, Landroid/graphics/drawable/Animatable2$AnimationCallback;-><init>()V
 
@@ -35,7 +31,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
+.method public final onAnimationEnd(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl$1;->val$a:Landroid/graphics/drawable/Animatable2;

@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onPreferenceStartFragment(Landroidx/preference/PreferenceFragment;Landroidx/preference/Preference;)Z
+.method public abstract onPreferenceStartFragment(Landroidx/preference/Preference;)Z
 .end method

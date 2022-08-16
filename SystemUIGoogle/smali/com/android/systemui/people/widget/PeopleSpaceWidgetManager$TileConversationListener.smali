@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener;
+.class public final Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener;
 .super Ljava/lang/Object;
 .source "PeopleSpaceWidgetManager.java"
 
@@ -18,18 +18,10 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
+.field public final synthetic this$0:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$cAdxdwXiIERJyzg-kL9ls6mxn6g(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener;Landroid/app/people/ConversationChannel;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener;->lambda$onConversationUpdate$0(Landroid/app/people/ConversationChannel;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;)V
     .locals 0
 
@@ -40,30 +32,20 @@
     return-void
 .end method
 
-.method private synthetic lambda$onConversationUpdate$0(Landroid/app/people/ConversationChannel;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener;->this$0:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->updateWidgetsWithConversationChanged(Landroid/app/people/ConversationChannel;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onConversationUpdate(Landroid/app/people/ConversationChannel;)V
-    .locals 2
+.method public final onConversationUpdate(Landroid/app/people/ConversationChannel;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener;->this$0:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
 
-    invoke-static {v0}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->access$000(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;)Ljava/util/concurrent/Executor;
+    iget-object v0, v0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->mBgExecutor:Ljava/util/concurrent/Executor;
 
-    move-result-object v0
+    new-instance v1, Lcom/android/wm/shell/common/ExecutorUtils$$ExternalSyntheticLambda0;
 
-    new-instance v1, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener$$ExternalSyntheticLambda0;
+    const/4 v2, 0x2
 
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$TileConversationListener;Landroid/app/people/ConversationChannel;)V
+    invoke-direct {v1, v2, p0, p1}, Lcom/android/wm/shell/common/ExecutorUtils$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 

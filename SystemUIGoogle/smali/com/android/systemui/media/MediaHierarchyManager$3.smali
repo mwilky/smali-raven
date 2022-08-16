@@ -3,12 +3,12 @@
 .source "MediaHierarchyManager.kt"
 
 # interfaces
-.implements Lcom/android/systemui/keyguard/WakefulnessLifecycle$Observer;
+.implements Lcom/android/systemui/dreams/DreamOverlayStateController$Callback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaHierarchyManager;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;)V
+    value = Lcom/android/systemui/media/MediaHierarchyManager;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/dreams/DreamOverlayStateController;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,13 +16,17 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/SourceDebugExtension;
+    value = "SMAP\nMediaHierarchyManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MediaHierarchyManager.kt\ncom/android/systemui/media/MediaHierarchyManager$3\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,1162:1\n1#2:1163\n*E\n"
+.end annotation
+
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaHierarchyManager;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaHierarchyManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaHierarchyManager;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaHierarchyManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$3;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
@@ -34,62 +38,31 @@
 
 
 # virtual methods
-.method public onFinishedGoingToSleep()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$3;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, v0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setGoingToSleep(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
-
-    return-void
-.end method
-
-.method public onFinishedWakingUp()V
+.method public final onStateChanged()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager$3;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
 
-    const/4 v1, 0x0
+    iget-object v0, v0, Lcom/android/systemui/media/MediaHierarchyManager;->dreamOverlayStateController:Lcom/android/systemui/dreams/DreamOverlayStateController;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setGoingToSleep(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
+    invoke-virtual {v0}, Lcom/android/systemui/dreams/DreamOverlayStateController;->isOverlayActive()Z
+
+    move-result v0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$3;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
+
+    iget-boolean v1, p0, Lcom/android/systemui/media/MediaHierarchyManager;->dreamOverlayActive:Z
+
+    if-eq v1, v0, :cond_0
+
+    iput-boolean v0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->dreamOverlayActive:Z
 
     const/4 v0, 0x1
 
-    invoke-static {p0, v0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setFullyAwake(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
+    const/4 v1, 0x2
 
-    return-void
-.end method
+    invoke-static {p0, v0, v1}, Lcom/android/systemui/media/MediaHierarchyManager;->updateDesiredLocation$default(Lcom/android/systemui/media/MediaHierarchyManager;ZI)V
 
-.method public onStartedGoingToSleep()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/media/MediaHierarchyManager$3;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setGoingToSleep(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$3;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, v0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setFullyAwake(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
-
-    return-void
-.end method
-
-.method public onStartedWakingUp()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$3;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
-
-    const/4 v0, 0x0
-
-    invoke-static {p0, v0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setGoingToSleep(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
-
+    :cond_0
     return-void
 .end method

@@ -6,120 +6,29 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final headsUpManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final headsUpViewBinderProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final headsUpManagerProvider:Ljavax/inject/Provider;
 
-.field private final notificationInterruptStateProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final headsUpViewBinderProvider:Ljavax/inject/Provider;
 
-.field private final notificationListenerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/NotificationListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final notificationInterruptStateProvider:Ljavax/inject/Provider;
 
-.field private final remoteInputManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/NotificationRemoteInputManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final notificationListenerProvider:Ljavax/inject/Provider;
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final remoteInputManagerProvider:Ljavax/inject/Provider;
 
-.field private final visualStabilityManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
+
+.field public final visualStabilityManagerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/NotificationRemoteInputManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/NotificationListener;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p8, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->headsUpViewBinderProvider:Ljavax/inject/Provider;
 
@@ -135,104 +44,24 @@
 
     iput-object p7, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->notificationListenerProvider:Ljavax/inject/Provider;
 
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;
-    .locals 9
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/NotificationRemoteInputManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/NotificationListener;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;"
-        }
-    .end annotation
-
-    new-instance v8, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;
-
-    move-object v0, v8
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    move-object v7, p6
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v8
-.end method
-
-.method public static newInstance(Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/NotificationListener;)Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;
-    .locals 9
-
-    new-instance v8, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;
-
-    move-object v0, v8
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    move-object v7, p6
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;-><init>(Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/NotificationListener;)V
-
-    return-object v8
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;
-    .locals 8
+.method public final get()Ljava/lang/Object;
+    .locals 12
 
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->headsUpViewBinderProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v1, v0
-
-    check-cast v1, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->notificationInterruptStateProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -240,9 +69,9 @@
 
     move-object v2, v0
 
-    check-cast v2, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;
+    check-cast v2, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->headsUpManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->notificationInterruptStateProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -250,9 +79,9 @@
 
     move-object v3, v0
 
-    check-cast v3, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+    check-cast v3, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->headsUpManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -260,9 +89,9 @@
 
     move-object v4, v0
 
-    check-cast v4, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
+    check-cast v4, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -270,9 +99,9 @@
 
     move-object v5, v0
 
-    check-cast v5, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    check-cast v5, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -280,7 +109,17 @@
 
     move-object v6, v0
 
-    check-cast v6, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
+    check-cast v6, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->notificationListenerProvider:Ljavax/inject/Provider;
 
@@ -288,23 +127,103 @@
 
     move-result-object p0
 
-    move-object v7, p0
+    move-object v8, p0
 
-    check-cast v7, Lcom/android/systemui/statusbar/NotificationListener;
+    check-cast v8, Lcom/android/systemui/statusbar/NotificationListener;
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->newInstance(Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/NotificationListener;)Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;
+    new-instance p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;-><init>(Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/NotificationRemoteInputManager;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/statusbar/NotificationListener;)V
+
+    return-object p0
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->headsUpViewBinderProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/coordinator/PreparationCoordinatorLogger;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->notificationInterruptStateProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->headsUpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v4, v0
+
+    check-cast v4, Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->remoteInputManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/systemui/statusbar/notification/collection/render/NotifViewBarn;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/statusbar/notification/collection/inflation/NotifUiAdjustmentProvider;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->visualStabilityManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v7, v0
+
+    check-cast v7, Lcom/android/internal/statusbar/IStatusBarService;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->notificationListenerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
+    move-object v8, p0
+
+    check-cast v8, Lcom/android/systemui/statusbar/notification/collection/inflation/BindEventManagerImpl;
+
+    new-instance p0, Lcom/android/systemui/statusbar/notification/collection/coordinator/PreparationCoordinator;
+
+    const/16 v9, 0x9
+
+    const-wide/16 v10, 0x1f4
+
+    move-object v1, p0
+
+    invoke-direct/range {v1 .. v11}, Lcom/android/systemui/statusbar/notification/collection/coordinator/PreparationCoordinator;-><init>(Lcom/android/systemui/statusbar/notification/collection/coordinator/PreparationCoordinatorLogger;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater;Lcom/android/systemui/statusbar/notification/row/NotifInflationErrorManager;Lcom/android/systemui/statusbar/notification/collection/render/NotifViewBarn;Lcom/android/systemui/statusbar/notification/collection/inflation/NotifUiAdjustmentProvider;Lcom/android/internal/statusbar/IStatusBarService;Lcom/android/systemui/statusbar/notification/collection/inflation/BindEventManagerImpl;IJ)V
+
     return-object p0
-.end method
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController_Factory;->get()Lcom/android/systemui/statusbar/notification/interruption/HeadsUpController;
-
-    move-result-object p0
-
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

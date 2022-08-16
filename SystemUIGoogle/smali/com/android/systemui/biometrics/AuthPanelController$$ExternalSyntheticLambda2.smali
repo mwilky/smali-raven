@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -27,7 +28,19 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthPanelController$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/biometrics/AuthPanelController;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/AuthPanelController;->$r8$lambda$bqvcZaXlv1g34WNwZHupKRr_oAw(Lcom/android/systemui/biometrics/AuthPanelController;Landroid/animation/ValueAnimator;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Integer;
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/biometrics/AuthPanelController;->mContentWidth:I
 
     return-void
 .end method

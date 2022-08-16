@@ -15,165 +15,243 @@
 
 
 # instance fields
-.field private final active:Z
+.field public final active:Z
 
-.field private final applicationName:Ljava/lang/CharSequence;
+.field public final applicationName:Ljava/lang/CharSequence;
 
-.field private final attribution:Ljava/lang/CharSequence;
+.field public final attributionLabel:Ljava/lang/CharSequence;
 
-.field private final builder:Ljava/lang/StringBuilder;
+.field public final attributionTag:Ljava/lang/CharSequence;
 
-.field private final enterprise:Z
+.field public final builder:Ljava/lang/StringBuilder;
 
-.field private final lastActiveTimestamp:J
+.field public final enterprise:Z
 
-.field private final packageName:Ljava/lang/String;
+.field public final lastActiveTimestamp:J
 
-.field private final phoneCall:Z
+.field public final navigationIntent:Landroid/content/Intent;
 
-.field private final type:Lcom/android/systemui/privacy/PrivacyType;
+.field public final packageName:Ljava/lang/String;
 
-.field private final userId:I
+.field public final permGroupName:Ljava/lang/CharSequence;
+
+.field public final phoneCall:Z
+
+.field public final proxyLabel:Ljava/lang/CharSequence;
+
+.field public final type:Lcom/android/systemui/privacy/PrivacyType;
+
+.field public final userId:I
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/privacy/PrivacyType;Ljava/lang/String;ILjava/lang/CharSequence;Ljava/lang/CharSequence;JZZZ)V
-    .locals 2
+.method public constructor <init>(Lcom/android/systemui/privacy/PrivacyType;Ljava/lang/String;ILjava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;JZZZLjava/lang/String;Landroid/content/Intent;)V
+    .locals 16
 
-    const-string v0, "type"
+    move-object/from16 v0, p0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v1, p2
 
-    const-string v0, "packageName"
+    move-object/from16 v2, p4
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v3, p5
 
-    const-string v0, "applicationName"
+    move-object/from16 v4, p6
 
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v5, p7
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    move/from16 v6, p10
 
-    iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->type:Lcom/android/systemui/privacy/PrivacyType;
+    move/from16 v7, p11
 
-    iput-object p2, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->packageName:Ljava/lang/String;
+    move/from16 v8, p12
 
-    iput p3, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->userId:I
+    move-object/from16 v9, p13
 
-    iput-object p4, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->applicationName:Ljava/lang/CharSequence;
+    move-object/from16 v10, p14
 
-    iput-object p5, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attribution:Ljava/lang/CharSequence;
+    invoke-direct/range {p0 .. p0}, Ljava/lang/Object;-><init>()V
 
-    iput-wide p6, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->lastActiveTimestamp:J
+    move-object/from16 v11, p1
 
-    iput-boolean p8, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
+    iput-object v11, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->type:Lcom/android/systemui/privacy/PrivacyType;
 
-    iput-boolean p9, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
+    iput-object v1, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->packageName:Ljava/lang/String;
 
-    iput-boolean p10, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
+    move/from16 v12, p3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    iput v12, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->userId:I
 
-    const-string v1, "PrivacyElement("
+    iput-object v2, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->applicationName:Ljava/lang/CharSequence;
 
-    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    iput-object v3, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionTag:Ljava/lang/CharSequence;
 
-    iput-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->builder:Ljava/lang/StringBuilder;
+    iput-object v4, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionLabel:Ljava/lang/CharSequence;
 
-    invoke-virtual {p1}, Lcom/android/systemui/privacy/PrivacyType;->getLogName()Ljava/lang/String;
+    iput-object v5, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->proxyLabel:Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-wide/from16 v13, p8
 
-    const-string p1, "type="
+    iput-wide v13, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->lastActiveTimestamp:J
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    iput-boolean v6, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
 
-    move-result-object p0
+    iput-boolean v7, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iput-boolean v8, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
 
-    const-string p0, ", packageName="
+    iput-object v9, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->permGroupName:Ljava/lang/CharSequence;
 
-    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    iput-object v10, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->navigationIntent:Landroid/content/Intent;
 
-    move-result-object p0
+    new-instance v15, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v11, "PrivacyElement("
 
-    invoke-static {p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-direct {v15, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object p0
+    iput-object v15, v0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->builder:Ljava/lang/StringBuilder;
 
-    const-string p1, ", userId="
+    invoke-virtual/range {p1 .. p1}, Lcom/android/systemui/privacy/PrivacyType;->getLogName()Ljava/lang/String;
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p0
+    const-string/jumbo v11, "type="
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0, v11}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string p0, ", appName="
+    move-result-object v0
 
-    invoke-static {p0, p4}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object p0
+    const-string v0, ", packageName="
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    if-eqz p5, :cond_0
+    move-result-object v0
 
-    const-string p0, ", attribution="
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p0, p5}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {p3 .. p3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p0
+    move-result-object v0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ", userId="
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ", appName="
+
+    invoke-static {v2, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz v3, :cond_0
+
+    const-string v0, ", attributionTag="
+
+    invoke-static {v3, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_0
-    invoke-static {p6, p7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    if-eqz v4, :cond_1
 
-    move-result-object p0
+    const-string v0, ", attributionLabel="
 
-    const-string p1, ", lastActive="
+    invoke-static {v4, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    if-eqz p8, :cond_1
-
-    const-string p0, ", active"
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_1
-    if-eqz p9, :cond_2
+    if-eqz v5, :cond_2
 
-    const-string p0, ", enterprise"
+    const-string v0, ", proxyLabel="
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v5, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2
-    if-eqz p10, :cond_3
+    invoke-static/range {p8 .. p9}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    const-string p0, ", phoneCall"
+    move-result-object v0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, ", lastActive="
+
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz v6, :cond_3
+
+    const-string v0, ", active"
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_3
-    const-string p0, ")"
+    if-eqz v7, :cond_4
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ", enterprise"
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_4
+    if-eqz v8, :cond_5
+
+    const-string v0, ", phoneCall"
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_5
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, ", permGroupName="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const/16 v1, 0x29
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ", navigationIntent="
+
+    invoke-static {v10, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v15, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 7
 
     const/4 v0, 0x1
@@ -238,9 +316,9 @@
     return v2
 
     :cond_5
-    iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attribution:Ljava/lang/CharSequence;
+    iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionTag:Ljava/lang/CharSequence;
 
-    iget-object v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attribution:Ljava/lang/CharSequence;
+    iget-object v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionTag:Ljava/lang/CharSequence;
 
     invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
@@ -251,121 +329,101 @@
     return v2
 
     :cond_6
+    iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionLabel:Ljava/lang/CharSequence;
+
+    iget-object v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionLabel:Ljava/lang/CharSequence;
+
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    return v2
+
+    :cond_7
+    iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->proxyLabel:Ljava/lang/CharSequence;
+
+    iget-object v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->proxyLabel:Ljava/lang/CharSequence;
+
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_8
+
+    return v2
+
+    :cond_8
     iget-wide v3, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->lastActiveTimestamp:J
 
     iget-wide v5, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->lastActiveTimestamp:J
 
     cmp-long v1, v3, v5
 
-    if-eqz v1, :cond_7
-
-    return v2
-
-    :cond_7
-    iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
-
-    iget-boolean v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
-
-    if-eq v1, v3, :cond_8
-
-    return v2
-
-    :cond_8
-    iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
-
-    iget-boolean v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
-
-    if-eq v1, v3, :cond_9
+    if-eqz v1, :cond_9
 
     return v2
 
     :cond_9
-    iget-boolean p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
+    iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
 
-    iget-boolean p1, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
+    iget-boolean v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
 
-    if-eq p0, p1, :cond_a
+    if-eq v1, v3, :cond_a
 
     return v2
 
     :cond_a
+    iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
+
+    iget-boolean v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
+
+    if-eq v1, v3, :cond_b
+
+    return v2
+
+    :cond_b
+    iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
+
+    iget-boolean v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
+
+    if-eq v1, v3, :cond_c
+
+    return v2
+
+    :cond_c
+    iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->permGroupName:Ljava/lang/CharSequence;
+
+    iget-object v3, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->permGroupName:Ljava/lang/CharSequence;
+
+    invoke-static {v1, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_d
+
+    return v2
+
+    :cond_d
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->navigationIntent:Landroid/content/Intent;
+
+    iget-object p1, p1, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->navigationIntent:Landroid/content/Intent;
+
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result p0
+
+    if-nez p0, :cond_e
+
+    return v2
+
+    :cond_e
     return v0
 .end method
 
-.method public final getActive()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
-
-    return p0
-.end method
-
-.method public final getApplicationName()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->applicationName:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public final getAttribution()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attribution:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public final getEnterprise()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
-
-    return p0
-.end method
-
-.method public final getLastActiveTimestamp()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->lastActiveTimestamp:J
-
-    return-wide v0
-.end method
-
-.method public final getPackageName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->packageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public final getPhoneCall()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
-
-    return p0
-.end method
-
-.method public final getType()Lcom/android/systemui/privacy/PrivacyType;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->type:Lcom/android/systemui/privacy/PrivacyType;
-
-    return-object p0
-.end method
-
-.method public final getUserId()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->userId:I
-
-    return p0
-.end method
-
-.method public hashCode()I
-    .locals 3
+.method public final hashCode()I
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->type:Lcom/android/systemui/privacy/PrivacyType;
 
@@ -381,19 +439,17 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->userId:I
+    iget v0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->userId:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v2, 0x1f
 
-    move-result v1
+    invoke-static {v0, v1, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->applicationName:Ljava/lang/CharSequence;
 
@@ -401,33 +457,71 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attribution:Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionTag:Ljava/lang/CharSequence;
 
-    if-nez v1, :cond_0
+    const/4 v2, 0x0
 
-    const/4 v1, 0x0
+    if-nez v0, :cond_0
+
+    move v0, v2
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v1
+    move-result v0
 
     :goto_0
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget-wide v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->lastActiveTimestamp:J
+    iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->attributionLabel:Ljava/lang/CharSequence;
 
-    invoke-static {v1, v2}, Ljava/lang/Long;->hashCode(J)I
+    if-nez v0, :cond_1
 
-    move-result v1
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v0
+
+    :goto_1
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
+
+    iget-object v0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->proxyLabel:Ljava/lang/CharSequence;
+
+    if-nez v0, :cond_2
+
+    move v0, v2
+
+    goto :goto_2
+
+    :cond_2
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
+
+    move-result v0
+
+    :goto_2
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
+
+    iget-wide v3, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->lastActiveTimestamp:J
+
+    invoke-static {v3, v4}, Ljava/lang/Long;->hashCode(J)I
+
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -435,55 +529,77 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->active:Z
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
-    move v1, v2
+    move v1, v3
 
-    :cond_1
+    :cond_3
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x1f
 
     iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->enterprise:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4
 
-    move v1, v2
+    move v1, v3
 
-    :cond_2
+    :cond_4
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
+    iget-boolean v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->phoneCall:Z
 
-    if-eqz p0, :cond_3
+    if-eqz v1, :cond_5
 
-    goto :goto_1
+    goto :goto_3
 
-    :cond_3
-    move v2, p0
+    :cond_5
+    move v3, v1
 
-    :goto_1
-    add-int/2addr v0, v2
+    :goto_3
+    add-int/2addr v0, v3
 
-    return v0
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-object v1, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->permGroupName:Ljava/lang/CharSequence;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+
+    move-result v1
+
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
+
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->navigationIntent:Landroid/content/Intent;
+
+    if-nez p0, :cond_6
+
+    goto :goto_4
+
+    :cond_6
+    invoke-virtual {p0}, Landroid/content/Intent;->hashCode()I
+
+    move-result v2
+
+    :goto_4
+    add-int/2addr v1, v2
+
+    return v1
 .end method
 
-.method public toString()Ljava/lang/String;
-    .locals 1
+.method public final toString()Ljava/lang/String;
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialog$PrivacyElement;->builder:Ljava/lang/StringBuilder;
 
     invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
-
-    const-string v0, "builder.toString()"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     return-object p0
 .end method

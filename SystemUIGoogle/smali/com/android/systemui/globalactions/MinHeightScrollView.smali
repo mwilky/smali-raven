@@ -14,7 +14,7 @@
 
 
 # virtual methods
-.method public onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 2
 
     const/4 v0, 0x0

@@ -16,6 +16,10 @@
         <item quantity="other">Lisati %s juhtnuppu.</item>
         <item quantity="one">Lisati %s juhtnupp.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s rakendust on aktiivsed</item>
+        <item quantity="one">%s rakendus on aktiivne</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Sisestage SIM-kaardi PIN-kood. Jäänud on %d katset.</item>
         <item quantity="one">Sisestage SIM-kaardi PIN-kood. Jäänud on %d katse enne, kui peate seadme avamiseks ühendust võtma operaatoriga.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">SIM-kaardi vale PUK-kood. Teil on jäänud veel %d katset enne, kui SIM-kaart jäädavalt lukustatakse.</item>
         <item quantity="one">SIM-kaardi vale PUK-kood. Teil on jäänud veel %d katse enne, kui SIM-kaart jäädavalt lukustatakse.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Proovige uuesti %d sekundi pärast.</item>
-        <item quantity="one">Proovige uuesti 1 sekundi pärast.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d uut märguannet</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Võite lisada kuni %d kasutajat.</item>
         <item quantity="one">Luua saab ainult ühe kasutaja.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d seadet on ühendatud</item>
-        <item quantity="one">%1$d seade on ühendatud</item>
     </plurals>
 </resources>

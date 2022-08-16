@@ -1,4 +1,4 @@
-.class Landroidx/transition/ChangeTransform$Transforms;
+.class public final Landroidx/transition/ChangeTransform$Transforms;
 .super Ljava/lang/Object;
 .source "ChangeTransform.java"
 
@@ -9,31 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Transforms"
 .end annotation
 
 
 # instance fields
-.field final mRotationX:F
+.field public final mRotationX:F
 
-.field final mRotationY:F
+.field public final mRotationY:F
 
-.field final mRotationZ:F
+.field public final mRotationZ:F
 
-.field final mScaleX:F
+.field public final mScaleX:F
 
-.field final mScaleY:F
+.field public final mScaleY:F
 
-.field final mTranslationX:F
+.field public final mTranslationX:F
 
-.field final mTranslationY:F
+.field public final mTranslationY:F
 
-.field final mTranslationZ:F
+.field public final mTranslationZ:F
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -50,7 +50,9 @@
 
     iput v0, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationY:F
 
-    invoke-static {p1}, Landroidx/core/view/ViewCompat;->getTranslationZ(Landroid/view/View;)F
+    sget-object v0, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {p1}, Landroidx/core/view/ViewCompat$Api21Impl;->getTranslationZ(Landroid/view/View;)F
 
     move-result v0
 
@@ -91,7 +93,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 3
 
     instance-of v0, p1, Landroidx/transition/ChangeTransform$Transforms;
@@ -175,7 +177,7 @@
     return v1
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 5
 
     iget v0, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationX:F
@@ -334,30 +336,4 @@
     add-int/2addr v0, v3
 
     return v0
-.end method
-
-.method public restore(Landroid/view/View;)V
-    .locals 9
-
-    iget v1, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationX:F
-
-    iget v2, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationY:F
-
-    iget v3, p0, Landroidx/transition/ChangeTransform$Transforms;->mTranslationZ:F
-
-    iget v4, p0, Landroidx/transition/ChangeTransform$Transforms;->mScaleX:F
-
-    iget v5, p0, Landroidx/transition/ChangeTransform$Transforms;->mScaleY:F
-
-    iget v6, p0, Landroidx/transition/ChangeTransform$Transforms;->mRotationX:F
-
-    iget v7, p0, Landroidx/transition/ChangeTransform$Transforms;->mRotationY:F
-
-    iget v8, p0, Landroidx/transition/ChangeTransform$Transforms;->mRotationZ:F
-
-    move-object v0, p1
-
-    invoke-static/range {v0 .. v8}, Landroidx/transition/ChangeTransform;->setTransforms(Landroid/view/View;FFFFFFFF)V
-
-    return-void
 .end method

@@ -12,13 +12,13 @@
 
 
 # instance fields
-.field private final mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
+.field public final mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
 
-.field private final mMotionEventListener:Lcom/android/systemui/classifier/FalsingDataProvider$MotionEventListener;
+.field public final mMotionEventListener:Lcom/android/systemui/classifier/FalsingClassifier$$ExternalSyntheticLambda0;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/FalsingDataProvider;)V
+.method public constructor <init>(Lcom/android/systemui/classifier/FalsingDataProvider;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -27,86 +27,24 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/classifier/FalsingClassifier$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/classifier/FalsingClassifier;)V
 
-    iput-object v0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mMotionEventListener:Lcom/android/systemui/classifier/FalsingDataProvider$MotionEventListener;
+    iput-object v0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mMotionEventListener:Lcom/android/systemui/classifier/FalsingClassifier$$ExternalSyntheticLambda0;
 
     iput-object p1, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/classifier/FalsingDataProvider;->addMotionEventListener(Lcom/android/systemui/classifier/FalsingDataProvider$MotionEventListener;)V
+    iget-object p0, p1, Lcom/android/systemui/classifier/FalsingDataProvider;->mMotionEventListeners:Ljava/util/ArrayList;
 
-    return-void
-.end method
-
-.method public static logDebug(Ljava/lang/String;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/classifier/BrightLineFalsingManager;->logDebug(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static logInfo(Ljava/lang/String;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/classifier/BrightLineFalsingManager;->logInfo(Ljava/lang/String;)V
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method abstract calculateFalsingResult(IDD)Lcom/android/systemui/classifier/FalsingClassifier$Result;
+.method public abstract calculateFalsingResult(I)Lcom/android/systemui/classifier/FalsingClassifier$Result;
 .end method
 
-.method classifyGesture(IDD)Lcom/android/systemui/classifier/FalsingClassifier$Result;
-    .locals 0
-
-    invoke-virtual/range {p0 .. p5}, Lcom/android/systemui/classifier/FalsingClassifier;->calculateFalsingResult(IDD)Lcom/android/systemui/classifier/FalsingClassifier$Result;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method cleanup()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mMotionEventListener:Lcom/android/systemui/classifier/FalsingDataProvider$MotionEventListener;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->removeMotionEventListener(Lcom/android/systemui/classifier/FalsingDataProvider$MotionEventListener;)V
-
-    return-void
-.end method
-
-.method protected falsed(DLjava/lang/String;)Lcom/android/systemui/classifier/FalsingClassifier$Result;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingClassifier;->getFalsingContext()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p1, p2, p0, p3}, Lcom/android/systemui/classifier/FalsingClassifier$Result;->falsed(DLjava/lang/String;Ljava/lang/String;)Lcom/android/systemui/classifier/FalsingClassifier$Result;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method getAngle()F
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getAngle()F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method protected getFalsingContext()Ljava/lang/String;
-    .locals 0
+.method public final falsed(DLjava/lang/String;)Lcom/android/systemui/classifier/FalsingClassifier$Result;
+    .locals 6
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -114,190 +52,128 @@
 
     invoke-virtual {p0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object v4
+
+    new-instance p0, Lcom/android/systemui/classifier/FalsingClassifier$Result;
+
+    const/4 v1, 0x1
+
+    move-object v0, p0
+
+    move-wide v2, p1
+
+    move-object v5, p3
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/classifier/FalsingClassifier$Result;-><init>(ZDLjava/lang/String;Ljava/lang/String;)V
 
     return-object p0
 .end method
 
-.method getFirstMotionEvent()Landroid/view/MotionEvent;
-    .locals 0
+.method public final isRight()Z
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
 
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getFirstRecentMotionEvent()Landroid/view/MotionEvent;
+    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->recalculateData()V
 
-    move-result-object p0
+    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingDataProvider;->mRecentMotionEvents:Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;
 
-    return-object p0
-.end method
+    invoke-virtual {v0}, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;->isEmpty()Z
 
-.method getHeightPixels()I
-    .locals 0
+    move-result v0
 
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
+    const/4 v1, 0x0
 
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getHeightPixels()I
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingDataProvider;->mLastMotionEvent:Landroid/view/MotionEvent;
+
+    invoke-virtual {v0}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v0
+
+    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingDataProvider;->mFirstRecentMotionEvent:Landroid/view/MotionEvent;
+
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getX()F
 
     move-result p0
 
-    return p0
+    cmpl-float p0, v0, p0
+
+    if-lez p0, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_1
+    :goto_0
+    return v1
 .end method
 
-.method getLastMotionEvent()Landroid/view/MotionEvent;
-    .locals 0
+.method public final isUp()Z
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
 
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getLastMotionEvent()Landroid/view/MotionEvent;
+    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->recalculateData()V
 
-    move-result-object p0
+    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingDataProvider;->mRecentMotionEvents:Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;
 
-    return-object p0
-.end method
+    invoke-virtual {v0}, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;->isEmpty()Z
 
-.method getPriorMotionEvents()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Landroid/view/MotionEvent;",
-            ">;"
-        }
-    .end annotation
+    move-result v0
 
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
+    const/4 v1, 0x0
 
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getPriorMotionEvents()Ljava/util/List;
+    if-eqz v0, :cond_0
 
-    move-result-object p0
+    goto :goto_0
 
-    return-object p0
-.end method
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/classifier/FalsingDataProvider;->mLastMotionEvent:Landroid/view/MotionEvent;
 
-.method getRecentMotionEvents()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Landroid/view/MotionEvent;",
-            ">;"
-        }
-    .end annotation
+    invoke-virtual {v0}, Landroid/view/MotionEvent;->getY()F
 
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
+    move-result v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getRecentMotionEvents()Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingDataProvider;->mFirstRecentMotionEvent:Landroid/view/MotionEvent;
 
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method getWidthPixels()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getWidthPixels()I
+    invoke-virtual {p0}, Landroid/view/MotionEvent;->getY()F
 
     move-result p0
 
-    return p0
+    cmpg-float p0, v0, p0
+
+    if-gez p0, :cond_1
+
+    const/4 v1, 0x1
+
+    :cond_1
+    :goto_0
+    return v1
 .end method
 
-.method getXdpi()F
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getXdpi()F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method getYdpi()F
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->getYdpi()F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method isHorizontal()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->isHorizontal()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method isRight()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->isRight()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method isUp()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->isUp()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method isVertical()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/FalsingClassifier;->mDataProvider:Lcom/android/systemui/classifier/FalsingDataProvider;
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingDataProvider;->isVertical()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method onProximityEvent(Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;)V
+.method public onProximityEvent(Lcom/android/systemui/plugins/FalsingManager$ProximityEvent;)V
     .locals 0
 
     return-void
 .end method
 
-.method onSessionEnded()V
+.method public onSessionEnded()V
     .locals 0
 
     return-void
 .end method
 
-.method onSessionStarted()V
+.method public onSessionStarted()V
     .locals 0
 
     return-void
 .end method
 
-.method onTouchEvent(Landroid/view/MotionEvent;)V
+.method public onTouchEvent(Landroid/view/MotionEvent;)V
     .locals 0
 
     return-void

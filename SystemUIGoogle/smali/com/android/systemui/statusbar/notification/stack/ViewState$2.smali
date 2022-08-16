@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/ViewState$2;
+.class public final Lcom/android/systemui/statusbar/notification/stack/ViewState$2;
 .super Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 .source "ViewState.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/AnimatableProperty;-><init>()V
@@ -25,31 +25,31 @@
 
 
 # virtual methods
-.method public getAnimationEndTag()I
+.method public final getAnimationEndTag()I
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$id;->scale_x_animator_end_value_tag:I
+    const p0, 0x7f0b057c
 
     return p0
 .end method
 
-.method public getAnimationStartTag()I
+.method public final getAnimationStartTag()I
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$id;->scale_x_animator_start_value_tag:I
+    const p0, 0x7f0b057d
 
     return p0
 .end method
 
-.method public getAnimatorTag()I
+.method public final getAnimatorTag()I
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$id;->scale_x_animator_tag:I
+    const p0, 0x7f0b057e
 
     return p0
 .end method
 
-.method public getProperty()Landroid/util/Property;
+.method public final getProperty()Landroid/util/Property;
     .locals 0
 
     sget-object p0, Landroid/view/View;->SCALE_X:Landroid/util/Property;

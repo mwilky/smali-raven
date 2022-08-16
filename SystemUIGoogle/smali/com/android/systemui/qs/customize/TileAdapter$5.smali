@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/TileAdapter$5;
+.class public final Lcom/android/systemui/qs/customize/TileAdapter$5;
 .super Landroidx/recyclerview/widget/ItemTouchHelper$Callback;
 .source "TileAdapter.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+.field public final synthetic this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter;)V
+.method public constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
@@ -31,78 +31,88 @@
 
 
 # virtual methods
-.method public canDropOver(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 2
+.method public final canDropOver(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
+    .locals 4
 
-    invoke-virtual {p3}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getAdapterPosition()I
-
-    move-result p1
-
-    const/4 p3, 0x0
-
-    if-eqz p1, :cond_3
-
-    const/4 v0, -0x1
-
-    if-ne p1, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1800(Lcom/android/systemui/qs/customize/TileAdapter;)Z
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_2
-
-    invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getAdapterPosition()I
+    invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getBindingAdapterPosition()I
 
     move-result p2
 
-    iget-object v0, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    const/4 v0, 0x1
 
-    invoke-static {v0}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1500(Lcom/android/systemui/qs/customize/TileAdapter;)I
+    const/4 v1, 0x0
 
-    move-result v0
+    if-eqz p2, :cond_4
 
-    if-ge p2, v0, :cond_2
+    const/4 v2, -0x1
 
-    iget-object p0, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    if-ne p2, v2, :cond_0
 
-    invoke-static {p0}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1500(Lcom/android/systemui/qs/customize/TileAdapter;)I
+    goto :goto_2
 
-    move-result p0
+    :cond_0
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    if-ge p1, p0, :cond_1
+    iget-object v3, v2, Lcom/android/systemui/qs/customize/TileAdapter;->mCurrentSpecs:Ljava/util/List;
 
-    move p3, v1
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v3
+
+    iget v2, v2, Lcom/android/systemui/qs/customize/TileAdapter;->mMinNumTiles:I
+
+    if-le v3, v2, :cond_1
+
+    move v2, v0
+
+    goto :goto_0
 
     :cond_1
-    return p3
+    move v2, v1
+
+    :goto_0
+    if-nez v2, :cond_3
+
+    invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getBindingAdapterPosition()I
+
+    move-result p1
+
+    iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+
+    iget v2, v2, Lcom/android/systemui/qs/customize/TileAdapter;->mEditIndex:I
+
+    if-ge p1, v2, :cond_3
+
+    if-ge p2, v2, :cond_2
+
+    goto :goto_1
 
     :cond_2
-    iget-object p0, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    move v0, v1
 
-    invoke-static {p0}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1500(Lcom/android/systemui/qs/customize/TileAdapter;)I
-
-    move-result p0
-
-    add-int/2addr p0, v1
-
-    if-gt p1, p0, :cond_3
-
-    move p3, v1
+    :goto_1
+    return v0
 
     :cond_3
-    :goto_0
-    return p3
+    iget-object p0, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+
+    iget p0, p0, Lcom/android/systemui/qs/customize/TileAdapter;->mEditIndex:I
+
+    add-int/2addr p0, v0
+
+    if-gt p2, p0, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    :goto_2
+    move v0, v1
+
+    :goto_3
+    return v0
 .end method
 
-.method public clearView(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+.method public final clearView(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
     .locals 1
 
     move-object v0, p2
@@ -116,16 +126,14 @@
     return-void
 .end method
 
-.method public getMovementFlags(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-    .locals 0
+.method public final getMovementFlags(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
+    .locals 1
 
-    invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getItemViewType()I
-
-    move-result p0
+    iget p0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mItemViewType:I
 
     const/4 p1, 0x1
 
-    const/4 p2, 0x0
+    const/4 v0, 0x0
 
     if-eq p0, p1, :cond_0
 
@@ -139,21 +147,21 @@
 
     const/16 p0, 0xf
 
-    invoke-static {p0, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->makeMovementFlags(II)I
+    invoke-static {p0, v0}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->makeMovementFlags(II)I
 
     move-result p0
 
     return p0
 
     :cond_0
-    invoke-static {p2, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->makeMovementFlags(II)I
+    invoke-static {v0, v0}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->makeMovementFlags(II)I
 
     move-result p0
 
     return p0
 .end method
 
-.method public isItemViewSwipeEnabled()Z
+.method public final isItemViewSwipeEnabled()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -161,45 +169,37 @@
     return p0
 .end method
 
-.method public isLongPressDragEnabled()Z
-    .locals 0
+.method public final onMove(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
+    .locals 1
 
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method public onMove(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
-    .locals 0
-
-    invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getAdapterPosition()I
+    invoke-virtual {p1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getBindingAdapterPosition()I
 
     move-result p1
 
-    invoke-virtual {p3}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getAdapterPosition()I
+    invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getBindingAdapterPosition()I
 
     move-result p2
 
     if-eqz p1, :cond_1
 
-    const/4 p3, -0x1
+    const/4 v0, -0x1
 
-    if-eq p1, p3, :cond_1
+    if-eq p1, v0, :cond_1
 
     if-eqz p2, :cond_1
 
-    if-ne p2, p3, :cond_0
+    if-ne p2, v0, :cond_0
 
     goto :goto_0
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1900(Lcom/android/systemui/qs/customize/TileAdapter;II)Z
+    const/4 v0, 0x1
 
-    move-result p0
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/qs/customize/TileAdapter;->move(IIZ)V
 
-    return p0
+    return v0
 
     :cond_1
     :goto_0
@@ -208,10 +208,8 @@
     return p0
 .end method
 
-.method public onSelectedChanged(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-    .locals 4
-
-    invoke-super {p0, p1, p2}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->onSelectedChanged(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+.method public final onSelectedChanged(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+    .locals 5
 
     const/4 v0, 0x0
 
@@ -224,30 +222,16 @@
     :cond_0
     iget-object p2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {p2}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1400(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/qs/customize/TileAdapter;->mCurrentDrag:Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
     if-ne p1, p2, :cond_1
 
     return-void
 
     :cond_1
-    iget-object p2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    if-eqz p2, :cond_5
 
-    invoke-static {p2}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1400(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
-
-    move-result-object p2
-
-    if-eqz p2, :cond_4
-
-    iget-object p2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-static {p2}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1400(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getAdapterPosition()I
+    invoke-virtual {p2}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getBindingAdapterPosition()I
 
     move-result p2
 
@@ -260,11 +244,9 @@
     :cond_2
     iget-object v1, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1600(Lcom/android/systemui/qs/customize/TileAdapter;)Ljava/util/List;
+    iget-object v1, v1, Lcom/android/systemui/qs/customize/TileAdapter;->mTiles:Ljava/util/ArrayList;
 
-    move-result-object v1
-
-    invoke-interface {v1, p2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -272,23 +254,17 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1400(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    iget-object v3, v2, Lcom/android/systemui/qs/customize/TileAdapter;->mCurrentDrag:Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    move-result-object v2
+    iget-object v3, v3, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->mTileView:Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;
 
-    invoke-static {v2}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->access$200(Lcom/android/systemui/qs/customize/TileAdapter$Holder;)Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;
+    check-cast v3, Lcom/android/systemui/qs/customize/CustomizeTileView;
 
-    move-result-object v2
+    iget v2, v2, Lcom/android/systemui/qs/customize/TileAdapter;->mEditIndex:I
 
-    check-cast v2, Lcom/android/systemui/qs/customize/CustomizeTileView;
+    const/4 v4, 0x0
 
-    iget-object v3, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-static {v3}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1500(Lcom/android/systemui/qs/customize/TileAdapter;)I
-
-    move-result v3
-
-    if-le p2, v3, :cond_3
+    if-le p2, v2, :cond_3
 
     iget-boolean p2, v1, Lcom/android/systemui/qs/customize/TileQueryHelper$TileInfo;->isSystem:Z
 
@@ -299,46 +275,84 @@
     goto :goto_0
 
     :cond_3
-    const/4 p2, 0x0
+    move p2, v4
 
     :goto_0
-    invoke-virtual {v2, p2}, Lcom/android/systemui/qs/customize/CustomizeTileView;->setShowAppLabel(Z)V
+    iput-boolean p2, v3, Lcom/android/systemui/qs/customize/CustomizeTileView;->showAppLabel:Z
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
+
+    move-result-object p2
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;->getSecondaryLabel()Landroid/widget/TextView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    iget-boolean v2, v3, Lcom/android/systemui/qs/customize/CustomizeTileView;->showAppLabel:Z
+
+    if-eqz v2, :cond_4
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    goto :goto_1
+
+    :cond_4
+    const/16 v4, 0x8
+
+    :goto_1
+    invoke-virtual {p2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object p2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {p2}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1400(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/qs/customize/TileAdapter;->mCurrentDrag:Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
     invoke-virtual {p2}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->stopDrag()V
 
     iget-object p2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-    invoke-static {p2, v0}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1402(Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/qs/customize/TileAdapter$Holder;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    iput-object v0, p2, Lcom/android/systemui/qs/customize/TileAdapter;->mCurrentDrag:Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    :cond_4
-    if-eqz p1, :cond_5
+    :cond_5
+    if-eqz p1, :cond_6
 
     iget-object p2, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
     check-cast p1, Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    invoke-static {p2, p1}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1402(Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/qs/customize/TileAdapter$Holder;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    iput-object p1, p2, Lcom/android/systemui/qs/customize/TileAdapter;->mCurrentDrag:Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
-    iget-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+    iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1400(Lcom/android/systemui/qs/customize/TileAdapter;)Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+    invoke-virtual {p1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object p1
+
+    const-wide/16 v0, 0x64
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/customize/TileAdapter$Holder;->startDrag()V
+    const p2, 0x3f99999a    # 1.2f
 
-    :cond_5
-    iget-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/customize/TileAdapter;->access$1700(Lcom/android/systemui/qs/customize/TileAdapter;)Landroid/os/Handler;
+    invoke-virtual {p1, p2}, Landroid/view/ViewPropertyAnimator;->scaleX(F)Landroid/view/ViewPropertyAnimator;
 
     move-result-object p1
+
+    invoke-virtual {p1, p2}, Landroid/view/ViewPropertyAnimator;->scaleY(F)Landroid/view/ViewPropertyAnimator;
+
+    :cond_6
+    iget-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$5;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+
+    iget-object p1, p1, Lcom/android/systemui/qs/customize/TileAdapter;->mHandler:Landroid/os/Handler;
 
     new-instance p2, Lcom/android/systemui/qs/customize/TileAdapter$5$1;
 
@@ -349,7 +363,7 @@
     return-void
 .end method
 
-.method public onSwiped(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
+.method public final onSwiped()V
     .locals 0
 
     return-void

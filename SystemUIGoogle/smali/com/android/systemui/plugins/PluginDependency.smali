@@ -18,7 +18,7 @@
 # static fields
 .field public static final VERSION:I = 0x1
 
-.field static sProvider:Lcom/android/systemui/plugins/PluginDependency$DependencyProvider;
+.field public static sProvider:Lcom/android/systemui/plugins/PluginDependency$DependencyProvider;
 
 
 # direct methods

@@ -5,16 +5,20 @@
         <item quantity="one">%d dia atrás</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d min atrás</item>
-        <item quantity="one">%d min atrás</item>
+        <item quantity="other">Há %dmin</item>
+        <item quantity="one">Há %dmin</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d anos atrás</item>
-        <item quantity="one">%d ano atrás</item>
+        <item quantity="other">Há %d anos</item>
+        <item quantity="one">Há %d ano</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s controles adicionados.</item>
         <item quantity="one">%s controle adicionado.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s apps estão ativos</item>
+        <item quantity="one">%s app está ativo</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Informe o PIN do chip. Você tem %d tentativas restantes.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Código PUK do chip incorreto. Tentativas restantes: %d. Caso o código correto não seja digitado, o chip se tornará permanentemente inutilizável.</item>
         <item quantity="one">Código PUK do chip incorreto. Tentativas restantes: %d. Caso o código correto não seja digitado, o chip se tornará permanentemente inutilizável.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Tente novamente em %d segundos.</item>
-        <item quantity="one">Tente novamente em %d segundo.</item>
     </plurals>
     <plurals name="notification_group_overflow_description">
         <item quantity="other">Mais %s notificações no grupo.</item>
@@ -63,9 +63,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">É possível adicionar até %d usuários.</item>
         <item quantity="one">É possível adicionar até %d usuário.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d dispositivos conectados</item>
-        <item quantity="one">%1$d dispositivo conectado</item>
     </plurals>
 </resources>

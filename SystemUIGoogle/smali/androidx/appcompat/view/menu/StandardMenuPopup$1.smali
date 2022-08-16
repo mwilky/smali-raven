@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/StandardMenuPopup$1;
+.class public final Landroidx/appcompat/view/menu/StandardMenuPopup$1;
 .super Ljava/lang/Object;
 .source "StandardMenuPopup.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
+.field public final synthetic this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/view/menu/StandardMenuPopup;)V
+.method public constructor <init>(Landroidx/appcompat/view/menu/StandardMenuPopup;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
@@ -34,8 +34,8 @@
 
 
 # virtual methods
-.method public onGlobalLayout()V
-    .locals 1
+.method public final onGlobalLayout()V
+    .locals 2
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
 
@@ -47,15 +47,11 @@
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
 
-    iget-object v0, v0, Landroidx/appcompat/view/menu/StandardMenuPopup;->mPopup:Landroidx/appcompat/widget/MenuPopupWindow;
+    iget-object v1, v0, Landroidx/appcompat/view/menu/StandardMenuPopup;->mPopup:Landroidx/appcompat/widget/MenuPopupWindow;
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->isModal()Z
+    iget-boolean v1, v1, Landroidx/appcompat/widget/ListPopupWindow;->mModal:Z
 
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    iget-object v0, p0, Landroidx/appcompat/view/menu/StandardMenuPopup$1;->this$0:Landroidx/appcompat/view/menu/StandardMenuPopup;
+    if-nez v1, :cond_2
 
     iget-object v0, v0, Landroidx/appcompat/view/menu/StandardMenuPopup;->mShownAnchorView:Landroid/view/View;
 

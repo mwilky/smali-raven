@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/biometrics/UdfpsEnrollViewController;
+.class public final Lcom/android/systemui/biometrics/UdfpsEnrollViewController;
 .super Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 .source "UdfpsEnrollViewController.java"
 
@@ -14,15 +14,15 @@
 
 
 # instance fields
-.field private final mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
+.field public final mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
 
-.field private final mEnrollHelperListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
+.field public final mEnrollHelperListener:Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;
 
-.field private final mEnrollProgressBarRadius:I
+.field public final mEnrollProgressBarRadius:I
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/systemui/biometrics/UdfpsEnrollView;Lcom/android/systemui/biometrics/UdfpsEnrollHelper;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/dump/DumpManager;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/UdfpsEnrollView;Lcom/android/systemui/biometrics/UdfpsEnrollHelper;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/dump/DumpManager;F)V
     .locals 6
 
     move-object v0, p0
@@ -39,74 +39,58 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/dump/DumpManager;)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;
+    new-instance p3, Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollViewController;)V
+    invoke-direct {p3, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;-><init>(Lcom/android/systemui/biometrics/UdfpsEnrollViewController;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelperListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
+    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelperListener:Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;
 
     invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object p3
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p3}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object p3
 
-    sget p3, Lcom/android/systemui/R$integer;->config_udfpsEnrollProgressBar:I
+    const p4, 0x7f0c0036
 
-    invoke-virtual {p1, p3}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getInteger(I)I
 
-    move-result p1
+    move-result p3
 
-    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollProgressBarRadius:I
+    int-to-float p3, p3
+
+    mul-float/2addr p7, p3
+
+    float-to-int p3, p7
+
+    iput p3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollProgressBarRadius:I
 
     iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
+
+    iget-object p0, p1, Lcom/android/systemui/biometrics/UdfpsEnrollView;->mFingerprintDrawable:Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;
+
+    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollDrawable;->mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public final doAnnounceForAccessibility(Ljava/lang/String;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/biometrics/UdfpsEnrollView;
 
-    invoke-virtual {p0, p2}, Lcom/android/systemui/biometrics/UdfpsEnrollView;->setEnrollHelper(Lcom/android/systemui/biometrics/UdfpsEnrollHelper;)V
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/biometrics/UdfpsEnrollViewController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/biometrics/UdfpsEnrollViewController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/biometrics/UdfpsEnrollViewController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-
-# virtual methods
-.method public bridge synthetic dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
-
-    invoke-super {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public getPaddingX()I
+.method public final getPaddingX()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollProgressBarRadius:I
@@ -114,7 +98,7 @@
     return p0
 .end method
 
-.method public getPaddingY()I
+.method public final getPaddingY()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollProgressBarRadius:I
@@ -122,7 +106,7 @@
     return p0
 .end method
 
-.method getTag()Ljava/lang/String;
+.method public final getTag()Ljava/lang/String;
     .locals 0
 
     const-string p0, "UdfpsEnrollViewController"
@@ -130,7 +114,7 @@
     return-object p0
 .end method
 
-.method public getTouchTranslation()Landroid/graphics/PointF;
+.method public final getTouchTranslation()Landroid/graphics/PointF;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
@@ -159,25 +143,45 @@
     return-object p0
 .end method
 
-.method protected onViewAttached()V
-    .locals 1
+.method public final onViewAttached()V
+    .locals 3
 
     invoke-super {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->onViewAttached()V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->shouldShowProgressBar()Z
+    iget v1, v0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mEnrollReason:I
 
-    move-result v0
+    const/4 v2, 0x2
 
-    if-eqz v0, :cond_0
+    if-ne v1, v2, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelper:Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
+    const/4 v1, 0x1
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelperListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->setListener(Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;)V
+    goto :goto_0
 
     :cond_0
+    const/4 v1, 0x0
+
+    :goto_0
+    if-eqz v1, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollViewController;->mEnrollHelperListener:Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;
+
+    iput-object p0, v0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
+
+    if-eqz p0, :cond_1
+
+    iget v1, v0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
+
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_1
+
+    iget v0, v0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/biometrics/UdfpsEnrollViewController$1;->onEnrollmentProgress(II)V
+
+    :cond_1
     return-void
 .end method

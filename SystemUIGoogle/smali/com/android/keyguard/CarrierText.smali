@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private final mShowAirplaneMode:Z
+.field public final mShowAirplaneMode:Z
 
-.field private final mShowMissingSim:Z
+.field public final mShowMissingSim:Z
 
 
 # direct methods
@@ -46,13 +46,11 @@
     move-result-object p1
 
     :try_start_0
-    sget p2, Lcom/android/systemui/R$styleable;->CarrierText_allCaps:I
-
-    invoke-virtual {p1, p2, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p1, v1, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
     move-result p2
 
-    sget v0, Lcom/android/systemui/R$styleable;->CarrierText_showAirplaneMode:I
+    const/4 v0, 0x1
 
     invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
@@ -60,7 +58,7 @@
 
     iput-boolean v0, p0, Lcom/android/keyguard/CarrierText;->mShowAirplaneMode:Z
 
-    sget v0, Lcom/android/systemui/R$styleable;->CarrierText_showMissingSim:I
+    const/4 v0, 0x2
 
     invoke-virtual {p1, v0, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
@@ -92,23 +90,7 @@
 
 
 # virtual methods
-.method public getShowAirplaneMode()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/keyguard/CarrierText;->mShowAirplaneMode:Z
-
-    return p0
-.end method
-
-.method public getShowMissingSim()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/keyguard/CarrierText;->mShowMissingSim:Z
-
-    return p0
-.end method
-
-.method protected onVisibilityChanged(Landroid/view/View;I)V
+.method public final onVisibilityChanged(Landroid/view/View;I)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/widget/TextView;->onVisibilityChanged(Landroid/view/View;I)V

@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/BaseCardView$3;
+.class public final Landroidx/leanback/widget/BaseCardView$3;
 .super Ljava/lang/Object;
 .source "BaseCardView.java"
 
@@ -6,32 +6,13 @@
 .implements Landroid/view/animation/Animation$AnimationListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/leanback/widget/BaseCardView;->animateInfoHeight(Z)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
+.field public final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/BaseCardView;)V
+.method public constructor <init>(Landroidx/leanback/widget/BaseCardView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/BaseCardView$3;->this$0:Landroidx/leanback/widget/BaseCardView;
 
@@ -42,16 +23,8 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
+.method public final onAnimationEnd(Landroid/view/animation/Animation;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/widget/BaseCardView$3;->this$0:Landroidx/leanback/widget/BaseCardView;
 
@@ -98,30 +71,14 @@
     return-void
 .end method
 
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
+.method public final onAnimationRepeat(Landroid/view/animation/Animation;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
+.method public final onAnimationStart(Landroid/view/animation/Animation;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     return-void
 .end method

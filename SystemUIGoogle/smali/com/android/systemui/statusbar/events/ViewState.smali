@@ -1,43 +1,49 @@
-.class final Lcom/android/systemui/statusbar/events/ViewState;
+.class public final Lcom/android/systemui/statusbar/events/ViewState;
 .super Ljava/lang/Object;
 .source "PrivacyDotViewController.kt"
 
 
 # instance fields
-.field private final contentDescription:Ljava/lang/String;
+.field public final contentDescription:Ljava/lang/String;
 
-.field private final cornerIndex:I
+.field public final cornerIndex:I
 
-.field private final designatedCorner:Landroid/view/View;
+.field public final designatedCorner:Landroid/view/View;
 
-.field private final landscapeRect:Landroid/graphics/Rect;
+.field public final landscapeRect:Landroid/graphics/Rect;
 
-.field private final layoutRtl:Z
+.field public final layoutRtl:Z
 
-.field private final paddingTop:I
+.field public final paddingTop:I
 
-.field private final portraitRect:Landroid/graphics/Rect;
+.field public final portraitRect:Landroid/graphics/Rect;
 
-.field private final qsExpanded:Z
+.field public final qsExpanded:Z
 
-.field private final rotation:I
+.field public final rotation:I
 
-.field private final seascapeRect:Landroid/graphics/Rect;
+.field public final seascapeRect:Landroid/graphics/Rect;
 
-.field private final shadeExpanded:Z
+.field public final shadeExpanded:Z
 
-.field private final systemPrivacyEventIsActive:Z
+.field public final systemPrivacyEventIsActive:Z
 
-.field private final upsideDownRect:Landroid/graphics/Rect;
+.field public final upsideDownRect:Landroid/graphics/Rect;
 
-.field private final viewInitialized:Z
+.field public final viewInitialized:Z
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 17
+    .locals 0
 
-    move-object/from16 v0, p0
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public synthetic constructor <init>(I)V
+    .locals 15
 
     const/4 v1, 0x0
 
@@ -61,17 +67,15 @@
 
     const/4 v11, 0x0
 
-    const/4 v12, 0x0
+    const/4 v12, -0x1
 
     const/4 v13, 0x0
 
     const/4 v14, 0x0
 
-    const/16 v15, 0x3fff
+    move-object v0, p0
 
-    const/16 v16, 0x0
-
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/statusbar/events/ViewState;-><init>(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/events/ViewState;-><init>(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -112,213 +116,7 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 15
-
-    move/from16 v0, p15
-
-    and-int/lit8 v1, v0, 0x1
-
-    const/4 v2, 0x0
-
-    if-eqz v1, :cond_0
-
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_0
-    move/from16 v1, p1
-
-    :goto_0
-    and-int/lit8 v3, v0, 0x2
-
-    if-eqz v3, :cond_1
-
-    move v3, v2
-
-    goto :goto_1
-
-    :cond_1
-    move/from16 v3, p2
-
-    :goto_1
-    and-int/lit8 v4, v0, 0x4
-
-    if-eqz v4, :cond_2
-
-    move v4, v2
-
-    goto :goto_2
-
-    :cond_2
-    move/from16 v4, p3
-
-    :goto_2
-    and-int/lit8 v5, v0, 0x8
-
-    if-eqz v5, :cond_3
-
-    move v5, v2
-
-    goto :goto_3
-
-    :cond_3
-    move/from16 v5, p4
-
-    :goto_3
-    and-int/lit8 v6, v0, 0x10
-
-    const/4 v7, 0x0
-
-    if-eqz v6, :cond_4
-
-    move-object v6, v7
-
-    goto :goto_4
-
-    :cond_4
-    move-object/from16 v6, p5
-
-    :goto_4
-    and-int/lit8 v8, v0, 0x20
-
-    if-eqz v8, :cond_5
-
-    move-object v8, v7
-
-    goto :goto_5
-
-    :cond_5
-    move-object/from16 v8, p6
-
-    :goto_5
-    and-int/lit8 v9, v0, 0x40
-
-    if-eqz v9, :cond_6
-
-    move-object v9, v7
-
-    goto :goto_6
-
-    :cond_6
-    move-object/from16 v9, p7
-
-    :goto_6
-    and-int/lit16 v10, v0, 0x80
-
-    if-eqz v10, :cond_7
-
-    move-object v10, v7
-
-    goto :goto_7
-
-    :cond_7
-    move-object/from16 v10, p8
-
-    :goto_7
-    and-int/lit16 v11, v0, 0x100
-
-    if-eqz v11, :cond_8
-
-    move v11, v2
-
-    goto :goto_8
-
-    :cond_8
-    move/from16 v11, p9
-
-    :goto_8
-    and-int/lit16 v12, v0, 0x200
-
-    if-eqz v12, :cond_9
-
-    move v12, v2
-
-    goto :goto_9
-
-    :cond_9
-    move/from16 v12, p10
-
-    :goto_9
-    and-int/lit16 v13, v0, 0x400
-
-    if-eqz v13, :cond_a
-
-    goto :goto_a
-
-    :cond_a
-    move/from16 v2, p11
-
-    :goto_a
-    and-int/lit16 v13, v0, 0x800
-
-    if-eqz v13, :cond_b
-
-    const/4 v13, -0x1
-
-    goto :goto_b
-
-    :cond_b
-    move/from16 v13, p12
-
-    :goto_b
-    and-int/lit16 v14, v0, 0x1000
-
-    if-eqz v14, :cond_c
-
-    move-object v14, v7
-
-    goto :goto_c
-
-    :cond_c
-    move-object/from16 v14, p13
-
-    :goto_c
-    and-int/lit16 v0, v0, 0x2000
-
-    if-eqz v0, :cond_d
-
-    goto :goto_d
-
-    :cond_d
-    move-object/from16 v7, p14
-
-    :goto_d
-    move/from16 p1, v1
-
-    move/from16 p2, v3
-
-    move/from16 p3, v4
-
-    move/from16 p4, v5
-
-    move-object/from16 p5, v6
-
-    move-object/from16 p6, v8
-
-    move-object/from16 p7, v9
-
-    move-object/from16 p8, v10
-
-    move/from16 p9, v11
-
-    move/from16 p10, v12
-
-    move/from16 p11, v2
-
-    move/from16 p12, v13
-
-    move-object/from16 p13, v14
-
-    move-object/from16 p14, v7
-
-    invoke-direct/range {p0 .. p14}, Lcom/android/systemui/statusbar/events/ViewState;-><init>(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public static synthetic copy$default(Lcom/android/systemui/statusbar/events/ViewState;ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;ILjava/lang/Object;)Lcom/android/systemui/statusbar/events/ViewState;
+.method public static copy$default(Lcom/android/systemui/statusbar/events/ViewState;ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;I)Lcom/android/systemui/statusbar/events/ViewState;
     .locals 15
 
     move-object v0, p0
@@ -493,6 +291,12 @@
     move-object/from16 v1, p14
 
     :goto_d
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v0, Lcom/android/systemui/statusbar/events/ViewState;
+
+    move-object p0, v0
+
     move/from16 p1, v2
 
     move/from16 p2, v3
@@ -521,9 +325,7 @@
 
     move-object/from16 p14, v1
 
-    invoke-virtual/range {p0 .. p14}, Lcom/android/systemui/statusbar/events/ViewState;->copy(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;)Lcom/android/systemui/statusbar/events/ViewState;
-
-    move-result-object v0
+    invoke-direct/range {p0 .. p14}, Lcom/android/systemui/statusbar/events/ViewState;-><init>(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;)V
 
     return-object v0
 .end method
@@ -601,47 +403,7 @@
     return-object p0
 .end method
 
-.method public final copy(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;)Lcom/android/systemui/statusbar/events/ViewState;
-    .locals 16
-
-    new-instance v15, Lcom/android/systemui/statusbar/events/ViewState;
-
-    move-object v0, v15
-
-    move/from16 v1, p1
-
-    move/from16 v2, p2
-
-    move/from16 v3, p3
-
-    move/from16 v4, p4
-
-    move-object/from16 v5, p5
-
-    move-object/from16 v6, p6
-
-    move-object/from16 v7, p7
-
-    move-object/from16 v8, p8
-
-    move/from16 v9, p9
-
-    move/from16 v10, p10
-
-    move/from16 v11, p11
-
-    move/from16 v12, p12
-
-    move-object/from16 v13, p13
-
-    move-object/from16 v14, p14
-
-    invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/events/ViewState;-><init>(ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;)V
-
-    return-object v15
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -815,55 +577,7 @@
     return v0
 .end method
 
-.method public final getContentDescription()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->contentDescription:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public final getDesignatedCorner()Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->designatedCorner:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method public final getLayoutRtl()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->layoutRtl:Z
-
-    return p0
-.end method
-
-.method public final getPaddingTop()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
-
-    return p0
-.end method
-
-.method public final getRotation()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->rotation:I
-
-    return p0
-.end method
-
-.method public final getViewInitialized()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->viewInitialized:Z
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->viewInitialized:Z
@@ -1000,33 +714,23 @@
 
     iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->rotation:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    const/16 v2, 0x1f
 
-    move-result v1
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->paddingTop:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->cornerIndex:I
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
+    move-result v0
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->designatedCorner:Landroid/view/View;
 
@@ -1063,116 +767,14 @@
     return v0
 .end method
 
-.method public final needsLayout(Lcom/android/systemui/statusbar/events/ViewState;)Z
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    const-string v0, "other"
+    const-string v0, "ViewState(viewInitialized="
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->rotation:I
-
-    iget v1, p1, Lcom/android/systemui/statusbar/events/ViewState;->rotation:I
-
-    if-ne v0, v1, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->layoutRtl:Z
-
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/events/ViewState;->layoutRtl:Z
-
-    if-ne v0, v1, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->portraitRect:Landroid/graphics/Rect;
-
-    iget-object v1, p1, Lcom/android/systemui/statusbar/events/ViewState;->portraitRect:Landroid/graphics/Rect;
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->landscapeRect:Landroid/graphics/Rect;
-
-    iget-object v1, p1, Lcom/android/systemui/statusbar/events/ViewState;->landscapeRect:Landroid/graphics/Rect;
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->upsideDownRect:Landroid/graphics/Rect;
-
-    iget-object v1, p1, Lcom/android/systemui/statusbar/events/ViewState;->upsideDownRect:Landroid/graphics/Rect;
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->seascapeRect:Landroid/graphics/Rect;
-
-    iget-object p1, p1, Lcom/android/systemui/statusbar/events/ViewState;->seascapeRect:Landroid/graphics/Rect;
-
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method public final shouldShowDot()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->systemPrivacyEventIsActive:Z
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/events/ViewState;->shadeExpanded:Z
-
-    if-nez v0, :cond_0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/events/ViewState;->qsExpanded:Z
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "ViewState(viewInitialized="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/events/ViewState;->viewInitialized:Z
 

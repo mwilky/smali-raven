@@ -1,63 +1,46 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/systemui/statusbar/notification/row/NotificationInfo$OnSettingsClickListener;
+.implements Lcom/android/systemui/statusbar/notification/row/NotificationGuts$OnHeightChangedListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
 
-.field public final synthetic f$1:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
-
-.field public final synthetic f$2:Landroid/service/notification/StatusBarNotification;
-
-.field public final synthetic f$3:Ljava/lang/String;
-
-.field public final synthetic f$4:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+.field public final synthetic f$1:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/row/NotificationGuts;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$1:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
-
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$2:Landroid/service/notification/StatusBarNotification;
-
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$3:Ljava/lang/String;
-
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$4:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$1:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;Landroid/app/NotificationChannel;I)V
-    .locals 8
+.method public final onHeightChanged()V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$0:Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$1:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$1:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$2:Landroid/service/notification/StatusBarNotification;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$3:Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->isShown()Z
 
-    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager$$ExternalSyntheticLambda6;->f$4:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    move-result v1
 
-    move-object v5, p1
-
-    move-object v6, p2
-
-    move v7, p3
-
-    invoke-static/range {v0 .. v7}, Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;->$r8$lambda$ljDLW04MepoLonnNVMbG24TCEaM(Lcom/android/systemui/statusbar/notification/row/NotificationGutsManager;Lcom/android/systemui/statusbar/notification/row/NotificationGuts;Landroid/service/notification/StatusBarNotification;Ljava/lang/String;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Landroid/view/View;Landroid/app/NotificationChannel;I)V
+    invoke-interface {v0, p0, v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView$OnHeightChangedListener;->onHeightChanged(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
 
     return-void
 .end method

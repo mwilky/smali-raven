@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final keyguardLifecyclesDispatcherProvider:Ljavax/inject/Provider;
+.field public final keyguardLifecyclesDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final keyguardViewMediatorProvider:Ljavax/inject/Provider;
+.field public final keyguardViewMediatorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final shellTransitionsProvider:Ljavax/inject/Provider;
+.field public final shellTransitionsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,45 +78,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/KeyguardService_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/keyguard/KeyguardViewMediator;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/wm/shell/transition/ShellTransitions;",
-            ">;)",
-            "Lcom/android/systemui/keyguard/KeyguardService_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardService_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/keyguard/KeyguardService;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/keyguard/KeyguardService;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardService;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/keyguard/KeyguardService;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService_Factory;->keyguardViewMediatorProvider:Ljavax/inject/Provider;
 
@@ -142,19 +107,9 @@
 
     check-cast p0, Lcom/android/wm/shell/transition/ShellTransitions;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/keyguard/KeyguardService_Factory;->newInstance(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;)Lcom/android/systemui/keyguard/KeyguardService;
+    new-instance v2, Lcom/android/systemui/keyguard/KeyguardService;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/keyguard/KeyguardService;-><init>(Lcom/android/systemui/keyguard/KeyguardViewMediator;Lcom/android/systemui/keyguard/KeyguardLifecyclesDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardService_Factory;->get()Lcom/android/systemui/keyguard/KeyguardService;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v2
 .end method

@@ -17,5 +17,5 @@
 
 
 # virtual methods
-.method public abstract getVelocity()F
+.method public abstract getVelocity$1()F
 .end method

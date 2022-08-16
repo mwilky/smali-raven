@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$OnLoadRunnable;
+.class public final Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$OnLoadRunnable;
 .super Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$CallbackRunnable;
 .source "ControlsBindingControllerImpl.kt"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "OnLoadRunnable"
 .end annotation
 
 
 # instance fields
-.field private final callback:Lcom/android/systemui/controls/controller/ControlsBindingController$LoadCallback;
+.field public final callback:Lcom/android/systemui/controls/controller/ControlsBindingController$LoadCallback;
 
-.field private final list:Ljava/util/List;
+.field public final list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -27,41 +27,10 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;Landroid/os/IBinder;Ljava/util/List;Lcom/android/systemui/controls/controller/ControlsBindingController$LoadCallback;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/os/IBinder;",
-            "Ljava/util/List<",
-            "Landroid/service/controls/Control;",
-            ">;",
-            "Lcom/android/systemui/controls/controller/ControlsBindingController$LoadCallback;",
-            ")V"
-        }
-    .end annotation
-
-    const-string v0, "this$0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "token"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "list"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "callback"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$OnLoadRunnable;->this$0:Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;
+.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;Landroid/os/IBinder;Ljava/util/ArrayList;Lcom/android/systemui/controls/controller/ControlsBindingController$LoadCallback;)V
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl$CallbackRunnable;-><init>(Lcom/android/systemui/controls/controller/ControlsBindingControllerImpl;Landroid/os/IBinder;)V
 
@@ -74,7 +43,7 @@
 
 
 # virtual methods
-.method public doRun()V
+.method public final doRun()V
     .locals 2
 
     const-string v0, "ControlsBindingControllerImpl"

@@ -1,4 +1,4 @@
-.class abstract Landroidx/collection/IndexBasedArrayIterator;
+.class public abstract Landroidx/collection/IndexBasedArrayIterator;
 .super Ljava/lang/Object;
 .source "IndexBasedArrayIterator.java"
 
@@ -20,15 +20,15 @@
 
 
 # instance fields
-.field private mCanRemove:Z
+.field public mCanRemove:Z
 
-.field private mIndex:I
+.field public mIndex:I
 
-.field private mSize:I
+.field public mSize:I
 
 
 # direct methods
-.method constructor <init>(I)V
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -40,7 +40,7 @@
 
 
 # virtual methods
-.method protected abstract elementAt(I)Ljava/lang/Object;
+.method public abstract elementAt(I)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I)TT;"
@@ -68,7 +68,7 @@
     return p0
 .end method
 
-.method public next()Ljava/lang/Object;
+.method public final next()Ljava/lang/Object;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -108,7 +108,7 @@
     throw p0
 .end method
 
-.method public remove()V
+.method public final remove()V
     .locals 1
 
     iget-boolean v0, p0, Landroidx/collection/IndexBasedArrayIterator;->mCanRemove:Z
@@ -143,5 +143,5 @@
     throw p0
 .end method
 
-.method protected abstract removeAt(I)V
+.method public abstract removeAt(I)V
 .end method

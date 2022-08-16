@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$updateRange$1$2;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
@@ -31,14 +31,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior$updateRange$1$2;->this$0:Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->access$setRangeAnimator$p(Lcom/android/systemui/controls/ui/ToggleRangeBehavior;Landroid/animation/ValueAnimator;)V
+    iput-object p1, p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;->rangeAnimator:Landroid/animation/ValueAnimator;
 
     return-void
 .end method

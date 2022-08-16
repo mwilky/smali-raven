@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/qs/QuickStatusBarHeaderController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/qs/carrier/QSCarrierGroupController$OnSingleCarrierChangedListener;
@@ -27,7 +28,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setIsSingleCarrier(Z)V
+    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIsSingleCarrier:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateAlphaAnimator()V
 
     return-void
 .end method

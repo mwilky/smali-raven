@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/AboveShelfObserver;
+.class public final Lcom/android/systemui/statusbar/notification/AboveShelfObserver;
 .super Ljava/lang/Object;
 .source "AboveShelfObserver.java"
 
@@ -15,15 +15,15 @@
 
 
 # instance fields
-.field private mHasViewsAboveShelf:Z
+.field public mHasViewsAboveShelf:Z
 
-.field private final mHostLayout:Landroid/view/ViewGroup;
+.field public final mHostLayout:Landroid/view/ViewGroup;
 
-.field private mListener:Lcom/android/systemui/statusbar/notification/AboveShelfObserver$HasViewAboveShelfChangedListener;
+.field public mListener:Lcom/android/systemui/statusbar/notification/AboveShelfObserver$HasViewAboveShelfChangedListener;
 
 
 # direct methods
-.method public constructor <init>(Landroid/view/ViewGroup;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method hasViewsAboveShelf()Z
+.method public hasViewsAboveShelf()Z
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -49,7 +49,7 @@
     return p0
 .end method
 
-.method public onAboveShelfStateChanged(Z)V
+.method public final onAboveShelfStateChanged(Z)V
     .locals 4
 
     if-nez p1, :cond_1
@@ -106,16 +106,8 @@
 
     if-eqz p0, :cond_2
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/notification/AboveShelfObserver$HasViewAboveShelfChangedListener;->onHasViewsAboveShelfChanged(Z)V
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/notification/AboveShelfObserver$HasViewAboveShelfChangedListener;->onHasViewsAboveShelfChanged()V
 
     :cond_2
-    return-void
-.end method
-
-.method public setListener(Lcom/android/systemui/statusbar/notification/AboveShelfObserver$HasViewAboveShelfChangedListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/AboveShelfObserver;->mListener:Lcom/android/systemui/statusbar/notification/AboveShelfObserver$HasViewAboveShelfChangedListener;
-
     return-void
 .end method

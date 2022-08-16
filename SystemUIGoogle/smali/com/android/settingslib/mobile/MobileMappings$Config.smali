@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/mobile/MobileMappings$Config;
+.class public final Lcom/android/settingslib/mobile/MobileMappings$Config;
 .super Ljava/lang/Object;
 .source "MobileMappings.java"
 
@@ -27,6 +27,8 @@
 
 .field public show4gForLte:Z
 
+.field public show4glteForLte:Z
+
 .field public showAtLeast3G:Z
 
 
@@ -46,6 +48,8 @@
 
     iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4gForLte:Z
 
+    iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4glteForLte:Z
+
     iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->hideLtePlus:Z
 
     iput-boolean v0, p0, Lcom/android/settingslib/mobile/MobileMappings$Config;->alwaysShowDataRatIcon:Z
@@ -64,7 +68,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/settingslib/R$bool;->config_showMin3G:I
+    const v2, 0x7f050034
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -72,7 +76,7 @@
 
     iput-boolean v2, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->showAtLeast3G:Z
 
-    const v2, 0x1110023
+    const v2, 0x1110026
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -80,7 +84,7 @@
 
     iput-boolean v2, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->alwaysShowCdmaRssi:Z
 
-    sget v2, Lcom/android/settingslib/R$bool;->config_hspa_data_distinguishable:I
+    const v2, 0x7f05001c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -116,7 +120,7 @@
 
     iput-boolean v1, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->alwaysShowDataRatIcon:Z
 
-    const-string v1, "show_4g_for_lte_data_icon_bool"
+    const-string/jumbo v1, "show_4g_for_lte_data_icon_bool"
 
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 
@@ -124,7 +128,15 @@
 
     iput-boolean v1, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4gForLte:Z
 
-    const-string v1, "show_4g_for_3g_data_icon_bool"
+    const-string/jumbo v1, "show_4glte_for_lte_data_icon_bool"
+
+    invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    iput-boolean v1, v0, Lcom/android/settingslib/mobile/MobileMappings$Config;->show4glteForLte:Z
+
+    const-string/jumbo v1, "show_4g_for_3g_data_icon_bool"
 
     invoke-virtual {p0, v1}, Landroid/os/PersistableBundle;->getBoolean(Ljava/lang/String;)Z
 

@@ -1,6 +1,9 @@
-.class Lcom/android/systemui/statusbar/KeyguardIndicationController$5;
-.super Landroid/os/Handler;
+.class public final Lcom/android/systemui/statusbar/KeyguardIndicationController$5;
+.super Ljava/lang/Object;
 .source "KeyguardIndicationController.java"
+
+# interfaces
+.implements Lcom/android/systemui/plugins/statusbar/StatusBarStateController$StateListener;
 
 
 # annotations
@@ -9,64 +12,72 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public final onDozingChanged(Z)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    iget-boolean v1, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
+
+    if-ne v1, p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iput-boolean p1, v0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mDozing:Z
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->hideBiometricMessage()V
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->updateDeviceEntryIndication(Z)V
+
+    return-void
+.end method
+
+.method public final onStateChanged(I)V
     .locals 1
 
-    iget p1, p1, Landroid/os/Message;->what:I
+    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
 
     const/4 v0, 0x1
 
     if-ne p1, v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->hideTransientIndication()V
-
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x2
+    const/4 v0, 0x0
 
-    if-ne p1, v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->showActionToUnlock()V
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x3
-
-    if-ne p1, v0, :cond_2
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController$5;->this$0:Lcom/android/systemui/statusbar/KeyguardIndicationController;
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->access$400(Lcom/android/systemui/statusbar/KeyguardIndicationController;)V
-
-    :cond_2
     :goto_0
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->setVisible(Z)V
+
     return-void
 .end method

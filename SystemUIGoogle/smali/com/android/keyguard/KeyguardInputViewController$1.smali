@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardInputViewController$1;
+.class public final Lcom/android/keyguard/KeyguardInputViewController$1;
 .super Ljava/lang/Object;
 .source "KeyguardInputViewController.java"
 
@@ -12,20 +12,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardInputViewController;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardInputViewController;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardInputViewController$1;->this$0:Lcom/android/keyguard/KeyguardInputViewController;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,37 +28,37 @@
 
 
 # virtual methods
-.method public dismiss(ZI)V
+.method public final dismiss(I)V
     .locals 0
 
     return-void
 .end method
 
-.method public dismiss(ZIZ)V
+.method public final dismiss(IZ)V
     .locals 0
 
     return-void
 .end method
 
-.method public onUserInput()V
+.method public final onUserInput()V
     .locals 0
 
     return-void
 .end method
 
-.method public reportUnlockAttempt(IZI)V
+.method public final reportUnlockAttempt(IIZ)V
     .locals 0
 
     return-void
 .end method
 
-.method public reset()V
+.method public final reset()V
     .locals 0
 
     return-void
 .end method
 
-.method public userActivity()V
+.method public final userActivity()V
     .locals 0
 
     return-void

@@ -25,11 +25,3 @@
 
     return-void
 .end method
-
-
-# virtual methods
-.method public onPageScrollStateChanged(I)V
-    .locals 0
-
-    return-void
-.end method

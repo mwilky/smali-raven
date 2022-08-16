@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardSecurityContainerController$1;
+.class public final Lcom/android/keyguard/KeyguardSecurityContainerController$1;
 .super Ljava/lang/Object;
 .source "KeyguardSecurityContainerController.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field private mTouchDown:Landroid/view/MotionEvent;
+.field public mTouchDown:Landroid/view/MotionEvent;
 
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardSecurityContainerController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
@@ -36,7 +36,7 @@
 
 
 # virtual methods
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
     const/4 p0, 0x0
@@ -44,8 +44,8 @@
     return p0
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 5
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
@@ -53,27 +53,21 @@
 
     const/4 v1, 0x0
 
+    const/4 v2, 0x1
+
     if-nez v0, :cond_4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$000(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
+    iget-object v0, v0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    move-result-object v0
+    move-object v3, v0
 
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
+    check-cast v3, Lcom/android/keyguard/KeyguardSecurityContainer;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->isOneHandedMode()Z
+    iget v3, v3, Lcom/android/keyguard/KeyguardSecurityContainer;->mCurrentMode:I
 
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$100(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-
-    move-result-object v0
+    if-ne v3, v2, :cond_2
 
     check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
 
@@ -87,41 +81,27 @@
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v0
-
-    iget-object v3, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
-
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$200(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v3}, Landroid/widget/FrameLayout;->getWidth()I
-
     move-result v3
 
-    int-to-float v3, v3
+    iget-object v4, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    div-float/2addr v3, v2
+    iget-object v4, v4, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    cmpl-float v0, v0, v3
+    check-cast v4, Lcom/android/keyguard/KeyguardSecurityContainer;
 
-    if-gtz v0, :cond_1
+    invoke-virtual {v4}, Landroid/widget/FrameLayout;->getWidth()I
+
+    move-result v4
+
+    int-to-float v4, v4
+
+    div-float/2addr v4, v2
+
+    cmpl-float v3, v3, v4
+
+    if-gtz v3, :cond_1
 
     :cond_0
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
-
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$300(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/keyguard/KeyguardSecurityContainer;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardSecurityContainer;->isOneHandedModeLeftAligned()Z
-
-    move-result v0
-
     if-nez v0, :cond_2
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
@@ -130,9 +110,7 @@
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {v3}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$400(Lcom/android/keyguard/KeyguardSecurityContainerController;)Landroid/view/View;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast v3, Lcom/android/keyguard/KeyguardSecurityContainer;
 
@@ -151,9 +129,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$1;->this$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->access$500(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/systemui/classifier/FalsingCollector;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardSecurityContainerController;->mFalsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
     invoke-interface {v0}, Lcom/android/systemui/classifier/FalsingCollector;->avoidGesture()V
 
@@ -183,8 +159,6 @@
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
-
-    const/4 v2, 0x1
 
     if-eq v0, v2, :cond_5
 

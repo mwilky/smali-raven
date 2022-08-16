@@ -16,6 +16,10 @@
         <item quantity="other">已添加 %s 个控件。</item>
         <item quantity="one">已添加 %s 个控件。</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s 个应用正在运行</item>
+        <item quantity="one">%s 个应用正在运行</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">请输入 SIM 卡 PIN 码，您还可以尝试 %d 次。</item>
         <item quantity="one">请输入 SIM 卡 PIN 码，您还可以尝试 %d 次。如果仍不正确，则需要联系运营商帮您解锁设备。</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">SIM 卡 PUK 码不正确，您还有 %d 次尝试机会。如果仍不正确，SIM 卡将永远无法使用。</item>
         <item quantity="one">SIM 卡 PUK 码不正确，您还有 %d 次尝试机会。如果仍不正确，SIM 卡将永远无法使用。</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">请在 %d 秒后重试。</item>
-        <item quantity="one">请在 1 秒后重试。</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d 条新通知</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">您最多可以添加 %d 位用户。</item>
         <item quantity="one">您只能创建一位用户。</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">已连接 %1$d 个设备</item>
-        <item quantity="one">已连接 %1$d 个设备</item>
     </plurals>
 </resources>

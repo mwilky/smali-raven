@@ -12,9 +12,9 @@
 
 
 # instance fields
-.field private mDisabledByPolicy:Z
+.field public mDisabledByPolicy:Z
 
-.field private mMaxTiles:I
+.field public mMaxTiles:I
 
 
 # direct methods
@@ -27,7 +27,7 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/systemui/R$integer;->quick_qs_panel_max_tiles:I
+    const p2, 0x7f0c00c1
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -40,7 +40,7 @@
 
 
 # virtual methods
-.method protected closePanelEvent()Lcom/android/systemui/qs/QSEvent;
+.method public final closePanelEvent()Lcom/android/systemui/qs/QSEvent;
     .locals 0
 
     sget-object p0, Lcom/android/systemui/qs/QSEvent;->QQS_PANEL_COLLAPSED:Lcom/android/systemui/qs/QSEvent;
@@ -48,42 +48,36 @@
     return-object p0
 .end method
 
-.method protected displayMediaMarginsOnMedia()Z
+.method public final drawTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;Lcom/android/systemui/plugins/qs/QSTile$State;)V
     .locals 0
 
-    const/4 p0, 0x0
+    instance-of p0, p2, Lcom/android/systemui/plugins/qs/QSTile$SignalState;
 
-    return p0
-.end method
+    if-eqz p0, :cond_0
 
-.method protected drawTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;Lcom/android/systemui/plugins/qs/QSTile$State;)V
-    .locals 1
+    new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;
 
-    instance-of v0, p2, Lcom/android/systemui/plugins/qs/QSTile$SignalState;
+    invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$SignalState;-><init>()V
 
-    if-eqz v0, :cond_0
-
-    new-instance v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;
-
-    invoke-direct {v0}, Lcom/android/systemui/plugins/qs/QSTile$SignalState;-><init>()V
-
-    invoke-virtual {p2, v0}, Lcom/android/systemui/plugins/qs/QSTile$State;->copyTo(Lcom/android/systemui/plugins/qs/QSTile$State;)Z
+    invoke-virtual {p2, p0}, Lcom/android/systemui/plugins/qs/QSTile$State;->copyTo(Lcom/android/systemui/plugins/qs/QSTile$State;)Z
 
     const/4 p2, 0x0
 
-    iput-boolean p2, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityIn:Z
+    iput-boolean p2, p0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityIn:Z
 
-    iput-boolean p2, v0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityOut:Z
+    iput-boolean p2, p0, Lcom/android/systemui/plugins/qs/QSTile$SignalState;->activityOut:Z
 
-    move-object p2, v0
+    move-object p2, p0
 
     :cond_0
-    invoke-super {p0, p1, p2}, Lcom/android/systemui/qs/QSPanel;->drawTile(Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;Lcom/android/systemui/plugins/qs/QSTile$State;)V
+    iget-object p0, p1, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/plugins/qs/QSTileView;->onStateChanged(Lcom/android/systemui/plugins/qs/QSTile$State;)V
 
     return-void
 .end method
 
-.method protected getDumpableTag()Ljava/lang/String;
+.method public final getDumpableTag()Ljava/lang/String;
     .locals 0
 
     const-string p0, "QuickQSPanel"
@@ -91,25 +85,7 @@
     return-object p0
 .end method
 
-.method public getNumQuickTiles()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/qs/QuickQSPanel;->mMaxTiles:I
-
-    return p0
-.end method
-
-.method public bridge synthetic getOrCreateTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->getOrCreateTileLayout()Lcom/android/systemui/qs/TileLayout;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getOrCreateTileLayout()Lcom/android/systemui/qs/TileLayout;
+.method public final getOrCreateTileLayout()Lcom/android/systemui/qs/QSPanel$QSTileLayout;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/qs/QuickQSPanel$QQSSideLabelTileLayout;
@@ -121,35 +97,26 @@
     return-object v0
 .end method
 
-.method initialize()V
-    .locals 1
+.method public final onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
+    .locals 0
 
-    invoke-super {p0}, Lcom/android/systemui/qs/QSPanel;->initialize()V
+    invoke-super {p0, p1}, Lcom/android/systemui/qs/QSPanel;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanel;->mHorizontalContentContainer:Landroid/widget/LinearLayout;
+    sget-object p0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_COLLAPSE:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
-    if-eqz p0, :cond_0
+    invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->removeAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)Z
 
-    const/4 v0, 0x0
+    sget-object p0, Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;->ACTION_EXPAND:Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;
 
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
+    invoke-virtual {p1, p0}, Landroid/view/accessibility/AccessibilityNodeInfo;->addAction(Landroid/view/accessibility/AccessibilityNodeInfo$AccessibilityAction;)V
 
-    :cond_0
     return-void
 .end method
 
-.method protected mediaNeedsTopMargin()Z
+.method public final onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method public onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 0
-
-    const-string p2, "qs_show_brightness"
+    const-string/jumbo p2, "qs_show_brightness"
 
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -165,7 +132,7 @@
     return-void
 .end method
 
-.method protected openPanelEvent()Lcom/android/systemui/qs/QSEvent;
+.method public final openPanelEvent()Lcom/android/systemui/qs/QSEvent;
     .locals 0
 
     sget-object p0, Lcom/android/systemui/qs/QSEvent;->QQS_PANEL_EXPANDED:Lcom/android/systemui/qs/QSEvent;
@@ -173,40 +140,23 @@
     return-object p0
 .end method
 
-.method setDisabledByPolicy(Z)V
-    .locals 1
+.method public final setHorizontalContentContainerClipping()V
+    .locals 2
 
-    iget-boolean v0, p0, Lcom/android/systemui/qs/QuickQSPanel;->mDisabledByPolicy:Z
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanel;->mHorizontalContentContainer:Lcom/android/internal/widget/RemeasuringLinearLayout;
 
-    if-eq p1, v0, :cond_1
+    const/4 v1, 0x0
 
-    iput-boolean p1, p0, Lcom/android/systemui/qs/QuickQSPanel;->mDisabledByPolicy:Z
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setClipToPadding(Z)V
 
-    if-eqz p1, :cond_0
+    iget-object p0, p0, Lcom/android/systemui/qs/QSPanel;->mHorizontalContentContainer:Lcom/android/internal/widget/RemeasuringLinearLayout;
 
-    const/16 p1, 0x8
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    :goto_0
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/QuickQSPanel;->setVisibility(I)V
-
-    :cond_1
-    return-void
-.end method
-
-.method public setMaxTiles(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/qs/QuickQSPanel;->mMaxTiles:I
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->setClipChildren(Z)V
 
     return-void
 .end method
 
-.method public setVisibility(I)V
+.method public final setVisibility(I)V
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QuickQSPanel;->mDisabledByPolicy:Z
@@ -232,18 +182,32 @@
     return-void
 .end method
 
-.method protected shouldShowDetail()Z
-    .locals 0
+.method public final updatePadding()V
+    .locals 4
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/QSPanel;->mExpanded:Z
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
-    xor-int/lit8 p0, p0, 0x1
+    move-result-object v0
 
-    return p0
-.end method
+    const v1, 0x7f070695
 
-.method protected updatePadding()V
-    .locals 0
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v0
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getPaddingStart()I
+
+    move-result v1
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getPaddingTop()I
+
+    move-result v2
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getPaddingEnd()I
+
+    move-result v3
+
+    invoke-virtual {p0, v1, v2, v3, v0}, Landroid/widget/LinearLayout;->setPaddingRelative(IIII)V
 
     return-void
 .end method

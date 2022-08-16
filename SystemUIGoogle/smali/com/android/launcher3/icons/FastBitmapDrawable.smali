@@ -2,6 +2,9 @@
 .super Landroid/graphics/drawable/Drawable;
 .source "FastBitmapDrawable.java"
 
+# interfaces
+.implements Landroid/graphics/drawable/Drawable$Callback;
+
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
@@ -12,96 +15,71 @@
 
 
 # static fields
-.field private static final ACCEL:Landroid/view/animation/Interpolator;
+.field public static final ACCEL:Landroid/view/animation/AccelerateInterpolator;
 
-.field private static final DEACCEL:Landroid/view/animation/Interpolator;
+.field public static final DEACCEL:Landroid/view/animation/DecelerateInterpolator;
 
-.field private static final SCALE:Landroid/util/Property;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/Property<",
-            "Lcom/android/launcher3/icons/FastBitmapDrawable;",
-            "Ljava/lang/Float;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private static sDisabledFColorFilter:Landroid/graphics/ColorFilter;
+.field public static final SCALE:Lcom/android/launcher3/icons/FastBitmapDrawable$1;
 
 
 # instance fields
-.field private mAlpha:I
+.field public mAlpha:I
 
-.field protected mBitmap:Landroid/graphics/Bitmap;
+.field public mBadge:Landroid/graphics/drawable/Drawable;
 
-.field private mColorFilter:Landroid/graphics/ColorFilter;
+.field public final mBitmap:Landroid/graphics/Bitmap;
 
-.field mDisabledAlpha:F
+.field public mColorFilter:Landroid/graphics/ColorFilter;
 
-.field protected final mIconColor:I
+.field public mDisabledAlpha:F
 
-.field protected mIsDisabled:Z
+.field public final mIconColor:I
 
-.field private mIsPressed:Z
+.field public mIsDisabled:Z
 
-.field protected final mPaint:Landroid/graphics/Paint;
+.field public mIsPressed:Z
 
-.field private mScale:F
+.field public final mPaint:Landroid/graphics/Paint;
 
-.field private mScaleAnimation:Landroid/animation/ObjectAnimator;
+.field public mScale:F
+
+.field public mScaleAnimation:Landroid/animation/ObjectAnimator;
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 3
+    .locals 1
 
     new-instance v0, Landroid/view/animation/AccelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
 
-    sput-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->ACCEL:Landroid/view/animation/Interpolator;
+    sput-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->ACCEL:Landroid/view/animation/AccelerateInterpolator;
 
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
 
-    sput-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->DEACCEL:Landroid/view/animation/Interpolator;
+    sput-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->DEACCEL:Landroid/view/animation/DecelerateInterpolator;
 
     new-instance v0, Lcom/android/launcher3/icons/FastBitmapDrawable$1;
 
-    sget-object v1, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    invoke-direct {v0}, Lcom/android/launcher3/icons/FastBitmapDrawable$1;-><init>()V
 
-    const-string v2, "scale"
-
-    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/icons/FastBitmapDrawable$1;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
-
-    sput-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->SCALE:Landroid/util/Property;
+    sput-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->SCALE:Lcom/android/launcher3/icons/FastBitmapDrawable$1;
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/graphics/Bitmap;)V
-    .locals 1
+.method public constructor <init>()V
+    .locals 0
 
-    const/4 v0, 0x0
+    const/4 p0, 0x0
 
-    invoke-direct {p0, p1, v0}, Lcom/android/launcher3/icons/FastBitmapDrawable;-><init>(Landroid/graphics/Bitmap;I)V
-
-    return-void
+    throw p0
 .end method
 
-.method protected constructor <init>(Landroid/graphics/Bitmap;I)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/launcher3/icons/FastBitmapDrawable;-><init>(Landroid/graphics/Bitmap;IZ)V
-
-    return-void
-.end method
-
-.method protected constructor <init>(Landroid/graphics/Bitmap;IZ)V
+.method public constructor <init>(Landroid/graphics/Bitmap;I)V
     .locals 2
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -132,49 +110,10 @@
 
     invoke-virtual {p0, p1}, Lcom/android/launcher3/icons/FastBitmapDrawable;->setFilterBitmap(Z)V
 
-    invoke-virtual {p0, p3}, Lcom/android/launcher3/icons/FastBitmapDrawable;->setIsDisabled(Z)V
-
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/launcher3/icons/FastBitmapDrawable;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mScale:F
-
-    return p0
-.end method
-
-.method static synthetic access$002(Lcom/android/launcher3/icons/FastBitmapDrawable;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mScale:F
-
-    return p1
-.end method
-
-.method private getDisabledColorFilter()Landroid/graphics/ColorFilter;
-    .locals 1
-
-    sget-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->sDisabledFColorFilter:Landroid/graphics/ColorFilter;
-
-    if-nez v0, :cond_0
-
-    iget p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mDisabledAlpha:F
-
-    invoke-static {p0}, Lcom/android/launcher3/icons/FastBitmapDrawable;->getDisabledFColorFilter(F)Landroid/graphics/ColorFilter;
-
-    move-result-object p0
-
-    sput-object p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->sDisabledFColorFilter:Landroid/graphics/ColorFilter;
-
-    :cond_0
-    sget-object p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->sDisabledFColorFilter:Landroid/graphics/ColorFilter;
-
-    return-object p0
-.end method
-
-.method public static getDisabledFColorFilter(F)Landroid/graphics/ColorFilter;
+.method public static getDisabledColorFilter(F)Landroid/graphics/ColorMatrixColorFilter;
     .locals 5
 
     new-instance v0, Landroid/graphics/ColorMatrix;
@@ -247,7 +186,7 @@
 
     cmpl-float v0, v0, v1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
@@ -271,22 +210,36 @@
 
     invoke-virtual {p0, p1, v1}, Lcom/android/launcher3/icons/FastBitmapDrawable;->drawInternal(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
 
+    iget-object p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    :cond_0
     invoke-virtual {p1, v0}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0
 
     invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/icons/FastBitmapDrawable;->drawInternal(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
 
+    iget-object p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-eqz p0, :cond_2
+
+    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    :cond_2
     :goto_0
     return-void
 .end method
 
-.method protected drawInternal(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
+.method public drawInternal(Landroid/graphics/Canvas;Landroid/graphics/Rect;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -300,7 +253,7 @@
     return-void
 .end method
 
-.method public getAlpha()I
+.method public final getAlpha()I
     .locals 0
 
     iget p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mAlpha:I
@@ -308,7 +261,7 @@
     return p0
 .end method
 
-.method public getColorFilter()Landroid/graphics/ColorFilter;
+.method public final getColorFilter()Landroid/graphics/ColorFilter;
     .locals 0
 
     iget-object p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -320,23 +273,32 @@
     return-object p0
 .end method
 
-.method public getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
-    .locals 3
+.method public final getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+    .locals 2
 
-    new-instance v0, Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;
+    invoke-virtual {p0}, Lcom/android/launcher3/icons/FastBitmapDrawable;->newConstantState()Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;
 
-    iget-object v1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
+    move-result-object v0
 
-    iget v2, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mIconColor:I
+    iget-boolean v1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mIsDisabled:Z
 
-    iget-boolean p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mIsDisabled:Z
+    iput-boolean v1, v0, Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;->mIsDisabled:Z
 
-    invoke-direct {v0, v1, v2, p0}, Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;-><init>(Landroid/graphics/Bitmap;IZ)V
+    iget-object p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
 
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getConstantState()Landroid/graphics/drawable/Drawable$ConstantState;
+
+    move-result-object p0
+
+    iput-object p0, v0, Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;->mBadgeConstantState:Landroid/graphics/drawable/Drawable$ConstantState;
+
+    :cond_0
     return-object v0
 .end method
 
-.method public getIntrinsicHeight()I
+.method public final getIntrinsicHeight()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -348,7 +310,7 @@
     return p0
 .end method
 
-.method public getIntrinsicWidth()I
+.method public final getIntrinsicWidth()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
@@ -360,7 +322,7 @@
     return p0
 .end method
 
-.method public getMinimumHeight()I
+.method public final getMinimumHeight()I
     .locals 0
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -374,7 +336,7 @@
     return p0
 .end method
 
-.method public getMinimumWidth()I
+.method public final getMinimumWidth()I
     .locals 0
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
@@ -388,7 +350,7 @@
     return p0
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, -0x3
@@ -396,7 +358,20 @@
     return p0
 .end method
 
-.method public isStateful()Z
+.method public final invalidateDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-ne p1, v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final isStateful()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -404,7 +379,58 @@
     return p0
 .end method
 
-.method protected onStateChange([I)Z
+.method public newConstantState()Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;
+    .locals 2
+
+    new-instance v0, Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;
+
+    iget-object v1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
+
+    iget p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mIconColor:I
+
+    invoke-direct {v0, v1, p0}, Lcom/android/launcher3/icons/FastBitmapDrawable$FastBitmapConstantState;-><init>(Landroid/graphics/Bitmap;I)V
+
+    return-object v0
+.end method
+
+.method public onBoundsChange(Landroid/graphics/Rect;)V
+    .locals 3
+
+    invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onBoundsChange(Landroid/graphics/Rect;)V
+
+    iget-object p0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result v0
+
+    sget v1, Lcom/android/launcher3/icons/BaseIconFactory;->PLACEHOLDER_BACKGROUND_COLOR:I
+
+    int-to-float v0, v0
+
+    const v1, 0x3ee353f8    # 0.444f
+
+    mul-float/2addr v0, v1
+
+    float-to-int v0, v0
+
+    iget v1, p1, Landroid/graphics/Rect;->right:I
+
+    sub-int v2, v1, v0
+
+    iget p1, p1, Landroid/graphics/Rect;->bottom:I
+
+    sub-int v0, p1, v0
+
+    invoke-virtual {p0, v2, v0, v1, p1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final onStateChange([I)Z
     .locals 6
 
     array-length v0, p1
@@ -460,7 +486,7 @@
 
     if-eqz p1, :cond_3
 
-    sget-object p1, Lcom/android/launcher3/icons/FastBitmapDrawable;->SCALE:Landroid/util/Property;
+    sget-object p1, Lcom/android/launcher3/icons/FastBitmapDrawable;->SCALE:Lcom/android/launcher3/icons/FastBitmapDrawable$1;
 
     new-array v0, v3, [F
 
@@ -478,7 +504,7 @@
 
     iget-object p1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mScaleAnimation:Landroid/animation/ObjectAnimator;
 
-    sget-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->ACCEL:Landroid/view/animation/Interpolator;
+    sget-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->ACCEL:Landroid/view/animation/AccelerateInterpolator;
 
     invoke-virtual {p1, v0}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -497,7 +523,7 @@
 
     if-eqz p1, :cond_4
 
-    sget-object p1, Lcom/android/launcher3/icons/FastBitmapDrawable;->SCALE:Landroid/util/Property;
+    sget-object p1, Lcom/android/launcher3/icons/FastBitmapDrawable;->SCALE:Lcom/android/launcher3/icons/FastBitmapDrawable$1;
 
     new-array v2, v3, [F
 
@@ -513,7 +539,7 @@
 
     iget-object p1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mScaleAnimation:Landroid/animation/ObjectAnimator;
 
-    sget-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->DEACCEL:Landroid/view/animation/Interpolator;
+    sget-object v0, Lcom/android/launcher3/icons/FastBitmapDrawable;->DEACCEL:Landroid/view/animation/DecelerateInterpolator;
 
     invoke-virtual {p1, v0}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -535,7 +561,20 @@
     return v1
 .end method
 
-.method public setAlpha(I)V
+.method public final scheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;J)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-ne p1, v0, :cond_0
+
+    invoke-virtual {p0, p2, p3, p4}, Landroid/graphics/drawable/Drawable;->scheduleSelf(Ljava/lang/Runnable;J)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public final setAlpha(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mAlpha:I
@@ -554,7 +593,64 @@
     return-void
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setBadge(Landroid/graphics/drawable/Drawable;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
+
+    :cond_0
+    iput-object p1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object p1
+
+    iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_2
+
+    invoke-virtual {p1}, Landroid/graphics/Rect;->width()I
+
+    move-result v1
+
+    sget v2, Lcom/android/launcher3/icons/BaseIconFactory;->PLACEHOLDER_BACKGROUND_COLOR:I
+
+    int-to-float v1, v1
+
+    const v2, 0x3ee353f8    # 0.444f
+
+    mul-float/2addr v1, v2
+
+    float-to-int v1, v1
+
+    iget v2, p1, Landroid/graphics/Rect;->right:I
+
+    sub-int v3, v2, v1
+
+    iget p1, p1, Landroid/graphics/Rect;->bottom:I
+
+    sub-int v1, p1, v1
+
+    invoke-virtual {v0, v3, v1, v2, p1}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/launcher3/icons/FastBitmapDrawable;->updateFilter()V
+
+    return-void
+.end method
+
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mColorFilter:Landroid/graphics/ColorFilter;
@@ -564,7 +660,7 @@
     return-void
 .end method
 
-.method public setFilterBitmap(Z)V
+.method public final setFilterBitmap(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -578,22 +674,15 @@
     return-void
 .end method
 
-.method public setIsDisabled(Z)V
-    .locals 1
+.method public final unscheduleDrawable(Landroid/graphics/drawable/Drawable;Ljava/lang/Runnable;)V
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mIsDisabled:Z
+    invoke-virtual {p0, p2}, Landroid/graphics/drawable/Drawable;->unscheduleSelf(Ljava/lang/Runnable;)V
 
-    if-eq v0, p1, :cond_0
-
-    iput-boolean p1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mIsDisabled:Z
-
-    invoke-virtual {p0}, Lcom/android/launcher3/icons/FastBitmapDrawable;->updateFilter()V
-
-    :cond_0
     return-void
 .end method
 
-.method protected updateFilter()V
+.method public updateFilter()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mPaint:Landroid/graphics/Paint;
@@ -602,7 +691,9 @@
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/launcher3/icons/FastBitmapDrawable;->getDisabledColorFilter()Landroid/graphics/ColorFilter;
+    iget v1, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mDisabledAlpha:F
+
+    invoke-static {v1}, Lcom/android/launcher3/icons/FastBitmapDrawable;->getDisabledColorFilter(F)Landroid/graphics/ColorMatrixColorFilter;
 
     move-result-object v1
 
@@ -614,6 +705,17 @@
     :goto_0
     invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColorFilter(Landroid/graphics/ColorFilter;)Landroid/graphics/ColorFilter;
 
+    iget-object v0, p0, Lcom/android/launcher3/icons/FastBitmapDrawable;->mBadge:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/icons/FastBitmapDrawable;->getColorFilter()Landroid/graphics/ColorFilter;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
+
+    :cond_1
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     return-void

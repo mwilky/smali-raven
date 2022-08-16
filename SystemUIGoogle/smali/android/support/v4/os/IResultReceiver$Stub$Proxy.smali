@@ -1,4 +1,4 @@
-.class Landroid/support/v4/os/IResultReceiver$Stub$Proxy;
+.class public final Landroid/support/v4/os/IResultReceiver$Stub$Proxy;
 .super Ljava/lang/Object;
 .source "IResultReceiver.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Proxy"
 .end annotation
 
 
 # instance fields
-.field private mRemote:Landroid/os/IBinder;
+.field public mRemote:Landroid/os/IBinder;
 
 
 # direct methods
-.method constructor <init>(Landroid/os/IBinder;)V
+.method public constructor <init>(Landroid/os/IBinder;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "remote"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,7 +34,7 @@
 
 
 # virtual methods
-.method public asBinder()Landroid/os/IBinder;
+.method public final asBinder()Landroid/os/IBinder;
     .locals 0
 
     iget-object p0, p0, Landroid/support/v4/os/IResultReceiver$Stub$Proxy;->mRemote:Landroid/os/IBinder;

@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/BaseCardView$AnimationBase;
+.class public Landroidx/leanback/widget/BaseCardView$AnimationBase;
 .super Landroid/view/animation/Animation;
 .source "BaseCardView.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "AnimationBase"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
+.field public final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/BaseCardView;)V
+.method public constructor <init>(Landroidx/leanback/widget/BaseCardView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/BaseCardView$AnimationBase;->this$0:Landroidx/leanback/widget/BaseCardView;
 
@@ -39,7 +31,7 @@
 
 
 # virtual methods
-.method final mockEnd()V
+.method public final mockEnd()V
     .locals 2
 
     const/high16 v0, 0x3f800000    # 1.0f
@@ -55,7 +47,7 @@
     return-void
 .end method
 
-.method final mockStart()V
+.method public final mockStart()V
     .locals 3
 
     const-wide/16 v0, 0x0

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final executorProvider:Ljavax/inject/Provider;
+.field public final executorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,17 +28,7 @@
     .end annotation
 .end field
 
-.field private final qqsFooterActionsViewProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/FooterActionsView;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final qsExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
+.field public final qsExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,17 +38,7 @@
     .end annotation
 .end field
 
-.field private final qsFooterActionsViewProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/FooterActionsView;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final qsPanelControllerProvider:Ljavax/inject/Provider;
+.field public final qsPanelControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final qsProvider:Ljavax/inject/Provider;
+.field public final qsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final qsTileHostProvider:Ljavax/inject/Provider;
+.field public final qsTileHostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final quickPanelProvider:Ljavax/inject/Provider;
+.field public final quickPanelProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final quickQSPanelControllerProvider:Ljavax/inject/Provider;
+.field public final quickQSPanelControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final quickStatusBarHeaderProvider:Ljavax/inject/Provider;
+.field public final quickStatusBarHeaderProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -118,17 +98,7 @@
     .end annotation
 .end field
 
-.field private final securityFooterProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSSecurityFooter;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final tunerServiceProvider:Ljavax/inject/Provider;
+.field public final tunerServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -140,7 +110,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -164,9 +134,6 @@
             "Lcom/android/systemui/qs/QSTileHost;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSSecurityFooter;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -174,12 +141,6 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/QSExpansionPathInterpolator;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/FooterActionsView;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/FooterActionsView;",
             ">;)V"
         }
     .end annotation
@@ -198,23 +159,17 @@
 
     iput-object p6, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsTileHostProvider:Ljavax/inject/Provider;
 
-    iput-object p7, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->securityFooterProvider:Ljavax/inject/Provider;
+    iput-object p7, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->executorProvider:Ljavax/inject/Provider;
 
-    iput-object p8, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->executorProvider:Ljavax/inject/Provider;
+    iput-object p8, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
 
-    iput-object p9, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
-
-    iput-object p10, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
-
-    iput-object p11, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsFooterActionsViewProvider:Ljavax/inject/Provider;
-
-    iput-object p12, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qqsFooterActionsViewProvider:Ljavax/inject/Provider;
+    iput-object p9, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QSAnimator_Factory;
-    .locals 14
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QSAnimator_Factory;
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -237,9 +192,6 @@
             "Lcom/android/systemui/qs/QSTileHost;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSSecurityFooter;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Ljava/util/concurrent/Executor;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -247,30 +199,24 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/QSExpansionPathInterpolator;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/FooterActionsView;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/FooterActionsView;",
             ">;)",
             "Lcom/android/systemui/qs/QSAnimator_Factory;"
         }
     .end annotation
 
-    new-instance v13, Lcom/android/systemui/qs/QSAnimator_Factory;
+    new-instance v10, Lcom/android/systemui/qs/QSAnimator_Factory;
 
-    move-object v0, v13
+    move-object v0, v10
 
     move-object v1, p0
 
     move-object v2, p1
 
-    move-object/from16 v3, p2
+    move-object v3, p2
 
-    move-object/from16 v4, p3
+    move-object v4, p3
 
-    move-object/from16 v5, p4
+    move-object v5, p4
 
     move-object/from16 v6, p5
 
@@ -280,59 +226,15 @@
 
     move-object/from16 v9, p8
 
-    move-object/from16 v10, p9
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/QSAnimator_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/qs/QSAnimator_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v13
-.end method
-
-.method public static newInstance(Lcom/android/systemui/plugins/qs/QS;Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/QSTileHost;Ljava/lang/Object;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/qs/FooterActionsView;Lcom/android/systemui/qs/FooterActionsView;)Lcom/android/systemui/qs/QSAnimator;
-    .locals 14
-
-    new-instance v13, Lcom/android/systemui/qs/QSAnimator;
-
-    move-object/from16 v7, p6
-
-    check-cast v7, Lcom/android/systemui/qs/QSSecurityFooter;
-
-    move-object v0, v13
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object/from16 v3, p2
-
-    move-object/from16 v4, p3
-
-    move-object/from16 v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/qs/QSAnimator;-><init>(Lcom/android/systemui/plugins/qs/QS;Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/QSSecurityFooter;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/qs/FooterActionsView;Lcom/android/systemui/qs/FooterActionsView;)V
-
-    return-object v13
+    return-object v10
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/QSAnimator;
-    .locals 13
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsProvider:Ljavax/inject/Provider;
 
@@ -340,9 +242,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/plugins/qs/QS;
+    check-cast v2, Lcom/android/systemui/plugins/qs/QS;
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->quickPanelProvider:Ljavax/inject/Provider;
 
@@ -350,9 +252,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/qs/QuickQSPanel;
+    check-cast v3, Lcom/android/systemui/qs/QuickQSPanel;
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->quickStatusBarHeaderProvider:Ljavax/inject/Provider;
 
@@ -360,9 +262,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/qs/QuickStatusBarHeader;
+    check-cast v4, Lcom/android/systemui/qs/QuickStatusBarHeader;
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsPanelControllerProvider:Ljavax/inject/Provider;
 
@@ -370,9 +272,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/qs/QSPanelController;
+    check-cast v5, Lcom/android/systemui/qs/QSPanelController;
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->quickQSPanelControllerProvider:Ljavax/inject/Provider;
 
@@ -380,9 +282,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/qs/QuickQSPanelController;
+    check-cast v6, Lcom/android/systemui/qs/QuickQSPanelController;
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsTileHostProvider:Ljavax/inject/Provider;
 
@@ -390,15 +292,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/qs/QSTileHost;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->securityFooterProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v7
+    check-cast v7, Lcom/android/systemui/qs/QSTileHost;
 
     iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->executorProvider:Ljavax/inject/Provider;
 
@@ -420,49 +316,21 @@
 
     check-cast v9, Lcom/android/systemui/tuner/TunerService;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v10, v0
-
-    check-cast v10, Lcom/android/systemui/qs/QSExpansionPathInterpolator;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsFooterActionsViewProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    move-object v11, v0
-
-    check-cast v11, Lcom/android/systemui/qs/FooterActionsView;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qqsFooterActionsViewProvider:Ljavax/inject/Provider;
+    iget-object p0, p0, Lcom/android/systemui/qs/QSAnimator_Factory;->qsExpansionPathInterpolatorProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v12, p0
+    move-object v10, p0
 
-    check-cast v12, Lcom/android/systemui/qs/FooterActionsView;
+    check-cast v10, Lcom/android/systemui/qs/QSExpansionPathInterpolator;
 
-    invoke-static/range {v1 .. v12}, Lcom/android/systemui/qs/QSAnimator_Factory;->newInstance(Lcom/android/systemui/plugins/qs/QS;Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/QSTileHost;Ljava/lang/Object;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSExpansionPathInterpolator;Lcom/android/systemui/qs/FooterActionsView;Lcom/android/systemui/qs/FooterActionsView;)Lcom/android/systemui/qs/QSAnimator;
+    new-instance p0, Lcom/android/systemui/qs/QSAnimator;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSAnimator_Factory;->get()Lcom/android/systemui/qs/QSAnimator;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/qs/QSAnimator;-><init>(Lcom/android/systemui/plugins/qs/QS;Lcom/android/systemui/qs/QuickQSPanel;Lcom/android/systemui/qs/QuickStatusBarHeader;Lcom/android/systemui/qs/QSPanelController;Lcom/android/systemui/qs/QuickQSPanelController;Lcom/android/systemui/qs/QSTileHost;Ljava/util/concurrent/Executor;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSExpansionPathInterpolator;)V
 
     return-object p0
 .end method

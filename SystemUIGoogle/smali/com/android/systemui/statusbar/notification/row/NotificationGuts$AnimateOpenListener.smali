@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateOpenListener;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateOpenListener;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "NotificationGuts.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AnimateOpenListener"
 .end annotation
 
 
 # instance fields
-.field final mOnAnimationEnd:Ljava/lang/Runnable;
+.field public final mOnAnimationEnd:Ljava/lang/Runnable;
 
 
 # direct methods
-.method private constructor <init>(Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/wm/shell/pip/PipTaskOrganizer$1$$ExternalSyntheticLambda0;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
@@ -29,17 +29,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Ljava/lang/Runnable;Lcom/android/systemui/statusbar/notification/row/NotificationGuts$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateOpenListener;-><init>(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V

@@ -1,25 +1,25 @@
-.class Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;
+.class public final Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;
 .super Landroid/net/wifi/WifiManager$ScanResultsCallback;
 .source "NetworkControllerImpl.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Landroid/telephony/SubscriptionManager;Lcom/android/settingslib/mobile/MobileMappings$Config;Landroid/os/Looper;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;Lcom/android/settingslib/net/DataUsageController;Lcom/android/settingslib/mobile/MobileStatusTracker$SubscriptionDefaults;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;)V
+    value = Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/telephony/SubscriptionManager;Lcom/android/settingslib/mobile/MobileMappings$Config;Landroid/os/Looper;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;Lcom/android/settingslib/net/DataUsageController;Lcom/android/settingslib/mobile/MobileStatusTracker$SubscriptionDefaults;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;Landroid/os/Handler;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
@@ -31,20 +31,16 @@
 
 
 # virtual methods
-.method public onScanResultsAvailable()V
+.method public final onScanResultsAvailable()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$702(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Z)Z
+    iput-boolean v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mNoNetworksAvailable:Z
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$800(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)Landroid/net/wifi/WifiManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->getScanResults()Ljava/util/List;
 
@@ -73,9 +69,7 @@
 
     iget-object v3, v3, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mWifiSignalController:Lcom/android/systemui/statusbar/connectivity/WifiSignalController;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/connectivity/SignalController;->getState()Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/statusbar/connectivity/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/connectivity/ConnectivityState;
 
     check-cast v3, Lcom/android/systemui/statusbar/connectivity/WifiState;
 
@@ -91,44 +85,24 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v0, v2}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$702(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;Z)Z
+    iput-boolean v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mNoNetworksAvailable:Z
 
     :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$900(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mNoDefaultNetwork:Z
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mCallbackHandler:Lcom/android/systemui/statusbar/connectivity/CallbackHandler;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$300(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)Lcom/android/systemui/statusbar/connectivity/CallbackHandler;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    invoke-static {v2}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$900(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)Z
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    invoke-static {v3}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$1000(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)Z
-
-    move-result v3
+    iget-boolean v3, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mInetCondition:Z
 
     xor-int/2addr v1, v3
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$5;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mNoNetworksAvailable:Z
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->access$700(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)Z
-
-    move-result p0
-
-    invoke-virtual {v0, v2, v1, p0}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->setConnectivityStatus(ZZZ)V
+    invoke-virtual {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;->setConnectivityStatus(ZZZ)V
 
     :cond_2
     return-void

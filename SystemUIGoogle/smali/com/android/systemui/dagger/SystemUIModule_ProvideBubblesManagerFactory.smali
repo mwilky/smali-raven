@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final bubblesOptionalProvider:Ljavax/inject/Provider;
+.field public final bubblesOptionalProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -30,7 +30,7 @@
     .end annotation
 .end field
 
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -40,7 +40,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -50,7 +50,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -60,7 +60,7 @@
     .end annotation
 .end field
 
-.field private final entryManagerProvider:Ljavax/inject/Provider;
+.field public final entryManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -70,17 +70,7 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final groupManagerProvider:Ljavax/inject/Provider;
+.field public final groupManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -90,7 +80,7 @@
     .end annotation
 .end field
 
-.field private final interruptionStateProvider:Ljavax/inject/Provider;
+.field public final interruptionStateProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -100,7 +90,37 @@
     .end annotation
 .end field
 
-.field private final notifPipelineProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final notifCollectionProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final notifPipelineFlagsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final notifPipelineProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -110,7 +130,7 @@
     .end annotation
 .end field
 
-.field private final notifUserManagerProvider:Ljavax/inject/Provider;
+.field public final notifUserManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -120,7 +140,7 @@
     .end annotation
 .end field
 
-.field private final notificationManagerProvider:Ljavax/inject/Provider;
+.field public final notificationManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -130,7 +150,7 @@
     .end annotation
 .end field
 
-.field private final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+.field public final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -140,7 +160,7 @@
     .end annotation
 .end field
 
-.field private final shadeControllerProvider:Ljavax/inject/Provider;
+.field public final shadeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -150,7 +170,7 @@
     .end annotation
 .end field
 
-.field private final statusBarServiceProvider:Ljavax/inject/Provider;
+.field public final statusBarServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -160,17 +180,7 @@
     .end annotation
 .end field
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final sysUiStateProvider:Ljavax/inject/Provider;
+.field public final sysUiStateProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -180,7 +190,7 @@
     .end annotation
 .end field
 
-.field private final sysuiMainExecutorProvider:Ljavax/inject/Provider;
+.field public final sysuiMainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -190,7 +200,17 @@
     .end annotation
 .end field
 
-.field private final zenModeControllerProvider:Ljavax/inject/Provider;
+.field public final visibilityProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final zenModeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -202,7 +222,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -218,7 +238,7 @@
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/ShadeController;",
@@ -231,6 +251,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/app/INotificationManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;",
@@ -248,13 +271,16 @@
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/model/SysUiState;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
@@ -283,7 +309,7 @@
 
     move-object v1, p4
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p5
 
@@ -303,49 +329,57 @@
 
     move-object v1, p9
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->interruptionStateProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->visibilityProvider:Ljavax/inject/Provider;
 
     move-object v1, p10
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->zenModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->interruptionStateProvider:Ljavax/inject/Provider;
 
     move-object v1, p11
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifUserManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->zenModeControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p12
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->groupManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifUserManagerProvider:Ljavax/inject/Provider;
 
     move-object v1, p13
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->entryManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->groupManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p14
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifPipelineProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->entryManagerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p15
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->sysUiStateProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifCollectionProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifPipelineProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->sysUiStateProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifPipelineFlagsProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p19
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p20
 
     iput-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->sysuiMainExecutorProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;
-    .locals 20
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;
+    .locals 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -360,7 +394,7 @@
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/phone/ShadeController;",
@@ -373,6 +407,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/app/INotificationManager;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;",
@@ -390,13 +427,16 @@
             "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/model/SysUiState;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
@@ -444,82 +484,23 @@
 
     move-object/from16 v18, p17
 
-    new-instance v19, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;
+    move-object/from16 v19, p18
 
-    move-object/from16 v0, v19
+    move-object/from16 v20, p19
 
-    invoke-direct/range {v0 .. v18}, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    new-instance v21, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;
 
-    return-object v19
-.end method
+    move-object/from16 v0, v21
 
-.method public static provideBubblesManager(Landroid/content/Context;Ljava/util/Optional;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)Ljava/util/Optional;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/bubbles/Bubbles;",
-            ">;",
-            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            "Lcom/android/systemui/statusbar/phone/ShadeController;",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            "Lcom/android/internal/statusbar/IStatusBarService;",
-            "Landroid/app/INotificationManager;",
-            "Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;",
-            "Lcom/android/systemui/statusbar/policy/ZenModeController;",
-            "Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;",
-            "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager;",
-            "Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;",
-            "Lcom/android/systemui/model/SysUiState;",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            "Lcom/android/systemui/dump/DumpManager;",
-            "Ljava/util/concurrent/Executor;",
-            ")",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/wmshell/BubblesManager;",
-            ">;"
-        }
-    .end annotation
+    invoke-direct/range {v0 .. v20}, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    invoke-static/range {p0 .. p17}, Lcom/android/systemui/dagger/SystemUIModule;->provideBubblesManager(Landroid/content/Context;Ljava/util/Optional;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)Ljava/util/Optional;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Optional;
-
-    return-object v0
+    return-object v21
 .end method
 
 
 # virtual methods
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->get()Ljava/util/Optional;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public get()Ljava/util/Optional;
-    .locals 20
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/wmshell/BubblesManager;",
-            ">;"
-        }
-    .end annotation
+.method public final get()Ljava/lang/Object;
+    .locals 23
 
     move-object/from16 v0, p0
 
@@ -529,9 +510,9 @@
 
     move-result-object v1
 
-    move-object v2, v1
+    move-object v3, v1
 
-    check-cast v2, Landroid/content/Context;
+    check-cast v3, Landroid/content/Context;
 
     iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->bubblesOptionalProvider:Ljavax/inject/Provider;
 
@@ -539,159 +520,177 @@
 
     move-result-object v1
 
-    move-object v3, v1
+    check-cast v1, Ljava/util/Optional;
 
-    check-cast v3, Ljava/util/Optional;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v5, v2
 
-    move-object v4, v1
+    check-cast v5, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    check-cast v4, Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v6, v2
 
-    move-object v5, v1
+    check-cast v6, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-    check-cast v5, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->shadeControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->shadeControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v7, v2
 
-    move-object v6, v1
+    check-cast v7, Lcom/android/systemui/statusbar/phone/ShadeController;
 
-    check-cast v6, Lcom/android/systemui/statusbar/phone/ShadeController;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->configurationControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->configurationControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v8, v2
 
-    move-object v7, v1
+    check-cast v8, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    check-cast v7, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->statusBarServiceProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->statusBarServiceProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v9, v2
 
-    move-object v8, v1
+    check-cast v9, Lcom/android/internal/statusbar/IStatusBarService;
 
-    check-cast v8, Lcom/android/internal/statusbar/IStatusBarService;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notificationManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notificationManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v10, v2
 
-    move-object v9, v1
+    check-cast v10, Landroid/app/INotificationManager;
 
-    check-cast v9, Landroid/app/INotificationManager;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->visibilityProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->interruptionStateProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v11, v2
 
-    move-object v10, v1
+    check-cast v11, Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;
 
-    check-cast v10, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->interruptionStateProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->zenModeControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v12, v2
 
-    move-object v11, v1
+    check-cast v12, Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;
 
-    check-cast v11, Lcom/android/systemui/statusbar/policy/ZenModeController;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->zenModeControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifUserManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v13, v2
 
-    move-object v12, v1
+    check-cast v13, Lcom/android/systemui/statusbar/policy/ZenModeController;
 
-    check-cast v12, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifUserManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->groupManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v14, v2
 
-    move-object v13, v1
+    check-cast v14, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
-    check-cast v13, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->groupManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->entryManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v15, v2
 
-    move-object v14, v1
+    check-cast v15, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
-    check-cast v14, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->entryManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifPipelineProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v16, v2
 
-    move-object v15, v1
+    check-cast v16, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-    check-cast v15, Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifCollectionProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->sysUiStateProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v17, v2
 
-    move-object/from16 v16, v1
+    check-cast v17, Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;
 
-    check-cast v16, Lcom/android/systemui/model/SysUiState;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifPipelineProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->featureFlagsProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v18, v2
 
-    move-object/from16 v17, v1
+    check-cast v18, Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;
 
-    check-cast v17, Lcom/android/systemui/flags/FeatureFlags;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->sysUiStateProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v19, v2
 
-    move-object/from16 v18, v1
+    check-cast v19, Lcom/android/systemui/model/SysUiState;
 
-    check-cast v18, Lcom/android/systemui/dump/DumpManager;
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->notifPipelineFlagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object/from16 v20, v2
+
+    check-cast v20, Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object/from16 v21, v2
+
+    check-cast v21, Lcom/android/systemui/dump/DumpManager;
 
     iget-object v0, v0, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->sysuiMainExecutorProvider:Ljavax/inject/Provider;
 
@@ -699,13 +698,41 @@
 
     move-result-object v0
 
-    move-object/from16 v19, v0
+    move-object/from16 v22, v0
 
-    check-cast v19, Ljava/util/concurrent/Executor;
+    check-cast v22, Ljava/util/concurrent/Executor;
 
-    invoke-static/range {v2 .. v19}, Lcom/android/systemui/dagger/SystemUIModule_ProvideBubblesManagerFactory;->provideBubblesManager(Landroid/content/Context;Ljava/util/Optional;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)Ljava/util/Optional;
+    invoke-virtual {v1}, Ljava/util/Optional;->isPresent()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/wmshell/BubblesManager;
+
+    move-object v2, v0
+
+    invoke-virtual {v1}, Ljava/util/Optional;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v4, v1
+
+    check-cast v4, Lcom/android/wm/shell/bubbles/Bubbles;
+
+    invoke-direct/range {v2 .. v22}, Lcom/android/systemui/wmshell/BubblesManager;-><init>(Landroid/content/Context;Lcom/android/wm/shell/bubbles/Bubbles;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/ShadeController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/statusbar/IStatusBarService;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;Lcom/android/systemui/statusbar/notification/interruption/NotificationInterruptStateProvider;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Lcom/android/systemui/statusbar/notification/collection/NotifPipeline;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/statusbar/notification/NotifPipelineFlags;Lcom/android/systemui/dump/DumpManager;Ljava/util/concurrent/Executor;)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    invoke-static {v0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
 
     move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/R$menu;->checkNotNullFromProvides(Ljava/lang/Object;)V
 
     return-object v0
 .end method

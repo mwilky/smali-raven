@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$2;
+.class public final Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$2;
 .super Ljava/lang/Object;
 .source "DialogLaunchAnimator.kt"
 
@@ -12,35 +12,35 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $bottom:I
+.field public final synthetic $bottom:I
 
-.field final synthetic $bounds:Landroid/graphics/Rect;
+.field public final synthetic $bounds:Landroid/graphics/Rect;
 
-.field final synthetic $left:I
+.field public final synthetic $left:I
 
-.field final synthetic $right:I
+.field public final synthetic $right:I
 
-.field final synthetic $startBottom:I
+.field public final synthetic $startBottom:I
 
-.field final synthetic $startLeft:I
+.field public final synthetic $startLeft:I
 
-.field final synthetic $startRight:I
+.field public final synthetic $startRight:I
 
-.field final synthetic $startTop:I
+.field public final synthetic $startTop:I
 
-.field final synthetic $top:I
+.field public final synthetic $top:I
 
-.field final synthetic $view:Landroid/view/View;
+.field public final synthetic $view:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Landroid/graphics/Rect;IIIIIIIILandroid/view/View;)V
+.method public constructor <init>(Landroid/graphics/Rect;IIIIIIIILandroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$AnimatedBoundsLayoutListener$onLayoutChange$animator$1$2;->$bounds:Landroid/graphics/Rect;
@@ -87,7 +87,7 @@
 
     move-result v1
 
-    invoke-static {v1}, Lkotlin/math/MathKt;->roundToInt(F)I
+    invoke-static {v1}, Landroidx/slice/view/R$dimen;->roundToInt(F)I
 
     move-result v1
 
@@ -103,7 +103,7 @@
 
     move-result v1
 
-    invoke-static {v1}, Lkotlin/math/MathKt;->roundToInt(F)I
+    invoke-static {v1}, Landroidx/slice/view/R$dimen;->roundToInt(F)I
 
     move-result v1
 
@@ -119,7 +119,7 @@
 
     move-result v1
 
-    invoke-static {v1}, Lkotlin/math/MathKt;->roundToInt(F)I
+    invoke-static {v1}, Landroidx/slice/view/R$dimen;->roundToInt(F)I
 
     move-result v1
 
@@ -135,7 +135,7 @@
 
     move-result p1
 
-    invoke-static {p1}, Lkotlin/math/MathKt;->roundToInt(F)I
+    invoke-static {p1}, Landroidx/slice/view/R$dimen;->roundToInt(F)I
 
     move-result p1
 

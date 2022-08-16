@@ -16,6 +16,10 @@
         <item quantity="other">Đã thêm %s tùy chọn điều khiển.</item>
         <item quantity="one">Đã thêm %s tùy chọn điều khiển.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">Ứng dụng %s đang hoạt động</item>
+        <item quantity="one">Ứng dụng %s đang hoạt động</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Hãy nhập mã PIN của SIM. Bạn còn %d lần thử.</item>
         <item quantity="one">Hãy nhập mã PIN của SIM. Bạn còn %d lần thử trước khi phải liên hệ với nhà mạng để mở khóa thiết bị của mình.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Mã PUK của SIM không chính xác, bạn còn %d lần thử trước khi SIM vĩnh viễn không thể sử dụng được.</item>
         <item quantity="one">Mã PUK của SIM không chính xác, bạn còn %d lần thử trước khi SIM vĩnh viễn không thể sử dụng được.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Hãy thử lại sau %d giây.</item>
-        <item quantity="one">Hãy thử lại sau 1 giây.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d thông báo mới</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Bạn có thể thêm tối đa %d người dùng.</item>
         <item quantity="one">Chỉ có thể tạo một người dùng.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d thiết bị đã kết nối</item>
-        <item quantity="one">%1$d thiết bị đã kết nối</item>
     </plurals>
 </resources>

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;
+.class public final Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;
 .super Lcom/android/systemui/plugins/qs/QSTile$Icon;
 .source "QSTileImpl.java"
 
@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final ICONS:Landroid/util/SparseArray;
+.field public static final ICONS:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field protected final mResId:I
+.field public final mResId:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/util/SparseArray;
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method private constructor <init>(I)V
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$Icon;-><init>()V
@@ -94,7 +94,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
 
     instance-of v0, p1, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;
@@ -120,7 +120,7 @@
     return p0
 .end method
 
-.method public getDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+.method public final getDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->mResId:I
@@ -132,7 +132,7 @@
     return-object p0
 .end method
 
-.method public getInvisibleDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+.method public final getInvisibleDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->mResId:I
@@ -144,7 +144,7 @@
     return-object p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     const/4 v0, 0x1

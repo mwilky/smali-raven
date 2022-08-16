@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda11;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Lcom/android/systemui/navigationbar/NavigationBarView$OnVerticalChangedListener;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # instance fields
@@ -22,12 +23,14 @@
 
 
 # virtual methods
-.method public final onVerticalChanged(Z)V
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda11;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$57P4EYjTmWpaqBJPIG1lCPB_CAQ(Lcom/android/systemui/navigationbar/NavigationBar;Z)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/navigationbar/NavigationBar;->onHomeTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
 
-    return-void
+    move-result p0
+
+    return p0
 .end method

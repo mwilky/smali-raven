@@ -1,25 +1,25 @@
-.class Lcom/android/keyguard/KeyguardClockSwitch$3;
+.class public final Lcom/android/keyguard/KeyguardClockSwitch$3;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "KeyguardClockSwitch.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardClockSwitch;->animateClockChange(Z)V
+    value = Lcom/android/keyguard/KeyguardClockSwitch;->updateClockViews(ZZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardClockSwitch;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardClockSwitch;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardClockSwitch;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardClockSwitch;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch$3;->this$0:Lcom/android/keyguard/KeyguardClockSwitch;
@@ -31,14 +31,14 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitch$3;->this$0:Lcom/android/keyguard/KeyguardClockSwitch;
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardClockSwitch;->access$002(Lcom/android/keyguard/KeyguardClockSwitch;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mStatusAreaAnim:Landroid/animation/ObjectAnimator;
 
     return-void
 .end method

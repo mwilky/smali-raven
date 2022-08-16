@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onMenuVisibilityChanged(Z)V
+.method public abstract onMenuVisibilityChanged()V
 .end method

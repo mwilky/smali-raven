@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardUpdateMonitor$1;
+.class public final Lcom/android/keyguard/KeyguardUpdateMonitor$1;
 .super Ljava/lang/Object;
 .source "KeyguardUpdateMonitor.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$1;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onExpandedChanged(Z)V
+.method public final onExpandedChanged(Z)V
     .locals 2
 
     const/4 v0, 0x0
@@ -42,9 +42,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$1;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->access$100(Lcom/android/keyguard/KeyguardUpdateMonitor;)Ljava/util/ArrayList;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
@@ -54,9 +52,7 @@
 
     iget-object v1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$1;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->access$100(Lcom/android/keyguard/KeyguardUpdateMonitor;)Ljava/util/ArrayList;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/keyguard/KeyguardUpdateMonitor;->mCallbacks:Ljava/util/ArrayList;
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
@@ -83,12 +79,12 @@
     return-void
 .end method
 
-.method public onStateChanged(I)V
+.method public final onStateChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$1;->this$0:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->access$002(Lcom/android/keyguard/KeyguardUpdateMonitor;I)I
+    iput p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mStatusBarState:I
 
     return-void
 .end method

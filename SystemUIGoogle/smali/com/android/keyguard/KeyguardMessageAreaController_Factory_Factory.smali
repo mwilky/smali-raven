@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
+.field public final keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -63,42 +63,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/KeyguardMessageAreaController_Factory_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/keyguard/KeyguardUpdateMonitor;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/ConfigurationController;",
-            ">;)",
-            "Lcom/android/keyguard/KeyguardMessageAreaController_Factory_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/keyguard/KeyguardMessageAreaController_Factory_Factory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/keyguard/KeyguardMessageAreaController_Factory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/keyguard/KeyguardMessageAreaController$Factory;
-    .locals 1
-
-    new-instance v0, Lcom/android/keyguard/KeyguardMessageAreaController$Factory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/keyguard/KeyguardMessageAreaController$Factory;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/keyguard/KeyguardMessageAreaController$Factory;
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 2
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardMessageAreaController_Factory_Factory;->keyguardUpdateMonitorProvider:Ljavax/inject/Provider;
 
@@ -116,19 +84,9 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-    invoke-static {v0, p0}, Lcom/android/keyguard/KeyguardMessageAreaController_Factory_Factory;->newInstance(Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;)Lcom/android/keyguard/KeyguardMessageAreaController$Factory;
+    new-instance v1, Lcom/android/keyguard/KeyguardMessageAreaController$Factory;
 
-    move-result-object p0
+    invoke-direct {v1, v0, p0}, Lcom/android/keyguard/KeyguardMessageAreaController$Factory;-><init>(Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/statusbar/policy/ConfigurationController;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardMessageAreaController_Factory_Factory;->get()Lcom/android/keyguard/KeyguardMessageAreaController$Factory;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v1
 .end method

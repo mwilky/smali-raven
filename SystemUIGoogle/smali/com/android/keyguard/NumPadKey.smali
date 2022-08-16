@@ -4,29 +4,27 @@
 
 
 # static fields
-.field static sKlondike:[Ljava/lang/String;
+.field public static sKlondike:[Ljava/lang/String;
 
 
 # instance fields
-.field private mAnimator:Lcom/android/keyguard/NumPadAnimator;
+.field public mAnimator:Lcom/android/keyguard/NumPadAnimator;
 
-.field private mDigit:I
+.field public mDigit:I
 
-.field private final mDigitText:Landroid/widget/TextView;
+.field public final mDigitText:Landroid/widget/TextView;
 
-.field private final mKlondikeText:Landroid/widget/TextView;
+.field public final mKlondikeText:Landroid/widget/TextView;
 
-.field private mListener:Landroid/view/View$OnClickListener;
+.field public mListener:Lcom/android/keyguard/NumPadKey$1;
 
-.field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+.field public mOrientation:I
 
-.field private mOrientation:I
+.field public final mPM:Landroid/os/PowerManager;
 
-.field private final mPM:Landroid/os/PowerManager;
+.field public mTextView:Lcom/android/keyguard/PasswordTextView;
 
-.field private mTextView:Lcom/android/keyguard/PasswordTextView;
-
-.field private mTextViewResId:I
+.field public mTextViewResId:I
 
 
 # direct methods
@@ -43,7 +41,7 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
-    sget v0, Lcom/android/systemui/R$attr;->numPadKeyStyle:I
+    const v0, 0x7f0403b9
 
     invoke-direct {p0, p1, p2, v0}, Lcom/android/keyguard/NumPadKey;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -53,15 +51,15 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 1
 
-    sget v0, Lcom/android/systemui/R$layout;->keyguard_num_pad_key:I
+    const v0, 0x7f0e00d6
 
     invoke-direct {p0, p1, p2, p3, v0}, Lcom/android/keyguard/NumPadKey;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     return-void
 .end method
 
-.method protected constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 2
+.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    .locals 6
 
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -73,7 +71,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/NumPadKey$1;-><init>(Lcom/android/keyguard/NumPadKey;)V
 
-    iput-object v0, p0, Lcom/android/keyguard/NumPadKey;->mListener:Landroid/view/View$OnClickListener;
+    iput-object v0, p0, Lcom/android/keyguard/NumPadKey;->mListener:Lcom/android/keyguard/NumPadKey$1;
 
     const/4 v0, 0x1
 
@@ -86,21 +84,17 @@
     move-result-object p2
 
     :try_start_0
-    sget p3, Lcom/android/systemui/R$styleable;->NumPadKey_digit:I
+    iget p3, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
 
-    iget v1, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+    const/4 v1, 0x0
 
-    invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {p2, v1, p3}, Landroid/content/res/TypedArray;->getInt(II)I
 
     move-result p3
 
     iput p3, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
 
-    sget p3, Lcom/android/systemui/R$styleable;->NumPadKey_textView:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p2, v0, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result p3
 
@@ -110,7 +104,7 @@
 
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
-    iget-object p2, p0, Lcom/android/keyguard/NumPadKey;->mListener:Landroid/view/View$OnClickListener;
+    iget-object p2, p0, Lcom/android/keyguard/NumPadKey;->mListener:Lcom/android/keyguard/NumPadKey$1;
 
     invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -132,11 +126,9 @@
 
     invoke-direct {p2, p1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    iput-object p2, p0, Lcom/android/keyguard/NumPadKey;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
     iget-object p2, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
 
-    const-string p3, "power"
+    const-string/jumbo p3, "power"
 
     invoke-virtual {p2, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -160,7 +152,27 @@
 
     invoke-virtual {p2, p4, p0, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    sget p2, Lcom/android/systemui/R$id;->digit_text:I
+    const p2, 0x7f0b0212
+
+    invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    move-object v4, p2
+
+    check-cast v4, Landroid/widget/TextView;
+
+    iput-object v4, p0, Lcom/android/keyguard/NumPadKey;->mDigitText:Landroid/widget/TextView;
+
+    iget p2, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    invoke-static {p2}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {v4, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    const p2, 0x7f0b035f
 
     invoke-virtual {p0, p2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -168,85 +180,67 @@
 
     check-cast p2, Landroid/widget/TextView;
 
-    iput-object p2, p0, Lcom/android/keyguard/NumPadKey;->mDigitText:Landroid/widget/TextView;
+    iput-object p2, p0, Lcom/android/keyguard/NumPadKey;->mKlondikeText:Landroid/widget/TextView;
 
     iget p3, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
 
-    invoke-static {p3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    if-ltz p3, :cond_2
 
-    move-result-object p3
+    sget-object p3, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
 
-    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    sget p3, Lcom/android/systemui/R$id;->klondike_text:I
-
-    invoke-virtual {p0, p3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object p3
-
-    check-cast p3, Landroid/widget/TextView;
-
-    iput-object p3, p0, Lcom/android/keyguard/NumPadKey;->mKlondikeText:Landroid/widget/TextView;
-
-    iget p4, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
-
-    if-ltz p4, :cond_2
-
-    sget-object p4, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
-
-    if-nez p4, :cond_0
+    if-nez p3, :cond_0
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p4
+    move-result-object p3
 
-    sget v0, Lcom/android/systemui/R$array;->lockscreen_num_pad_klondike:I
+    const p4, 0x7f03004c
 
-    invoke-virtual {p4, v0}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {p3, p4}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object p3
 
-    sput-object p4, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+    sput-object p3, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
 
     :cond_0
-    sget-object p4, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+    sget-object p3, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
 
-    if-eqz p4, :cond_2
+    if-eqz p3, :cond_2
 
-    array-length v0, p4
+    array-length p4, p3
 
-    iget v1, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+    iget v0, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
 
-    if-le v0, v1, :cond_2
+    if-le p4, v0, :cond_2
 
-    aget-object p4, p4, v1
+    aget-object p3, p3, v0
 
-    invoke-virtual {p4}, Ljava/lang/String;->length()I
+    invoke-virtual {p3}, Ljava/lang/String;->length()I
 
-    move-result v0
+    move-result p4
 
-    if-lez v0, :cond_1
+    if-lez p4, :cond_1
 
-    invoke-virtual {p3, p4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {p3}, Landroid/widget/TextView;->getVisibility()I
+    invoke-virtual {p2}, Landroid/widget/TextView;->getVisibility()I
 
-    move-result p4
+    move-result p3
 
-    const/16 v0, 0x8
+    const/16 p4, 0x8
 
-    if-eq p4, v0, :cond_2
+    if-eq p3, p4, :cond_2
 
-    const/4 p4, 0x4
+    const/4 p3, 0x4
 
-    invoke-virtual {p3, p4}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_2
     :goto_0
-    invoke-virtual {p2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v4}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
     move-result-object p2
 
@@ -260,17 +254,25 @@
 
     move-result-object p2
 
-    instance-of p3, p2, Landroid/graphics/drawable/RippleDrawable;
+    instance-of p3, p2, Landroid/graphics/drawable/GradientDrawable;
 
     if-eqz p3, :cond_3
 
     new-instance p3, Lcom/android/keyguard/NumPadAnimator;
 
-    check-cast p2, Landroid/graphics/drawable/RippleDrawable;
+    invoke-virtual {p2}, Landroid/graphics/drawable/Drawable;->mutate()Landroid/graphics/drawable/Drawable;
 
-    sget p4, Lcom/android/systemui/R$style;->NumPadKey:I
+    move-result-object v2
 
-    invoke-direct {p3, p1, p2, p4}, Lcom/android/keyguard/NumPadAnimator;-><init>(Landroid/content/Context;Landroid/graphics/drawable/RippleDrawable;I)V
+    const v3, 0x7f14019a
+
+    const/4 v5, 0x0
+
+    move-object v0, p3
+
+    move-object v1, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/keyguard/NumPadAnimator;-><init>(Landroid/content/Context;Landroid/graphics/drawable/Drawable;ILandroid/widget/TextView;Landroid/graphics/drawable/Drawable;)V
 
     iput-object p3, p0, Lcom/android/keyguard/NumPadKey;->mAnimator:Lcom/android/keyguard/NumPadAnimator;
 
@@ -292,62 +294,9 @@
     throw p0
 .end method
 
-.method static synthetic access$000(Lcom/android/keyguard/NumPadKey;)Lcom/android/keyguard/PasswordTextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/NumPadKey;->mTextView:Lcom/android/keyguard/PasswordTextView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/keyguard/NumPadKey;Lcom/android/keyguard/PasswordTextView;)Lcom/android/keyguard/PasswordTextView;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/NumPadKey;->mTextView:Lcom/android/keyguard/PasswordTextView;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/keyguard/NumPadKey;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/NumPadKey;->mTextViewResId:I
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/keyguard/NumPadKey;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
-
-    return p0
-.end method
-
 
 # virtual methods
-.method public doHapticKeyClick()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/NumPadKey;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {v0}, Lcom/android/internal/widget/LockPatternUtils;->isTactileFeedbackEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x3
-
-    invoke-virtual {p0, v0, v1}, Landroid/view/ViewGroup;->performHapticFeedback(II)Z
-
-    :cond_0
-    return-void
-.end method
-
-.method public hasOverlappingRendering()Z
+.method public final hasOverlappingRendering()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -355,7 +304,7 @@
     return p0
 .end method
 
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 0
 
     iget p1, p1, Landroid/content/res/Configuration;->orientation:I
@@ -365,7 +314,7 @@
     return-void
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 4
 
     iget-object p1, p0, Lcom/android/keyguard/NumPadKey;->mDigitText:Landroid/widget/TextView;
@@ -466,7 +415,7 @@
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 1
 
     invoke-super {p0, p1, p2}, Landroid/view/ViewGroup;->onMeasure(II)V
@@ -519,96 +468,68 @@
     return-void
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 2
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    const/4 v1, 0x1
 
-    invoke-virtual {p0}, Lcom/android/keyguard/NumPadKey;->doHapticKeyClick()V
+    if-eqz v0, :cond_1
+
+    if-eq v0, v1, :cond_0
+
+    const/4 v1, 0x3
+
+    if-eq v0, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/keyguard/NumPadKey;->mAnimator:Lcom/android/keyguard/NumPadAnimator;
+
+    if-eqz v0, :cond_2
+
+    iget-object v1, v0, Lcom/android/keyguard/NumPadAnimator;->mExpandAnimatorSet:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->cancel()V
+
+    iget-object v1, v0, Lcom/android/keyguard/NumPadAnimator;->mContractAnimatorSet:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->cancel()V
+
+    iget-object v0, v0, Lcom/android/keyguard/NumPadAnimator;->mContractAnimatorSet:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0, v1, v1}, Landroid/view/ViewGroup;->performHapticFeedback(II)Z
 
     iget-object v0, p0, Lcom/android/keyguard/NumPadKey;->mAnimator:Lcom/android/keyguard/NumPadAnimator;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
-    invoke-virtual {v0}, Lcom/android/keyguard/NumPadAnimator;->start()V
+    iget-object v1, v0, Lcom/android/keyguard/NumPadAnimator;->mExpandAnimatorSet:Landroid/animation/AnimatorSet;
 
-    :cond_0
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->cancel()V
+
+    iget-object v1, v0, Lcom/android/keyguard/NumPadAnimator;->mContractAnimatorSet:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->cancel()V
+
+    iget-object v0, v0, Lcom/android/keyguard/NumPadAnimator;->mExpandAnimatorSet:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
+
+    :cond_2
+    :goto_0
     invoke-super {p0, p1}, Landroid/view/ViewGroup;->onTouchEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
 
     return p0
-.end method
-
-.method public reloadColors()V
-    .locals 3
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    const v1, 0x1010036
-
-    invoke-static {v0, v1}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/ColorStateList;->getDefaultColor()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    const v2, 0x1010038
-
-    invoke-static {v1, v2}, Lcom/android/settingslib/Utils;->getColorAttr(Landroid/content/Context;I)Landroid/content/res/ColorStateList;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/res/ColorStateList;->getDefaultColor()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/keyguard/NumPadKey;->mDigitText:Landroid/widget/TextView;
-
-    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setTextColor(I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/NumPadKey;->mKlondikeText:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/NumPadKey;->mAnimator:Lcom/android/keyguard/NumPadAnimator;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Lcom/android/keyguard/NumPadAnimator;->reloadColors(Landroid/content/Context;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public userActivity()V
-    .locals 3
-
-    iget-object p0, p0, Lcom/android/keyguard/NumPadKey;->mPM:Landroid/os/PowerManager;
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v0
-
-    const/4 v2, 0x0
-
-    invoke-virtual {p0, v0, v1, v2}, Landroid/os/PowerManager;->userActivity(JZ)V
-
-    return-void
 .end method

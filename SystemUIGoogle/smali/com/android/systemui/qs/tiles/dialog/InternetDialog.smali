@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 .super Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 .source "InternetDialog.java"
 
@@ -15,325 +15,115 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field protected mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
+.field public mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
 
-.field private mAirplaneModeButton:Landroid/widget/Button;
+.field public mAirplaneModeButton:Landroid/widget/Button;
 
-.field private mAirplaneModeSummaryText:Landroid/widget/TextView;
+.field public mAirplaneModeSummaryText:Landroid/widget/TextView;
 
-.field private mAlertDialog:Landroid/app/AlertDialog;
+.field public mAlertDialog:Landroid/app/AlertDialog;
 
-.field private final mBackgroundExecutor:Ljava/util/concurrent/Executor;
+.field public final mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
-.field private mBackgroundOff:Landroid/graphics/drawable/Drawable;
+.field public mBackgroundOff:Landroid/graphics/drawable/Drawable;
 
-.field private mBackgroundOn:Landroid/graphics/drawable/Drawable;
+.field public mBackgroundOn:Landroid/graphics/drawable/Drawable;
 
-.field private mCanConfigMobileData:Z
+.field public mCanChangeWifiState:Z
 
-.field protected mCanConfigWifi:Z
+.field public mCanConfigMobileData:Z
 
-.field private mConnectedWifListLayout:Landroid/widget/LinearLayout;
+.field public mCanConfigWifi:Z
 
-.field protected mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+.field public mConnectedWifListLayout:Landroid/widget/LinearLayout;
 
-.field private mConnectedWifiIcon:Landroid/widget/ImageView;
+.field public mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
-.field private mConnectedWifiSummaryText:Landroid/widget/TextView;
+.field public mConnectedWifiIcon:Landroid/widget/ImageView;
 
-.field private mConnectedWifiTitleText:Landroid/widget/TextView;
+.field public mConnectedWifiSummaryText:Landroid/widget/TextView;
 
-.field private mContext:Landroid/content/Context;
+.field public mConnectedWifiTitleText:Landroid/widget/TextView;
 
-.field private mDefaultDataSubId:I
+.field public mContext:Landroid/content/Context;
 
-.field protected mDialogView:Landroid/view/View;
+.field public mDefaultDataSubId:I
 
-.field private mDivider:Landroid/view/View;
+.field public mDialogView:Landroid/view/View;
 
-.field private mDoneButton:Landroid/widget/Button;
+.field public mDivider:Landroid/view/View;
 
-.field private mEthernetLayout:Landroid/widget/LinearLayout;
+.field public mDoneButton:Landroid/widget/Button;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public mEthernetLayout:Landroid/widget/LinearLayout;
 
-.field protected mHasMoreWifiEntries:Z
+.field public final mHandler:Landroid/os/Handler;
 
-.field protected final mHideProgressBarRunnable:Ljava/lang/Runnable;
+.field public mHasMoreWifiEntries:Z
 
-.field protected mHideSearchingRunnable:Ljava/lang/Runnable;
+.field public final mHideProgressBarRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda5;
 
-.field private mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public mHideSearchingRunnable:Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;
 
-.field private mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+.field public mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-.field private mInternetDialogLayout:Landroid/widget/LinearLayout;
+.field public mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
-.field private mInternetDialogSubTitle:Landroid/widget/TextView;
+.field public mInternetDialogSubTitle:Landroid/widget/TextView;
 
-.field private mInternetDialogTitle:Landroid/widget/TextView;
+.field public mInternetDialogTitle:Landroid/widget/TextView;
 
-.field protected mIsProgressBarVisible:Z
+.field public mIsProgressBarVisible:Z
 
-.field protected mIsSearchingHidden:Z
+.field public mIsSearchingHidden:Z
 
-.field private mMobileDataToggle:Landroid/widget/Switch;
+.field public mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
-.field private mMobileNetworkLayout:Landroid/widget/LinearLayout;
+.field public mMobileDataToggle:Landroid/widget/Switch;
 
-.field private mMobileSummaryText:Landroid/widget/TextView;
+.field public mMobileNetworkLayout:Landroid/widget/LinearLayout;
 
-.field private mMobileTitleText:Landroid/widget/TextView;
+.field public mMobileSummaryText:Landroid/widget/TextView;
 
-.field private mMobileToggleDivider:Landroid/view/View;
+.field public mMobileTitleText:Landroid/widget/TextView;
 
-.field private mProgressBar:Landroid/widget/ProgressBar;
+.field public mMobileToggleDivider:Landroid/view/View;
 
-.field private mSeeAllLayout:Landroid/widget/LinearLayout;
+.field public mProgressBar:Landroid/widget/ProgressBar;
 
-.field private mSignalIcon:Landroid/widget/ImageView;
+.field public mSeeAllLayout:Landroid/widget/LinearLayout;
 
-.field private mSubscriptionManager:Landroid/telephony/SubscriptionManager;
+.field public mSignalIcon:Landroid/widget/ImageView;
 
-.field private mTelephonyManager:Landroid/telephony/TelephonyManager;
+.field public mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-.field private mTurnWifiOnLayout:Landroid/widget/LinearLayout;
+.field public mTurnWifiOnLayout:Landroid/widget/LinearLayout;
 
-.field private mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-.field private mWiFiToggle:Landroid/widget/Switch;
+.field public mWiFiToggle:Landroid/widget/Switch;
 
-.field protected mWifiEntriesCount:I
+.field public mWifiEntriesCount:I
 
-.field protected mWifiManager:Landroid/net/wifi/WifiManager;
+.field public mWifiNetworkHeight:I
 
-.field private mWifiNetworkHeight:I
+.field public mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-.field private mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+.field public mWifiScanNotifyLayout:Landroid/widget/LinearLayout;
 
-.field private mWifiScanNotifyLayout:Landroid/widget/LinearLayout;
+.field public mWifiScanNotifyText:Landroid/widget/TextView;
 
-.field private mWifiScanNotifyText:Landroid/widget/TextView;
+.field public mWifiSettingsIcon:Landroid/widget/ImageView;
 
-.field private mWifiSettingsIcon:Landroid/widget/ImageView;
-
-.field private mWifiToggleTitleText:Landroid/widget/TextView;
+.field public mWifiToggleTitleText:Landroid/widget/TextView;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$-H9fomdiymzUnYQedruaitQj8K8(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onRefreshCarrierInfo$15()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$-bZKWnEh8of_jGx0NJFJtSOP2aY(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onSignalStrengthsChanged$23()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$2eRlBl7EQkvlqTfBoVROpSbc4fg(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/content/DialogInterface;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$showTurnOffMobileDialog$14(Landroid/content/DialogInterface;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$3tfntNRe9Ja5DEWEk9zlRr59W7Q(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onDataConnectionStateChanged$22()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$4Oa0Q_5LjICI3KE2kwA-_KKB7KY(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onCapabilitiesChanged$17()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$63z9klbkTM-Spic6Q98PJ8oOni8(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onSimStateChanged$16()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$EKJgpuZG9ictHM_gCrVbveR1_iY(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$new$1()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$KVQRiZuCjpN61IWd6zsyhsOI-t0(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Lcom/android/wifitrackerlib/WifiEntry;Ljava/util/List;ZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onAccessPointsChanged$25(Lcom/android/wifitrackerlib/WifiEntry;Ljava/util/List;ZZ)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$PrGpIZu9U35k9sUDAkWyBuXyY1s(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setOnClickListener$2(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$RI3tl3s44BGuHIBZHmCvXuv5yTI(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$updateWifiScanNotify$11(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$SUWcEDxM9QVD82QFoypXKsaGnJs(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onUserMobileDataStateChanged$20()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$VWHTXHOhPbrdt1wEsU6MVWlbx4s(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setOnClickListener$5(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Vk0Zy88gvNesrXT1I2kbWYlzqWU(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onSubscriptionsChanged$19()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$aEXteCk8Hb9o91qBoT0D-OzLf2s(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setMobileDataLayout$10()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$aZr1ClSzTwrXPDkqWy6PlA9znDs(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setMobileDataLayout$9(Landroid/graphics/drawable/Drawable;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$ahRiRAT7-6gsHdOA8VjuF3IpspA(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/widget/CompoundButton;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setOnClickListener$6(Landroid/widget/CompoundButton;Z)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$evYKCJD5RKsYTpj0RFL0nt9hqLA(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setOnClickListener$4(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$gA2VAYLrMm-jjWjhnIu4QBK6uSU(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onServiceStateChanged$21()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$hzo9KA35YsZElgXbDCb5hIglp6Y(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setOnClickListener$7(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$l9U-_ej6YzFULyLkqNGrn60Ndf8(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setOnClickListener$8(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$m2M_xpoEz45TJm4DjUk0hb3pyow(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/content/DialogInterface;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$showTurnOffMobileDialog$13(Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$p6c8qg2S7dLwlfK49XOh1hQ3tSM(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onDisplayInfoChanged$24()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$rnFW0AGl4qBnx1Q9mF6mQqhh8UM(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$onLost$18()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$tmuYbrJoVlZieyHoWFJqyhkzUbA(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/content/DialogInterface;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$showTurnOffMobileDialog$12(Landroid/content/DialogInterface;I)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$wgD4_8Mf4t2LBCQMdWOtL-wFeBc(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/widget/CompoundButton;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$setOnClickListener$3(Landroid/widget/CompoundButton;Z)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$yV74yZfoRU70HGjqVSG2ekqTOLw(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->lambda$new$0()V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "InternetDialog"
@@ -349,91 +139,107 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;ZZZLcom/android/internal/logging/UiEventLogger;Landroid/os/Handler;Ljava/util/concurrent/Executor;)V
-    .locals 1
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;ZZLcom/android/internal/logging/UiEventLogger;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
+    .locals 2
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
 
-    const/4 p1, -0x1
+    const/4 v0, -0x1
 
-    iput p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDefaultDataSubId:I
+    iput v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDefaultDataSubId:I
 
-    new-instance p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda23;
+    new-instance v0, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda5;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda23;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    const/4 v1, 0x6
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideProgressBarRunnable:Ljava/lang/Runnable;
+    invoke-direct {v0, v1, p0}, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda5;-><init>(ILjava/lang/Object;)V
 
-    new-instance p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda16;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideProgressBarRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda5;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda16;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    new-instance v0, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideSearchingRunnable:Ljava/lang/Runnable;
+    const/4 v1, 0x3
 
-    sget-boolean p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->DEBUG:Z
+    invoke-direct {v0, v1, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;-><init>(ILjava/lang/Object;)V
 
-    if-eqz p1, :cond_0
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideSearchingRunnable:Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;
 
-    const-string p1, "InternetDialog"
+    sget-boolean v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->DEBUG:Z
 
-    const-string v0, "Init InternetDialog"
+    if-eqz v0, :cond_0
 
-    invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v0, "InternetDialog"
+
+    const-string v1, "Init InternetDialog"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object v0
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
+    iput-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
 
-    iput-object p8, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+    iput-object p7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    iput-object p9, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+    iput-object p8, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
 
     iput-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
     iput-object p3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-virtual {p3}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getSubscriptionManager()Landroid/telephony/SubscriptionManager;
+    invoke-virtual {p3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p1
+    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
+    invoke-virtual {p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getDefaultDataSubscriptionId()I
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    move-result p2
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getDefaultDataSubscriptionId()I
+    iput p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDefaultDataSubId:I
 
-    move-result p1
+    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    iput p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDefaultDataSubId:I
+    iget-object p2, p2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getTelephonyManager()Landroid/telephony/TelephonyManager;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mTelephonyManager:Landroid/telephony/TelephonyManager;
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getWifiManager()Landroid/net/wifi/WifiManager;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iput-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
     iput-boolean p4, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigMobileData:Z
 
     iput-boolean p5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigWifi:Z
 
-    iput-object p7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    const-string p2, "no_change_wifi_state"
+
+    invoke-static {p1, p2}, Lcom/android/settingslib/wifi/WifiEnterpriseRestrictionUtils;->hasUserRestrictionFromT(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result p1
+
+    if-nez p1, :cond_1
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const-string p1, "WifiEntResUtils"
+
+    const-string p2, "WI-FI state isn\'t allowed to change due to user restriction."
+
+    invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p1, 0x0
+
+    :goto_0
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanChangeWifiState:Z
+
+    iput-object p9, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mKeyguard:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    iput-object p6, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     new-instance p1, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
 
@@ -443,1282 +249,12 @@
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
 
-    if-nez p6, :cond_1
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object p0
-
-    const/16 p1, 0x7f6
-
-    invoke-virtual {p0, p1}, Landroid/view/Window;->setType(I)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private getSignalStrengthDrawable()Landroid/graphics/drawable/Drawable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getSignalStrengthDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private synthetic lambda$new$0()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setProgressBarVisible(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$new$1()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsSearchingHidden:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogSubTitle:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getSubtitleText()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onAccessPointsChanged$25(Lcom/android/wifitrackerlib/WifiEntry;Ljava/util/List;ZZ)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    if-nez p2, :cond_0
-
-    const/4 p1, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result p1
-
-    :goto_0
-    iput p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiEntriesCount:I
-
-    iput-boolean p3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHasMoreWifiEntries:Z
-
-    invoke-virtual {p0, p4}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
-
-    iget p3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiEntriesCount:I
-
-    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;->setWifiEntries(Ljava/util/List;I)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
-
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onCapabilitiesChanged$17()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onDataConnectionStateChanged$22()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onDisplayInfoChanged$24()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onLost$18()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onRefreshCarrierInfo$15()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onServiceStateChanged$21()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onSignalStrengthsChanged$23()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onSimStateChanged$16()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onSubscriptionsChanged$19()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onUserMobileDataStateChanged$20()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateDialog(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setMobileDataLayout$10()V
-    .locals 3
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getSignalStrengthDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
-
-    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda24;
-
-    invoke-direct {v2, p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda24;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Landroid/graphics/drawable/Drawable;)V
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method private synthetic lambda$setMobileDataLayout$9(Landroid/graphics/drawable/Drawable;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSignalIcon:Landroid/widget/ImageView;
-
-    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setOnClickListener$2(Landroid/view/View;)V
-    .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDeviceLocked()Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->activeNetworkIsCellular()Z
-
-    move-result p1
-
-    if-nez p1, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->connectCarrierNetwork()V
-
-    :cond_0
-    return-void
-.end method
-
-.method private synthetic lambda$setOnClickListener$3(Landroid/widget/CompoundButton;Z)V
-    .locals 2
-
-    if-nez p2, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->shouldShowMobileDialog()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->showTurnOffMobileDialog()V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->shouldShowMobileDialog()Z
-
-    move-result p1
-
-    if-nez p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    iget p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDefaultDataSubId:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, p0, p2, v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->setMobileDataEnabled(Landroid/content/Context;IZZ)V
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method private synthetic lambda$setOnClickListener$4(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onClickConnectedWifi()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setOnClickListener$5(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onClickSeeMoreButton()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setOnClickListener$6(Landroid/widget/CompoundButton;Z)V
-    .locals 0
-
-    invoke-virtual {p1, p2}, Landroid/widget/CompoundButton;->setChecked(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {p0, p2}, Landroid/net/wifi/WifiManager;->setWifiEnabled(Z)Z
-
-    return-void
-.end method
-
-.method private synthetic lambda$setOnClickListener$7(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$setOnClickListener$8(Landroid/view/View;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->setAirplaneModeDisabled()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$showTurnOffMobileDialog$12(Landroid/content/DialogInterface;I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
-
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Landroid/widget/Switch;->setChecked(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$showTurnOffMobileDialog$13(Landroid/content/DialogInterface;I)V
-    .locals 2
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    iget v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDefaultDataSubId:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, p2, v0, v1, v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->setMobileDataEnabled(Landroid/content/Context;IZZ)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
-
-    invoke-virtual {p1, v1}, Landroid/widget/Switch;->setChecked(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    const-string p1, "QsHasTurnedOffMobileData"
-
-    const/4 p2, 0x1
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/Prefs;->putBoolean(Landroid/content/Context;Ljava/lang/String;Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$showTurnOffMobileDialog$14(Landroid/content/DialogInterface;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
-
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Landroid/widget/Switch;->setChecked(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$updateWifiScanNotify$11(Landroid/view/View;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->launchWifiScanningSetting()V
-
-    return-void
-.end method
-
-.method private setMobileDataLayout(ZZ)V
-    .locals 5
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    if-nez p1, :cond_1
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    move p1, v1
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    move p1, v0
-
-    :goto_1
-    sget-boolean v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->DEBUG:Z
-
-    if-eqz v2, :cond_2
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "setMobileDataLayout, isCarrierNetworkActive = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "InternetDialog"
-
-    invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_2
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->hasActiveSubId()Z
-
-    move-result v2
-
-    const/16 v3, 0x8
-
-    if-nez v2, :cond_4
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v2}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_3
-
-    if-nez p2, :cond_4
-
-    :cond_3
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    goto/16 :goto_9
-
-    :cond_4
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p2, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
-
-    move-result v2
-
-    invoke-virtual {p2, v2}, Landroid/widget/Switch;->setChecked(Z)V
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileTitleText:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getMobileNetworkTitle()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-virtual {p2, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getMobileNetworkSummary()Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_5
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
-
-    invoke-static {p2, v1}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
-
-    move-result-object p2
-
-    invoke-virtual {v2, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
-
-    invoke-virtual {p2, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto :goto_2
-
-    :cond_5
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
-
-    invoke-virtual {p2, v3}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :goto_2
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
-
-    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda19;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda19;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-interface {p2, v2}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileTitleText:Landroid/widget/TextView;
-
-    if-eqz p1, :cond_6
-
-    sget v2, Lcom/android/systemui/R$style;->TextAppearance_InternetDialog_Active:I
-
-    goto :goto_3
-
-    :cond_6
-    sget v2, Lcom/android/systemui/R$style;->TextAppearance_InternetDialog:I
-
-    :goto_3
-    invoke-virtual {p2, v2}, Landroid/widget/TextView;->setTextAppearance(I)V
-
-    if-eqz p1, :cond_7
-
-    sget p2, Lcom/android/systemui/R$style;->TextAppearance_InternetDialog_Secondary_Active:I
-
-    goto :goto_4
-
-    :cond_7
-    sget p2, Lcom/android/systemui/R$style;->TextAppearance_InternetDialog_Secondary:I
-
-    :goto_4
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
-
-    invoke-virtual {v2, p2}, Landroid/widget/TextView;->setTextAppearance(I)V
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {v2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_8
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
-
-    invoke-virtual {v2, v1}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
-
-    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    sget v4, Lcom/android/systemui/R$string;->airplane_mode:I
-
-    invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
-
-    invoke-virtual {v2, p2}, Landroid/widget/TextView;->setTextAppearance(I)V
-
-    goto :goto_5
-
-    :cond_8
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
-
-    invoke-virtual {p2, v3}, Landroid/widget/TextView;->setVisibility(I)V
-
-    :goto_5
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
-
-    if-eqz p1, :cond_9
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
-
-    goto :goto_6
-
-    :cond_9
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
-
-    :goto_6
-    invoke-virtual {p2, v2}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    sget v2, Lcom/android/systemui/R$style;->InternetDialog_Divider_Active:I
-
-    new-array v0, v0, [I
-
-    const v3, 0x10100d4
-
-    aput v3, v0, v1
-
-    invoke-virtual {p2, v2, v0}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
-
-    move-result-object p2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    const v2, 0x1010038
-
-    invoke-static {v0, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
-
-    move-result v0
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileToggleDivider:Landroid/view/View;
-
-    if-eqz p1, :cond_a
-
-    invoke-virtual {p2, v1, v0}, Landroid/content/res/TypedArray;->getColor(II)I
-
-    move-result v0
-
-    :cond_a
-    invoke-virtual {v2, v0}, Landroid/view/View;->setBackgroundColor(I)V
-
-    invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
-
-    iget-boolean p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigMobileData:Z
-
-    const/4 v0, 0x4
-
-    if-eqz p2, :cond_b
-
-    move p2, v1
-
-    goto :goto_7
-
-    :cond_b
-    move p2, v0
-
-    :goto_7
-    invoke-virtual {p1, p2}, Landroid/widget/Switch;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileToggleDivider:Landroid/view/View;
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigMobileData:Z
-
-    if-eqz p0, :cond_c
-
-    goto :goto_8
-
-    :cond_c
-    move v1, v0
-
-    :goto_8
-    invoke-virtual {p1, v1}, Landroid/view/View;->setVisibility(I)V
-
-    :goto_9
-    return-void
-.end method
-
-.method private setOnClickListener()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda3;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda10;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifListLayout:Landroid/widget/LinearLayout;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda6;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSeeAllLayout:Landroid/widget/LinearLayout;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda5;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda9;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDoneButton:Landroid/widget/Button;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda7;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeButton:Landroid/widget/Button;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda8;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    return-void
-.end method
-
-.method private setProgressBarVisible(Z)V
-    .locals 4
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsProgressBarVisible:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsProgressBarVisible:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mProgressBar:Landroid/widget/ProgressBar;
-
-    const/4 v1, 0x0
-
-    const/16 v2, 0x8
-
-    if-eqz p1, :cond_1
-
-    move v3, v1
-
-    goto :goto_0
-
-    :cond_1
-    move v3, v2
-
-    :goto_0
-    invoke-virtual {v0, v3}, Landroid/widget/ProgressBar;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mProgressBar:Landroid/widget/ProgressBar;
-
-    invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setIndeterminate(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDivider:Landroid/view/View;
-
-    if-eqz p1, :cond_2
-
-    move v1, v2
-
-    :cond_2
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogSubTitle:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getSubtitleText()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method private shouldShowMobileDialog()Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    const-string v1, "QsHasTurnedOffMobileData"
-
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/Prefs;->getBoolean(Landroid/content/Context;Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    if-nez v0, :cond_0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    return v2
-.end method
-
-.method private showTurnOffMobileDialog()V
-    .locals 7
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getMobileNetworkTitle()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isVoiceStateInService()Z
-
-    move-result v1
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    if-nez v1, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    sget v1, Lcom/android/systemui/R$string;->mobile_data_disable_message_default_carrier:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    :cond_1
-    new-instance v1, Landroid/app/AlertDialog$Builder;
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
-
-    sget v2, Lcom/android/systemui/R$string;->mobile_data_disable_title:I
-
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    sget v3, Lcom/android/systemui/R$string;->mobile_data_disable_message:I
-
-    const/4 v4, 0x1
-
-    new-array v5, v4, [Ljava/lang/Object;
-
-    const/4 v6, 0x0
-
-    aput-object v0, v5, v6
-
-    invoke-virtual {v2, v3, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    const/high16 v1, 0x1040000
-
-    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda2;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    const v1, 0x104011e
-
-    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda1;
-
-    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAlertDialog:Landroid/app/AlertDialog;
-
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setOnCancelListener(Landroid/content/DialogInterface$OnCancelListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
-
-    move-result-object v0
-
-    const/16 v1, 0x7d9
-
-    invoke-virtual {v0, v1}, Landroid/view/Window;->setType(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-static {v0, v4}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Landroid/app/Dialog;Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->registerDismissListener(Landroid/app/Dialog;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setWindowOnTop(Landroid/app/Dialog;)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAlertDialog:Landroid/app/AlertDialog;
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->show()V
-
-    return-void
-.end method
-
-.method private updateConnectedWifi(ZZ)V
-    .locals 1
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    if-eqz p1, :cond_1
-
-    if-eqz p2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifListLayout:Landroid/widget/LinearLayout;
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiTitleText:Landroid/widget/TextView;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    invoke-virtual {v0}, Lcom/android/wifitrackerlib/WifiEntry;->getTitle()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiSummaryText:Landroid/widget/TextView;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    invoke-virtual {v0, p2}, Lcom/android/wifitrackerlib/WifiEntry;->getSummary(Z)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiIcon:Landroid/widget/ImageView;
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    invoke-virtual {p2, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getInternetWifiDrawable(Lcom/android/wifitrackerlib/WifiEntry;)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiSettingsIcon:Landroid/widget/ImageView;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
-
-    sget p2, Lcom/android/systemui/R$color;->connected_network_primary_color:I
-
-    invoke-virtual {p0, p2}, Landroid/content/Context;->getColor(I)I
-
-    move-result p0
-
-    invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setColorFilter(I)V
-
-    return-void
-
-    :cond_1
-    :goto_0
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifListLayout:Landroid/widget/LinearLayout;
-
-    const/16 p1, 0x8
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    return-void
-.end method
-
-.method private updateEthernet()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mEthernetLayout:Landroid/widget/LinearLayout;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->hasEthernet()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    const/16 p0, 0x8
-
-    :goto_0
-    invoke-virtual {v0, p0}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    return-void
-.end method
-
-.method private updateWifiListAndSeeAll(ZZ)V
-    .locals 0
-
-    if-eqz p1, :cond_4
-
-    if-eqz p2, :cond_0
-
-    goto :goto_1
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getWifiListMaxCount()I
-
-    move-result p1
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
-
-    invoke-virtual {p2}, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;->getItemCount()I
-
-    move-result p2
-
-    if-le p2, p1, :cond_1
-
-    const/4 p2, 0x1
-
-    iput-boolean p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHasMoreWifiEntries:Z
-
-    :cond_1
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
-
-    invoke-virtual {p2, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;->setMaxEntriesCount(I)V
-
-    iget p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiNetworkHeight:I
-
-    mul-int/2addr p2, p1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
-
-    invoke-virtual {p1}, Landroid/view/ViewGroup;->getMinimumHeight()I
-
-    move-result p1
-
-    if-eq p1, p2, :cond_2
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
-
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->setMinimumHeight(I)V
-
-    :cond_2
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSeeAllLayout:Landroid/widget/LinearLayout;
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHasMoreWifiEntries:Z
-
-    if-eqz p0, :cond_3
-
-    goto :goto_0
-
-    :cond_3
-    const/4 p2, 0x4
-
-    :goto_0
-    invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    return-void
-
-    :cond_4
-    :goto_1
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
-
-    const/16 p2, 0x8
-
-    invoke-virtual {p1, p2}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSeeAllLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    return-void
-.end method
-
-.method private updateWifiScanNotify(ZZZ)V
-    .locals 2
-
-    if-nez p1, :cond_2
-
-    if-eqz p2, :cond_2
-
-    if-eqz p3, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyText:Landroid/widget/TextView;
-
-    invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    const/4 p2, 0x0
-
-    if-eqz p1, :cond_1
-
-    new-instance p1, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
-
-    new-instance p3, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda4;
-
-    invoke-direct {p3, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    const-string v0, "link"
-
-    invoke-direct {p1, v0, p3}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
-
-    iget-object p3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyText:Landroid/widget/TextView;
-
-    invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$string;->wifi_scan_notify_message:I
-
-    invoke-virtual {v0, v1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    new-array v1, v1, [Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
-
-    aput-object p1, v1, p2
-
-    invoke-static {v0, v1}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan;->linkify(Ljava/lang/CharSequence;[Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Ljava/lang/CharSequence;
-
-    move-result-object p1
-
-    invoke-virtual {p3, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyText:Landroid/widget/TextView;
-
-    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
-
-    move-result-object p3
-
-    invoke-virtual {p1, p3}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyLayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0, p2}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    return-void
-
-    :cond_2
-    :goto_0
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyLayout:Landroid/widget/LinearLayout;
-
-    const/16 p1, 0x8
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    return-void
-.end method
-
-.method private updateWifiToggle(ZZ)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
-
-    invoke-virtual {v0, p1}, Landroid/widget/Switch;->setChecked(Z)V
-
-    if-eqz p2, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiToggleTitleText:Landroid/widget/TextView;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    if-eqz v0, :cond_0
-
-    sget v0, Lcom/android/systemui/R$style;->TextAppearance_InternetDialog_Active:I
-
-    goto :goto_0
-
-    :cond_0
-    sget v0, Lcom/android/systemui/R$style;->TextAppearance_InternetDialog:I
-
-    :goto_0
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextAppearance(I)V
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mTurnWifiOnLayout:Landroid/widget/LinearLayout;
-
-    if-eqz p2, :cond_2
-
-    iget-object p2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    if-eqz p2, :cond_2
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
-
-    goto :goto_1
-
-    :cond_2
-    const/4 p0, 0x0
-
-    :goto_1
-    invoke-virtual {p1, p0}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
     return-void
 .end method
 
 
 # virtual methods
-.method public dismissDialog()V
+.method public final dismissDialog()V
     .locals 2
 
     sget-boolean v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->DEBUG:Z
@@ -1734,55 +270,174 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->destroyDialog()V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    sget-boolean v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactoryKt;->DEBUG:Z
+
+    if-eqz v0, :cond_1
+
+    const-string v0, "InternetDialogFactory"
+
+    const-string v1, "destroyDialog"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    const/4 v0, 0x0
+
+    sput-object v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
     invoke-virtual {p0}, Landroid/app/AlertDialog;->dismiss()V
 
     return-void
 .end method
 
-.method getDialogTitleText()Ljava/lang/CharSequence;
-    .locals 0
+.method public final getMobileNetworkTitle()Ljava/lang/CharSequence;
+    .locals 6
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getDialogTitleText()Ljava/lang/CharSequence;
+    iget v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDefaultDataSubId:I
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda3;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+
+    new-instance p0, Ljava/util/HashSet;
+
+    invoke-direct {p0}, Ljava/util/HashSet;-><init>()V
+
+    invoke-virtual {v2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda3;->get()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/stream/Stream;
+
+    new-instance v4, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda4;
+
+    invoke-direct {v4, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda4;-><init>(Ljava/util/HashSet;)V
+
+    invoke-interface {v3, v4}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+
+    move-result-object v3
+
+    new-instance v4, Lcom/android/wm/shell/dagger/WMShellBaseModule$$ExternalSyntheticLambda3;
+
+    const/4 v5, 0x1
+
+    invoke-direct {v4, v5}, Lcom/android/wm/shell/dagger/WMShellBaseModule$$ExternalSyntheticLambda3;-><init>(I)V
+
+    invoke-interface {v3, v4}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+
+    move-result-object v3
+
+    invoke-static {}, Ljava/util/stream/Collectors;->toSet()Ljava/util/stream/Collector;
+
+    move-result-object v4
+
+    invoke-interface {v3, v4}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/util/Set;
+
+    new-instance v4, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;
+
+    invoke-direct {v4, v2, v3, v5, v1}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;-><init>(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)V
+
+    invoke-virtual {p0}, Ljava/util/HashSet;->clear()V
+
+    invoke-virtual {v4}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/stream/Stream;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda5;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda5;-><init>(Ljava/util/HashSet;)V
+
+    invoke-interface {v1, v2}, Ljava/util/stream/Stream;->filter(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
 
     move-result-object p0
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda6;
+
+    invoke-direct {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda6;-><init>()V
+
+    invoke-interface {p0, v1}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+
+    move-result-object p0
+
+    invoke-static {}, Ljava/util/stream/Collectors;->toSet()Ljava/util/stream/Collector;
+
+    move-result-object v1
+
+    invoke-interface {p0, v1}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/Set;
+
+    invoke-virtual {v4}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/stream/Stream;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda7;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$$ExternalSyntheticLambda7;-><init>(Ljava/util/Set;)V
+
+    invoke-interface {v1, v2}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+
+    move-result-object p0
+
+    new-instance v1, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda4;
+
+    invoke-direct {v1, v5}, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda4;-><init>(I)V
+
+    new-instance v2, Lcom/android/systemui/statusbar/phone/DozeParameters$$ExternalSyntheticLambda0;
+
+    const/4 v3, 0x2
+
+    invoke-direct {v2, v3}, Lcom/android/systemui/statusbar/phone/DozeParameters$$ExternalSyntheticLambda0;-><init>(I)V
+
+    invoke-static {v1, v2}, Ljava/util/stream/Collectors;->toMap(Ljava/util/function/Function;Ljava/util/function/Function;)Ljava/util/stream/Collector;
+
+    move-result-object v1
+
+    invoke-interface {p0, v1}, Ljava/util/stream/Stream;->collect(Ljava/util/stream/Collector;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/Map;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    const-string v1, ""
+
+    invoke-interface {p0, v0, v1}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/lang/CharSequence;
 
     return-object p0
 .end method
 
-.method getMobileNetworkSummary()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getMobileNetworkSummary()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method getMobileNetworkTitle()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getMobileNetworkTitle()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method getSubtitleText()Ljava/lang/CharSequence;
-    .locals 2
+.method public final getSubtitleText()Ljava/lang/CharSequence;
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
     iget-boolean v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsProgressBarVisible:Z
+
+    const/4 v2, 0x1
 
     if-eqz v1, :cond_0
 
@@ -1790,7 +445,7 @@
 
     if-nez p0, :cond_0
 
-    const/4 p0, 0x1
+    move p0, v2
 
     goto :goto_0
 
@@ -1798,14 +453,246 @@
     const/4 p0, 0x0
 
     :goto_0
-    invoke-virtual {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getSubtitleText(Z)Ljava/lang/CharSequence;
+    iget-boolean v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    const-string v3, "InternetDialogController"
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isWifiEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    sget-boolean p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
+
+    if-eqz p0, :cond_1
+
+    const-string p0, "Wi-Fi off."
+
+    invoke-static {v3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_WIFI_IS_OFF:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p0
 
+    goto/16 :goto_2
+
+    :cond_2
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {v1}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isUnlocked()Z
+
+    move-result v1
+
+    xor-int/2addr v1, v2
+
+    if-eqz v1, :cond_4
+
+    sget-boolean p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
+
+    if-eqz p0, :cond_3
+
+    const-string p0, "The device is locked."
+
+    invoke-static {v3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_UNLOCK_TO_VIEW_NETWORKS:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto/16 :goto_2
+
+    :cond_4
+    iget-boolean v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasWifiEntries:Z
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_5
+
+    iget-boolean p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz p0, :cond_e
+
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_TAP_A_NETWORK_TO_CONNECT:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto/16 :goto_2
+
+    :cond_5
+    iget-boolean v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz v1, :cond_6
+
+    if-eqz p0, :cond_6
+
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_SEARCHING_FOR_NETWORKS:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto/16 :goto_2
+
+    :cond_6
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_7
+
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_NON_CARRIER_NETWORK_UNAVAILABLE:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto/16 :goto_2
+
+    :cond_7
+    sget-boolean p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
+
+    if-eqz p0, :cond_8
+
+    const-string v1, "No Wi-Fi item."
+
+    invoke-static {v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_8
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->hasActiveSubId()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isVoiceStateInService()Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDataStateInService()Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    goto :goto_1
+
+    :cond_9
+    iget-boolean v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz v1, :cond_b
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_b
+
+    if-eqz p0, :cond_a
+
+    const-string p0, "Mobile data off"
+
+    invoke-static {v3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_a
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_NON_CARRIER_NETWORK_UNAVAILABLE:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto :goto_2
+
+    :cond_b
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->activeNetworkIsCellular()Z
+
+    move-result v1
+
+    if-nez v1, :cond_d
+
+    if-eqz p0, :cond_c
+
+    const-string p0, "No carrier data."
+
+    invoke-static {v3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_c
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_ALL_CARRIER_NETWORK_UNAVAILABLE:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto :goto_2
+
+    :cond_d
+    iget-boolean p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz p0, :cond_e
+
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_NON_CARRIER_NETWORK_UNAVAILABLE:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    goto :goto_2
+
+    :cond_e
+    move-object p0, v2
+
+    goto :goto_2
+
+    :cond_f
+    :goto_1
+    if-eqz p0, :cond_10
+
+    const-string p0, "No carrier or service is out of service."
+
+    invoke-static {v3, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_10
+    iget-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->SUBTITLE_TEXT_ALL_CARRIER_NETWORK_UNAVAILABLE:I
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object p0
+
+    :goto_2
     return-object p0
 .end method
 
-.method getWifiListMaxCount()I
+.method public getWifiListMaxCount()I
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mEthernetLayout:Landroid/widget/LinearLayout;
@@ -1859,12 +746,12 @@
     return v1
 .end method
 
-.method hideWifiViews()V
+.method public hideWifiViews()V
     .locals 2
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setProgressBarVisible(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setProgressBarVisible(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mTurnWifiOnLayout:Landroid/widget/LinearLayout;
 
@@ -1887,18 +774,8 @@
     return-void
 .end method
 
-.method public onAccessPointsChanged(Ljava/util/List;Lcom/android/wifitrackerlib/WifiEntry;Z)V
+.method public final onAccessPointsChanged(Ljava/util/ArrayList;Lcom/android/wifitrackerlib/WifiEntry;Z)V
     .locals 8
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/wifitrackerlib/WifiEntry;",
-            ">;",
-            "Lcom/android/wifitrackerlib/WifiEntry;",
-            "Z)V"
-        }
-    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
 
@@ -1928,7 +805,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    new-instance v7, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda25;
+    new-instance v7, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda5;
 
     move-object v1, v7
 
@@ -1940,60 +817,31 @@
 
     move v5, p3
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda25;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Lcom/android/wifitrackerlib/WifiEntry;Ljava/util/List;ZZ)V
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;Lcom/android/wifitrackerlib/WifiEntry;Ljava/util/ArrayList;ZZ)V
 
     invoke-virtual {v0, v7}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
-    .locals 0
+.method public final onCapabilitiesChanged()V
+    .locals 3
 
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    new-instance p2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda14;
+    new-instance v1, Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda1;
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda14;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    const/4 v2, 0x5
 
-    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
-    return-void
-.end method
-
-.method onClickConnectedWifi()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {v0}, Lcom/android/wifitrackerlib/WifiEntry;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->launchWifiNetworkDetailsSetting(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method onClickSeeMoreButton()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->launchNetworkSetting()V
-
-    return-void
-.end method
-
-.method public onCreate(Landroid/os/Bundle;)V
-    .locals 4
+.method public final onCreate(Landroid/os/Bundle;)V
+    .locals 5
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onCreate(Landroid/os/Bundle;)V
 
@@ -2020,7 +868,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$layout;->internet_connectivity_dialog:I
+    const v0, 0x7f0e00c1
 
     const/4 v1, 0x0
 
@@ -2038,7 +886,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setContentView(Landroid/view/View;)V
 
-    sget v0, Lcom/android/systemui/R$style;->Animation_InternetDialog:I
+    const v0, 0x7f14000a
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setWindowAnimations(I)V
 
@@ -2048,7 +896,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$dimen;->internet_dialog_wifi_network_height:I
+    const v0, 0x7f07028a
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2058,7 +906,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->internet_connectivity_dialog:I
+    const v0, 0x7f0b031c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2066,11 +914,9 @@
 
     check-cast p1, Landroid/widget/LinearLayout;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogLayout:Landroid/widget/LinearLayout;
-
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->internet_dialog_title:I
+    const v0, 0x7f0b031f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2082,7 +928,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->internet_dialog_subtitle:I
+    const v0, 0x7f0b031e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2094,7 +940,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->divider:I
+    const v0, 0x7f0b021e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2104,7 +950,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_searching_progress:I
+    const v0, 0x7f0b0798
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2116,7 +962,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->ethernet_layout:I
+    const v0, 0x7f0b0273
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2128,7 +974,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_network_layout:I
+    const v0, 0x7f0b0416
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2140,7 +986,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->turn_on_wifi_layout:I
+    const v0, 0x7f0b06fd
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2152,7 +998,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_toggle_title:I
+    const v0, 0x7f0b07a0
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2164,7 +1010,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_scan_notify_layout:I
+    const v0, 0x7f0b0796
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2176,7 +1022,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_scan_notify_text:I
+    const v0, 0x7f0b0797
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2188,7 +1034,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_connected_layout:I
+    const v0, 0x7f0b078b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2200,7 +1046,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_connected_icon:I
+    const v0, 0x7f0b078a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2212,7 +1058,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_connected_title:I
+    const v0, 0x7f0b078d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2224,7 +1070,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_connected_summary:I
+    const v0, 0x7f0b078c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2236,7 +1082,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_settings_icon:I
+    const v0, 0x7f0b0799
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2248,7 +1094,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_list_layout:I
+    const v0, 0x7f0b0793
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2260,7 +1106,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->see_all_layout:I
+    const v0, 0x7f0b05cf
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2272,7 +1118,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->done_button:I
+    const v0, 0x7f0b0229
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2284,7 +1130,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->apm_button:I
+    const v0, 0x7f0b00a4
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2296,7 +1142,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->signal_icon:I
+    const v0, 0x7f0b05f9
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2308,7 +1154,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_title:I
+    const v0, 0x7f0b041d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2320,7 +1166,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_summary:I
+    const v0, 0x7f0b041c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2332,7 +1178,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->airplane_mode_summary:I
+    const v0, 0x7f0b0088
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2344,7 +1190,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_toggle_divider:I
+    const v0, 0x7f0b041f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2354,7 +1200,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->mobile_toggle:I
+    const v0, 0x7f0b041e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2366,7 +1212,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->wifi_toggle:I
+    const v0, 0x7f0b079e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -2378,7 +1224,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$drawable;->settingslib_switch_bar_bg_on:I
+    const v0, 0x7f0807f3
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2388,10 +1234,34 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogTitle:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getDialogTitleText()Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    const v2, 0x7f1300f7
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
+    goto :goto_0
+
+    :cond_1
+    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    const v2, 0x7f1305e7
+
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    :goto_0
     invoke-virtual {p1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogTitle:Landroid/widget/TextView;
@@ -2404,30 +1274,86 @@
 
     const/4 v0, 0x1
 
-    new-array v0, v0, [I
+    new-array v2, v0, [I
 
-    const v2, 0x101030e
+    const v3, 0x101030e
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
-    aput v2, v0, v3
+    aput v3, v2, v4
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, v2}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
     :try_start_0
-    invoke-virtual {p1, v3}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p1, v4}, Landroid/content/res/TypedArray;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
+    iput-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setOnClickListener()V
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, p0, v4}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/phone/SystemUIDialog;I)V
+
+    invoke-virtual {p1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda1;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+
+    invoke-virtual {p1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifListLayout:Landroid/widget/LinearLayout;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda2;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+
+    invoke-virtual {p1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSeeAllLayout:Landroid/widget/LinearLayout;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda3;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+
+    invoke-virtual {p1, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
+
+    new-instance v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda4;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+
+    invoke-virtual {p1, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDoneButton:Landroid/widget/Button;
+
+    new-instance v2, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda14;
+
+    const/4 v3, 0x3
+
+    invoke-direct {v2, v3, p0}, Lcom/android/systemui/media/MediaControlPanel$$ExternalSyntheticLambda14;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeButton:Landroid/widget/Button;
+
+    new-instance v2, Lcom/android/settingslib/users/AvatarPickerActivity$$ExternalSyntheticLambda0;
+
+    invoke-direct {v2, v0, p0}, Lcom/android/settingslib/users/AvatarPickerActivity$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p1, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mTurnWifiOnLayout:Landroid/widget/LinearLayout;
 
@@ -2435,31 +1361,29 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeButton:Landroid/widget/Button;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
+    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_2
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_1
-    const/16 v3, 0x8
+    :cond_2
+    const/16 v4, 0x8
 
-    :goto_0
-    invoke-virtual {p1, v3}, Landroid/widget/Button;->setVisibility(I)V
+    :goto_1
+    invoke-virtual {p1, v4}, Landroid/widget/Button;->setVisibility(I)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    new-instance v0, Landroidx/recyclerview/widget/LinearLayoutManager;
+    new-instance v1, Landroidx/recyclerview/widget/LinearLayoutManager;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
+    invoke-direct {v1, v0}, Landroidx/recyclerview/widget/LinearLayoutManager;-><init>(I)V
 
-    invoke-direct {v0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {p1, v0}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
+    invoke-virtual {p1, v1}, Landroidx/recyclerview/widget/RecyclerView;->setLayoutManager(Landroidx/recyclerview/widget/RecyclerView$LayoutManager;)V
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
@@ -2477,207 +1401,420 @@
     throw p0
 .end method
 
-.method public onDataConnectionStateChanged(II)V
-    .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
-
-    new-instance p2, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda13;
-
-    invoke-direct {p2, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda13;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {p1, p2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public onDisplayInfoChanged(Landroid/telephony/TelephonyDisplayInfo;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda21;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda21;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public onLost(Landroid/net/Network;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda22;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda22;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public onRefreshCarrierInfo()V
-    .locals 2
+.method public final onDataConnectionStateChanged()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda11;
+    new-instance v1, Lcom/android/systemui/qs/QSFgsManagerFooter$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    const/4 v2, 0x3
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/qs/QSFgsManagerFooter$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public onServiceStateChanged(Landroid/telephony/ServiceState;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda20;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda20;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public onSignalStrengthsChanged(Landroid/telephony/SignalStrength;)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda12;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda12;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public onSimStateChanged()V
-    .locals 2
+.method public final onDisplayInfoChanged()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda15;
+    new-instance v1, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda15;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    const/4 v2, 0x2
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/qs/QuickStatusBarHeader$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public onStart()V
-    .locals 2
+.method public final onLost()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda3;
+
+    const/4 v2, 0x3
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onRefreshCarrierInfo()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/tuner/TunerFragment$$ExternalSyntheticLambda0;
+
+    const/4 v2, 0x4
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/tuner/TunerFragment$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onServiceStateChanged()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/qs/QSAnimator$$ExternalSyntheticLambda0;
+
+    const/4 v2, 0x3
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/qs/QSAnimator$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onSignalStrengthsChanged()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda4;
+
+    const/4 v2, 0x4
+
+    invoke-direct {v1, v2, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda4;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onSimStateChanged()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda3;
+
+    const/4 v2, 0x3
+
+    invoke-direct {v1, v2, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onStart()V
+    .locals 12
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onStart()V
 
     sget-boolean v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->DEBUG:Z
 
+    const-string/jumbo v1, "onStart"
+
     if-eqz v0, :cond_0
 
     const-string v0, "InternetDialog"
-
-    const-string v1, "onStart"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    iget-boolean v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigWifi:Z
+    iget-boolean v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigWifi:Z
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->onStart(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;Z)V
+    sget-boolean v3, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
 
+    const-string v4, "InternetDialogController"
+
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {v4, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iput-object p0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iget-object v5, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardUpdateCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;
+
+    invoke-virtual {v1, v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
+
+    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->addAccessPointCallback(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+
+    iget-object v5, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    iget-object v6, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectionStateReceiver:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$2;
+
+    iget-object v7, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectionStateFilter:Landroid/content/IntentFilter;
+
+    iget-object v8, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mExecutor:Ljava/util/concurrent/Executor;
+
+    invoke-virtual {v5}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 v9, 0x0
+
+    const/4 v10, 0x0
+
+    const/16 v11, 0x38
+
+    invoke-static/range {v5 .. v11}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiver$default(Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/util/concurrent/Executor;Landroid/os/UserHandle;II)V
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetOnSubscriptionChangedListener;
+
+    invoke-direct {v1, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetOnSubscriptionChangedListener;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mOnSubscriptionsChangedListener:Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
+
+    iget-object v5, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
+
+    iget-object v6, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mExecutor:Ljava/util/concurrent/Executor;
+
+    invoke-virtual {v5, v6, v1}, Landroid/telephony/SubscriptionManager;->addOnSubscriptionsChangedListener(Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;)V
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->getDefaultDataSubscriptionId()I
+
+    move-result v1
+
+    iput v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDefaultDataSubId:I
+
+    if-eqz v3, :cond_2
+
+    const-string v1, "Init, SubId: "
+
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDefaultDataSubId:I
+
+    invoke-static {v1, v3, v4}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ILjava/lang/String;)V
+
+    :cond_2
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/settingslib/mobile/MobileMappings$Config;->readConfig(Landroid/content/Context;)Lcom/android/settingslib/mobile/MobileMappings$Config;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConfig:Lcom/android/settingslib/mobile/MobileMappings$Config;
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    iget v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDefaultDataSubId:I
+
+    invoke-virtual {v1, v3}, Landroid/telephony/TelephonyManager;->createForSubscriptionId(I)Landroid/telephony/TelephonyManager;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    new-instance v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;
+
+    invoke-direct {v1, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mInternetTelephonyCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    iget-object v4, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mExecutor:Ljava/util/concurrent/Executor;
+
+    invoke-virtual {v3, v4, v1}, Landroid/telephony/TelephonyManager;->registerTelephonyCallback(Ljava/util/concurrent/Executor;Landroid/telephony/TelephonyCallback;)V
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManagerNetworkCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;
+
+    invoke-virtual {v1, v3}, Landroid/net/ConnectivityManager;->registerDefaultNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;)V
+
+    iput-boolean v2, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz v2, :cond_3
+
+    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->scanForAccessPoints()V
+
+    :cond_3
     iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigWifi:Z
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_4
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->hideWifiViews()V
 
-    :cond_1
+    :cond_4
     return-void
 .end method
 
-.method public onStop()V
-    .locals 2
+.method public final onStop()V
+    .locals 4
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->onStop()V
 
     sget-boolean v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->DEBUG:Z
 
+    const-string/jumbo v1, "onStop"
+
     if-eqz v0, :cond_0
 
     const-string v0, "InternetDialog"
-
-    const-string v1, "onStop"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideProgressBarRunnable:Ljava/lang/Runnable;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideProgressBarRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda5;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideSearchingRunnable:Ljava/lang/Runnable;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideSearchingRunnable:Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifListLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSeeAllLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDoneButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->onStop()V
+    sget-boolean v3, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
 
+    if-eqz v3, :cond_1
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const-string v3, "InternetDialogController"
+
+    invoke-static {v3, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectionStateReceiver:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$2;
+
+    invoke-virtual {v1, v3}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyManager:Landroid/telephony/TelephonyManager;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mInternetTelephonyCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetTelephonyCallback;
+
+    invoke-virtual {v1, v3}, Landroid/telephony/TelephonyManager;->unregisterTelephonyCallback(Landroid/telephony/TelephonyCallback;)V
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mSubscriptionManager:Landroid/telephony/SubscriptionManager;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mOnSubscriptionsChangedListener:Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;
+
+    invoke-virtual {v1, v3}, Landroid/telephony/SubscriptionManager;->removeOnSubscriptionsChangedListener(Landroid/telephony/SubscriptionManager$OnSubscriptionsChangedListener;)V
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
+
+    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->removeAccessPointCallback(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardUpdateCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;
+
+    invoke-virtual {v1, v3}, Lcom/android/keyguard/KeyguardUpdateMonitor;->removeCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManager:Landroid/net/ConnectivityManager;
+
+    iget-object v3, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectivityManagerNetworkCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;
+
+    invoke-virtual {v1, v3}, Landroid/net/ConnectivityManager;->unregisterNetworkCallback(Landroid/net/ConnectivityManager$NetworkCallback;)V
+
+    iget-object v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConnectedWifiInternetMonitor:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;->mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    if-nez v1, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    monitor-enter v1
+
+    :try_start_0
+    iput-object v2, v1, Lcom/android/wifitrackerlib/WifiEntry;->mListener:Lcom/android/wifitrackerlib/WifiEntry$WifiEntryCallback;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    iput-object v2, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$ConnectedWifiInternetMonitor;->mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    :goto_0
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->destroyDialog()V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    sget-boolean p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactoryKt;->DEBUG:Z
+
+    if-eqz p0, :cond_3
+
+    const-string p0, "InternetDialogFactory"
+
+    const-string v0, "destroyDialog"
+
+    invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    sput-object v2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
     return-void
+
+    :catchall_0
+    move-exception p0
+
+    monitor-exit v1
+
+    throw p0
 .end method
 
-.method public onSubscriptionsChanged(I)V
-    .locals 1
+.method public final onSubscriptionsChanged(I)V
+    .locals 2
 
     iput p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDefaultDataSubId:I
 
@@ -2691,30 +1828,34 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
 
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda18;
+    new-instance v0, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda7;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda18;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    const/4 v1, 0x4
 
-    invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public onUserMobileDataStateChanged(Z)V
-    .locals 1
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda17;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog$$ExternalSyntheticLambda17;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/ImageWallpaper$GLEngine$$ExternalSyntheticLambda7;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method public onWindowFocusChanged(Z)V
+.method public final onUserMobileDataStateChanged()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/qs/QSFgsManagerFooter$$ExternalSyntheticLambda1;
+
+    const/4 v2, 0x3
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/qs/QSFgsManagerFooter$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onWindowFocusChanged(Z)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/app/AlertDialog;->onWindowFocusChanged(Z)V
@@ -2743,133 +1884,167 @@
     return-void
 .end method
 
-.method protected showProgressBar()V
-    .locals 3
+.method public final setProgressBarVisible(Z)V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsProgressBarVisible:Z
 
-    if-eqz v0, :cond_4
+    if-ne v0, p1, :cond_0
 
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDeviceLocked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    goto :goto_2
+    return-void
 
     :cond_0
-    const/4 v0, 0x1
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsProgressBarVisible:Z
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setProgressBarVisible(Z)V
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mProgressBar:Landroid/widget/ProgressBar;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+    const/4 v1, 0x0
 
-    const-wide/16 v1, 0x5dc
+    const/16 v2, 0x8
 
-    if-nez v0, :cond_2
+    if-eqz p1, :cond_1
 
-    iget v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiEntriesCount:I
-
-    if-lez v0, :cond_1
+    move v3, v1
 
     goto :goto_0
 
     :cond_1
-    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsSearchingHidden:Z
+    move v3, v2
 
-    if-nez v0, :cond_3
+    :goto_0
+    invoke-virtual {v0, v3}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mProgressBar:Landroid/widget/ProgressBar;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideSearchingRunnable:Ljava/lang/Runnable;
+    invoke-virtual {v0, p1}, Landroid/widget/ProgressBar;->setIndeterminate(Z)V
 
-    invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDivider:Landroid/view/View;
 
-    goto :goto_1
+    if-eqz p1, :cond_2
+
+    move v1, v2
 
     :cond_2
-    :goto_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideProgressBarRunnable:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogSubTitle:Landroid/widget/TextView;
 
-    invoke-virtual {v0, p0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getSubtitleText()Ljava/lang/CharSequence;
 
-    :cond_3
-    :goto_1
-    return-void
+    move-result-object p0
 
-    :cond_4
-    :goto_2
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setProgressBarVisible(Z)V
+    invoke-virtual {p1, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
-.method updateDialog(Z)V
-    .locals 2
+.method public final updateDialog(Z)V
+    .locals 14
 
     sget-boolean v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->DEBUG:Z
 
+    const-string v1, "InternetDialog"
+
     if-eqz v0, :cond_0
 
-    const-string v0, "InternetDialog"
+    const-string/jumbo v2, "updateDialog"
 
-    const-string v1, "updateDialog"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogTitle:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogTitle:Landroid/widget/TextView;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getDialogTitleText()Ljava/lang/CharSequence;
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    move-result-object v1
+    invoke-virtual {v3}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    move-result v4
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogSubTitle:Landroid/widget/TextView;
+    const v5, 0x7f1300f7
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getSubtitleText()Ljava/lang/CharSequence;
+    if-eqz v4, :cond_1
 
-    move-result-object v1
+    iget-object v3, v3, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v3, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeButton:Landroid/widget/Button;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const/4 v1, 0x0
+    move-result-object v3
 
     goto :goto_0
 
     :cond_1
-    const/16 v1, 0x8
+    iget-object v3, v3, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f1305e7
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v3
 
     :goto_0
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateEthernet()V
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogSubTitle:Landroid/widget/TextView;
 
-    if-eqz p1, :cond_2
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getSubtitleText()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeButton:Landroid/widget/Button;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
+
+    move-result v3
+
+    const/16 v4, 0x8
+
+    const/4 v6, 0x0
+
+    if-eqz v3, :cond_2
+
+    move v3, v6
+
+    goto :goto_1
+
+    :cond_2
+    move v3, v4
+
+    :goto_1
+    invoke-virtual {v2, v3}, Landroid/widget/Button;->setVisibility(I)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mEthernetLayout:Landroid/widget/LinearLayout;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-boolean v3, v3, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
+
+    if-eqz v3, :cond_3
+
+    move v3, v6
+
+    goto :goto_2
+
+    :cond_3
+    move v3, v4
+
+    :goto_2
+    invoke-virtual {v2, v3}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    const/4 v2, 0x4
+
+    const v3, 0x7f140326
+
+    const v7, 0x7f140325
+
+    const/4 v8, 0x2
+
+    const/4 v9, 0x1
+
+    if-eqz p1, :cond_19
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
@@ -2877,49 +2052,917 @@
 
     move-result p1
 
+    iget-object v10, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-virtual {v10}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
+
+    move-result v10
+
+    if-nez p1, :cond_5
+
+    if-eqz v10, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    move p1, v6
+
+    goto :goto_4
+
+    :cond_5
+    :goto_3
+    move p1, v9
+
+    :goto_4
+    if-eqz v0, :cond_6
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "setMobileDataLayout, isCarrierNetworkActive = "
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
-
-    move-result v0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setMobileDataLayout(ZZ)V
-
-    :cond_2
-    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigWifi:Z
-
-    if-nez p1, :cond_3
-
-    return-void
-
-    :cond_3
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->showProgressBar()V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDeviceLocked()Z
-
-    move-result p1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiManager:Landroid/net/wifi/WifiManager;
-
-    invoke-virtual {v0}, Landroid/net/wifi/WifiManager;->isWifiEnabled()Z
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isWifiEnabled()Z
 
     move-result v0
 
     iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isWifiScanEnabled()Z
+    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->hasActiveSubId()Z
 
     move-result v1
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateWifiToggle(ZZ)V
+    if-nez v1, :cond_8
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateConnectedWifi(ZZ)V
+    if-eqz v0, :cond_7
 
-    invoke-direct {p0, v0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateWifiListAndSeeAll(ZZ)V
+    if-nez v10, :cond_8
 
-    invoke-direct {p0, v0, v1, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->updateWifiScanNotify(ZZZ)V
+    :cond_7
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
 
+    invoke-virtual {p1, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto/16 :goto_12
+
+    :cond_8
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v0, v6}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setChecked(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileTitleText:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getMobileNetworkTitle()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    iget-object v10, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConfig:Lcom/android/settingslib/mobile/MobileMappings$Config;
+
+    iget-object v11, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mTelephonyDisplayInfo:Landroid/telephony/TelephonyDisplayInfo;
+
+    iget v12, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mDefaultDataSubId:I
+
+    invoke-virtual {v11}, Landroid/telephony/TelephonyDisplayInfo;->getOverrideNetworkType()I
+
+    move-result v13
+
+    if-nez v13, :cond_9
+
+    invoke-virtual {v11}, Landroid/telephony/TelephonyDisplayInfo;->getNetworkType()I
+
+    move-result v11
+
+    invoke-static {v11}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v11
+
+    goto :goto_5
+
+    :cond_9
+    invoke-virtual {v11}, Landroid/telephony/TelephonyDisplayInfo;->getOverrideNetworkType()I
+
+    move-result v11
+
+    invoke-static {v11}, Lcom/android/settingslib/mobile/MobileMappings;->toDisplayIconKey(I)Ljava/lang/String;
+
+    move-result-object v11
+
+    :goto_5
+    invoke-static {v10}, Lcom/android/settingslib/mobile/MobileMappings;->mapIconSets(Lcom/android/settingslib/mobile/MobileMappings$Config;)Ljava/util/HashMap;
+
+    invoke-static {v10}, Lcom/android/settingslib/mobile/MobileMappings;->mapIconSets(Lcom/android/settingslib/mobile/MobileMappings$Config;)Ljava/util/HashMap;
+
+    move-result-object v13
+
+    invoke-virtual {v13, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v13
+
+    if-nez v13, :cond_a
+
+    sget-boolean v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
+
+    if-eqz v1, :cond_c
+
+    const-string v1, "InternetDialogController"
+
+    const-string v10, "The description of network type is empty."
+
+    invoke-static {v1, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_6
+
+    :cond_a
+    invoke-static {v10}, Lcom/android/settingslib/mobile/MobileMappings;->mapIconSets(Lcom/android/settingslib/mobile/MobileMappings$Config;)Ljava/util/HashMap;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v11}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v10
+
+    check-cast v10, Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    invoke-static {v10}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget v10, v10, Lcom/android/settingslib/SignalIcon$MobileIconGroup;->dataContentDescription:I
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_b
+
+    sget-object v10, Lcom/android/settingslib/mobile/TelephonyIcons;->CARRIER_NETWORK_CHANGE:Lcom/android/settingslib/SignalIcon$MobileIconGroup;
+
+    const v10, 0x7f130275
+
+    :cond_b
+    if-eqz v10, :cond_c
+
+    invoke-static {v1, v12}, Landroid/telephony/SubscriptionManager;->getResourcesForSubId(Landroid/content/Context;I)Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_7
+
+    :cond_c
+    :goto_6
+    const-string v1, ""
+
+    :goto_7
+    iget-object v10, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isMobileDataEnabled()Z
+
+    move-result v11
+
+    if-nez v11, :cond_d
+
+    const v0, 0x7f13048c
+
+    invoke-virtual {v10, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_a
+
+    :cond_d
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->activeNetworkIsCellular()Z
+
+    move-result v11
+
+    if-nez v11, :cond_f
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isCarrierNetworkActive()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_e
+
+    goto :goto_8
+
+    :cond_e
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isDataStateInService()Z
+
+    move-result v0
+
+    if-nez v0, :cond_10
+
+    const v0, 0x7f13048b
+
+    invoke-virtual {v10, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_9
+
+    :cond_f
+    :goto_8
+    const v0, 0x7f130589
+
+    new-array v11, v8, [Ljava/lang/Object;
+
+    const v12, 0x7f130487
+
+    invoke-virtual {v10, v12}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    aput-object v12, v11, v6
+
+    aput-object v1, v11, v9
+
+    invoke-virtual {v10, v0, v11}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_10
+    :goto_9
+    move-object v0, v1
+
+    :goto_a
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_11
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
+
+    invoke-static {v0, v6}, Landroid/text/Html;->fromHtml(Ljava/lang/String;I)Landroid/text/Spanned;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v6}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_b
+
+    :cond_11
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :goto_b
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v1, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda11;
+
+    invoke-direct {v1, v8, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda11;-><init>(ILjava/lang/Object;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileTitleText:Landroid/widget/TextView;
+
+    if-eqz p1, :cond_12
+
+    move v1, v3
+
+    goto :goto_c
+
+    :cond_12
+    move v1, v7
+
+    :goto_c
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextAppearance(I)V
+
+    if-eqz p1, :cond_13
+
+    const v0, 0x7f140328
+
+    goto :goto_d
+
+    :cond_13
+    const v0, 0x7f140327
+
+    :goto_d
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileSummaryText:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextAppearance(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isAirplaneModeEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_14
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v6}, Landroid/widget/TextView;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
+
+    iget-object v10, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10, v5}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setTextAppearance(I)V
+
+    goto :goto_e
+
+    :cond_14
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAirplaneModeSummaryText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :goto_e
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileNetworkLayout:Landroid/widget/LinearLayout;
+
+    if-eqz p1, :cond_15
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
+
+    goto :goto_f
+
+    :cond_15
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
+
+    :goto_f
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
+
+    const v1, 0x7f140167
+
+    new-array v5, v9, [I
+
+    const v10, 0x10100d4
+
+    aput v10, v5, v6
+
+    invoke-virtual {v0, v1, v5}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
+
+    const v5, 0x1010038
+
+    invoke-static {v1, v5}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v1
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileToggleDivider:Landroid/view/View;
+
+    if-eqz p1, :cond_16
+
+    invoke-virtual {v0, v6, v1}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v1
+
+    :cond_16
+    invoke-virtual {v5, v1}, Landroid/view/View;->setBackgroundColor(I)V
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileDataToggle:Landroid/widget/Switch;
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigMobileData:Z
+
+    if-eqz v0, :cond_17
+
+    move v0, v6
+
+    goto :goto_10
+
+    :cond_17
+    move v0, v2
+
+    :goto_10
+    invoke-virtual {p1, v0}, Landroid/widget/Switch;->setVisibility(I)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mMobileToggleDivider:Landroid/view/View;
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigMobileData:Z
+
+    if-eqz v0, :cond_18
+
+    move v0, v6
+
+    goto :goto_11
+
+    :cond_18
+    move v0, v2
+
+    :goto_11
+    invoke-virtual {p1, v0}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_19
+    :goto_12
+    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanConfigWifi:Z
+
+    if-nez p1, :cond_1a
+
+    return-void
+
+    :cond_1a
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isWifiEnabled()Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1e
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object p1, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isUnlocked()Z
+
+    move-result p1
+
+    xor-int/2addr p1, v9
+
+    if-eqz p1, :cond_1b
+
+    goto :goto_14
+
+    :cond_1b
+    invoke-virtual {p0, v9}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setProgressBarVisible(Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    const-wide/16 v0, 0x5dc
+
+    if-nez p1, :cond_1d
+
+    iget p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiEntriesCount:I
+
+    if-lez p1, :cond_1c
+
+    goto :goto_13
+
+    :cond_1c
+    iget-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mIsSearchingHidden:Z
+
+    if-nez p1, :cond_1f
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideSearchingRunnable:Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda6;
+
+    invoke-virtual {p1, v5, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_15
+
+    :cond_1d
+    :goto_13
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHandler:Landroid/os/Handler;
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHideProgressBarRunnable:Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda5;
+
+    invoke-virtual {p1, v5, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_15
+
+    :cond_1e
+    :goto_14
+    invoke-virtual {p0, v6}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->setProgressBarVisible(Z)V
+
+    :cond_1f
+    :goto_15
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object p1, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/policy/KeyguardStateController;->isUnlocked()Z
+
+    move-result p1
+
+    xor-int/2addr p1, v9
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->isWifiEnabled()Z
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object v5, v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mLocationController:Lcom/android/systemui/statusbar/policy/LocationController;
+
+    invoke-interface {v5}, Lcom/android/systemui/statusbar/policy/LocationController;->isLocationEnabled()Z
+
+    move-result v5
+
+    if-nez v5, :cond_20
+
+    goto :goto_16
+
+    :cond_20
+    iget-object v1, v1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mWifiManager:Landroid/net/wifi/WifiManager;
+
+    if-eqz v1, :cond_21
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiManager;->isScanAlwaysAvailable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_21
+
+    move v1, v9
+
+    goto :goto_17
+
+    :cond_21
+    :goto_16
+    move v1, v6
+
+    :goto_17
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
+
+    invoke-virtual {v5}, Landroid/widget/Switch;->isChecked()Z
+
+    move-result v5
+
+    if-eq v5, v0, :cond_22
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
+
+    invoke-virtual {v5, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    :cond_22
+    if-eqz p1, :cond_24
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiToggleTitleText:Landroid/widget/TextView;
+
+    iget-object v10, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    if-eqz v10, :cond_23
+
+    goto :goto_18
+
+    :cond_23
+    move v3, v7
+
+    :goto_18
+    invoke-virtual {v5, v3}, Landroid/widget/TextView;->setTextAppearance(I)V
+
+    :cond_24
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mTurnWifiOnLayout:Landroid/widget/LinearLayout;
+
+    const/4 v5, 0x0
+
+    if-eqz p1, :cond_25
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    if-eqz v7, :cond_25
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
+
+    goto :goto_19
+
+    :cond_25
+    move-object v7, v5
+
+    :goto_19
+    invoke-virtual {v3, v7}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    iget-boolean v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mCanChangeWifiState:Z
+
+    if-nez v3, :cond_26
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
+
+    invoke-virtual {v3}, Landroid/widget/Switch;->isEnabled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_26
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWiFiToggle:Landroid/widget/Switch;
+
+    invoke-virtual {v3, v6}, Landroid/widget/Switch;->setEnabled(Z)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiToggleTitleText:Landroid/widget/TextView;
+
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mDialogView:Landroid/view/View;
+
+    const v7, 0x7f0b079f
+
+    invoke-virtual {v3, v7}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/widget/TextView;
+
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    invoke-virtual {v3, v6}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :cond_26
+    if-eqz v0, :cond_2a
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    if-eqz v3, :cond_2a
+
+    if-eqz p1, :cond_27
+
+    goto :goto_1b
+
+    :cond_27
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifListLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3, v6}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiTitleText:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    invoke-virtual {v7}, Lcom/android/wifitrackerlib/WifiEntry;->getTitle()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v3, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiSummaryText:Landroid/widget/TextView;
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    invoke-virtual {v7, v6}, Lcom/android/wifitrackerlib/WifiEntry;->getSummary(Z)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v3, v7}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiIcon:Landroid/widget/ImageView;
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object v10, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+
+    invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    iget v11, v10, Lcom/android/wifitrackerlib/WifiEntry;->mLevel:I
+
+    const/4 v12, -0x1
+
+    const v13, 0x7f060080
+
+    if-ne v11, v12, :cond_28
+
+    goto :goto_1a
+
+    :cond_28
+    iget-object v11, v7, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mWifiIconInjector:Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;
+
+    invoke-virtual {v10}, Lcom/android/wifitrackerlib/WifiEntry;->shouldShowXLevelIcon()Z
+
+    move-result v12
+
+    iget v10, v10, Lcom/android/wifitrackerlib/WifiEntry;->mLevel:I
+
+    invoke-virtual {v11, v10, v12}, Lcom/android/settingslib/wifi/WifiUtils$InternetIconInjector;->getIcon(IZ)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v10
+
+    if-nez v10, :cond_29
+
+    goto :goto_1a
+
+    :cond_29
+    iget-object v5, v7, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5, v13}, Landroid/content/Context;->getColor(I)I
+
+    move-result v5
+
+    invoke-virtual {v10, v5}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    move-object v5, v10
+
+    :goto_1a
+    invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiSettingsIcon:Landroid/widget/ImageView;
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5, v13}, Landroid/content/Context;->getColor(I)I
+
+    move-result v5
+
+    invoke-virtual {v3, v5}, Landroid/widget/ImageView;->setColorFilter(I)V
+
+    goto :goto_1c
+
+    :cond_2a
+    :goto_1b
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mConnectedWifListLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :goto_1c
+    if-eqz v0, :cond_31
+
+    if-eqz p1, :cond_2b
+
+    goto :goto_1e
+
+    :cond_2b
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->getWifiListMaxCount()I
+
+    move-result v3
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mAdapter:Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;
+
+    iget v7, v5, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;->mWifiEntriesCount:I
+
+    if-le v7, v3, :cond_2c
+
+    iput-boolean v9, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHasMoreWifiEntries:Z
+
+    :cond_2c
+    if-ltz v3, :cond_2e
+
+    iget v10, v5, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;->mMaxEntriesCount:I
+
+    if-ne v10, v3, :cond_2d
+
+    goto :goto_1d
+
+    :cond_2d
+    iput v3, v5, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;->mMaxEntriesCount:I
+
+    if-le v7, v3, :cond_2e
+
+    iput v3, v5, Lcom/android/systemui/qs/tiles/dialog/InternetAdapter;->mWifiEntriesCount:I
+
+    invoke-virtual {v5}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
+
+    :cond_2e
+    :goto_1d
+    iget v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiNetworkHeight:I
+
+    mul-int/2addr v5, v3
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v3}, Landroid/view/ViewGroup;->getMinimumHeight()I
+
+    move-result v3
+
+    if-eq v3, v5, :cond_2f
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup;->setMinimumHeight(I)V
+
+    :cond_2f
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v3, v6}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSeeAllLayout:Landroid/widget/LinearLayout;
+
+    iget-boolean v5, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mHasMoreWifiEntries:Z
+
+    if-eqz v5, :cond_30
+
+    move v2, v6
+
+    :cond_30
+    invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_1f
+
+    :cond_31
+    :goto_1e
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    invoke-virtual {v2, v4}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    iget-object v2, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mSeeAllLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v2, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :goto_1f
+    if-nez v0, :cond_34
+
+    if-eqz v1, :cond_34
+
+    if-eqz p1, :cond_32
+
+    goto :goto_20
+
+    :cond_32
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyText:Landroid/widget/TextView;
+
+    invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object p1
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_33
+
+    new-instance p1, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v1, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, v8, v0}, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
+
+    invoke-direct {p1, v1}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;-><init>(Landroid/view/View$OnClickListener;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyText:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const v2, 0x7f1307c4
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    new-array v2, v9, [Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
+
+    aput-object p1, v2, v6
+
+    invoke-static {v1, v2}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan;->linkify(Ljava/lang/CharSequence;[Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Landroid/text/SpannableStringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyText:Landroid/widget/TextView;
+
+    invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
+
+    :cond_33
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {p0, v6}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    goto :goto_21
+
+    :cond_34
+    :goto_20
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->mWifiScanNotifyLayout:Landroid/widget/LinearLayout;
+
+    invoke-virtual {p0, v4}, Landroid/widget/LinearLayout;->setVisibility(I)V
+
+    :goto_21
     return-void
 .end method

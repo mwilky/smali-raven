@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onHasViewsAboveShelfChanged(Z)V
+.method public abstract onHasViewsAboveShelfChanged()V
 .end method

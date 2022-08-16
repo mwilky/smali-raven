@@ -4,58 +4,46 @@
 
 
 # instance fields
-.field private appName:Landroid/view/View;
+.field public appName:Landroid/view/View;
 
-.field private conversationBadgeBg:Landroid/view/View;
+.field public conversationBadgeBg:Landroid/view/View;
 
-.field private conversationIconContainer:Landroid/view/View;
+.field public conversationIconContainer:Landroid/view/View;
 
-.field private conversationIconView:Lcom/android/internal/widget/CachingIconView;
+.field public conversationIconView:Lcom/android/internal/widget/CachingIconView;
 
-.field private final conversationLayout:Lcom/android/internal/widget/ConversationLayout;
+.field public final conversationLayout:Lcom/android/internal/widget/ConversationLayout;
 
-.field private conversationTitleView:Landroid/view/View;
+.field public conversationTitleView:Landroid/view/View;
 
-.field private expandBtn:Landroid/view/View;
+.field public expandBtn:Landroid/view/View;
 
-.field private expandBtnContainer:Landroid/view/View;
+.field public expandBtnContainer:Landroid/view/View;
 
-.field private facePileBottom:Landroid/view/View;
+.field public facePileBottom:Landroid/view/View;
 
-.field private facePileBottomBg:Landroid/view/View;
+.field public facePileBottomBg:Landroid/view/View;
 
-.field private facePileTop:Landroid/view/View;
+.field public facePileTop:Landroid/view/View;
 
-.field private imageMessageContainer:Landroid/view/ViewGroup;
+.field public imageMessageContainer:Landroid/view/ViewGroup;
 
-.field private importanceRing:Landroid/view/View;
+.field public importanceRing:Landroid/view/View;
 
-.field private messagingLinearLayout:Lcom/android/internal/widget/MessagingLinearLayout;
+.field public messagingLinearLayout:Lcom/android/internal/widget/MessagingLinearLayout;
 
-.field private final minHeightWithActions:I
+.field public final minHeightWithActions:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-    .locals 1
-
-    const-string v0, "ctx"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "view"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "row"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;-><init>(Landroid/content/Context;Landroid/view/View;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 
-    sget p3, Lcom/android/systemui/R$dimen;->notification_messaging_actions_min_height:I
+    const p3, 0x7f0705d6
 
-    invoke-static {p1, p3}, Lcom/android/systemui/statusbar/notification/NotificationUtils;->getFontScaledHeight(Landroid/content/Context;I)I
+    invoke-static {p1, p3}, Lokio/Okio;->getFontScaledHeight(Landroid/content/Context;I)I
 
     move-result p1
 
@@ -68,163 +56,9 @@
     return-void
 .end method
 
-.method private final resolveViews()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
-
-    invoke-virtual {v0}, Lcom/android/internal/widget/ConversationLayout;->getMessagingLinearLayout()Lcom/android/internal/widget/MessagingLinearLayout;
-
-    move-result-object v0
-
-    const-string v1, "conversationLayout.messagingLinearLayout"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->messagingLinearLayout:Lcom/android/internal/widget/MessagingLinearLayout;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
-
-    invoke-virtual {v0}, Lcom/android/internal/widget/ConversationLayout;->getImageMessageContainer()Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    const-string v1, "conversationLayout.imageMessageContainer"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->imageMessageContainer:Landroid/view/ViewGroup;
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
-
-    const v1, 0x1020265
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.conversation_icon_container)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconContainer:Landroid/view/View;
-
-    const v1, 0x1020261
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.conversation_icon)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    check-cast v1, Lcom/android/internal/widget/CachingIconView;
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconView:Lcom/android/internal/widget/CachingIconView;
-
-    const v1, 0x1020263
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.conversation_icon_badge_bg)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationBadgeBg:Landroid/view/View;
-
-    const v1, 0x102029d
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.expand_button)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtn:Landroid/view/View;
-
-    const v1, 0x102029f
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.expand_button_container)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtnContainer:Landroid/view/View;
-
-    const v1, 0x1020264
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.conversation_icon_badge_ring)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->importanceRing:Landroid/view/View;
-
-    const v1, 0x10201de
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.app_name_text)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->appName:Landroid/view/View;
-
-    const v1, 0x1020267
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    const-string v2, "requireViewById(com.android.internal.R.id.conversation_text)"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationTitleView:Landroid/view/View;
-
-    const v1, 0x102025f
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileTop:Landroid/view/View;
-
-    const v1, 0x102025d
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileBottom:Landroid/view/View;
-
-    const v1, 0x102025e
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileBottomBg:Landroid/view/View;
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getMinLayoutHeight()I
+.method public final getMinLayoutHeight()I
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->mActionsContainer:Landroid/view/View;
@@ -244,16 +78,14 @@
     goto :goto_0
 
     :cond_0
-    invoke-super {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->getMinLayoutHeight()I
-
-    move-result p0
+    const/4 p0, 0x0
 
     :goto_0
     return p0
 .end method
 
-.method public getShelfTransformationTarget()Landroid/view/View;
-    .locals 4
+.method public final getShelfTransformationTarget()Landroid/view/View;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
 
@@ -267,99 +99,188 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "conversationIconView"
+    if-nez v0, :cond_0
 
-    if-eqz v0, :cond_2
+    move-object v0, v1
 
+    :cond_0
     invoke-virtual {v0}, Lcom/android/internal/widget/CachingIconView;->getVisibility()I
 
     move-result v0
 
-    const/16 v3, 0x8
+    const/16 v2, 0x8
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v2, :cond_2
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconView:Lcom/android/internal/widget/CachingIconView;
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_1
 
     goto :goto_0
 
-    :cond_0
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-
     :cond_1
-    invoke-super {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->getShelfTransformationTarget()Landroid/view/View;
-
-    move-result-object p0
+    move-object v1, p0
 
     goto :goto_0
 
     :cond_2
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mIcon:Lcom/android/internal/widget/CachingIconView;
 
-    throw v1
+    goto :goto_0
 
     :cond_3
-    invoke-super {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->getShelfTransformationTarget()Landroid/view/View;
-
-    move-result-object p0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->mIcon:Lcom/android/internal/widget/CachingIconView;
 
     :goto_0
-    return-object p0
+    return-object v1
 .end method
 
-.method public onContentUpdated(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-    .locals 1
+.method public final onContentUpdated(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+    .locals 2
 
-    const-string v0, "row"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {v0}, Lcom/android/internal/widget/ConversationLayout;->getMessagingLinearLayout()Lcom/android/internal/widget/MessagingLinearLayout;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->resolveViews()V
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->messagingLinearLayout:Lcom/android/internal/widget/MessagingLinearLayout;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
+
+    invoke-virtual {v0}, Lcom/android/internal/widget/ConversationLayout;->getImageMessageContainer()Landroid/view/ViewGroup;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->imageMessageContainer:Landroid/view/ViewGroup;
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
+
+    const v1, 0x102027f
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconContainer:Landroid/view/View;
+
+    const v1, 0x102027b
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/internal/widget/CachingIconView;
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconView:Lcom/android/internal/widget/CachingIconView;
+
+    const v1, 0x102027d
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationBadgeBg:Landroid/view/View;
+
+    const v1, 0x10202b6
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtn:Landroid/view/View;
+
+    const v1, 0x10202b8
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtnContainer:Landroid/view/View;
+
+    const v1, 0x102027e
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->importanceRing:Landroid/view/View;
+
+    const v1, 0x10201f0
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->appName:Landroid/view/View;
+
+    const v1, 0x1020281
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->requireViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationTitleView:Landroid/view/View;
+
+    const v1, 0x1020279
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileTop:Landroid/view/View;
+
+    const v1, 0x1020277
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileBottom:Landroid/view/View;
+
+    const v1, 0x1020278
+
+    invoke-virtual {v0, v1}, Lcom/android/internal/widget/ConversationLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->facePileBottomBg:Landroid/view/View;
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->onContentUpdated(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
 
     return-void
 .end method
 
-.method public setNotificationFaded(Z)V
+.method public final setNotificationFaded(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtn:Landroid/view/View;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
+    move-object v0, v1
+
+    :cond_0
     invoke-static {v0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconContainer:Landroid/view/View;
 
-    if-eqz p0, :cond_0
+    if-nez p0, :cond_1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
-
-    return-void
-
-    :cond_0
-    const-string p0, "conversationIconContainer"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
+    goto :goto_0
 
     :cond_1
-    const-string p0, "expandBtn"
+    move-object v1, p0
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
+    :goto_0
+    invoke-static {v1, p1}, Lcom/android/systemui/statusbar/notification/NotificationFadeAware;->setLayerTypeForFaded(Landroid/view/View;Z)V
 
-    throw v1
+    return-void
 .end method
 
-.method public setRemoteInputVisible(Z)V
+.method public final setRemoteInputVisible(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
@@ -369,12 +290,8 @@
     return-void
 .end method
 
-.method public updateExpandability(ZLandroid/view/View$OnClickListener;Z)V
+.method public final updateExpandability(ZLandroid/view/View$OnClickListener;Z)V
     .locals 0
-
-    const-string p3, "onClickListener"
-
-    invoke-static {p2, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationLayout:Lcom/android/internal/widget/ConversationLayout;
 
@@ -383,8 +300,8 @@
     return-void
 .end method
 
-.method protected updateTransformedTypes()V
-    .locals 6
+.method public final updateTransformedTypes()V
+    .locals 7
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->updateTransformedTypes()V
 
@@ -394,11 +311,14 @@
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_7
+    if-nez v1, :cond_0
 
+    move-object v1, v2
+
+    :cond_0
     const/4 v3, 0x1
 
-    invoke-virtual {v0, v3, v1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
+    invoke-virtual {v0, v1, v3}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(Landroid/view/View;I)V
 
     const/4 v0, 0x2
 
@@ -406,16 +326,22 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->messagingLinearLayout:Lcom/android/internal/widget/MessagingLinearLayout;
 
-    if-eqz v4, :cond_6
+    if-nez v4, :cond_1
 
+    move-object v4, v2
+
+    :cond_1
     const/4 v5, 0x0
 
     aput-object v4, v1, v5
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->appName:Landroid/view/View;
 
-    if-eqz v4, :cond_5
+    if-nez v4, :cond_2
 
+    move-object v4, v2
+
+    :cond_2
     aput-object v4, v1, v3
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->addTransformedViews([Landroid/view/View;)V
@@ -424,39 +350,74 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->imageMessageContainer:Landroid/view/ViewGroup;
 
+    if-nez v4, :cond_3
+
+    move-object v4, v2
+
+    :cond_3
     if-eqz v4, :cond_4
 
-    invoke-static {v1, v4}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationMessagingTemplateViewWrapper;->setCustomImageMessageTransform(Lcom/android/systemui/statusbar/ViewTransformationHelper;Landroid/view/ViewGroup;)V
+    new-instance v6, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationMessagingTemplateViewWrapper$1;
 
+    invoke-direct {v6}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationMessagingTemplateViewWrapper$1;-><init>()V
+
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getId()I
+
+    move-result v4
+
+    iget-object v1, v1, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mCustomTransformations:Landroid/util/ArrayMap;
+
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4, v6}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_4
     const/4 v1, 0x7
 
     new-array v1, v1, [Landroid/view/View;
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationIconView:Lcom/android/internal/widget/CachingIconView;
 
-    if-eqz v4, :cond_3
+    if-nez v4, :cond_5
 
+    move-object v4, v2
+
+    :cond_5
     aput-object v4, v1, v5
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->conversationBadgeBg:Landroid/view/View;
 
-    if-eqz v4, :cond_2
+    if-nez v4, :cond_6
 
+    move-object v4, v2
+
+    :cond_6
     aput-object v4, v1, v3
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->expandBtn:Landroid/view/View;
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_7
 
+    move-object v3, v2
+
+    :cond_7
     aput-object v3, v1, v0
 
     const/4 v0, 0x3
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationConversationTemplateViewWrapper;->importanceRing:Landroid/view/View;
 
-    if-eqz v3, :cond_0
+    if-nez v3, :cond_8
 
-    aput-object v3, v1, v0
+    goto :goto_0
+
+    :cond_8
+    move-object v2, v3
+
+    :goto_0
+    aput-object v2, v1, v0
 
     const/4 v0, 0x4
 
@@ -479,60 +440,4 @@
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationHeaderViewWrapper;->addViewsTransformingToSimilar([Landroid/view/View;)V
 
     return-void
-
-    :cond_0
-    const-string p0, "importanceRing"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_1
-    const-string p0, "expandBtn"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_2
-    const-string p0, "conversationBadgeBg"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_3
-    const-string p0, "conversationIconView"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_4
-    const-string p0, "imageMessageContainer"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_5
-    const-string p0, "appName"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_6
-    const-string p0, "messagingLinearLayout"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_7
-    const-string p0, "conversationTitleView"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
 .end method

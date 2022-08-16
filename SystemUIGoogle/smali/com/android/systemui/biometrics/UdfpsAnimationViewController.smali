@@ -1,6 +1,6 @@
-.class abstract Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
+.class public abstract Lcom/android/systemui/biometrics/UdfpsAnimationViewController;
 .super Lcom/android/systemui/util/ViewController;
-.source "UdfpsAnimationViewController.java"
+.source "UdfpsAnimationViewController.kt"
 
 # interfaces
 .implements Lcom/android/systemui/Dumpable;
@@ -20,31 +20,29 @@
 
 
 # instance fields
-.field private final mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
+.field public dialogAlphaAnimator:Landroid/animation/ValueAnimator;
 
-.field final mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+.field public final dialogListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$dialogListener$1;
 
-.field final mDumpManger:Lcom/android/systemui/dump/DumpManager;
+.field public final dialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
-.field mNotificationShadeVisible:Z
+.field public final dumpManager:Lcom/android/systemui/dump/DumpManager;
 
-.field private final mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
+.field public final dumpTag:Ljava/lang/String;
 
-.field final mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
+.field public notificationShadeVisible:Z
 
-.field final mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+.field public final panelExpansionListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$panelExpansionListener$1;
+
+.field public final panelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
+
+.field public final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+.field public final touchTranslation:Landroid/graphics/PointF;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$9EG4kv_GYzrtsNRqjK9b4yB7T6E(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->lambda$new$0(Z)V
-
-    return-void
-.end method
-
-.method protected constructor <init>(Lcom/android/systemui/biometrics/UdfpsAnimationView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/dump/DumpManager;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/UdfpsAnimationView;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;Lcom/android/systemui/dump/DumpManager;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,169 +57,144 @@
 
     invoke-direct {p0, p1}, Lcom/android/systemui/util/ViewController;-><init>(Landroid/view/View;)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$1;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$1;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)V
+    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->panelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
+    iput-object p4, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
-    new-instance p1, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$$ExternalSyntheticLambda0;
+    iput-object p5, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dumpManager:Lcom/android/systemui/dump/DumpManager;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)V
+    new-instance p2, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$dialogListener$1;
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
+    invoke-direct {p2, p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$dialogListener$1;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)V
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dialogListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$dialogListener$1;
 
-    iput-object p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
+    new-instance p2, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$panelExpansionListener$1;
 
-    iput-object p4, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+    invoke-direct {p2, p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController$panelExpansionListener$1;-><init>(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;Lcom/android/systemui/biometrics/UdfpsAnimationView;)V
 
-    iput-object p5, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDumpManger:Lcom/android/systemui/dump/DumpManager;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->panelExpansionListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$panelExpansionListener$1;
 
-    return-void
-.end method
+    new-instance p1, Landroid/graphics/PointF;
 
-.method static synthetic access$000(Lcom/android/systemui/biometrics/UdfpsAnimationViewController;)Landroid/view/View;
-    .locals 0
+    const/4 p2, 0x0
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    invoke-direct {p1, p2, p2}, Landroid/graphics/PointF;-><init>(FF)V
 
-    return-object p0
-.end method
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->touchTranslation:Landroid/graphics/PointF;
 
-.method private getDumpTag()Ljava/lang/String;
-    .locals 2
+    new-instance p1, Ljava/lang/StringBuilder;
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getTag()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p2
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " ("
+    const-string p2, " ("
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, ")"
+    const/16 p2, 0x29
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p0
+    move-result-object p1
 
-    return-object p0
-.end method
-
-.method private synthetic lambda$new$0(Z)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->updatePauseAuth()V
+    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dumpTag:Ljava/lang/String;
 
     return-void
 .end method
 
 
 # virtual methods
-.method dozeTimeTick()V
-    .locals 1
+.method public doAnnounceForAccessibility(Ljava/lang/String;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->dozeTimeTick()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->postInvalidate()V
-
-    :cond_0
     return-void
 .end method
 
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 0
+.method public dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 1
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    iget-boolean p2, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->notificationShadeVisible:Z
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const-string p3, "mNotificationShadeVisible="
+    move-result-object p2
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "mNotificationShadeVisible="
 
-    iget-boolean p3, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeVisible:Z
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "shouldPauseAuth()="
-
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->shouldPauseAuth()Z
 
-    move-result p3
+    move-result p2
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
 
-    move-result-object p1
+    const-string/jumbo v0, "shouldPauseAuth()="
 
-    invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const-string p3, "isPauseAuth="
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
-    invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    iget-boolean p2, p2, Lcom/android/systemui/biometrics/UdfpsAnimationView;->mPauseAuth:Z
 
-    check-cast p0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
+    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->isPauseAuth()Z
+    move-result-object p2
 
-    move-result p0
+    const-string v0, "isPauseAuth="
 
-    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
     move-result-object p0
 
-    invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    iget p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationView;->mDialogSuggestedAlpha:F
+
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p0
+
+    const-string p2, "dialogSuggestedAlpha="
+
+    invoke-static {p0, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method getPaddingX()I
+.method public getPaddingX()I
     .locals 0
 
     const/4 p0, 0x0
@@ -229,7 +202,7 @@
     return p0
 .end method
 
-.method getPaddingY()I
+.method public getPaddingY()I
     .locals 0
 
     const/4 p0, 0x0
@@ -237,143 +210,102 @@
     return p0
 .end method
 
-.method abstract getTag()Ljava/lang/String;
+.method public abstract getTag()Ljava/lang/String;
 .end method
 
-.method getTouchTranslation()Landroid/graphics/PointF;
-    .locals 1
+.method public getTouchTranslation()Landroid/graphics/PointF;
+    .locals 0
 
-    new-instance p0, Landroid/graphics/PointF;
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0, v0}, Landroid/graphics/PointF;-><init>(FF)V
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->touchTranslation:Landroid/graphics/PointF;
 
     return-object p0
 .end method
 
-.method listenForTouchesOutsideView()Z
+.method public final getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
     .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method onIlluminationStarting()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onIlluminationStarting()V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()TT;"
+        }
+    .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
-    check-cast p0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->postInvalidate()V
-
-    return-void
-.end method
-
-.method onIlluminationStopped()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast v0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onIlluminationStopped()V
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
     check-cast p0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->postInvalidate()V
-
-    return-void
+    return-object p0
 .end method
 
-.method onSensorRectUpdated(Landroid/graphics/RectF;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    check-cast p0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->onSensorRectUpdated(Landroid/graphics/RectF;)V
-
-    return-void
-.end method
-
-.method onTouchOutsideView()V
+.method public onTouchOutsideView()V
     .locals 0
 
     return-void
 .end method
 
-.method protected onViewAttached()V
+.method public onViewAttached()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->panelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->panelExpansionListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$panelExpansionListener$1;
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->addExpansionListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;)V
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dialogListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$dialogListener$1;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->registerListener(Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->mListeners:Ljava/util/HashSet;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDumpManger:Lcom/android/systemui/dump/DumpManager;
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getDumpTag()Ljava/lang/String;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dumpManager:Lcom/android/systemui/dump/DumpManager;
 
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dumpTag:Ljava/lang/String;
 
     invoke-virtual {v0, v1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     return-void
 .end method
 
-.method protected onViewDetached()V
+.method public onViewDetached()V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->panelExpansionStateManager:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mPanelExpansionListener:Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->panelExpansionListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$panelExpansionListener$1;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->removeExpansionListener(Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionListener;)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/panelstate/PanelExpansionStateManager;->expansionListeners:Ljava/util/ArrayList;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogListener:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->unregisterListener(Lcom/android/systemui/statusbar/phone/SystemUIDialogManager$Listener;)V
+    iget-object v1, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dialogListener:Lcom/android/systemui/biometrics/UdfpsAnimationViewController$dialogListener$1;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDumpManger:Lcom/android/systemui/dump/DumpManager;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->mListeners:Ljava/util/HashSet;
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getDumpTag()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
 
-    move-result-object p0
+    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dumpManager:Lcom/android/systemui/dump/DumpManager;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dumpTag:Ljava/lang/String;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/dump/DumpManager;->unregisterDumpable(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method shouldPauseAuth()Z
+.method public shouldPauseAuth()Z
     .locals 1
 
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mNotificationShadeVisible:Z
+    iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->notificationShadeVisible:Z
 
     if-nez v0, :cond_1
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->mDialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->dialogManager:Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialogManager;->shouldHideAffordance()Z
 
@@ -396,29 +328,53 @@
     return p0
 .end method
 
-.method updatePauseAuth()V
-    .locals 2
+.method public updateAlpha()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
 
-    check-cast v0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
+    move-result-object p0
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->updateAlpha()I
+
+    return-void
+.end method
+
+.method public final updatePauseAuth()V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
+
+    move-result-object v0
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->shouldPauseAuth()Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->setPauseAuth(Z)Z
+    iget-boolean v2, v0, Lcom/android/systemui/biometrics/UdfpsAnimationView;->mPauseAuth:Z
 
-    move-result v0
+    if-eq v1, v2, :cond_0
 
-    if-eqz v0, :cond_0
+    iput-boolean v1, v0, Lcom/android/systemui/biometrics/UdfpsAnimationView;->mPauseAuth:Z
 
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/UdfpsAnimationView;->updateAlpha()I
 
-    check-cast p0, Lcom/android/systemui/biometrics/UdfpsAnimationView;
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsAnimationViewController;->getView()Lcom/android/systemui/biometrics/UdfpsAnimationView;
+
+    move-result-object p0
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->postInvalidate()V
 
-    :cond_0
+    :cond_1
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow$2;
+.class public final Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow$2;
 .super Landroid/util/FloatProperty;
 .source "ExpandableNotificationRow.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,18 +23,22 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    invoke-direct {p0, p1}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
+    const-string/jumbo v0, "translate"
+
+    invoke-direct {p0, v0}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public get(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)Ljava/lang/Float;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+
+    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getTranslation()F
 
@@ -47,32 +51,12 @@
     return-object p0
 .end method
 
-.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final setValue(Ljava/lang/Object;F)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow$2;->get(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)Ljava/lang/Float;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public setValue(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;F)V
-    .locals 0
 
     invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setTranslation(F)V
-
-    return-void
-.end method
-
-.method public bridge synthetic setValue(Ljava/lang/Object;F)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow$2;->setValue(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;F)V
 
     return-void
 .end method

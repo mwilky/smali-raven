@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$LogInterpolator;
+.class public final Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$LogInterpolator;
 .super Ljava/lang/Object;
 .source "KeyButtonRipple.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "LogInterpolator"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,17 +26,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$LogInterpolator;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getInterpolation(F)F
+.method public final getInterpolation(F)F
     .locals 2
 
     neg-float p0, p1

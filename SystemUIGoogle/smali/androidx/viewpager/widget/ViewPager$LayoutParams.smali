@@ -15,17 +15,15 @@
 
 
 # instance fields
-.field childIndex:I
-
 .field public gravity:I
 
 .field public isDecor:Z
 
-.field needsMeasure:Z
+.field public needsMeasure:Z
 
-.field position:I
+.field public position:I
 
-.field widthFactor:F
+.field public widthFactor:F
 
 
 # direct methods

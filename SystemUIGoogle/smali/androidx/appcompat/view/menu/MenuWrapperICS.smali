@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private final mWrappedObject:Landroidx/core/internal/view/SupportMenu;
+.field public final mWrappedObject:Landroidx/core/internal/view/SupportMenu;
 
 
 # direct methods
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public add(I)Landroid/view/MenuItem;
+.method public final add(I)Landroid/view/MenuItem;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -50,7 +50,7 @@
     return-object p0
 .end method
 
-.method public add(IIII)Landroid/view/MenuItem;
+.method public final add(IIII)Landroid/view/MenuItem;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -66,7 +66,7 @@
     return-object p0
 .end method
 
-.method public add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
+.method public final add(IIILjava/lang/CharSequence;)Landroid/view/MenuItem;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -82,7 +82,7 @@
     return-object p0
 .end method
 
-.method public add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
+.method public final add(Ljava/lang/CharSequence;)Landroid/view/MenuItem;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -98,7 +98,7 @@
     return-object p0
 .end method
 
-.method public addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
+.method public final addIntentOptions(IIILandroid/content/ComponentName;[Landroid/content/Intent;Landroid/content/Intent;I[Landroid/view/MenuItem;)I
     .locals 12
 
     move-object v0, p0
@@ -164,7 +164,7 @@
     return v3
 .end method
 
-.method public addSubMenu(I)Landroid/view/SubMenu;
+.method public final addSubMenu(I)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -180,7 +180,7 @@
     return-object p0
 .end method
 
-.method public addSubMenu(IIII)Landroid/view/SubMenu;
+.method public final addSubMenu(IIII)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -196,7 +196,7 @@
     return-object p0
 .end method
 
-.method public addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
+.method public final addSubMenu(IIILjava/lang/CharSequence;)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -212,7 +212,7 @@
     return-object p0
 .end method
 
-.method public addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
+.method public final addSubMenu(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -228,11 +228,23 @@
     return-object p0
 .end method
 
-.method public clear()V
-    .locals 0
+.method public final clear()V
+    .locals 1
 
-    invoke-virtual {p0}, Landroidx/appcompat/view/menu/BaseMenuWrapper;->internalClear()V
+    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
 
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroidx/collection/SimpleArrayMap;->clear()V
+
+    :cond_0
+    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mSubMenus:Landroidx/collection/SimpleArrayMap;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroidx/collection/SimpleArrayMap;->clear()V
+
+    :cond_1
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
 
     invoke-interface {p0}, Landroid/view/Menu;->clear()V
@@ -240,7 +252,7 @@
     return-void
 .end method
 
-.method public close()V
+.method public final close()V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -250,7 +262,7 @@
     return-void
 .end method
 
-.method public findItem(I)Landroid/view/MenuItem;
+.method public final findItem(I)Landroid/view/MenuItem;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -266,7 +278,7 @@
     return-object p0
 .end method
 
-.method public getItem(I)Landroid/view/MenuItem;
+.method public final getItem(I)Landroid/view/MenuItem;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -282,7 +294,7 @@
     return-object p0
 .end method
 
-.method public hasVisibleItems()Z
+.method public final hasVisibleItems()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -294,7 +306,7 @@
     return p0
 .end method
 
-.method public isShortcutKey(ILandroid/view/KeyEvent;)Z
+.method public final isShortcutKey(ILandroid/view/KeyEvent;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -306,7 +318,7 @@
     return p0
 .end method
 
-.method public performIdentifierAction(II)Z
+.method public final performIdentifierAction(II)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -318,7 +330,7 @@
     return p0
 .end method
 
-.method public performShortcut(ILandroid/view/KeyEvent;I)Z
+.method public final performShortcut(ILandroid/view/KeyEvent;I)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -330,11 +342,50 @@
     return p0
 .end method
 
-.method public removeGroup(I)V
-    .locals 0
+.method public final removeGroup(I)V
+    .locals 3
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/view/menu/BaseMenuWrapper;->internalRemoveGroup(I)V
+    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
 
+    if-nez v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
+
+    iget v2, v1, Landroidx/collection/SimpleArrayMap;->mSize:I
+
+    if-ge v0, v2, :cond_2
+
+    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroidx/core/internal/view/SupportMenuItem;
+
+    invoke-interface {v1}, Landroid/view/MenuItem;->getGroupId()I
+
+    move-result v1
+
+    if-ne v1, p1, :cond_1
+
+    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
+
+    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->removeAt(I)Ljava/lang/Object;
+
+    add-int/lit8 v0, v0, -0x1
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    :goto_1
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
 
     invoke-interface {p0, p1}, Landroid/view/Menu;->removeGroup(I)V
@@ -342,11 +393,50 @@
     return-void
 .end method
 
-.method public removeItem(I)V
-    .locals 0
+.method public final removeItem(I)V
+    .locals 3
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/view/menu/BaseMenuWrapper;->internalRemoveItem(I)V
+    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
 
+    if-nez v0, :cond_0
+
+    goto :goto_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
+
+    iget v2, v1, Landroidx/collection/SimpleArrayMap;->mSize:I
+
+    if-ge v0, v2, :cond_2
+
+    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroidx/core/internal/view/SupportMenuItem;
+
+    invoke-interface {v1}, Landroid/view/MenuItem;->getItemId()I
+
+    move-result v1
+
+    if-ne v1, p1, :cond_1
+
+    iget-object v1, p0, Landroidx/appcompat/view/menu/BaseMenuWrapper;->mMenuItems:Landroidx/collection/SimpleArrayMap;
+
+    invoke-virtual {v1, v0}, Landroidx/collection/SimpleArrayMap;->removeAt(I)Ljava/lang/Object;
+
+    goto :goto_1
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    :goto_1
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
 
     invoke-interface {p0, p1}, Landroid/view/Menu;->removeItem(I)V
@@ -354,7 +444,7 @@
     return-void
 .end method
 
-.method public setGroupCheckable(IZZ)V
+.method public final setGroupCheckable(IZZ)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -364,7 +454,7 @@
     return-void
 .end method
 
-.method public setGroupEnabled(IZ)V
+.method public final setGroupEnabled(IZ)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -374,7 +464,7 @@
     return-void
 .end method
 
-.method public setGroupVisible(IZ)V
+.method public final setGroupVisible(IZ)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -384,7 +474,7 @@
     return-void
 .end method
 
-.method public setQwertyMode(Z)V
+.method public final setQwertyMode(Z)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;
@@ -394,7 +484,7 @@
     return-void
 .end method
 
-.method public size()I
+.method public final size()I
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/MenuWrapperICS;->mWrappedObject:Landroidx/core/internal/view/SupportMenu;

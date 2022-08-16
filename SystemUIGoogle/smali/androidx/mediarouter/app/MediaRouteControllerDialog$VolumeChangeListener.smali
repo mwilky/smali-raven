@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;
+.class public final Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;
 .super Ljava/lang/Object;
 .source "MediaRouteControllerDialog.java"
 
@@ -12,28 +12,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "VolumeChangeListener"
 .end annotation
 
 
 # instance fields
-.field private final mStopTrackingTouch:Ljava/lang/Runnable;
+.field public final mStopTrackingTouch:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener$1;
 
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
@@ -43,27 +35,15 @@
 
     invoke-direct {p1, p0}, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener$1;-><init>(Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;)V
 
-    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Ljava/lang/Runnable;
+    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener$1;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onProgressChanged(Landroid/widget/SeekBar;IZ)V
+.method public final onProgressChanged(Landroid/widget/SeekBar;IZ)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "seekBar",
-            "progress",
-            "fromUser"
-        }
-    .end annotation
 
     if-eqz p3, :cond_1
 
@@ -81,7 +61,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p3, "onProgressChanged(): calling MediaRouter.RouteInfo.requestSetVolume("
+    const-string/jumbo p3, "onProgressChanged(): calling MediaRouter.RouteInfo.requestSetVolume("
 
     invoke-virtual {p1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -106,16 +86,8 @@
     return-void
 .end method
 
-.method public onStartTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStartTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "seekBar"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
@@ -125,7 +97,7 @@
 
     iget-object v0, v0, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
 
-    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Ljava/lang/Runnable;
+    iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener$1;
 
     invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->removeCallbacks(Ljava/lang/Runnable;)Z
 
@@ -143,22 +115,14 @@
     return-void
 .end method
 
-.method public onStopTrackingTouch(Landroid/widget/SeekBar;)V
+.method public final onStopTrackingTouch(Landroid/widget/SeekBar;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "seekBar"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mVolumeSlider:Landroid/widget/SeekBar;
 
-    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Ljava/lang/Runnable;
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener;->mStopTrackingTouch:Landroidx/mediarouter/app/MediaRouteControllerDialog$VolumeChangeListener$1;
 
     const-wide/16 v0, 0x1f4
 

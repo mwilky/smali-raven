@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/KeyguardMediaController;
+.field public final synthetic this$0:Lcom/android/systemui/media/KeyguardMediaController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/KeyguardMediaController;)V
+.method public constructor <init>(Lcom/android/systemui/media/KeyguardMediaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/KeyguardMediaController$2;->this$0:Lcom/android/systemui/media/KeyguardMediaController;
@@ -34,12 +34,34 @@
 
 
 # virtual methods
-.method public onConfigChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+.method public final onConfigChanged(Landroid/content/res/Configuration;)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/media/KeyguardMediaController$2;->this$0:Lcom/android/systemui/media/KeyguardMediaController;
 
-    invoke-static {p0}, Lcom/android/systemui/media/KeyguardMediaController;->access$updateResources(Lcom/android/systemui/media/KeyguardMediaController;)V
+    iget-object p1, p0, Lcom/android/systemui/media/KeyguardMediaController;->context:Landroid/content/Context;
 
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    invoke-static {p1}, Lcom/android/systemui/util/LargeScreenUtils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
+
+    move-result p1
+
+    iget-boolean v0, p0, Lcom/android/systemui/media/KeyguardMediaController;->useSplitShade:Z
+
+    if-ne v0, p1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iput-boolean p1, p0, Lcom/android/systemui/media/KeyguardMediaController;->useSplitShade:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/KeyguardMediaController;->reattachHostView()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/KeyguardMediaController;->refreshMediaPosition()V
+
+    :goto_0
     return-void
 .end method

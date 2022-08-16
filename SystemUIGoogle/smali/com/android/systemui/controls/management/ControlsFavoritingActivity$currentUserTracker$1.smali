@@ -15,22 +15,20 @@
 
 
 # instance fields
-.field private final startingUser:I
+.field public final startingUser:I
 
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$currentUserTracker$1;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
     invoke-direct {p0, p2}, Lcom/android/systemui/settings/CurrentUserTracker;-><init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
 
-    invoke-static {p1}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getController$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Lcom/android/systemui/controls/controller/ControlsControllerImpl;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->controller:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
     invoke-virtual {p1}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->getCurrentUserId()I
 
@@ -43,7 +41,7 @@
 
 
 # virtual methods
-.method public onUserSwitched(I)V
+.method public final onUserSwitched(I)V
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$currentUserTracker$1;->startingUser:I

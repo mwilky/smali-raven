@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;
+.class public final Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;
 .super Ljava/lang/Object;
 .source "FalsingCollectorImpl.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ProximityEventImpl"
 .end annotation
 
 
 # instance fields
-.field private mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
+.field public mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
+.method public constructor <init>(Lcom/android/systemui/util/sensors/ThresholdSensorEvent;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,26 +34,22 @@
 
 
 # virtual methods
-.method public getCovered()Z
+.method public final getCovered()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->getBelow()Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->mBelow:Z
 
     return p0
 .end method
 
-.method public getTimestampNs()J
+.method public final getTimestampNs()J
     .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingCollectorImpl$ProximityEventImpl;->mThresholdSensorEvent:Lcom/android/systemui/util/sensors/ThresholdSensorEvent;
 
-    invoke-virtual {p0}, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->getTimestampNs()J
-
-    move-result-wide v0
+    iget-wide v0, p0, Lcom/android/systemui/util/sensors/ThresholdSensorEvent;->mTimestampNs:J
 
     return-wide v0
 .end method

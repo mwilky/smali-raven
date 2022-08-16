@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$3;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onExpandedChanged(Z)V
+.method public final onExpandedChanged(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$3;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method public onStateChanged(I)V
+.method public final onStateChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$3;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;

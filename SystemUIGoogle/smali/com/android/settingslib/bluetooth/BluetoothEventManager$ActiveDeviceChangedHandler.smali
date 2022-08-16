@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/bluetooth/BluetoothEventManager$ActiveDeviceChangedHandler;
+.class public final Lcom/android/settingslib/bluetooth/BluetoothEventManager$ActiveDeviceChangedHandler;
 .super Ljava/lang/Object;
 .source "BluetoothEventManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ActiveDeviceChangedHandler"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+.field public final synthetic this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)V
+.method public constructor <init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$ActiveDeviceChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
@@ -32,17 +32,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;Lcom/android/settingslib/bluetooth/BluetoothEventManager$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager$ActiveDeviceChangedHandler;-><init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;Landroid/bluetooth/BluetoothDevice;)V
     .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -62,9 +54,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$ActiveDeviceChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {v0}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->access$1500(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
     invoke-virtual {v0, p3}, Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;->findDevice(Landroid/bluetooth/BluetoothDevice;)Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
@@ -106,6 +96,19 @@
 
     const/16 p1, 0x15
 
+    goto :goto_0
+
+    :cond_3
+    const-string v0, "android.bluetooth.action.LE_AUDIO_ACTIVE_DEVICE_CHANGED"
+
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    const/16 p1, 0x16
+
     :goto_0
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$ActiveDeviceChangedHandler;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
@@ -113,22 +116,10 @@
 
     return-void
 
-    :cond_3
-    new-instance p0, Ljava/lang/StringBuilder;
+    :cond_4
+    const-string p0, "ActiveDeviceChangedHandler: unknown action "
 
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string p3, "ActiveDeviceChangedHandler: unknown action "
-
-    invoke-virtual {p0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {p2, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1, p2}, Landroidx/constraintlayout/motion/widget/MotionLayout$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method

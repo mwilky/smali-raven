@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/SubMenuWrapperICS;
+.class public final Landroidx/appcompat/view/menu/SubMenuWrapperICS;
 .super Landroidx/appcompat/view/menu/MenuWrapperICS;
 .source "SubMenuWrapperICS.java"
 
@@ -7,11 +7,11 @@
 
 
 # instance fields
-.field private final mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
+.field public final mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroidx/core/internal/view/SupportSubMenu;)V
+.method public constructor <init>(Landroid/content/Context;Landroidx/core/internal/view/SupportSubMenu;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Landroidx/appcompat/view/menu/MenuWrapperICS;-><init>(Landroid/content/Context;Landroidx/core/internal/view/SupportMenu;)V
@@ -23,7 +23,7 @@
 
 
 # virtual methods
-.method public clearHeader()V
+.method public final clearHeader()V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -33,7 +33,7 @@
     return-void
 .end method
 
-.method public getItem()Landroid/view/MenuItem;
+.method public final getItem()Landroid/view/MenuItem;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -49,7 +49,7 @@
     return-object p0
 .end method
 
-.method public setHeaderIcon(I)Landroid/view/SubMenu;
+.method public final setHeaderIcon(I)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -59,7 +59,7 @@
     return-object p0
 .end method
 
-.method public setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
+.method public final setHeaderIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -69,7 +69,7 @@
     return-object p0
 .end method
 
-.method public setHeaderTitle(I)Landroid/view/SubMenu;
+.method public final setHeaderTitle(I)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -79,7 +79,7 @@
     return-object p0
 .end method
 
-.method public setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
+.method public final setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -89,7 +89,7 @@
     return-object p0
 .end method
 
-.method public setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
+.method public final setHeaderView(Landroid/view/View;)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -99,7 +99,7 @@
     return-object p0
 .end method
 
-.method public setIcon(I)Landroid/view/SubMenu;
+.method public final setIcon(I)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;
@@ -109,7 +109,7 @@
     return-object p0
 .end method
 
-.method public setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
+.method public final setIcon(Landroid/graphics/drawable/Drawable;)Landroid/view/SubMenu;
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/SubMenuWrapperICS;->mSubMenu:Landroidx/core/internal/view/SupportSubMenu;

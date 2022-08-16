@@ -1,25 +1,14 @@
-.class Lcom/android/systemui/assist/ui/DefaultUiController$1;
+.class public final Lcom/android/systemui/assist/ui/DefaultUiController$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "DefaultUiController.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/assist/ui/DefaultUiController;->animateInvocationCompletion(IF)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/assist/ui/DefaultUiController;
+.field public final synthetic this$0:Lcom/android/systemui/assist/ui/DefaultUiController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/assist/ui/DefaultUiController;)V
+.method public constructor <init>(Lcom/android/systemui/assist/ui/DefaultUiController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController$1;->this$0:Lcom/android/systemui/assist/ui/DefaultUiController;
@@ -31,24 +20,20 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
 
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V
 
-    iget-object p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController$1;->this$0:Lcom/android/systemui/assist/ui/DefaultUiController;
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Lcom/android/systemui/assist/ui/DefaultUiController;->access$002(Lcom/android/systemui/assist/ui/DefaultUiController;Z)Z
-
-    iget-object p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController$1;->this$0:Lcom/android/systemui/assist/ui/DefaultUiController;
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Lcom/android/systemui/assist/ui/DefaultUiController;->access$102(Lcom/android/systemui/assist/ui/DefaultUiController;F)F
-
     iget-object p0, p0, Lcom/android/systemui/assist/ui/DefaultUiController$1;->this$0:Lcom/android/systemui/assist/ui/DefaultUiController;
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mInvocationInProgress:Z
+
+    const/4 p1, 0x0
+
+    iput p1, p0, Lcom/android/systemui/assist/ui/DefaultUiController;->mLastInvocationProgress:F
 
     invoke-virtual {p0}, Lcom/android/systemui/assist/ui/DefaultUiController;->hide()V
 

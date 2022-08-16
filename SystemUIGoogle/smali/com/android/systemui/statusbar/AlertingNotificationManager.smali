@@ -16,7 +16,7 @@
 
 
 # instance fields
-.field protected final mAlertEntries:Landroid/util/ArrayMap;
+.field public final mAlertEntries:Landroid/util/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArrayMap<",
@@ -27,11 +27,11 @@
     .end annotation
 .end field
 
-.field protected mAutoDismissNotificationDecay:I
+.field public mAutoDismissNotificationDecay:I
 
-.field protected final mClock:Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;
+.field public final mClock:Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;
 
-.field protected final mExtendedLifetimeAlertEntries:Landroid/util/ArraySet;
+.field public final mExtendedLifetimeAlertEntries:Landroid/util/ArraySet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/ArraySet<",
@@ -46,23 +46,15 @@
     .end annotation
 .end field
 
-.field protected mMinimumDisplayTime:I
+.field public final mLogger:Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;
 
-.field protected mNotificationLifetimeFinishedCallback:Lcom/android/systemui/statusbar/NotificationLifetimeExtender$NotificationSafeToRemoveCallback;
+.field public mMinimumDisplayTime:I
+
+.field public mNotificationLifetimeFinishedCallback:Lcom/android/systemui/statusbar/NotificationLifetimeExtender$NotificationSafeToRemoveCallback;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$FWybKD5Tp-Akqi4lkOUArPc4S58(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->lambda$getAllEntries$0(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public constructor <init>()V
+.method public constructor <init>(Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -95,51 +87,15 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mHandler:Landroid/os/Handler;
 
+    iput-object p1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mLogger:Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;
+
     return-void
-.end method
-
-.method private static synthetic lambda$getAllEntries$0(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    return-object p0
 .end method
 
 
 # virtual methods
-.method protected final addAlertEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->createAlertEntry()Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->onAlertEntryAdded(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)V
-
-    const/16 p0, 0x800
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->sendAccessibilityEvent(I)V
-
-    const/4 p0, 0x1
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setIsAlerting(Z)V
-
-    return-void
-.end method
-
-.method protected canRemoveImmediately(Ljava/lang/String;)Z
-    .locals 0
+.method public canRemoveImmediately(Ljava/lang/String;)Z
+    .locals 5
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
 
@@ -149,13 +105,37 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
 
+    const/4 p1, 0x0
+
+    const/4 v0, 0x1
+
     if-eqz p0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->wasShownLongEnough()Z
+    iget-wide v1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEarliestRemovaltime:J
 
-    move-result p1
+    iget-object v3, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->this$0:Lcom/android/systemui/statusbar/AlertingNotificationManager;
 
-    if-nez p1, :cond_1
+    iget-object v3, v3, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mClock:Lcom/android/systemui/statusbar/AlertingNotificationManager$Clock;
+
+    invoke-virtual {v3}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide v3
+
+    cmp-long v1, v1, v3
+
+    if-gez v1, :cond_0
+
+    move v1, v0
+
+    goto :goto_0
+
+    :cond_0
+    move v1, p1
+
+    :goto_0
+    if-nez v1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
@@ -163,24 +143,16 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
+    if-eqz p0, :cond_2
 
     :cond_1
-    :goto_0
-    const/4 p0, 0x1
+    move p1, v0
 
-    :goto_1
-    return p0
+    :cond_2
+    return p1
 .end method
 
-.method protected createAlertEntry()Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
+.method public createAlertEntry()Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
@@ -190,8 +162,8 @@
     return-object v0
 .end method
 
-.method public getAllEntries()Ljava/util/stream/Stream;
-    .locals 1
+.method public final getAllEntries()Ljava/util/stream/Stream;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -211,7 +183,11 @@
 
     move-result-object p0
 
-    sget-object v0, Lcom/android/systemui/statusbar/AlertingNotificationManager$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/statusbar/AlertingNotificationManager$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda1;
+
+    const/4 v1, 0x1
+
+    invoke-direct {v0, v1}, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda1;-><init>(I)V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -220,21 +196,7 @@
     return-object p0
 .end method
 
-.method public hasNotifications()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
-
-    invoke-virtual {p0}, Landroid/util/ArrayMap;->isEmpty()Z
-
-    move-result p0
-
-    xor-int/lit8 p0, p0, 0x1
-
-    return p0
-.end method
-
-.method public isAlerting(Ljava/lang/String;)Z
+.method public final isAlerting(Ljava/lang/String;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
@@ -246,30 +208,19 @@
     return p0
 .end method
 
-.method protected abstract onAlertEntryAdded(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)V
+.method public abstract onAlertEntryAdded(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)V
 .end method
 
-.method protected abstract onAlertEntryRemoved(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)V
+.method public abstract onAlertEntryRemoved(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)V
 .end method
 
-.method public releaseAllImmediately()V
+.method public final releaseAllImmediately()V
     .locals 2
 
-    const-string v0, "AlertNotifManager"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mLogger:Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;
 
-    const/4 v1, 0x2
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;->logReleaseAllImmediately()V
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "releaseAllImmediately"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     new-instance v0, Landroid/util/ArraySet;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
@@ -289,7 +240,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -301,12 +252,12 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_0
     return-void
 .end method
 
-.method protected final removeAlertEntry(Ljava/lang/String;)V
-    .locals 3
+.method public final removeAlertEntry(Ljava/lang/String;)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
 
@@ -325,9 +276,7 @@
 
     if-eqz v1, :cond_1
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isExpandAnimationRunning()Z
-
-    move-result v2
+    iget-boolean v2, v1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mExpandAnimationRunning:Z
 
     if-eqz v2, :cond_1
 
@@ -340,10 +289,15 @@
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->onAlertEntryRemoved(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)V
 
-    const/16 v2, 0x800
+    iget-object v2, v1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->sendAccessibilityEvent(I)V
+    if-eqz v2, :cond_2
 
+    const/16 v3, 0x800
+
+    invoke-virtual {v2, v3}, Landroid/widget/FrameLayout;->sendAccessibilityEvent(I)V
+
+    :cond_2
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->reset()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mExtendedLifetimeAlertEntries:Landroid/util/ArraySet;
@@ -352,41 +306,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mNotificationLifetimeFinishedCallback:Lcom/android/systemui/statusbar/NotificationLifetimeExtender$NotificationSafeToRemoveCallback;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/NotificationLifetimeExtender$NotificationSafeToRemoveCallback;->onSafeToRemove(Ljava/lang/String;)V
+    check-cast v0, Lcom/android/wm/shell/dagger/TvPipModule$$ExternalSyntheticLambda1;
 
-    :cond_2
+    invoke-virtual {v0, p1}, Lcom/android/wm/shell/dagger/TvPipModule$$ExternalSyntheticLambda1;->onSafeToRemove(Ljava/lang/String;)V
+
+    :cond_3
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mExtendedLifetimeAlertEntries:Landroid/util/ArraySet;
 
     invoke-virtual {p0, v1}, Landroid/util/ArraySet;->remove(Ljava/lang/Object;)Z
 
-    :cond_3
+    :cond_4
     return-void
 .end method
 
-.method public removeNotification(Ljava/lang/String;Z)Z
+.method public final removeNotification(Ljava/lang/String;Z)Z
     .locals 2
 
-    const-string v0, "AlertNotifManager"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mLogger:Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;
 
-    const/4 v1, 0x2
+    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;->logRemoveNotification(Ljava/lang/String;Z)V
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "removeNotification"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
 
     invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -397,36 +342,36 @@
 
     const/4 v1, 0x1
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_0
 
     return v1
 
-    :cond_1
-    if-nez p2, :cond_3
+    :cond_0
+    if-nez p2, :cond_2
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->canRemoveImmediately(Ljava/lang/String;)Z
 
     move-result p2
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_1
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->removeAsSoonAsPossible()V
 
     const/4 p0, 0x0
 
     return p0
 
-    :cond_3
+    :cond_2
     :goto_0
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->removeAlertEntry(Ljava/lang/String;)V
 
     return v1
 .end method
 
-.method public setCallback(Lcom/android/systemui/statusbar/NotificationLifetimeExtender$NotificationSafeToRemoveCallback;)V
+.method public final setCallback(Lcom/android/wm/shell/dagger/TvPipModule$$ExternalSyntheticLambda1;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mNotificationLifetimeFinishedCallback:Lcom/android/systemui/statusbar/NotificationLifetimeExtender$NotificationSafeToRemoveCallback;
@@ -434,7 +379,7 @@
     return-void
 .end method
 
-.method public setShouldManageLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
+.method public final setShouldManageLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
     .locals 0
 
     if-eqz p2, :cond_0
@@ -445,9 +390,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -471,9 +414,7 @@
 .method public shouldExtendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
     .locals 0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->canRemoveImmediately(Ljava/lang/String;)Z
 
@@ -484,82 +425,98 @@
     return p0
 .end method
 
-.method public showNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 2
+.method public final showNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    .locals 3
 
-    const-string v0, "AlertNotifManager"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mLogger:Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;
 
-    const/4 v1, 0x2
+    iget-object v1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;->logShowNotification(Ljava/lang/String;)V
 
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const-string v1, "showNotification"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->addAlertEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->createAlertEntry()Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->updateNotification(Ljava/lang/String;Z)V
+    iget-object v1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setInterruption()V
+    iget-object v2, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
+
+    invoke-virtual {v1, v2, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->onAlertEntryAdded(Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;)V
+
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v0, :cond_0
+
+    const/16 v1, 0x800
+
+    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->sendAccessibilityEvent(I)V
+
+    :cond_0
+    const/4 v0, 0x1
+
+    iput-boolean v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIsAlerting:Z
+
+    iget-object v1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
+
+    invoke-virtual {p0, v1, v0}, Lcom/android/systemui/statusbar/AlertingNotificationManager;->updateNotification(Ljava/lang/String;Z)V
+
+    iput-boolean v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->interruption:Z
 
     return-void
 .end method
 
 .method public updateNotification(Ljava/lang/String;Z)V
-    .locals 2
+    .locals 3
 
-    const-string v0, "AlertNotifManager"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
 
-    const/4 v1, 0x2
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->isLoggable(Ljava/lang/String;I)Z
+    move-result-object v0
 
-    move-result v1
+    check-cast v0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
 
-    if-eqz v1, :cond_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mLogger:Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;
 
-    const-string/jumbo v1, "updateNotification"
+    const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    if-eqz v0, :cond_0
+
+    move v2, v1
+
+    goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager;->mAlertEntries:Landroid/util/ArrayMap;
+    const/4 v2, 0x0
 
-    invoke-virtual {p0, p1}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :goto_0
+    invoke-virtual {p0, p1, p2, v2}, Lcom/android/systemui/statusbar/policy/HeadsUpManagerLogger;->logUpdateNotification(Ljava/lang/String;ZZ)V
 
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
-
-    if-nez p0, :cond_1
+    if-nez v0, :cond_1
 
     return-void
 
     :cond_1
-    iget-object p1, p0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object p0, v0, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    const/16 v0, 0x800
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->sendAccessibilityEvent(I)V
+    if-eqz p0, :cond_2
 
-    if-eqz p2, :cond_2
+    const/16 p1, 0x800
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->updateEntry(Z)V
+    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->sendAccessibilityEvent(I)V
 
     :cond_2
+    if-eqz p2, :cond_3
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->updateEntry(Z)V
+
+    :cond_3
     return-void
 .end method

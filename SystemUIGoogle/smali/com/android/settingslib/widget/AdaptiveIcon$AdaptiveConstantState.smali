@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AdaptiveConstantState"
 .end annotation
 
 
 # instance fields
-.field mColor:I
+.field public mColor:I
 
-.field mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field mDrawable:Landroid/graphics/drawable/Drawable;
+.field public mDrawable:Landroid/graphics/drawable/Drawable;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable$ConstantState;-><init>()V
@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public getChangingConfigurations()I
+.method public final getChangingConfigurations()I
     .locals 0
 
     const/4 p0, 0x0
@@ -45,7 +45,7 @@
     return p0
 .end method
 
-.method public newDrawable()Landroid/graphics/drawable/Drawable;
+.method public final newDrawable()Landroid/graphics/drawable/Drawable;
     .locals 3
 
     new-instance v0, Lcom/android/settingslib/widget/AdaptiveIcon;

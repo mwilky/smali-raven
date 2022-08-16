@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/animation/Interpolator;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;
-
-    invoke-direct {v0}, Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,11 +18,19 @@
 
 # virtual methods
 .method public final getInterpolation(F)F
-    .locals 0
+    .locals 1
 
-    invoke-static {p1}, Lcom/android/systemui/qs/PagedTileLayout;->$r8$lambda$OFYC2qFDgXh9TeNUYqUduxn3PHM(F)F
+    sget-object p0, Lcom/android/systemui/qs/PagedTileLayout;->SCROLL_CUBIC:Lcom/android/systemui/qs/PagedTileLayout$$ExternalSyntheticLambda0;
 
-    move-result p0
+    const/high16 p0, 0x3f800000    # 1.0f
 
-    return p0
+    sub-float/2addr p1, p0
+
+    mul-float v0, p1, p1
+
+    mul-float/2addr v0, p1
+
+    add-float/2addr v0, p0
+
+    return v0
 .end method

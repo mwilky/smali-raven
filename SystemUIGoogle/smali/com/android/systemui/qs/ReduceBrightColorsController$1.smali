@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/ReduceBrightColorsController$1;
+.class public final Lcom/android/systemui/qs/ReduceBrightColorsController$1;
 .super Landroid/database/ContentObserver;
 .source "ReduceBrightColorsController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/ReduceBrightColorsController;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/qs/ReduceBrightColorsController;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$1;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;)V
+.method public final onChange(ZLandroid/net/Uri;)V
     .locals 2
 
     invoke-super {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
@@ -50,9 +50,7 @@
     :goto_0
     iget-object p2, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$1;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {p2}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$000(Lcom/android/systemui/qs/ReduceBrightColorsController;)Ljava/util/ArrayList;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/qs/ReduceBrightColorsController;->mListeners:Ljava/util/ArrayList;
 
     monitor-enter p2
 
@@ -61,9 +59,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$1;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$000(Lcom/android/systemui/qs/ReduceBrightColorsController;)Ljava/util/ArrayList;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/ReduceBrightColorsController;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
@@ -71,7 +67,7 @@
 
     if-eqz v0, :cond_1
 
-    const-string v0, "reduce_bright_colors_activated"
+    const-string/jumbo v0, "reduce_bright_colors_activated"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -81,9 +77,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$1;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$000(Lcom/android/systemui/qs/ReduceBrightColorsController;)Ljava/util/ArrayList;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/ReduceBrightColorsController;->mListeners:Ljava/util/ArrayList;
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -104,9 +98,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/qs/ReduceBrightColorsController$1;->this$0:Lcom/android/systemui/qs/ReduceBrightColorsController;
 
-    invoke-static {v1}, Lcom/android/systemui/qs/ReduceBrightColorsController;->access$100(Lcom/android/systemui/qs/ReduceBrightColorsController;)Landroid/hardware/display/ColorDisplayManager;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/qs/ReduceBrightColorsController;->mManager:Landroid/hardware/display/ColorDisplayManager;
 
     invoke-virtual {v1}, Landroid/hardware/display/ColorDisplayManager;->isReduceBrightColorsActivated()Z
 

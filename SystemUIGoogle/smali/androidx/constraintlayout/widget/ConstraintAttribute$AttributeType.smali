@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+.field public static final synthetic $VALUES:[Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
 .field public static final enum BOOLEAN_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
@@ -41,111 +41,106 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 15
 
     new-instance v0, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const-string v1, "INT_TYPE"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "INT_TYPE"
 
-    invoke-direct {v0, v1, v2}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->INT_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    new-instance v1, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    new-instance v2, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const-string v3, "FLOAT_TYPE"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "FLOAT_TYPE"
 
-    invoke-direct {v1, v3, v4}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->FLOAT_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    sput-object v2, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->FLOAT_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    new-instance v3, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    new-instance v4, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const-string v5, "COLOR_TYPE"
+    const/4 v5, 0x2
 
-    const/4 v6, 0x2
+    const-string v6, "COLOR_TYPE"
 
-    invoke-direct {v3, v5, v6}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v5, v6}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(ILjava/lang/String;)V
 
-    sput-object v3, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    sput-object v4, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->COLOR_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    new-instance v5, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    new-instance v6, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const-string v7, "COLOR_DRAWABLE_TYPE"
+    const/4 v7, 0x3
 
-    const/4 v8, 0x3
+    const-string v8, "COLOR_DRAWABLE_TYPE"
 
-    invoke-direct {v5, v7, v8}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v7, v8}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(ILjava/lang/String;)V
 
-    sput-object v5, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->COLOR_DRAWABLE_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    sput-object v6, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->COLOR_DRAWABLE_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    new-instance v7, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    new-instance v8, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const-string v9, "STRING_TYPE"
+    const/4 v9, 0x4
 
-    const/4 v10, 0x4
+    const-string v10, "STRING_TYPE"
 
-    invoke-direct {v7, v9, v10}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v8, v9, v10}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(ILjava/lang/String;)V
 
-    sput-object v7, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->STRING_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    sput-object v8, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->STRING_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    new-instance v9, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    new-instance v10, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const-string v11, "BOOLEAN_TYPE"
+    const/4 v11, 0x5
 
-    const/4 v12, 0x5
+    const-string v12, "BOOLEAN_TYPE"
 
-    invoke-direct {v9, v11, v12}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v10, v11, v12}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(ILjava/lang/String;)V
 
-    sput-object v9, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->BOOLEAN_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    sput-object v10, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->BOOLEAN_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    new-instance v11, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    new-instance v12, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const-string v13, "DIMENSION_TYPE"
+    const/4 v13, 0x6
 
-    const/4 v14, 0x6
+    const-string v14, "DIMENSION_TYPE"
 
-    invoke-direct {v11, v13, v14}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v12, v13, v14}, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;-><init>(ILjava/lang/String;)V
 
-    sput-object v11, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    sput-object v12, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->DIMENSION_TYPE:Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    const/4 v13, 0x7
+    const/4 v14, 0x7
 
-    new-array v13, v13, [Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    new-array v14, v14, [Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
-    aput-object v0, v13, v2
+    aput-object v0, v14, v1
 
-    aput-object v1, v13, v4
+    aput-object v2, v14, v3
 
-    aput-object v3, v13, v6
+    aput-object v4, v14, v5
 
-    aput-object v5, v13, v8
+    aput-object v6, v14, v7
 
-    aput-object v7, v13, v10
+    aput-object v8, v14, v9
 
-    aput-object v9, v13, v12
+    aput-object v10, v14, v11
 
-    aput-object v11, v13, v14
+    aput-object v12, v14, v13
 
-    sput-object v13, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->$VALUES:[Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
+    sput-object v14, Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;->$VALUES:[Landroidx/constraintlayout/widget/ConstraintAttribute$AttributeType;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

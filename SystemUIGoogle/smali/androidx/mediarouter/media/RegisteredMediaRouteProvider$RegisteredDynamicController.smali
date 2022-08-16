@@ -1,4 +1,4 @@
-.class final Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;
+.class public final Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;
 .super Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
 .source "RegisteredMediaRouteProvider.java"
 
@@ -12,44 +12,34 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "RegisteredDynamicController"
 .end annotation
 
 
 # instance fields
-.field private mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
+.field public mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
-.field private mControllerId:I
+.field public mControllerId:I
 
-.field mGroupableSectionTitle:Ljava/lang/String;
+.field public mGroupableSectionTitle:Ljava/lang/String;
 
-.field private final mInitialMemberRouteId:Ljava/lang/String;
+.field public final mInitialMemberRouteId:Ljava/lang/String;
 
-.field private mPendingSetVolume:I
+.field public mPendingSetVolume:I
 
-.field private mPendingUpdateVolumeDelta:I
+.field public mPendingUpdateVolumeDelta:I
 
-.field private mSelected:Z
+.field public mSelected:Z
 
-.field mTransferableSectionTitle:Ljava/lang/String;
+.field public mTransferableSectionTitle:Ljava/lang/String;
 
-.field final synthetic this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
+.field public final synthetic this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider;Ljava/lang/String;)V
+.method public constructor <init>(Landroidx/mediarouter/media/RegisteredMediaRouteProvider;Ljava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0
-        }
-        names = {
-            "this$0",
-            "initialMemberRouteId"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
@@ -68,16 +58,8 @@
 
 
 # virtual methods
-.method public attachConnection(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "connection"
-        }
-    .end annotation
+.method public final attachConnection(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;)V
+    .locals 10
 
     new-instance v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController$1;
 
@@ -87,17 +69,49 @@
 
     iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mInitialMemberRouteId:Ljava/lang/String;
 
-    invoke-virtual {p1, v1, v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->createDynamicGroupRouteController(Ljava/lang/String;Landroidx/mediarouter/media/MediaRouter$ControlRequestCallback;)I
+    iget v8, p1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextControllerId:I
 
-    move-result v0
+    add-int/lit8 v2, v8, 0x1
 
-    iput v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
+    iput v2, p1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextControllerId:I
 
-    iget-boolean v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mSelected:Z
+    iget v9, p1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
 
-    if-eqz v1, :cond_1
+    add-int/lit8 v2, v9, 0x1
 
-    invoke-virtual {p1, v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->selectRoute(I)V
+    iput v2, p1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    new-instance v7, Landroid/os/Bundle;
+
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
+
+    const-string v2, "memberRouteId"
+
+    invoke-virtual {v7, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/16 v3, 0xb
+
+    const/4 v6, 0x0
+
+    move-object v2, p1
+
+    move v4, v9
+
+    move v5, v8
+
+    invoke-virtual/range {v2 .. v7}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->sendRequest(IIILandroid/os/Bundle;Landroid/os/Bundle;)Z
+
+    iget-object v1, p1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mPendingCallbacks:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, v9, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
+
+    iput v8, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
+
+    iget-boolean v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mSelected:Z
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p1, v8}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->selectRoute(I)V
 
     iget v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mPendingSetVolume:I
 
@@ -128,16 +142,28 @@
     return-void
 .end method
 
-.method public detachConnection()V
-    .locals 2
+.method public final detachConnection()V
+    .locals 6
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
     if-eqz v0, :cond_0
 
-    iget v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
+    iget v3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
 
-    invoke-virtual {v0, v1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->releaseRouteController(I)V
+    iget v2, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    add-int/lit8 v1, v2, 0x1
+
+    iput v1, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    const/4 v1, 0x4
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->sendRequest(IIILandroid/os/Bundle;Landroid/os/Bundle;)Z
 
     const/4 v0, 0x0
 
@@ -151,7 +177,7 @@
     return-void
 .end method
 
-.method public getControllerId()I
+.method public final getControllerId()I
     .locals 0
 
     iget p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
@@ -159,7 +185,7 @@
     return p0
 .end method
 
-.method public getGroupableSelectionTitle()Ljava/lang/String;
+.method public final getGroupableSelectionTitle()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mGroupableSectionTitle:Ljava/lang/String;
@@ -167,7 +193,7 @@
     return-object p0
 .end method
 
-.method public getTransferableSectionTitle()Ljava/lang/String;
+.method public final getTransferableSectionTitle()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mTransferableSectionTitle:Ljava/lang/String;
@@ -175,91 +201,89 @@
     return-object p0
 .end method
 
-.method public onAddMemberRoute(Ljava/lang/String;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeId"
-        }
-    .end annotation
+.method public final onAddMemberRoute(Ljava/lang/String;)V
+    .locals 6
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
     if-eqz v0, :cond_0
 
-    iget p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
+    iget v3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
 
-    invoke-virtual {v0, p0, p1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->addMemberRoute(ILjava/lang/String;)V
+    new-instance v5, Landroid/os/Bundle;
+
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+
+    const-string p0, "memberRouteId"
+
+    invoke-virtual {v5, p0, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget v2, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    add-int/lit8 p0, v2, 0x1
+
+    iput p0, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    const/16 v1, 0xc
+
+    const/4 v4, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->sendRequest(IIILandroid/os/Bundle;Landroid/os/Bundle;)Z
 
     :cond_0
     return-void
 .end method
 
-.method onDynamicRoutesChanged(Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/List;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x10
-        }
-        names = {
-            "groupRouteDescriptor",
-            "routes"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/mediarouter/media/MediaRouteDescriptor;",
-            "Ljava/util/List<",
-            "Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$DynamicRouteDescriptor;",
-            ">;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p0, p1, p2}, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->notifyDynamicRoutesChanged(Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/Collection;)V
-
-    return-void
-.end method
-
-.method public onRelease()V
-    .locals 1
+.method public final onRelease()V
+    .locals 2
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->this$0:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
 
-    invoke-virtual {v0, p0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->onControllerReleased(Landroidx/mediarouter/media/RegisteredMediaRouteProvider$ControllerConnection;)V
+    iget-object v1, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->mControllerConnections:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    invoke-virtual {p0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->detachConnection()V
+
+    invoke-virtual {v0}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider;->updateBinding()V
 
     return-void
 .end method
 
-.method public onRemoveMemberRoute(Ljava/lang/String;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeId"
-        }
-    .end annotation
+.method public final onRemoveMemberRoute(Ljava/lang/String;)V
+    .locals 6
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
     if-eqz v0, :cond_0
 
-    iget p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
+    iget v3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
 
-    invoke-virtual {v0, p0, p1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->removeMemberRoute(ILjava/lang/String;)V
+    new-instance v5, Landroid/os/Bundle;
+
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+
+    const-string p0, "memberRouteId"
+
+    invoke-virtual {v5, p0, p1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget v2, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    add-int/lit8 p0, v2, 0x1
+
+    iput p0, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    const/16 v1, 0xd
+
+    const/4 v4, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->sendRequest(IIILandroid/os/Bundle;Landroid/os/Bundle;)Z
 
     :cond_0
     return-void
 .end method
 
-.method public onSelect()V
+.method public final onSelect()V
     .locals 1
 
     const/4 v0, 0x1
@@ -278,16 +302,8 @@
     return-void
 .end method
 
-.method public onSetVolume(I)V
+.method public final onSetVolume(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "volume"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
@@ -310,7 +326,7 @@
     return-void
 .end method
 
-.method public onUnselect()V
+.method public final onUnselect()V
     .locals 1
 
     const/4 v0, 0x0
@@ -320,44 +336,45 @@
     return-void
 .end method
 
-.method public onUnselect(I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "reason"
-        }
-    .end annotation
+.method public final onUnselect(I)V
+    .locals 7
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mSelected:Z
 
-    iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
+    iget-object v1, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
+    iget v4, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
 
-    invoke-virtual {v0, p0, p1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->unselectRoute(II)V
+    new-instance v6, Landroid/os/Bundle;
+
+    invoke-direct {v6}, Landroid/os/Bundle;-><init>()V
+
+    const-string/jumbo p0, "unselectReason"
+
+    invoke-virtual {v6, p0, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    iget v3, v1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    add-int/lit8 p0, v3, 0x1
+
+    iput p0, v1, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    const/4 v2, 0x6
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v1 .. v6}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->sendRequest(IIILandroid/os/Bundle;Landroid/os/Bundle;)Z
 
     :cond_0
     return-void
 .end method
 
-.method public onUpdateMemberRoutes(Ljava/util/List;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeIds"
-        }
-    .end annotation
-
+.method public final onUpdateMemberRoutes(Ljava/util/List;)V
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -371,24 +388,38 @@
 
     if-eqz v0, :cond_0
 
-    iget p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
+    iget v3, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mControllerId:I
 
-    invoke-virtual {v0, p0, p1}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->updateMemberRoutes(ILjava/util/List;)V
+    new-instance v5, Landroid/os/Bundle;
+
+    invoke-direct {v5}, Landroid/os/Bundle;-><init>()V
+
+    new-instance p0, Ljava/util/ArrayList;
+
+    invoke-direct {p0, p1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    const-string p1, "memberRouteIds"
+
+    invoke-virtual {v5, p1, p0}, Landroid/os/Bundle;->putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    iget v2, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    add-int/lit8 p0, v2, 0x1
+
+    iput p0, v0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->mNextRequestId:I
+
+    const/16 v1, 0xe
+
+    const/4 v4, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;->sendRequest(IIILandroid/os/Bundle;Landroid/os/Bundle;)Z
 
     :cond_0
     return-void
 .end method
 
-.method public onUpdateVolume(I)V
+.method public final onUpdateVolume(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "delta"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProvider$RegisteredDynamicController;->mConnection:Landroidx/mediarouter/media/RegisteredMediaRouteProvider$Connection;
 

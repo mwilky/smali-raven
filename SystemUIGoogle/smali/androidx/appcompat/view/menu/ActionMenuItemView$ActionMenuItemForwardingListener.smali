@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;
+.class public final Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;
 .super Landroidx/appcompat/widget/ForwardingListener;
 .source "ActionMenuItemView.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ActionMenuItemForwardingListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
+.field public final synthetic this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
 
 
 # direct methods
@@ -31,28 +31,34 @@
 
 
 # virtual methods
-.method public getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
-    .locals 0
+.method public final getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
+    .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;
 
     iget-object p0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView;->mPopupCallback:Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;
 
+    const/4 v0, 0x0
+
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Landroidx/appcompat/view/menu/ActionMenuItemView$PopupCallback;->getPopup()Landroidx/appcompat/view/menu/ShowableListMenu;
+    check-cast p0, Landroidx/appcompat/widget/ActionMenuPresenter$ActionMenuPopupCallback;
 
-    move-result-object p0
+    iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$ActionMenuPopupCallback;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
 
-    return-object p0
+    iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuPresenter;->mActionButtonPopup:Landroidx/appcompat/widget/ActionMenuPresenter$ActionButtonSubmenu;
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuPopupHelper;->getPopup()Landroidx/appcompat/view/menu/MenuPopup;
+
+    move-result-object v0
 
     :cond_0
-    const/4 p0, 0x0
-
-    return-object p0
+    return-object v0
 .end method
 
-.method protected onForwardingStarted()Z
+.method public final onForwardingStarted()Z
     .locals 3
 
     iget-object v0, p0, Landroidx/appcompat/view/menu/ActionMenuItemView$ActionMenuItemForwardingListener;->this$0:Landroidx/appcompat/view/menu/ActionMenuItemView;

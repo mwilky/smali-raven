@@ -7,137 +7,57 @@
 .implements Lcom/android/systemui/Dumpable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/statusbar/PulseExpansionHandler$Companion;
-    }
-.end annotation
-
-
-# static fields
-.field public static final Companion:Lcom/android/systemui/statusbar/PulseExpansionHandler$Companion;
-
-.field private static final SPRING_BACK_ANIMATION_LENGTH_MS:I
-
-
 # instance fields
-.field private bouncerShowing:Z
+.field public bouncerShowing:Z
 
-.field private final bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+.field public final bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-.field private final configurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
+.field public final configurationController:Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
-.field private final falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
+.field public final falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
-.field private final falsingManager:Lcom/android/systemui/plugins/FalsingManager;
+.field public final falsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-.field private final headsUpManager:Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
+.field public final headsUpManager:Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
 
-.field private isExpanding:Z
+.field public isExpanding:Z
 
-.field private leavingLockscreen:Z
+.field public leavingLockscreen:Z
 
-.field private final lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+.field public final lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
-.field private mDraggedFarEnough:Z
+.field public mInitialTouchX:F
 
-.field private mInitialTouchX:F
+.field public mInitialTouchY:F
 
-.field private mInitialTouchY:F
+.field public final mPowerManager:Landroid/os/PowerManager;
 
-.field private final mPowerManager:Landroid/os/PowerManager;
+.field public mPulsing:Z
 
-.field private mPulsing:Z
+.field public mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public final mTemp2:[I
 
-.field private final mTemp2:[I
+.field public pulseExpandAbortListener:Ljava/lang/Runnable;
 
-.field private minDragDistance:I
+.field public qsExpanded:Z
 
-.field private pulseExpandAbortListener:Ljava/lang/Runnable;
+.field public final roundnessManager:Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
-.field private qsExpanded:Z
+.field public stackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
 
-.field private final roundnessManager:Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
+.field public final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-.field private stackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+.field public touchSlop:F
 
-.field private final statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+.field public velocityTracker:Landroid/view/VelocityTracker;
 
-.field private touchSlop:F
-
-.field private velocityTracker:Landroid/view/VelocityTracker;
-
-.field private final wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
+.field public final wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/statusbar/PulseExpansionHandler$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/PulseExpansionHandler$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->Companion:Lcom/android/systemui/statusbar/PulseExpansionHandler$Companion;
-
-    const/16 v0, 0x177
-
-    sput v0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->SPRING_BACK_ANIMATION_LENGTH_MS:I
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/dump/DumpManager;)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "wakeUpCoordinator"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "bypassController"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "headsUpManager"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "roundnessManager"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "configurationController"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "statusBarStateController"
-
-    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "falsingManager"
-
-    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "lockscreenShadeTransitionController"
-
-    invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "falsingCollector"
-
-    invoke-static {p10, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dumpManager"
-
-    invoke-static {p11, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -165,7 +85,25 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mTemp2:[I
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->initResources(Landroid/content/Context;)V
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p2
+
+    const p3, 0x7f0702a4
+
+    invoke-virtual {p2, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+
+    move-result-object p2
+
+    invoke-virtual {p2}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
+
+    move-result p2
+
+    int-to-float p2, p2
+
+    iput p2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->touchSlop:F
 
     new-instance p2, Lcom/android/systemui/statusbar/PulseExpansionHandler$1;
 
@@ -188,58 +126,14 @@
     return-void
 .end method
 
-.method public static final synthetic access$initResources(Lcom/android/systemui/statusbar/PulseExpansionHandler;Landroid/content/Context;)V
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->initResources(Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method public static final synthetic access$setUserLocked(Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setUserLocked(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
-
-    return-void
-.end method
-
-.method private final canHandleMotionEvent()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->qsExpanded:Z
-
-    if-nez v0, :cond_0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bouncerShowing:Z
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method private final cancelExpansion()V
-    .locals 3
+# virtual methods
+.method public final cancelExpansion()V
+    .locals 6
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
@@ -247,20 +141,75 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    if-eqz v1, :cond_0
+    const/4 v2, 0x1
 
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    if-eqz v1, :cond_2
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->reset(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+    iget v3, v1, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getCollapsedHeight()I
+
+    move-result v4
+
+    if-ne v3, v4, :cond_0
+
+    instance-of v3, v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v3, :cond_1
+
+    check-cast v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserLocked(Z)V
+
+    goto :goto_0
+
+    :cond_0
+    const/4 v3, 0x2
+
+    new-array v3, v3, [I
+
+    iget v4, v1, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
+
+    aput v4, v3, v0
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getCollapsedHeight()I
+
+    move-result v4
+
+    aput v4, v3, v2
+
+    const-string v4, "actualHeight"
+
+    invoke-static {v1, v4, v3}, Landroid/animation/ObjectAnimator;->ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;
+
+    move-result-object v3
+
+    sget-object v4, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
+
+    invoke-virtual {v3, v4}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    const/16 v4, 0x177
+
+    int-to-long v4, v4
+
+    invoke-virtual {v3, v4, v5}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
+
+    new-instance v4, Lcom/android/systemui/statusbar/PulseExpansionHandler$reset$1;
+
+    invoke-direct {v4, p0, v1}, Lcom/android/systemui/statusbar/PulseExpansionHandler$reset$1;-><init>(Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+
+    invoke-virtual {v3, v4}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->start()V
+
+    :cond_1
+    :goto_0
     const/4 v1, 0x0
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    :cond_0
+    :cond_2
     iget-object v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
-
-    const/4 v2, 0x1
 
     invoke-virtual {v1, v2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->finishPulseAnimation(Z)V
 
@@ -271,309 +220,562 @@
     return-void
 .end method
 
-.method private final captureStartingChild(FF)V
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    new-instance p2, Landroid/util/IndentingPrintWriter;
 
-    if-nez v0, :cond_0
+    const-string v0, "  "
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+    invoke-direct {p2, p1, v0}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
+    const-string p1, "PulseExpansionHandler:"
 
-    move-result v0
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    if-nez v0, :cond_0
+    invoke-virtual {p2}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->findView(FF)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
+
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    const-string v0, "isExpanding: "
 
-    if-eqz p1, :cond_0
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    move-result-object p1
 
-    const/4 p2, 0x1
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setUserLocked(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->leavingLockscreen:Z
 
-    :cond_0
-    return-void
-.end method
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-.method private final findView(FF)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-    .locals 4
+    move-result-object p1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->stackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    const-string v0, "leavingLockscreen: "
 
-    const-string v1, "stackScrollerController"
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    const/4 v2, 0x0
+    move-result-object p1
 
-    if-eqz v0, :cond_2
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mTemp2:[I
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mPulsing:Z
 
-    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->getLocationOnScreen([I)V
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mTemp2:[I
+    move-result-object p1
 
-    const/4 v3, 0x0
+    const-string v0, "mPulsing: "
 
-    aget v3, v0, v3
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    int-to-float v3, v3
+    move-result-object p1
 
-    add-float/2addr p1, v3
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    const/4 v3, 0x1
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->qsExpanded:Z
 
-    aget v0, v0, v3
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    int-to-float v0, v0
+    move-result-object p1
 
-    add-float/2addr p2, v0
+    const-string/jumbo v0, "qsExpanded: "
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->stackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    if-eqz p0, :cond_1
+    move-result-object p1
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->getChildAtRawPosition(FF)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bouncerShowing:Z
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object p0
 
-    if-eqz p0, :cond_0
+    const-string p1, "bouncerShowing: "
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->isContentExpandable()Z
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result p1
+    move-result-object p0
 
-    if-eqz p1, :cond_0
+    invoke-virtual {p2, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    move-object v2, p0
-
-    :cond_0
-    return-object v2
-
-    :cond_1
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_2
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-.end method
-
-.method private final finishExpansion()V
-    .locals 8
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setUserLocked(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
-
-    const/4 v2, 0x0
-
-    iput-object v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    invoke-interface {v2}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
-
-    move-result v2
-
-    const/4 v3, 0x1
-
-    if-eqz v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
-
-    invoke-virtual {v2, v3}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setWillWakeUp(Z)V
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mPowerManager:Landroid/os/PowerManager;
-
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v4
-
-    const/4 v6, 0x4
-
-    const-string v7, "com.android.systemui:PULSEDRAG"
-
-    invoke-virtual {v2, v4, v5, v6, v7}, Landroid/os/PowerManager;->wakeUp(JILjava/lang/String;)V
-
-    :cond_1
-    iget-object v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
-
-    invoke-virtual {v2, v0, v1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->goToLockedShade(Landroid/view/View;Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->finishPulseAnimation(Z)V
-
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->leavingLockscreen:Z
-
-    invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    instance-of v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz v0, :cond_2
-
-    check-cast p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->onExpandedByGesture(Z)V
-
-    :cond_2
     return-void
 .end method
 
-.method private final initResources(Landroid/content/Context;)V
-    .locals 2
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 3
 
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
 
-    move-result-object v0
-
-    sget v1, Lcom/android/systemui/R$dimen;->keyguard_drag_down_min_distance:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
 
     move-result v0
 
-    iput v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->minDragDistance:I
+    const/4 v1, 0x1
 
-    invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+    const/4 v2, 0x0
 
-    move-result-object p1
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->qsExpanded:Z
+
+    if-nez v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bouncerShowing:Z
+
+    if-nez v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->startExpansion(Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v1, v2
+
+    :goto_1
+    return v1
+.end method
+
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
+    .locals 8
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x3
+
+    if-eq v0, v3, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v0
+
+    if-ne v0, v1, :cond_1
+
+    :cond_0
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
+
+    if-eqz v0, :cond_1
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v2
+
+    :goto_0
+    iget-object v4, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    if-nez v4, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->showingPulsing()Z
+
+    move-result v4
+
+    if-ne v4, v1, :cond_3
+
+    move v4, v1
+
+    goto :goto_2
+
+    :cond_3
+    :goto_1
+    move v4, v2
+
+    :goto_2
+    if-nez v4, :cond_5
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->canBypass()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    move v4, v2
+
+    goto :goto_4
+
+    :cond_5
+    :goto_3
+    move v4, v1
+
+    :goto_4
+    iget-object v5, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
+
+    invoke-virtual {v5}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->getCanShowPulsingHuns()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->qsExpanded:Z
+
+    if-nez v5, :cond_6
+
+    iget-boolean v5, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bouncerShowing:Z
+
+    if-nez v5, :cond_6
+
+    move v5, v1
+
+    goto :goto_5
+
+    :cond_6
+    move v5, v2
+
+    :goto_5
+    if-eqz v5, :cond_7
+
+    if-nez v4, :cond_8
+
+    :cond_7
+    if-nez v0, :cond_8
+
+    return v2
+
+    :cond_8
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    if-eqz v0, :cond_19
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
+
+    if-eqz v0, :cond_19
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v0
+
+    if-nez v0, :cond_9
+
+    goto/16 :goto_e
+
+    :cond_9
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-virtual {v0, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v0
+
+    iget v4, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
+
+    sub-float/2addr v0, v4
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result p1
 
-    int-to-float p1, p1
+    const/4 v4, 0x2
 
-    iput p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->touchSlop:F
+    const/4 v5, 0x0
 
-    return-void
-.end method
+    const/4 v6, 0x0
 
-.method private final isFalseTouch()Z
-    .locals 1
+    if-eq p1, v1, :cond_f
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->falsingManager:Lcom/android/systemui/plugins/FalsingManager;
+    if-eq p1, v4, :cond_c
 
-    const/4 v0, 0x2
+    if-eq p1, v3, :cond_a
 
-    invoke-interface {p0, v0}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTouch(I)Z
+    goto/16 :goto_d
+
+    :cond_a
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->cancelExpansion()V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    if-nez p1, :cond_b
+
+    goto :goto_6
+
+    :cond_b
+    invoke-virtual {p1}, Landroid/view/VelocityTracker;->recycle()V
+
+    :goto_6
+    iput-object v6, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    goto/16 :goto_d
+
+    :cond_c
+    invoke-static {v0, v5}, Ljava/lang/Math;->max(FF)F
+
+    move-result p1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    if-eqz v3, :cond_d
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getCollapsedHeight()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    add-float/2addr v0, p1
+
+    float-to-int v0, v0
+
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getMaxContentHeight()I
+
+    move-result v4
+
+    invoke-static {v0, v4}, Ljava/lang/Math;->min(II)I
+
+    move-result v0
+
+    invoke-virtual {v3, v0, v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setActualHeight(IZ)V
+
+    goto :goto_8
+
+    :cond_d
+    iget-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+
+    iget v4, v4, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->fullTransitionDistance:I
+
+    int-to-float v4, v4
+
+    cmpl-float v0, v0, v4
+
+    if-lez v0, :cond_e
+
+    move v0, v1
+
+    goto :goto_7
+
+    :cond_e
+    move v0, v2
+
+    :goto_7
+    invoke-virtual {v3, v0, v1, v1}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisibleForExpansion(ZZZ)V
+
+    :goto_8
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+
+    invoke-virtual {v0, p1, v2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
+
+    goto/16 :goto_d
+
+    :cond_f
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    const/16 v3, 0x3e8
+
+    invoke-virtual {p1, v3}, Landroid/view/VelocityTracker;->computeCurrentVelocity(I)V
+
+    cmpl-float p1, v0, v5
+
+    if-lez p1, :cond_10
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-virtual {p1}, Landroid/view/VelocityTracker;->getYVelocity()F
+
+    move-result p1
+
+    const/high16 v0, -0x3b860000    # -1000.0f
+
+    cmpl-float p1, p1, v0
+
+    if-lez p1, :cond_10
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {p1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
+
+    move-result p1
+
+    if-eqz p1, :cond_10
+
+    move p1, v1
+
+    goto :goto_9
+
+    :cond_10
+    move p1, v2
+
+    :goto_9
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->falsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    invoke-interface {v0}, Lcom/android/systemui/plugins/FalsingManager;->isUnlockingDisabled()Z
+
+    move-result v0
+
+    if-nez v0, :cond_16
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->falsingManager:Lcom/android/systemui/plugins/FalsingManager;
+
+    invoke-interface {v0, v4}, Lcom/android/systemui/plugins/FalsingManager;->isFalseTouch(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_16
+
+    if-eqz p1, :cond_16
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    if-eqz p1, :cond_12
+
+    instance-of v0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v0, :cond_11
+
+    move-object v0, p1
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserLocked(Z)V
+
+    :cond_11
+    iput-object v6, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    :cond_12
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+
+    invoke-interface {v0}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->isDozing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_15
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
+
+    iget v3, v0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->mDozeAmount:F
+
+    cmpg-float v3, v3, v5
+
+    if-nez v3, :cond_13
+
+    move v3, v1
+
+    goto :goto_a
+
+    :cond_13
+    move v3, v2
+
+    :goto_a
+    if-nez v3, :cond_14
+
+    iput-boolean v1, v0, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->willWakeUp:Z
+
+    :cond_14
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mPowerManager:Landroid/os/PowerManager;
+
+    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v3
+
+    const/4 v5, 0x4
+
+    const-string v7, "com.android.systemui:PULSEDRAG"
+
+    invoke-virtual {v0, v3, v4, v5, v7}, Landroid/os/PowerManager;->wakeUp(JILjava/lang/String;)V
+
+    :cond_15
+    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+
+    invoke-virtual {v0, p1, v2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->goToLockedShade(Landroid/view/View;Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+
+    invoke-virtual {p1, v2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->finishPulseAnimation(Z)V
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->leavingLockscreen:Z
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    instance-of v0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v0, :cond_17
+
+    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    invoke-virtual {p1, v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->onExpandedByGesture(Z)V
+
+    goto :goto_b
+
+    :cond_16
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->cancelExpansion()V
+
+    :cond_17
+    :goto_b
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    if-nez p1, :cond_18
+
+    goto :goto_c
+
+    :cond_18
+    invoke-virtual {p1}, Landroid/view/VelocityTracker;->recycle()V
+
+    :goto_c
+    iput-object v6, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    :goto_d
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
+
+    return p0
+
+    :cond_19
+    :goto_e
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->startExpansion(Landroid/view/MotionEvent;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method private final recycleVelocityTracker()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
-
-    if-nez v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v0}, Landroid/view/VelocityTracker;->recycle()V
-
-    :goto_0
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
-
-    return-void
-.end method
-
-.method private final reset(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
-    .locals 3
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
-
-    move-result v0
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getCollapsedHeight()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    if-ne v0, v1, :cond_0
-
-    invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setUserLocked(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
-
-    return-void
-
-    :cond_0
-    const/4 v0, 0x2
-
-    new-array v0, v0, [I
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
-
-    move-result v1
-
-    aput v1, v0, v2
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getCollapsedHeight()I
-
-    move-result v2
-
-    aput v2, v0, v1
-
-    const-string v1, "actualHeight"
-
-    invoke-static {p1, v1, v0}, Landroid/animation/ObjectAnimator;->ofInt(Ljava/lang/Object;Ljava/lang/String;[I)Landroid/animation/ObjectAnimator;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
-
-    invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    sget v1, Lcom/android/systemui/statusbar/PulseExpansionHandler;->SPRING_BACK_ANIMATION_LENGTH_MS:I
-
-    int-to-long v1, v1
-
-    invoke-virtual {v0, v1, v2}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
-
-    new-instance v1, Lcom/android/systemui/statusbar/PulseExpansionHandler$reset$1;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/PulseExpansionHandler$reset$1;-><init>(Lcom/android/systemui/statusbar/PulseExpansionHandler;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    invoke-virtual {v0}, Landroid/animation/ObjectAnimator;->start()V
-
-    return-void
-.end method
-
-.method private final setExpanding(Z)V
+.method public final setExpanding(Z)V
     .locals 3
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
@@ -594,11 +796,11 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    invoke-virtual {v2, p1}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->setPulseExpanding(Z)V
+    iput-boolean p1, v2, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->isPulseExpanding:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_8
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_4
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->headsUpManager:Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
 
@@ -613,29 +815,62 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->roundnessManager:Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    move-result-object p1
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->setTrackingHeadsUp(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+    iput-object p1, v0, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->updateView(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Z)V
+
+    :cond_2
     :goto_1
     iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->onPulseExpansionStarted()V
+    iget-object v0, p1, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logPulseExpansionStarted()V
+
+    iget-object v0, p1, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->pulseHeightAnimator:Landroid/animation/ValueAnimator;
+
+    if-nez v0, :cond_3
 
     goto :goto_2
 
-    :cond_2
+    :cond_3
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    iget-object p1, p1, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+
+    invoke-virtual {p1, v1}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logAnimationCancelled(Z)V
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->cancel()V
+
+    goto :goto_2
+
+    :cond_4
     iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->roundnessManager:Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->setTrackingHeadsUp(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+    iget-object v2, p1, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
+    iput-object v0, p1, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->mTrackedHeadsUp:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v2, :cond_5
+
+    invoke-virtual {p1, v2, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationRoundnessManager;->updateView(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;Z)V
+
+    :cond_5
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->leavingLockscreen:Z
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_7
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
@@ -643,40 +878,25 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->pulseExpandAbortListener:Ljava/lang/Runnable;
 
-    if-nez p1, :cond_3
+    if-nez p1, :cond_6
 
     goto :goto_2
 
-    :cond_3
+    :cond_6
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
-    :cond_4
+    :cond_7
     :goto_2
     iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->headsUpManager:Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->unpinAll(Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/HeadsUpManager;->unpinAll()V
 
-    :cond_5
+    :cond_8
     return-void
 .end method
 
-.method private final setUserLocked(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Z)V
-    .locals 0
-
-    instance-of p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserLocked(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private final startExpansion(Landroid/view/MotionEvent;)Z
-    .locals 5
+.method public final startExpansion(Landroid/view/MotionEvent;)Z
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
 
@@ -709,569 +929,185 @@
 
     const/4 v2, 0x0
 
-    if-eqz p1, :cond_4
+    const/4 v3, 0x0
 
-    const/4 v3, 0x1
+    if-eqz p1, :cond_a
 
-    if-eq p1, v3, :cond_3
+    const/4 v4, 0x1
 
-    const/4 v4, 0x2
+    if-eq p1, v4, :cond_8
 
-    if-eq p1, v4, :cond_2
+    const/4 v5, 0x2
+
+    if-eq p1, v5, :cond_3
 
     const/4 v0, 0x3
 
     if-eq p1, v0, :cond_1
 
-    goto :goto_0
+    goto/16 :goto_2
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->recycleVelocityTracker()V
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+    if-nez p1, :cond_2
 
     goto :goto_0
 
     :cond_2
+    invoke-virtual {p1}, Landroid/view/VelocityTracker;->recycle()V
+
+    :goto_0
+    iput-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+
+    goto/16 :goto_2
+
+    :cond_3
     iget p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
 
     sub-float p1, v1, p1
 
-    iget v4, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->touchSlop:F
+    iget v5, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->touchSlop:F
 
-    cmpl-float v4, p1, v4
+    cmpl-float v5, p1, v5
 
-    if-lez v4, :cond_5
+    if-lez v5, :cond_b
 
-    iget v4, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchX:F
+    iget v5, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchX:F
 
-    sub-float v4, v0, v4
+    sub-float v5, v0, v5
 
-    invoke-static {v4}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v5}, Ljava/lang/Math;->abs(F)F
 
-    move-result v4
+    move-result v5
 
-    cmpl-float p1, p1, v4
+    cmpl-float p1, p1, v5
 
-    if-lez p1, :cond_5
+    if-lez p1, :cond_b
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->falsingCollector:Lcom/android/systemui/classifier/FalsingCollector;
 
     invoke-interface {p1}, Lcom/android/systemui/classifier/FalsingCollector;->onStartExpandingFromPulse()V
 
-    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
 
     iget p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchX:F
 
-    iget v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
+    iget v5, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
 
-    invoke-direct {p0, p1, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->captureStartingChild(FF)V
+    iget-object v6, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    iput v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
+    if-nez v6, :cond_7
 
-    iput v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchX:F
+    iget-object v6, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-    return v3
+    invoke-virtual {v6}, Lcom/android/systemui/statusbar/phone/KeyguardBypassController;->getBypassEnabled()Z
 
-    :cond_3
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->recycleVelocityTracker()V
+    move-result v6
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+    if-nez v6, :cond_7
 
-    goto :goto_0
+    iget-object v6, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->stackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    if-nez v6, :cond_4
+
+    move-object v6, v3
 
     :cond_4
-    iput-boolean v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mDraggedFarEnough:Z
+    iget-object v7, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mTemp2:[I
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+    iget-object v6, v6, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-    iput-boolean v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->leavingLockscreen:Z
+    invoke-virtual {v6, v7}, Landroid/view/ViewGroup;->getLocationOnScreen([I)V
 
-    const/4 p1, 0x0
+    iget-object v6, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mTemp2:[I
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    aget v2, v6, v2
 
-    iput v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
+    int-to-float v2, v2
 
-    iput v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchX:F
+    add-float/2addr p1, v2
+
+    aget v2, v6, v4
+
+    int-to-float v2, v2
+
+    add-float/2addr v5, v2
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->stackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
+
+    if-nez v2, :cond_5
+
+    move-object v2, v3
 
     :cond_5
-    :goto_0
-    return v2
-.end method
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;->mView:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;
 
-.method private final updateExpansionHeight(F)V
-    .locals 4
+    invoke-virtual {v2, p1, v5}, Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayout;->getChildAtRawPosition(FF)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    const/4 v0, 0x0
+    move-result-object p1
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(FF)F
+    if-eqz p1, :cond_6
 
-    move-result v0
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->isContentExpandable()Z
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    move-result v2
 
-    const/4 v2, 0x0
+    if-eqz v2, :cond_6
 
-    if-eqz v1, :cond_0
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getCollapsedHeight()I
-
-    move-result p1
-
-    int-to-float p1, p1
-
-    add-float/2addr p1, v0
-
-    float-to-int p1, p1
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getMaxContentHeight()I
-
-    move-result v3
-
-    invoke-static {p1, v3}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
-
-    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setActualHeight(I)V
-
-    goto :goto_1
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->wakeUpCoordinator:Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;
-
-    iget-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
-
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->getDistanceUntilShowingPulsingNotifications()I
-
-    move-result v3
-
-    int-to-float v3, v3
-
-    cmpl-float p1, p1, v3
-
-    const/4 v3, 0x1
-
-    if-lez p1, :cond_1
-
-    move p1, v3
-
-    goto :goto_0
-
-    :cond_1
-    move p1, v2
-
-    :goto_0
-    invoke-virtual {v1, p1, v3, v3}, Lcom/android/systemui/statusbar/notification/NotificationWakeUpCoordinator;->setNotificationsVisibleForExpansion(ZZZ)V
-
-    :goto_1
-    iget-object p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->lockscreenShadeTransitionController:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
-
-    invoke-virtual {p0, v0, v2}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->setPulseHeight(FZ)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
-
-    const-string v0, "fd"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "pw"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "args"
-
-    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p1, Landroid/util/IndentingPrintWriter;
-
-    const-string p3, "  "
-
-    invoke-direct {p1, p2, p3}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
-
-    const-string p2, "PulseExpansionHandler:"
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding()Z
-
-    move-result p2
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p2
-
-    const-string p3, "isExpanding: "
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->getLeavingLockscreen()Z
-
-    move-result p2
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p2
-
-    const-string p3, "leavingLockscreen: "
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    iget-boolean p2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mPulsing:Z
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p2
-
-    const-string p3, "mPulsing: "
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->getQsExpanded()Z
-
-    move-result p2
-
-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p2
-
-    const-string p3, "qsExpanded: "
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->getBouncerShowing()Z
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object p0
-
-    const-string p2, "bouncerShowing: "
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public final getBouncerShowing()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bouncerShowing:Z
-
-    return p0
-.end method
-
-.method public final getLeavingLockscreen()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->leavingLockscreen:Z
-
-    return p0
-.end method
-
-.method public final getQsExpanded()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->qsExpanded:Z
-
-    return p0
-.end method
-
-.method public final isExpanding()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
-
-    return p0
-.end method
-
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    const-string v0, "event"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->canHandleMotionEvent()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->startExpansion(Landroid/view/MotionEvent;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 5
-
-    const-string v0, "event"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    const/4 v1, 0x3
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    if-eq v0, v1, :cond_0
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
-
-    move-result v0
-
-    if-ne v0, v3, :cond_1
-
-    :cond_0
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
-
-    if-eqz v0, :cond_1
-
-    move v0, v3
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v2
-
-    :goto_0
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->canHandleMotionEvent()Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    if-nez v0, :cond_2
-
-    return v2
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
-
-    if-eqz v0, :cond_9
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
-
-    if-eqz v0, :cond_9
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
-
-    move-result v0
-
-    if-nez v0, :cond_3
-
-    goto/16 :goto_3
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
-
-    invoke-static {v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-virtual {v0, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v0
-
-    iget v4, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
-
-    sub-float/2addr v0, v4
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
-
-    move-result p1
-
-    if-eq p1, v3, :cond_6
-
-    const/4 v2, 0x2
-
-    if-eq p1, v2, :cond_5
-
-    if-eq p1, v1, :cond_4
-
-    goto :goto_2
-
-    :cond_4
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->cancelExpansion()V
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->recycleVelocityTracker()V
-
-    goto :goto_2
-
-    :cond_5
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->updateExpansionHeight(F)V
-
-    goto :goto_2
+    move-object v3, p1
 
     :cond_6
-    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
+    iput-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    if-eqz v3, :cond_7
 
-    const/16 v1, 0x3e8
-
-    invoke-virtual {p1, v1}, Landroid/view/VelocityTracker;->computeCurrentVelocity(I)V
-
-    const/4 p1, 0x0
-
-    cmpl-float p1, v0, p1
-
-    if-lez p1, :cond_7
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
-
-    invoke-static {p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    invoke-virtual {p1}, Landroid/view/VelocityTracker;->getYVelocity()F
-
-    move-result p1
-
-    const/high16 v0, -0x3b860000    # -1000.0f
-
-    cmpl-float p1, p1, v0
-
-    if-lez p1, :cond_7
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->statusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
-
-    invoke-interface {p1}, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;->getState()I
-
-    move-result p1
+    instance-of p1, v3, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
     if-eqz p1, :cond_7
 
-    move v2, v3
+    check-cast v3, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    invoke-virtual {v3, v4}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserLocked(Z)V
 
     :cond_7
-    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->falsingManager:Lcom/android/systemui/plugins/FalsingManager;
+    iput v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
 
-    invoke-interface {p1}, Lcom/android/systemui/plugins/FalsingManager;->isUnlockingDisabled()Z
+    iput v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchX:F
 
-    move-result p1
+    return v4
 
-    if-nez p1, :cond_8
+    :cond_8
+    iget-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isFalseTouch()Z
-
-    move-result p1
-
-    if-nez p1, :cond_8
-
-    if-eqz v2, :cond_8
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->finishExpansion()V
+    if-nez p1, :cond_9
 
     goto :goto_1
 
-    :cond_8
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->cancelExpansion()V
+    :cond_9
+    invoke-virtual {p1}, Landroid/view/VelocityTracker;->recycle()V
 
     :goto_1
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->recycleVelocityTracker()V
+    iput-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->velocityTracker:Landroid/view/VelocityTracker;
 
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+
+    goto :goto_2
+
+    :cond_a
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->setExpanding(Z)V
+
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->leavingLockscreen:Z
+
+    iput-object v3, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mStartingChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+
+    iput v1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchY:F
+
+    iput v0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mInitialTouchX:F
+
+    :cond_b
     :goto_2
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->isExpanding:Z
-
-    return p0
-
-    :cond_9
-    :goto_3
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/PulseExpansionHandler;->startExpansion(Landroid/view/MotionEvent;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public final setBouncerShowing(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->bouncerShowing:Z
-
-    return-void
-.end method
-
-.method public final setPulseExpandAbortListener(Ljava/lang/Runnable;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->pulseExpandAbortListener:Ljava/lang/Runnable;
-
-    return-void
-.end method
-
-.method public final setPulsing(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->mPulsing:Z
-
-    return-void
-.end method
-
-.method public final setQsExpanded(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->qsExpanded:Z
-
-    return-void
-.end method
-
-.method public final setUp(Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;)V
-    .locals 1
-
-    const-string v0, "stackScrollerController"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/PulseExpansionHandler;->stackScrollerController:Lcom/android/systemui/statusbar/notification/stack/NotificationStackScrollLayoutController;
-
-    return-void
+    return v2
 .end method

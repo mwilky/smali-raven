@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/media/MediaRoute2Provider$RouteCallback;
+.class public final Landroidx/mediarouter/media/MediaRoute2Provider$RouteCallback;
 .super Landroid/media/MediaRouter2$RouteCallback;
 .source "MediaRoute2Provider.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "RouteCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
+.field public final synthetic this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/media/MediaRoute2Provider;)V
+.method public constructor <init>(Landroidx/mediarouter/media/MediaRoute2Provider;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRoute2Provider$RouteCallback;->this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 
@@ -39,17 +31,8 @@
 
 
 # virtual methods
-.method public onRoutesAdded(Ljava/util/List;)V
+.method public final onRoutesAdded(Ljava/util/List;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routes"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -66,17 +49,8 @@
     return-void
 .end method
 
-.method public onRoutesChanged(Ljava/util/List;)V
+.method public final onRoutesChanged(Ljava/util/List;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routes"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,17 +67,8 @@
     return-void
 .end method
 
-.method public onRoutesRemoved(Ljava/util/List;)V
+.method public final onRoutesRemoved(Ljava/util/List;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routes"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",

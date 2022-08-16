@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/SearchView$SearchAutoComplete$1;
+.class public final Landroidx/appcompat/widget/SearchView$SearchAutoComplete$1;
 .super Ljava/lang/Object;
 .source "SearchView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
+.field public final synthetic this$0:Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/SearchView$SearchAutoComplete;)V
+.method public constructor <init>(Landroidx/appcompat/widget/SearchView$SearchAutoComplete;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/SearchView$SearchAutoComplete$1;->this$0:Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
@@ -34,12 +34,33 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 0
+.method public final run()V
+    .locals 2
 
     iget-object p0, p0, Landroidx/appcompat/widget/SearchView$SearchAutoComplete$1;->this$0:Landroidx/appcompat/widget/SearchView$SearchAutoComplete;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/SearchView$SearchAutoComplete;->showSoftInputIfNecessary()V
+    iget-boolean v0, p0, Landroidx/appcompat/widget/SearchView$SearchAutoComplete;->mHasPendingShowSoftInputRequest:Z
 
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/widget/AutoCompleteTextView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string v1, "input_method"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/inputmethod/InputMethodManager;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, p0, v1}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
+
+    iput-boolean v1, p0, Landroidx/appcompat/widget/SearchView$SearchAutoComplete;->mHasPendingShowSoftInputRequest:Z
+
+    :cond_0
     return-void
 .end method

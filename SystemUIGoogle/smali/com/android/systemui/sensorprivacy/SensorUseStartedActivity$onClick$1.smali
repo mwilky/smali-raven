@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1;
+.class public final Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1;
 .super Ljava/lang/Object;
 .source "SensorUseStartedActivity.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
+.field public final synthetic this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
+.method public constructor <init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
@@ -37,15 +37,11 @@
 .method public final onDismiss()Z
     .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
+    iget-object p0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->access$getBgHandler$p(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)Landroid/os/Handler;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;->bgHandler:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1$1;
-
-    iget-object p0, p0, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1;->this$0:Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity$onClick$1$1;-><init>(Lcom/android/systemui/sensorprivacy/SensorUseStartedActivity;)V
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;
+.class public final Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;
 .super Ljava/lang/Object;
 .source "AlwaysOnDisplayPolicy.java"
 
@@ -18,15 +18,9 @@
 
 .field public dimmingScrimArray:[I
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mParser:Landroid/util/KeyValueListParser;
-
-.field private mSettingsObserver:Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;
-
-.field public proxCooldownPeriodMs:J
-
-.field public proxCooldownTriggerMs:J
+.field public final mParser:Landroid/util/KeyValueListParser;
 
 .field public proxScreenOffDelayMs:J
 
@@ -39,7 +33,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
-    .locals 2
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -61,29 +55,25 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getMainThreadHandler()Landroid/os/Handler;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;-><init>(Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Landroid/os/Handler;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;-><init>(Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;Landroid/os/Handler;)V
 
-    iput-object v0, p0, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;->mSettingsObserver:Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v0}, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;->observe()V
+    move-result-object p0
+
+    iget-object p1, v0, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;->ALWAYS_ON_DISPLAY_CONSTANTS_URI:Landroid/net/Uri;
+
+    const/4 v1, 0x0
+
+    const/4 v2, -0x1
+
+    invoke-virtual {p0, p1, v1, v0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    const/4 p0, 0x0
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy$SettingsObserver;->update(Landroid/net/Uri;)V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;)Landroid/util/KeyValueListParser;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/doze/AlwaysOnDisplayPolicy;->mParser:Landroid/util/KeyValueListParser;
-
-    return-object p0
 .end method

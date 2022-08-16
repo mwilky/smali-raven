@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -32,11 +32,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$onFinishInflate$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;
@@ -50,59 +50,8 @@
 
 
 # virtual methods
-.method public final invoke(I)Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$PersonDataListenerImpl;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$onFinishInflate$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;->access$getContents$p(Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;)Landroid/view/ViewGroup;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0, p1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object p1
-
-    instance-of v0, p1, Landroid/widget/ImageView;
-
-    if-eqz v0, :cond_0
-
-    check-cast p1, Landroid/widget/ImageView;
-
-    goto :goto_0
-
-    :cond_0
-    move-object p1, v1
-
-    :goto_0
-    if-nez p1, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$onFinishInflate$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;
-
-    new-instance v1, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$PersonDataListenerImpl;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$PersonDataListenerImpl;-><init>(Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;Landroid/widget/ImageView;)V
-
-    :goto_1
-    return-object v1
-
-    :cond_2
-    const-string p0, "contents"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v1
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
     check-cast p1, Ljava/lang/Number;
 
@@ -110,9 +59,42 @@
 
     move-result p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$onFinishInflate$1;->invoke(I)Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$PersonDataListenerImpl;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$onFinishInflate$1;->this$0:Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView;->contents:Landroid/view/ViewGroup;
+
+    const/4 v0, 0x0
+
+    if-nez p0, :cond_0
+
+    move-object p0, v0
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
     move-result-object p0
 
-    return-object p0
+    instance-of p1, p0, Landroid/widget/ImageView;
+
+    if-eqz p1, :cond_1
+
+    check-cast p0, Landroid/widget/ImageView;
+
+    goto :goto_0
+
+    :cond_1
+    move-object p0, v0
+
+    :goto_0
+    if-nez p0, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    new-instance v0, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$PersonDataListenerImpl;
+
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/stack/PeopleHubView$PersonDataListenerImpl;-><init>()V
+
+    :goto_1
+    return-object v0
 .end method

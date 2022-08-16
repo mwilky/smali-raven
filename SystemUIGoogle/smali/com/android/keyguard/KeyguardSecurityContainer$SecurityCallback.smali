@@ -15,16 +15,7 @@
 
 
 # virtual methods
-.method public abstract dismiss(ZIZ)Z
-.end method
-
-.method public abstract finish(ZI)V
-.end method
-
 .method public abstract onCancelClicked()V
-.end method
-
-.method public abstract onSecurityModeChanged(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Z)V
 .end method
 
 .method public abstract reset()V

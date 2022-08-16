@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieTask$LottieFutureTask;
+.class public final Lcom/airbnb/lottie/LottieTask$LottieFutureTask;
 .super Ljava/util/concurrent/FutureTask;
 .source "LottieTask.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "LottieFutureTask"
 .end annotation
 
@@ -23,11 +23,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieTask;
+.field public final synthetic this$0:Lcom/airbnb/lottie/LottieTask;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieTask;Ljava/util/concurrent/Callable;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieTask;Ljava/util/concurrent/Callable;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,7 +47,7 @@
 
 
 # virtual methods
-.method protected done()V
+.method public final done()V
     .locals 2
 
     invoke-virtual {p0}, Ljava/util/concurrent/FutureTask;->isCancelled()Z
@@ -68,7 +68,7 @@
 
     check-cast v1, Lcom/airbnb/lottie/LottieResult;
 
-    invoke-static {v0, v1}, Lcom/airbnb/lottie/LottieTask;->access$300(Lcom/airbnb/lottie/LottieTask;Lcom/airbnb/lottie/LottieResult;)V
+    invoke-virtual {v0, v1}, Lcom/airbnb/lottie/LottieTask;->setResult(Lcom/airbnb/lottie/LottieResult;)V
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
     .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_0
@@ -84,7 +84,7 @@
 
     invoke-direct {v1, v0}, Lcom/airbnb/lottie/LottieResult;-><init>(Ljava/lang/Throwable;)V
 
-    invoke-static {p0, v1}, Lcom/airbnb/lottie/LottieTask;->access$300(Lcom/airbnb/lottie/LottieTask;Lcom/airbnb/lottie/LottieResult;)V
+    invoke-virtual {p0, v1}, Lcom/airbnb/lottie/LottieTask;->setResult(Lcom/airbnb/lottie/LottieResult;)V
 
     :goto_0
     return-void

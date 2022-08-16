@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/keyboard/KeyboardUI$BluetoothErrorListener;
+.class public final Lcom/android/systemui/keyboard/KeyboardUI$BluetoothErrorListener;
 .super Ljava/lang/Object;
 .source "KeyboardUI.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "BluetoothErrorListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
+.field public final synthetic this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
+.method public constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothErrorListener;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
@@ -32,34 +32,24 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/keyboard/KeyboardUI;Lcom/android/systemui/keyboard/KeyboardUI$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothErrorListener;-><init>(Lcom/android/systemui/keyboard/KeyboardUI;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onShowError(Landroid/content/Context;Ljava/lang/String;I)V
-    .locals 1
+.method public final onShowError(ILandroid/content/Context;Ljava/lang/String;)V
+    .locals 3
 
     iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI$BluetoothErrorListener;->this$0:Lcom/android/systemui/keyboard/KeyboardUI;
 
-    invoke-static {p0}, Lcom/android/systemui/keyboard/KeyboardUI;->access$1700(Lcom/android/systemui/keyboard/KeyboardUI;)Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
+    iget-object p0, p0, Lcom/android/systemui/keyboard/KeyboardUI;->mHandler:Lcom/android/systemui/keyboard/KeyboardUI$KeyboardHandler;
 
-    move-result-object p0
+    const/16 v0, 0xb
 
-    new-instance v0, Landroid/util/Pair;
+    const/4 v1, 0x0
 
-    invoke-direct {v0, p1, p2}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    new-instance v2, Landroid/util/Pair;
 
-    const/16 p1, 0xb
+    invoke-direct {v2, p2, p3}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 p2, 0x0
-
-    invoke-virtual {p0, p1, p3, p2, v0}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
+    invoke-virtual {p0, v0, p1, v1, v2}, Landroid/os/Handler;->obtainMessage(IIILjava/lang/Object;)Landroid/os/Message;
 
     move-result-object p0
 

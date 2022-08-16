@@ -7,13 +7,13 @@
 .method public abstract avoidGesture()V
 .end method
 
-.method public abstract isReportingEnabled()Z
+.method public abstract isReportingEnabled()V
 .end method
 
 .method public abstract onAffordanceSwipingAborted()V
 .end method
 
-.method public abstract onAffordanceSwipingStarted(Z)V
+.method public abstract onAffordanceSwipingStarted()V
 .end method
 
 .method public abstract onBouncerHidden()V
@@ -38,9 +38,6 @@
 .end method
 
 .method public abstract onMotionEventComplete()V
-.end method
-
-.method public abstract onNotificationActive()V
 .end method
 
 .method public abstract onNotificationDismissed()V
@@ -79,7 +76,7 @@
 .method public abstract onTouchEvent(Landroid/view/MotionEvent;)V
 .end method
 
-.method public abstract onTrackingStarted(Z)V
+.method public abstract onTrackingStarted()V
 .end method
 
 .method public abstract onTrackingStopped()V
@@ -97,7 +94,7 @@
 .method public abstract setShowingAod(Z)V
 .end method
 
-.method public abstract shouldEnforceBouncer()Z
+.method public abstract shouldEnforceBouncer()V
 .end method
 
 .method public abstract updateFalseConfidence(Lcom/android/systemui/classifier/FalsingClassifier$Result;)V

@@ -1,28 +1,13 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/BiConsumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;
-
-
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -43,7 +28,9 @@
 
     move-result p0
 
-    invoke-static {p1, p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->$r8$lambda$Ztx-gsJCuF4ScTJaKfxCE6T7RFE(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;F)V
+    iput p0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCurrentBottomRoundness:F
+
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->applyRoundness()V
 
     return-void
 .end method

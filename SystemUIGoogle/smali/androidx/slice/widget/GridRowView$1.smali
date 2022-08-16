@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/GridRowView$1;
+.class public final Landroidx/slice/widget/GridRowView$1;
 .super Ljava/lang/Object;
 .source "GridRowView.java"
 
@@ -6,48 +6,21 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/slice/widget/GridRowView;->addPickerItem(Landroidx/slice/SliceItem;Landroid/view/ViewGroup;IZ)Z
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/slice/widget/GridRowView;
+.field public final synthetic this$0:Landroidx/slice/widget/GridRowView;
 
-.field final synthetic val$date:Ljava/util/Date;
+.field public final synthetic val$date:Ljava/util/Date;
 
-.field final synthetic val$isDatePicker:Z
+.field public final synthetic val$isDatePicker:Z
 
-.field final synthetic val$pickerItem:Landroidx/slice/SliceItem;
+.field public final synthetic val$pickerItem:Landroidx/slice/SliceItem;
 
-.field final synthetic val$rowIndex:I
+.field public final synthetic val$rowIndex:I
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/GridRowView;Ljava/util/Date;ZLandroidx/slice/SliceItem;I)V
+.method public constructor <init>(Landroidx/slice/widget/GridRowView;Ljava/util/Date;ZLandroidx/slice/SliceItem;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$date",
-            "val$isDatePicker",
-            "val$pickerItem",
-            "val$rowIndex"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/GridRowView$1;->this$0:Landroidx/slice/widget/GridRowView;
 
@@ -66,16 +39,8 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 17
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     move-object/from16 v0, p0
 
@@ -99,7 +64,7 @@
 
     move-result-object v4
 
-    sget v5, Landroidx/slice/view/R$style;->DialogTheme:I
+    const v5, 0x7f140150
 
     new-instance v6, Landroidx/slice/widget/GridRowView$DateSetListener;
 
@@ -146,7 +111,7 @@
 
     move-result-object v11
 
-    sget v12, Landroidx/slice/view/R$style;->DialogTheme:I
+    const v12, 0x7f140150
 
     new-instance v13, Landroidx/slice/widget/GridRowView$TimeSetListener;
 

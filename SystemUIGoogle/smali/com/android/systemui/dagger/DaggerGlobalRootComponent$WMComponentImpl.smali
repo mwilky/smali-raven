@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;
+.class public final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;
 .super Ljava/lang/Object;
 .source "DaggerGlobalRootComponent.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "WMComponentImpl"
 .end annotation
 
 
 # instance fields
-.field private dynamicOverrideOptionalOfDisplayImeControllerProvider:Ljavax/inject/Provider;
+.field public dynamicOverrideOptionalOfDisplayImeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -29,7 +29,7 @@
     .end annotation
 .end field
 
-.field private dynamicOverrideOptionalOfFreeformTaskListenerProvider:Ljavax/inject/Provider;
+.field public dynamicOverrideOptionalOfFreeformTaskListenerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -40,7 +40,18 @@
     .end annotation
 .end field
 
-.field private dynamicOverrideOptionalOfFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
+.field public dynamicOverrideOptionalOfFullscreenTaskListenerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/fullscreen/FullscreenTaskListener;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public dynamicOverrideOptionalOfFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -51,7 +62,7 @@
     .end annotation
 .end field
 
-.field private dynamicOverrideOptionalOfOneHandedControllerProvider:Ljavax/inject/Provider;
+.field public dynamicOverrideOptionalOfOneHandedControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -62,7 +73,7 @@
     .end annotation
 .end field
 
-.field private dynamicOverrideOptionalOfSplitScreenControllerProvider:Ljavax/inject/Provider;
+.field public dynamicOverrideOptionalOfSplitScreenControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -73,7 +84,7 @@
     .end annotation
 .end field
 
-.field private dynamicOverrideOptionalOfStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
+.field public dynamicOverrideOptionalOfStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -84,7 +95,7 @@
     .end annotation
 .end field
 
-.field private optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
+.field public optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -95,7 +106,7 @@
     .end annotation
 .end field
 
-.field private optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
+.field public optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -106,7 +117,7 @@
     .end annotation
 .end field
 
-.field private optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
+.field public optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -117,7 +128,7 @@
     .end annotation
 .end field
 
-.field private optionalOfPipTouchHandlerProvider:Ljavax/inject/Provider;
+.field public optionalOfPipTouchHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -128,7 +139,7 @@
     .end annotation
 .end field
 
-.field private optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
+.field public optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -139,7 +150,7 @@
     .end annotation
 .end field
 
-.field private provideAppPairsProvider:Ljavax/inject/Provider;
+.field public provideAppPairsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -149,18 +160,40 @@
     .end annotation
 .end field
 
-.field private provideAppPairsProvider2:Ljavax/inject/Provider;
+.field public provideAppPairsProvider2:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/apppairs/AppPairs;",
+            "Ljava/lang/Object;",
             ">;>;"
         }
     .end annotation
 .end field
 
-.field private provideBubbleControllerProvider:Ljavax/inject/Provider;
+.field public provideBackAnimationControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimationController;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public provideBackAnimationProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimation;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public provideBubbleControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -170,7 +203,7 @@
     .end annotation
 .end field
 
-.field private provideBubblesProvider:Ljavax/inject/Provider;
+.field public provideBubblesProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -181,7 +214,7 @@
     .end annotation
 .end field
 
-.field private provideCompatUIControllerProvider:Ljavax/inject/Provider;
+.field public provideCompatUIControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -191,17 +224,18 @@
     .end annotation
 .end field
 
-.field private provideCompatUIProvider:Ljavax/inject/Provider;
+.field public provideCompatUIProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/compatui/CompatUI;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
 
-.field private provideDisplayAreaHelperProvider:Ljavax/inject/Provider;
+.field public provideDisplayAreaHelperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -212,7 +246,7 @@
     .end annotation
 .end field
 
-.field private provideDisplayControllerProvider:Ljavax/inject/Provider;
+.field public provideDisplayControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -222,7 +256,7 @@
     .end annotation
 .end field
 
-.field private provideDisplayImeControllerProvider:Ljavax/inject/Provider;
+.field public provideDisplayImeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -232,7 +266,7 @@
     .end annotation
 .end field
 
-.field private provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+.field public provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -242,7 +276,7 @@
     .end annotation
 .end field
 
-.field private provideDisplayLayoutProvider:Ljavax/inject/Provider;
+.field public provideDisplayLayoutProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -252,7 +286,7 @@
     .end annotation
 .end field
 
-.field private provideDragAndDropControllerProvider:Ljavax/inject/Provider;
+.field public provideDragAndDropControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -262,17 +296,18 @@
     .end annotation
 .end field
 
-.field private provideDragAndDropProvider:Ljavax/inject/Provider;
+.field public provideDragAndDropProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
-            ">;"
+            ">;>;"
         }
     .end annotation
 .end field
 
-.field private provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
+.field public provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -282,7 +317,7 @@
     .end annotation
 .end field
 
-.field private provideFreeformTaskListenerProvider:Ljavax/inject/Provider;
+.field public provideFreeformTaskListenerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -292,7 +327,7 @@
     .end annotation
 .end field
 
-.field private provideFreeformTaskListenerProvider2:Ljavax/inject/Provider;
+.field public provideFreeformTaskListenerProvider2:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -303,7 +338,7 @@
     .end annotation
 .end field
 
-.field private provideFullscreenTaskListenerProvider:Ljavax/inject/Provider;
+.field public provideFullscreenTaskListenerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -313,7 +348,7 @@
     .end annotation
 .end field
 
-.field private provideFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
+.field public provideFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -323,7 +358,7 @@
     .end annotation
 .end field
 
-.field private provideFullscreenUnfoldControllerProvider2:Ljavax/inject/Provider;
+.field public provideFullscreenUnfoldControllerProvider2:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -334,7 +369,7 @@
     .end annotation
 .end field
 
-.field private provideHideDisplayCutoutControllerProvider:Ljavax/inject/Provider;
+.field public provideHideDisplayCutoutControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -345,7 +380,7 @@
     .end annotation
 .end field
 
-.field private provideHideDisplayCutoutProvider:Ljavax/inject/Provider;
+.field public provideHideDisplayCutoutProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -356,7 +391,7 @@
     .end annotation
 .end field
 
-.field private provideIconProvider:Ljavax/inject/Provider;
+.field public provideIconProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -366,7 +401,17 @@
     .end annotation
 .end field
 
-.field private provideLegacySplitScreenProvider:Ljavax/inject/Provider;
+.field public provideKidsModeTaskOrganizerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/wm/shell/kidsmode/KidsModeTaskOrganizer;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public provideLegacySplitScreenProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -376,18 +421,18 @@
     .end annotation
 .end field
 
-.field private provideLegacySplitScreenProvider2:Ljavax/inject/Provider;
+.field public provideLegacySplitScreenProvider2:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Ljava/lang/Object;",
             ">;>;"
         }
     .end annotation
 .end field
 
-.field private provideOneHandedControllerProvider:Ljavax/inject/Provider;
+.field public provideOneHandedControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -397,7 +442,7 @@
     .end annotation
 .end field
 
-.field private provideOneHandedProvider:Ljavax/inject/Provider;
+.field public provideOneHandedProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -408,7 +453,7 @@
     .end annotation
 .end field
 
-.field private providePipAnimationControllerProvider:Ljavax/inject/Provider;
+.field public providePipAnimationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -418,17 +463,17 @@
     .end annotation
 .end field
 
-.field private providePipAppOpsListenerProvider:Ljavax/inject/Provider;
+.field public providePipAppOpsListenerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Lcom/android/wm/shell/pip/phone/PipAppOpsListener;",
+            "Lcom/android/wm/shell/pip/PipAppOpsListener;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private providePipBoundsStateProvider:Ljavax/inject/Provider;
+.field public providePipBoundsStateProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -438,7 +483,7 @@
     .end annotation
 .end field
 
-.field private providePipMediaControllerProvider:Ljavax/inject/Provider;
+.field public providePipMediaControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -448,7 +493,7 @@
     .end annotation
 .end field
 
-.field private providePipMotionHelperProvider:Ljavax/inject/Provider;
+.field public providePipMotionHelperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -458,7 +503,17 @@
     .end annotation
 .end field
 
-.field private providePipProvider:Ljavax/inject/Provider;
+.field public providePipParamsChangedForwarderProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/wm/shell/pip/PipParamsChangedForwarder;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public providePipProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -469,7 +524,7 @@
     .end annotation
 .end field
 
-.field private providePipSnapAlgorithmProvider:Ljavax/inject/Provider;
+.field public providePipSnapAlgorithmProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -479,7 +534,7 @@
     .end annotation
 .end field
 
-.field private providePipSurfaceTransactionHelperProvider:Ljavax/inject/Provider;
+.field public providePipSurfaceTransactionHelperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -489,7 +544,7 @@
     .end annotation
 .end field
 
-.field private providePipTaskOrganizerProvider:Ljavax/inject/Provider;
+.field public providePipTaskOrganizerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -499,7 +554,7 @@
     .end annotation
 .end field
 
-.field private providePipTouchHandlerProvider:Ljavax/inject/Provider;
+.field public providePipTouchHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -509,7 +564,7 @@
     .end annotation
 .end field
 
-.field private providePipTransitionControllerProvider:Ljavax/inject/Provider;
+.field public providePipTransitionControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -519,7 +574,7 @@
     .end annotation
 .end field
 
-.field private providePipTransitionStateProvider:Ljavax/inject/Provider;
+.field public providePipTransitionStateProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -529,7 +584,7 @@
     .end annotation
 .end field
 
-.field private providePipUiEventLoggerProvider:Ljavax/inject/Provider;
+.field public providePipUiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -539,7 +594,7 @@
     .end annotation
 .end field
 
-.field private provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+.field public provideRecentTasksControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -550,7 +605,7 @@
     .end annotation
 .end field
 
-.field private provideRecentTasksProvider:Ljavax/inject/Provider;
+.field public provideRecentTasksProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -561,7 +616,7 @@
     .end annotation
 .end field
 
-.field private provideRemoteTransitionsProvider:Ljavax/inject/Provider;
+.field public provideRemoteTransitionsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -571,7 +626,7 @@
     .end annotation
 .end field
 
-.field private provideRootDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
+.field public provideRootDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -581,7 +636,7 @@
     .end annotation
 .end field
 
-.field private provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
+.field public provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -591,7 +646,7 @@
     .end annotation
 .end field
 
-.field private provideShellAnimationExecutorProvider:Ljavax/inject/Provider;
+.field public provideSharedBackgroundExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -601,7 +656,27 @@
     .end annotation
 .end field
 
-.field private provideShellCommandHandlerImplProvider:Ljavax/inject/Provider;
+.field public provideSharedBackgroundHandlerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/os/Handler;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public provideShellAnimationExecutorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/wm/shell/common/ShellExecutor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public provideShellCommandHandlerImplProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -611,7 +686,7 @@
     .end annotation
 .end field
 
-.field private provideShellCommandHandlerProvider:Ljavax/inject/Provider;
+.field public provideShellCommandHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -622,7 +697,7 @@
     .end annotation
 .end field
 
-.field private provideShellInitImplProvider:Ljavax/inject/Provider;
+.field public provideShellInitImplProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -632,7 +707,7 @@
     .end annotation
 .end field
 
-.field private provideShellInitProvider:Ljavax/inject/Provider;
+.field public provideShellInitProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -642,7 +717,7 @@
     .end annotation
 .end field
 
-.field private provideShellMainExecutorProvider:Ljavax/inject/Provider;
+.field public provideShellMainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -652,7 +727,7 @@
     .end annotation
 .end field
 
-.field private provideShellMainExecutorSfVsyncAnimationHandlerProvider:Ljavax/inject/Provider;
+.field public provideShellMainExecutorSfVsyncAnimationHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -662,7 +737,7 @@
     .end annotation
 .end field
 
-.field private provideShellMainHandlerProvider:Ljavax/inject/Provider;
+.field public provideShellMainHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -672,7 +747,7 @@
     .end annotation
 .end field
 
-.field private provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+.field public provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -682,7 +757,7 @@
     .end annotation
 .end field
 
-.field private provideSplashScreenExecutorProvider:Ljavax/inject/Provider;
+.field public provideSplashScreenExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -692,7 +767,7 @@
     .end annotation
 .end field
 
-.field private provideSplitScreenControllerProvider:Ljavax/inject/Provider;
+.field public provideSplitScreenControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -702,7 +777,7 @@
     .end annotation
 .end field
 
-.field private provideSplitScreenProvider:Ljavax/inject/Provider;
+.field public provideSplitScreenProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -713,7 +788,7 @@
     .end annotation
 .end field
 
-.field private provideStageTaskUnfoldControllerProvider:Ljavax/inject/Provider;
+.field public provideStageTaskUnfoldControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -724,7 +799,7 @@
     .end annotation
 .end field
 
-.field private provideStartingSurfaceProvider:Ljavax/inject/Provider;
+.field public provideStartingSurfaceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -735,7 +810,7 @@
     .end annotation
 .end field
 
-.field private provideStartingWindowControllerProvider:Ljavax/inject/Provider;
+.field public provideStartingWindowControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -745,7 +820,7 @@
     .end annotation
 .end field
 
-.field private provideStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
+.field public provideStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -755,7 +830,7 @@
     .end annotation
 .end field
 
-.field private provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+.field public provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -765,7 +840,7 @@
     .end annotation
 .end field
 
-.field private provideSysUIMainExecutorProvider:Ljavax/inject/Provider;
+.field public provideSysUIMainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -775,7 +850,7 @@
     .end annotation
 .end field
 
-.field private provideSystemWindowsProvider:Ljavax/inject/Provider;
+.field public provideSystemWindowsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -785,7 +860,7 @@
     .end annotation
 .end field
 
-.field private provideTaskSurfaceHelperControllerProvider:Ljavax/inject/Provider;
+.field public provideTaskSurfaceHelperControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -796,18 +871,18 @@
     .end annotation
 .end field
 
-.field private provideTaskSurfaceHelperProvider:Ljavax/inject/Provider;
+.field public provideTaskSurfaceHelperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;",
+            "Ljava/lang/Object;",
             ">;>;"
         }
     .end annotation
 .end field
 
-.field private provideTaskViewFactoryControllerProvider:Ljavax/inject/Provider;
+.field public provideTaskViewFactoryControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -817,7 +892,7 @@
     .end annotation
 .end field
 
-.field private provideTaskViewFactoryProvider:Ljavax/inject/Provider;
+.field public provideTaskViewFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -828,7 +903,17 @@
     .end annotation
 .end field
 
-.field private provideTransactionPoolProvider:Ljavax/inject/Provider;
+.field public provideTaskViewTransitionsProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/wm/shell/TaskViewTransitions;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public provideTransactionPoolProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -838,7 +923,7 @@
     .end annotation
 .end field
 
-.field private provideTransitionsProvider:Ljavax/inject/Provider;
+.field public provideTransitionsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -848,7 +933,7 @@
     .end annotation
 .end field
 
-.field private provideUnfoldBackgroundControllerProvider:Ljavax/inject/Provider;
+.field public provideUnfoldBackgroundControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -858,7 +943,18 @@
     .end annotation
 .end field
 
-.field private provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
+.field public provideUnfoldTransitionHandlerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/unfold/UnfoldTransitionHandler;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -868,7 +964,7 @@
     .end annotation
 .end field
 
-.field private providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
+.field public providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -878,7 +974,7 @@
     .end annotation
 .end field
 
-.field private providesOneHandedControllerProvider:Ljavax/inject/Provider;
+.field public providesOneHandedControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -889,7 +985,7 @@
     .end annotation
 .end field
 
-.field private providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
+.field public providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -899,7 +995,7 @@
     .end annotation
 .end field
 
-.field private providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
+.field public providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -909,7 +1005,7 @@
     .end annotation
 .end field
 
-.field private providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+.field public providesSplitScreenControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -920,1539 +1016,41 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+.field public setShellMainThreadProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Landroid/os/HandlerThread;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final synthetic this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
+.method public constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Landroid/os/HandlerThread;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-direct {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->initialize()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;Lcom/android/systemui/dagger/DaggerGlobalRootComponent$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;-><init>(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)V
-
-    return-void
-.end method
-
-.method private initialize()V
-    .locals 18
-
-    move-object/from16 v0, p0
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideMainHandlerFactory;->create()Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideMainHandlerFactory;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellMainHandlerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellMainHandlerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideMainHandlerFactory;->create()Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideMainHandlerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSysUIMainExecutorFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSysUIMainExecutorFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSysUIMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSysUIMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellMainExecutorFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellMainExecutorFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$700()Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayInsetsControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayInsetsControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTransactionPoolFactory;->create()Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTransactionPoolFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v3
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v7}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayImeControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayImeControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideIconProviderFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideIconProviderFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideIconProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v3}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v3
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideIconProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDragAndDropControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDragAndDropControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSyncTransactionQueueFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSyncTransactionQueueFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v7}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProviderTaskStackListenerImplFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProviderTaskStackListenerImplFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRecentTasksControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRecentTasksControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3, v4}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellTaskOrganizerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellTaskOrganizerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFloatingContentCoordinatorFactory;->create()Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFloatingContentCoordinatorFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideWindowManagerShellWrapperFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideWindowManagerShellWrapperFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$900(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v4
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$1000(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v5
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$1100(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v7
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v9
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v14}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideBubbleControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideBubbleControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideBubbleControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRootTaskDisplayAreaOrganizerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRootTaskDisplayAreaOrganizerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellAnimationExecutorFactory;->create()Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellAnimationExecutorFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellAnimationExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v5
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellAnimationExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v7}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTransitionsFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTransitionsFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$1300(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideUnfoldBackgroundControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideUnfoldBackgroundControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideUnfoldBackgroundControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v3
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideUnfoldBackgroundControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v7}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideStageTaskUnfoldControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideStageTaskUnfoldControllerFactory;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStageTaskUnfoldControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v4
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideIconProvider:Ljavax/inject/Provider;
-
-    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStageTaskUnfoldControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v13}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideSplitScreenControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideSplitScreenControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidesSplitScreenControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidesSplitScreenControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v7}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideAppPairsFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideAppPairsFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideAppPairsProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipBoundsStateFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipBoundsStateFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipMediaControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipMediaControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMediaControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$600(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSystemWindowsFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSystemWindowsFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSystemWindowsProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMediaControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSystemWindowsProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v8}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidesPipPhoneMenuControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidesPipPhoneMenuControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipSnapAlgorithmFactory;->create()Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipSnapAlgorithmFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSnapAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSnapAlgorithmProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidesPipBoundsAlgorithmFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidesPipBoundsAlgorithmFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionStateFactory;->create()Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionStateFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionStateProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipSurfaceTransactionHelperFactory;->create()Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipSurfaceTransactionHelperFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSurfaceTransactionHelperProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipAnimationControllerFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipAnimationControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAnimationControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAnimationControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionStateProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v9}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellMainExecutorSfVsyncAnimationHandlerFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellMainExecutorSfVsyncAnimationHandlerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorSfVsyncAnimationHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSystemWindowsProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
-
-    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorSfVsyncAnimationHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v12}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideLegacySplitScreenFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideLegacySplitScreenFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideLegacySplitScreenProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$1400(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipUiEventLoggerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipUiEventLoggerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipUiEventLoggerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionStateProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAnimationControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSurfaceTransactionHelperProvider:Ljavax/inject/Provider;
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipUiEventLoggerProvider:Ljavax/inject/Provider;
-
-    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    move-object/from16 v16, v1
-
-    invoke-static/range {v2 .. v16}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTaskOrganizerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTaskOrganizerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSnapAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v8}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipMotionHelperFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipMotionHelperFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMotionHelperProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMotionHelperProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipUiEventLoggerProvider:Ljavax/inject/Provider;
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v10}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTouchHandlerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTouchHandlerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTouchHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfPipTouchHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideUnfoldBackgroundControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideFullscreenUnfoldControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideFullscreenUnfoldControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFullscreenUnfoldControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFullscreenUnfoldControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenUnfoldControllerProvider2:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v2, v1, v3}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFullscreenTaskListenerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFullscreenTaskListenerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenTaskListenerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideFreeformTaskListenerFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideFreeformTaskListenerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFreeformTaskListenerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfFreeformTaskListenerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFreeformTaskListenerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFreeformTaskListenerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFreeformTaskListenerProvider2:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSplashScreenExecutorFactory;->create()Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSplashScreenExecutorFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplashScreenExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$700()Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideStartingWindowTypeAlgorithmFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideStartingWindowTypeAlgorithmFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplashScreenExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideIconProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3, v4, v5}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideStartingWindowControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideStartingWindowControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingWindowControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfPipTouchHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenTaskListenerProvider:Ljavax/inject/Provider;
-
-    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenUnfoldControllerProvider2:Ljavax/inject/Provider;
-
-    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFreeformTaskListenerProvider2:Ljavax/inject/Provider;
-
-    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
-
-    move-object/from16 v16, v1
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    move-object/from16 v17, v1
-
-    invoke-static/range {v2 .. v17}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellInitImplFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellInitImplFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellInitImplProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellInitFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellInitFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellInitProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTouchHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipAppOpsListenerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipAppOpsListenerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAppOpsListenerProvider:Ljavax/inject/Provider;
-
-    invoke-static {}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayLayoutFactory;->create()Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayLayoutFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayLayoutProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$1000(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v3
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayLayoutProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$800(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v7
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v9}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideOneHandedControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideOneHandedControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideOneHandedControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfOneHandedControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidesOneHandedControllerFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidesOneHandedControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesOneHandedControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v2
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAppOpsListenerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
-
-    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMediaControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTouchHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
-
-    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
-
-    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesOneHandedControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v15}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
-
-    invoke-static {v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->access$500(Lcom/android/systemui/dagger/DaggerGlobalRootComponent;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideHideDisplayCutoutControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideHideDisplayCutoutControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v7
-
-    iput-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideHideDisplayCutoutControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipProvider:Ljavax/inject/Provider;
-
-    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesOneHandedControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
-
-    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static/range {v2 .. v10}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellCommandHandlerImplFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellCommandHandlerImplFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellCommandHandlerImplProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellCommandHandlerFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellCommandHandlerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellCommandHandlerProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesOneHandedControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideOneHandedFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideOneHandedFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideOneHandedProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideLegacySplitScreenFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideLegacySplitScreenFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideLegacySplitScreenProvider2:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSplitScreenFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSplitScreenFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplitScreenProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideAppPairsFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideAppPairsFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideAppPairsProvider2:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideBubblesFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideBubblesFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideBubblesProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideHideDisplayCutoutControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideHideDisplayCutoutFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideHideDisplayCutoutFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideHideDisplayCutoutProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2, v3}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskViewFactoryControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskViewFactoryControllerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskViewFactoryControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskViewFactoryFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskViewFactoryFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskViewFactoryProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRemoteTransitionsFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRemoteTransitionsFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRemoteTransitionsProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingWindowControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideStartingSurfaceFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideStartingSurfaceFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingSurfaceProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRootDisplayAreaOrganizerFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRootDisplayAreaOrganizerFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v2, v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayAreaHelperFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayAreaHelperFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayAreaHelperProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
-
-    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskSurfaceHelperControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskSurfaceHelperControllerFactory;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskSurfaceHelperControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskSurfaceHelperFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskSurfaceHelperFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskSurfaceHelperProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRecentTasksFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRecentTasksFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIProvider:Ljavax/inject/Provider;
-
-    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropControllerProvider:Ljavax/inject/Provider;
-
-    invoke-static {v1}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDragAndDropFactory;->create(Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDragAndDropFactory;
-
-    move-result-object v1
-
-    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object v1
-
-    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropProvider:Ljavax/inject/Provider;
+    invoke-virtual {p0, p2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->initialize(Landroid/os/HandlerThread;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getAppPairs()Ljava/util/Optional;
+.method public final getAppPairs()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/apppairs/AppPairs;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
@@ -2468,7 +1066,29 @@
     return-object p0
 .end method
 
-.method public getBubbles()Ljava/util/Optional;
+.method public final getBackAnimation()Ljava/util/Optional;
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimation;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideBackAnimationProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Ljava/util/Optional;
+
+    return-object p0
+.end method
+
+.method public final getBubbles()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2490,8 +1110,16 @@
     return-object p0
 .end method
 
-.method public getCompatUI()Lcom/android/wm/shell/compatui/CompatUI;
+.method public final getCompatUI()Ljava/util/Optional;
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;"
+        }
+    .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIProvider:Ljavax/inject/Provider;
 
@@ -2499,12 +1127,12 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/wm/shell/compatui/CompatUI;
+    check-cast p0, Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public getDisplayAreaHelper()Ljava/util/Optional;
+.method public final getDisplayAreaHelper()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2526,8 +1154,16 @@
     return-object p0
 .end method
 
-.method public getDragAndDrop()Lcom/android/wm/shell/draganddrop/DragAndDrop;
+.method public final getDragAndDrop()Ljava/util/Optional;
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
+            ">;"
+        }
+    .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropProvider:Ljavax/inject/Provider;
 
@@ -2535,12 +1171,12 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/wm/shell/draganddrop/DragAndDrop;
+    check-cast p0, Ljava/util/Optional;
 
     return-object p0
 .end method
 
-.method public getHideDisplayCutout()Ljava/util/Optional;
+.method public final getHideDisplayCutout()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2562,13 +1198,13 @@
     return-object p0
 .end method
 
-.method public getLegacySplitScreen()Ljava/util/Optional;
+.method public final getLegacySplitScreen()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
@@ -2584,7 +1220,7 @@
     return-object p0
 .end method
 
-.method public getOneHanded()Ljava/util/Optional;
+.method public final getOneHanded()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2606,7 +1242,7 @@
     return-object p0
 .end method
 
-.method public getPip()Ljava/util/Optional;
+.method public final getPip()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2628,7 +1264,7 @@
     return-object p0
 .end method
 
-.method public getRecentTasks()Ljava/util/Optional;
+.method public final getRecentTasks()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2650,7 +1286,7 @@
     return-object p0
 .end method
 
-.method public getShellCommandHandler()Ljava/util/Optional;
+.method public final getShellCommandHandler()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2672,7 +1308,7 @@
     return-object p0
 .end method
 
-.method public getShellInit()Lcom/android/wm/shell/ShellInit;
+.method public final getShellInit()Lcom/android/wm/shell/ShellInit;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellInitProvider:Ljavax/inject/Provider;
@@ -2686,7 +1322,7 @@
     return-object p0
 .end method
 
-.method public getSplitScreen()Ljava/util/Optional;
+.method public final getSplitScreen()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2708,7 +1344,7 @@
     return-object p0
 .end method
 
-.method public getStartingSurface()Ljava/util/Optional;
+.method public final getStartingSurface()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2730,13 +1366,13 @@
     return-object p0
 .end method
 
-.method public getTaskSurfaceHelper()Ljava/util/Optional;
+.method public final getTaskSurfaceHelper()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
@@ -2752,7 +1388,7 @@
     return-object p0
 .end method
 
-.method public getTaskViewFactory()Ljava/util/Optional;
+.method public final getTaskViewFactory()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -2774,7 +1410,7 @@
     return-object p0
 .end method
 
-.method public getTransitions()Lcom/android/wm/shell/transition/ShellTransitions;
+.method public final getTransitions()Lcom/android/wm/shell/transition/ShellTransitions;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRemoteTransitionsProvider:Ljavax/inject/Provider;
@@ -2788,10 +1424,1632 @@
     return-object p0
 .end method
 
-.method public bridge synthetic init()V
+.method public final bridge synthetic init()V
     .locals 0
 
     invoke-super {p0}, Lcom/android/systemui/dagger/WMComponent;->init()V
+
+    return-void
+.end method
+
+.method public final initialize(Landroid/os/HandlerThread;)V
+    .locals 27
+
+    move-object/from16 v0, p0
+
+    invoke-static/range {p1 .. p1}, Ldagger/internal/InstanceFactory;->createNullable(Ljava/lang/Object;)Ldagger/internal/InstanceFactory;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->setShellMainThreadProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    sget-object v3, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideMainHandlerFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideMainHandlerFactory;
+
+    new-instance v4, Lcom/android/systemui/util/RingerModeTrackerImpl_Factory;
+
+    const/4 v5, 0x1
+
+    invoke-direct {v4, v2, v1, v3, v5}, Lcom/android/systemui/util/RingerModeTrackerImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    new-instance v1, Lcom/android/systemui/util/WallpaperController_Factory;
+
+    const/4 v2, 0x5
+
+    invoke-direct {v1, v3, v2}, Lcom/android/systemui/util/WallpaperController_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSysUIMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v3, v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    new-instance v6, Lcom/google/android/systemui/columbus/ColumbusModule_ProvideColumbusActionsFactory;
+
+    invoke-direct {v6, v3, v4, v1, v5}, Lcom/google/android/systemui/columbus/ColumbusModule_ProvideColumbusActionsFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v6}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v4, v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideIWindowManagerProvider:Ljavax/inject/Provider;
+
+    new-instance v6, Lcom/android/systemui/statusbar/phone/DozeScrimController_Factory;
+
+    const/4 v7, 0x2
+
+    invoke-direct {v6, v4, v3, v1, v7}, Lcom/android/systemui/statusbar/phone/DozeScrimController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v6}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    sget-object v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->ABSENT_JDK_OPTIONAL_PROVIDER:Ljavax/inject/Provider;
+
+    iput-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v4, v4, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideIWindowManagerProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v8, Lcom/android/systemui/tv/TvSystemUIModule_ProvideRecentsFactory;
+
+    invoke-direct {v8, v4, v1, v6, v7}, Lcom/android/systemui/tv/TvSystemUIModule_ProvideRecentsFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v8}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTransactionPoolFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTransactionPoolFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v11
+
+    iput-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v7, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideIWindowManagerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v6 .. v11}, Lcom/android/systemui/statusbar/policy/SmartReplyStateInflaterImpl_Factory;->create$1(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/SmartReplyStateInflaterImpl_Factory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/screenshot/ImageExporter_Factory;
+
+    invoke-direct {v4, v2, v1}, Lcom/android/systemui/screenshot/ImageExporter_Factory;-><init>(ILjava/lang/Object;)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideIconProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v6, v4, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v4, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideUiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-static {v6, v7, v4, v1, v8}, Lcom/android/systemui/statusbar/policy/BluetoothControllerImpl_Factory;->create$2(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/policy/BluetoothControllerImpl_Factory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v6, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSyncTransactionQueueFactory;
+
+    invoke-direct {v6, v1, v4}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideSyncTransactionQueueFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    invoke-static {v6}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    new-instance v1, Ldagger/internal/DelegateFactory;
+
+    invoke-direct {v1}, Ldagger/internal/DelegateFactory;-><init>()V
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellAnimationExecutorFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideShellAnimationExecutorFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v12
+
+    iput-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellAnimationExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v9, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v6 .. v12}, Lcom/android/systemui/statusbar/window/StatusBarWindowController_Factory;->create$1(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/window/StatusBarWindowController_Factory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v12
+
+    iput-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v6, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v6 .. v12}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIControllerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;
+
+    const/4 v6, 0x3
+
+    invoke-direct {v4, v1, v6}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideVibratorFactory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v4, v4, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v8, Lcom/android/systemui/doze/DozePauser_Factory;
+
+    const/4 v9, 0x4
+
+    invoke-direct {v8, v4, v1, v7, v9}, Lcom/android/systemui/doze/DozePauser_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v8}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v14
+
+    iput-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v12, v4, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager_Factory;
+
+    const/4 v15, 0x1
+
+    move-object v10, v4
+
+    invoke-direct/range {v10 .. v15}, Lcom/android/systemui/statusbar/phone/StatusBarTouchableRegionManager_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v4
+
+    invoke-static {v1, v4}, Ldagger/internal/DelegateFactory;->setDelegate(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v9, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v7 .. v13}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideKidsModeTaskOrganizerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideKidsModeTaskOrganizerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideKidsModeTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFloatingContentCoordinatorFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFloatingContentCoordinatorFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/statusbar/connectivity/CallbackHandler_Factory;
+
+    invoke-direct {v4, v1, v2}, Lcom/android/systemui/statusbar/connectivity/CallbackHandler_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayLayoutFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayLayoutFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v10
+
+    iput-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayLayoutProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v7, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideWindowManagerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideUiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideInteractionJankMonitorProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v7 .. v15}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideOneHandedControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideOneHandedControllerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideOneHandedControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v2, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfOneHandedControllerProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSharedBackgroundHandlerFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSharedBackgroundHandlerFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSharedBackgroundHandlerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dreams/dagger/DreamModule_ProvidesDreamBackendFactory;
+
+    invoke-direct {v2, v1, v6}, Lcom/android/systemui/dreams/dagger/DreamModule_ProvidesDreamBackendFactory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSharedBackgroundExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/ActivityStarterDelegate_Factory;
+
+    invoke-direct {v2, v1, v6}, Lcom/android/systemui/ActivityStarterDelegate_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    move-object/from16 v23, v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskViewTransitionsProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v7, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideIStatusBarServiceProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideWindowManagerProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideUserManagerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideLauncherAppsProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
+
+    iget-object v15, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideUiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v16, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v17, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfOneHandedControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v18, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v19, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v20, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v21, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSharedBackgroundExecutorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v22, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v24, v1
+
+    invoke-static/range {v7 .. v24}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideBubbleControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideBubbleControllerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideBubbleControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v2, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/unfold/UnfoldTransitionWallpaperController_Factory;
+
+    invoke-direct {v4, v1, v2, v5}, Lcom/android/systemui/unfold/UnfoldTransitionWallpaperController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideShellProgressProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v2, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/wm/shell/dagger/WMShellModule_ProvideUnfoldBackgroundControllerFactory;
+
+    const/4 v6, 0x0
+
+    invoke-direct {v4, v1, v2, v6}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideUnfoldBackgroundControllerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v11
+
+    iput-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideUnfoldBackgroundControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v9, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v1, Lcom/android/systemui/globalactions/GlobalActionsImpl_Factory;
+
+    const/4 v14, 0x1
+
+    move-object v7, v1
+
+    invoke-direct/range {v7 .. v14}, Lcom/android/systemui/globalactions/GlobalActionsImpl_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStageTaskUnfoldControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootTaskDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideIconProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v16, v2
+
+    move-object/from16 v17, v4
+
+    move-object/from16 v18, v6
+
+    move-object/from16 v19, v7
+
+    move-object/from16 v20, v8
+
+    move-object/from16 v21, v9
+
+    move-object/from16 v22, v10
+
+    move-object/from16 v23, v11
+
+    move-object/from16 v24, v12
+
+    move-object/from16 v25, v13
+
+    move-object/from16 v26, v1
+
+    invoke-static/range {v14 .. v26}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideSplitScreenControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/globalactions/GlobalActionsImpl_Factory;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideSplitScreenControllerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v2, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/google/android/systemui/elmyra/actions/UnpinNotifications_Factory;
+
+    invoke-direct {v4, v2, v1, v5}, Lcom/google/android/systemui/elmyra/actions/UnpinNotifications_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v1, Lcom/android/wm/shell/dagger/WMShellModule_ProvideAppPairsFactory;
+
+    const/4 v11, 0x0
+
+    move-object v4, v1
+
+    invoke-direct/range {v4 .. v11}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideAppPairsFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideAppPairsProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v2, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/broadcast/PendingRemovalStore_Factory;
+
+    const/4 v4, 0x4
+
+    invoke-direct {v2, v1, v4}, Lcom/android/systemui/broadcast/PendingRemovalStore_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/google/android/systemui/columbus/gates/Proximity_Factory;
+
+    const/4 v5, 0x2
+
+    invoke-direct {v4, v1, v2, v5}, Lcom/google/android/systemui/columbus/gates/Proximity_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMediaControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideIWindowManagerProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/volume/VolumeUI_Factory;
+
+    const/4 v5, 0x4
+
+    invoke-direct {v4, v1, v2, v5}, Lcom/android/systemui/volume/VolumeUI_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSystemWindowsProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->provideUiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->providePackageManagerProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/media/LocalMediaManagerFactory_Factory;
+
+    const/4 v5, 0x2
+
+    invoke-direct {v4, v2, v1, v5}, Lcom/android/systemui/media/LocalMediaManagerFactory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v11
+
+    iput-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipUiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v6, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMediaControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSystemWindowsProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainHandlerProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v6 .. v13}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidesPipPhoneMenuControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidesPipPhoneMenuControllerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipSnapAlgorithmFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipSnapAlgorithmFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSnapAlgorithmProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    new-instance v5, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;
+
+    const/4 v6, 0x2
+
+    invoke-direct {v5, v2, v4, v1, v6}, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v5}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionStateFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionStateFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionStateProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipSurfaceTransactionHelperFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvidePipSurfaceTransactionHelperFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSurfaceTransactionHelperProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/media/MediaFlags_Factory;
+
+    const/4 v4, 0x2
+
+    invoke-direct {v2, v1, v4}, Lcom/android/systemui/media/MediaFlags_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v8
+
+    iput-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAnimationControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v5, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionStateProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSurfaceTransactionHelperProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v5 .. v14}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionControllerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTransitionControllerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
+
+    sget-object v1, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipParamsChangedForwarderFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipParamsChangedForwarderFactory;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v13
+
+    iput-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipParamsChangedForwarderProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v4, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionStateProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAnimationControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSurfaceTransactionHelperProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipUiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 p1, v3
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v16, v1
+
+    move-object/from16 v17, v2
+
+    move-object/from16 v18, v3
+
+    invoke-static/range {v4 .. v18}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTaskOrganizerFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipTaskOrganizerFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v5
+
+    iput-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v3, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipSnapAlgorithmProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
+
+    new-instance v1, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipMotionHelperFactory;
+
+    move-object v2, v1
+
+    invoke-direct/range {v2 .. v9}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipMotionHelperFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v15
+
+    iput-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMotionHelperProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v10, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFloatingContentCoordinatorProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipUiEventLoggerProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v16, v1
+
+    move-object/from16 v17, v2
+
+    move-object/from16 v18, v3
+
+    invoke-static/range {v10 .. v18}, Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;->create$1(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/tiles/FlashlightTile_Factory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTouchHandlerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v2, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfPipTouchHandlerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfFullscreenTaskListenerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v4, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideUnfoldBackgroundControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/qs/QSFooterViewController_Factory;
+
+    const/4 v9, 0x1
+
+    move-object v3, v2
+
+    invoke-direct/range {v3 .. v9}, Lcom/android/systemui/qs/QSFooterViewController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v3, v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfFullscreenUnfoldControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/controls/ui/ControlsActivity_Factory;
+
+    const/4 v5, 0x2
+
+    invoke-direct {v4, v3, v2, v5}, Lcom/android/systemui/controls/ui/ControlsActivity_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenUnfoldControllerProvider2:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfFullscreenTaskListenerProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v6, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFullscreenTaskListenerFactory;
+
+    invoke-direct {v6, v3, v4, v2, v5}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideFullscreenTaskListenerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    invoke-static {v6}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenTaskListenerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfShellUnfoldProgressProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v6, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideUnfoldTransitionHandlerFactory;
+
+    invoke-direct {v6, v2, v3, v4, v5}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideUnfoldTransitionHandlerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    invoke-static {v6}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideUnfoldTransitionHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    new-instance v3, Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger_Factory;
+
+    const/4 v4, 0x5
+
+    invoke-direct {v3, v2, v4}, Lcom/android/systemui/statusbar/phone/LockscreenGestureLogger_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v3}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFreeformTaskListenerProvider:Ljavax/inject/Provider;
+
+    new-instance v3, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v3, v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfFreeformTaskListenerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/tracing/ProtoTracer_Factory;
+
+    const/4 v5, 0x4
+
+    invoke-direct {v4, v3, v2, v5}, Lcom/android/systemui/tracing/ProtoTracer_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFreeformTaskListenerProvider2:Ljavax/inject/Provider;
+
+    sget-object v2, Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSplashScreenExecutorFactory$InstanceHolder;->INSTANCE:Lcom/android/wm/shell/dagger/WMShellConcurrencyModule_ProvideSplashScreenExecutorFactory;
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplashScreenExecutorProvider:Ljavax/inject/Provider;
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/qs/logging/QSLogger_Factory;
+
+    const/4 v3, 0x5
+
+    invoke-direct {v2, v1, v3}, Lcom/android/systemui/qs/logging/QSLogger_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingWindowTypeAlgorithmProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v2, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplashScreenExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideIconProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    invoke-static {v2, v3, v1, v4, v5}, Lcom/android/systemui/assist/ui/DefaultUiController_Factory;->create$1(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/assist/ui/DefaultUiController_Factory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    move-object/from16 v18, v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingWindowControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayInsetsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideKidsModeTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfPipTouchHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenTaskListenerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFullscreenUnfoldControllerProvider2:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideUnfoldTransitionHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideFreeformTaskListenerProvider2:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v16, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v17, v1
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v19, v1
+
+    invoke-static/range {v2 .. v19}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellInitImplFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellInitImplFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellInitImplProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/qs/external/CustomTileStatePersister_Factory;
+
+    const/4 v3, 0x5
+
+    invoke-direct {v2, v1, v3}, Lcom/android/systemui/qs/external/CustomTileStatePersister_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellInitProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/util/NotificationChannels_Factory;
+
+    invoke-direct {v2, v3, v1}, Lcom/android/systemui/util/NotificationChannels_Factory;-><init>(ILjava/lang/Object;)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v14
+
+    iput-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorSfVsyncAnimationHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v4, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSystemWindowsProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayImeControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransactionPoolProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v4 .. v14}, Lcom/android/wm/shell/dagger/WMShellModule_ProvideLegacySplitScreenFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellModule_ProvideLegacySplitScreenFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideLegacySplitScreenProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+
+    invoke-direct {v2, v1}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;-><init>(Ljavax/inject/Provider;)V
+
+    iput-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTouchHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipAppOpsListenerFactory;
+
+    const/4 v5, 0x0
+
+    invoke-direct {v4, v1, v2, v3, v5}, Lcom/android/wm/shell/dagger/WMShellModule_ProvidePipAppOpsListenerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAppOpsListenerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->dynamicOverrideOptionalOfOneHandedControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/google/android/systemui/autorotate/DataLogger_Factory;
+
+    const/4 v3, 0x3
+
+    invoke-direct {v2, v1, v3}, Lcom/google/android/systemui/autorotate/DataLogger_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesOneHandedControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v4, v2, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipAppOpsListenerProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipBoundsAlgorithmProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipBoundsStateProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipMediaControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesPipPhoneMenuControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTouchHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipTransitionControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideWindowManagerShellWrapperProvider:Ljavax/inject/Provider;
+
+    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providerTaskStackListenerImplProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipParamsChangedForwarderProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v16, v2
+
+    move-object/from16 v17, v1
+
+    move-object/from16 v18, v3
+
+    invoke-static/range {v4 .. v18}, Lcom/android/systemui/theme/ThemeOverlayController_Factory;->create$1(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/theme/ThemeOverlayController_Factory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v3, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/google/android/systemui/columbus/gates/ChargingState_Factory;
+
+    const/4 v5, 0x1
+
+    invoke-direct {v4, v1, v2, v3, v5}, Lcom/google/android/systemui/columbus/gates/ChargingState_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v12
+
+    iput-object v12, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideHideDisplayCutoutControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v6, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v7, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideKidsModeTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v8, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v9, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v10, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providePipProvider:Ljavax/inject/Provider;
+
+    iget-object v11, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesOneHandedControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v13, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v14, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+
+    iget-object v15, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    invoke-static/range {v6 .. v15}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellCommandHandlerImplFactory;->create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideShellCommandHandlerImplFactory;
+
+    move-result-object v1
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellCommandHandlerImplProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/google/android/systemui/columbus/gates/VrMode_Factory;
+
+    const/4 v3, 0x2
+
+    invoke-direct {v2, v1, v3}, Lcom/google/android/systemui/columbus/gates/VrMode_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellCommandHandlerProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesOneHandedControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/screenshot/ImageTileSet_Factory;
+
+    const/4 v3, 0x6
+
+    invoke-direct {v2, v3, v1}, Lcom/android/systemui/screenshot/ImageTileSet_Factory;-><init>(ILjava/lang/Object;)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideOneHandedProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfLegacySplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/google/android/systemui/columbus/gates/PowerSaveState_Factory;
+
+    const/4 v4, 0x3
+
+    invoke-direct {v2, v1, v4}, Lcom/google/android/systemui/columbus/gates/PowerSaveState_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideLegacySplitScreenProvider2:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->providesSplitScreenControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/usb/StorageNotification_Factory;
+
+    const/4 v4, 0x7
+
+    invoke-direct {v2, v1, v4}, Lcom/android/systemui/usb/StorageNotification_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSplitScreenProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfAppPairsControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/media/MediaUiEventLogger_Factory;
+
+    const/4 v5, 0x5
+
+    invoke-direct {v2, v5, v1}, Lcom/android/systemui/media/MediaUiEventLogger_Factory;-><init>(ILjava/lang/Object;)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideAppPairsProvider2:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->optionalOfBubbleControllerProvider:Ljavax/inject/Provider;
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$$ExternalSyntheticOutline4;->m(Ljavax/inject/Provider;I)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideBubblesProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideHideDisplayCutoutControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1, v4}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$$ExternalSyntheticOutline0;->m(Ljavax/inject/Provider;I)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideHideDisplayCutoutProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSyncTransactionQueueProvider:Ljavax/inject/Provider;
+
+    iget-object v5, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskViewTransitionsProvider:Ljavax/inject/Provider;
+
+    new-instance v6, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskViewFactoryControllerFactory;
+
+    invoke-direct {v6, v1, v2, v4, v5}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskViewFactoryControllerFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    invoke-static {v6}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskViewFactoryControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/accessibility/ModeSwitchesController_Factory;
+
+    const/4 v4, 0x4
+
+    invoke-direct {v2, v1, v4}, Lcom/android/systemui/accessibility/ModeSwitchesController_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskViewFactoryProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTransitionsProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRemoteTransitionsFactory;
+
+    const/4 v4, 0x0
+
+    invoke-direct {v2, v1, v4}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideRemoteTransitionsFactory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRemoteTransitionsProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingWindowControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/usb/UsbConfirmActivity_Factory;
+
+    const/4 v4, 0x5
+
+    invoke-direct {v2, v1, v4}, Lcom/android/systemui/usb/UsbConfirmActivity_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideStartingSurfaceProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/ActivityIntentHelper_Factory;
+
+    const/4 v4, 0x3
+
+    invoke-direct {v2, v4, v1}, Lcom/android/systemui/ActivityIntentHelper_Factory;-><init>(ILjava/lang/Object;)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRootDisplayAreaOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayAreaHelperFactory;
+
+    const/4 v5, 0x0
+
+    invoke-direct {v4, v2, v1, v5}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideDisplayAreaHelperFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v4}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDisplayAreaHelperProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellTaskOrganizerProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    new-instance v4, Lcom/android/systemui/statusbar/tv/notifications/TvNotificationPanel_Factory;
+
+    const/4 v5, 0x2
+
+    invoke-direct {v4, v1, v2, v5}, Lcom/android/systemui/statusbar/tv/notifications/TvNotificationPanel_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    iput-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskSurfaceHelperControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v1, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskSurfaceHelperFactory;
+
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v4, v2}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideTaskSurfaceHelperFactory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideTaskSurfaceHelperProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/systemui/media/MediaCarouselControllerLogger_Factory;
+
+    const/4 v4, 0x5
+
+    invoke-direct {v2, v1, v4}, Lcom/android/systemui/media/MediaCarouselControllerLogger_Factory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideRecentTasksProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIControllerProvider:Ljavax/inject/Provider;
+
+    new-instance v2, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIFactory;
+
+    const/4 v4, 0x0
+
+    invoke-direct {v2, v1, v4}, Lcom/android/wm/shell/dagger/WMShellBaseModule_ProvideCompatUIFactory;-><init>(Ljavax/inject/Provider;I)V
+
+    invoke-static {v2}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideCompatUIProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1, v3}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$CoordinatorsSubcomponentImpl$$ExternalSyntheticOutline0;->m(Ljavax/inject/Provider;I)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideDragAndDropProvider:Ljavax/inject/Provider;
+
+    iget-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->this$0:Lcom/android/systemui/dagger/DaggerGlobalRootComponent;
+
+    iget-object v1, v1, Lcom/android/systemui/dagger/DaggerGlobalRootComponent;->contextProvider:Ljavax/inject/Provider;
+
+    iget-object v2, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideShellMainExecutorProvider:Ljavax/inject/Provider;
+
+    iget-object v4, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideSharedBackgroundHandlerProvider:Ljavax/inject/Provider;
+
+    new-instance v5, Lcom/google/android/systemui/columbus/actions/LaunchOverview_Factory;
+
+    const/4 v6, 0x1
+
+    invoke-direct {v5, v1, v2, v4, v6}, Lcom/google/android/systemui/columbus/actions/LaunchOverview_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
+
+    invoke-static {v5}, Ldagger/internal/DoubleCheck;->provider(Ldagger/internal/Factory;)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideBackAnimationControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1, v3}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$SysUIComponentImpl$$ExternalSyntheticOutline2;->m(Ljavax/inject/Provider;I)Ljavax/inject/Provider;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$WMComponentImpl;->provideBackAnimationProvider:Ljavax/inject/Provider;
 
     return-void
 .end method

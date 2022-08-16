@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/lifecycle/Observer;
@@ -29,7 +30,7 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/clock/ClockManager;->$r8$lambda$kxBXJS3dLq20Rvlv7dKCv7dQjDw(Lcom/android/keyguard/clock/ClockManager;Ljava/lang/Integer;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/clock/ClockManager;->reload()V
 
     return-void
 .end method

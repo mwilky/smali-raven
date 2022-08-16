@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/TooltipManager$show$1;
+.class public final Lcom/android/systemui/controls/TooltipManager$show$1;
 .super Ljava/lang/Object;
 .source "TooltipManager.kt"
 
@@ -6,27 +6,16 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/TooltipManager;->show(III)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $x:I
+.field public final synthetic $x:I
 
-.field final synthetic $y:I
+.field public final synthetic $y:I
 
-.field final synthetic this$0:Lcom/android/systemui/controls/TooltipManager;
+.field public final synthetic this$0:Lcom/android/systemui/controls/TooltipManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/TooltipManager;II)V
+.method public constructor <init>(Lcom/android/systemui/controls/TooltipManager;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
@@ -51,17 +40,13 @@
 
     iget-object v2, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {v2}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
     invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->getLocationOnScreen([I)V
 
     iget-object v2, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {v2}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object v2
+    iget-object v2, v2, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
     iget v3, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->$x:I
 
@@ -71,13 +56,7 @@
 
     sub-int/2addr v3, v5
 
-    iget-object v5, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
-
-    invoke-virtual {v5}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/view/ViewGroup;->getWidth()I
+    invoke-virtual {v2}, Landroid/view/ViewGroup;->getWidth()I
 
     move-result v5
 
@@ -91,55 +70,41 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
+    iget-object v2, v0, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
-    move-result-object v0
+    iget v3, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->$y:I
 
-    iget v2, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->$y:I
+    const/4 v5, 0x1
 
-    const/4 v3, 0x1
+    aget v1, v1, v5
 
-    aget v1, v1, v3
+    sub-int/2addr v3, v1
 
-    sub-int/2addr v2, v1
+    int-to-float v1, v3
 
-    int-to-float v1, v2
+    iget-boolean v0, v0, Lcom/android/systemui/controls/TooltipManager;->below:Z
 
-    iget-object v2, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
-
-    invoke-static {v2}, Lcom/android/systemui/controls/TooltipManager;->access$getBelow$p(Lcom/android/systemui/controls/TooltipManager;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    iget-object v2, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
-
-    invoke-virtual {v2}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object v2
+    if-nez v0, :cond_0
 
     invoke-virtual {v2}, Landroid/view/ViewGroup;->getHeight()I
 
-    move-result v2
+    move-result v0
 
     goto :goto_0
 
     :cond_0
-    move v2, v4
+    move v0, v4
 
     :goto_0
-    int-to-float v2, v2
+    int-to-float v0, v0
 
-    sub-float/2addr v1, v2
+    sub-float/2addr v1, v0
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setTranslationY(F)V
+    invoke-virtual {v2, v1}, Landroid/view/ViewGroup;->setTranslationY(F)V
 
     iget-object v0, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {v0}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getAlpha()F
 
@@ -151,16 +116,14 @@
 
     if-nez v0, :cond_1
 
-    move v4, v3
+    move v4, v5
 
     :cond_1
     if-eqz v4, :cond_2
 
     iget-object p0, p0, Lcom/android/systemui/controls/TooltipManager$show$1;->this$0:Lcom/android/systemui/controls/TooltipManager;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/TooltipManager;->getLayout()Landroid/view/ViewGroup;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/controls/TooltipManager;->layout:Landroid/view/ViewGroup;
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->animate()Landroid/view/ViewPropertyAnimator;
 

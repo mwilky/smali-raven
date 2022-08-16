@@ -15,19 +15,5 @@
 
 
 # virtual methods
-.method public abstract prepareForDrop(Landroid/view/View;Landroid/view/View;II)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "target",
-            "x",
-            "y"
-        }
-    .end annotation
+.method public abstract prepareForDrop(Landroid/view/View;Landroid/view/View;)V
 .end method

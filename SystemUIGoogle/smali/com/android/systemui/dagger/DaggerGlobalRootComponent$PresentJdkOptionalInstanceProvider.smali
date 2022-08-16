@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
+.class public final Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;
 .super Ljava/lang/Object;
 .source "DaggerGlobalRootComponent.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "PresentJdkOptionalInstanceProvider"
 .end annotation
 
@@ -30,7 +30,7 @@
 
 
 # instance fields
-.field private final delegate:Ljavax/inject/Provider;
+.field public final delegate:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -41,7 +41,7 @@
 
 
 # direct methods
-.method private constructor <init>(Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -53,9 +53,7 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Ldagger/internal/Preconditions;->checkNotNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     check-cast p1, Ljavax/inject/Provider;
 
@@ -64,17 +62,7 @@
     return-void
 .end method
 
-.method static synthetic access$1200(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->of(Ljavax/inject/Provider;)Ljavax/inject/Provider;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static of(Ljavax/inject/Provider;)Ljavax/inject/Provider;
+.method public static of(Ljavax/inject/Provider;)Ljavax/inject/Provider;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -98,7 +86,7 @@
 
 
 # virtual methods
-.method public bridge synthetic get()Ljava/lang/Object;
+.method public final bridge synthetic get()Ljava/lang/Object;
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/dagger/DaggerGlobalRootComponent$PresentJdkOptionalInstanceProvider;->get()Ljava/util/Optional;
@@ -108,7 +96,7 @@
     return-object p0
 .end method
 
-.method public get()Ljava/util/Optional;
+.method public final get()Ljava/util/Optional;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

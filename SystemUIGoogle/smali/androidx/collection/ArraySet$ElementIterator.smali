@@ -1,4 +1,4 @@
-.class Landroidx/collection/ArraySet$ElementIterator;
+.class public final Landroidx/collection/ArraySet$ElementIterator;
 .super Landroidx/collection/IndexBasedArrayIterator;
 .source "ArraySet.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ElementIterator"
 .end annotation
 
@@ -22,11 +22,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/collection/ArraySet;
+.field public final synthetic this$0:Landroidx/collection/ArraySet;
 
 
 # direct methods
-.method constructor <init>(Landroidx/collection/ArraySet;)V
+.method public constructor <init>(Landroidx/collection/ArraySet;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/collection/ArraySet$ElementIterator;->this$0:Landroidx/collection/ArraySet;
@@ -40,7 +40,7 @@
 
 
 # virtual methods
-.method protected elementAt(I)Ljava/lang/Object;
+.method public final elementAt(I)Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -50,19 +50,19 @@
 
     iget-object p0, p0, Landroidx/collection/ArraySet$ElementIterator;->this$0:Landroidx/collection/ArraySet;
 
-    invoke-virtual {p0, p1}, Landroidx/collection/ArraySet;->valueAt(I)Ljava/lang/Object;
+    iget-object p0, p0, Landroidx/collection/ArraySet;->mArray:[Ljava/lang/Object;
 
-    move-result-object p0
+    aget-object p0, p0, p1
 
     return-object p0
 .end method
 
-.method protected removeAt(I)V
+.method public final removeAt(I)V
     .locals 0
 
     iget-object p0, p0, Landroidx/collection/ArraySet$ElementIterator;->this$0:Landroidx/collection/ArraySet;
 
-    invoke-virtual {p0, p1}, Landroidx/collection/ArraySet;->removeAt(I)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Landroidx/collection/ArraySet;->removeAt(I)V
 
     return-void
 .end method

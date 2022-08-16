@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;
+.class public final Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;
 .super Ljava/lang/Object;
 .source "MediaDeviceManager.kt"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $value:Lcom/android/systemui/media/MediaDeviceData;
+.field public final synthetic $value:Lcom/android/systemui/media/MediaDeviceData;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDeviceManager;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDeviceManager;
 
-.field final synthetic this$1:Lcom/android/systemui/media/MediaDeviceManager$Entry;
+.field public final synthetic this$1:Lcom/android/systemui/media/MediaDeviceManager$Entry;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDeviceManager;Lcom/android/systemui/media/MediaDeviceManager$Entry;Lcom/android/systemui/media/MediaDeviceData;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaDeviceManager;Lcom/android/systemui/media/MediaDeviceManager$Entry;Lcom/android/systemui/media/MediaDeviceData;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->this$0:Lcom/android/systemui/media/MediaDeviceManager;
@@ -43,25 +43,41 @@
 
 # virtual methods
 .method public final run()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->this$0:Lcom/android/systemui/media/MediaDeviceManager;
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->this$1:Lcom/android/systemui/media/MediaDeviceManager$Entry;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/MediaDeviceManager$Entry;->getKey()Ljava/lang/String;
+    iget-object v2, v1, Lcom/android/systemui/media/MediaDeviceManager$Entry;->key:Ljava/lang/String;
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->this$1:Lcom/android/systemui/media/MediaDeviceManager$Entry;
-
-    invoke-virtual {v2}, Lcom/android/systemui/media/MediaDeviceManager$Entry;->getOldKey()Ljava/lang/String;
-
-    move-result-object v2
+    iget-object v1, v1, Lcom/android/systemui/media/MediaDeviceManager$Entry;->oldKey:Ljava/lang/String;
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$current$1;->$value:Lcom/android/systemui/media/MediaDeviceData;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/media/MediaDeviceManager;->access$processDevice(Lcom/android/systemui/media/MediaDeviceManager;Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaDeviceData;)V
+    iget-object v0, v0, Lcom/android/systemui/media/MediaDeviceManager;->listeners:Ljava/util/LinkedHashSet;
 
+    invoke-interface {v0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/media/MediaDeviceManager$Listener;
+
+    invoke-interface {v3, v2, v1, p0}, Lcom/android/systemui/media/MediaDeviceManager$Listener;->onMediaDeviceChanged(Ljava/lang/String;Ljava/lang/String;Lcom/android/systemui/media/MediaDeviceData;)V
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

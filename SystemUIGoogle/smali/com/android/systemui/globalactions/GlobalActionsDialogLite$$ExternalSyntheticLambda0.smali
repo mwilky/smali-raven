@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/globalactions/GlobalActionsDialogLite$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/lifecycle/Observer;
@@ -29,7 +30,11 @@
 
     check-cast p1, Ljava/lang/Integer;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->$r8$lambda$93LbT6sYYOZ8gpPM7Wpocw09xG8(Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Ljava/lang/Integer;)V
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHandler:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     return-void
 .end method

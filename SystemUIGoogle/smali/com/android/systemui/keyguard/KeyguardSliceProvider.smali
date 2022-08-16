@@ -11,114 +11,98 @@
 
 
 # static fields
-.field static final ALARM_VISIBILITY_HOURS:I = 0xc
+.field public static final ALARM_VISIBILITY_HOURS:I = 0xc
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private static final BOLD_STYLE:Landroid/text/style/StyleSpan;
+.field public static sInstance:Lcom/android/systemui/keyguard/KeyguardSliceProvider;
 
-.field private static sInstance:Lcom/android/systemui/keyguard/KeyguardSliceProvider;
-
-.field private static final sInstanceLock:Ljava/lang/Object;
+.field public static final sInstanceLock:Ljava/lang/Object;
 
 
 # instance fields
 .field public mAlarmManager:Landroid/app/AlarmManager;
 
-.field protected final mAlarmUri:Landroid/net/Uri;
+.field public final mAlarmUri:Landroid/net/Uri;
 
 .field public mContentResolver:Landroid/content/ContentResolver;
 
-.field private mContextAvailableCallback:Lcom/android/systemui/SystemUIAppComponentFactory$ContextAvailableCallback;
+.field public mContextAvailableCallback:Lcom/android/systemui/SystemUIAppComponentFactory$ContextAvailableCallback;
 
-.field private final mCurrentTime:Ljava/util/Date;
+.field public final mCurrentTime:Ljava/util/Date;
 
-.field private mDateFormat:Landroid/icu/text/DateFormat;
+.field public mDateFormat:Landroid/icu/text/DateFormat;
 
-.field private mDatePattern:Ljava/lang/String;
+.field public mDatePattern:Ljava/lang/String;
 
-.field protected final mDateUri:Landroid/net/Uri;
+.field public final mDateUri:Landroid/net/Uri;
 
-.field protected final mDndUri:Landroid/net/Uri;
+.field public final mDndUri:Landroid/net/Uri;
 
 .field public mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-.field protected mDozing:Z
+.field public mDozing:Z
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field protected final mHeaderUri:Landroid/net/Uri;
+.field public final mHeaderUri:Landroid/net/Uri;
 
-.field final mIntentReceiver:Landroid/content/BroadcastReceiver;
+.field public final mIntentReceiver:Landroid/content/BroadcastReceiver;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
 .field public mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
 
-.field final mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+.field public mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+.field public final mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mLastText:Ljava/lang/String;
+.field public mLastText:Ljava/lang/String;
 
-.field private mMediaArtist:Ljava/lang/CharSequence;
+.field public mMediaArtist:Ljava/lang/CharSequence;
 
-.field private final mMediaHandler:Landroid/os/Handler;
+.field public final mMediaHandler:Landroid/os/Handler;
 
-.field private mMediaIsVisible:Z
+.field public mMediaIsVisible:Z
 
 .field public mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
-.field private mMediaTitle:Ljava/lang/CharSequence;
+.field public mMediaTitle:Ljava/lang/CharSequence;
 
-.field protected final mMediaUri:Landroid/net/Uri;
+.field public final mMediaUri:Landroid/net/Uri;
 
-.field protected mMediaWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
+.field public mMediaWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mNextAlarm:Ljava/lang/String;
+.field public mNextAlarm:Ljava/lang/String;
 
 .field public mNextAlarmController:Lcom/android/systemui/statusbar/policy/NextAlarmController;
 
-.field private mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
+.field public mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
 
-.field private mPendingIntent:Landroid/app/PendingIntent;
+.field public mPendingIntent:Landroid/app/PendingIntent;
 
-.field private mRegistered:Z
+.field public mRegistered:Z
 
-.field protected final mSliceUri:Landroid/net/Uri;
+.field public final mSliceUri:Landroid/net/Uri;
 
-.field private mStatusBarState:I
+.field public mStatusBarState:I
 
 .field public mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-.field private final mUpdateNextAlarm:Landroid/app/AlarmManager$OnAlarmListener;
+.field public final mUpdateNextAlarm:Lcom/android/systemui/keyguard/KeyguardSliceProvider$$ExternalSyntheticLambda0;
 
 .field public mZenModeController:Lcom/android/systemui/statusbar/policy/ZenModeController;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$LUa7NUO2bSgQxLI5RKHF8m-UWuo(Lcom/android/systemui/keyguard/KeyguardSliceProvider;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->updateNextAlarm()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$f9ybxQY6o71GYAJ838lmm_S-j5U(Lcom/android/systemui/keyguard/KeyguardSliceProvider;Landroid/media/MediaMetadata;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->lambda$onPrimaryMetadataOrStateChanged$0(Landroid/media/MediaMetadata;I)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 2
 
@@ -127,8 +111,6 @@
     const/4 v1, 0x1
 
     invoke-direct {v0, v1}, Landroid/text/style/StyleSpan;-><init>(I)V
-
-    sput-object v0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->BOLD_STYLE:Landroid/text/style/StyleSpan;
 
     new-instance v0, Ljava/lang/Object;
 
@@ -154,7 +136,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/keyguard/KeyguardSliceProvider;)V
 
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Landroid/app/AlarmManager$OnAlarmListener;
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Lcom/android/systemui/keyguard/KeyguardSliceProvider$$ExternalSyntheticLambda0;
 
     new-instance v0, Lcom/android/systemui/keyguard/KeyguardSliceProvider$1;
 
@@ -231,271 +213,10 @@
     return-void
 .end method
 
-.method public static getAttachedInstance()Lcom/android/systemui/keyguard/KeyguardSliceProvider;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->sInstance:Lcom/android/systemui/keyguard/KeyguardSliceProvider;
-
-    return-object v0
-.end method
-
-.method private getKeyguardUpdateMonitor()Lcom/android/keyguard/KeyguardUpdateMonitor;
-    .locals 0
-
-    const-class p0, Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    invoke-static {p0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    return-object p0
-.end method
-
-.method private synthetic lambda$onPrimaryMetadataOrStateChanged$0(Landroid/media/MediaMetadata;I)V
-    .locals 0
-
-    monitor-enter p0
-
-    :try_start_0
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->updateMediaStateLocked(Landroid/media/MediaMetadata;I)V
-
-    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaWakeLock:Lcom/android/systemui/util/wakelock/SettableWakeLock;
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
-
-    monitor-exit p0
-
-    return-void
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw p1
-.end method
-
-.method private updateMediaStateLocked(Landroid/media/MediaMetadata;I)V
-    .locals 3
-
-    invoke-static {p2}, Lcom/android/systemui/statusbar/NotificationMediaManager;->isPlayingState(I)Z
-
-    move-result p2
-
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_0
-
-    const-string v1, "android.media.metadata.TITLE"
-
-    invoke-virtual {p1, v1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    sget v2, Lcom/android/systemui/R$string;->music_controls_no_title:I
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-
-    :cond_0
-    move-object v1, v0
-
-    :cond_1
-    :goto_0
-    if-nez p1, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    const-string v0, "android.media.metadata.ARTIST"
-
-    invoke-virtual {p1, v0}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    :goto_1
-    iget-boolean p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaIsVisible:Z
-
-    if-ne p2, p1, :cond_3
-
-    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaTitle:Ljava/lang/CharSequence;
-
-    invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_3
-
-    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaArtist:Ljava/lang/CharSequence;
-
-    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_3
-
-    return-void
-
-    :cond_3
-    iput-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaTitle:Ljava/lang/CharSequence;
-
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaArtist:Ljava/lang/CharSequence;
-
-    iput-boolean p2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaIsVisible:Z
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
-
-    return-void
-.end method
-
-.method private updateNextAlarm()V
-    .locals 3
-
-    monitor-enter p0
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
-
-    const/16 v1, 0xc
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->withinNHoursLocked(Landroid/app/AlarmManager$AlarmClockInfo;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
-
-    move-result v1
-
-    invoke-static {v0, v1}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;I)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "HH:mm"
-
-    goto :goto_0
-
-    :cond_0
-    const-string v0, "h:mm"
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
-
-    invoke-virtual {v1}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
-
-    move-result-wide v1
-
-    invoke-static {v0, v1, v2}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;J)Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarm:Ljava/lang/String;
-
-    goto :goto_1
-
-    :cond_1
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarm:Ljava/lang/String;
-
-    :goto_1
-    monitor-exit p0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    :try_start_1
-    monitor-exit p0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw v0
-.end method
-
-.method private withinNHoursLocked(Landroid/app/AlarmManager$AlarmClockInfo;I)Z
-    .locals 5
-
-    const/4 v0, 0x0
-
-    if-nez p1, :cond_0
-
-    return v0
-
-    :cond_0
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v1
-
-    sget-object p1, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
-
-    int-to-long v3, p2
-
-    invoke-virtual {p1, v3, v4}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
-
-    move-result-wide p1
-
-    add-long/2addr v1, p1
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
-
-    invoke-virtual {p0}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
-
-    move-result-wide p0
-
-    cmp-long p0, p0, v1
-
-    if-gtz p0, :cond_1
-
-    const/4 v0, 0x1
-
-    :cond_1
-    return v0
-.end method
-
 
 # virtual methods
-.method protected addMediaLocked(Landroidx/slice/builders/ListBuilder;)V
-    .locals 3
+.method public final addMediaLocked(Landroidx/slice/builders/ListBuilder;)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaTitle:Ljava/lang/CharSequence;
 
@@ -516,11 +237,15 @@
 
     iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaTitle:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroidx/slice/builders/ListBuilder$HeaderBuilder;->setTitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$HeaderBuilder;
+    iput-object v1, v0, Landroidx/slice/builders/ListBuilder$HeaderBuilder;->mTitle:Ljava/lang/CharSequence;
 
-    move-result-object v0
+    const/4 v1, 0x0
 
-    invoke-virtual {p1, v0}, Landroidx/slice/builders/ListBuilder;->setHeader(Landroidx/slice/builders/ListBuilder$HeaderBuilder;)Landroidx/slice/builders/ListBuilder;
+    iput-boolean v1, v0, Landroidx/slice/builders/ListBuilder$HeaderBuilder;->mTitleLoading:Z
+
+    iget-object v2, p1, Landroidx/slice/builders/ListBuilder;->mImpl:Landroidx/slice/builders/impl/ListBuilder;
+
+    invoke-interface {v2, v0}, Landroidx/slice/builders/impl/ListBuilder;->setHeader(Landroidx/slice/builders/ListBuilder$HeaderBuilder;)V
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaArtist:Ljava/lang/CharSequence;
 
@@ -532,31 +257,33 @@
 
     new-instance v0, Landroidx/slice/builders/ListBuilder$RowBuilder;
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaUri:Landroid/net/Uri;
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaUri:Landroid/net/Uri;
 
-    invoke-direct {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
+    invoke-direct {v0, v2}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaArtist:Ljava/lang/CharSequence;
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaArtist:Ljava/lang/CharSequence;
 
-    invoke-virtual {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setTitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$RowBuilder;
+    iput-object v2, v0, Landroidx/slice/builders/ListBuilder$RowBuilder;->mTitle:Ljava/lang/CharSequence;
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
+    iput-boolean v1, v0, Landroidx/slice/builders/ListBuilder$RowBuilder;->mTitleLoading:Z
 
-    const/4 v2, 0x0
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
-    if-nez v1, :cond_1
+    const/4 v3, 0x0
 
-    move-object v1, v2
+    if-nez v2, :cond_1
+
+    move-object v2, v3
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/NotificationMediaManager;->getMediaIcon()Landroid/graphics/drawable/Icon;
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/NotificationMediaManager;->getMediaIcon()Landroid/graphics/drawable/Icon;
 
-    move-result-object v1
+    move-result-object v2
 
     :goto_0
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
     goto :goto_1
 
@@ -565,25 +292,23 @@
 
     move-result-object p0
 
-    invoke-static {p0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createFromIcon(Landroid/content/Context;Landroid/graphics/drawable/Icon;)Landroidx/core/graphics/drawable/IconCompat;
+    invoke-static {p0, v2}, Landroidx/core/graphics/drawable/IconCompat;->createFromIcon(Landroid/content/Context;Landroid/graphics/drawable/Icon;)Landroidx/core/graphics/drawable/IconCompat;
 
-    move-result-object v2
+    move-result-object v3
 
     :goto_1
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_3
 
-    const/4 p0, 0x0
-
-    invoke-virtual {v0, v2, p0}, Landroidx/slice/builders/ListBuilder$RowBuilder;->addEndItem(Landroidx/core/graphics/drawable/IconCompat;I)Landroidx/slice/builders/ListBuilder$RowBuilder;
+    invoke-virtual {v0, v3, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->addEndItem(Landroidx/core/graphics/drawable/IconCompat;I)V
 
     :cond_3
-    invoke-virtual {p1, v0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
+    invoke-virtual {p1, v0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)V
 
     :cond_4
     return-void
 .end method
 
-.method protected addNextAlarmLocked(Landroidx/slice/builders/ListBuilder;)V
+.method public final addNextAlarmLocked(Landroidx/slice/builders/ListBuilder;)V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarm:Ljava/lang/String;
@@ -601,7 +326,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$drawable;->ic_access_alarms_big:I
+    const v1, 0x7f08045c
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -615,29 +340,27 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarm:Ljava/lang/String;
 
-    invoke-virtual {v1, p0}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setTitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$RowBuilder;
+    iput-object p0, v1, Landroidx/slice/builders/ListBuilder$RowBuilder;->mTitle:Ljava/lang/CharSequence;
 
-    move-result-object p0
+    const/4 p0, 0x0
 
-    const/4 v1, 0x0
+    iput-boolean p0, v1, Landroidx/slice/builders/ListBuilder$RowBuilder;->mTitleLoading:Z
 
-    invoke-virtual {p0, v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->addEndItem(Landroidx/core/graphics/drawable/IconCompat;I)Landroidx/slice/builders/ListBuilder$RowBuilder;
+    invoke-virtual {v1, v0, p0}, Landroidx/slice/builders/ListBuilder$RowBuilder;->addEndItem(Landroidx/core/graphics/drawable/IconCompat;I)V
 
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
+    invoke-virtual {p1, v1}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)V
 
     return-void
 .end method
 
-.method protected addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
-    .locals 3
+.method public final addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
+    .locals 4
 
     invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$drawable;->ic_access_alarms_big:I
+    const v1, 0x7f08045c
 
     invoke-static {v0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
 
@@ -647,89 +370,101 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mLastText:Ljava/lang/String;
 
-    const/4 v2, 0x0
+    new-instance v2, Landroidx/slice/builders/SliceAction;
 
-    invoke-static {v1, v0, v2, p0}, Landroidx/slice/builders/SliceAction;->createDeeplink(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/CharSequence;)Landroidx/slice/builders/SliceAction;
+    const/4 v3, 0x0
 
-    move-result-object p0
+    invoke-direct {v2, v1, v0, v3, p0}, Landroidx/slice/builders/SliceAction;-><init>(Landroid/app/PendingIntent;Landroidx/core/graphics/drawable/IconCompat;ILjava/lang/String;)V
 
-    new-instance v0, Landroidx/slice/builders/ListBuilder$RowBuilder;
+    iget-object p0, v2, Landroidx/slice/builders/SliceAction;->mSliceAction:Landroidx/slice/core/SliceActionImpl;
 
-    const-string v1, "content://com.android.systemui.keyguard/action"
+    const/4 v0, 0x1
 
-    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    iput-boolean v0, p0, Landroidx/slice/core/SliceActionImpl;->mIsActivity:Z
 
-    move-result-object v1
+    new-instance p0, Landroidx/slice/builders/ListBuilder$RowBuilder;
 
-    invoke-direct {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
+    const-string v0, "content://com.android.systemui.keyguard/action"
 
-    invoke-virtual {v0, p0}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setPrimaryAction(Landroidx/slice/builders/SliceAction;)Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
-
-    return-void
-.end method
-
-.method protected addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
-    .locals 3
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->isDndOn()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    new-instance v0, Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mDndUri:Landroid/net/Uri;
-
-    invoke-direct {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
-
-    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    sget v2, Lcom/android/systemui/R$string;->accessibility_quick_settings_dnd:I
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setContentDescription(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$RowBuilder;
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
+    invoke-direct {p0, v0}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
 
-    move-result-object p0
+    iput-object v2, p0, Landroidx/slice/builders/ListBuilder$RowBuilder;->mPrimaryAction:Landroidx/slice/builders/SliceAction;
 
-    sget v1, Lcom/android/systemui/R$drawable;->stat_sys_dnd:I
-
-    invoke-static {p0, v1}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
-
-    move-result-object p0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, p0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->addEndItem(Landroidx/core/graphics/drawable/IconCompat;I)Landroidx/slice/builders/ListBuilder$RowBuilder;
-
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
+    invoke-virtual {p1, p0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)V
 
     return-void
 .end method
 
-.method cleanDateFormatLocked()V
+.method public final addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mZenModeController:Lcom/android/systemui/statusbar/policy/ZenModeController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/ZenModeController;->getZen()I
+
+    move-result v0
+
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    return-void
+
+    :cond_1
+    new-instance v0, Landroidx/slice/builders/ListBuilder$RowBuilder;
+
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mDndUri:Landroid/net/Uri;
+
+    invoke-direct {v0, v2}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
+
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f1300a1
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v0, Landroidx/slice/builders/ListBuilder$RowBuilder;->mContentDescription:Ljava/lang/CharSequence;
+
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    const v2, 0x7f080810
+
+    invoke-static {p0, v2}, Landroidx/core/graphics/drawable/IconCompat;->createWithResource(Landroid/content/Context;I)Landroidx/core/graphics/drawable/IconCompat;
+
+    move-result-object p0
+
+    invoke-virtual {v0, p0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->addEndItem(Landroidx/core/graphics/drawable/IconCompat;I)V
+
+    invoke-virtual {p1, v0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)V
+
+    return-void
+.end method
+
+.method public cleanDateFormatLocked()V
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -741,7 +476,7 @@
     return-void
 .end method
 
-.method protected getFormattedDateLocked()Ljava/lang/String;
+.method public final getFormattedDateLocked()Ljava/lang/String;
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mDateFormat:Landroid/icu/text/DateFormat;
@@ -784,29 +519,7 @@
     return-object p0
 .end method
 
-.method protected isDndOn()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mZenModeController:Lcom/android/systemui/statusbar/policy/ZenModeController;
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/ZenModeController;->getZen()I
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method isRegistered()Z
+.method public isRegistered()Z
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -830,7 +543,7 @@
     throw v0
 .end method
 
-.method protected needsMediaLocked()Z
+.method public final needsMediaLocked()Z
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mKeyguardBypassController:Lcom/android/systemui/statusbar/phone/KeyguardBypassController;
@@ -909,7 +622,7 @@
     return v1
 .end method
 
-.method protected notifyChange()V
+.method public final notifyChange()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mContentResolver:Landroid/content/ContentResolver;
@@ -923,63 +636,67 @@
     return-void
 .end method
 
-.method public onBindSlice(Landroid/net/Uri;)Landroidx/slice/Slice;
-    .locals 4
+.method public onBindSlice()Landroidx/slice/Slice;
+    .locals 3
 
-    const-string p1, "KeyguardSliceProvider#onBindSlice"
+    const-string v0, "KeyguardSliceProvider#onBindSlice"
 
-    invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+    invoke-static {v0}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
 
     monitor-enter p0
 
     :try_start_0
-    new-instance p1, Landroidx/slice/builders/ListBuilder;
+    new-instance v0, Landroidx/slice/builders/ListBuilder;
 
     invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mSliceUri:Landroid/net/Uri;
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mSliceUri:Landroid/net/Uri;
 
-    const-wide/16 v2, -0x1
-
-    invoke-direct {p1, v0, v1, v2, v3}, Landroidx/slice/builders/ListBuilder;-><init>(Landroid/content/Context;Landroid/net/Uri;J)V
+    invoke-direct {v0, v1, v2}, Landroidx/slice/builders/ListBuilder;-><init>(Landroid/content/Context;Landroid/net/Uri;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->needsMediaLocked()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addMediaLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addMediaLocked(Landroidx/slice/builders/ListBuilder;)V
 
     goto :goto_0
 
     :cond_0
-    new-instance v0, Landroidx/slice/builders/ListBuilder$RowBuilder;
+    new-instance v1, Landroidx/slice/builders/ListBuilder$RowBuilder;
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mDateUri:Landroid/net/Uri;
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mDateUri:Landroid/net/Uri;
 
-    invoke-direct {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
+    invoke-direct {v1, v2}, Landroidx/slice/builders/ListBuilder$RowBuilder;-><init>(Landroid/net/Uri;)V
 
-    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mLastText:Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mLastText:Ljava/lang/String;
 
-    invoke-virtual {v0, v1}, Landroidx/slice/builders/ListBuilder$RowBuilder;->setTitle(Ljava/lang/CharSequence;)Landroidx/slice/builders/ListBuilder$RowBuilder;
+    iput-object v2, v1, Landroidx/slice/builders/ListBuilder$RowBuilder;->mTitle:Ljava/lang/CharSequence;
 
-    move-result-object v0
+    const/4 v2, 0x0
 
-    invoke-virtual {p1, v0}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)Landroidx/slice/builders/ListBuilder;
+    iput-boolean v2, v1, Landroidx/slice/builders/ListBuilder$RowBuilder;->mTitleLoading:Z
+
+    invoke-virtual {v0, v1}, Landroidx/slice/builders/ListBuilder;->addRow(Landroidx/slice/builders/ListBuilder$RowBuilder;)V
 
     :goto_0
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addNextAlarmLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addNextAlarmLocked(Landroidx/slice/builders/ListBuilder;)V
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addZenModeLocked(Landroidx/slice/builders/ListBuilder;)V
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->addPrimaryActionLocked(Landroidx/slice/builders/ListBuilder;)V
 
-    invoke-virtual {p1}, Landroidx/slice/builders/ListBuilder;->build()Landroidx/slice/Slice;
+    iget-object v0, v0, Landroidx/slice/builders/ListBuilder;->mImpl:Landroidx/slice/builders/impl/ListBuilder;
 
-    move-result-object p1
+    check-cast v0, Landroidx/slice/builders/impl/TemplateBuilderImpl;
+
+    invoke-virtual {v0}, Landroidx/slice/builders/impl/TemplateBuilderImpl;->build()Landroidx/slice/Slice;
+
+    move-result-object v0
 
     monitor-exit p0
     :try_end_0
@@ -987,20 +704,20 @@
 
     invoke-static {}, Landroid/os/Trace;->endSection()V
 
-    return-object p1
+    return-object v0
 
     :catchall_0
-    move-exception p1
+    move-exception v0
 
     :try_start_1
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw p1
+    throw v0
 .end method
 
-.method public onConfigChanged(Landroid/service/notification/ZenModeConfig;)V
+.method public final onConfigChanged()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
@@ -1008,7 +725,7 @@
     return-void
 .end method
 
-.method public onCreateSliceProvider()Z
+.method public onCreateSliceProvider()V
     .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mContextAvailableCallback:Lcom/android/systemui/SystemUIAppComponentFactory$ContextAvailableCallback;
@@ -1053,7 +770,7 @@
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$string;->system_ui_aod_date_pattern:I
+    const v2, 0x7f1306e1
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1109,9 +826,7 @@
 
     monitor-exit v0
 
-    const/4 p0, 0x1
-
-    return p0
+    return-void
 
     :catchall_0
     move-exception p0
@@ -1123,7 +838,7 @@
     throw p0
 .end method
 
-.method protected onDestroy()V
+.method public onDestroy()V
     .locals 4
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -1149,7 +864,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mAlarmManager:Landroid/app/AlarmManager;
 
-    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Landroid/app/AlarmManager$OnAlarmListener;
+    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Lcom/android/systemui/keyguard/KeyguardSliceProvider$$ExternalSyntheticLambda0;
 
     invoke-virtual {v1, v3}, Landroid/app/AlarmManager;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
 
@@ -1159,9 +874,7 @@
 
     iput-boolean v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mRegistered:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->getKeyguardUpdateMonitor()Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     iget-object v2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
@@ -1194,7 +907,7 @@
     throw p0
 .end method
 
-.method public onDozingChanged(Z)V
+.method public final onDozingChanged(Z)V
     .locals 1
 
     monitor-enter p0
@@ -1242,7 +955,7 @@
     throw p1
 .end method
 
-.method public onNextAlarmChanged(Landroid/app/AlarmManager$AlarmClockInfo;)V
+.method public final onNextAlarmChanged(Landroid/app/AlarmManager$AlarmClockInfo;)V
     .locals 9
 
     monitor-enter p0
@@ -1252,7 +965,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mAlarmManager:Landroid/app/AlarmManager;
 
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Landroid/app/AlarmManager$OnAlarmListener;
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Lcom/android/systemui/keyguard/KeyguardSliceProvider$$ExternalSyntheticLambda0;
 
     invoke-virtual {p1, v0}, Landroid/app/AlarmManager;->cancel(Landroid/app/AlarmManager$OnAlarmListener;)V
 
@@ -1297,7 +1010,7 @@
 
     const-string v6, "lock_screen_next_alarm"
 
-    iget-object v7, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Landroid/app/AlarmManager$OnAlarmListener;
+    iget-object v7, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mUpdateNextAlarm:Lcom/android/systemui/keyguard/KeyguardSliceProvider$$ExternalSyntheticLambda0;
 
     iget-object v8, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mHandler:Landroid/os/Handler;
 
@@ -1308,7 +1021,7 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->updateNextAlarm()V
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->updateNextAlarm()V
 
     return-void
 
@@ -1323,7 +1036,7 @@
     throw p1
 .end method
 
-.method public onPrimaryMetadataOrStateChanged(Landroid/media/MediaMetadata;I)V
+.method public final onPrimaryMetadataOrStateChanged(Landroid/media/MediaMetadata;I)V
     .locals 3
 
     monitor-enter p0
@@ -1374,7 +1087,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/util/wakelock/SettableWakeLock;->setAcquired(Z)V
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->updateMediaStateLocked(Landroid/media/MediaMetadata;I)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->updateMediaStateLocked(Landroid/media/MediaMetadata;I)V
 
     :goto_0
     monitor-exit p0
@@ -1391,7 +1104,7 @@
     throw p1
 .end method
 
-.method public onStateChanged(I)V
+.method public final onStateChanged(I)V
     .locals 1
 
     monitor-enter p0
@@ -1439,7 +1152,7 @@
     throw p1
 .end method
 
-.method public onZenChanged(I)V
+.method public final onZenChanged(I)V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
@@ -1447,7 +1160,7 @@
     return-void
 .end method
 
-.method protected registerClockUpdate()V
+.method public registerClockUpdate()V
     .locals 4
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -1486,9 +1199,7 @@
 
     invoke-virtual {v1, v2, v0, v3, v3}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    invoke-direct {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->getKeyguardUpdateMonitor()Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mKeyguardUpdateMonitorCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
@@ -1512,7 +1223,7 @@
     throw v0
 .end method
 
-.method public setContextAvailableCallback(Lcom/android/systemui/SystemUIAppComponentFactory$ContextAvailableCallback;)V
+.method public final setContextAvailableCallback(Lcom/android/systemui/SystemUIAppComponentFactory$ContextAvailableCallback;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mContextAvailableCallback:Lcom/android/systemui/SystemUIAppComponentFactory$ContextAvailableCallback;
@@ -1520,7 +1231,7 @@
     return-void
 .end method
 
-.method protected updateClockLocked()V
+.method public updateClockLocked()V
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->getFormattedDateLocked()Ljava/lang/String;
@@ -1541,4 +1252,206 @@
 
     :cond_0
     return-void
+.end method
+
+.method public final updateMediaStateLocked(Landroid/media/MediaMetadata;I)V
+    .locals 3
+
+    invoke-static {p2}, Lcom/android/systemui/statusbar/NotificationMediaManager;->isPlayingState(I)Z
+
+    move-result p2
+
+    const/4 v0, 0x0
+
+    if-eqz p1, :cond_0
+
+    const-string v1, "android.media.metadata.TITLE"
+
+    invoke-virtual {p1, v1}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f1304e5
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_0
+    move-object v1, v0
+
+    :cond_1
+    :goto_0
+    if-nez p1, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    const-string v0, "android.media.metadata.ARTIST"
+
+    invoke-virtual {p1, v0}, Landroid/media/MediaMetadata;->getText(Ljava/lang/String;)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    :goto_1
+    iget-boolean p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaIsVisible:Z
+
+    if-ne p2, p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaTitle:Ljava/lang/CharSequence;
+
+    invoke-static {v1, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaArtist:Ljava/lang/CharSequence;
+
+    invoke-static {v0, p1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    return-void
+
+    :cond_3
+    iput-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaTitle:Ljava/lang/CharSequence;
+
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaArtist:Ljava/lang/CharSequence;
+
+    iput-boolean p2, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mMediaIsVisible:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
+
+    return-void
+.end method
+
+.method public final updateNextAlarm()V
+    .locals 7
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
+
+    const/16 v1, 0xc
+
+    const/4 v2, 0x0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v3
+
+    sget-object v0, Ljava/util/concurrent/TimeUnit;->HOURS:Ljava/util/concurrent/TimeUnit;
+
+    int-to-long v5, v1
+
+    invoke-virtual {v0, v5, v6}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
+
+    move-result-wide v0
+
+    add-long/2addr v0, v3
+
+    iget-object v3, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
+
+    invoke-virtual {v3}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
+
+    move-result-wide v3
+
+    cmp-long v0, v3, v0
+
+    if-gtz v0, :cond_1
+
+    const/4 v2, 0x1
+
+    :cond_1
+    :goto_0
+    if-eqz v2, :cond_3
+
+    invoke-virtual {p0}, Landroid/content/ContentProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Landroid/text/format/DateFormat;->is24HourFormat(Landroid/content/Context;I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "HH:mm"
+
+    goto :goto_1
+
+    :cond_2
+    const-string v0, "h:mm"
+
+    :goto_1
+    iget-object v1, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
+
+    invoke-virtual {v1}, Landroid/app/AlarmManager$AlarmClockInfo;->getTriggerTime()J
+
+    move-result-wide v1
+
+    invoke-static {v0, v1, v2}, Landroid/text/format/DateFormat;->format(Ljava/lang/CharSequence;J)Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarm:Ljava/lang/String;
+
+    goto :goto_2
+
+    :cond_3
+    const-string v0, ""
+
+    iput-object v0, p0, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->mNextAlarm:Ljava/lang/String;
+
+    :goto_2
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardSliceProvider;->notifyChange()V
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
 .end method

@@ -7,11 +7,11 @@
 
 
 # instance fields
-.field private final mGeneratedAdapters:[Landroidx/lifecycle/GeneratedAdapter;
+.field public final mGeneratedAdapters:[Landroidx/lifecycle/GeneratedAdapter;
 
 
 # direct methods
-.method constructor <init>([Landroidx/lifecycle/GeneratedAdapter;)V
+.method public constructor <init>([Landroidx/lifecycle/GeneratedAdapter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,47 +23,45 @@
 
 
 # virtual methods
-.method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 6
+.method public final onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
+    .locals 3
 
-    new-instance v0, Landroidx/lifecycle/MethodCallsLogger;
+    new-instance p1, Ljava/util/HashMap;
 
-    invoke-direct {v0}, Landroidx/lifecycle/MethodCallsLogger;-><init>()V
+    invoke-direct {p1}, Ljava/util/HashMap;-><init>()V
 
-    iget-object v1, p0, Landroidx/lifecycle/CompositeGeneratedAdaptersObserver;->mGeneratedAdapters:[Landroidx/lifecycle/GeneratedAdapter;
+    iget-object p1, p0, Landroidx/lifecycle/CompositeGeneratedAdaptersObserver;->mGeneratedAdapters:[Landroidx/lifecycle/GeneratedAdapter;
 
-    array-length v2, v1
+    array-length p2, p1
 
-    const/4 v3, 0x0
+    const/4 v0, 0x0
 
-    move v4, v3
+    move v1, v0
 
     :goto_0
-    if-ge v4, v2, :cond_0
+    if-ge v1, p2, :cond_0
 
-    aget-object v5, v1, v4
+    aget-object v2, p1, v1
 
-    invoke-interface {v5, p1, p2, v3, v0}, Landroidx/lifecycle/GeneratedAdapter;->callMethods(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;ZLandroidx/lifecycle/MethodCallsLogger;)V
+    invoke-interface {v2}, Landroidx/lifecycle/GeneratedAdapter;->callMethods()V
 
-    add-int/lit8 v4, v4, 0x1
+    add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
 
     :cond_0
     iget-object p0, p0, Landroidx/lifecycle/CompositeGeneratedAdaptersObserver;->mGeneratedAdapters:[Landroidx/lifecycle/GeneratedAdapter;
 
-    array-length v1, p0
+    array-length p1, p0
 
     :goto_1
-    if-ge v3, v1, :cond_1
+    if-ge v0, p1, :cond_1
 
-    aget-object v2, p0, v3
+    aget-object p2, p0, v0
 
-    const/4 v4, 0x1
+    invoke-interface {p2}, Landroidx/lifecycle/GeneratedAdapter;->callMethods()V
 
-    invoke-interface {v2, p1, p2, v4, v0}, Landroidx/lifecycle/GeneratedAdapter;->callMethods(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;ZLandroidx/lifecycle/MethodCallsLogger;)V
-
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 

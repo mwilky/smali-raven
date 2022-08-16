@@ -6,7 +6,6 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/qs/user/UserSwitchDialogController$Companion;,
         Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShowerImpl;,
         Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
     }
@@ -14,15 +13,13 @@
 
 
 # static fields
-.field public static final Companion:Lcom/android/systemui/qs/user/UserSwitchDialogController$Companion;
-
-.field private static final USER_SETTINGS_INTENT:Landroid/content/Intent;
+.field public static final USER_SETTINGS_INTENT:Landroid/content/Intent;
 
 
 # instance fields
-.field private final activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+.field public final activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-.field private final dialogFactory:Lkotlin/jvm/functions/Function1;
+.field public final dialogFactory:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function1<",
@@ -33,11 +30,13 @@
     .end annotation
 .end field
 
-.field private final dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+.field public final dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-.field private final falsingManager:Lcom/android/systemui/plugins/FalsingManager;
+.field public final falsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-.field private final userDetailViewAdapterProvider:Ljavax/inject/Provider;
+.field public final uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+.field public final userDetailViewAdapterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -49,16 +48,8 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
-
-    new-instance v0, Lcom/android/systemui/qs/user/UserSwitchDialogController$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/qs/user/UserSwitchDialogController$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->Companion:Lcom/android/systemui/qs/user/UserSwitchDialogController$Companion;
 
     new-instance v0, Landroid/content/Intent;
 
@@ -71,56 +62,16 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljavax/inject/Provider;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
-    .locals 7
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;",
-            ">;",
-            "Lcom/android/systemui/plugins/ActivityStarter;",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            "Lcom/android/systemui/animation/DialogLaunchAnimator;",
-            ")V"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 0
 
-    const-string/jumbo v0, "userDetailViewAdapterProvider"
+    const/4 p0, 0x0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "activityStarter"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "falsingManager"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dialogLaunchAnimator"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    sget-object v6, Lcom/android/systemui/qs/user/UserSwitchDialogController$1;->INSTANCE:Lcom/android/systemui/qs/user/UserSwitchDialogController$1;
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/qs/user/UserSwitchDialogController;-><init>(Ljavax/inject/Provider;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/animation/DialogLaunchAnimator;Lkotlin/jvm/functions/Function1;)V
-
-    return-void
+    throw p0
 .end method
 
-.method public constructor <init>(Ljavax/inject/Provider;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/animation/DialogLaunchAnimator;Lkotlin/jvm/functions/Function1;)V
-    .locals 1
+.method public constructor <init>(Ljavax/inject/Provider;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/internal/logging/UiEventLogger;Lkotlin/jvm/functions/Function1;)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -130,6 +81,7 @@
             "Lcom/android/systemui/plugins/ActivityStarter;",
             "Lcom/android/systemui/plugins/FalsingManager;",
             "Lcom/android/systemui/animation/DialogLaunchAnimator;",
+            "Lcom/android/internal/logging/UiEventLogger;",
             "Lkotlin/jvm/functions/Function1<",
             "-",
             "Landroid/content/Context;",
@@ -138,26 +90,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string/jumbo v0, "userDetailViewAdapterProvider"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "activityStarter"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "falsingManager"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dialogLaunchAnimator"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dialogFactory"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -169,51 +101,17 @@
 
     iput-object p4, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-    iput-object p5, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->dialogFactory:Lkotlin/jvm/functions/Function1;
+    iput-object p5, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    iput-object p6, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->dialogFactory:Lkotlin/jvm/functions/Function1;
 
     return-void
-.end method
-
-.method public static final synthetic access$getActivityStarter$p(Lcom/android/systemui/qs/user/UserSwitchDialogController;)Lcom/android/systemui/plugins/ActivityStarter;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getDialogLaunchAnimator$p(Lcom/android/systemui/qs/user/UserSwitchDialogController;)Lcom/android/systemui/animation/DialogLaunchAnimator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getFalsingManager$p(Lcom/android/systemui/qs/user/UserSwitchDialogController;)Lcom/android/systemui/plugins/FalsingManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->falsingManager:Lcom/android/systemui/plugins/FalsingManager;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getUSER_SETTINGS_INTENT$cp()Landroid/content/Intent;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->USER_SETTINGS_INTENT:Landroid/content/Intent;
-
-    return-object v0
 .end method
 
 
 # virtual methods
 .method public final showDialog(Landroid/view/View;)V
-    .locals 8
-
-    const-string/jumbo v0, "view"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->dialogFactory:Lkotlin/jvm/functions/Function1;
 
@@ -221,39 +119,43 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "view.context"
-
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-interface {v0, v1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 
-    const/4 v1, 0x1
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
+    invoke-static {v0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Landroid/app/Dialog;)V
+
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setCanceledOnTouchOutside(Z)V
 
-    sget v1, Lcom/android/systemui/R$string;->qs_user_switch_dialog_title:I
+    const v1, 0x7f1305a8
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setTitle(I)V
 
-    sget v1, Lcom/android/systemui/R$string;->quick_settings_done:I
+    new-instance v1, Lcom/android/systemui/qs/user/UserSwitchDialogController$showDialog$1$1;
 
-    const/4 v2, 0x0
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/user/UserSwitchDialogController$showDialog$1$1;-><init>(Lcom/android/systemui/qs/user/UserSwitchDialogController;)V
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
+    const v2, 0x7f1305e0
 
-    sget v1, Lcom/android/systemui/R$string;->quick_settings_more_user_settings:I
+    invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
-    new-instance v3, Lcom/android/systemui/qs/user/UserSwitchDialogController$showDialog$1$1;
+    new-instance v1, Lcom/android/systemui/qs/user/UserSwitchDialogController$showDialog$1$2;
 
-    invoke-direct {v3, p0}, Lcom/android/systemui/qs/user/UserSwitchDialogController$showDialog$1$1;-><init>(Lcom/android/systemui/qs/user/UserSwitchDialogController;)V
+    invoke-direct {v1, p0, v0}, Lcom/android/systemui/qs/user/UserSwitchDialogController$showDialog$1$2;-><init>(Lcom/android/systemui/qs/user/UserSwitchDialogController;Lcom/android/systemui/statusbar/phone/SystemUIDialog;)V
 
-    invoke-virtual {v0, v1, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)V
+    const/4 v2, -0x3
+
+    const v3, 0x7f1305ec
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v2, v3, v1, v4}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setButton(IILandroid/content/DialogInterface$OnClickListener;Z)V
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->getContext()Landroid/content/Context;
 
@@ -263,9 +165,11 @@
 
     move-result-object v1
 
-    sget v3, Lcom/android/systemui/R$layout;->qs_user_dialog_content:I
+    const v2, 0x7f0e01eb
 
-    invoke-virtual {v1, v3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
@@ -277,41 +181,41 @@
 
     move-result-object v2
 
-    move-object v7, v2
+    check-cast v2, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
 
-    check-cast v7, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;
+    const v3, 0x7f0b02c2
 
-    sget v2, Lcom/android/systemui/R$id;->grid:I
-
-    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/ViewGroup;
 
-    invoke-virtual {v7, v1}, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->linkToViewGroup(Landroid/view/ViewGroup;)V
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v3, Lcom/android/systemui/qs/PseudoGridView$ViewGroupAdapterBridge;
+
+    invoke-direct {v3, v1, v2}, Lcom/android/systemui/qs/PseudoGridView$ViewGroupAdapterBridge;-><init>(Landroid/view/ViewGroup;Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;)V
 
     iget-object v1, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-    const/4 v4, 0x0
+    sget-object v3, Lcom/android/systemui/animation/DialogLaunchAnimator;->TIMINGS:Lcom/android/systemui/animation/LaunchAnimator$Timings;
 
-    const/4 v5, 0x4
+    invoke-virtual {v1, v0, p1, v4}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;Z)V
 
-    const/4 v6, 0x0
+    iget-object p1, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    move-object v2, v0
+    sget-object v1, Lcom/android/systemui/qs/QSUserSwitcherEvent;->QS_USER_DETAIL_OPEN:Lcom/android/systemui/qs/QSUserSwitcherEvent;
 
-    move-object v3, p1
-
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView$default(Lcom/android/systemui/animation/DialogLaunchAnimator;Landroid/app/Dialog;Landroid/view/View;ZILjava/lang/Object;)V
+    invoke-interface {p1, v1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     new-instance p1, Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShowerImpl;
 
     iget-object p0, p0, Lcom/android/systemui/qs/user/UserSwitchDialogController;->dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-    invoke-direct {p1, v0, p0}, Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShowerImpl;-><init>(Landroid/app/Dialog;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
+    invoke-direct {p1, v0, p0}, Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShowerImpl;-><init>(Lcom/android/systemui/statusbar/phone/SystemUIDialog;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
 
-    invoke-virtual {v7, p1}, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->injectDialogShower(Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;)V
+    iput-object p1, v2, Lcom/android/systemui/qs/tiles/UserDetailView$Adapter;->mDialogShower:Lcom/android/systemui/qs/user/UserSwitchDialogController$DialogShower;
 
     return-void
 .end method

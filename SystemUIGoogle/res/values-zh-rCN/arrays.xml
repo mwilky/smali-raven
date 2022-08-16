@@ -17,6 +17,7 @@
         <item>不得超过3个进程</item>
         <item>不得超过4个进程</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>已关闭</item>
         <item>已开启</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>不可用</item>
+        <item>关闭</item>
+        <item>开启</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>不可用</item>
         <item>已关闭</item>
@@ -306,6 +312,16 @@
         <item>已开启</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>不可用</item>
+        <item>已关闭</item>
+        <item>已开启</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>不可用</item>
+        <item>已关闭</item>
+        <item>已开启</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>不可用</item>
         <item>已关闭</item>
         <item>已开启</item>
@@ -374,6 +390,12 @@
         <item>超快</item>
         <item>极快</item>
         <item>最快</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>左移</item>
+        <item>下移</item>
+        <item>右移</item>
+        <item>上移</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>充电</item>

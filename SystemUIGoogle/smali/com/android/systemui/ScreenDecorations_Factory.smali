@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,17 @@
     .end annotation
 .end field
 
-.field private final dotViewControllerProvider:Ljavax/inject/Provider;
+.field public final dotFactoryProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/decor/PrivacyDotDecorProviderFactory;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final dotViewControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final mainExecutorProvider:Ljavax/inject/Provider;
+.field public final mainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final secureSettingsProvider:Ljavax/inject/Provider;
+.field public final secureSettingsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final threadFactoryProvider:Ljavax/inject/Provider;
+.field public final threadFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final tunerServiceProvider:Ljavax/inject/Provider;
+.field public final tunerServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final userTrackerProvider:Ljavax/inject/Provider;
+.field public final userTrackerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -101,36 +111,9 @@
 
 # direct methods
 .method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/settings/SecureSettings;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/UserTracker;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/events/PrivacyDotViewController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/concurrency/ThreadFactory;",
-            ">;)V"
-        }
-    .end annotation
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/util/concurrency/ThreadFactoryImpl_Factory$InstanceHolder;->INSTANCE:Lcom/android/systemui/util/concurrency/ThreadFactoryImpl_Factory;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -148,43 +131,15 @@
 
     iput-object p7, p0, Lcom/android/systemui/ScreenDecorations_Factory;->dotViewControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p8, p0, Lcom/android/systemui/ScreenDecorations_Factory;->threadFactoryProvider:Ljavax/inject/Provider;
+    iput-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->threadFactoryProvider:Ljavax/inject/Provider;
+
+    iput-object p8, p0, Lcom/android/systemui/ScreenDecorations_Factory;->dotFactoryProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
 .method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/ScreenDecorations_Factory;
     .locals 10
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/concurrent/Executor;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/settings/SecureSettings;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/UserTracker;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/events/PrivacyDotViewController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/concurrency/ThreadFactory;",
-            ">;)",
-            "Lcom/android/systemui/ScreenDecorations_Factory;"
-        }
-    .end annotation
 
     new-instance v9, Lcom/android/systemui/ScreenDecorations_Factory;
 
@@ -211,38 +166,10 @@
     return-object v9
 .end method
 
-.method public static newInstance(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/util/concurrency/ThreadFactory;)Lcom/android/systemui/ScreenDecorations;
-    .locals 10
-
-    new-instance v9, Lcom/android/systemui/ScreenDecorations;
-
-    move-object v0, v9
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    invoke-direct/range {v0 .. v8}, Lcom/android/systemui/ScreenDecorations;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/util/concurrency/ThreadFactory;)V
-
-    return-object v9
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/ScreenDecorations;
-    .locals 9
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -250,9 +177,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
@@ -260,9 +187,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Ljava/util/concurrent/Executor;
+    check-cast v3, Ljava/util/concurrent/Executor;
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
@@ -270,9 +197,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/util/settings/SecureSettings;
+    check-cast v4, Lcom/android/systemui/util/settings/SecureSettings;
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
@@ -280,9 +207,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v5, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
 
@@ -290,9 +217,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/tuner/TunerService;
+    check-cast v6, Lcom/android/systemui/tuner/TunerService;
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->userTrackerProvider:Ljavax/inject/Provider;
 
@@ -300,9 +227,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/settings/UserTracker;
+    check-cast v7, Lcom/android/systemui/settings/UserTracker;
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->dotViewControllerProvider:Ljavax/inject/Provider;
 
@@ -310,33 +237,35 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+    check-cast v8, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
-    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->threadFactoryProvider:Ljavax/inject/Provider;
+    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->threadFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v9, v0
+
+    check-cast v9, Lcom/android/systemui/util/concurrency/ThreadFactory;
+
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations_Factory;->dotFactoryProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    move-object v8, p0
+    move-object v10, p0
 
-    check-cast v8, Lcom/android/systemui/util/concurrency/ThreadFactory;
+    check-cast v10, Lcom/android/systemui/decor/PrivacyDotDecorProviderFactory;
 
-    invoke-static/range {v1 .. v8}, Lcom/android/systemui/ScreenDecorations_Factory;->newInstance(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/util/concurrency/ThreadFactory;)Lcom/android/systemui/ScreenDecorations;
+    new-instance p0, Lcom/android/systemui/ScreenDecorations;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/ScreenDecorations_Factory;->get()Lcom/android/systemui/ScreenDecorations;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/ScreenDecorations;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/util/concurrency/ThreadFactory;Lcom/android/systemui/decor/PrivacyDotDecorProviderFactory;)V
 
     return-object p0
 .end method

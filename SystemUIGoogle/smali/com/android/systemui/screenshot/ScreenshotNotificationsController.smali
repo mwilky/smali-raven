@@ -1,18 +1,16 @@
-.class public Lcom/android/systemui/screenshot/ScreenshotNotificationsController;
+.class public final Lcom/android/systemui/screenshot/ScreenshotNotificationsController;
 .super Ljava/lang/Object;
 .source "ScreenshotNotificationsController.java"
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mNotificationManager:Landroid/app/NotificationManager;
-
-.field private final mResources:Landroid/content/res/Resources;
+.field public final mNotificationManager:Landroid/app/NotificationManager;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/view/WindowManager;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/view/WindowManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -20,10 +18,6 @@
     iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;->mContext:Landroid/content/Context;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;->mResources:Landroid/content/res/Resources;
 
     const-string v0, "notification"
 
@@ -50,7 +44,7 @@
 
 
 # virtual methods
-.method public notifyScreenshotError(I)V
+.method public final notifyScreenshotError(I)V
     .locals 10
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;->mContext:Landroid/content/Context;
@@ -67,11 +61,11 @@
 
     iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;->mContext:Landroid/content/Context;
 
-    sget-object v3, Lcom/android/systemui/util/NotificationChannels;->ALERTS:Ljava/lang/String;
+    const-string v3, "ALR"
 
     invoke-direct {v1, v2, v3}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
 
-    sget v2, Lcom/android/systemui/R$string;->screenshot_failed_title:I
+    const v2, 0x7f130656
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -93,7 +87,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$drawable;->stat_notify_image_error:I
+    const v1, 0x7f080808
 
     invoke-virtual {v0, v1}, Landroid/app/Notification$Builder;->setSmallIcon(I)Landroid/app/Notification$Builder;
 
@@ -145,7 +139,7 @@
 
     check-cast v2, Landroid/app/admin/DevicePolicyManager;
 
-    const-string v3, "policy_disable_screen_capture"
+    const-string/jumbo v3, "policy_disable_screen_capture"
 
     invoke-virtual {v2, v3}, Landroid/app/admin/DevicePolicyManager;->createAdminSupportIntent(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -172,7 +166,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/screenshot/ScreenshotNotificationsController;->mContext:Landroid/content/Context;
 
-    invoke-static {v2, v0, v1}, Lcom/android/systemui/SystemUI;->overrideNotificationAppName(Landroid/content/Context;Landroid/app/Notification$Builder;Z)V
+    invoke-static {v2, v0, v1}, Lcom/android/systemui/SystemUIApplication;->overrideNotificationAppName(Landroid/content/Context;Landroid/app/Notification$Builder;Z)V
 
     new-instance v2, Landroid/app/Notification$BigTextStyle;
 

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final batteryControllerProvider:Ljavax/inject/Provider;
+.field public final batteryControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final privacyControllerProvider:Ljavax/inject/Provider;
+.field public final privacyControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final systemClockProvider:Ljavax/inject/Provider;
+.field public final systemClockProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -93,48 +93,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/events/SystemEventCoordinator_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/time/SystemClock;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/policy/BatteryController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/privacy/PrivacyItemController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/events/SystemEventCoordinator_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/statusbar/events/SystemEventCoordinator_Factory;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/events/SystemEventCoordinator_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/privacy/PrivacyItemController;Landroid/content/Context;)Lcom/android/systemui/statusbar/events/SystemEventCoordinator;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/events/SystemEventCoordinator;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/statusbar/events/SystemEventCoordinator;-><init>(Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/privacy/PrivacyItemController;Landroid/content/Context;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/events/SystemEventCoordinator;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/events/SystemEventCoordinator_Factory;->systemClockProvider:Ljavax/inject/Provider;
 
@@ -168,19 +130,9 @@
 
     check-cast p0, Landroid/content/Context;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/statusbar/events/SystemEventCoordinator_Factory;->newInstance(Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/privacy/PrivacyItemController;Landroid/content/Context;)Lcom/android/systemui/statusbar/events/SystemEventCoordinator;
+    new-instance v3, Lcom/android/systemui/statusbar/events/SystemEventCoordinator;
 
-    move-result-object p0
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/systemui/statusbar/events/SystemEventCoordinator;-><init>(Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/policy/BatteryController;Lcom/android/systemui/privacy/PrivacyItemController;Landroid/content/Context;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/events/SystemEventCoordinator_Factory;->get()Lcom/android/systemui/statusbar/events/SystemEventCoordinator;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v3
 .end method

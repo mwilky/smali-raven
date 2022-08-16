@@ -35,7 +35,7 @@
 .method public static create()Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginDebugFactory;
     .locals 1
 
-    invoke-static {}, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginDebugFactory$InstanceHolder;->access$000()Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginDebugFactory;
+    invoke-static {}, Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginDebugFactory$InstanceHolder;->-$$Nest$sfgetINSTANCE()Lcom/android/systemui/plugins/PluginsModule_ProvidesPluginDebugFactory;
 
     move-result-object v0
 

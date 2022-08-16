@@ -1,33 +1,28 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/os/CancellationSignal$OnCancelListener;
-
-
-# instance fields
-.field public final synthetic f$0:Ljava/util/HashMap;
+.implements Ljava/util/function/Consumer;
 
 
 # direct methods
-.method public synthetic constructor <init>(Ljava/util/HashMap;)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$$ExternalSyntheticLambda0;->f$0:Ljava/util/HashMap;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onCancel()V
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$$ExternalSyntheticLambda0;->f$0:Ljava/util/HashMap;
+    check-cast p1, Landroid/os/CancellationSignal;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater;->$r8$lambda$uP4oo5Zt-a9n7b08dEngn6agX_o(Ljava/util/HashMap;)V
+    invoke-virtual {p1}, Landroid/os/CancellationSignal;->cancel()V
 
     return-void
 .end method

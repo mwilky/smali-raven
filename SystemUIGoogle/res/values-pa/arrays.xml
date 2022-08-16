@@ -17,6 +17,7 @@
         <item>ਵੱਧ ਤੋਂ ਵੱਧ 3 ਪ੍ਰਕਿਰਿਆਵਾਂ</item>
         <item>ਵੱਧ ਤੋਂ ਵੱਧ 4 ਪ੍ਰਕਿਰਿਆਵਾਂ</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -236,7 +237,7 @@
         <item>ਚਾਲੂ ਹੈ</item>
     </string-array>
     <string-array name="tile_states_battery">
-        <item>ਅਣਉਪਲਬਧ ਹੈ</item>
+        <item>ਅਣਉਪਲਬਧ</item>
         <item>ਬੰਦ ਹੈ</item>
         <item>ਚਾਲੂ ਹੈ</item>
     </string-array>
@@ -257,6 +258,11 @@
     </string-array>
     <string-array name="tile_states_cell">
         <item>ਅਣਉਪਲਬਧ ਹੈ</item>
+        <item>ਬੰਦ ਹੈ</item>
+        <item>ਚਾਲੂ ਹੈ</item>
+    </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>ਉਪਲਬਧ ਨਹੀਂ</item>
         <item>ਬੰਦ ਹੈ</item>
         <item>ਚਾਲੂ ਹੈ</item>
     </string-array>
@@ -309,6 +315,16 @@
         <item>ਅਣਉਪਲਬਧ ਹੈ</item>
         <item>ਬੰਦ ਹੈ</item>
         <item>ਚਾਲੂ ਹੈ</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>ਅਣਉਪਲਬਧ</item>
+        <item>ਬੰਦ</item>
+        <item>ਚਾਲੂ</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>ਅਣਉਪਲਬਧ</item>
+        <item>ਬੰਦ</item>
+        <item>ਚਾਲੂ</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>ਅਣਉਪਲਬਧ ਹੈ</item>
@@ -374,6 +390,12 @@
         <item>ਤੇਜ਼</item>
         <item>ਬਹੁਤ ਤੇਜ਼</item>
         <item>ਸਭ ਤੋਂ ਵੱਧ ਤੇਜ਼</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>ਖੱਬੇ ਲਿਜਾਓ</item>
+        <item>ਹੇਠਾਂ ਲਿਜਾਓ</item>
+        <item>ਸੱਜੇ ਲਿਜਾਓ</item>
+        <item>ਉੱਪਰ ਲਿਜਾਓ</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>ਚਾਰਜਿੰਗ</item>

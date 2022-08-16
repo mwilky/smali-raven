@@ -21,16 +21,7 @@
 .method public abstract mirrorTouchEvent(Landroid/view/MotionEvent;)Z
 .end method
 
-.method public abstract setEnforcedAdmin(Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;)V
-.end method
-
 .method public abstract setMax(I)V
-.end method
-
-.method public abstract setMirrorControllerAndMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
-.end method
-
-.method public abstract setOnChangedListener(Lcom/android/systemui/settings/brightness/ToggleSlider$Listener;)V
 .end method
 
 .method public abstract setValue(I)V

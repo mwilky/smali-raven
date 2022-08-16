@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/ScreenshotController$1;
+.class public final Lcom/android/systemui/screenshot/ScreenshotController$1;
 .super Landroid/view/IRemoteAnimationRunner$Stub;
 .source "ScreenshotController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/view/IRemoteAnimationRunner$Stub;-><init>()V
@@ -25,13 +25,13 @@
 
 
 # virtual methods
-.method public onAnimationCancelled()V
+.method public final onAnimationCancelled(Z)V
     .locals 0
 
     return-void
 .end method
 
-.method public onAnimationStart(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+.method public final onAnimationStart(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
     .locals 0
 
     :try_start_0
@@ -44,9 +44,9 @@
     :catch_0
     move-exception p0
 
-    invoke-static {}, Lcom/android/systemui/screenshot/ScreenshotController;->access$000()Ljava/lang/String;
+    sget-object p1, Lcom/android/systemui/screenshot/ScreenshotController;->SCREENSHOT_REMOTE_RUNNER:Lcom/android/systemui/screenshot/ScreenshotController$1;
 
-    move-result-object p1
+    const-string p1, "Screenshot"
 
     const-string p2, "Error finishing screenshot remote animation"
 

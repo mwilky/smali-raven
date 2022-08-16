@@ -1,4 +1,4 @@
-.class final Landroidx/mediarouter/media/MediaRouter$CallbackRecord;
+.class public final Landroidx/mediarouter/media/MediaRouter$CallbackRecord;
 .super Ljava/lang/Object;
 .source "MediaRouter.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "CallbackRecord"
 .end annotation
 
@@ -29,16 +29,6 @@
 # direct methods
 .method public constructor <init>(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$Callback;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "callback"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -51,82 +41,4 @@
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
 
     return-void
-.end method
-
-
-# virtual methods
-.method public filterRouteEvent(Landroidx/mediarouter/media/MediaRouter$RouteInfo;ILandroidx/mediarouter/media/MediaRouter$RouteInfo;I)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "route",
-            "what",
-            "optionalRoute",
-            "reason"
-        }
-    .end annotation
-
-    iget v0, p0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mFlags:I
-
-    and-int/lit8 v0, v0, 0x2
-
-    const/4 v1, 0x1
-
-    if-nez v0, :cond_2
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouter$CallbackRecord;->mSelector:Landroidx/mediarouter/media/MediaRouteSelector;
-
-    invoke-virtual {p1, p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->matchesSelector(Landroidx/mediarouter/media/MediaRouteSelector;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-static {}, Landroidx/mediarouter/media/MediaRouter;->isTransferToLocalEnabled()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isDefaultOrBluetooth()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_1
-
-    const/16 p0, 0x106
-
-    if-ne p2, p0, :cond_1
-
-    const/4 p0, 0x3
-
-    if-ne p4, p0, :cond_1
-
-    if-eqz p3, :cond_1
-
-    invoke-virtual {p3}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->isDefaultOrBluetooth()Z
-
-    move-result p0
-
-    xor-int/2addr p0, v1
-
-    return p0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_2
-    :goto_0
-    return v1
 .end method

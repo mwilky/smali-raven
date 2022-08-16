@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;
+.class public final Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;
 .super Ljava/lang/Object;
 .source "AuthCredentialPatternView.java"
 
@@ -12,25 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "UnlockPatternListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$DzEEwr7zVIysKmmyBDaJH_abX3g(Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;Lcom/android/internal/widget/VerifyCredentialResponse;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->onPatternVerified(Lcom/android/internal/widget/VerifyCredentialResponse;I)V
-
-    return-void
-.end method
-
-.method private constructor <init>(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
@@ -40,53 +32,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/biometrics/AuthCredentialPatternView;Lcom/android/systemui/biometrics/AuthCredentialPatternView$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;-><init>(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)V
-
-    return-void
-.end method
-
-.method private onPatternVerified(Lcom/android/internal/widget/VerifyCredentialResponse;I)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
-
-    invoke-virtual {v0, p1, p2}, Lcom/android/systemui/biometrics/AuthCredentialView;->onCredentialVerified(Lcom/android/internal/widget/VerifyCredentialResponse;I)V
-
-    if-lez p2, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->access$000(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object p0
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternView;->setEnabled(Z)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->access$000(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object p0
-
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternView;->setEnabled(Z)V
-
-    :goto_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public onPatternCellAdded(Ljava/util/List;)V
+.method public final onPatternCellAdded(Ljava/util/List;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -100,13 +48,13 @@
     return-void
 .end method
 
-.method public onPatternCleared()V
+.method public final onPatternCleared()V
     .locals 0
 
     return-void
 .end method
 
-.method public onPatternDetected(Ljava/util/List;)V
+.method public final onPatternDetected(Ljava/util/List;)V
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -130,9 +78,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->access$000(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)Lcom/android/internal/widget/LockPatternView;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setEnabled(Z)V
 
@@ -142,11 +88,21 @@
 
     const/4 v2, 0x4
 
+    const/4 v3, 0x1
+
     if-ge v0, v2, :cond_1
 
     sget-object p1, Lcom/android/internal/widget/VerifyCredentialResponse;->ERROR:Lcom/android/internal/widget/VerifyCredentialResponse;
 
-    invoke-direct {p0, p1, v1}, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->onPatternVerified(Lcom/android/internal/widget/VerifyCredentialResponse;I)V
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
+
+    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/biometrics/AuthCredentialView;->onCredentialVerified(Lcom/android/internal/widget/VerifyCredentialResponse;I)V
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;->this$0:Lcom/android/systemui/biometrics/AuthCredentialPatternView;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
+
+    invoke-virtual {p0, v3}, Lcom/android/internal/widget/LockPatternView;->setEnabled(Z)V
 
     return-void
 
@@ -161,8 +117,6 @@
     iget-object v1, v0, Lcom/android/systemui/biometrics/AuthCredentialView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     iget v2, v0, Lcom/android/systemui/biometrics/AuthCredentialView;->mEffectiveUserId:I
-
-    const/4 v3, 0x1
 
     new-instance v4, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener$$ExternalSyntheticLambda0;
 
@@ -205,7 +159,7 @@
     throw p0
 .end method
 
-.method public onPatternStart()V
+.method public final onPatternStart()V
     .locals 0
 
     return-void

@@ -1,10 +1,10 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;
 .super Ljava/lang/Object;
 .source "TransformKeyframeAnimation.java"
 
 
 # instance fields
-.field private anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -15,7 +15,7 @@
     .end annotation
 .end field
 
-.field private endOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public endOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -26,9 +26,9 @@
     .end annotation
 .end field
 
-.field private final matrix:Landroid/graphics/Matrix;
+.field public final matrix:Landroid/graphics/Matrix;
 
-.field private opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -39,7 +39,7 @@
     .end annotation
 .end field
 
-.field private position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -50,7 +50,7 @@
     .end annotation
 .end field
 
-.field private rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -61,7 +61,7 @@
     .end annotation
 .end field
 
-.field private scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -72,19 +72,19 @@
     .end annotation
 .end field
 
-.field private skew:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+.field public skew:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
-.field private skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+.field public skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
-.field private final skewMatrix1:Landroid/graphics/Matrix;
+.field public final skewMatrix1:Landroid/graphics/Matrix;
 
-.field private final skewMatrix2:Landroid/graphics/Matrix;
+.field public final skewMatrix2:Landroid/graphics/Matrix;
 
-.field private final skewMatrix3:Landroid/graphics/Matrix;
+.field public final skewMatrix3:Landroid/graphics/Matrix;
 
-.field private final skewValues:[F
+.field public final skewValues:[F
 
-.field private startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.field public startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
@@ -108,9 +108,7 @@
 
     iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->matrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getAnchorPoint()Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->anchorPoint:Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
 
     const/4 v1, 0x0
 
@@ -121,10 +119,6 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getAnchorPoint()Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
-
-    move-result-object v0
-
     invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v0
@@ -132,9 +126,7 @@
     :goto_0
     iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getPosition()Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->position:Lcom/airbnb/lottie/model/animatable/AnimatableValue;
 
     if-nez v0, :cond_1
 
@@ -143,10 +135,6 @@
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getPosition()Lcom/airbnb/lottie/model/animatable/AnimatableValue;
-
-    move-result-object v0
-
     invoke-interface {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v0
@@ -154,9 +142,7 @@
     :goto_1
     iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getScale()Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->scale:Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;
 
     if-nez v0, :cond_2
 
@@ -165,10 +151,6 @@
     goto :goto_2
 
     :cond_2
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getScale()Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;
-
-    move-result-object v0
-
     invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableScaleValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v0
@@ -176,9 +158,7 @@
     :goto_2
     iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getRotation()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->rotation:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
     if-nez v0, :cond_3
 
@@ -187,10 +167,6 @@
     goto :goto_3
 
     :cond_3
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getRotation()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
-
     invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v0
@@ -198,9 +174,7 @@
     :goto_3
     iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getSkew()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->skew:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
     if-nez v0, :cond_4
 
@@ -209,10 +183,6 @@
     goto :goto_4
 
     :cond_4
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getSkew()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
-
     invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v0
@@ -260,9 +230,7 @@
     iput-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
 
     :goto_5
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getSkewAngle()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->skewAngle:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
     if-nez v0, :cond_6
 
@@ -271,10 +239,6 @@
     goto :goto_6
 
     :cond_6
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getSkewAngle()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
-
     invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     move-result-object v0
@@ -284,15 +248,9 @@
     :goto_6
     iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->opacity:Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
 
     if-eqz v0, :cond_7
-
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableIntegerValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
@@ -301,15 +259,9 @@
     iput-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     :cond_7
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getStartOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->startOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
     if-eqz v0, :cond_8
-
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getStartOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
@@ -323,15 +275,9 @@
     iput-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     :goto_7
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getEndOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+    iget-object p1, p1, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->endOpacity:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-    move-result-object v0
-
-    if-eqz v0, :cond_9
-
-    invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableTransform;->getEndOpacity()Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
-
-    move-result-object p1
+    if-eqz p1, :cond_9
 
     invoke-virtual {p1}, Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;->createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
@@ -348,33 +294,9 @@
     return-void
 .end method
 
-.method private clearSkewValues()V
-    .locals 3
-
-    const/4 v0, 0x0
-
-    :goto_0
-    const/16 v1, 0x9
-
-    if-ge v0, v1, :cond_0
-
-    iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
-
-    const/4 v2, 0x0
-
-    aput v2, v1, v0
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public addAnimationsToLayer(Lcom/airbnb/lottie/model/layer/BaseLayer;)V
+.method public final addAnimationsToLayer(Lcom/airbnb/lottie/model/layer/BaseLayer;)V
     .locals 1
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
@@ -416,7 +338,7 @@
     return-void
 .end method
 
-.method public addListener(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$AnimationListener;)V
+.method public final addListener(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$AnimationListener;)V
     .locals 1
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
@@ -485,92 +407,83 @@
     return-void
 .end method
 
-.method public applyValueCallback(Ljava/lang/Object;Lcom/airbnb/lottie/value/LottieValueCallback;)Z
+.method public final applyValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(TT;",
-            "Lcom/airbnb/lottie/value/LottieValueCallback<",
-            "TT;>;)Z"
-        }
-    .end annotation
 
     sget-object v0, Lcom/airbnb/lottie/LottieProperty;->TRANSFORM_ANCHOR_POINT:Landroid/graphics/PointF;
 
-    if-ne p1, v0, :cond_1
+    if-ne p2, v0, :cond_1
 
-    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iget-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    if-nez p1, :cond_0
+    if-nez p2, :cond_0
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 
     new-instance v0, Landroid/graphics/PointF;
 
     invoke-direct {v0}, Landroid/graphics/PointF;-><init>()V
 
-    invoke-direct {p1, p2, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     goto/16 :goto_0
 
     :cond_0
-    invoke-virtual {p1, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {p2, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto/16 :goto_0
 
     :cond_1
     sget-object v0, Lcom/airbnb/lottie/LottieProperty;->TRANSFORM_POSITION:Landroid/graphics/PointF;
 
-    if-ne p1, v0, :cond_3
+    if-ne p2, v0, :cond_3
 
-    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iget-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    if-nez p1, :cond_2
+    if-nez p2, :cond_2
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 
     new-instance v0, Landroid/graphics/PointF;
 
     invoke-direct {v0}, Landroid/graphics/PointF;-><init>()V
 
-    invoke-direct {p1, p2, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     goto/16 :goto_0
 
     :cond_2
-    invoke-virtual {p1, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {p2, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto/16 :goto_0
 
     :cond_3
     sget-object v0, Lcom/airbnb/lottie/LottieProperty;->TRANSFORM_SCALE:Lcom/airbnb/lottie/value/ScaleXY;
 
-    if-ne p1, v0, :cond_5
+    if-ne p2, v0, :cond_5
 
-    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iget-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    if-nez p1, :cond_4
+    if-nez p2, :cond_4
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 
     new-instance v0, Lcom/airbnb/lottie/value/ScaleXY;
 
     invoke-direct {v0}, Lcom/airbnb/lottie/value/ScaleXY;-><init>()V
 
-    invoke-direct {p1, p2, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     goto/16 :goto_0
 
     :cond_4
-    invoke-virtual {p1, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {p2, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto/16 :goto_0
 
@@ -579,26 +492,26 @@
 
     const/4 v1, 0x0
 
-    if-ne p1, v0, :cond_7
+    if-ne p2, v0, :cond_7
 
-    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iget-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    if-nez p1, :cond_6
+    if-nez p2, :cond_6
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 
     invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v0
 
-    invoke-direct {p1, p2, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     goto/16 :goto_0
 
     :cond_6
-    invoke-virtual {p1, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {p2, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto/16 :goto_0
 
@@ -607,33 +520,33 @@
 
     const/16 v2, 0x64
 
-    if-ne p1, v0, :cond_9
+    if-ne p2, v0, :cond_9
 
-    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iget-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    if-nez p1, :cond_8
+    if-nez p2, :cond_8
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    invoke-direct {p1, p2, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     goto/16 :goto_0
 
     :cond_8
-    invoke-virtual {p1, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {p2, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto/16 :goto_0
 
     :cond_9
     sget-object v0, Lcom/airbnb/lottie/LottieProperty;->TRANSFORM_START_OPACITY:Ljava/lang/Float;
 
-    if-ne p1, v0, :cond_b
+    if-ne p2, v0, :cond_b
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
@@ -641,27 +554,27 @@
 
     if-nez v0, :cond_a
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    invoke-direct {p1, p2, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     goto :goto_0
 
     :cond_a
-    invoke-virtual {v0, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto :goto_0
 
     :cond_b
     sget-object v0, Lcom/airbnb/lottie/LottieProperty;->TRANSFORM_END_OPACITY:Ljava/lang/Float;
 
-    if-ne p1, v0, :cond_d
+    if-ne p2, v0, :cond_d
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->endOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
@@ -669,27 +582,27 @@
 
     if-nez v0, :cond_c
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v0
 
-    invoke-direct {p1, p2, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
+    invoke-direct {p2, p1, v0}, Lcom/airbnb/lottie/animation/keyframe/ValueCallbackKeyframeAnimation;-><init>(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->endOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->endOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
     goto :goto_0
 
     :cond_c
-    invoke-virtual {v0, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto :goto_0
 
     :cond_d
     sget-object v0, Lcom/airbnb/lottie/LottieProperty;->TRANSFORM_SKEW:Ljava/lang/Float;
 
-    if-ne p1, v0, :cond_f
+    if-ne p2, v0, :cond_f
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skew:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
@@ -697,7 +610,7 @@
 
     if-nez v0, :cond_e
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
     new-instance v0, Lcom/airbnb/lottie/value/Keyframe;
 
@@ -711,29 +624,29 @@
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;-><init>(Ljava/util/List;)V
+    invoke-direct {p2, v0}, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;-><init>(Ljava/util/List;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skew:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skew:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
     :cond_e
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skew:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
-    invoke-virtual {p0, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     goto :goto_0
 
     :cond_f
     sget-object v0, Lcom/airbnb/lottie/LottieProperty;->TRANSFORM_SKEW_ANGLE:Ljava/lang/Float;
 
-    if-ne p1, v0, :cond_11
+    if-ne p2, v0, :cond_11
 
-    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+    iget-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
-    if-eqz p1, :cond_11
+    if-eqz p2, :cond_11
 
-    if-nez p1, :cond_10
+    if-nez p2, :cond_10
 
-    new-instance p1, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+    new-instance p2, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
     new-instance v0, Lcom/airbnb/lottie/value/Keyframe;
 
@@ -747,14 +660,14 @@
 
     move-result-object v0
 
-    invoke-direct {p1, v0}, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;-><init>(Ljava/util/List;)V
+    invoke-direct {p2, v0}, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;-><init>(Ljava/util/List;)V
 
-    iput-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+    iput-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
     :cond_10
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
-    invoke-virtual {p0, p2}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
+    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;)V
 
     :goto_0
     const/4 p0, 0x1
@@ -767,25 +680,8 @@
     return p0
 .end method
 
-.method public getEndOpacity()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "*",
-            "Ljava/lang/Float;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->endOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    return-object p0
-.end method
-
-.method public getMatrix()Landroid/graphics/Matrix;
-    .locals 13
+.method public final getMatrix()Landroid/graphics/Matrix;
+    .locals 14
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->matrix:Landroid/graphics/Matrix;
 
@@ -864,7 +760,7 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_9
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
 
@@ -946,65 +842,103 @@
 
     double-to-float v4, v4
 
-    invoke-direct {p0}, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->clearSkewValues()V
+    const/4 v5, 0x0
 
-    iget-object v5, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
+    move v6, v5
 
-    const/4 v6, 0x0
+    :goto_3
+    const/16 v7, 0x9
 
-    aput v0, v5, v6
+    if-ge v6, v7, :cond_6
 
-    const/4 v7, 0x1
+    iget-object v7, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
 
-    aput v3, v5, v7
+    aput v1, v7, v6
 
-    neg-float v8, v3
+    add-int/lit8 v6, v6, 0x1
 
-    const/4 v9, 0x3
+    goto :goto_3
 
-    aput v8, v5, v9
+    :cond_6
+    iget-object v6, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
 
-    const/4 v10, 0x4
+    aput v0, v6, v5
 
-    aput v0, v5, v10
+    const/4 v8, 0x1
 
-    const/16 v11, 0x8
+    aput v3, v6, v8
 
-    aput v2, v5, v11
+    neg-float v9, v3
 
-    iget-object v12, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewMatrix1:Landroid/graphics/Matrix;
+    const/4 v10, 0x3
 
-    invoke-virtual {v12, v5}, Landroid/graphics/Matrix;->setValues([F)V
+    aput v9, v6, v10
 
-    invoke-direct {p0}, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->clearSkewValues()V
+    const/4 v11, 0x4
 
-    iget-object v5, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
+    aput v0, v6, v11
 
-    aput v2, v5, v6
+    const/16 v12, 0x8
 
-    aput v4, v5, v9
+    aput v2, v6, v12
 
-    aput v2, v5, v10
+    iget-object v13, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewMatrix1:Landroid/graphics/Matrix;
 
-    aput v2, v5, v11
+    invoke-virtual {v13, v6}, Landroid/graphics/Matrix;->setValues([F)V
+
+    move v6, v5
+
+    :goto_4
+    if-ge v6, v7, :cond_7
+
+    iget-object v13, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
+
+    aput v1, v13, v6
+
+    add-int/lit8 v6, v6, 0x1
+
+    goto :goto_4
+
+    :cond_7
+    iget-object v6, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
+
+    aput v2, v6, v5
+
+    aput v4, v6, v10
+
+    aput v2, v6, v11
+
+    aput v2, v6, v12
 
     iget-object v4, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewMatrix2:Landroid/graphics/Matrix;
 
-    invoke-virtual {v4, v5}, Landroid/graphics/Matrix;->setValues([F)V
+    invoke-virtual {v4, v6}, Landroid/graphics/Matrix;->setValues([F)V
 
-    invoke-direct {p0}, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->clearSkewValues()V
+    move v4, v5
 
+    :goto_5
+    if-ge v4, v7, :cond_8
+
+    iget-object v6, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
+
+    aput v1, v6, v4
+
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_5
+
+    :cond_8
     iget-object v4, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewValues:[F
 
-    aput v0, v4, v6
+    aput v0, v4, v5
 
-    aput v8, v4, v7
+    aput v9, v4, v8
 
-    aput v3, v4, v9
+    aput v3, v4, v10
 
-    aput v0, v4, v10
+    aput v0, v4, v11
 
-    aput v2, v4, v11
+    aput v2, v4, v12
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewMatrix3:Landroid/graphics/Matrix;
 
@@ -1028,10 +962,10 @@
 
     invoke-virtual {v0, v3}, Landroid/graphics/Matrix;->preConcat(Landroid/graphics/Matrix;)Z
 
-    :cond_6
+    :cond_9
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_b
 
     invoke-virtual {v0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getValue()Ljava/lang/Object;
 
@@ -1039,39 +973,29 @@
 
     check-cast v0, Lcom/airbnb/lottie/value/ScaleXY;
 
-    invoke-virtual {v0}, Lcom/airbnb/lottie/value/ScaleXY;->getScaleX()F
+    iget v3, v0, Lcom/airbnb/lottie/value/ScaleXY;->scaleX:F
 
-    move-result v3
+    cmpl-float v4, v3, v2
 
-    cmpl-float v3, v3, v2
+    if-nez v4, :cond_a
 
-    if-nez v3, :cond_7
+    iget v4, v0, Lcom/airbnb/lottie/value/ScaleXY;->scaleY:F
 
-    invoke-virtual {v0}, Lcom/airbnb/lottie/value/ScaleXY;->getScaleY()F
+    cmpl-float v2, v4, v2
 
-    move-result v3
+    if-eqz v2, :cond_b
 
-    cmpl-float v2, v3, v2
-
-    if-eqz v2, :cond_8
-
-    :cond_7
+    :cond_a
     iget-object v2, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->matrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v0}, Lcom/airbnb/lottie/value/ScaleXY;->getScaleX()F
-
-    move-result v3
-
-    invoke-virtual {v0}, Lcom/airbnb/lottie/value/ScaleXY;->getScaleY()F
-
-    move-result v0
+    iget v0, v0, Lcom/airbnb/lottie/value/ScaleXY;->scaleY:F
 
     invoke-virtual {v2, v3, v0}, Landroid/graphics/Matrix;->preScale(FF)Z
 
-    :cond_8
+    :cond_b
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_d
 
     invoke-virtual {v0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getValue()Ljava/lang/Object;
 
@@ -1083,15 +1007,15 @@
 
     cmpl-float v3, v2, v1
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_c
 
     iget v3, v0, Landroid/graphics/PointF;->y:F
 
     cmpl-float v1, v3, v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_d
 
-    :cond_9
+    :cond_c
     iget-object v1, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->matrix:Landroid/graphics/Matrix;
 
     neg-float v2, v2
@@ -1102,13 +1026,13 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/graphics/Matrix;->preTranslate(FF)Z
 
-    :cond_a
+    :cond_d
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->matrix:Landroid/graphics/Matrix;
 
     return-object p0
 .end method
 
-.method public getMatrixForRepeater(F)Landroid/graphics/Matrix;
+.method public final getMatrixForRepeater(F)Landroid/graphics/Matrix;
     .locals 9
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
@@ -1168,9 +1092,7 @@
 
     iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->matrix:Landroid/graphics/Matrix;
 
-    invoke-virtual {v2}, Lcom/airbnb/lottie/value/ScaleXY;->getScaleX()F
-
-    move-result v3
+    iget v3, v2, Lcom/airbnb/lottie/value/ScaleXY;->scaleX:F
 
     float-to-double v3, v3
 
@@ -1182,9 +1104,7 @@
 
     double-to-float v3, v3
 
-    invoke-virtual {v2}, Lcom/airbnb/lottie/value/ScaleXY;->getScaleY()F
-
-    move-result v2
+    iget v2, v2, Lcom/airbnb/lottie/value/ScaleXY;->scaleY:F
 
     float-to-double v7, v2
 
@@ -1255,107 +1175,4 @@
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->matrix:Landroid/graphics/Matrix;
 
     return-object p0
-.end method
-
-.method public getOpacity()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "*",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    return-object p0
-.end method
-
-.method public getStartOpacity()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation<",
-            "*",
-            "Ljava/lang/Float;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    return-object p0
-.end method
-
-.method public setProgress(F)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->opacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->startOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->endOpacity:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_2
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->anchorPoint:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_3
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->position:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    if-eqz v0, :cond_4
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_4
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->scale:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    if-eqz v0, :cond_5
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_5
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->rotation:Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
-
-    if-eqz v0, :cond_6
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_6
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skew:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
-
-    if-eqz v0, :cond_7
-
-    invoke-virtual {v0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_7
-    iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/TransformKeyframeAnimation;->skewAngle:Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
-
-    if-eqz p0, :cond_8
-
-    invoke-virtual {p0, p1}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->setProgress(F)V
-
-    :cond_8
-    return-void
 .end method

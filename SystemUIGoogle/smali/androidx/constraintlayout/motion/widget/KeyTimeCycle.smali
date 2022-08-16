@@ -1,4 +1,4 @@
-.class public Landroidx/constraintlayout/motion/widget/KeyTimeCycle;
+.class public final Landroidx/constraintlayout/motion/widget/KeyTimeCycle;
 .super Landroidx/constraintlayout/motion/widget/Key;
 .source "KeyTimeCycle.java"
 
@@ -12,992 +12,51 @@
 
 
 # instance fields
-.field private mAlpha:F
+.field public mAlpha:F
 
-.field private mCurveFit:I
+.field public mCurveFit:I
 
-.field private mElevation:F
+.field public mElevation:F
 
-.field private mProgress:F
+.field public mProgress:F
 
-.field private mRotation:F
+.field public mRotation:F
 
-.field private mRotationX:F
+.field public mRotationX:F
 
-.field private mRotationY:F
+.field public mRotationY:F
 
-.field private mScaleX:F
+.field public mScaleX:F
 
-.field private mScaleY:F
+.field public mScaleY:F
 
-.field private mTransitionEasing:Ljava/lang/String;
+.field public mTransitionPathRotate:F
 
-.field private mTransitionPathRotate:F
+.field public mTranslationX:F
 
-.field private mTranslationX:F
+.field public mTranslationY:F
 
-.field private mTranslationY:F
+.field public mTranslationZ:F
 
-.field private mTranslationZ:F
+.field public mWaveOffset:F
 
-.field private mWaveOffset:F
+.field public mWavePeriod:F
 
-.field private mWavePeriod:F
-
-.field private mWaveShape:I
+.field public mWaveShape:I
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 2
-
-    invoke-direct {p0}, Landroidx/constraintlayout/motion/widget/Key;-><init>()V
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
-
-    const/high16 v0, 0x7fc00000    # Float.NaN
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mAlpha:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mElevation:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotation:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationX:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationY:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionPathRotate:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleX:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleY:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationX:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationY:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationZ:F
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
-
-    const/4 v1, 0x0
-
-    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    const/4 v0, 0x3
-
-    iput v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mType:I
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mCustomConstraints:Ljava/util/HashMap;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
     .locals 0
 
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mAlpha:F
+    const/4 p0, 0x0
 
-    return p0
-.end method
-
-.method static synthetic access$002(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mAlpha:F
-
-    return p1
-.end method
-
-.method static synthetic access$100(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mElevation:F
-
-    return p0
-.end method
-
-.method static synthetic access$1002(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionEasing:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$102(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mElevation:F
-
-    return p1
-.end method
-
-.method static synthetic access$1100(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleY:F
-
-    return p0
-.end method
-
-.method static synthetic access$1102(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleY:F
-
-    return p1
-.end method
-
-.method static synthetic access$1200(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionPathRotate:F
-
-    return p0
-.end method
-
-.method static synthetic access$1202(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionPathRotate:F
-
-    return p1
-.end method
-
-.method static synthetic access$1300(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationX:F
-
-    return p0
-.end method
-
-.method static synthetic access$1302(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationX:F
-
-    return p1
-.end method
-
-.method static synthetic access$1400(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationY:F
-
-    return p0
-.end method
-
-.method static synthetic access$1402(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationY:F
-
-    return p1
-.end method
-
-.method static synthetic access$1500(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationZ:F
-
-    return p0
-.end method
-
-.method static synthetic access$1502(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationZ:F
-
-    return p1
-.end method
-
-.method static synthetic access$1600(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
-
-    return p0
-.end method
-
-.method static synthetic access$1602(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
-
-    return p1
-.end method
-
-.method static synthetic access$200(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotation:F
-
-    return p0
-.end method
-
-.method static synthetic access$202(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotation:F
-
-    return p1
-.end method
-
-.method static synthetic access$300(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)I
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
-
-    return p0
-.end method
-
-.method static synthetic access$302(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;I)I
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
-
-    return p1
-.end method
-
-.method static synthetic access$400(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)I
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    return p0
-.end method
-
-.method static synthetic access$402(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;I)I
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    return p1
-.end method
-
-.method static synthetic access$500(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    return p0
-.end method
-
-.method static synthetic access$502(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    return p1
-.end method
-
-.method static synthetic access$600(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    return p0
-.end method
-
-.method static synthetic access$602(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    return p1
-.end method
-
-.method static synthetic access$700(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleX:F
-
-    return p0
-.end method
-
-.method static synthetic access$702(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleX:F
-
-    return p1
-.end method
-
-.method static synthetic access$800(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationX:F
-
-    return p0
-.end method
-
-.method static synthetic access$802(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationX:F
-
-    return p1
-.end method
-
-.method static synthetic access$900(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;)F
-    .locals 0
-
-    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationY:F
-
-    return p0
-.end method
-
-.method static synthetic access$902(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;F)F
-    .locals 0
-
-    iput p1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationY:F
-
-    return p1
+    throw p0
 .end method
 
 
 # virtual methods
-.method public addTimeValues(Ljava/util/HashMap;)V
-    .locals 10
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/HashMap<",
-            "Ljava/lang/String;",
-            "Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;",
-            ">;)V"
-        }
-    .end annotation
-
-    invoke-virtual {p1}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :cond_0
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_e
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    invoke-virtual {p1, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    move-object v3, v2
-
-    check-cast v3, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;
-
-    const-string v2, "CUSTOM"
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v2
-
-    const/4 v4, 0x7
-
-    if-eqz v2, :cond_1
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroidx/constraintlayout/motion/widget/Key;->mCustomConstraints:Ljava/util/HashMap;
-
-    invoke-virtual {v2, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object v6, v1
-
-    check-cast v6, Landroidx/constraintlayout/widget/ConstraintAttribute;
-
-    if-eqz v6, :cond_0
-
-    move-object v4, v3
-
-    check-cast v4, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$CustomSet;
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v9, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v4 .. v9}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet$CustomSet;->setPoint(ILandroidx/constraintlayout/widget/ConstraintAttribute;FIF)V
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v2, -0x1
-
-    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
-
-    move-result v5
-
-    sparse-switch v5, :sswitch_data_0
-
-    :goto_1
-    move v4, v2
-
-    goto/16 :goto_2
-
-    :sswitch_0
-    const-string v4, "alpha"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    const/16 v4, 0xb
-
-    goto/16 :goto_2
-
-    :sswitch_1
-    const-string v4, "transitionPathRotate"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_3
-
-    goto :goto_1
-
-    :cond_3
-    const/16 v4, 0xa
-
-    goto/16 :goto_2
-
-    :sswitch_2
-    const-string v4, "elevation"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_4
-
-    goto :goto_1
-
-    :cond_4
-    const/16 v4, 0x9
-
-    goto/16 :goto_2
-
-    :sswitch_3
-    const-string v4, "rotation"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
-
-    goto :goto_1
-
-    :cond_5
-    const/16 v4, 0x8
-
-    goto :goto_2
-
-    :sswitch_4
-    const-string v5, "scaleY"
-
-    invoke-virtual {v1, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v5
-
-    if-nez v5, :cond_d
-
-    goto :goto_1
-
-    :sswitch_5
-    const-string v4, "scaleX"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_6
-
-    goto :goto_1
-
-    :cond_6
-    const/4 v4, 0x6
-
-    goto :goto_2
-
-    :sswitch_6
-    const-string v4, "progress"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_7
-
-    goto :goto_1
-
-    :cond_7
-    const/4 v4, 0x5
-
-    goto :goto_2
-
-    :sswitch_7
-    const-string v4, "translationZ"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_8
-
-    goto :goto_1
-
-    :cond_8
-    const/4 v4, 0x4
-
-    goto :goto_2
-
-    :sswitch_8
-    const-string v4, "translationY"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_9
-
-    goto :goto_1
-
-    :cond_9
-    const/4 v4, 0x3
-
-    goto :goto_2
-
-    :sswitch_9
-    const-string v4, "translationX"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_a
-
-    goto :goto_1
-
-    :cond_a
-    const/4 v4, 0x2
-
-    goto :goto_2
-
-    :sswitch_a
-    const-string v4, "rotationY"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_b
-
-    goto :goto_1
-
-    :cond_b
-    const/4 v4, 0x1
-
-    goto :goto_2
-
-    :sswitch_b
-    const-string v4, "rotationX"
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_c
-
-    goto/16 :goto_1
-
-    :cond_c
-    const/4 v4, 0x0
-
-    :cond_d
-    :goto_2
-    packed-switch v4, :pswitch_data_0
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "UNKNOWN addValues \""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "\""
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "KeyTimeCycles"
-
-    invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :pswitch_0
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mAlpha:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mAlpha:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_1
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionPathRotate:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionPathRotate:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_2
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mElevation:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mElevation:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_3
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotation:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotation:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_4
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleY:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleY:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_5
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleX:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleX:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_6
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_7
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationZ:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationZ:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_8
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationY:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationY:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_9
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationX:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationX:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_a
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationY:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationY:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :pswitch_b
-    iget v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationX:F
-
-    invoke-static {v1}, Ljava/lang/Float;->isNaN(F)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget v4, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
-
-    iget v5, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationX:F
-
-    iget v6, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
-
-    iget v7, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
-
-    iget v8, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
-
-    invoke-virtual/range {v3 .. v8}, Landroidx/constraintlayout/motion/widget/TimeCycleSplineSet;->setPoint(IFFIF)V
-
-    goto/16 :goto_0
-
-    :cond_e
-    return-void
-
-    nop
-
-    :sswitch_data_0
-    .sparse-switch
-        -0x4a771f66 -> :sswitch_b
-        -0x4a771f65 -> :sswitch_a
-        -0x490b9c39 -> :sswitch_9
-        -0x490b9c38 -> :sswitch_8
-        -0x490b9c37 -> :sswitch_7
-        -0x3bab3dd3 -> :sswitch_6
-        -0x3621dfb2 -> :sswitch_5
-        -0x3621dfb1 -> :sswitch_4
-        -0x266f082 -> :sswitch_3
-        -0x42d1a3 -> :sswitch_2
-        0x2382115 -> :sswitch_1
-        0x589b15e -> :sswitch_0
-    .end sparse-switch
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_b
-        :pswitch_a
-        :pswitch_9
-        :pswitch_8
-        :pswitch_7
-        :pswitch_6
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
-.end method
-
-.method public addValues(Ljava/util/HashMap;)V
+.method public final addValues(Ljava/util/HashMap;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1018,8 +77,8 @@
     throw p0
 .end method
 
-.method public getAttributeNames(Ljava/util/HashSet;)V
-    .locals 3
+.method public final getAttributeNames(Ljava/util/HashSet;)V
+    .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1063,7 +122,7 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "rotation"
+    const-string/jumbo v0, "rotation"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1076,7 +135,7 @@
 
     if-nez v0, :cond_3
 
-    const-string v0, "rotationX"
+    const-string/jumbo v0, "rotationX"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1089,7 +148,7 @@
 
     if-nez v0, :cond_4
 
-    const-string v0, "rotationY"
+    const-string/jumbo v0, "rotationY"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1102,7 +161,7 @@
 
     if-nez v0, :cond_5
 
-    const-string v0, "translationX"
+    const-string/jumbo v0, "translationX"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1115,7 +174,7 @@
 
     if-nez v0, :cond_6
 
-    const-string v0, "translationY"
+    const-string/jumbo v0, "translationY"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1128,7 +187,7 @@
 
     if-nez v0, :cond_7
 
-    const-string v0, "translationZ"
+    const-string/jumbo v0, "translationZ"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1141,7 +200,7 @@
 
     if-nez v0, :cond_8
 
-    const-string v0, "transitionPathRotate"
+    const-string/jumbo v0, "transitionPathRotate"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1154,7 +213,7 @@
 
     if-nez v0, :cond_9
 
-    const-string v0, "scaleX"
+    const-string/jumbo v0, "scaleX"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
@@ -1167,79 +226,31 @@
 
     if-nez v0, :cond_a
 
-    const-string v0, "scaleY"
+    const-string/jumbo v0, "scaleY"
 
     invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     :cond_a
-    iget v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
+    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
 
-    invoke-static {v0}, Ljava/lang/Float;->isNaN(F)Z
+    invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
 
-    move-result v0
+    move-result p0
 
-    if-nez v0, :cond_b
+    if-nez p0, :cond_b
 
-    const-string v0, "progress"
+    const-string/jumbo p0, "progress"
 
-    invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
     :cond_b
-    iget-object v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mCustomConstraints:Ljava/util/HashMap;
+    const/4 p0, 0x0
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->size()I
-
-    move-result v0
-
-    if-lez v0, :cond_c
-
-    iget-object p0, p0, Landroidx/constraintlayout/motion/widget/Key;->mCustomConstraints:Ljava/util/HashMap;
-
-    invoke-virtual {p0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_c
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "CUSTOM,"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
-
-    goto :goto_0
-
-    :cond_c
-    return-void
+    throw p0
 .end method
 
-.method public load(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+.method public final load(Landroid/content/Context;Landroid/util/AttributeSet;)V
+    .locals 4
 
     sget-object v0, Landroidx/constraintlayout/widget/R$styleable;->KeyTimeCycle:[I
 
@@ -1247,13 +258,367 @@
 
     move-result-object p1
 
-    invoke-static {p0, p1}, Landroidx/constraintlayout/motion/widget/KeyTimeCycle$Loader;->read(Landroidx/constraintlayout/motion/widget/KeyTimeCycle;Landroid/content/res/TypedArray;)V
+    sget-object p2, Landroidx/constraintlayout/motion/widget/KeyTimeCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
 
+    invoke-virtual {p1}, Landroid/content/res/TypedArray;->getIndexCount()I
+
+    move-result p2
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, p2, :cond_4
+
+    invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->getIndex(I)I
+
+    move-result v1
+
+    sget-object v2, Landroidx/constraintlayout/motion/widget/KeyTimeCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v2, v1}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v2
+
+    packed-switch v2, :pswitch_data_0
+
+    :pswitch_0
+    const-string/jumbo v2, "unused attribute 0x"
+
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v3, "   "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-object v3, Landroidx/constraintlayout/motion/widget/KeyTimeCycle$Loader;->mAttrMap:Landroid/util/SparseIntArray;
+
+    invoke-virtual {v3, v1}, Landroid/util/SparseIntArray;->get(I)I
+
+    move-result v1
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "KeyTimeCycle"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :pswitch_1
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/util/TypedValue;->type:I
+
+    const/4 v3, 0x5
+
+    if-ne v2, v3, :cond_0
+
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
+
+    goto/16 :goto_1
+
+    :cond_0
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveOffset:F
+
+    goto/16 :goto_1
+
+    :pswitch_2
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWavePeriod:F
+
+    goto/16 :goto_1
+
+    :pswitch_3
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mWaveShape:I
+
+    goto/16 :goto_1
+
+    :pswitch_4
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mProgress:F
+
+    goto/16 :goto_1
+
+    :pswitch_5
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationZ:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationZ:F
+
+    goto/16 :goto_1
+
+    :pswitch_6
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationY:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationY:F
+
+    goto/16 :goto_1
+
+    :pswitch_7
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationX:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTranslationX:F
+
+    goto/16 :goto_1
+
+    :pswitch_8
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleY:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleY:F
+
+    goto/16 :goto_1
+
+    :pswitch_9
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getInteger(II)I
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
+
+    goto/16 :goto_1
+
+    :pswitch_a
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/Key;->mFramePosition:I
+
+    goto/16 :goto_1
+
+    :pswitch_b
+    sget-boolean v2, Landroidx/constraintlayout/motion/widget/MotionLayout;->IS_IN_EDIT_MODE:Z
+
+    if-eqz v2, :cond_1
+
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetId:I
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v2
+
+    iput v2, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetId:I
+
+    const/4 v3, -0x1
+
+    if-ne v2, v3, :cond_3
+
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetString:Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->peekValue(I)Landroid/util/TypedValue;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/util/TypedValue;->type:I
+
+    const/4 v3, 0x3
+
+    if-ne v2, v3, :cond_2
+
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetString:Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_2
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetId:I
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getResourceId(II)I
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/Key;->mTargetId:I
+
+    goto :goto_1
+
+    :pswitch_c
+    invoke-virtual {p1, v1}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+
+    goto :goto_1
+
+    :pswitch_d
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionPathRotate:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mTransitionPathRotate:F
+
+    goto :goto_1
+
+    :pswitch_e
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleX:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mScaleX:F
+
+    goto :goto_1
+
+    :pswitch_f
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationY:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationY:F
+
+    goto :goto_1
+
+    :pswitch_10
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationX:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotationX:F
+
+    goto :goto_1
+
+    :pswitch_11
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotation:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mRotation:F
+
+    goto :goto_1
+
+    :pswitch_12
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mElevation:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getDimension(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mElevation:F
+
+    goto :goto_1
+
+    :pswitch_13
+    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mAlpha:F
+
+    invoke-virtual {p1, v1, v2}, Landroid/content/res/TypedArray;->getFloat(IF)F
+
+    move-result v1
+
+    iput v1, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mAlpha:F
+
+    :cond_3
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto/16 :goto_0
+
+    :cond_4
     return-void
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_13
+        :pswitch_12
+        :pswitch_0
+        :pswitch_11
+        :pswitch_10
+        :pswitch_f
+        :pswitch_e
+        :pswitch_d
+        :pswitch_c
+        :pswitch_b
+        :pswitch_0
+        :pswitch_a
+        :pswitch_9
+        :pswitch_8
+        :pswitch_7
+        :pswitch_6
+        :pswitch_5
+        :pswitch_4
+        :pswitch_3
+        :pswitch_2
+        :pswitch_1
+    .end packed-switch
 .end method
 
-.method public setInterpolation(Ljava/util/HashMap;)V
-    .locals 4
+.method public final setInterpolation(Ljava/util/HashMap;)V
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1325,7 +690,7 @@
 
     move-result-object v0
 
-    const-string v1, "rotation"
+    const-string/jumbo v1, "rotation"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1344,7 +709,7 @@
 
     move-result-object v0
 
-    const-string v1, "rotationX"
+    const-string/jumbo v1, "rotationX"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1363,7 +728,7 @@
 
     move-result-object v0
 
-    const-string v1, "rotationY"
+    const-string/jumbo v1, "rotationY"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1382,7 +747,7 @@
 
     move-result-object v0
 
-    const-string v1, "translationX"
+    const-string/jumbo v1, "translationX"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1401,7 +766,7 @@
 
     move-result-object v0
 
-    const-string v1, "translationY"
+    const-string/jumbo v1, "translationY"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1420,7 +785,7 @@
 
     move-result-object v0
 
-    const-string v1, "translationZ"
+    const-string/jumbo v1, "translationZ"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1439,7 +804,7 @@
 
     move-result-object v0
 
-    const-string v1, "transitionPathRotate"
+    const-string/jumbo v1, "transitionPathRotate"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1458,7 +823,7 @@
 
     move-result-object v0
 
-    const-string v1, "scaleX"
+    const-string/jumbo v1, "scaleX"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1477,7 +842,7 @@
 
     move-result-object v0
 
-    const-string v1, "scaleY"
+    const-string/jumbo v1, "scaleY"
 
     invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1490,72 +855,18 @@
 
     if-nez v0, :cond_c
 
-    iget v0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
+    iget p0, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v0
+    move-result-object p0
 
-    const-string v1, "progress"
+    const-string/jumbo v0, "progress"
 
-    invoke-virtual {p1, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, p0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_c
-    iget-object v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mCustomConstraints:Ljava/util/HashMap;
+    const/4 p0, 0x0
 
-    invoke-virtual {v0}, Ljava/util/HashMap;->size()I
-
-    move-result v0
-
-    if-lez v0, :cond_d
-
-    iget-object v0, p0, Landroidx/constraintlayout/motion/widget/Key;->mCustomConstraints:Ljava/util/HashMap;
-
-    invoke-virtual {v0}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_d
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "CUSTOM,"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget v2, p0, Landroidx/constraintlayout/motion/widget/KeyTimeCycle;->mCurveFit:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_0
-
-    :cond_d
-    return-void
+    throw p0
 .end method

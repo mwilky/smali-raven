@@ -4,11 +4,11 @@
 
 
 # instance fields
-.field private mFakeShadow:Landroid/view/View;
+.field public mFakeShadow:Landroid/view/View;
 
-.field private mOutlineAlpha:F
+.field public mOutlineAlpha:F
 
-.field private final mShadowMinHeight:I
+.field public final mShadowMinHeight:I
 
 
 # direct methods
@@ -99,7 +99,7 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/systemui/R$dimen;->notification_divider_height:I
+    const p2, 0x7f0705ba
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -113,94 +113,5 @@
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mShadowMinHeight:I
 
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/statusbar/notification/FakeShadowView;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/statusbar/notification/FakeShadowView;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mOutlineAlpha:F
-
-    return p0
-.end method
-
-
-# virtual methods
-.method public setFakeShadowTranslationZ(FFII)V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    cmpl-float v0, p1, v0
-
-    if-nez v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
-
-    const/4 p1, 0x4
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mShadowMinHeight:I
-
-    int-to-float v0, v0
-
-    invoke-static {v0, p1}, Ljava/lang/Math;->max(FF)F
-
-    move-result p1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
-
-    invoke-virtual {v0, p1}, Landroid/view/View;->setTranslationZ(F)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
-
-    int-to-float p4, p4
-
-    invoke-virtual {p1, p4}, Landroid/view/View;->setTranslationX(F)V
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/view/View;->getHeight()I
-
-    move-result p4
-
-    sub-int/2addr p3, p4
-
-    int-to-float p3, p3
-
-    invoke-virtual {p1, p3}, Landroid/view/View;->setTranslationY(F)V
-
-    iget p1, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mOutlineAlpha:F
-
-    cmpl-float p1, p2, p1
-
-    if-eqz p1, :cond_1
-
-    iput p2, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mOutlineAlpha:F
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
-
-    invoke-virtual {p0}, Landroid/view/View;->invalidateOutline()V
-
-    :cond_1
-    :goto_0
     return-void
 .end method

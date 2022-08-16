@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/MotionScene$1;
+.class public final Landroidx/constraintlayout/motion/widget/MotionScene$1;
 .super Ljava/lang/Object;
 .source "MotionScene.java"
 
@@ -6,30 +6,15 @@
 .implements Landroid/view/animation/Interpolator;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/constraintlayout/motion/widget/MotionScene;->getInterpolator()Landroid/view/animation/Interpolator;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/constraintlayout/motion/widget/MotionScene;
-
-.field final synthetic val$easing:Landroidx/constraintlayout/motion/utils/Easing;
+.field public final synthetic val$easing:Landroidx/constraintlayout/motion/utils/Easing;
 
 
 # direct methods
-.method constructor <init>(Landroidx/constraintlayout/motion/widget/MotionScene;Landroidx/constraintlayout/motion/utils/Easing;)V
+.method public constructor <init>(Landroidx/constraintlayout/motion/utils/Easing;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionScene$1;->this$0:Landroidx/constraintlayout/motion/widget/MotionScene;
-
-    iput-object p2, p0, Landroidx/constraintlayout/motion/widget/MotionScene$1;->val$easing:Landroidx/constraintlayout/motion/utils/Easing;
+    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/MotionScene$1;->val$easing:Landroidx/constraintlayout/motion/utils/Easing;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +23,7 @@
 
 
 # virtual methods
-.method public getInterpolation(F)F
+.method public final getInterpolation(F)F
     .locals 2
 
     iget-object p0, p0, Landroidx/constraintlayout/motion/widget/MotionScene$1;->val$easing:Landroidx/constraintlayout/motion/utils/Easing;

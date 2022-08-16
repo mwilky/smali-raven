@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieDrawable$1;
+.class public final Lcom/airbnb/lottie/LottieDrawable$1;
 .super Ljava/lang/Object;
 .source "LottieDrawable.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
+.field public final synthetic this$0:Lcom/airbnb/lottie/LottieDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieDrawable;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$1;->this$0:Lcom/airbnb/lottie/LottieDrawable;
@@ -34,35 +34,41 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    iget-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$1;->this$0:Lcom/airbnb/lottie/LottieDrawable;
-
-    invoke-static {p1}, Lcom/airbnb/lottie/LottieDrawable;->access$000(Lcom/airbnb/lottie/LottieDrawable;)Lcom/airbnb/lottie/model/layer/CompositionLayer;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/airbnb/lottie/LottieDrawable$1;->this$0:Lcom/airbnb/lottie/LottieDrawable;
-
-    invoke-static {p1}, Lcom/airbnb/lottie/LottieDrawable;->access$000(Lcom/airbnb/lottie/LottieDrawable;)Lcom/airbnb/lottie/model/layer/CompositionLayer;
-
-    move-result-object p1
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 2
 
     iget-object p0, p0, Lcom/airbnb/lottie/LottieDrawable$1;->this$0:Lcom/airbnb/lottie/LottieDrawable;
 
-    invoke-static {p0}, Lcom/airbnb/lottie/LottieDrawable;->access$100(Lcom/airbnb/lottie/LottieDrawable;)Lcom/airbnb/lottie/utils/LottieValueAnimator;
+    iget-object p1, p0, Lcom/airbnb/lottie/LottieDrawable;->compositionLayer:Lcom/airbnb/lottie/model/layer/CompositionLayer;
 
-    move-result-object p0
+    if-eqz p1, :cond_1
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/utils/LottieValueAnimator;->getAnimatedValueAbsolute()F
+    iget-object p0, p0, Lcom/airbnb/lottie/LottieDrawable;->animator:Lcom/airbnb/lottie/utils/LottieValueAnimator;
 
-    move-result p0
+    iget-object v0, p0, Lcom/airbnb/lottie/utils/LottieValueAnimator;->composition:Lcom/airbnb/lottie/LottieComposition;
 
-    invoke-virtual {p1, p0}, Lcom/airbnb/lottie/model/layer/CompositionLayer;->setProgress(F)V
+    if-nez v0, :cond_0
+
+    const/4 p0, 0x0
+
+    goto :goto_0
 
     :cond_0
+    iget p0, p0, Lcom/airbnb/lottie/utils/LottieValueAnimator;->frame:F
+
+    iget v1, v0, Lcom/airbnb/lottie/LottieComposition;->startFrame:F
+
+    sub-float/2addr p0, v1
+
+    iget v0, v0, Lcom/airbnb/lottie/LottieComposition;->endFrame:F
+
+    sub-float/2addr v0, v1
+
+    div-float/2addr p0, v0
+
+    :goto_0
+    invoke-virtual {p1, p0}, Lcom/airbnb/lottie/model/layer/CompositionLayer;->setProgress(F)V
+
+    :cond_1
     return-void
 .end method

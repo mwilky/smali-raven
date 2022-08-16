@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/FakeShadowView$1;
+.class public final Lcom/android/systemui/statusbar/notification/FakeShadowView$1;
 .super Landroid/view/ViewOutlineProvider;
 .source "FakeShadowView.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/FakeShadowView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/FakeShadowView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/FakeShadowView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/FakeShadowView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView$1;->this$0:Lcom/android/systemui/statusbar/notification/FakeShadowView;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
+.method public final getOutline(Landroid/view/View;Landroid/graphics/Outline;)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView$1;->this$0:Lcom/android/systemui/statusbar/notification/FakeShadowView;
@@ -42,9 +42,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView$1;->this$0:Lcom/android/systemui/statusbar/notification/FakeShadowView;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/FakeShadowView;->access$000(Lcom/android/systemui/statusbar/notification/FakeShadowView;)Landroid/view/View;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mFakeShadow:Landroid/view/View;
 
     invoke-virtual {v0}, Landroid/view/View;->getHeight()I
 
@@ -56,9 +54,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView$1;->this$0:Lcom/android/systemui/statusbar/notification/FakeShadowView;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/FakeShadowView;->access$100(Lcom/android/systemui/statusbar/notification/FakeShadowView;)F
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/FakeShadowView;->mOutlineAlpha:F
 
     invoke-virtual {p2, p0}, Landroid/graphics/Outline;->setAlpha(F)V
 

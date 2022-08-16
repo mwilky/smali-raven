@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/CommandQueue$1;
+.class public final Lcom/android/systemui/statusbar/CommandQueue$1;
 .super Ljava/lang/Thread;
 .source "CommandQueue.java"
 
@@ -9,49 +9,49 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/CommandQueue;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-.field final synthetic val$args:[Ljava/lang/String;
+.field public final synthetic val$args:[Ljava/lang/String;
 
-.field final synthetic val$pfd:Landroid/os/ParcelFileDescriptor;
+.field public final synthetic val$pfd:Landroid/os/ParcelFileDescriptor;
 
-.field final synthetic val$pw:Ljava/io/PrintWriter;
+.field public final synthetic val$pw:Ljava/io/PrintWriter;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/CommandQueue;Ljava/lang/String;Ljava/io/PrintWriter;[Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/CommandQueue;Ljava/io/PrintWriter;[Ljava/lang/String;Landroid/os/ParcelFileDescriptor;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$pw:Ljava/io/PrintWriter;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$pw:Ljava/io/PrintWriter;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$args:[Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$args:[Ljava/lang/String;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$pfd:Landroid/os/ParcelFileDescriptor;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$pfd:Landroid/os/ParcelFileDescriptor;
 
-    invoke-direct {p0, p2}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
+    const-string p1, "Sysui.passThroughShellCommand"
+
+    invoke-direct {p0, p1}, Ljava/lang/Thread;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     :try_start_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/CommandQueue;->access$100(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/commandline/CommandRegistry;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/CommandQueue;->mRegistry:Lcom/android/systemui/statusbar/commandline/CommandRegistry;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -73,12 +73,6 @@
 
     :cond_0
     :try_start_2
-    iget-object v0, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->this$0:Lcom/android/systemui/statusbar/CommandQueue;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/CommandQueue;->access$100(Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/statusbar/commandline/CommandRegistry;
-
-    move-result-object v0
-
     iget-object v1, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$pw:Ljava/io/PrintWriter;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/CommandQueue$1;->val$args:[Ljava/lang/String;

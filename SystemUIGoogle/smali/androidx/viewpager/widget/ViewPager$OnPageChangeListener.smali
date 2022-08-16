@@ -18,7 +18,7 @@
 .method public abstract onPageScrollStateChanged(I)V
 .end method
 
-.method public abstract onPageScrolled(IFI)V
+.method public abstract onPageScrolled(FII)V
 .end method
 
 .method public abstract onPageSelected(I)V

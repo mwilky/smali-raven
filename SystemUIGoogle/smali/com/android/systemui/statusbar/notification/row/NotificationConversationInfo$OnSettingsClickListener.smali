@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnSettingsClickListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onClick(Landroid/view/View;Landroid/app/NotificationChannel;I)V
-.end method

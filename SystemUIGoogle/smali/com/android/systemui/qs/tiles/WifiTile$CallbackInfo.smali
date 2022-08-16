@@ -9,33 +9,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1c
+    accessFlags = 0x19
     name = "CallbackInfo"
 .end annotation
 
 
 # instance fields
-.field activityIn:Z
+.field public activityIn:Z
 
-.field activityOut:Z
+.field public activityOut:Z
 
-.field connected:Z
+.field public connected:Z
 
-.field enabled:Z
+.field public enabled:Z
 
-.field isTransient:Z
+.field public isTransient:Z
 
-.field ssid:Ljava/lang/String;
+.field public ssid:Ljava/lang/String;
 
 .field public statusLabel:Ljava/lang/String;
 
-.field wifiSignalContentDescription:Ljava/lang/String;
+.field public wifiSignalContentDescription:Ljava/lang/String;
 
-.field wifiSignalIconId:I
+.field public wifiSignalIconId:I
 
 
 # direct methods
-.method protected constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -45,7 +45,7 @@
 
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -116,13 +116,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/WifiTile$CallbackInfo;->isTransient:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x5d
 
-    const/16 p0, 0x5d
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

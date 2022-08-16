@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaDeviceManager$Entry$onDeviceListUpdate$1;
+.class public final Lcom/android/systemui/media/MediaDeviceManager$Entry$onDeviceListUpdate$1;
 .super Ljava/lang/Object;
 .source "MediaDeviceManager.kt"
 
@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaDeviceManager$Entry;->onDeviceListUpdate(Ljava/util/List;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDeviceManager$Entry;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDeviceManager$Entry;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaDeviceManager$Entry;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaDeviceManager$Entry;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$onDeviceListUpdate$1;->this$0:Lcom/android/systemui/media/MediaDeviceManager$Entry;
@@ -39,7 +28,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDeviceManager$Entry$onDeviceListUpdate$1;->this$0:Lcom/android/systemui/media/MediaDeviceManager$Entry;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaDeviceManager$Entry;->access$updateCurrent(Lcom/android/systemui/media/MediaDeviceManager$Entry;)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/MediaDeviceManager$Entry;->updateCurrent()V
 
     return-void
 .end method

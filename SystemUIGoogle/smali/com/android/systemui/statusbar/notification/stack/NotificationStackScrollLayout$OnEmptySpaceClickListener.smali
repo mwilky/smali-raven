@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnEmptySpaceClickListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onEmptySpaceClicked(FF)V
-.end method

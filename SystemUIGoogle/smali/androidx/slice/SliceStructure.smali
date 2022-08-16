@@ -1,25 +1,17 @@
-.class public Landroidx/slice/SliceStructure;
+.class public final Landroidx/slice/SliceStructure;
 .super Ljava/lang/Object;
 .source "SliceStructure.java"
 
 
 # instance fields
-.field private final mStructure:Ljava/lang/String;
+.field public final mStructure:Ljava/lang/String;
 
-.field private final mUri:Landroid/net/Uri;
+.field public final mUri:Landroid/net/Uri;
 
 
 # direct methods
 .method public constructor <init>(Landroidx/slice/Slice;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "s"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,14 +38,6 @@
 
 .method public constructor <init>(Landroidx/slice/SliceItem;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "s"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -69,9 +53,7 @@
 
     iput-object v0, p0, Landroidx/slice/SliceStructure;->mStructure:Ljava/lang/String;
 
-    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, p1, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
     const-string v1, "action"
 
@@ -81,11 +63,9 @@
 
     if-nez v0, :cond_1
 
-    invoke-virtual {p1}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
+    iget-object v0, p1, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
-    move-result-object v0
-
-    const-string v1, "slice"
+    const-string/jumbo v1, "slice"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -118,20 +98,10 @@
     return-void
 .end method
 
-.method private static getStructure(Landroidx/slice/Slice;Ljava/lang/StringBuilder;)V
+.method public static getStructure(Landroidx/slice/Slice;Ljava/lang/StringBuilder;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "s",
-            "str"
-        }
-    .end annotation
 
-    const-string v0, "s{"
+    const-string/jumbo v0, "s{"
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -168,22 +138,10 @@
     return-void
 .end method
 
-.method private static getStructure(Landroidx/slice/SliceItem;Ljava/lang/StringBuilder;)V
+.method public static getStructure(Landroidx/slice/SliceItem;Ljava/lang/StringBuilder;)V
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "item",
-            "str"
-        }
-    .end annotation
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getFormat()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/slice/SliceItem;->mFormat:Ljava/lang/String;
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
@@ -200,7 +158,7 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v1, "slice"
+    const-string/jumbo v1, "slice"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -239,7 +197,7 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v1, "text"
+    const-string/jumbo v1, "text"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -337,11 +295,9 @@
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Landroidx/slice/SliceItem;->getSubType()Ljava/lang/String;
+    iget-object v0, p0, Landroidx/slice/SliceItem;->mSubType:Ljava/lang/String;
 
-    move-result-object v0
-
-    const-string v1, "range"
+    const-string/jumbo v1, "range"
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -372,8 +328,6 @@
     :goto_2
     return-void
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
         -0x54d081ca -> :sswitch_7
@@ -389,16 +343,8 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "obj"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/slice/SliceStructure;
 
@@ -422,15 +368,7 @@
     return p0
 .end method
 
-.method public getUri()Landroid/net/Uri;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/SliceStructure;->mUri:Landroid/net/Uri;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 0
 
     iget-object p0, p0, Landroidx/slice/SliceStructure;->mStructure:Ljava/lang/String;

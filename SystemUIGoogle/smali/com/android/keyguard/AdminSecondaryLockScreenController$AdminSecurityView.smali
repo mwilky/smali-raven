@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;
+.class public final Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;
 .super Landroid/view/SurfaceView;
 .source "AdminSecondaryLockScreenController.java"
 
@@ -9,26 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AdminSecurityView"
 .end annotation
 
 
 # instance fields
-.field private mSurfaceHolderCallback:Landroid/view/SurfaceHolder$Callback;
-
-.field final synthetic this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+.field public mSurfaceHolderCallback:Landroid/view/SurfaceHolder$Callback;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/AdminSecondaryLockScreenController;Landroid/content/Context;Landroid/view/SurfaceHolder$Callback;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/view/SurfaceHolder$Callback;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;->this$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
+    invoke-direct {p0, p1}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;)V
 
-    invoke-direct {p0, p2}, Landroid/view/SurfaceView;-><init>(Landroid/content/Context;)V
-
-    iput-object p3, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;->mSurfaceHolderCallback:Landroid/view/SurfaceHolder$Callback;
+    iput-object p2, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$AdminSecurityView;->mSurfaceHolderCallback:Landroid/view/SurfaceHolder$Callback;
 
     const/4 p1, 0x1
 
@@ -39,7 +35,7 @@
 
 
 # virtual methods
-.method protected onAttachedToWindow()V
+.method public final onAttachedToWindow()V
     .locals 1
 
     invoke-super {p0}, Landroid/view/SurfaceView;->onAttachedToWindow()V
@@ -55,7 +51,7 @@
     return-void
 .end method
 
-.method protected onDetachedFromWindow()V
+.method public final onDetachedFromWindow()V
     .locals 1
 
     invoke-super {p0}, Landroid/view/SurfaceView;->onDetachedFromWindow()V

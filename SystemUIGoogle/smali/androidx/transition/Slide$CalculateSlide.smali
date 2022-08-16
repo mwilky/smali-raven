@@ -1,4 +1,4 @@
-.class interface abstract Landroidx/transition/Slide$CalculateSlide;
+.class public interface abstract Landroidx/transition/Slide$CalculateSlide;
 .super Ljava/lang/Object;
 .source "Slide.java"
 
@@ -9,14 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x60a
+    accessFlags = 0x609
     name = "CalculateSlide"
 .end annotation
 
 
 # virtual methods
-.method public abstract getGoneX(Landroid/view/ViewGroup;Landroid/view/View;)F
+.method public abstract getGoneX(Landroid/view/View;Landroid/view/ViewGroup;)F
 .end method
 
-.method public abstract getGoneY(Landroid/view/ViewGroup;Landroid/view/View;)F
+.method public abstract getGoneY(Landroid/view/View;Landroid/view/ViewGroup;)F
 .end method

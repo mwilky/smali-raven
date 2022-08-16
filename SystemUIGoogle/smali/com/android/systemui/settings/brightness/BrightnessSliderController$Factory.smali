@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
+.class public final Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 .super Ljava/lang/Object;
 .source "BrightnessSliderController.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+.field public final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
 
 # direct methods
@@ -29,26 +29,16 @@
     return-void
 .end method
 
-.method private getLayout()I
-    .locals 0
-
-    sget p0, Lcom/android/systemui/R$layout;->quick_settings_brightness_dialog:I
-
-    return p0
-.end method
-
 
 # virtual methods
-.method public create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSliderController;
+.method public final create(Landroid/content/Context;Landroid/view/ViewGroup;)Lcom/android/systemui/settings/brightness/BrightnessSliderController;
     .locals 2
-
-    invoke-direct {p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;->getLayout()I
-
-    move-result v0
 
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
+
+    const v0, 0x7f0e01ee
 
     const/4 v1, 0x0
 

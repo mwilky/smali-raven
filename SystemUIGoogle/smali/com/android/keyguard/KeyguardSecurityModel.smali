@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/KeyguardSecurityModel;
+.class public final Lcom/android/keyguard/KeyguardSecurityModel;
 .super Ljava/lang/Object;
 .source "KeyguardSecurityModel.java"
 
@@ -12,30 +12,20 @@
 
 
 # instance fields
-.field private final mIsPukScreenAvailable:Z
+.field public final mIsPukScreenAvailable:Z
 
-.field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-.field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+.field public final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Csy6W7Fs3TE8ZZ37FOoU7VLTN7Y(Lcom/android/keyguard/KeyguardSecurityModel;I)Ljava/lang/Integer;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/KeyguardSecurityModel;->lambda$getSecurityMode$0(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method constructor <init>(Landroid/content/res/Resources;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
+.method public constructor <init>(Landroid/content/res/Resources;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardUpdateMonitor;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const v0, 0x11100e3
+    const v0, 0x1110148
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -50,51 +40,9 @@
     return-void
 .end method
 
-.method public static isSecurityViewOneHanded(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;)Z
-    .locals 1
-
-    sget-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Pattern:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-eq p0, v0, :cond_1
-
-    sget-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->PIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    if-ne p0, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method private synthetic lambda$getSecurityMode$0(I)Ljava/lang/Integer;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityModel;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {p0, p1}, Lcom/android/internal/widget/LockPatternUtils;->getActivePasswordQuality(I)I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public getSecurityMode(I)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+.method public final getSecurityMode(I)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
     .locals 2
 
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardSecurityModel;->mIsPukScreenAvailable:Z
@@ -188,17 +136,9 @@
     :cond_2
     new-instance p1, Ljava/lang/IllegalStateException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Unknown security quality:"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "Unknown security quality:"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0}, Lcom/android/systemui/tuner/NavBarTuner$$ExternalSyntheticLambda2;->m(Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object p0
 

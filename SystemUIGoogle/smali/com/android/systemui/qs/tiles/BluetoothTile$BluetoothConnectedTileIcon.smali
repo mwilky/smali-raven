@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothConnectedTileIcon;
+.class public final Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothConnectedTileIcon;
 .super Lcom/android/systemui/plugins/qs/QSTile$Icon;
 .source "BluetoothTile.java"
 
@@ -9,20 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "BluetoothConnectedTileIcon"
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/BluetoothTile;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothConnectedTileIcon;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
 
     invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$Icon;-><init>()V
 
@@ -31,10 +25,10 @@
 
 
 # virtual methods
-.method public getDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+.method public final getDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$drawable;->ic_bluetooth_connected:I
+    const p0, 0x7f08047a
 
     invoke-virtual {p1, p0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

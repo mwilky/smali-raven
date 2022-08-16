@@ -1,127 +1,69 @@
-.class Lcom/android/systemui/ExpandHelper$2;
-.super Landroid/animation/AnimatorListenerAdapter;
+.class public final Lcom/android/systemui/ExpandHelper$2;
+.super Landroid/view/ScaleGestureDetector$SimpleOnScaleGestureListener;
 .source "ExpandHelper.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/ExpandHelper;->finishExpanding(ZFZ)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/ExpandHelper;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field public mCancelled:Z
-
-.field final synthetic this$0:Lcom/android/systemui/ExpandHelper;
-
-.field final synthetic val$expand:Z
-
-.field final synthetic val$scaledView:Landroid/view/View;
+.field public final synthetic this$0:Lcom/android/systemui/ExpandHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/ExpandHelper;Landroid/view/View;Z)V
+.method public constructor <init>(Lcom/android/systemui/ExpandHelper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
 
-    iput-object p2, p0, Lcom/android/systemui/ExpandHelper$2;->val$scaledView:Landroid/view/View;
-
-    iput-boolean p3, p0, Lcom/android/systemui/ExpandHelper$2;->val$expand:Z
-
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Landroid/view/ScaleGestureDetector$SimpleOnScaleGestureListener;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onScale(Landroid/view/ScaleGestureDetector;)Z
     .locals 0
 
-    const/4 p1, 0x1
+    const/4 p0, 0x1
 
-    iput-boolean p1, p0, Lcom/android/systemui/ExpandHelper$2;->mCancelled:Z
-
-    return-void
+    return p0
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onScaleBegin(Landroid/view/ScaleGestureDetector;)Z
     .locals 2
 
-    iget-boolean p1, p0, Lcom/android/systemui/ExpandHelper$2;->mCancelled:Z
-
-    if-nez p1, :cond_0
-
     iget-object p1, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
 
-    invoke-static {p1}, Lcom/android/systemui/ExpandHelper;->access$400(Lcom/android/systemui/ExpandHelper;)Lcom/android/systemui/ExpandHelper$Callback;
+    iget-boolean v0, p1, Lcom/android/systemui/ExpandHelper;->mOnlyMovements:Z
 
-    move-result-object p1
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/ExpandHelper$2;->val$scaledView:Landroid/view/View;
+    iget-object v0, p1, Lcom/android/systemui/ExpandHelper;->mResizedView:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    iget-boolean v1, p0, Lcom/android/systemui/ExpandHelper$2;->val$expand:Z
+    const/4 v1, 0x4
 
-    invoke-interface {p1, v0, v1}, Lcom/android/systemui/ExpandHelper$Callback;->setUserExpandedChild(Landroid/view/View;Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
-
-    invoke-static {p1}, Lcom/android/systemui/ExpandHelper;->access$200(Lcom/android/systemui/ExpandHelper;)Z
-
-    move-result p1
-
-    if-nez p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
-
-    invoke-static {p1}, Lcom/android/systemui/ExpandHelper;->access$500(Lcom/android/systemui/ExpandHelper;)Lcom/android/systemui/ExpandHelper$ViewScaler;
-
-    move-result-object p1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/ExpandHelper$ViewScaler;->setView(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
-
-    goto :goto_0
+    invoke-virtual {p1, v0, v1}, Lcom/android/systemui/ExpandHelper;->startExpanding(Lcom/android/systemui/statusbar/notification/row/ExpandableView;I)Z
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
+    iget-object p0, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
 
-    invoke-static {p1}, Lcom/android/systemui/ExpandHelper;->access$400(Lcom/android/systemui/ExpandHelper;)Lcom/android/systemui/ExpandHelper$Callback;
+    iget-boolean p0, p0, Lcom/android/systemui/ExpandHelper;->mExpanding:Z
 
-    move-result-object p1
+    return p0
+.end method
 
-    iget-object v0, p0, Lcom/android/systemui/ExpandHelper$2;->val$scaledView:Landroid/view/View;
-
-    invoke-interface {p1, v0}, Lcom/android/systemui/ExpandHelper$Callback;->setExpansionCancelled(Landroid/view/View;)V
-
-    :cond_1
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
-
-    invoke-static {p1}, Lcom/android/systemui/ExpandHelper;->access$400(Lcom/android/systemui/ExpandHelper;)Lcom/android/systemui/ExpandHelper$Callback;
-
-    move-result-object p1
-
-    iget-object v0, p0, Lcom/android/systemui/ExpandHelper$2;->val$scaledView:Landroid/view/View;
-
-    const/4 v1, 0x0
-
-    invoke-interface {p1, v0, v1}, Lcom/android/systemui/ExpandHelper$Callback;->setUserLockedChild(Landroid/view/View;Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/ExpandHelper$2;->this$0:Lcom/android/systemui/ExpandHelper;
-
-    invoke-static {p1}, Lcom/android/systemui/ExpandHelper;->access$600(Lcom/android/systemui/ExpandHelper;)Landroid/animation/ObjectAnimator;
-
-    move-result-object p1
-
-    invoke-virtual {p1, p0}, Landroid/animation/ObjectAnimator;->removeListener(Landroid/animation/Animator$AnimatorListener;)V
+.method public final onScaleEnd(Landroid/view/ScaleGestureDetector;)V
+    .locals 0
 
     return-void
 .end method

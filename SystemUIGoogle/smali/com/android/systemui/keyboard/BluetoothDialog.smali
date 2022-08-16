@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/keyboard/BluetoothDialog;
+.class public final Lcom/android/systemui/keyboard/BluetoothDialog;
 .super Lcom/android/systemui/statusbar/phone/SystemUIDialog;
 .source "BluetoothDialog.java"
 
@@ -17,9 +17,7 @@
 
     invoke-virtual {p1, v0}, Landroid/view/Window;->setType(I)V
 
-    const/4 p1, 0x1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Z)V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setShowForAllUsers(Landroid/app/Dialog;)V
 
     return-void
 .end method

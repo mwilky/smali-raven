@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "LifecycleBoundObserver"
 .end annotation
 
@@ -26,13 +26,13 @@
 
 
 # instance fields
-.field final mOwner:Landroidx/lifecycle/LifecycleOwner;
+.field public final mOwner:Landroidx/lifecycle/LifecycleOwner;
 
-.field final synthetic this$0:Landroidx/lifecycle/LiveData;
+.field public final synthetic this$0:Landroidx/lifecycle/LiveData;
 
 
 # direct methods
-.method constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
+.method public constructor <init>(Landroidx/lifecycle/LiveData;Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Observer;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
 
 
 # virtual methods
-.method detachObserver()V
+.method public final detachObserver()V
     .locals 1
 
     iget-object v0, p0, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;->mOwner:Landroidx/lifecycle/LifecycleOwner;
@@ -68,7 +68,7 @@
     return-void
 .end method
 
-.method isAttachedTo(Landroidx/lifecycle/LifecycleOwner;)Z
+.method public final isAttachedTo(Landroidx/lifecycle/LifecycleOwner;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;->mOwner:Landroidx/lifecycle/LifecycleOwner;
@@ -86,7 +86,7 @@
     return p0
 .end method
 
-.method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
+.method public final onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 1
 
     iget-object p1, p0, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;->mOwner:Landroidx/lifecycle/LifecycleOwner;
@@ -145,7 +145,7 @@
     return-void
 .end method
 
-.method shouldBeActive()Z
+.method public final shouldBeActive()Z
     .locals 1
 
     iget-object p0, p0, Landroidx/lifecycle/LiveData$LifecycleBoundObserver;->mOwner:Landroidx/lifecycle/LifecycleOwner;

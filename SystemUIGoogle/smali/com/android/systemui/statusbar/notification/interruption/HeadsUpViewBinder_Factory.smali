@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final bindStageProvider:Ljavax/inject/Provider;
+.field public final bindStageProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,17 @@
     .end annotation
 .end field
 
-.field private final notificationMessagingUtilProvider:Ljavax/inject/Provider;
+.field public final loggerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinderLogger;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final notificationMessagingUtilProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -40,19 +50,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/qs/external/CustomTileStatePersister_Factory;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/util/NotificationMessagingUtil;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -60,45 +59,15 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->bindStageProvider:Ljavax/inject/Provider;
 
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->loggerProvider:Ljavax/inject/Provider;
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/util/NotificationMessagingUtil;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/internal/util/NotificationMessagingUtil;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;-><init>(Lcom/android/internal/util/NotificationMessagingUtil;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->notificationMessagingUtilProvider:Ljavax/inject/Provider;
 
@@ -108,27 +77,25 @@
 
     check-cast v0, Lcom/android/internal/util/NotificationMessagingUtil;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->bindStageProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->bindStageProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->loggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;
+    check-cast p0, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinderLogger;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->newInstance(Lcom/android/internal/util/NotificationMessagingUtil;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;)Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
+    new-instance v2, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;-><init>(Lcom/android/internal/util/NotificationMessagingUtil;Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinderLogger;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder_Factory;->get()Lcom/android/systemui/statusbar/notification/interruption/HeadsUpViewBinder;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v2
 .end method

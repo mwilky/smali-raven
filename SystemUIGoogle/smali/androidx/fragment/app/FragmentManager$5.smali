@@ -3,45 +3,28 @@
 .source "FragmentManager.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Landroidx/fragment/app/FragmentManager;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
-# instance fields
-.field final synthetic this$0:Landroidx/fragment/app/FragmentManager;
-
-
-# direct methods
-.method constructor <init>(Landroidx/fragment/app/FragmentManager;)V
-    .locals 0
-
-    iput-object p1, p0, Landroidx/fragment/app/FragmentManager$5;->this$0:Landroidx/fragment/app/FragmentManager;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
+.implements Landroidx/lifecycle/LifecycleEventObserver;
 
 
 # virtual methods
-.method public run()V
-    .locals 1
+.method public final onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
+    .locals 0
 
-    iget-object p0, p0, Landroidx/fragment/app/FragmentManager$5;->this$0:Landroidx/fragment/app/FragmentManager;
+    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
 
-    const/4 v0, 0x1
+    const/4 p1, 0x0
 
-    invoke-virtual {p0, v0}, Landroidx/fragment/app/FragmentManager;->execPendingActions(Z)Z
+    if-eq p2, p0, :cond_1
+
+    sget-object p0, Landroidx/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroidx/lifecycle/Lifecycle$Event;
+
+    if-eq p2, p0, :cond_0
 
     return-void
+
+    :cond_0
+    throw p1
+
+    :cond_1
+    throw p1
 .end method

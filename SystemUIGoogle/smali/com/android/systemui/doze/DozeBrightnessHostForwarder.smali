@@ -1,10 +1,10 @@
-.class public Lcom/android/systemui/doze/DozeBrightnessHostForwarder;
+.class public final Lcom/android/systemui/doze/DozeBrightnessHostForwarder;
 .super Lcom/android/systemui/doze/DozeMachine$Service$Delegate;
 .source "DozeBrightnessHostForwarder.java"
 
 
 # instance fields
-.field private final mHost:Lcom/android/systemui/doze/DozeHost;
+.field public final mHost:Lcom/android/systemui/doze/DozeHost;
 
 
 # direct methods
@@ -20,7 +20,7 @@
 
 
 # virtual methods
-.method public setDozeScreenBrightness(I)V
+.method public final setDozeScreenBrightness(I)V
     .locals 0
 
     invoke-super {p0, p1}, Lcom/android/systemui/doze/DozeMachine$Service$Delegate;->setDozeScreenBrightness(I)V

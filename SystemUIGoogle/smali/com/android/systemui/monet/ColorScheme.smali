@@ -16,394 +16,284 @@
 
 
 # instance fields
-.field private final accent1:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final accent1:Ljava/util/ArrayList;
 
-.field private final accent2:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final accent2:Ljava/util/ArrayList;
 
-.field private final accent3:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final accent3:Ljava/util/ArrayList;
 
-.field private final darkTheme:Z
+.field public final neutral1:Ljava/util/ArrayList;
 
-.field private final neutral1:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final neutral2:Ljava/util/ArrayList;
 
-.field private final neutral2:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final seed:I
+
+.field public final style:Lcom/android/systemui/monet/Style;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
+.method public static constructor <clinit>()V
+    .locals 1
 
     new-instance v0, Lcom/android/systemui/monet/ColorScheme$Companion;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/monet/ColorScheme$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {v0}, Lcom/android/systemui/monet/ColorScheme$Companion;-><init>()V
 
     sput-object v0, Lcom/android/systemui/monet/ColorScheme;->Companion:Lcom/android/systemui/monet/ColorScheme$Companion;
 
     return-void
 .end method
 
-.method public constructor <init>(IZ)V
+.method public constructor <init>(ILcom/android/systemui/monet/Style;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean p2, p0, Lcom/android/systemui/monet/ColorScheme;->darkTheme:Z
+    iput p1, p0, Lcom/android/systemui/monet/ColorScheme;->seed:I
+
+    iput-object p2, p0, Lcom/android/systemui/monet/ColorScheme;->style:Lcom/android/systemui/monet/Style;
 
     invoke-static {p1}, Lcom/android/internal/graphics/cam/Cam;->fromInt(I)Lcom/android/internal/graphics/cam/Cam;
 
-    move-result-object p2
-
-    const v0, -0xe4910d
+    move-result-object v0
 
     if-nez p1, :cond_0
 
-    :goto_0
-    move p1, v0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
-    invoke-virtual {p2}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
+    sget-object v1, Lcom/android/systemui/monet/Style;->CONTENT:Lcom/android/systemui/monet/Style;
 
-    move-result p2
+    if-eq p2, v1, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
+
+    move-result v0
 
     const/high16 v1, 0x40a00000    # 5.0f
 
-    cmpg-float p2, p2, v1
+    cmpg-float v0, v0, v1
 
-    if-gez p2, :cond_1
+    if-gez v0, :cond_1
 
-    goto :goto_0
+    :goto_0
+    const p1, -0xe4910d
 
     :cond_1
-    :goto_1
     invoke-static {p1}, Lcom/android/internal/graphics/cam/Cam;->fromInt(I)Lcom/android/internal/graphics/cam/Cam;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Lcom/android/internal/graphics/cam/Cam;->getHue()F
+    invoke-virtual {p2}, Lcom/android/systemui/monet/Style;->getCoreSpec$frameworks__base__packages__SystemUI__monet__android_common__monet()Lcom/android/systemui/monet/CoreSpec;
 
-    move-result p2
+    move-result-object v0
 
-    invoke-virtual {p1}, Lcom/android/internal/graphics/cam/Cam;->getChroma()F
+    iget-object v0, v0, Lcom/android/systemui/monet/CoreSpec;->a1:Lcom/android/systemui/monet/TonalSpec;
 
-    move-result p1
+    invoke-virtual {v0, p1}, Lcom/android/systemui/monet/TonalSpec;->shades(Lcom/android/internal/graphics/cam/Cam;)Ljava/util/ArrayList;
 
-    const/high16 v0, 0x42400000    # 48.0f
+    move-result-object v0
 
-    invoke-static {p1, v0}, Lkotlin/ranges/RangesKt;->coerceAtLeast(FF)F
+    iput-object v0, p0, Lcom/android/systemui/monet/ColorScheme;->accent1:Ljava/util/ArrayList;
 
-    move-result p1
+    invoke-virtual {p2}, Lcom/android/systemui/monet/Style;->getCoreSpec$frameworks__base__packages__SystemUI__monet__android_common__monet()Lcom/android/systemui/monet/CoreSpec;
 
-    sget-object v0, Lcom/android/systemui/monet/ColorScheme;->Companion:Lcom/android/systemui/monet/ColorScheme$Companion;
+    move-result-object v0
 
-    const/high16 v1, 0x42700000    # 60.0f
+    iget-object v0, v0, Lcom/android/systemui/monet/CoreSpec;->a2:Lcom/android/systemui/monet/TonalSpec;
 
-    add-float/2addr v1, p2
+    invoke-virtual {v0, p1}, Lcom/android/systemui/monet/TonalSpec;->shades(Lcom/android/internal/graphics/cam/Cam;)Ljava/util/ArrayList;
 
-    float-to-int v1, v1
+    move-result-object v0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$wrapDegrees(Lcom/android/systemui/monet/ColorScheme$Companion;I)I
+    iput-object v0, p0, Lcom/android/systemui/monet/ColorScheme;->accent2:Ljava/util/ArrayList;
 
-    move-result v0
+    invoke-virtual {p2}, Lcom/android/systemui/monet/Style;->getCoreSpec$frameworks__base__packages__SystemUI__monet__android_common__monet()Lcom/android/systemui/monet/CoreSpec;
 
-    invoke-static {p2, p1}, Lcom/android/systemui/monet/Shades;->of(FF)[I
+    move-result-object v0
 
-    move-result-object p1
+    iget-object v0, v0, Lcom/android/systemui/monet/CoreSpec;->a3:Lcom/android/systemui/monet/TonalSpec;
 
-    const-string v1, "of(hue, chroma)"
+    invoke-virtual {v0, p1}, Lcom/android/systemui/monet/TonalSpec;->shades(Lcom/android/internal/graphics/cam/Cam;)Ljava/util/ArrayList;
 
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    move-result-object v0
 
-    invoke-static {p1}, Lkotlin/collections/ArraysKt;->toList([I)Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/monet/ColorScheme;->accent3:Ljava/util/ArrayList;
 
-    move-result-object p1
+    invoke-virtual {p2}, Lcom/android/systemui/monet/Style;->getCoreSpec$frameworks__base__packages__SystemUI__monet__android_common__monet()Lcom/android/systemui/monet/CoreSpec;
 
-    iput-object p1, p0, Lcom/android/systemui/monet/ColorScheme;->accent1:Ljava/util/List;
+    move-result-object v0
 
-    const/high16 p1, 0x41800000    # 16.0f
+    iget-object v0, v0, Lcom/android/systemui/monet/CoreSpec;->n1:Lcom/android/systemui/monet/TonalSpec;
 
-    invoke-static {p2, p1}, Lcom/android/systemui/monet/Shades;->of(FF)[I
+    invoke-virtual {v0, p1}, Lcom/android/systemui/monet/TonalSpec;->shades(Lcom/android/internal/graphics/cam/Cam;)Ljava/util/ArrayList;
 
-    move-result-object p1
+    move-result-object v0
 
-    const-string v1, "of(hue, ACCENT2_CHROMA)"
+    iput-object v0, p0, Lcom/android/systemui/monet/ColorScheme;->neutral1:Ljava/util/ArrayList;
 
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p2}, Lcom/android/systemui/monet/Style;->getCoreSpec$frameworks__base__packages__SystemUI__monet__android_common__monet()Lcom/android/systemui/monet/CoreSpec;
 
-    invoke-static {p1}, Lkotlin/collections/ArraysKt;->toList([I)Ljava/util/List;
+    move-result-object p2
 
-    move-result-object p1
+    iget-object p2, p2, Lcom/android/systemui/monet/CoreSpec;->n2:Lcom/android/systemui/monet/TonalSpec;
 
-    iput-object p1, p0, Lcom/android/systemui/monet/ColorScheme;->accent2:Ljava/util/List;
-
-    int-to-float p1, v0
-
-    const/high16 v0, 0x42000000    # 32.0f
-
-    invoke-static {p1, v0}, Lcom/android/systemui/monet/Shades;->of(FF)[I
+    invoke-virtual {p2, p1}, Lcom/android/systemui/monet/TonalSpec;->shades(Lcom/android/internal/graphics/cam/Cam;)Ljava/util/ArrayList;
 
     move-result-object p1
 
-    const-string v0, "of(tertiaryHue.toFloat(), ACCENT3_CHROMA)"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {p1}, Lkotlin/collections/ArraysKt;->toList([I)Ljava/util/List;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/monet/ColorScheme;->accent3:Ljava/util/List;
-
-    const/high16 p1, 0x40800000    # 4.0f
-
-    invoke-static {p2, p1}, Lcom/android/systemui/monet/Shades;->of(FF)[I
-
-    move-result-object p1
-
-    const-string v0, "of(hue, NEUTRAL1_CHROMA)"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {p1}, Lkotlin/collections/ArraysKt;->toList([I)Ljava/util/List;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/monet/ColorScheme;->neutral1:Ljava/util/List;
-
-    const/high16 p1, 0x41000000    # 8.0f
-
-    invoke-static {p2, p1}, Lcom/android/systemui/monet/Shades;->of(FF)[I
-
-    move-result-object p1
-
-    const-string p2, "of(hue, NEUTRAL2_CHROMA)"
-
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {p1}, Lkotlin/collections/ArraysKt;->toList([I)Ljava/util/List;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/monet/ColorScheme;->neutral2:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/systemui/monet/ColorScheme;->neutral2:Ljava/util/ArrayList;
 
     return-void
 .end method
 
-.method public static final getSeedColor(Landroid/app/WallpaperColors;)I
+.method public constructor <init>(Landroid/app/WallpaperColors;)V
     .locals 1
 
-    sget-object v0, Lcom/android/systemui/monet/ColorScheme;->Companion:Lcom/android/systemui/monet/ColorScheme$Companion;
+    sget-object v0, Lcom/android/systemui/monet/Style;->TONAL_SPOT:Lcom/android/systemui/monet/Style;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/monet/ColorScheme$Companion;->getSeedColor(Landroid/app/WallpaperColors;)I
+    invoke-direct {p0, p1, v0}, Lcom/android/systemui/monet/ColorScheme;-><init>(Landroid/app/WallpaperColors;Lcom/android/systemui/monet/Style;)V
 
-    move-result p0
-
-    return p0
+    return-void
 .end method
 
-.method public static final getSeedColors(Landroid/app/WallpaperColors;)Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/app/WallpaperColors;",
-            ")",
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
+.method public constructor <init>(Landroid/app/WallpaperColors;Lcom/android/systemui/monet/Style;)V
+    .locals 2
 
-    sget-object v0, Lcom/android/systemui/monet/ColorScheme;->Companion:Lcom/android/systemui/monet/ColorScheme$Companion;
+    sget-object v0, Lcom/android/systemui/monet/Style;->CONTENT:Lcom/android/systemui/monet/Style;
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/monet/ColorScheme$Companion;->getSeedColors(Landroid/app/WallpaperColors;)Ljava/util/List;
+    const/4 v1, 0x0
 
-    move-result-object p0
+    if-eq p2, v0, :cond_0
 
-    return-object p0
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    invoke-static {p1, v0}, Lcom/android/systemui/monet/ColorScheme$Companion;->getSeedColors(Landroid/app/WallpaperColors;Z)Ljava/util/List;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Number;
+
+    invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
+
+    move-result p1
+
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/monet/ColorScheme;-><init>(ILcom/android/systemui/monet/Style;)V
+
+    return-void
+
+    :cond_1
+    new-instance p0, Ljava/util/NoSuchElementException;
+
+    const-string p1, "List is empty."
+
+    invoke-direct {p0, p1}, Ljava/util/NoSuchElementException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
 
 # virtual methods
-.method public final getAccent1()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
+.method public final toString()Ljava/lang/String;
+    .locals 4
 
-    iget-object p0, p0, Lcom/android/systemui/monet/ColorScheme;->accent1:Ljava/util/List;
+    const-string v0, "ColorScheme {\n  seed color: "
 
-    return-object p0
-.end method
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-.method public final getAllAccentColors()Ljava/util/List;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
+    move-result-object v0
 
-    new-instance v0, Ljava/util/ArrayList;
+    iget v1, p0, Lcom/android/systemui/monet/ColorScheme;->seed:I
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-static {v1}, Lcom/android/systemui/monet/ColorScheme$Companion;->stringForColor(I)Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/systemui/monet/ColorScheme;->accent1:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    iget-object v1, p0, Lcom/android/systemui/monet/ColorScheme;->accent2:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    iget-object p0, p0, Lcom/android/systemui/monet/ColorScheme;->accent3:Ljava/util/List;
-
-    invoke-interface {v0, p0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    return-object v0
-.end method
-
-.method public final getAllNeutralColors()Ljava/util/List;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iget-object v1, p0, Lcom/android/systemui/monet/ColorScheme;->neutral1:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    iget-object p0, p0, Lcom/android/systemui/monet/ColorScheme;->neutral2:Ljava/util/List;
-
-    invoke-interface {v0, p0}, Ljava/util/List;->addAll(Ljava/util/Collection;)Z
-
-    return-object v0
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 3
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "ColorScheme {\n  neutral1: "
+    move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v1, Lcom/android/systemui/monet/ColorScheme;->Companion:Lcom/android/systemui/monet/ColorScheme$Companion;
+    const-string v1, "\n  style: "
 
-    iget-object v2, p0, Lcom/android/systemui/monet/ColorScheme;->neutral1:Ljava/util/List;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Lcom/android/systemui/monet/ColorScheme$Companion;Ljava/util/List;)Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/systemui/monet/ColorScheme;->style:Lcom/android/systemui/monet/Style;
 
-    move-result-object v2
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v1, "\n  palettes: \n  "
 
-    const-string v2, "\n  neutral2: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v1, p0, Lcom/android/systemui/monet/ColorScheme;->accent1:Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/android/systemui/monet/ColorScheme;->neutral2:Ljava/util/List;
+    const-string v2, "PRIMARY"
 
-    invoke-static {v1, v2}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Lcom/android/systemui/monet/ColorScheme$Companion;Ljava/util/List;)Ljava/lang/String;
+    invoke-static {v2, v1}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Ljava/lang/String;Ljava/util/ArrayList;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "\n  accent1: "
+    const-string v1, "\n  "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v2, p0, Lcom/android/systemui/monet/ColorScheme;->accent1:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/systemui/monet/ColorScheme;->accent2:Ljava/util/ArrayList;
 
-    invoke-static {v1, v2}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Lcom/android/systemui/monet/ColorScheme$Companion;Ljava/util/List;)Ljava/lang/String;
+    const-string v3, "SECONDARY"
 
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v2, "\n  accent2: "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v2, p0, Lcom/android/systemui/monet/ColorScheme;->accent2:Ljava/util/List;
-
-    invoke-static {v1, v2}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Lcom/android/systemui/monet/ColorScheme$Companion;Ljava/util/List;)Ljava/lang/String;
+    invoke-static {v3, v2}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Ljava/lang/String;Ljava/util/ArrayList;)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "\n  accent3: "
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v2, p0, Lcom/android/systemui/monet/ColorScheme;->accent3:Ljava/util/ArrayList;
+
+    const-string v3, "TERTIARY"
+
+    invoke-static {v3, v2}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Ljava/lang/String;Ljava/util/ArrayList;)Ljava/lang/String;
+
+    move-result-object v2
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p0, p0, Lcom/android/systemui/monet/ColorScheme;->accent3:Ljava/util/List;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1, p0}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Lcom/android/systemui/monet/ColorScheme$Companion;Ljava/util/List;)Ljava/lang/String;
+    iget-object v2, p0, Lcom/android/systemui/monet/ColorScheme;->neutral1:Ljava/util/ArrayList;
+
+    const-string v3, "NEUTRAL"
+
+    invoke-static {v3, v2}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Ljava/lang/String;Ljava/util/ArrayList;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object p0, p0, Lcom/android/systemui/monet/ColorScheme;->neutral2:Ljava/util/ArrayList;
+
+    const-string v1, "NEUTRAL VARIANT"
+
+    invoke-static {v1, p0}, Lcom/android/systemui/monet/ColorScheme$Companion;->access$humanReadable(Ljava/lang/String;Ljava/util/ArrayList;)Ljava/lang/String;
 
     move-result-object p0
 

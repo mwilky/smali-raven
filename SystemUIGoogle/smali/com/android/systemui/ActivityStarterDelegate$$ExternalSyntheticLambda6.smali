@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -10,9 +11,11 @@
 
 .field public final synthetic f$1:I
 
+.field public final synthetic f$2:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+
 
 # direct methods
-.method public synthetic constructor <init>(Landroid/content/Intent;I)V
+.method public synthetic constructor <init>(Landroid/content/Intent;ILcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -21,21 +24,25 @@
 
     iput p2, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;->f$1:I
 
+    iput-object p3, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;->f$2:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
+
     return-void
 .end method
 
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;->f$0:Landroid/content/Intent;
 
-    iget p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;->f$1:I
+    iget v1, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;->f$1:I
 
-    check-cast p1, Lcom/android/systemui/statusbar/phone/StatusBar;
+    iget-object p0, p0, Lcom/android/systemui/ActivityStarterDelegate$$ExternalSyntheticLambda6;->f$2:Lcom/android/systemui/animation/ActivityLaunchAnimator$Controller;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/ActivityStarterDelegate;->$r8$lambda$rz4RAFLfJKF9349QBeODYz6mPL8(Landroid/content/Intent;ILcom/android/systemui/statusbar/phone/StatusBar;)V
+    check-cast p1, Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    invoke-interface {p1, v0, v1, p0}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->postStartActivityDismissingKeyguard(Landroid/content/Intent;ILcom/android/systemui/animation/ActivityLaunchAnimator$Controller;)V
 
     return-void
 .end method

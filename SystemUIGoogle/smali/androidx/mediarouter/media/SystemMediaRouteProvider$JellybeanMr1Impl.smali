@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;
+.class public Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;
 .super Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;
 .source "SystemMediaRouteProvider.java"
 
@@ -12,99 +12,40 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "JellybeanMr1Impl"
 .end annotation
 
 
-# instance fields
-.field private mActiveScanWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;
-
-.field private mIsConnectingWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;
-
-
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Landroidx/mediarouter/media/SystemMediaRouteProvider$SyncCallback;)V
+.method public constructor <init>(Landroid/content/Context;Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "syncCallback"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;-><init>(Landroid/content/Context;Landroidx/mediarouter/media/SystemMediaRouteProvider$SyncCallback;)V
+    invoke-direct {p0, p1, p2}, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;-><init>(Landroid/content/Context;Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected createCallbackObj()Ljava/lang/Object;
+.method public isConnecting(Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;)Z
     .locals 0
 
-    invoke-static {p0}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1;->createCallback(Landroidx/mediarouter/media/MediaRouterJellybeanMr1$Callback;)Ljava/lang/Object;
+    const/4 p0, 0x0
 
-    move-result-object p0
-
-    return-object p0
+    throw p0
 .end method
 
-.method protected isConnecting(Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "record"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;->mIsConnectingWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;
-
-    invoke-direct {v0}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;-><init>()V
-
-    iput-object v0, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;->mIsConnectingWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;
-
-    :cond_0
-    iget-object p0, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;->mIsConnectingWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;
-
-    iget-object p1, p1, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;->mRouteObj:Ljava/lang/Object;
-
-    invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$IsConnectingWorkaround;->isConnecting(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method protected onBuildSystemRouteDescriptor(Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "record",
-            "builder"
-        }
-    .end annotation
+.method public onBuildSystemRouteDescriptor(Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;)V
+    .locals 3
 
     invoke-super {p0, p1, p2}, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;->onBuildSystemRouteDescriptor(Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;)V
 
     iget-object v0, p1, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;->mRouteObj:Ljava/lang/Object;
 
-    invoke-static {v0}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$RouteInfo;->isEnabled(Ljava/lang/Object;)Z
+    check-cast v0, Landroid/media/MediaRouter$RouteInfo;
+
+    invoke-virtual {v0}, Landroid/media/MediaRouter$RouteInfo;->isEnabled()Z
 
     move-result v0
 
@@ -112,7 +53,11 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p2, v0}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->setEnabled(Z)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
+    iget-object v1, p2, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
+
+    const-string v2, "enabled"
+
+    invoke-virtual {v1, v2, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     :cond_0
     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;->isConnecting(Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;)Z
@@ -123,43 +68,62 @@
 
     const/4 p0, 0x1
 
-    invoke-virtual {p2, p0}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->setConnectionState(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
+    iget-object v0, p2, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
+
+    const-string v1, "connectionState"
+
+    invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_1
     iget-object p0, p1, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;->mRouteObj:Ljava/lang/Object;
 
-    invoke-static {p0}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$RouteInfo;->getPresentationDisplay(Ljava/lang/Object;)Landroid/view/Display;
+    :try_start_0
+    check-cast p0, Landroid/media/MediaRouter$RouteInfo;
+
+    invoke-virtual {p0}, Landroid/media/MediaRouter$RouteInfo;->getPresentationDisplay()Landroid/view/Display;
 
     move-result-object p0
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
 
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string p1, "MediaRouterJellybeanMr1"
+
+    const-string v0, "Cannot get presentation display for the route."
+
+    invoke-static {p1, v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    const/4 p0, 0x0
+
+    :goto_0
     if-eqz p0, :cond_2
 
     invoke-virtual {p0}, Landroid/view/Display;->getDisplayId()I
 
     move-result p0
 
-    invoke-virtual {p2, p0}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->setPresentationDisplayId(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
+    iget-object p1, p2, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->mBundle:Landroid/os/Bundle;
+
+    const-string/jumbo p2, "presentationDisplayId"
+
+    invoke-virtual {p1, p2, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_2
     return-void
 .end method
 
-.method public onRoutePresentationDisplayChanged(Ljava/lang/Object;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routeObj"
-        }
-    .end annotation
+.method public final onRoutePresentationDisplayChanged(Ljava/lang/Object;)V
+    .locals 7
 
     invoke-virtual {p0, p1}, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;->findSystemRouteRecord(Ljava/lang/Object;)I
 
     move-result v0
 
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_6
 
     iget-object v1, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;->mSystemRouteRecords:Ljava/util/ArrayList;
 
@@ -169,9 +133,32 @@
 
     check-cast v0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;
 
-    invoke-static {p1}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$RouteInfo;->getPresentationDisplay(Ljava/lang/Object;)Landroid/view/Display;
+    const/4 v1, 0x0
+
+    :try_start_0
+    check-cast p1, Landroid/media/MediaRouter$RouteInfo;
+
+    invoke-virtual {p1}, Landroid/media/MediaRouter$RouteInfo;->getPresentationDisplay()Landroid/view/Display;
 
     move-result-object p1
+    :try_end_0
+    .catch Ljava/lang/NoSuchMethodError; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p1
+
+    const-string v2, "MediaRouterJellybeanMr1"
+
+    const-string v3, "Cannot get presentation display for the route."
+
+    invoke-static {v2, v3, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    move-object p1, v1
+
+    :goto_0
+    const/4 v2, -0x1
 
     if-eqz p1, :cond_0
 
@@ -179,81 +166,111 @@
 
     move-result p1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_0
-    const/4 p1, -0x1
+    move p1, v2
 
-    :goto_0
-    iget-object v1, v0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;->mRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
+    :goto_1
+    iget-object v3, v0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;->mRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
 
-    invoke-virtual {v1}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getPresentationDisplayId()I
+    iget-object v3, v3, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
 
-    move-result v1
+    const-string/jumbo v4, "presentationDisplayId"
 
-    if-eq p1, v1, :cond_1
+    invoke-virtual {v3, v4, v2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    new-instance v1, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
+    move-result v2
+
+    if-eq p1, v2, :cond_6
 
     iget-object v2, v0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;->mRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
 
-    invoke-direct {v1, v2}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;-><init>(Landroidx/mediarouter/media/MediaRouteDescriptor;)V
+    if-eqz v2, :cond_5
 
-    invoke-virtual {v1, p1}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->setPresentationDisplayId(I)Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;
+    new-instance v3, Landroid/os/Bundle;
 
-    move-result-object p1
+    iget-object v5, v2, Landroidx/mediarouter/media/MediaRouteDescriptor;->mBundle:Landroid/os/Bundle;
 
-    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouteDescriptor$Builder;->build()Landroidx/mediarouter/media/MediaRouteDescriptor;
+    invoke-direct {v3, v5}, Landroid/os/Bundle;-><init>(Landroid/os/Bundle;)V
 
-    move-result-object p1
+    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getGroupMemberIds()Ljava/util/List;
+
+    move-result-object v5
+
+    invoke-interface {v5}, Ljava/util/List;->isEmpty()Z
+
+    move-result v5
+
+    if-nez v5, :cond_1
+
+    new-instance v5, Ljava/util/ArrayList;
+
+    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouteDescriptor;->getGroupMemberIds()Ljava/util/List;
+
+    move-result-object v6
+
+    invoke-direct {v5, v6}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    goto :goto_2
+
+    :cond_1
+    move-object v5, v1
+
+    :goto_2
+    invoke-virtual {v2}, Landroidx/mediarouter/media/MediaRouteDescriptor;->ensureControlFilters()V
+
+    iget-object v6, v2, Landroidx/mediarouter/media/MediaRouteDescriptor;->mControlFilters:Ljava/util/List;
+
+    invoke-interface {v6}, Ljava/util/List;->isEmpty()Z
+
+    move-result v6
+
+    if-nez v6, :cond_2
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    iget-object v2, v2, Landroidx/mediarouter/media/MediaRouteDescriptor;->mControlFilters:Ljava/util/List;
+
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    :cond_2
+    invoke-virtual {v3, v4, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+
+    if-eqz v1, :cond_3
+
+    const-string p1, "controlFilters"
+
+    invoke-virtual {v3, p1, v1}, Landroid/os/Bundle;->putParcelableArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    :cond_3
+    if-eqz v5, :cond_4
+
+    const-string p1, "groupMemberIds"
+
+    invoke-virtual {v3, p1, v5}, Landroid/os/Bundle;->putStringArrayList(Ljava/lang/String;Ljava/util/ArrayList;)V
+
+    :cond_4
+    new-instance p1, Landroidx/mediarouter/media/MediaRouteDescriptor;
+
+    invoke-direct {p1, v3}, Landroidx/mediarouter/media/MediaRouteDescriptor;-><init>(Landroid/os/Bundle;)V
 
     iput-object p1, v0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl$SystemRouteRecord;->mRouteDescriptor:Landroidx/mediarouter/media/MediaRouteDescriptor;
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;->publishRoutes()V
 
-    :cond_1
-    return-void
-.end method
+    goto :goto_3
 
-.method protected updateCallback()V
-    .locals 3
+    :cond_5
+    new-instance p0, Ljava/lang/IllegalArgumentException;
 
-    invoke-super {p0}, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;->updateCallback()V
+    const-string p1, "descriptor must not be null"
 
-    iget-object v0, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;->mActiveScanWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    if-nez v0, :cond_0
+    throw p0
 
-    new-instance v0, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteProvider;->getHandler()Landroid/os/Handler;
-
-    move-result-object v2
-
-    invoke-direct {v0, v1, v2}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;-><init>(Landroid/content/Context;Landroid/os/Handler;)V
-
-    iput-object v0, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;->mActiveScanWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;
-
-    :cond_0
-    iget-object v0, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanMr1Impl;->mActiveScanWorkaround:Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;
-
-    iget-boolean v1, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;->mActiveScan:Z
-
-    if-eqz v1, :cond_1
-
-    iget p0, p0, Landroidx/mediarouter/media/SystemMediaRouteProvider$JellybeanImpl;->mRouteTypes:I
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    :goto_0
-    invoke-virtual {v0, p0}, Landroidx/mediarouter/media/MediaRouterJellybeanMr1$ActiveScanWorkaround;->setActiveScanRouteTypes(I)V
-
+    :cond_6
+    :goto_3
     return-void
 .end method

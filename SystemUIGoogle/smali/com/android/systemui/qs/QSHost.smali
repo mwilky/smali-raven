@@ -21,9 +21,6 @@
 .method public abstract getNewInstanceId()Lcom/android/internal/logging/InstanceId;
 .end method
 
-.method public abstract getTileServices()Lcom/android/systemui/qs/external/TileServices;
-.end method
-
 .method public abstract getUiEventLogger()Lcom/android/internal/logging/UiEventLogger;
 .end method
 
@@ -42,19 +39,11 @@
 .method public abstract removeTile(Ljava/lang/String;)V
 .end method
 
-.method public abstract removeTiles(Ljava/util/Collection;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/Collection<",
-            "Ljava/lang/String;",
-            ">;)V"
-        }
-    .end annotation
+.method public abstract removeTiles(Ljava/util/ArrayList;)V
 .end method
 
 .method public abstract unmarkTileAsAutoAdded(Ljava/lang/String;)V
 .end method
 
-.method public abstract warn(Ljava/lang/String;Ljava/lang/Throwable;)V
+.method public abstract warn()V
 .end method

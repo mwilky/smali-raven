@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "LongPressListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onLongPress(Landroid/view/View;IILcom/android/systemui/plugins/statusbar/NotificationMenuRowPlugin$MenuItem;)Z
-.end method

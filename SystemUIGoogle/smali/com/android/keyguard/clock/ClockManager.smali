@@ -13,101 +13,39 @@
 
 
 # instance fields
-.field private final mBuiltinClocks:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/util/function/Supplier<",
-            "Lcom/android/systemui/plugins/ClockPlugin;",
-            ">;>;"
-        }
-    .end annotation
-.end field
+.field public final mBuiltinClocks:Ljava/util/ArrayList;
 
-.field private final mContentObserver:Landroid/database/ContentObserver;
+.field public final mContentObserver:Lcom/android/keyguard/clock/ClockManager$1;
 
-.field private final mContentResolver:Landroid/content/ContentResolver;
+.field public final mContentResolver:Landroid/content/ContentResolver;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mCurrentUserObservable:Lcom/android/systemui/settings/CurrentUserObservable;
 
-.field private final mCurrentUserObservable:Lcom/android/systemui/settings/CurrentUserObservable;
+.field public final mCurrentUserObserver:Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda0;
 
-.field private final mCurrentUserObserver:Landroidx/lifecycle/Observer;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroidx/lifecycle/Observer<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mDockEventListener:Lcom/android/keyguard/clock/ClockManager$2;
 
-.field private final mDockEventListener:Lcom/android/systemui/dock/DockManager$DockEventListener;
+.field public final mDockManager:Lcom/android/systemui/dock/DockManager;
 
-.field private final mDockManager:Lcom/android/systemui/dock/DockManager;
+.field public final mHeight:I
 
-.field private final mHeight:I
+.field public mIsDocked:Z
 
-.field private mIsDocked:Z
+.field public final mListeners:Landroid/util/ArrayMap;
 
-.field private final mListeners:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;",
-            "Lcom/android/keyguard/clock/ClockManager$AvailableClocks;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mMainHandler:Landroid/os/Handler;
 
-.field private final mMainHandler:Landroid/os/Handler;
+.field public final mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
 
-.field private final mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
+.field public final mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
 
-.field private final mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
+.field public final mSettingsWrapper:Lcom/android/keyguard/clock/SettingsWrapper;
 
-.field private final mSettingsWrapper:Lcom/android/keyguard/clock/SettingsWrapper;
-
-.field private final mWidth:I
+.field public final mWidth:I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$TpUKNVx_wu1xK2V9ZwH6velbAY4(Lcom/android/keyguard/clock/ClockManager;Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;Lcom/android/keyguard/clock/ClockManager$AvailableClocks;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/keyguard/clock/ClockManager;->lambda$reload$3(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;Lcom/android/keyguard/clock/ClockManager$AvailableClocks;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$h1nB4XWRrDOiFtwQCt590yAx0lc(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;Lcom/android/systemui/plugins/ClockPlugin;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/keyguard/clock/ClockManager;->lambda$reload$2(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;Lcom/android/systemui/plugins/ClockPlugin;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$kxBXJS3dLq20Rvlv7dKCv7dQjDw(Lcom/android/keyguard/clock/ClockManager;Ljava/lang/Integer;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/keyguard/clock/ClockManager;->lambda$new$0(Ljava/lang/Integer;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$wefCbGIae1ibHqHNBuzWojsvHb8(Landroid/content/res/Resources;Landroid/view/LayoutInflater;Lcom/android/systemui/colorextraction/SysuiColorExtractor;)Lcom/android/systemui/plugins/ClockPlugin;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/keyguard/clock/ClockManager;->lambda$new$1(Landroid/content/res/Resources;Landroid/view/LayoutInflater;Lcom/android/systemui/colorextraction/SysuiColorExtractor;)Lcom/android/systemui/plugins/ClockPlugin;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method constructor <init>(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Landroid/content/ContentResolver;Lcom/android/systemui/settings/CurrentUserObservable;Lcom/android/keyguard/clock/SettingsWrapper;Lcom/android/systemui/dock/DockManager;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Landroid/content/ContentResolver;Lcom/android/systemui/settings/CurrentUserObservable;Lcom/android/keyguard/clock/SettingsWrapper;Lcom/android/systemui/dock/DockManager;)V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -116,7 +54,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mBuiltinClocks:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mBuiltinClocks:Ljava/util/ArrayList;
 
     new-instance v0, Landroid/os/Handler;
 
@@ -132,27 +70,25 @@
 
     invoke-direct {v1, p0, v0}, Lcom/android/keyguard/clock/ClockManager$1;-><init>(Lcom/android/keyguard/clock/ClockManager;Landroid/os/Handler;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mContentObserver:Landroid/database/ContentObserver;
+    iput-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mContentObserver:Lcom/android/keyguard/clock/ClockManager$1;
 
     new-instance v0, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda0;
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/clock/ClockManager;)V
 
-    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObserver:Landroidx/lifecycle/Observer;
+    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObserver:Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda0;
 
     new-instance v0, Lcom/android/keyguard/clock/ClockManager$2;
 
     invoke-direct {v0, p0}, Lcom/android/keyguard/clock/ClockManager$2;-><init>(Lcom/android/keyguard/clock/ClockManager;)V
 
-    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mDockEventListener:Lcom/android/systemui/dock/DockManager$DockEventListener;
+    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mDockEventListener:Lcom/android/keyguard/clock/ClockManager$2;
 
     new-instance v0, Landroid/util/ArrayMap;
 
     invoke-direct {v0}, Landroid/util/ArrayMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Ljava/util/Map;
-
-    iput-object p1, p0, Lcom/android/keyguard/clock/ClockManager;->mContext:Landroid/content/Context;
+    iput-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Landroid/util/ArrayMap;
 
     iput-object p3, p0, Lcom/android/keyguard/clock/ClockManager;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
 
@@ -166,9 +102,7 @@
 
     new-instance p3, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
 
-    const/4 p5, 0x0
-
-    invoke-direct {p3, p0, p5}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;-><init>(Lcom/android/keyguard/clock/ClockManager;Lcom/android/keyguard/clock/ClockManager$1;)V
+    invoke-direct {p3, p0}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;-><init>(Lcom/android/keyguard/clock/ClockManager;)V
 
     iput-object p3, p0, Lcom/android/keyguard/clock/ClockManager;->mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
 
@@ -176,9 +110,11 @@
 
     move-result-object p1
 
-    new-instance p3, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda3;
+    new-instance p3, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;
 
-    invoke-direct {p3, p1, p2, p4}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda3;-><init>(Landroid/content/res/Resources;Landroid/view/LayoutInflater;Lcom/android/systemui/colorextraction/SysuiColorExtractor;)V
+    const/4 p5, 0x0
+
+    invoke-direct {p3, p1, p2, p5, p4}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;-><init>(Ljava/lang/Object;Ljava/lang/Object;ILjava/lang/Object;)V
 
     invoke-virtual {p0, p3}, Lcom/android/keyguard/clock/ClockManager;->addBuiltinClock(Ljava/util/function/Supplier;)V
 
@@ -197,287 +133,9 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Lcom/android/systemui/dock/DockManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
-    .locals 9
-
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v5
-
-    new-instance v6, Lcom/android/systemui/settings/CurrentUserObservable;
-
-    invoke-direct {v6, p6}, Lcom/android/systemui/settings/CurrentUserObservable;-><init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
-
-    new-instance v7, Lcom/android/keyguard/clock/SettingsWrapper;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p6
-
-    invoke-direct {v7, p6}, Lcom/android/keyguard/clock/SettingsWrapper;-><init>(Landroid/content/ContentResolver;)V
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-object v3, p3
-
-    move-object v4, p4
-
-    move-object v8, p5
-
-    invoke-direct/range {v0 .. v8}, Lcom/android/keyguard/clock/ClockManager;-><init>(Landroid/content/Context;Landroid/view/LayoutInflater;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/colorextraction/SysuiColorExtractor;Landroid/content/ContentResolver;Lcom/android/systemui/settings/CurrentUserObservable;Lcom/android/keyguard/clock/SettingsWrapper;Lcom/android/systemui/dock/DockManager;)V
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/keyguard/clock/ClockManager;)Lcom/android/systemui/settings/CurrentUserObservable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObservable:Lcom/android/systemui/settings/CurrentUserObservable;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/keyguard/clock/ClockManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/clock/ClockManager;->reload()V
-
-    return-void
-.end method
-
-.method static synthetic access$202(Lcom/android/keyguard/clock/ClockManager;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/keyguard/clock/ClockManager;->mIsDocked:Z
-
-    return p1
-.end method
-
-.method static synthetic access$400(Lcom/android/keyguard/clock/ClockManager;)Lcom/android/keyguard/clock/SettingsWrapper;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mSettingsWrapper:Lcom/android/keyguard/clock/SettingsWrapper;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/keyguard/clock/ClockManager;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/clock/ClockManager;->mWidth:I
-
-    return p0
-.end method
-
-.method static synthetic access$600(Lcom/android/keyguard/clock/ClockManager;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/clock/ClockManager;->mHeight:I
-
-    return p0
-.end method
-
-.method private synthetic lambda$new$0(Ljava/lang/Integer;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/clock/ClockManager;->reload()V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$new$1(Landroid/content/res/Resources;Landroid/view/LayoutInflater;Lcom/android/systemui/colorextraction/SysuiColorExtractor;)Lcom/android/systemui/plugins/ClockPlugin;
-    .locals 1
-
-    new-instance v0, Lcom/android/keyguard/clock/DefaultClockController;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/keyguard/clock/DefaultClockController;-><init>(Landroid/content/res/Resources;Landroid/view/LayoutInflater;Lcom/android/systemui/colorextraction/SysuiColorExtractor;)V
-
-    return-object v0
-.end method
-
-.method private static synthetic lambda$reload$2(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;Lcom/android/systemui/plugins/ClockPlugin;)V
-    .locals 1
-
-    instance-of v0, p1, Lcom/android/keyguard/clock/DefaultClockController;
-
-    if-eqz v0, :cond_0
-
-    const/4 p1, 0x0
-
-    :cond_0
-    invoke-interface {p0, p1}, Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;->onClockChanged(Lcom/android/systemui/plugins/ClockPlugin;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$reload$3(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;Lcom/android/keyguard/clock/ClockManager$AvailableClocks;)V
-    .locals 2
-
-    invoke-virtual {p2}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;->reloadCurrentClock()V
-
-    invoke-virtual {p2}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;->getCurrentClock()Lcom/android/systemui/plugins/ClockPlugin;
-
-    move-result-object p2
-
-    invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
-
-    move-result-object v1
-
-    if-ne v0, v1, :cond_1
-
-    instance-of p0, p2, Lcom/android/keyguard/clock/DefaultClockController;
-
-    if-eqz p0, :cond_0
-
-    const/4 p2, 0x0
-
-    :cond_0
-    invoke-interface {p1, p2}, Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;->onClockChanged(Lcom/android/systemui/plugins/ClockPlugin;)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mMainHandler:Landroid/os/Handler;
-
-    new-instance v0, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;
-
-    invoke-direct {v0, p1, p2}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda1;-><init>(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;Lcom/android/systemui/plugins/ClockPlugin;)V
-
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    :goto_0
-    return-void
-.end method
-
-.method private register()V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
-
-    iget-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
-
-    const-class v2, Lcom/android/systemui/plugins/ClockPlugin;
-
-    const/4 v3, 0x1
-
-    invoke-interface {v0, v1, v2, v3}, Lcom/android/systemui/shared/plugins/PluginManager;->addPluginListener(Lcom/android/systemui/plugins/PluginListener;Ljava/lang/Class;Z)V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mContentResolver:Landroid/content/ContentResolver;
-
-    const-string v1, "lock_screen_custom_clock_face"
-
-    invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/keyguard/clock/ClockManager;->mContentObserver:Landroid/database/ContentObserver;
-
-    const/4 v3, 0x0
-
-    const/4 v4, -0x1
-
-    invoke-virtual {v0, v1, v3, v2, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mContentResolver:Landroid/content/ContentResolver;
-
-    const-string v1, "docked_clock_face"
-
-    invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/keyguard/clock/ClockManager;->mContentObserver:Landroid/database/ContentObserver;
-
-    invoke-virtual {v0, v1, v3, v2, v4}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObservable:Lcom/android/systemui/settings/CurrentUserObservable;
-
-    invoke-virtual {v0}, Lcom/android/systemui/settings/CurrentUserObservable;->getCurrentUser()Landroidx/lifecycle/LiveData;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObserver:Landroidx/lifecycle/Observer;
-
-    invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->observeForever(Landroidx/lifecycle/Observer;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mDockManager:Lcom/android/systemui/dock/DockManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mDockEventListener:Lcom/android/systemui/dock/DockManager$DockEventListener;
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/dock/DockManager;->addListener(Lcom/android/systemui/dock/DockManager$DockEventListener;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method private reload()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;->reloadCurrentClock()V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Ljava/util/Map;
-
-    new-instance v1, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda2;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda2;-><init>(Lcom/android/keyguard/clock/ClockManager;)V
-
-    invoke-interface {v0, v1}, Ljava/util/Map;->forEach(Ljava/util/function/BiConsumer;)V
-
-    return-void
-.end method
-
-.method private unregister()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
-
-    iget-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/shared/plugins/PluginManager;->removePluginListener(Lcom/android/systemui/plugins/PluginListener;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mContentResolver:Landroid/content/ContentResolver;
-
-    iget-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mContentObserver:Landroid/database/ContentObserver;
-
-    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObservable:Lcom/android/systemui/settings/CurrentUserObservable;
-
-    invoke-virtual {v0}, Lcom/android/systemui/settings/CurrentUserObservable;->getCurrentUser()Landroidx/lifecycle/LiveData;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mCurrentUserObserver:Landroidx/lifecycle/Observer;
-
-    invoke-virtual {v0, v1}, Landroidx/lifecycle/LiveData;->removeObserver(Landroidx/lifecycle/Observer;)V
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mDockManager:Lcom/android/systemui/dock/DockManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mDockEventListener:Lcom/android/systemui/dock/DockManager$DockEventListener;
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/dock/DockManager;->removeListener(Lcom/android/systemui/dock/DockManager$DockEventListener;)V
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method addBuiltinClock(Ljava/util/function/Supplier;)V
+.method public addBuiltinClock(Ljava/util/function/Supplier;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -498,111 +156,22 @@
 
     invoke-virtual {v1, v0}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;->addClockPlugin(Lcom/android/systemui/plugins/ClockPlugin;)V
 
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mBuiltinClocks:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mBuiltinClocks:Ljava/util/ArrayList;
 
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public addOnClockChangedListener(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Ljava/util/Map;
-
-    invoke-interface {v0}, Ljava/util/Map;->isEmpty()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/keyguard/clock/ClockManager;->register()V
-
-    :cond_0
-    new-instance v0, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, p0, v1}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;-><init>(Lcom/android/keyguard/clock/ClockManager;Lcom/android/keyguard/clock/ClockManager$1;)V
-
-    const/4 v1, 0x0
-
-    :goto_0
-    iget-object v2, p0, Lcom/android/keyguard/clock/ClockManager;->mBuiltinClocks:Ljava/util/List;
-
-    invoke-interface {v2}, Ljava/util/List;->size()I
-
-    move-result v2
-
-    if-ge v1, v2, :cond_1
-
-    iget-object v2, p0, Lcom/android/keyguard/clock/ClockManager;->mBuiltinClocks:Ljava/util/List;
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/function/Supplier;
-
-    invoke-interface {v2}, Ljava/util/function/Supplier;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/plugins/ClockPlugin;
-
-    invoke-virtual {v0, v2}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;->addClockPlugin(Lcom/android/systemui/plugins/ClockPlugin;)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Ljava/util/Map;
-
-    invoke-interface {v1, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object p1, p0, Lcom/android/keyguard/clock/ClockManager;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
-
-    const-class v1, Lcom/android/systemui/plugins/ClockPlugin;
-
-    const/4 v2, 0x1
-
-    invoke-interface {p1, v0, v1, v2}, Lcom/android/systemui/shared/plugins/PluginManager;->addPluginListener(Lcom/android/systemui/plugins/PluginListener;Ljava/lang/Class;Z)V
-
-    invoke-direct {p0}, Lcom/android/keyguard/clock/ClockManager;->reload()V
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method getClockInfos()Ljava/util/List;
+.method public getContentObserver()Landroid/database/ContentObserver;
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/keyguard/clock/ClockInfo;",
-            ">;"
-        }
-    .end annotation
 
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;->getInfo()Ljava/util/List;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mContentObserver:Lcom/android/keyguard/clock/ClockManager$1;
 
     return-object p0
 .end method
 
-.method getContentObserver()Landroid/database/ContentObserver;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/clock/ClockManager;->mContentObserver:Landroid/database/ContentObserver;
-
-    return-object p0
-.end method
-
-.method isDocked()Z
+.method public isDocked()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/keyguard/clock/ClockManager;->mIsDocked:Z
@@ -610,31 +179,20 @@
     return p0
 .end method
 
-.method public removeOnClockChangedListener(Lcom/android/keyguard/clock/ClockManager$ClockChangedListener;)V
-    .locals 1
+.method public final reload()V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Ljava/util/Map;
+    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mPreviewClocks:Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
 
-    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0}, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;->reloadCurrentClock()V
 
-    move-result-object p1
+    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Landroid/util/ArrayMap;
 
-    check-cast p1, Lcom/android/keyguard/clock/ClockManager$AvailableClocks;
+    new-instance v1, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda2;
 
-    iget-object v0, p0, Lcom/android/keyguard/clock/ClockManager;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
+    invoke-direct {v1, p0}, Lcom/android/keyguard/clock/ClockManager$$ExternalSyntheticLambda2;-><init>(Lcom/android/keyguard/clock/ClockManager;)V
 
-    invoke-interface {v0, p1}, Lcom/android/systemui/shared/plugins/PluginManager;->removePluginListener(Lcom/android/systemui/plugins/PluginListener;)V
+    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->forEach(Ljava/util/function/BiConsumer;)V
 
-    iget-object p1, p0, Lcom/android/keyguard/clock/ClockManager;->mListeners:Ljava/util/Map;
-
-    invoke-interface {p1}, Ljava/util/Map;->isEmpty()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/keyguard/clock/ClockManager;->unregister()V
-
-    :cond_0
     return-void
 .end method

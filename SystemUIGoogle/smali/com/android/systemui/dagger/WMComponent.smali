@@ -17,7 +17,18 @@
         value = {
             "()",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/apppairs/AppPairs;",
+            "Ljava/lang/Object;",
+            ">;"
+        }
+    .end annotation
+.end method
+
+.method public abstract getBackAnimation()Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimation;",
             ">;"
         }
     .end annotation
@@ -34,7 +45,15 @@
     .end annotation
 .end method
 
-.method public abstract getCompatUI()Lcom/android/wm/shell/compatui/CompatUI;
+.method public abstract getCompatUI()Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/compatui/CompatUI;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract getDisplayAreaHelper()Ljava/util/Optional;
@@ -48,7 +67,15 @@
     .end annotation
 .end method
 
-.method public abstract getDragAndDrop()Lcom/android/wm/shell/draganddrop/DragAndDrop;
+.method public abstract getDragAndDrop()Ljava/util/Optional;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/draganddrop/DragAndDrop;",
+            ">;"
+        }
+    .end annotation
 .end method
 
 .method public abstract getHideDisplayCutout()Ljava/util/Optional;
@@ -67,7 +94,7 @@
         value = {
             "()",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation
@@ -147,7 +174,7 @@
         value = {
             "()",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;",
+            "Ljava/lang/Object;",
             ">;"
         }
     .end annotation

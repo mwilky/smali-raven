@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/ChildHelper$Bucket;
+.class public final Landroidx/recyclerview/widget/ChildHelper$Bucket;
 .super Ljava/lang/Object;
 .source "ChildHelper.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Bucket"
 .end annotation
 
 
 # instance fields
-.field mData:J
+.field public mData:J
 
-.field mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
+.field public mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,35 +33,10 @@
     return-void
 .end method
 
-.method private ensureNext()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroidx/recyclerview/widget/ChildHelper$Bucket;
-
-    invoke-direct {v0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;-><init>()V
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method clear(I)V
+.method public final clear(I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
@@ -95,16 +70,8 @@
     return-void
 .end method
 
-.method countOnesBefore(I)I
+.method public final countOnesBefore(I)I
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
@@ -169,27 +136,36 @@
 
     move-result p0
 
-    add-int/2addr p1, p0
+    add-int/2addr p0, p1
 
-    return p1
+    return p0
 .end method
 
-.method get(I)Z
+.method public final ensureNext()V
+    .locals 1
+
+    iget-object v0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Landroidx/recyclerview/widget/ChildHelper$Bucket;
+
+    invoke-direct {v0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;-><init>()V
+
+    iput-object v0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
+
+    :cond_0
+    return-void
+.end method
+
+.method public final get(I)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
 
-    invoke-direct {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
 
     iget-object p0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
@@ -227,24 +203,14 @@
     return p0
 .end method
 
-.method insert(IZ)V
+.method public final insert(IZ)V
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "index",
-            "value"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
 
-    invoke-direct {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
 
     iget-object p0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
@@ -314,7 +280,7 @@
     if-eqz p1, :cond_4
 
     :cond_3
-    invoke-direct {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
 
     iget-object p0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
@@ -325,22 +291,14 @@
     return-void
 .end method
 
-.method remove(I)Z
+.method public final remove(I)Z
     .locals 10
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
 
-    invoke-direct {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
 
     iget-object p0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
@@ -424,7 +382,7 @@
     return p1
 .end method
 
-.method reset()V
+.method public final reset()V
     .locals 2
 
     const-wide/16 v0, 0x0
@@ -441,22 +399,14 @@
     return-void
 .end method
 
-.method set(I)V
+.method public final set(I)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "index"
-        }
-    .end annotation
 
     const/16 v0, 0x40
 
     if-lt p1, v0, :cond_0
 
-    invoke-direct {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/ChildHelper$Bucket;->ensureNext()V
 
     iget-object p0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;
 
@@ -481,7 +431,7 @@
     return-void
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ChildHelper$Bucket;->mNext:Landroidx/recyclerview/widget/ChildHelper$Bucket;

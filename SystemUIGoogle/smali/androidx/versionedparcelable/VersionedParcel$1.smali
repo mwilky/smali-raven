@@ -1,25 +1,10 @@
-.class Landroidx/versionedparcelable/VersionedParcel$1;
+.class public final Landroidx/versionedparcelable/VersionedParcel$1;
 .super Ljava/io/ObjectInputStream;
 .source "VersionedParcel.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/versionedparcelable/VersionedParcel;->readSerializable()Ljava/io/Serializable;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
-# instance fields
-.field final synthetic this$0:Landroidx/versionedparcelable/VersionedParcel;
-
-
 # direct methods
-.method constructor <init>(Landroidx/versionedparcelable/VersionedParcel;Ljava/io/InputStream;)V
+.method public constructor <init>(Ljava/io/ByteArrayInputStream;)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -27,16 +12,14 @@
         }
     .end annotation
 
-    iput-object p1, p0, Landroidx/versionedparcelable/VersionedParcel$1;->this$0:Landroidx/versionedparcelable/VersionedParcel;
-
-    invoke-direct {p0, p2}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V
+    invoke-direct {p0, p1}, Ljava/io/ObjectInputStream;-><init>(Ljava/io/InputStream;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
+.method public final resolveClass(Ljava/io/ObjectStreamClass;)Ljava/lang/Class;
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {

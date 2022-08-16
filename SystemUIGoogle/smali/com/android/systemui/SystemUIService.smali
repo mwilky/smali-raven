@@ -4,15 +4,15 @@
 
 
 # instance fields
-.field private final mBatteryStateNotifier:Lcom/android/systemui/statusbar/policy/BatteryStateNotifier;
+.field public final mBatteryStateNotifier:Lcom/android/systemui/statusbar/policy/BatteryStateNotifier;
 
-.field private final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+.field public final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.field private final mDumpHandler:Lcom/android/systemui/dump/DumpHandler;
+.field public final mDumpHandler:Lcom/android/systemui/dump/DumpHandler;
 
-.field private final mLogBufferFreezer:Lcom/android/systemui/dump/LogBufferFreezer;
+.field public final mLogBufferFreezer:Lcom/android/systemui/dump/LogBufferFreezer;
 
-.field private final mMainHandler:Landroid/os/Handler;
+.field public final mMainHandler:Landroid/os/Handler;
 
 
 # direct methods
@@ -36,30 +36,30 @@
 
 
 # virtual methods
-.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
+.method public final dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 0
 
-    array-length v0, p3
+    array-length p1, p3
 
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
-    const-string p3, "--dump-priority"
+    const-string p1, "--dump-priority"
 
-    const-string v0, "CRITICAL"
+    const-string p3, "CRITICAL"
 
-    filled-new-array {p3, v0}, [Ljava/lang/String;
+    filled-new-array {p1, p3}, [Ljava/lang/String;
 
     move-result-object p3
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/SystemUIService;->mDumpHandler:Lcom/android/systemui/dump/DumpHandler;
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/dump/DumpHandler;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-virtual {p0, p2, p3}, Lcom/android/systemui/dump/DumpHandler;->dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+.method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 0
 
     const/4 p0, 0x0
@@ -67,8 +67,8 @@
     return-object p0
 .end method
 
-.method public onCreate()V
-    .locals 3
+.method public final onCreate()V
+    .locals 8
 
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
@@ -84,13 +84,43 @@
 
     iget-object v1, p0, Lcom/android/systemui/SystemUIService;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/dump/LogBufferFreezer;->attach(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v2, Lcom/android/systemui/dump/LogBufferFreezer$attach$1;
+
+    invoke-direct {v2, v0}, Lcom/android/systemui/dump/LogBufferFreezer$attach$1;-><init>(Lcom/android/systemui/dump/LogBufferFreezer;)V
+
+    new-instance v3, Landroid/content/IntentFilter;
+
+    const-string v4, "com.android.internal.intent.action.BUGREPORT_STARTED"
+
+    invoke-direct {v3, v4}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    iget-object v4, v0, Lcom/android/systemui/dump/LogBufferFreezer;->executor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
+    sget-object v5, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
+
+    const/4 v6, 0x0
+
+    const/16 v7, 0x30
+
+    invoke-static/range {v1 .. v7}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiver$default(Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/util/concurrent/Executor;Landroid/os/UserHandle;II)V
+
+    iget-object v0, p0, Lcom/android/systemui/SystemUIService;->mDumpHandler:Lcom/android/systemui/dump/DumpHandler;
+
+    iget-object v1, v0, Lcom/android/systemui/dump/DumpHandler;->uncaughtExceptionPreHandlerManager:Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;
+
+    new-instance v2, Lcom/android/systemui/dump/DumpHandler$init$1;
+
+    invoke-direct {v2, v0}, Lcom/android/systemui/dump/DumpHandler$init$1;-><init>(Lcom/android/systemui/dump/DumpHandler;)V
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/shared/system/UncaughtExceptionPreHandlerManager;->registerHandler(Ljava/lang/Thread$UncaughtExceptionHandler;)V
 
     invoke-virtual {p0}, Landroid/app/Service;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$bool;->config_showNotificationForUnknownBatteryState:I
+    const v1, 0x7f050035
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -100,7 +130,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/SystemUIService;->mBatteryStateNotifier:Lcom/android/systemui/statusbar/policy/BatteryStateNotifier;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/BatteryStateNotifier;->startListening()V
+    iget-object v1, v0, Lcom/android/systemui/statusbar/policy/BatteryStateNotifier;->controller:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    invoke-interface {v1, v0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     :cond_0
     sget-boolean v0, Landroid/os/Build;->IS_DEBUGGABLE:Z
@@ -144,7 +176,7 @@
 
     new-instance v0, Lcom/android/systemui/SystemUIService$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/SystemUIService$1;-><init>(Lcom/android/systemui/SystemUIService;)V
+    invoke-direct {v0}, Lcom/android/systemui/SystemUIService$1;-><init>()V
 
     iget-object v1, p0, Lcom/android/systemui/SystemUIService;->mMainHandler:Landroid/os/Handler;
 

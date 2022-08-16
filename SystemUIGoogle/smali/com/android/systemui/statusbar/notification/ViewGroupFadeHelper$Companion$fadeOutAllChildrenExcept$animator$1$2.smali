@@ -3,23 +3,12 @@
 .source "ViewGroupFadeHelper.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion;->fadeOutAllChildrenExcept(Landroid/view/ViewGroup;Landroid/view/View;JLjava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $endRunnable:Ljava/lang/Runnable;
+.field public final synthetic $endRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Runnable;)V
+.method public constructor <init>(Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$2;->$endRunnable:Ljava/lang/Runnable;
@@ -31,7 +20,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/ViewGroupFadeHelper$Companion$fadeOutAllChildrenExcept$animator$1$2;->$endRunnable:Ljava/lang/Runnable;

@@ -16,7 +16,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/concurrent/futures/AbstractResolvableFuture;-><init>()V
@@ -24,48 +24,37 @@
     return-void
 .end method
 
-.method public static create()Landroidx/concurrent/futures/ResolvableFuture;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<V:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Landroidx/concurrent/futures/ResolvableFuture<",
-            "TV;>;"
-        }
-    .end annotation
-
-    new-instance v0, Landroidx/concurrent/futures/ResolvableFuture;
-
-    invoke-direct {v0}, Landroidx/concurrent/futures/ResolvableFuture;-><init>()V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public set(Ljava/lang/Object;)Z
-    .locals 0
+.method public final set(Ljava/lang/Object;)Z
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TV;)Z"
         }
     .end annotation
 
-    invoke-super {p0, p1}, Landroidx/concurrent/futures/AbstractResolvableFuture;->set(Ljava/lang/Object;)Z
+    sget-object p1, Landroidx/concurrent/futures/AbstractResolvableFuture;->NULL:Ljava/lang/Object;
 
-    move-result p0
+    sget-object v0, Landroidx/concurrent/futures/AbstractResolvableFuture;->ATOMIC_HELPER:Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;
 
-    return p0
-.end method
+    const/4 v1, 0x0
 
-.method public setException(Ljava/lang/Throwable;)Z
-    .locals 0
+    invoke-virtual {v0, p0, v1, p1}, Landroidx/concurrent/futures/AbstractResolvableFuture$AtomicHelper;->casValue(Landroidx/concurrent/futures/AbstractResolvableFuture;Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    invoke-super {p0, p1}, Landroidx/concurrent/futures/AbstractResolvableFuture;->setException(Ljava/lang/Throwable;)Z
+    move-result p1
 
-    move-result p0
+    if-eqz p1, :cond_0
 
+    invoke-static {p0}, Landroidx/concurrent/futures/AbstractResolvableFuture;->complete(Landroidx/concurrent/futures/AbstractResolvableFuture;)V
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     return p0
 .end method

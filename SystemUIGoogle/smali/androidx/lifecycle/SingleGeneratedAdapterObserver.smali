@@ -7,11 +7,11 @@
 
 
 # instance fields
-.field private final mGeneratedAdapter:Landroidx/lifecycle/GeneratedAdapter;
+.field public final mGeneratedAdapter:Landroidx/lifecycle/GeneratedAdapter;
 
 
 # direct methods
-.method constructor <init>(Landroidx/lifecycle/GeneratedAdapter;)V
+.method public constructor <init>(Landroidx/lifecycle/GeneratedAdapter;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,22 +23,16 @@
 
 
 # virtual methods
-.method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-    .locals 3
+.method public final onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
+    .locals 0
 
-    iget-object v0, p0, Landroidx/lifecycle/SingleGeneratedAdapterObserver;->mGeneratedAdapter:Landroidx/lifecycle/GeneratedAdapter;
+    iget-object p1, p0, Landroidx/lifecycle/SingleGeneratedAdapterObserver;->mGeneratedAdapter:Landroidx/lifecycle/GeneratedAdapter;
 
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, p1, p2, v1, v2}, Landroidx/lifecycle/GeneratedAdapter;->callMethods(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;ZLandroidx/lifecycle/MethodCallsLogger;)V
+    invoke-interface {p1}, Landroidx/lifecycle/GeneratedAdapter;->callMethods()V
 
     iget-object p0, p0, Landroidx/lifecycle/SingleGeneratedAdapterObserver;->mGeneratedAdapter:Landroidx/lifecycle/GeneratedAdapter;
 
-    const/4 v0, 0x1
-
-    invoke-interface {p0, p1, p2, v0, v2}, Landroidx/lifecycle/GeneratedAdapter;->callMethods(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;ZLandroidx/lifecycle/MethodCallsLogger;)V
+    invoke-interface {p0}, Landroidx/lifecycle/GeneratedAdapter;->callMethods()V
 
     return-void
 .end method

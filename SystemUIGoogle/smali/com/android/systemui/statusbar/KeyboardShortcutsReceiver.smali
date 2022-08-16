@@ -14,7 +14,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;

@@ -7,23 +7,13 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/controls/management/ControlsListingControllerImpl$Companion;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nControlsListingControllerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,181:1\n1517#2:182\n1588#2,3:183\n256#2,2:186\n*E\n*S KotlinDebug\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl\n*L\n168#1:182\n168#1,3:183\n177#1,2:186\n*E\n"
+    value = "SMAP\nControlsListingControllerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,181:1\n1547#2:182\n1618#2,3:183\n286#2,2:186\n*S KotlinDebug\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl\n*L\n168#1:182\n168#1:183,3\n177#1:186,2\n*E\n"
 .end annotation
-
-
-# static fields
-.field public static final Companion:Lcom/android/systemui/controls/management/ControlsListingControllerImpl$Companion;
 
 
 # instance fields
-.field private availableComponents:Ljava/util/Set;
+.field public availableComponents:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -33,7 +23,7 @@
     .end annotation
 .end field
 
-.field private availableServices:Ljava/util/List;
+.field public availableServices:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -44,25 +34,17 @@
     .end annotation
 .end field
 
-.field private final backgroundExecutor:Ljava/util/concurrent/Executor;
+.field public final backgroundExecutor:Ljava/util/concurrent/Executor;
 
-.field private final callbacks:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final callbacks:Ljava/util/LinkedHashSet;
 
-.field private final context:Landroid/content/Context;
+.field public final context:Landroid/content/Context;
 
-.field private currentUserId:I
+.field public currentUserId:I
 
-.field private serviceListing:Lcom/android/settingslib/applications/ServiceListing;
+.field public serviceListing:Lcom/android/settingslib/applications/ServiceListing;
 
-.field private final serviceListingBuilder:Lkotlin/jvm/functions/Function1;
+.field public final serviceListingBuilder:Lkotlin/jvm/functions/Function1;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function1<",
@@ -73,50 +55,24 @@
     .end annotation
 .end field
 
-.field private final serviceListingCallback:Lcom/android/settingslib/applications/ServiceListing$Callback;
+.field public final serviceListingCallback:Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1;
 
-.field private userChangeInProgress:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public userChangeInProgress:Ljava/util/concurrent/atomic/AtomicInteger;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->Companion:Lcom/android/systemui/controls/management/ControlsListingControllerImpl$Companion;
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lcom/android/systemui/settings/UserTracker;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/settings/UserTracker;Ljava/util/concurrent/Executor;)V
     .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "executor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "userTracker"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     sget-object v0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$1;->INSTANCE:Lcom/android/systemui/controls/management/ControlsListingControllerImpl$1;
 
-    invoke-direct {p0, p1, p2, v0, p3}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/settings/UserTracker;)V
+    invoke-direct {p0, p1, p3, v0, p2}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;-><init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/settings/UserTracker;)V
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Ljava/util/concurrent/Executor;Lkotlin/jvm/functions/Function1;Lcom/android/systemui/settings/UserTracker;)V
-    .locals 1
+    .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -135,22 +91,6 @@
             ")V"
         }
     .end annotation
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "backgroundExecutor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "serviceListingBuilder"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "userTracker"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -172,17 +112,13 @@
 
     invoke-direct {p1}, Ljava/util/LinkedHashSet;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->callbacks:Ljava/util/Set;
+    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->callbacks:Ljava/util/LinkedHashSet;
 
-    invoke-static {}, Lkotlin/collections/SetsKt;->emptySet()Ljava/util/Set;
-
-    move-result-object p1
+    sget-object p1, Lkotlin/collections/EmptySet;->INSTANCE:Lkotlin/collections/EmptySet;
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableComponents:Ljava/util/Set;
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object p1
+    sget-object p1, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableServices:Ljava/util/List;
 
@@ -204,7 +140,7 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1;-><init>(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListingCallback:Lcom/android/settingslib/applications/ServiceListing$Callback;
+    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListingCallback:Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1;
 
     const-string p2, "ControlsListingControllerImpl"
 
@@ -214,7 +150,9 @@
 
     iget-object p2, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListing:Lcom/android/settingslib/applications/ServiceListing;
 
-    invoke-virtual {p2, p1}, Lcom/android/settingslib/applications/ServiceListing;->addCallback(Lcom/android/settingslib/applications/ServiceListing$Callback;)V
+    iget-object p2, p2, Lcom/android/settingslib/applications/ServiceListing;->mCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     iget-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListing:Lcom/android/settingslib/applications/ServiceListing;
 
@@ -229,110 +167,12 @@
     return-void
 .end method
 
-.method public static final synthetic access$getAvailableComponents$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Ljava/util/Set;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableComponents:Ljava/util/Set;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getBackgroundExecutor$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Ljava/util/concurrent/Executor;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->backgroundExecutor:Ljava/util/concurrent/Executor;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getCallbacks$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Ljava/util/Set;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->callbacks:Ljava/util/Set;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getContext$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->context:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getServiceListing$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Lcom/android/settingslib/applications/ServiceListing;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListing:Lcom/android/settingslib/applications/ServiceListing;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getServiceListingBuilder$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Lkotlin/jvm/functions/Function1;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListingBuilder:Lkotlin/jvm/functions/Function1;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getServiceListingCallback$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Lcom/android/settingslib/applications/ServiceListing$Callback;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListingCallback:Lcom/android/settingslib/applications/ServiceListing$Callback;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getUserChangeInProgress$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Ljava/util/concurrent/atomic/AtomicInteger;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->userChangeInProgress:Ljava/util/concurrent/atomic/AtomicInteger;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$setAvailableComponents$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Ljava/util/Set;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableComponents:Ljava/util/Set;
-
-    return-void
-.end method
-
-.method public static final synthetic access$setAvailableServices$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Ljava/util/List;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableServices:Ljava/util/List;
-
-    return-void
-.end method
-
-.method public static final synthetic access$setCurrentUserId$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->currentUserId:I
-
-    return-void
-.end method
-
-.method public static final synthetic access$setServiceListing$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Lcom/android/settingslib/applications/ServiceListing;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->serviceListing:Lcom/android/settingslib/applications/ServiceListing;
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public addCallback(Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;)V
+.method public final addCallback(Ljava/lang/Object;)V
     .locals 2
 
-    const-string v0, "listener"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p1, Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->backgroundExecutor:Ljava/util/concurrent/Executor;
 
@@ -345,22 +185,8 @@
     return-void
 .end method
 
-.method public bridge synthetic addCallback(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->addCallback(Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;)V
-
-    return-void
-.end method
-
-.method public changeUser(Landroid/os/UserHandle;)V
+.method public final changeUser(Landroid/os/UserHandle;)V
     .locals 2
-
-    const-string v0, "newUser"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->userChangeInProgress:Ljava/util/concurrent/atomic/AtomicInteger;
 
@@ -383,18 +209,14 @@
     return-void
 .end method
 
-.method public getAppLabel(Landroid/content/ComponentName;)Ljava/lang/CharSequence;
+.method public final getAppLabel(Landroid/content/ComponentName;)Ljava/lang/CharSequence;
     .locals 3
 
-    const-string v0, "name"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->getCurrentServices()Ljava/util/List;
+    invoke-virtual {p0}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->getCurrentServices()Ljava/util/ArrayList;
 
     move-result-object p0
 
-    invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
@@ -444,16 +266,8 @@
     return-object v1
 .end method
 
-.method public getCurrentServices()Ljava/util/List;
+.method public final getCurrentServices()Ljava/util/ArrayList;
     .locals 5
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlsServiceInfo;",
-            ">;"
-        }
-    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableServices:Ljava/util/List;
 
@@ -461,7 +275,7 @@
 
     const/16 v2, 0xa
 
-    invoke-static {v0, v2}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {v0, v2}, Lkotlin/collections/CollectionsKt__IteratorsJVMKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
     move-result v2
 
@@ -490,7 +304,7 @@
 
     invoke-direct {v3, v4, v2}, Lcom/android/systemui/controls/ControlsServiceInfo;-><init>(Landroid/content/Context;Landroid/content/pm/ServiceInfo;)V
 
-    invoke-interface {v1, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -498,7 +312,7 @@
     return-object v1
 .end method
 
-.method public getCurrentUserId()I
+.method public final getCurrentUserId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->currentUserId:I
@@ -506,12 +320,10 @@
     return p0
 .end method
 
-.method public removeCallback(Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;)V
+.method public final removeCallback(Ljava/lang/Object;)V
     .locals 2
 
-    const-string v0, "listener"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p1, Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->backgroundExecutor:Ljava/util/concurrent/Executor;
 
@@ -520,16 +332,6 @@
     invoke-direct {v1, p0, p1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$removeCallback$1;-><init>(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;)V
 
     invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic removeCallback(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->removeCallback(Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;)V
 
     return-void
 .end method

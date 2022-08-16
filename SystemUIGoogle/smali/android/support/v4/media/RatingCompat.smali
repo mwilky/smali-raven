@@ -27,13 +27,13 @@
 
 
 # instance fields
-.field private final mRatingStyle:I
+.field public final mRatingStyle:I
 
-.field private final mRatingValue:F
+.field public final mRatingValue:F
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/support/v4/media/RatingCompat$1;
@@ -45,18 +45,8 @@
     return-void
 .end method
 
-.method constructor <init>(IF)V
+.method public constructor <init>(IF)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "ratingStyle",
-            "rating"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -69,7 +59,7 @@
 
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     iget p0, p0, Landroid/support/v4/media/RatingCompat;->mRatingStyle:I
@@ -77,16 +67,14 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Rating:style="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Rating:style="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Landroid/support/v4/media/RatingCompat;->mRatingStyle:I
 
@@ -104,7 +92,7 @@
 
     if-gez v1, :cond_0
 
-    const-string p0, "unrated"
+    const-string/jumbo p0, "unrated"
 
     goto :goto_0
 
@@ -123,18 +111,8 @@
     return-object p0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "dest",
-            "flags"
-        }
-    .end annotation
 
     iget p2, p0, Landroid/support/v4/media/RatingCompat;->mRatingStyle:I
 

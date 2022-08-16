@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onClick(Landroid/view/View;Landroid/app/NotificationChannel;I)V
+.method public abstract onClick(Landroid/app/NotificationChannel;I)V
 .end method

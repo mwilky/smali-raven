@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "Scanner"
 .end annotation
 
 
 # instance fields
-.field private mRetry:I
+.field public mRetry:I
 
-.field final synthetic this$0:Lcom/android/settingslib/wifi/WifiTracker;
+.field public final synthetic this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/wifi/WifiTracker;)V
+.method public constructor <init>(Lcom/android/settingslib/wifi/WifiTracker;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
+.method public final handleMessage(Landroid/os/Message;)V
     .locals 3
 
     iget p1, p1, Landroid/os/Message;->what:I
@@ -49,9 +49,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiTracker;->access$800(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/net/wifi/WifiManager;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/settingslib/wifi/WifiTracker;->mWifiManager:Landroid/net/wifi/WifiManager;
 
     invoke-virtual {p1}, Landroid/net/wifi/WifiManager;->startScan()Z
 
@@ -80,21 +78,13 @@
 
     iput v0, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->mRetry:I
 
-    iget-object p1, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
-
-    invoke-static {p1}, Lcom/android/settingslib/wifi/WifiTracker;->access$1000(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_2
-
     iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->this$0:Lcom/android/settingslib/wifi/WifiTracker;
 
-    invoke-static {p0}, Lcom/android/settingslib/wifi/WifiTracker;->access$1000(Lcom/android/settingslib/wifi/WifiTracker;)Landroid/content/Context;
+    iget-object p0, p0, Lcom/android/settingslib/wifi/WifiTracker;->mContext:Landroid/content/Context;
 
-    move-result-object p0
+    if-eqz p0, :cond_2
 
-    sget p1, Lcom/android/settingslib/R$string;->wifi_fail_to_scan:I
+    const p1, 0x7f1307b3
 
     invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -114,7 +104,7 @@
     return-void
 .end method
 
-.method isScanning()Z
+.method public isScanning()Z
     .locals 1
 
     const/4 v0, 0x0
@@ -124,59 +114,4 @@
     move-result p0
 
     return p0
-.end method
-
-.method pause()V
-    .locals 2
-
-    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->access$900()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "WifiTracker"
-
-    const-string v1, "Scanner pause"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/settingslib/wifi/WifiTracker$Scanner;->mRetry:I
-
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->removeMessages(I)V
-
-    return-void
-.end method
-
-.method resume()V
-    .locals 2
-
-    invoke-static {}, Lcom/android/settingslib/wifi/WifiTracker;->access$900()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "WifiTracker"
-
-    const-string v1, "Scanner resume"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->hasMessages(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    invoke-virtual {p0, v0}, Landroid/os/Handler;->sendEmptyMessage(I)Z
-
-    :cond_1
-    return-void
 .end method

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$1;
+.class public final Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$1;
 .super Ljava/lang/Object;
 .source "ChallengeDialogs.kt"
 
@@ -6,25 +6,14 @@
 .implements Landroid/content/DialogInterface$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/ui/ChallengeDialogs;->createPinDialog(Lcom/android/systemui/controls/ui/ControlViewHolder;ZZLkotlin/jvm/functions/Function0;)Landroid/app/Dialog;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic $cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-.field final synthetic $lastAction:Landroid/service/controls/actions/ControlAction;
+.field public final synthetic $lastAction:Landroid/service/controls/actions/ControlAction;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/service/controls/actions/ControlAction;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;Landroid/service/controls/actions/ControlAction;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
@@ -39,7 +28,7 @@
 
 # virtual methods
 .method public final onClick(Landroid/content/DialogInterface;I)V
-    .locals 2
+    .locals 1
 
     instance-of p2, p1, Landroid/app/Dialog;
 
@@ -49,7 +38,7 @@
 
     check-cast p2, Landroid/app/Dialog;
 
-    sget v0, Lcom/android/systemui/R$id;->controls_pin_input:I
+    const v0, 0x7f0b01c5
 
     invoke-virtual {p2, v0}, Landroid/app/Dialog;->requireViewById(I)Landroid/view/View;
 
@@ -69,11 +58,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$1;->$cvh:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
-    sget-object v1, Lcom/android/systemui/controls/ui/ChallengeDialogs;->INSTANCE:Lcom/android/systemui/controls/ui/ChallengeDialogs;
-
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ChallengeDialogs$createPinDialog$2$1;->$lastAction:Landroid/service/controls/actions/ControlAction;
 
-    invoke-static {v1, p0, p2}, Lcom/android/systemui/controls/ui/ChallengeDialogs;->access$addChallengeValue(Lcom/android/systemui/controls/ui/ChallengeDialogs;Landroid/service/controls/actions/ControlAction;Ljava/lang/String;)Landroid/service/controls/actions/ControlAction;
+    invoke-static {p0, p2}, Landroidx/cardview/R$attr;->access$addChallengeValue(Landroid/service/controls/actions/ControlAction;Ljava/lang/String;)Landroid/service/controls/actions/ControlAction;
 
     move-result-object p0
 

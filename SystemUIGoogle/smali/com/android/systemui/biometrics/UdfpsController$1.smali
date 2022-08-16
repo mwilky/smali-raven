@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/biometrics/UdfpsController$1;
+.class public final Lcom/android/systemui/biometrics/UdfpsController$1;
 .super Ljava/lang/Object;
 .source "UdfpsController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/UdfpsController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/UdfpsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/UdfpsController;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/UdfpsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
@@ -34,40 +34,30 @@
 
 
 # virtual methods
-.method public onScreenTurnedOff()V
+.method public final onScreenTurnedOff()V
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/biometrics/UdfpsController;->access$002(Lcom/android/systemui/biometrics/UdfpsController;Z)Z
+    iput-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mScreenOn:Z
 
     return-void
 .end method
 
-.method public onScreenTurnedOn()V
+.method public final onScreenTurnedOn()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/biometrics/UdfpsController;->access$002(Lcom/android/systemui/biometrics/UdfpsController;Z)Z
+    iput-boolean v1, v0, Lcom/android/systemui/biometrics/UdfpsController;->mScreenOn:Z
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
-
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsController;->access$100(Lcom/android/systemui/biometrics/UdfpsController;)Ljava/lang/Runnable;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/biometrics/UdfpsController;->mAodInterruptRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController$1;->this$0:Lcom/android/systemui/biometrics/UdfpsController;
-
-    invoke-static {v0}, Lcom/android/systemui/biometrics/UdfpsController;->access$100(Lcom/android/systemui/biometrics/UdfpsController;)Ljava/lang/Runnable;
-
-    move-result-object v0
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
 
@@ -75,7 +65,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/biometrics/UdfpsController;->access$102(Lcom/android/systemui/biometrics/UdfpsController;Ljava/lang/Runnable;)Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mAodInterruptRunnable:Ljava/lang/Runnable;
 
     :cond_0
     return-void

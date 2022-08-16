@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/PathInterpolatorBuilder$PathInterpolator;
+.class public final Lcom/android/systemui/qs/PathInterpolatorBuilder$PathInterpolator;
 .super Landroid/view/animation/BaseInterpolator;
 .source "PathInterpolatorBuilder.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "PathInterpolator"
 .end annotation
 
 
 # instance fields
-.field private final mX:[F
+.field public final mX:[F
 
-.field private final mY:[F
+.field public final mY:[F
 
 
 # direct methods
-.method private constructor <init>([F[F)V
+.method public constructor <init>([F[F)V
     .locals 0
 
     invoke-direct {p0}, Landroid/view/animation/BaseInterpolator;-><init>()V
@@ -33,17 +33,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>([F[FLcom/android/systemui/qs/PathInterpolatorBuilder$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/PathInterpolatorBuilder$PathInterpolator;-><init>([F[F)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getInterpolation(F)F
+.method public final getInterpolation(F)F
     .locals 6
 
     const/4 v0, 0x0
@@ -105,9 +97,9 @@
 
     aget v4, v3, v2
 
-    aget v5, v3, v1
+    aget v3, v3, v1
 
-    sub-float/2addr v4, v5
+    sub-float/2addr v4, v3
 
     cmpl-float v0, v4, v0
 
@@ -120,9 +112,7 @@
     return p0
 
     :cond_4
-    aget v0, v3, v1
-
-    sub-float/2addr p1, v0
+    sub-float/2addr p1, v3
 
     div-float/2addr p1, v4
 
@@ -132,11 +122,9 @@
 
     aget p0, p0, v2
 
-    sub-float/2addr p0, v0
+    invoke-static {p0, v0, p1, v0}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
 
-    mul-float/2addr p1, p0
+    move-result p0
 
-    add-float/2addr v0, p1
-
-    return v0
+    return p0
 .end method

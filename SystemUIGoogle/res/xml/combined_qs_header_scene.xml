@@ -3,11 +3,13 @@
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <Transition android:id="@id/header_transition" app:constraintSetEnd="@id/qs_header_constraint" app:constraintSetStart="@id/qqs_header_constraint">
         <KeyFrameSet>
-            <KeyPosition app:framePosition="50" app:keyPositionType="pathRelative" app:motionTarget="@id/date" app:percentX="0.0" />
+            <KeyPosition app:framePosition="49" app:keyPositionType="pathRelative" app:motionTarget="@id/date" app:percentX="0.0" />
+            <KeyPosition app:framePosition="51" app:keyPositionType="pathRelative" app:motionTarget="@id/date" app:percentX="1.0" />
+            <KeyAttribute android:alpha="0.0" app:framePosition="50" app:motionTarget="@id/date" />
         </KeyFrameSet>
     </Transition>
-    <Transition android:id="@id/split_header_transition" app:constraintSetEnd="@id/split_header_constraint" app:constraintSetStart="@id/split_header_constraint" />
+    <Transition android:id="@id/large_screen_header_transition" app:constraintSetEnd="@id/large_screen_header_constraint" app:constraintSetStart="@id/large_screen_header_constraint" />
     <ConstraintSet android:id="@id/qqs_header_constraint" />
     <ConstraintSet android:id="@id/qs_header_constraint" />
-    <ConstraintSet android:id="@id/split_header_constraint" />
+    <ConstraintSet android:id="@id/large_screen_header_constraint" />
 </MotionScene>

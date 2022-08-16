@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/keyguard/WorkLockActivity$1;
+.class public final Lcom/android/systemui/keyguard/WorkLockActivity$1;
 .super Landroid/content/BroadcastReceiver;
 .source "WorkLockActivity.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyguard/WorkLockActivity;
+.field public final synthetic this$0:Lcom/android/systemui/keyguard/WorkLockActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/keyguard/WorkLockActivity;)V
+.method public constructor <init>(Lcom/android/systemui/keyguard/WorkLockActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/WorkLockActivity$1;->this$0:Lcom/android/systemui/keyguard/WorkLockActivity;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/keyguard/WorkLockActivity$1;->this$0:Lcom/android/systemui/keyguard/WorkLockActivity;
@@ -50,7 +50,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/keyguard/WorkLockActivity$1;->this$0:Lcom/android/systemui/keyguard/WorkLockActivity;
 
-    invoke-static {p2}, Lcom/android/systemui/keyguard/WorkLockActivity;->access$000(Lcom/android/systemui/keyguard/WorkLockActivity;)Landroid/app/KeyguardManager;
+    invoke-virtual {p2}, Lcom/android/systemui/keyguard/WorkLockActivity;->getKeyguardManager()Landroid/app/KeyguardManager;
 
     move-result-object p2
 

@@ -1,4 +1,4 @@
-.class final Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;
+.class public final Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;
 .super Landroid/media/session/MediaController$Callback;
 .source "MediaSessions.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "MediaControllerRecord"
 .end annotation
 
@@ -21,11 +21,11 @@
 
 .field public sentRemote:Z
 
-.field final synthetic this$0:Lcom/android/settingslib/volume/MediaSessions;
+.field public final synthetic this$0:Lcom/android/settingslib/volume/MediaSessions;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/settingslib/volume/MediaSessions;Landroid/media/session/MediaController;)V
+.method public constructor <init>(Lcom/android/settingslib/volume/MediaSessions;Landroid/media/session/MediaController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->this$0:Lcom/android/settingslib/volume/MediaSessions;
@@ -37,26 +37,16 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/volume/MediaSessions;Landroid/media/session/MediaController;Lcom/android/settingslib/volume/MediaSessions$1;)V
-    .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;-><init>(Lcom/android/settingslib/volume/MediaSessions;Landroid/media/session/MediaController;)V
-
-    return-void
-.end method
-
-.method private cb(Ljava/lang/String;)Ljava/lang/String;
+# virtual methods
+.method public final cb(Ljava/lang/String;)Ljava/lang/String;
     .locals 1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, " "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1, v0}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p1, " "
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget-object p0, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->controller:Landroid/media/session/MediaController;
 
@@ -64,29 +54,25 @@
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-
-# virtual methods
-.method public onAudioInfoChanged(Landroid/media/session/MediaController$PlaybackInfo;)V
-    .locals 3
+.method public final onAudioInfoChanged(Landroid/media/session/MediaController$PlaybackInfo;)V
+    .locals 4
 
     sget-boolean v0, Lcom/android/settingslib/volume/D;->BUG:Z
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -94,7 +80,7 @@
 
     const-string v2, "onAudioInfoChanged"
 
-    invoke-direct {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -112,30 +98,42 @@
 
     iget-boolean v2, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->sentRemote:Z
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor$14$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/lang/String;)V
 
     :cond_0
-    invoke-static {p1}, Lcom/android/settingslib/volume/MediaSessions;->access$300(Landroid/media/session/MediaController$PlaybackInfo;)Z
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
-    move-result v0
+    const/4 v0, 0x1
 
-    if-nez v0, :cond_1
+    const/4 v1, 0x0
 
-    iget-boolean v1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->sentRemote:Z
+    if-eqz p1, :cond_1
 
-    if-eqz v1, :cond_1
+    invoke-virtual {p1}, Landroid/media/session/MediaController$PlaybackInfo;->getPlaybackType()I
+
+    move-result v2
+
+    const/4 v3, 0x2
+
+    if-ne v2, v3, :cond_1
+
+    move v2, v0
+
+    goto :goto_0
+
+    :cond_1
+    move v2, v1
+
+    :goto_0
+    if-nez v2, :cond_2
+
+    iget-boolean v3, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->sentRemote:Z
+
+    if-eqz v3, :cond_2
 
     iget-object p1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->this$0:Lcom/android/settingslib/volume/MediaSessions;
 
-    invoke-static {p1}, Lcom/android/settingslib/volume/MediaSessions;->access$400(Lcom/android/settingslib/volume/MediaSessions;)Lcom/android/settingslib/volume/MediaSessions$Callbacks;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/settingslib/volume/MediaSessions;->mCallbacks:Lcom/android/settingslib/volume/MediaSessions$Callbacks;
 
     iget-object v0, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->controller:Landroid/media/session/MediaController;
 
@@ -143,48 +141,51 @@
 
     move-result-object v0
 
-    invoke-interface {p1, v0}, Lcom/android/settingslib/volume/MediaSessions$Callbacks;->onRemoteRemoved(Landroid/media/session/MediaSession$Token;)V
+    check-cast p1, Lcom/android/systemui/volume/VolumeDialogControllerImpl$MediaSessionsCallbacks;
 
-    const/4 p1, 0x0
+    invoke-virtual {p1, v0}, Lcom/android/systemui/volume/VolumeDialogControllerImpl$MediaSessionsCallbacks;->onRemoteRemoved(Landroid/media/session/MediaSession$Token;)V
 
-    iput-boolean p1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->sentRemote:Z
+    iput-boolean v1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->sentRemote:Z
 
-    goto :goto_0
-
-    :cond_1
-    if-eqz v0, :cond_2
-
-    iget-object v0, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->this$0:Lcom/android/settingslib/volume/MediaSessions;
-
-    iget-object v1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->controller:Landroid/media/session/MediaController;
-
-    invoke-virtual {v1}, Landroid/media/session/MediaController;->getSessionToken()Landroid/media/session/MediaSession$Token;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->name:Ljava/lang/String;
-
-    invoke-static {v0, v1, v2, p1}, Lcom/android/settingslib/volume/MediaSessions;->access$500(Lcom/android/settingslib/volume/MediaSessions;Landroid/media/session/MediaSession$Token;Ljava/lang/String;Landroid/media/session/MediaController$PlaybackInfo;)V
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->sentRemote:Z
+    goto :goto_1
 
     :cond_2
-    :goto_0
+    if-eqz v2, :cond_4
+
+    iget-object v1, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->this$0:Lcom/android/settingslib/volume/MediaSessions;
+
+    iget-object v2, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->controller:Landroid/media/session/MediaController;
+
+    invoke-virtual {v2}, Landroid/media/session/MediaController;->getSessionToken()Landroid/media/session/MediaSession$Token;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->name:Ljava/lang/String;
+
+    iget-object v1, v1, Lcom/android/settingslib/volume/MediaSessions;->mCallbacks:Lcom/android/settingslib/volume/MediaSessions$Callbacks;
+
+    if-eqz v1, :cond_3
+
+    check-cast v1, Lcom/android/systemui/volume/VolumeDialogControllerImpl$MediaSessionsCallbacks;
+
+    invoke-virtual {v1, v2, v3, p1}, Lcom/android/systemui/volume/VolumeDialogControllerImpl$MediaSessionsCallbacks;->onRemoteUpdate(Landroid/media/session/MediaSession$Token;Ljava/lang/String;Landroid/media/session/MediaController$PlaybackInfo;)V
+
+    :cond_3
+    iput-boolean v0, p0, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->sentRemote:Z
+
+    :cond_4
+    :goto_1
     return-void
 .end method
 
-.method public onExtrasChanged(Landroid/os/Bundle;)V
+.method public final onExtrasChanged(Landroid/os/Bundle;)V
     .locals 3
 
     sget-boolean v0, Lcom/android/settingslib/volume/D;->BUG:Z
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -192,7 +193,7 @@
 
     const-string v2, "onExtrasChanged"
 
-    invoke-direct {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -210,16 +211,14 @@
     return-void
 .end method
 
-.method public onMetadataChanged(Landroid/media/MediaMetadata;)V
+.method public final onMetadataChanged(Landroid/media/MediaMetadata;)V
     .locals 3
 
     sget-boolean v0, Lcom/android/settingslib/volume/D;->BUG:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -227,38 +226,42 @@
 
     const-string v2, "onMetadataChanged"
 
-    invoke-direct {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p1}, Lcom/android/settingslib/volume/Util;->mediaMetadataToString(Landroid/media/MediaMetadata;)Ljava/lang/String;
+    if-nez p1, :cond_0
 
-    move-result-object p0
+    const/4 p0, 0x0
 
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {v0, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_0
 
     :cond_0
+    invoke-virtual {p1}, Landroid/media/MediaMetadata;->getDescription()Landroid/media/MediaDescription;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/media/MediaDescription;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    :goto_0
+    invoke-static {v1, p0, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_1
     return-void
 .end method
 
-.method public onPlaybackStateChanged(Landroid/media/session/PlaybackState;)V
+.method public final onPlaybackStateChanged(Landroid/media/session/PlaybackState;)V
     .locals 3
 
     sget-boolean v0, Lcom/android/settingslib/volume/D;->BUG:Z
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -266,7 +269,7 @@
 
     const-string v2, "onPlaybackStateChanged"
 
-    invoke-direct {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -288,7 +291,7 @@
     return-void
 .end method
 
-.method public onQueueChanged(Ljava/util/List;)V
+.method public final onQueueChanged(Ljava/util/List;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -303,17 +306,15 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onQueueChanged"
+    const-string/jumbo v2, "onQueueChanged"
 
-    invoke-direct {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -331,24 +332,22 @@
     return-void
 .end method
 
-.method public onQueueTitleChanged(Ljava/lang/CharSequence;)V
+.method public final onQueueTitleChanged(Ljava/lang/CharSequence;)V
     .locals 3
 
     sget-boolean v0, Lcom/android/settingslib/volume/D;->BUG:Z
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onQueueTitleChanged"
+    const-string/jumbo v2, "onQueueTitleChanged"
 
-    invoke-direct {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -366,20 +365,18 @@
     return-void
 .end method
 
-.method public onSessionDestroyed()V
+.method public final onSessionDestroyed()V
     .locals 2
 
     sget-boolean v0, Lcom/android/settingslib/volume/D;->BUG:Z
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
-    move-result-object v0
+    const-string/jumbo v1, "onSessionDestroyed"
 
-    const-string v1, "onSessionDestroyed"
-
-    invoke-direct {p0, v1}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v1}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -389,24 +386,22 @@
     return-void
 .end method
 
-.method public onSessionEvent(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public final onSessionEvent(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 3
 
     sget-boolean v0, Lcom/android/settingslib/volume/D;->BUG:Z
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/settingslib/volume/MediaSessions;->access$200()Ljava/lang/String;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/settingslib/volume/MediaSessions;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onSessionEvent"
+    const-string/jumbo v2, "onSessionEvent"
 
-    invoke-direct {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0, v2}, Lcom/android/settingslib/volume/MediaSessions$MediaControllerRecord;->cb(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 

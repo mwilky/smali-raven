@@ -18,19 +18,15 @@
 
 
 # instance fields
-.field private final mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+.field public final mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-.field private mCharging:Z
+.field public mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-.field private mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+.field public mPluggedIn:Z
 
-.field private mLevel:I
+.field public mPowerSave:Z
 
-.field private mPluggedIn:Z
-
-.field private mPowerSave:Z
-
-.field protected final mSetting:Lcom/android/systemui/qs/SecureSetting;
+.field public final mSetting:Lcom/android/systemui/qs/SettingObserver;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
@@ -42,7 +38,7 @@
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
 
-    const p2, 0x1080521
+    const p2, 0x108052c
 
     invoke-static {p2}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -52,9 +48,7 @@
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getLifecycle()Landroidx/lifecycle/Lifecycle;
-
-    move-result-object p2
+    iget-object p2, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mLifecycle:Landroidx/lifecycle/LifecycleRegistry;
 
     invoke-interface {p9, p2, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/Lifecycle;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -64,50 +58,34 @@
 
     invoke-virtual {p1}, Landroid/content/Context;->getUserId()I
 
-    move-result p7
+    move-result p1
 
-    new-instance p1, Lcom/android/systemui/qs/tiles/BatterySaverTile$1;
+    new-instance p2, Lcom/android/systemui/qs/tiles/BatterySaverTile$1;
 
-    iget-object p5, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
+    iget-object p3, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHandler:Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;
 
-    const-string p6, "low_power_warning_acknowledged"
+    invoke-direct {p2, p0, p10, p3, p1}, Lcom/android/systemui/qs/tiles/BatterySaverTile$1;-><init>(Lcom/android/systemui/qs/tiles/BatterySaverTile;Lcom/android/systemui/util/settings/SettingsProxy;Lcom/android/systemui/qs/tileimpl/QSTileImpl$H;I)V
 
-    move-object p2, p1
-
-    move-object p3, p0
-
-    move-object p4, p10
-
-    invoke-direct/range {p2 .. p7}, Lcom/android/systemui/qs/tiles/BatterySaverTile$1;-><init>(Lcom/android/systemui/qs/tiles/BatterySaverTile;Lcom/android/systemui/util/settings/SecureSettings;Landroid/os/Handler;Ljava/lang/String;I)V
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/qs/tiles/BatterySaverTile;Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleRefreshState(Ljava/lang/Object;)V
+    iput-object p2, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SettingObserver;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 1
 
     new-instance p0, Landroid/content/Intent;
 
-    const-string v0, "android.intent.action.POWER_USAGE_SUMMARY"
+    const-string v0, "android.settings.BATTERY_SAVER_SETTINGS"
 
     invoke-direct {p0, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/16 p0, 0x105
@@ -115,12 +93,12 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
+.method public final getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->battery_detail_switch_title:I
+    const v0, 0x7f13011c
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -129,60 +107,65 @@
     return-object p0
 .end method
 
-.method protected handleClick(Landroid/view/View;)V
-    .locals 0
+.method public final handleClick(Landroid/view/View;)V
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->getState()Lcom/android/systemui/plugins/qs/QSTile$State;
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-    move-result-object p1
+    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+    iget v0, v0, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    iget p1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
-
-    if-nez p1, :cond_0
+    if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mPowerSave:Z
 
     xor-int/lit8 p0, p0, 0x1
 
-    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/policy/BatteryController;->setPowerSaveMode(Z)V
+    invoke-interface {v0, p1, p0}, Lcom/android/systemui/statusbar/policy/BatteryController;->setPowerSaveMode(Landroid/view/View;Z)V
 
     return-void
 .end method
 
-.method protected handleDestroy()V
+.method public final handleDestroy()V
     .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SettingObserver;
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/SecureSetting;->setListening(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/SettingObserver;->setListening(Z)V
 
     return-void
 .end method
 
-.method public handleSetListening(Z)V
-    .locals 0
+.method public final handleSetListening(Z)V
+    .locals 1
 
     invoke-super {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleSetListening(Z)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
+    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SettingObserver;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/SecureSetting;->setListening(Z)V
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/SettingObserver;->setListening(Z)V
 
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
+
+    invoke-interface {p0}, Lcom/android/systemui/statusbar/policy/BatteryController;->clearLastPowerSaverStartView()V
+
+    :cond_0
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+.method public handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
     .locals 3
 
     iget-boolean p2, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mPluggedIn:Z
@@ -218,7 +201,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/systemui/R$string;->battery_detail_switch_title:I
+    const v2, 0x7f13011c
 
     invoke-virtual {p2, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -244,9 +227,9 @@
 
     iput-object p2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->expandedAccessibilityClassName:Ljava/lang/String;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SettingObserver;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/SecureSetting;->getValue()I
+    invoke-virtual {p0}, Lcom/android/systemui/qs/SettingObserver;->getValue()I
 
     move-result p0
 
@@ -263,7 +246,7 @@
     return-void
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
+.method public bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
@@ -273,17 +256,17 @@
     return-void
 .end method
 
-.method protected handleUserSwitch(I)V
+.method public final handleUserSwitch(I)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SecureSetting;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mSetting:Lcom/android/systemui/qs/SettingObserver;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/SecureSetting;->setUserId(I)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/SettingObserver;->setUserId(I)V
 
     return-void
 .end method
 
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
@@ -293,24 +276,10 @@
     return-object p0
 .end method
 
-.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
+.method public final onBatteryLevelChanged(IZZ)V
     .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/BatterySaverTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public onBatteryLevelChanged(IZZ)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mLevel:I
 
     iput-boolean p2, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mPluggedIn:Z
-
-    iput-boolean p3, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mCharging:Z
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -321,7 +290,7 @@
     return-void
 .end method
 
-.method public onPowerSaveChanged(Z)V
+.method public final onPowerSaveChanged(Z)V
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/BatterySaverTile;->mPowerSave:Z

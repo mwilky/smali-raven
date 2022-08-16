@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/DessertCaseView$RescalingContainer;
+.class public final Lcom/android/systemui/DessertCaseView$RescalingContainer;
 .super Landroid/widget/FrameLayout;
 .source "DessertCaseView.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mView:Lcom/android/systemui/DessertCaseView;
+.field public mView:Lcom/android/systemui/DessertCaseView;
 
 
 # direct methods
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 2
 
     sub-int/2addr p4, p2
@@ -68,17 +68,17 @@
 
     mul-float/2addr p1, v1
 
-    add-float/2addr p2, p1
+    add-float/2addr p1, p2
 
-    float-to-int p1, p2
+    float-to-int p1, p1
 
     int-to-float p2, p3
 
     mul-float/2addr p4, v1
 
-    add-float/2addr p2, p4
+    add-float/2addr p4, p2
 
-    float-to-int p2, p2
+    float-to-int p2, p4
 
     sub-int p3, p1, v0
 
@@ -89,16 +89,6 @@
     add-int/2addr p2, p5
 
     invoke-virtual {p0, p3, p4, p1, p2}, Landroid/widget/FrameLayout;->layout(IIII)V
-
-    return-void
-.end method
-
-.method public setView(Lcom/android/systemui/DessertCaseView;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V
-
-    iput-object p1, p0, Lcom/android/systemui/DessertCaseView$RescalingContainer;->mView:Lcom/android/systemui/DessertCaseView;
 
     return-void
 .end method

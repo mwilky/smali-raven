@@ -3,12 +3,16 @@
 .source "ControlAdapter.kt"
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private final accessibilityDelegate:Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;
+.field public final accessibilityDelegate:Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;
 
-.field private final favorite:Landroid/widget/CheckBox;
+.field public final favorite:Landroid/widget/CheckBox;
 
-.field private final favoriteCallback:Lkotlin/jvm/functions/Function2;
+.field public final favoriteCallback:Lkotlin/jvm/functions/Function2;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function2<",
@@ -20,24 +24,24 @@
     .end annotation
 .end field
 
-.field private final favoriteStateDescription:Ljava/lang/String;
+.field public final favoriteStateDescription:Ljava/lang/String;
 
-.field private final icon:Landroid/widget/ImageView;
+.field public final icon:Landroid/widget/ImageView;
 
-.field private final moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
+.field public final moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
 
-.field private final notFavoriteStateDescription:Ljava/lang/String;
+.field public final notFavoriteStateDescription:Ljava/lang/String;
 
-.field private final removed:Landroid/widget/TextView;
+.field public final removed:Landroid/widget/TextView;
 
-.field private final subtitle:Landroid/widget/TextView;
+.field public final subtitle:Landroid/widget/TextView;
 
-.field private final title:Landroid/widget/TextView;
+.field public final title:Landroid/widget/TextView;
 
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;Lkotlin/jvm/functions/Function2;)V
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -53,123 +57,81 @@
         }
     .end annotation
 
-    const-string/jumbo v0, "view"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "favoriteCallback"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/controls/management/Holder;-><init>(Landroid/view/View;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/controls/management/Holder;-><init>(Landroid/view/View;)V
 
     iput-object p2, p0, Lcom/android/systemui/controls/management/ControlHolder;->moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
 
     iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->favoriteCallback:Lkotlin/jvm/functions/Function2;
 
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object p3
+
+    const v0, 0x7f130052
+
+    invoke-virtual {p3, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p3
+
+    iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->favoriteStateDescription:Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object p1
+    move-result-object p3
 
-    sget p3, Lcom/android/systemui/R$string;->accessibility_control_favorite:I
+    const v0, 0x7f130059
 
-    invoke-virtual {p1, p3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {p3, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p3
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->favoriteStateDescription:Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->notFavoriteStateDescription:Ljava/lang/String;
 
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object p1
-
-    sget p3, Lcom/android/systemui/R$string;->accessibility_control_not_favorite:I
-
-    invoke-virtual {p1, p3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->notFavoriteStateDescription:Ljava/lang/String;
-
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    sget p3, Lcom/android/systemui/R$id;->icon:I
+    const p3, 0x7f0b02ff
 
     invoke-virtual {p1, p3}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object p3
 
-    const-string p3, "itemView.requireViewById(R.id.icon)"
+    check-cast p3, Landroid/widget/ImageView;
 
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
 
-    check-cast p1, Landroid/widget/ImageView;
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
-
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    sget p3, Lcom/android/systemui/R$id;->title:I
+    const p3, 0x7f0b06c4
 
     invoke-virtual {p1, p3}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object p3
 
-    const-string p3, "itemView.requireViewById(R.id.title)"
+    check-cast p3, Landroid/widget/TextView;
 
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->title:Landroid/widget/TextView;
 
-    check-cast p1, Landroid/widget/TextView;
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->title:Landroid/widget/TextView;
-
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    sget p3, Lcom/android/systemui/R$id;->subtitle:I
+    const p3, 0x7f0b064d
 
     invoke-virtual {p1, p3}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object p3
 
-    const-string p3, "itemView.requireViewById(R.id.subtitle)"
+    check-cast p3, Landroid/widget/TextView;
 
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->subtitle:Landroid/widget/TextView;
 
-    check-cast p1, Landroid/widget/TextView;
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->subtitle:Landroid/widget/TextView;
-
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    sget p3, Lcom/android/systemui/R$id;->status:I
+    const p3, 0x7f0b0633
 
     invoke-virtual {p1, p3}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p1
+    move-result-object p3
 
-    const-string p3, "itemView.requireViewById(R.id.status)"
+    check-cast p3, Landroid/widget/TextView;
 
-    invoke-static {p1, p3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->removed:Landroid/widget/TextView;
 
-    check-cast p1, Landroid/widget/TextView;
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->removed:Landroid/widget/TextView;
-
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    sget p3, Lcom/android/systemui/R$id;->favorite:I
+    const p3, 0x7f0b0284
 
     invoke-virtual {p1, p3}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
-    move-result-object p1
-
-    move-object p3, p1
+    move-result-object p3
 
     check-cast p3, Landroid/widget/CheckBox;
 
@@ -177,218 +139,31 @@
 
     invoke-virtual {p3, v0}, Landroid/widget/CheckBox;->setVisibility(I)V
 
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    const-string v0, "itemView.requireViewById<CheckBox>(R.id.favorite).apply {\n        visibility = View.VISIBLE\n    }"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
     iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->favorite:Landroid/widget/CheckBox;
 
-    new-instance p1, Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;
+    new-instance p3, Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;
 
-    new-instance p3, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$1;
+    new-instance v0, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$1;
 
-    invoke-direct {p3, p0}, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$1;-><init>(Lcom/android/systemui/controls/management/ControlHolder;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$1;-><init>(Ljava/lang/Object;)V
 
-    new-instance v0, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$2;
+    new-instance v1, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$2;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$2;-><init>(Lcom/android/systemui/controls/management/ControlHolder;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/controls/management/ControlHolder$accessibilityDelegate$2;-><init>(Ljava/lang/Object;)V
 
-    invoke-direct {p1, p3, v0, p2}, Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;-><init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;)V
+    invoke-direct {p3, v0, v1, p2}, Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;-><init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;)V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->accessibilityDelegate:Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;
+    iput-object p3, p0, Lcom/android/systemui/controls/management/ControlHolder;->accessibilityDelegate:Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;
 
-    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-static {p0, p1}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
+    invoke-static {p1, p3}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
     return-void
-.end method
-
-.method public static final synthetic access$getFavorite$p(Lcom/android/systemui/controls/management/ControlHolder;)Landroid/widget/CheckBox;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->favorite:Landroid/widget/CheckBox;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$stateDescription(Lcom/android/systemui/controls/management/ControlHolder;Z)Ljava/lang/CharSequence;
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/controls/management/ControlHolder;->stateDescription(Z)Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private final applyRenderInfo(Lcom/android/systemui/controls/ui/RenderInfo;Lcom/android/systemui/controls/ControlInterface;)V
-    .locals 3
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/RenderInfo;->getForeground()I
-
-    move-result v2
-
-    invoke-virtual {v0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v2, v0}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
-
-    const/4 v2, 0x0
-
-    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
-
-    invoke-interface {p2}, Lcom/android/systemui/controls/ControlInterface;->getCustomIcon()Landroid/graphics/drawable/Icon;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
-
-    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageIcon(Landroid/graphics/drawable/Icon;)V
-
-    sget-object v2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    :goto_0
-    if-nez v2, :cond_1
-
-    iget-object v1, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
-
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/RenderInfo;->getIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object p1
-
-    invoke-virtual {v1, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    invoke-interface {p2}, Lcom/android/systemui/controls/ControlInterface;->getDeviceType()I
-
-    move-result p1
-
-    const/16 p2, 0x34
-
-    if-eq p1, p2, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
-
-    invoke-virtual {p0, v0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private final getRenderInfo(Landroid/content/ComponentName;I)Lcom/android/systemui/controls/ui/RenderInfo;
-    .locals 7
-
-    sget-object v0, Lcom/android/systemui/controls/ui/RenderInfo;->Companion:Lcom/android/systemui/controls/ui/RenderInfo$Companion;
-
-    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object v1
-
-    const-string p0, "itemView.context"
-
-    invoke-static {v1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v4, 0x0
-
-    const/16 v5, 0x8
-
-    const/4 v6, 0x0
-
-    move-object v2, p1
-
-    move v3, p2
-
-    invoke-static/range {v0 .. v6}, Lcom/android/systemui/controls/ui/RenderInfo$Companion;->lookup$default(Lcom/android/systemui/controls/ui/RenderInfo$Companion;Landroid/content/Context;Landroid/content/ComponentName;IIILjava/lang/Object;)Lcom/android/systemui/controls/ui/RenderInfo;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private final stateDescription(Z)Ljava/lang/CharSequence;
-    .locals 3
-
-    if-nez p1, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->notFavoriteStateDescription:Ljava/lang/String;
-
-    return-object p0
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
-
-    if-nez p1, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->favoriteStateDescription:Ljava/lang/String;
-
-    return-object p0
-
-    :cond_1
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getLayoutPosition()I
-
-    move-result p1
-
-    const/4 v0, 0x1
-
-    add-int/2addr p1, v0
-
-    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
-
-    move-result-object p0
-
-    sget v1, Lcom/android/systemui/R$string;->accessibility_control_favorite_position:I
-
-    new-array v0, v0, [Ljava/lang/Object;
-
-    const/4 v2, 0x0
-
-    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p1
-
-    aput-object p1, v0, v2
-
-    invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
 .end method
 
 
 # virtual methods
-.method public bindData(Lcom/android/systemui/controls/management/ElementWrapper;)V
+.method public final bindData(Lcom/android/systemui/controls/management/ElementWrapper;)V
     .locals 5
-
-    const-string/jumbo v0, "wrapper"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     move-object v0, p1
 
@@ -402,7 +177,17 @@
 
     move-result v2
 
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/controls/management/ControlHolder;->getRenderInfo(Landroid/content/ComponentName;I)Lcom/android/systemui/controls/ui/RenderInfo;
+    sget-object v3, Lcom/android/systemui/controls/ui/RenderInfo;->iconMap:Landroid/util/SparseArray;
+
+    iget-object v3, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v1, v2, v4}, Lcom/android/systemui/controls/ui/RenderInfo$Companion;->lookup(Landroid/content/Context;Landroid/content/ComponentName;II)Lcom/android/systemui/controls/ui/RenderInfo;
 
     move-result-object v1
 
@@ -442,7 +227,7 @@
 
     move-result-object v3
 
-    sget v4, Lcom/android/systemui/R$string;->controls_removed:I
+    const v4, 0x7f130256
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -464,30 +249,125 @@
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-direct {p0, v1, v0}, Lcom/android/systemui/controls/management/ControlHolder;->applyRenderInfo(Lcom/android/systemui/controls/ui/RenderInfo;Lcom/android/systemui/controls/ControlInterface;)V
+    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
+    invoke-virtual {p1}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    iget v3, v1, Lcom/android/systemui/controls/ui/RenderInfo;->foreground:I
+
+    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object p1
+
+    invoke-virtual {v2, v3, p1}, Landroid/content/res/Resources;->getColorStateList(ILandroid/content/res/Resources$Theme;)Landroid/content/res/ColorStateList;
+
+    move-result-object p1
+
+    iget-object v2, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    invoke-interface {v0}, Lcom/android/systemui/controls/ControlInterface;->getCustomIcon()Landroid/graphics/drawable/Icon;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
+
+    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setImageIcon(Landroid/graphics/drawable/Icon;)V
+
+    sget-object v3, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    :goto_1
+    if-nez v3, :cond_2
+
+    iget-object v2, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
+
+    iget-object v1, v1, Lcom/android/systemui/controls/ui/RenderInfo;->icon:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {v2, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-interface {v0}, Lcom/android/systemui/controls/ControlInterface;->getDeviceType()I
+
+    move-result v0
+
+    const/16 v1, 0x34
+
+    if-eq v0, v1, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->icon:Landroid/widget/ImageView;
+
+    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    :cond_2
     return-void
 .end method
 
-.method public final getFavoriteCallback()Lkotlin/jvm/functions/Function2;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lkotlin/jvm/functions/Function2<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Boolean;",
-            "Lkotlin/Unit;",
-            ">;"
-        }
-    .end annotation
+.method public final stateDescription(Z)Ljava/lang/String;
+    .locals 3
 
-    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->favoriteCallback:Lkotlin/jvm/functions/Function2;
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->notFavoriteStateDescription:Ljava/lang/String;
+
+    return-object p0
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/controls/management/ControlHolder;->moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
+
+    if-nez p1, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlHolder;->favoriteStateDescription:Ljava/lang/String;
+
+    return-object p0
+
+    :cond_1
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getLayoutPosition()I
+
+    move-result p1
+
+    const/4 v0, 0x1
+
+    add-int/2addr p1, v0
+
+    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+
+    invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    const v1, 0x7f130053
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    const/4 v2, 0x0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    aput-object p1, v0, v2
+
+    invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
 
     return-object p0
 .end method
 
-.method public updateFavorite(Z)V
+.method public final updateFavorite(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlHolder;->favorite:Landroid/widget/CheckBox;
@@ -496,11 +376,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlHolder;->accessibilityDelegate:Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;->setFavorite(Z)V
+    iput-boolean p1, v0, Lcom/android/systemui/controls/management/ControlHolderAccessibilityDelegate;->isFavorite:Z
 
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/controls/management/ControlHolder;->stateDescription(Z)Ljava/lang/CharSequence;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/ControlHolder;->stateDescription(Z)Ljava/lang/String;
 
     move-result-object p0
 

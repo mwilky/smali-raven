@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;
 .super Ljava/lang/Object;
 .source "InternetDialogController.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-.field final synthetic val$systemUIToast:Lcom/android/systemui/toast/SystemUIToast;
+.field public final synthetic val$systemUIToast:Lcom/android/systemui/toast/SystemUIToast;
 
-.field final synthetic val$toastView:Landroid/view/View;
+.field public final synthetic val$toastView:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Lcom/android/systemui/toast/SystemUIToast;Landroid/view/View;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Lcom/android/systemui/toast/SystemUIToast;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
@@ -42,14 +42,12 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$3;->val$systemUIToast:Lcom/android/systemui/toast/SystemUIToast;
 
-    invoke-virtual {v0}, Lcom/android/systemui/toast/SystemUIToast;->getOutAnimation()Landroid/animation/Animator;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/toast/SystemUIToast;->mOutAnimator:Landroid/animation/Animator;
 
     if-eqz v0, :cond_0
 

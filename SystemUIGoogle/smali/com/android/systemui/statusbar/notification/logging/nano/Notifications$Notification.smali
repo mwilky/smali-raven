@@ -103,7 +103,7 @@
     return-object p0
 .end method
 
-.method protected computeSerializedSize()I
+.method public computeSerializedSize()I
     .locals 3
 
     invoke-super {p0}, Lcom/google/protobuf/nano/MessageNano;->computeSerializedSize()I
@@ -174,9 +174,9 @@
 
     if-eqz v1, :cond_4
 
-    const/4 v2, 0x5
+    const/4 v1, 0x5
 
-    invoke-static {v2, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(IZ)I
+    invoke-static {v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->computeBoolSize(I)I
 
     move-result v1
 
@@ -239,7 +239,7 @@
 
     if-eq v0, v1, :cond_1
 
-    invoke-static {p1, v0}, Lcom/google/protobuf/nano/WireFormatNano;->parseUnknownField(Lcom/google/protobuf/nano/CodedInputByteBufferNano;I)Z
+    invoke-virtual {p1, v0}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->skipField(I)Z
 
     move-result v0
 
@@ -248,7 +248,7 @@
     return-object p0
 
     :cond_1
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -271,7 +271,7 @@
     goto :goto_0
 
     :cond_3
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -280,7 +280,7 @@
     goto :goto_0
 
     :cond_4
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -298,7 +298,7 @@
     goto :goto_0
 
     :cond_6
-    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readInt32()I
+    invoke-virtual {p1}, Lcom/google/protobuf/nano/CodedInputByteBufferNano;->readRawVarint32()I
 
     move-result v0
 
@@ -367,7 +367,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/notification/logging/nano/Notifications$Notification;->packageName:Ljava/lang/String;
 
-    invoke-virtual {p1, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeString(ILjava/lang/String;)V
+    invoke-virtual {p1, v0, v1}, Lcom/google/protobuf/nano/CodedOutputByteBufferNano;->writeString$1(ILjava/lang/String;)V
 
     :cond_1
     iget v0, p0, Lcom/android/systemui/statusbar/notification/logging/nano/Notifications$Notification;->instanceId:I

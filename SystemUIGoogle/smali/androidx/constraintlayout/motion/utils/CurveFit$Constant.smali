@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/utils/CurveFit$Constant;
+.class public final Landroidx/constraintlayout/motion/utils/CurveFit$Constant;
 .super Landroidx/constraintlayout/motion/utils/CurveFit;
 .source "CurveFit.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "Constant"
 .end annotation
 
 
 # instance fields
-.field mTime:D
+.field public mTime:D
 
-.field mValue:[D
+.field public mValue:[D
 
 
 # direct methods
-.method constructor <init>(D[D)V
+.method public constructor <init>(D[D)V
     .locals 0
 
     invoke-direct {p0}, Landroidx/constraintlayout/motion/utils/CurveFit;-><init>()V
@@ -35,17 +35,19 @@
 
 
 # virtual methods
-.method public getPos(DI)D
+.method public final getPos(D)D
     .locals 0
 
     iget-object p0, p0, Landroidx/constraintlayout/motion/utils/CurveFit$Constant;->mValue:[D
 
-    aget-wide p0, p0, p3
+    const/4 p1, 0x0
+
+    aget-wide p0, p0, p1
 
     return-wide p0
 .end method
 
-.method public getPos(D[D)V
+.method public final getPos(D[D)V
     .locals 0
 
     iget-object p0, p0, Landroidx/constraintlayout/motion/utils/CurveFit$Constant;->mValue:[D
@@ -59,7 +61,7 @@
     return-void
 .end method
 
-.method public getPos(D[F)V
+.method public final getPos(D[F)V
     .locals 2
 
     const/4 p1, 0x0
@@ -85,7 +87,7 @@
     return-void
 .end method
 
-.method public getSlope(DI)D
+.method public final getSlope(D)D
     .locals 0
 
     const-wide/16 p0, 0x0
@@ -93,7 +95,7 @@
     return-wide p0
 .end method
 
-.method public getSlope(D[D)V
+.method public final getSlope(D[D)V
     .locals 2
 
     const/4 p1, 0x0
@@ -117,7 +119,7 @@
     return-void
 .end method
 
-.method public getTimePoints()[D
+.method public final getTimePoints()[D
     .locals 3
 
     const/4 v0, 0x1

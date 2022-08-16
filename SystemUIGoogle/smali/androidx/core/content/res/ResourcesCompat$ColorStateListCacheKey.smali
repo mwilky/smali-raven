@@ -1,4 +1,4 @@
-.class final Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheKey;
+.class public final Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheKey;
 .super Ljava/lang/Object;
 .source "ResourcesCompat.java"
 
@@ -9,30 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "ColorStateListCacheKey"
 .end annotation
 
 
 # instance fields
-.field final mResources:Landroid/content/res/Resources;
+.field public final mResources:Landroid/content/res/Resources;
 
-.field final mTheme:Landroid/content/res/Resources$Theme;
+.field public final mTheme:Landroid/content/res/Resources$Theme;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)V
+.method public constructor <init>(Landroid/content/res/Resources;Landroid/content/res/Resources$Theme;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "resources",
-            "theme"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,16 +35,8 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -94,7 +76,7 @@
 
     iget-object p1, p1, Landroidx/core/content/res/ResourcesCompat$ColorStateListCacheKey;->mTheme:Landroid/content/res/Resources$Theme;
 
-    invoke-static {p0, p1}, Landroidx/core/util/ObjectsCompat;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p0
 
@@ -113,7 +95,7 @@
     return v1
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 3
 
     const/4 v0, 0x2
@@ -132,7 +114,7 @@
 
     aput-object p0, v0, v1
 
-    invoke-static {v0}, Landroidx/core/util/ObjectsCompat;->hash([Ljava/lang/Object;)I
+    invoke-static {v0}, Ljava/util/Objects;->hash([Ljava/lang/Object;)I
 
     move-result p0
 

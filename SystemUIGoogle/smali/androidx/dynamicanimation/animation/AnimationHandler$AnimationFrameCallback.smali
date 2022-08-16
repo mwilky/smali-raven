@@ -1,4 +1,4 @@
-.class interface abstract Landroidx/dynamicanimation/animation/AnimationHandler$AnimationFrameCallback;
+.class public interface abstract Landroidx/dynamicanimation/animation/AnimationHandler$AnimationFrameCallback;
 .super Ljava/lang/Object;
 .source "AnimationHandler.java"
 
@@ -9,19 +9,11 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "AnimationFrameCallback"
 .end annotation
 
 
 # virtual methods
 .method public abstract doAnimationFrame(J)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "frameTime"
-        }
-    .end annotation
 .end method

@@ -15,8 +15,5 @@
 
 
 # virtual methods
-.method public abstract onActivated(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;)V
-.end method
-
 .method public abstract onActivationReset(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;)V
 .end method

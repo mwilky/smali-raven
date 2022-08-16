@@ -1,4 +1,4 @@
-.class Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataOutputStream;
+.class public final Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataOutputStream;
 .super Ljava/io/FilterOutputStream;
 .source "ExifInterface.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ByteOrderedDataOutputStream"
 .end annotation
 
 
 # instance fields
-.field private mByteOrder:Ljava/nio/ByteOrder;
+.field public mByteOrder:Ljava/nio/ByteOrder;
 
-.field final mOutputStream:Ljava/io/OutputStream;
+.field public final mOutputStream:Ljava/io/OutputStream;
 
 
 # direct methods
@@ -35,15 +35,7 @@
 
 
 # virtual methods
-.method public setByteOrder(Ljava/nio/ByteOrder;)V
-    .locals 0
-
-    iput-object p1, p0, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataOutputStream;->mByteOrder:Ljava/nio/ByteOrder;
-
-    return-void
-.end method
-
-.method public write([B)V
+.method public final write([B)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -58,7 +50,7 @@
     return-void
 .end method
 
-.method public write([BII)V
+.method public final write([BII)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -73,7 +65,7 @@
     return-void
 .end method
 
-.method public writeByte(I)V
+.method public final writeByte(I)V
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -88,7 +80,7 @@
     return-void
 .end method
 
-.method public writeInt(I)V
+.method public final writeInt(I)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -178,7 +170,7 @@
     return-void
 .end method
 
-.method public writeShort(S)V
+.method public final writeShort(S)V
     .locals 2
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -233,35 +225,5 @@
 
     :cond_1
     :goto_0
-    return-void
-.end method
-
-.method public writeUnsignedInt(J)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    long-to-int p1, p1
-
-    invoke-virtual {p0, p1}, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataOutputStream;->writeInt(I)V
-
-    return-void
-.end method
-
-.method public writeUnsignedShort(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/io/IOException;
-        }
-    .end annotation
-
-    int-to-short p1, p1
-
-    invoke-virtual {p0, p1}, Landroidx/exifinterface/media/ExifInterface$ByteOrderedDataOutputStream;->writeShort(S)V
-
     return-void
 .end method

@@ -16,7 +16,7 @@
 
 
 # virtual methods
-.method public attach()V
+.method public attach$1()V
     .locals 0
 
     return-void
@@ -36,6 +36,14 @@
     const/4 p0, 0x0
 
     return p0
+.end method
+
+.method public getNotificationShadeView()Landroid/view/ViewGroup;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
 .end method
 
 .method public getPanelExpanded()Z
@@ -110,13 +118,13 @@
     return-void
 .end method
 
-.method public setForcePluginOpen(ZLjava/lang/Object;)V
+.method public setForcePluginOpen(Ljava/lang/Object;Z)V
     .locals 0
 
     return-void
 .end method
 
-.method public setForcePluginOpenListener(Lcom/android/systemui/statusbar/NotificationShadeWindowController$ForcePluginOpenListener;)V
+.method public setForcePluginOpenListener(Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda5;)V
     .locals 0
 
     return-void
@@ -176,7 +184,7 @@
     return-void
 .end method
 
-.method public setNotTouchable(Z)V
+.method public setNotTouchable()V
     .locals 0
 
     return-void
@@ -188,7 +196,7 @@
     return-void
 .end method
 
-.method public setNotificationShadeView(Landroid/view/ViewGroup;)V
+.method public setNotificationShadeView(Lcom/android/systemui/statusbar/phone/NotificationShadeWindowView;)V
     .locals 0
 
     return-void
@@ -212,7 +220,7 @@
     return-void
 .end method
 
-.method public setRequestTopUi(ZLjava/lang/String;)V
+.method public setRequestTopUi(Ljava/lang/String;Z)V
     .locals 0
 
     return-void
@@ -224,27 +232,19 @@
     return-void
 .end method
 
-.method public setScrimsVisibilityListener(Ljava/util/function/Consumer;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Integer;",
-            ">;)V"
-        }
-    .end annotation
-
-    return-void
-.end method
-
-.method public setStateListener(Lcom/android/systemui/statusbar/NotificationShadeWindowController$OtherwisedCollapsedListener;)V
+.method public setScrimsVisibilityListener(Lcom/android/systemui/statusbar/NotificationShadeDepthController$1;)V
     .locals 0
 
     return-void
 .end method
 
-.method public setWallpaperSupportsAmbientMode(Z)V
+.method public setStateListener(Lcom/android/wm/shell/pip/phone/PipController$$ExternalSyntheticLambda4;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public setWallpaperSupportsAmbientMode()V
     .locals 0
 
     return-void

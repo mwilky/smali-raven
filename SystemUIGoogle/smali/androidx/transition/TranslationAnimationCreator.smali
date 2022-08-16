@@ -1,4 +1,4 @@
-.class Landroidx/transition/TranslationAnimationCreator;
+.class public final Landroidx/transition/TranslationAnimationCreator;
 .super Ljava/lang/Object;
 .source "TranslationAnimationCreator.java"
 
@@ -12,7 +12,7 @@
 
 
 # direct methods
-.method static createAnimation(Landroid/view/View;Landroidx/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroidx/transition/Transition;)Landroid/animation/Animator;
+.method public static createAnimation(Landroid/view/View;Landroidx/transition/TransitionValues;IIFFFFLandroid/view/animation/BaseInterpolator;Landroidx/transition/Transition;)Landroid/animation/ObjectAnimator;
     .locals 14
 
     move-object v0, p0
@@ -29,7 +29,7 @@
 
     iget-object v4, v1, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
-    sget v5, Landroidx/transition/R$id;->transition_position:I
+    const v5, 0x7f0b06eb
 
     invoke-virtual {v4, v5}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -73,7 +73,7 @@
 
     move-result v8
 
-    add-int v8, p2, v8
+    add-int v8, v8, p2
 
     sub-float v9, v4, v3
 
@@ -81,7 +81,7 @@
 
     move-result v9
 
-    add-int v9, p3, v9
+    add-int v9, v9, p3
 
     invoke-virtual {p0, v7}, Landroid/view/View;->setTranslationX(F)V
 
@@ -158,11 +158,11 @@
 
     move-object/from16 v0, p9
 
-    invoke-virtual {v0, v5}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+    invoke-virtual {v0, v5}, Landroidx/transition/Transition;->addListener(Landroidx/transition/Transition$TransitionListener;)V
 
     invoke-virtual {v4, v5}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-static {v4, v5}, Landroidx/transition/AnimatorUtils;->addPauseListener(Landroid/animation/Animator;Landroid/animation/AnimatorListenerAdapter;)V
+    invoke-virtual {v4, v5}, Landroid/animation/Animator;->addPauseListener(Landroid/animation/Animator$AnimatorPauseListener;)V
 
     move-object/from16 v0, p8
 

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/systemui/navigationbar/NavigationModeController$ModeChangedListener;
 
 
 # instance fields
@@ -22,12 +23,16 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final onNavigationModeChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->$r8$lambda$Jq-Q_XrZGxMPStZIrQng8EcGKLU(Lcom/android/systemui/keyguard/KeyguardViewMediator;)V
+    invoke-static {p1}, Landroidx/preference/R$string;->isGesturalMode(I)Z
+
+    move-result p1
+
+    iput-boolean p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mInGestureNavigationMode:Z
 
     return-void
 .end method

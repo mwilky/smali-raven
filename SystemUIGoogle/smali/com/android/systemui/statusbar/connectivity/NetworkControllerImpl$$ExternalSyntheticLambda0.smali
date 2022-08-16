@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/telephony/TelephonyCallback$ActiveDataSubscriptionIdListener;
@@ -23,11 +24,17 @@
 
 # virtual methods
 .method public final onActiveDataSubscriptionIdChanged(I)V
-    .locals 0
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->$r8$lambda$XjV4Fh5by0EEiSPqo8EojeLsCso(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;I)V
+    iget-object v0, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mBgExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v1, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;I)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method

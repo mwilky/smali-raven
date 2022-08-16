@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/media/ResumeMediaBrowser$2;
+.class public final Lcom/android/systemui/media/ResumeMediaBrowser$2;
 .super Landroid/media/browse/MediaBrowser$ConnectionCallback;
 .source "ResumeMediaBrowser.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
+.field public final synthetic this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/ResumeMediaBrowser;)V
+.method public constructor <init>(Lcom/android/systemui/media/ResumeMediaBrowser;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
@@ -31,22 +31,18 @@
 
 
 # virtual methods
-.method public onConnected()V
+.method public final onConnected()V
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Service connected for "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Service connected for "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$000(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/content/ComponentName;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mComponentName:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -60,19 +56,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$200(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/media/browse/MediaBrowser;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_2
+    invoke-virtual {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->updateMediaController()V
 
     iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$200(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/media/browse/MediaBrowser;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->isConnected()Z
+    invoke-virtual {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->isBrowserConnected()Z
 
     move-result v0
 
@@ -80,9 +68,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$200(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/media/browse/MediaBrowser;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/ResumeMediaBrowser;->mMediaBrowser:Landroid/media/browse/MediaBrowser;
 
     invoke-virtual {v0}, Landroid/media/browse/MediaBrowser;->getRoot()Ljava/lang/String;
 
@@ -96,40 +82,20 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mCallback:Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
 
     if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
-
-    invoke-static {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v1
 
     invoke-virtual {v1}, Lcom/android/systemui/media/ResumeMediaBrowser$Callback;->onConnected()V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
+    iget-object p0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$200(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/media/browse/MediaBrowser;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser;->mMediaBrowser:Landroid/media/browse/MediaBrowser;
 
     if-eqz v1, :cond_1
 
-    iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
-
-    invoke-static {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$200(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/media/browse/MediaBrowser;
-
-    move-result-object v1
-
-    iget-object p0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
-
-    invoke-static {p0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$300(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/media/browse/MediaBrowser$SubscriptionCallback;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/media/ResumeMediaBrowser;->mSubscriptionCallback:Lcom/android/systemui/media/ResumeMediaBrowser$1;
 
     invoke-virtual {v1, v0, p0}, Landroid/media/browse/MediaBrowser;->subscribe(Ljava/lang/String;Landroid/media/browse/MediaBrowser$SubscriptionCallback;)V
 
@@ -139,17 +105,9 @@
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/ResumeMediaBrowser;->mCallback:Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
 
     if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
-
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/systemui/media/ResumeMediaBrowser$Callback;->onError()V
 
@@ -161,22 +119,18 @@
     return-void
 .end method
 
-.method public onConnectionFailed()V
+.method public final onConnectionFailed()V
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Connection failed for "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Connection failed for "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$000(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/content/ComponentName;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mComponentName:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -190,17 +144,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/ResumeMediaBrowser;->mCallback:Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
-
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/systemui/media/ResumeMediaBrowser$Callback;->onError()V
 
@@ -212,22 +158,18 @@
     return-void
 .end method
 
-.method public onConnectionSuspended()V
+.method public final onConnectionSuspended()V
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Connection suspended for "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Connection suspended for "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v1}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$000(Lcom/android/systemui/media/ResumeMediaBrowser;)Landroid/content/ComponentName;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/ResumeMediaBrowser;->mComponentName:Landroid/content/ComponentName;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -241,17 +183,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
 
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/ResumeMediaBrowser;->mCallback:Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
 
     if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowser$2;->this$0:Lcom/android/systemui/media/ResumeMediaBrowser;
-
-    invoke-static {v0}, Lcom/android/systemui/media/ResumeMediaBrowser;->access$100(Lcom/android/systemui/media/ResumeMediaBrowser;)Lcom/android/systemui/media/ResumeMediaBrowser$Callback;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/systemui/media/ResumeMediaBrowser$Callback;->onError()V
 

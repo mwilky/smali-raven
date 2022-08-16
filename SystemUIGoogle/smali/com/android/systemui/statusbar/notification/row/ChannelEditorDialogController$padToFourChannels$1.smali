@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;->padToFourChannels(Ljava/util/Set;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/Lambda;",
@@ -28,11 +19,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController$padToFourChannels$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
@@ -46,12 +37,16 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Landroid/app/NotificationChannel;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController$padToFourChannels$1;->invoke(Landroid/app/NotificationChannel;)Z
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController$padToFourChannels$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;->paddedChannels:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
     move-result p0
 
@@ -60,24 +55,4 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method public final invoke(Landroid/app/NotificationChannel;)Z
-    .locals 1
-
-    const-string v0, "it"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController$padToFourChannels$1;->this$0:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;->getPaddedChannels$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Ljava/util/List;
-
-    move-result-object p0
-
-    invoke-interface {p0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    return p0
 .end method

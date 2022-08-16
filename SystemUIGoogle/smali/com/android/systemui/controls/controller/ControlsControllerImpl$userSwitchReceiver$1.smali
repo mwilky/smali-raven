@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)V
+.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$userSwitchReceiver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
@@ -31,16 +31,8 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "intent"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 4
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -58,7 +50,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {p1, v0}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$setUserChanging$p(Lcom/android/systemui/controls/controller/ControlsControllerImpl;Z)V
+    iput-boolean v0, p1, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->userChanging:Z
 
     invoke-virtual {p0}, Landroid/content/BroadcastReceiver;->getSendingUserId()I
 
@@ -76,32 +68,90 @@
 
     iget-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$userSwitchReceiver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
-    invoke-static {p2}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$getCurrentUser$p(Lcom/android/systemui/controls/controller/ControlsControllerImpl;)Landroid/os/UserHandle;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->currentUser:Landroid/os/UserHandle;
 
     invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p2
 
+    const/4 v0, 0x0
+
     if-eqz p2, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$userSwitchReceiver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
-    const/4 p1, 0x0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$setUserChanging$p(Lcom/android/systemui/controls/controller/ControlsControllerImpl;Z)V
+    iput-boolean v0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->userChanging:Z
 
     return-void
 
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl$userSwitchReceiver$1;->this$0:Lcom/android/systemui/controls/controller/ControlsControllerImpl;
 
-    const-string p2, "newUser"
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string p2, "Changing to user: "
 
-    invoke-static {p0, p1}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->access$setValuesForUser(Lcom/android/systemui/controls/controller/ControlsControllerImpl;Landroid/os/UserHandle;)V
+    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string v1, "ControlsControllerImpl"
+
+    invoke-static {v1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->currentUser:Landroid/os/UserHandle;
+
+    new-instance p2, Lcom/android/systemui/controls/controller/UserStructure;
+
+    iget-object v1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->context:Landroid/content/Context;
+
+    invoke-direct {p2, v1, p1}, Lcom/android/systemui/controls/controller/UserStructure;-><init>(Landroid/content/Context;Landroid/os/UserHandle;)V
+
+    iput-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->userStructure:Lcom/android/systemui/controls/controller/UserStructure;
+
+    iget-object v1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
+
+    iget-object p2, p2, Lcom/android/systemui/controls/controller/UserStructure;->file:Ljava/io/File;
+
+    new-instance v2, Landroid/app/backup/BackupManager;
+
+    iget-object v3, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->userStructure:Lcom/android/systemui/controls/controller/UserStructure;
+
+    iget-object v3, v3, Lcom/android/systemui/controls/controller/UserStructure;->userContext:Landroid/content/Context;
+
+    invoke-direct {v2, v3}, Landroid/app/backup/BackupManager;-><init>(Landroid/content/Context;)V
+
+    iput-object p2, v1, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
+
+    iput-object v2, v1, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->backupManager:Landroid/app/backup/BackupManager;
+
+    iget-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->auxiliaryPersistenceWrapper:Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;
+
+    iget-object v1, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->userStructure:Lcom/android/systemui/controls/controller/UserStructure;
+
+    iget-object v1, v1, Lcom/android/systemui/controls/controller/UserStructure;->auxiliaryFile:Ljava/io/File;
+
+    iget-object v2, p2, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->persistenceWrapper:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;
+
+    iput-object v1, v2, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
+
+    const/4 v1, 0x0
+
+    iput-object v1, v2, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->backupManager:Landroid/app/backup/BackupManager;
+
+    invoke-virtual {p2}, Lcom/android/systemui/controls/controller/AuxiliaryPersistenceWrapper;->initialize()V
+
+    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->resetFavorites()V
+
+    iget-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->bindingController:Lcom/android/systemui/controls/controller/ControlsBindingController;
+
+    invoke-interface {p2, p1}, Lcom/android/systemui/util/UserAwareController;->changeUser(Landroid/os/UserHandle;)V
+
+    iget-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->listingController:Lcom/android/systemui/controls/management/ControlsListingController;
+
+    invoke-interface {p2, p1}, Lcom/android/systemui/util/UserAwareController;->changeUser(Landroid/os/UserHandle;)V
+
+    iput-boolean v0, p0, Lcom/android/systemui/controls/controller/ControlsControllerImpl;->userChanging:Z
 
     :cond_1
     return-void

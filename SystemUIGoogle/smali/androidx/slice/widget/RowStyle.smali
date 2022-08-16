@@ -1,75 +1,63 @@
-.class public Landroidx/slice/widget/RowStyle;
+.class public final Landroidx/slice/widget/RowStyle;
 .super Ljava/lang/Object;
 .source "RowStyle.java"
 
 
 # instance fields
-.field private mActionDividerHeight:I
+.field public mActionDividerHeight:I
 
-.field private mBottomDividerEndPadding:I
+.field public mBottomDividerEndPadding:I
 
-.field private mBottomDividerStartPadding:I
+.field public mBottomDividerStartPadding:I
 
-.field private mContentEndPadding:I
+.field public mContentEndPadding:I
 
-.field private mContentStartPadding:I
+.field public mContentStartPadding:I
 
-.field private mDisableRecyclerViewItemAnimator:Z
+.field public mDisableRecyclerViewItemAnimator:Z
 
-.field private mEndItemEndPadding:I
+.field public mEndItemEndPadding:I
 
-.field private mEndItemStartPadding:I
+.field public mEndItemStartPadding:I
 
-.field private mIconSize:I
+.field public mIconSize:I
 
-.field private mImageSize:I
+.field public mImageSize:I
 
-.field private mProgressBarEndPadding:I
+.field public mProgressBarEndPadding:I
 
-.field private mProgressBarInlineWidth:I
+.field public mProgressBarInlineWidth:I
 
-.field private mProgressBarStartPadding:I
+.field public mProgressBarStartPadding:I
 
-.field private mSeekBarInlineWidth:I
+.field public mSeekBarInlineWidth:I
 
-.field private final mSliceStyle:Landroidx/slice/widget/SliceStyle;
+.field public final mSliceStyle:Landroidx/slice/widget/SliceStyle;
 
-.field private mSubContentEndPadding:I
+.field public mSubContentEndPadding:I
 
-.field private mSubContentStartPadding:I
+.field public mSubContentStartPadding:I
 
-.field private mSubtitleColor:Ljava/lang/Integer;
+.field public mSubtitleColor:Ljava/lang/Integer;
 
-.field private mTextActionPadding:I
+.field public mTextActionPadding:I
 
-.field private mTintColor:Ljava/lang/Integer;
+.field public mTintColor:Ljava/lang/Integer;
 
-.field private mTitleColor:Ljava/lang/Integer;
+.field public mTitleColor:Ljava/lang/Integer;
 
-.field private mTitleEndPadding:I
+.field public mTitleEndPadding:I
 
-.field private mTitleItemEndPadding:I
+.field public mTitleItemEndPadding:I
 
-.field private mTitleItemStartPadding:I
+.field public mTitleItemStartPadding:I
 
-.field private mTitleStartPadding:I
+.field public mTitleStartPadding:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;ILandroidx/slice/widget/SliceStyle;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "resId",
-            "sliceStyle"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -129,11 +117,11 @@
 
     move-result-object p2
 
-    :try_start_0
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_titleItemStartPadding:I
+    const/16 p3, 0x16
 
     const/high16 v1, -0x40800000    # -1.0f
 
+    :try_start_0
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result p3
@@ -142,7 +130,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mTitleItemStartPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_titleItemEndPadding:I
+    const/16 p3, 0x15
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -152,7 +140,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mTitleItemEndPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_contentStartPadding:I
+    const/4 p3, 0x4
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -162,7 +150,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mContentStartPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_contentEndPadding:I
+    const/4 p3, 0x3
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -172,7 +160,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mContentEndPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_titleStartPadding:I
+    const/16 p3, 0x17
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -182,7 +170,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mTitleStartPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_titleEndPadding:I
+    const/16 p3, 0x14
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -192,7 +180,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mTitleEndPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_subContentStartPadding:I
+    const/16 p3, 0xf
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -202,7 +190,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mSubContentStartPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_subContentEndPadding:I
+    const/16 p3, 0xe
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -212,7 +200,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mSubContentEndPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_endItemStartPadding:I
+    const/4 p3, 0x7
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -222,7 +210,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mEndItemStartPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_endItemEndPadding:I
+    const/4 p3, 0x6
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -232,7 +220,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mEndItemEndPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_bottomDividerStartPadding:I
+    const/4 p3, 0x2
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -242,7 +230,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mBottomDividerStartPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_bottomDividerEndPadding:I
+    const/4 p3, 0x1
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -252,9 +240,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mBottomDividerEndPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_actionDividerHeight:I
-
-    invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
+    invoke-virtual {p2, v0, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
     move-result p3
 
@@ -262,7 +248,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mActionDividerHeight:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_seekBarInlineWidth:I
+    const/16 p3, 0xd
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -272,7 +258,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mSeekBarInlineWidth:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_progressBarInlineWidth:I
+    const/16 p3, 0xb
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -282,7 +268,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mProgressBarInlineWidth:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_progressBarStartPadding:I
+    const/16 p3, 0xc
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -292,7 +278,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mProgressBarStartPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_progressBarEndPadding:I
+    const/16 p3, 0xa
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -302,7 +288,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mProgressBarEndPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_textActionPadding:I
+    const/16 p3, 0x11
 
     const/high16 v2, 0x41200000    # 10.0f
 
@@ -314,7 +300,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mTextActionPadding:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_iconSize:I
+    const/16 p3, 0x8
 
     invoke-virtual {p2, p3, v1}, Landroid/content/res/TypedArray;->getDimension(IF)F
 
@@ -324,7 +310,7 @@
 
     iput p3, p0, Landroidx/slice/widget/RowStyle;->mIconSize:I
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_disableRecyclerViewItemAnimator:I
+    const/4 p3, 0x5
 
     invoke-virtual {p2, p3, v0}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
@@ -332,13 +318,13 @@
 
     iput-boolean p3, p0, Landroidx/slice/widget/RowStyle;->mDisableRecyclerViewItemAnimator:Z
 
-    sget p3, Landroidx/slice/view/R$styleable;->RowStyle_imageSize:I
+    const/16 p3, 0x9
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p1
 
-    sget v0, Landroidx/slice/view/R$dimen;->abc_slice_small_image_size:I
+    const v0, 0x7f070059
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -354,7 +340,7 @@
 
     iput p1, p0, Landroidx/slice/widget/RowStyle;->mImageSize:I
 
-    sget p1, Landroidx/slice/view/R$styleable;->RowStyle_tintColor:I
+    const/16 p1, 0x12
 
     invoke-static {p2, p1}, Landroidx/slice/widget/RowStyle;->getOptionalColor(Landroid/content/res/TypedArray;I)Ljava/lang/Integer;
 
@@ -362,7 +348,7 @@
 
     iput-object p1, p0, Landroidx/slice/widget/RowStyle;->mTintColor:Ljava/lang/Integer;
 
-    sget p1, Landroidx/slice/view/R$styleable;->RowStyle_titleColor:I
+    const/16 p1, 0x13
 
     invoke-static {p2, p1}, Landroidx/slice/widget/RowStyle;->getOptionalColor(Landroid/content/res/TypedArray;I)Ljava/lang/Integer;
 
@@ -370,7 +356,7 @@
 
     iput-object p1, p0, Landroidx/slice/widget/RowStyle;->mTitleColor:Ljava/lang/Integer;
 
-    sget p1, Landroidx/slice/view/R$styleable;->RowStyle_subtitleColor:I
+    const/16 p1, 0x10
 
     invoke-static {p2, p1}, Landroidx/slice/widget/RowStyle;->getOptionalColor(Landroid/content/res/TypedArray;I)Ljava/lang/Integer;
 
@@ -394,16 +380,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroidx/slice/widget/SliceStyle;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "sliceStyle"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -457,7 +433,7 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/slice/view/R$dimen;->abc_slice_small_image_size:I
+    const p2, 0x7f070059
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -468,18 +444,8 @@
     return-void
 .end method
 
-.method private static getOptionalColor(Landroid/content/res/TypedArray;I)Ljava/lang/Integer;
+.method public static getOptionalColor(Landroid/content/res/TypedArray;I)Ljava/lang/Integer;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "colorRes"
-        }
-    .end annotation
 
     invoke-virtual {p0, p1}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -508,135 +474,7 @@
 
 
 # virtual methods
-.method public getActionDividerHeight()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mActionDividerHeight:I
-
-    return p0
-.end method
-
-.method public getBottomDividerEndPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mBottomDividerEndPadding:I
-
-    return p0
-.end method
-
-.method public getBottomDividerStartPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mBottomDividerStartPadding:I
-
-    return p0
-.end method
-
-.method public getContentEndPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mContentEndPadding:I
-
-    return p0
-.end method
-
-.method public getContentStartPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mContentStartPadding:I
-
-    return p0
-.end method
-
-.method public getDisableRecyclerViewItemAnimator()Z
-    .locals 0
-
-    iget-boolean p0, p0, Landroidx/slice/widget/RowStyle;->mDisableRecyclerViewItemAnimator:Z
-
-    return p0
-.end method
-
-.method public getEndItemEndPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mEndItemEndPadding:I
-
-    return p0
-.end method
-
-.method public getEndItemStartPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mEndItemStartPadding:I
-
-    return p0
-.end method
-
-.method public getIconSize()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mIconSize:I
-
-    return p0
-.end method
-
-.method public getImageSize()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mImageSize:I
-
-    return p0
-.end method
-
-.method public getProgressBarEndPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mProgressBarEndPadding:I
-
-    return p0
-.end method
-
-.method public getProgressBarInlineWidth()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mProgressBarInlineWidth:I
-
-    return p0
-.end method
-
-.method public getProgressBarStartPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mProgressBarStartPadding:I
-
-    return p0
-.end method
-
-.method public getSeekBarInlineWidth()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mSeekBarInlineWidth:I
-
-    return p0
-.end method
-
-.method public getSubContentEndPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mSubContentEndPadding:I
-
-    return p0
-.end method
-
-.method public getSubContentStartPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mSubContentStartPadding:I
-
-    return p0
-.end method
-
-.method public getSubtitleColor()I
+.method public final getSubtitleColor()I
     .locals 1
 
     iget-object v0, p0, Landroidx/slice/widget/RowStyle;->mSubtitleColor:Ljava/lang/Integer;
@@ -652,98 +490,8 @@
     :cond_0
     iget-object p0, p0, Landroidx/slice/widget/RowStyle;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
 
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceStyle;->getSubtitleColor()I
-
-    move-result p0
+    iget p0, p0, Landroidx/slice/widget/SliceStyle;->mSubtitleColor:I
 
     :goto_0
-    return p0
-.end method
-
-.method public getTextActionPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mTextActionPadding:I
-
-    return p0
-.end method
-
-.method public getTintColor()I
-    .locals 1
-
-    iget-object v0, p0, Landroidx/slice/widget/RowStyle;->mTintColor:Ljava/lang/Integer;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result p0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/slice/widget/RowStyle;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
-
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceStyle;->getTintColor()I
-
-    move-result p0
-
-    :goto_0
-    return p0
-.end method
-
-.method public getTitleColor()I
-    .locals 1
-
-    iget-object v0, p0, Landroidx/slice/widget/RowStyle;->mTitleColor:Ljava/lang/Integer;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result p0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/slice/widget/RowStyle;->mSliceStyle:Landroidx/slice/widget/SliceStyle;
-
-    invoke-virtual {p0}, Landroidx/slice/widget/SliceStyle;->getTitleColor()I
-
-    move-result p0
-
-    :goto_0
-    return p0
-.end method
-
-.method public getTitleEndPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mTitleEndPadding:I
-
-    return p0
-.end method
-
-.method public getTitleItemEndPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mTitleItemEndPadding:I
-
-    return p0
-.end method
-
-.method public getTitleItemStartPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mTitleItemStartPadding:I
-
-    return p0
-.end method
-
-.method public getTitleStartPadding()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/widget/RowStyle;->mTitleStartPadding:I
-
     return p0
 .end method

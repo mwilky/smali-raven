@@ -15,34 +15,18 @@
 
 
 # instance fields
-.field private final contentAfterFadeInInterpolator:Landroid/view/animation/Interpolator;
+.field public final contentAfterFadeInInterpolator:Landroid/view/animation/Interpolator;
 
-.field private final contentBeforeFadeOutInterpolator:Landroid/view/animation/Interpolator;
+.field public final contentBeforeFadeOutInterpolator:Landroid/view/animation/Interpolator;
 
-.field private final positionInterpolator:Landroid/view/animation/Interpolator;
+.field public final positionInterpolator:Landroid/view/animation/Interpolator;
 
-.field private final positionXInterpolator:Landroid/view/animation/Interpolator;
+.field public final positionXInterpolator:Landroid/view/animation/Interpolator;
 
 
 # direct methods
 .method public constructor <init>(Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;)V
-    .locals 1
-
-    const-string v0, "positionInterpolator"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "positionXInterpolator"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "contentBeforeFadeOutInterpolator"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "contentAfterFadeInInterpolator"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -57,73 +41,9 @@
     return-void
 .end method
 
-.method public static synthetic copy$default(Lcom/android/systemui/animation/LaunchAnimator$Interpolators;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;ILjava/lang/Object;)Lcom/android/systemui/animation/LaunchAnimator$Interpolators;
-    .locals 0
-
-    and-int/lit8 p6, p5, 0x1
-
-    if-eqz p6, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->positionInterpolator:Landroid/view/animation/Interpolator;
-
-    :cond_0
-    and-int/lit8 p6, p5, 0x2
-
-    if-eqz p6, :cond_1
-
-    iget-object p2, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->positionXInterpolator:Landroid/view/animation/Interpolator;
-
-    :cond_1
-    and-int/lit8 p6, p5, 0x4
-
-    if-eqz p6, :cond_2
-
-    iget-object p3, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->contentBeforeFadeOutInterpolator:Landroid/view/animation/Interpolator;
-
-    :cond_2
-    and-int/lit8 p5, p5, 0x8
-
-    if-eqz p5, :cond_3
-
-    iget-object p4, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->contentAfterFadeInInterpolator:Landroid/view/animation/Interpolator;
-
-    :cond_3
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->copy(Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;)Lcom/android/systemui/animation/LaunchAnimator$Interpolators;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public final copy(Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;)Lcom/android/systemui/animation/LaunchAnimator$Interpolators;
-    .locals 0
-
-    const-string p0, "positionInterpolator"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "positionXInterpolator"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "contentBeforeFadeOutInterpolator"
-
-    invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "contentAfterFadeInInterpolator"
-
-    invoke-static {p4, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;-><init>(Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;Landroid/view/animation/Interpolator;)V
-
-    return-object p0
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -199,39 +119,7 @@
     return v0
 .end method
 
-.method public final getContentAfterFadeInInterpolator()Landroid/view/animation/Interpolator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->contentAfterFadeInInterpolator:Landroid/view/animation/Interpolator;
-
-    return-object p0
-.end method
-
-.method public final getContentBeforeFadeOutInterpolator()Landroid/view/animation/Interpolator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->contentBeforeFadeOutInterpolator:Landroid/view/animation/Interpolator;
-
-    return-object p0
-.end method
-
-.method public final getPositionInterpolator()Landroid/view/animation/Interpolator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->positionInterpolator:Landroid/view/animation/Interpolator;
-
-    return-object p0
-.end method
-
-.method public final getPositionXInterpolator()Landroid/view/animation/Interpolator;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->positionXInterpolator:Landroid/view/animation/Interpolator;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->positionInterpolator:Landroid/view/animation/Interpolator;
@@ -248,15 +136,15 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    iget-object v1, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->contentBeforeFadeOutInterpolator:Landroid/view/animation/Interpolator;
+    iget-object v0, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->contentBeforeFadeOutInterpolator:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
+    invoke-virtual {v0}, Ljava/lang/Object;->hashCode()I
 
-    move-result v1
+    move-result v0
 
     add-int/2addr v0, v1
 
@@ -268,21 +156,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Interpolators(positionInterpolator="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Interpolators(positionInterpolator="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/animation/LaunchAnimator$Interpolators;->positionInterpolator:Landroid/view/animation/Interpolator;
 

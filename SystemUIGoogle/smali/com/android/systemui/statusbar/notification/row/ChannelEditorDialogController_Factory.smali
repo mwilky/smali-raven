@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final cProvider:Ljavax/inject/Provider;
+.field public final cProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final dialogBuilderProvider:Ljavax/inject/Provider;
+.field public final dialogBuilderProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final noManProvider:Ljavax/inject/Provider;
+.field public final noManProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -50,22 +50,10 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/app/INotificationManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog$Builder;",
-            ">;)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog_Builder_Factory$InstanceHolder;->INSTANCE:Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog_Builder_Factory;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -73,50 +61,15 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;->noManProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;->dialogBuilderProvider:Ljavax/inject/Provider;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;->dialogBuilderProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/app/INotificationManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog$Builder;",
-            ">;)",
-            "Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog$Builder;)Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;-><init>(Landroid/content/Context;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog$Builder;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;->cProvider:Ljavax/inject/Provider;
 
@@ -142,19 +95,9 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog$Builder;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;->newInstance(Landroid/content/Context;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog$Builder;)Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
+    new-instance v2, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;-><init>(Landroid/content/Context;Landroid/app/INotificationManager;Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialog$Builder;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController_Factory;->get()Lcom/android/systemui/statusbar/notification/row/ChannelEditorDialogController;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v2
 .end method

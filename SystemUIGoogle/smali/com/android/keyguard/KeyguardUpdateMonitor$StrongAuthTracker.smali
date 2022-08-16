@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;
+.class public final Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;
 .super Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;
 .source "KeyguardUpdateMonitor.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mStrongAuthRequiredChangedCallback:Ljava/util/function/Consumer;
+.field public final mStrongAuthRequiredChangedCallback:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -27,17 +27,8 @@
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Ljava/util/function/Consumer;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/tuner/ShortcutPicker$$ExternalSyntheticLambda2;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Ljava/util/function/Consumer<",
-            "Ljava/lang/Integer;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0, p1}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;-><init>(Landroid/content/Context;)V
 
@@ -48,47 +39,7 @@
 
 
 # virtual methods
-.method public hasUserAuthenticatedSinceBoot()Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->getStrongAuthForUser(I)I
-
-    move-result p0
-
-    const/4 v0, 0x1
-
-    and-int/2addr p0, v0
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method public isUnlockingWithBiometricAllowed(Z)Z
-    .locals 1
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v0
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/internal/widget/LockPatternUtils$StrongAuthTracker;->isBiometricAllowedForUser(ZI)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public onStrongAuthRequiredChanged(I)V
+.method public final onStrongAuthRequiredChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor$StrongAuthTracker;->mStrongAuthRequiredChangedCallback:Ljava/util/function/Consumer;

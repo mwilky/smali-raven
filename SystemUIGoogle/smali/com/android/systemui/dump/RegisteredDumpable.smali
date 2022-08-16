@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dump/RegisteredDumpable;
+.class public final Lcom/android/systemui/dump/RegisteredDumpable;
 .super Ljava/lang/Object;
 .source "DumpManager.kt"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final dumpable:Ljava/lang/Object;
+.field public final dumpable:Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "TT;"
@@ -23,36 +23,25 @@
     .end annotation
 .end field
 
-.field private final name:Ljava/lang/String;
+.field public final name:Ljava/lang/String;
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Object;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/String;",
-            "TT;)V"
-        }
-    .end annotation
-
-    const-string v0, "name"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/dump/RegisteredDumpable;->name:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/dump/RegisteredDumpable;->name:Ljava/lang/String;
 
-    iput-object p2, p0, Lcom/android/systemui/dump/RegisteredDumpable;->dumpable:Ljava/lang/Object;
+    iput-object p1, p0, Lcom/android/systemui/dump/RegisteredDumpable;->dumpable:Ljava/lang/Object;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -102,28 +91,7 @@
     return v0
 .end method
 
-.method public final getDumpable()Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()TT;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/dump/RegisteredDumpable;->dumpable:Ljava/lang/Object;
-
-    return-object p0
-.end method
-
-.method public final getName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/dump/RegisteredDumpable;->name:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/dump/RegisteredDumpable;->name:Ljava/lang/String;
@@ -153,16 +121,14 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "RegisteredDumpable(name="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "RegisteredDumpable(name="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/dump/RegisteredDumpable;->name:Ljava/lang/String;
 

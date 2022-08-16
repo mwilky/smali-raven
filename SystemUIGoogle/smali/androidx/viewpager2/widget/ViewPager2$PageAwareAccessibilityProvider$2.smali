@@ -1,4 +1,4 @@
-.class Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider$2;
+.class public final Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider$2;
 .super Ljava/lang/Object;
 .source "ViewPager2.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
+.field public final synthetic this$1:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
 
 
 # direct methods
-.method constructor <init>(Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;)V
+.method public constructor <init>(Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider$2;->this$1:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
@@ -34,22 +34,27 @@
 
 
 # virtual methods
-.method public perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 0
+.method public final perform(Landroid/view/View;)Z
+    .locals 2
 
     check-cast p1, Landroidx/viewpager2/widget/ViewPager2;
 
     iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider$2;->this$1:Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;
 
-    invoke-virtual {p1}, Landroidx/viewpager2/widget/ViewPager2;->getCurrentItem()I
+    iget p1, p1, Landroidx/viewpager2/widget/ViewPager2;->mCurrentItem:I
 
-    move-result p1
+    const/4 v0, 0x1
 
-    const/4 p2, 0x1
+    sub-int/2addr p1, v0
 
-    sub-int/2addr p1, p2
+    iget-object p0, p0, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->this$0:Landroidx/viewpager2/widget/ViewPager2;
 
-    invoke-virtual {p0, p1}, Landroidx/viewpager2/widget/ViewPager2$PageAwareAccessibilityProvider;->setCurrentItemFromAccessibilityCommand(I)V
+    iget-boolean v1, p0, Landroidx/viewpager2/widget/ViewPager2;->mUserInputEnabled:Z
 
-    return p2
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p0, p1}, Landroidx/viewpager2/widget/ViewPager2;->setCurrentItemInternal(I)V
+
+    :cond_0
+    return v0
 .end method

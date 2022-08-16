@@ -1,33 +1,79 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Ljava/util/function/Function;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/navigationbar/NavigationBar;
+.field public final synthetic $r8$classId:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p1, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda1;->$r8$classId:I
 
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
+    iget p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda1;->$r8$classId:I
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$Lc81b84naHtaxRAuqpMeFxBuvqs(Lcom/android/systemui/navigationbar/NavigationBar;Landroid/view/View;)V
+    packed-switch p0, :pswitch_data_0
 
-    return-void
+    goto :goto_0
+
+    :pswitch_0
+    check-cast p1, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;
+
+    iget-object p0, p1, Lcom/android/systemui/statusbar/AlertingNotificationManager$AlertEntry;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    return-object p0
+
+    :pswitch_1
+    check-cast p1, Lcom/android/systemui/statusbar/phone/CentralSurfaces;
+
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/phone/CentralSurfaces;->isKeyguardShowing()Z
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object p0
+
+    return-object p0
+
+    :goto_0
+    check-cast p1, Landroid/app/smartspace/SmartspaceAction;
+
+    sget p0, Lcom/google/android/systemui/smartspace/BcSmartspaceCardDoorbell;->$r8$clinit:I
+
+    invoke-virtual {p1}, Landroid/app/smartspace/SmartspaceAction;->getExtras()Landroid/os/Bundle;
+
+    move-result-object p0
+
+    const-string p1, "imageUri"
+
+    invoke-virtual {p0, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p0
+
+    return-object p0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

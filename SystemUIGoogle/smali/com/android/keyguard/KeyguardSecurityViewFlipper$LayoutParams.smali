@@ -42,7 +42,7 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/systemui/R$styleable;->KeyguardSecurityViewFlipper_Layout_layout_maxWidth:I
+    const/4 p2, 0x1
 
     invoke-virtual {p1, p2, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
@@ -50,9 +50,7 @@
 
     iput p2, p0, Lcom/android/keyguard/KeyguardSecurityViewFlipper$LayoutParams;->maxWidth:I
 
-    sget p2, Lcom/android/systemui/R$styleable;->KeyguardSecurityViewFlipper_Layout_layout_maxHeight:I
-
-    invoke-virtual {p1, p2, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+    invoke-virtual {p1, v1, v1}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
 
     move-result p2
 
@@ -89,7 +87,7 @@
 
 
 # virtual methods
-.method protected encodeProperties(Landroid/view/ViewHierarchyEncoder;)V
+.method public final encodeProperties(Landroid/view/ViewHierarchyEncoder;)V
     .locals 2
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout$LayoutParams;->encodeProperties(Landroid/view/ViewHierarchyEncoder;)V

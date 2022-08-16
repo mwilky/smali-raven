@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;
+.class public final Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;
 .super Ljava/lang/Object;
 .source "ScreenDecorations.java"
 
@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "RestartingPreDrawListener"
 .end annotation
 
 
 # instance fields
-.field private final mPosition:I
+.field public final mTargetDisplayMode:Landroid/view/Display$Mode;
 
-.field private final mTargetRotation:I
+.field public final mTargetRotation:I
 
-.field private final mView:Landroid/view/View;
+.field public final mView:Landroid/view/View;
 
-.field final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
+.field public final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/ScreenDecorations;Landroid/view/View;II)V
+.method public constructor <init>(Lcom/android/systemui/ScreenDecorations;Landroid/view/ViewGroup;ILandroid/view/Display$Mode;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
@@ -37,25 +37,17 @@
 
     iput-object p2, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mView:Landroid/view/View;
 
-    iput p4, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mTargetRotation:I
+    iput p3, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mTargetRotation:I
 
-    iput p3, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mPosition:I
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/ScreenDecorations;Landroid/view/View;IILcom/android/systemui/ScreenDecorations$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;-><init>(Lcom/android/systemui/ScreenDecorations;Landroid/view/View;II)V
+    iput-object p4, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mTargetDisplayMode:Landroid/view/Display$Mode;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onPreDraw()Z
-    .locals 2
+.method public final onPreDraw()Z
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mView:Landroid/view/View;
 
@@ -69,11 +61,19 @@
 
     iget-object v1, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
 
-    invoke-static {v1}, Lcom/android/systemui/ScreenDecorations;->access$100(Lcom/android/systemui/ScreenDecorations;)I
+    iget v2, v1, Lcom/android/systemui/ScreenDecorations;->mRotation:I
 
-    move-result v1
+    if-ne v0, v2, :cond_0
 
-    if-ne v0, v1, :cond_0
+    iget-object v0, v1, Lcom/android/systemui/ScreenDecorations;->mDisplayMode:Landroid/view/Display$Mode;
+
+    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mTargetDisplayMode:Landroid/view/Display$Mode;
+
+    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->displayModeChanged(Landroid/view/Display$Mode;Landroid/view/Display$Mode;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
 
     const/4 p0, 0x1
 
@@ -84,11 +84,9 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->access$202(Lcom/android/systemui/ScreenDecorations;Z)Z
+    iput-boolean v1, v0, Lcom/android/systemui/ScreenDecorations;->mPendingConfigChange:Z
 
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$800(Lcom/android/systemui/ScreenDecorations;)V
+    invoke-virtual {v0}, Lcom/android/systemui/ScreenDecorations;->updateConfiguration()V
 
     iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;->mView:Landroid/view/View;
 

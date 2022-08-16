@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/AssistantFeedbackController$1;
+.class public final Lcom/android/systemui/statusbar/notification/AssistantFeedbackController$1;
 .super Ljava/lang/Object;
 .source "AssistantFeedbackController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/AssistantFeedbackController$1;->this$0:Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
+.method public final onPropertiesChanged(Landroid/provider/DeviceConfig$Properties;)V
     .locals 2
 
     invoke-virtual {p1}, Landroid/provider/DeviceConfig$Properties;->getKeyset()Ljava/util/Set;
@@ -57,7 +57,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;->access$002(Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;Z)Z
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/AssistantFeedbackController;->mFeedbackEnabled:Z
 
     :cond_0
     return-void

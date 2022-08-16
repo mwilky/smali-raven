@@ -9,22 +9,17 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/controls/management/FavoritesModel$Companion;,
         Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nFavoritesModel.kt\nKotlin\n*S Kotlin\n*F\n+ 1 FavoritesModel.kt\ncom/android/systemui/controls/management/FavoritesModel\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,254:1\n1517#2:255\n1588#2,3:256\n1517#2:259\n1588#2,3:260\n318#2,7:263\n*E\n*S KotlinDebug\n*F\n+ 1 FavoritesModel.kt\ncom/android/systemui/controls/management/FavoritesModel\n*L\n87#1:255\n87#1,3:256\n83#1:259\n83#1,3:260\n97#1,7:263\n*E\n"
+    value = "SMAP\nFavoritesModel.kt\nKotlin\n*S Kotlin\n*F\n+ 1 FavoritesModel.kt\ncom/android/systemui/controls/management/FavoritesModel\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,254:1\n1547#2:255\n1618#2,3:256\n1547#2:259\n1618#2,3:260\n348#2,7:263\n*S KotlinDebug\n*F\n+ 1 FavoritesModel.kt\ncom/android/systemui/controls/management/FavoritesModel\n*L\n87#1:255\n87#1:256,3\n83#1:259\n83#1:260,3\n97#1:263,7\n*E\n"
 .end annotation
 
 
-# static fields
-.field public static final Companion:Lcom/android/systemui/controls/management/FavoritesModel$Companion;
-
-
 # instance fields
-.field private adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
+.field public adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
@@ -33,76 +28,26 @@
     .end annotation
 .end field
 
-.field private final componentName:Landroid/content/ComponentName;
+.field public final componentName:Landroid/content/ComponentName;
 
-.field private final customIconCache:Lcom/android/systemui/controls/CustomIconCache;
+.field public final customIconCache:Lcom/android/systemui/controls/CustomIconCache;
 
-.field private dividerPosition:I
+.field public dividerPosition:I
 
-.field private final elements:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/management/ElementWrapper;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final elements:Ljava/util/ArrayList;
 
-.field private final favoritesModelCallback:Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
+.field public final favoritesModelCallback:Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
 
-.field private final itemTouchHelperCallback:Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;
+.field public final itemTouchHelperCallback:Lcom/android/systemui/controls/management/FavoritesModel$itemTouchHelperCallback$1;
 
-.field private modified:Z
+.field public modified:Z
 
-.field private final moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
+.field public final moveHelper:Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/controls/management/FavoritesModel$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/management/FavoritesModel$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/controls/management/FavoritesModel;->Companion:Lcom/android/systemui/controls/management/FavoritesModel$Companion;
-
-    return-void
-.end method
-
-.method public constructor <init>(Lcom/android/systemui/controls/CustomIconCache;Landroid/content/ComponentName;Ljava/util/List;Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;)V
-    .locals 4
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/controls/CustomIconCache;",
-            "Landroid/content/ComponentName;",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/ControlInfo;",
-            ">;",
-            "Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;",
-            ")V"
-        }
-    .end annotation
-
-    const-string v0, "customIconCache"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "componentName"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "favorites"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "favoritesModelCallback"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Lcom/android/systemui/controls/CustomIconCache;Landroid/content/ComponentName;Ljava/util/List;Lcom/android/systemui/controls/management/ControlsEditingActivity$favoritesModelCallback$1;)V
+    .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -116,13 +61,13 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;-><init>(Lcom/android/systemui/controls/management/FavoritesModel;)V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
+    iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->moveHelper:Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;
 
     new-instance p1, Ljava/util/ArrayList;
 
     const/16 p2, 0xa
 
-    invoke-static {p3, p2}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {p3, p2}, Lkotlin/collections/CollectionsKt__IteratorsJVMKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
     move-result p2
 
@@ -137,8 +82,6 @@
 
     move-result p3
 
-    const/4 p4, 0x1
-
     if-eqz p3, :cond_0
 
     invoke-interface {p2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
@@ -147,48 +90,40 @@
 
     check-cast p3, Lcom/android/systemui/controls/controller/ControlInfo;
 
-    new-instance v0, Lcom/android/systemui/controls/management/ControlInfoWrapper;
+    new-instance p4, Lcom/android/systemui/controls/management/ControlInfoWrapper;
 
-    iget-object v1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->componentName:Landroid/content/ComponentName;
+    iget-object v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->componentName:Landroid/content/ComponentName;
 
-    new-instance v2, Lcom/android/systemui/controls/management/FavoritesModel$elements$1$1;
+    new-instance v1, Lcom/android/systemui/controls/management/FavoritesModel$elements$1$1;
 
-    iget-object v3, p0, Lcom/android/systemui/controls/management/FavoritesModel;->customIconCache:Lcom/android/systemui/controls/CustomIconCache;
+    iget-object v2, p0, Lcom/android/systemui/controls/management/FavoritesModel;->customIconCache:Lcom/android/systemui/controls/CustomIconCache;
 
-    invoke-direct {v2, v3}, Lcom/android/systemui/controls/management/FavoritesModel$elements$1$1;-><init>(Lcom/android/systemui/controls/CustomIconCache;)V
+    invoke-direct {v1, v2}, Lcom/android/systemui/controls/management/FavoritesModel$elements$1$1;-><init>(Lcom/android/systemui/controls/CustomIconCache;)V
 
-    invoke-direct {v0, v1, p3, p4, v2}, Lcom/android/systemui/controls/management/ControlInfoWrapper;-><init>(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlInfo;ZLkotlin/jvm/functions/Function2;)V
+    invoke-direct {p4, v0, p3, v1}, Lcom/android/systemui/controls/management/ControlInfoWrapper;-><init>(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlInfo;Lkotlin/jvm/functions/Function2;)V
 
-    invoke-interface {p1, v0}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, p4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_0
     new-instance p2, Lcom/android/systemui/controls/management/DividerWrapper;
 
-    const/4 p3, 0x3
+    const/4 p3, 0x0
 
-    const/4 v0, 0x0
+    invoke-direct {p2, p3}, Lcom/android/systemui/controls/management/DividerWrapper;-><init>(I)V
 
-    const/4 v1, 0x0
-
-    invoke-direct {p2, v1, v1, p3, v0}, Lcom/android/systemui/controls/management/DividerWrapper;-><init>(ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    invoke-static {p1, p2}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/Collection;Ljava/lang/Object;)Ljava/util/List;
+    invoke-static {p2, p1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->plus(Ljava/lang/Object;Ljava/util/Collection;)Ljava/util/ArrayList;
 
     move-result-object p1
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/List;
+    iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result p1
 
-    sub-int/2addr p1, p4
+    add-int/lit8 p1, p1, -0x1
 
     iput p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
 
@@ -196,361 +131,19 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/controls/management/FavoritesModel$itemTouchHelperCallback$1;-><init>(Lcom/android/systemui/controls/management/FavoritesModel;)V
 
-    iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->itemTouchHelperCallback:Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;
-
-    return-void
-.end method
-
-.method public static final synthetic access$getDividerPosition$p(Lcom/android/systemui/controls/management/FavoritesModel;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
-
-    return p0
-.end method
-
-.method private final moveElement(II)V
-    .locals 3
-
-    if-ge p1, p2, :cond_1
-
-    if-ge p1, p2, :cond_3
-
-    :goto_0
-    add-int/lit8 v0, p1, 0x1
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v1
-
-    invoke-static {v1, p1, v0}, Ljava/util/Collections;->swap(Ljava/util/List;II)V
-
-    if-lt v0, p2, :cond_0
-
-    goto :goto_2
-
-    :cond_0
-    move p1, v0
-
-    goto :goto_0
-
-    :cond_1
-    add-int/lit8 p2, p2, 0x1
-
-    if-gt p2, p1, :cond_3
-
-    :goto_1
-    add-int/lit8 v0, p1, -0x1
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v1
-
-    add-int/lit8 v2, p1, -0x1
-
-    invoke-static {v1, p1, v2}, Ljava/util/Collections;->swap(Ljava/util/List;II)V
-
-    if-ne p1, p2, :cond_2
-
-    goto :goto_2
-
-    :cond_2
-    move p1, v0
-
-    goto :goto_1
-
-    :cond_3
-    :goto_2
-    return-void
-.end method
-
-.method private final onMoveItemInternal(II)V
-    .locals 3
-
-    iget v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
-
-    if-ne p1, v0, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-ge p1, v0, :cond_1
-
-    if-ge p2, v0, :cond_2
-
-    :cond_1
-    if-le p1, v0, :cond_5
-
-    if-gt p2, v0, :cond_5
-
-    :cond_2
-    if-ge p1, v0, :cond_3
-
-    if-lt p2, v0, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/controls/management/ControlInfoWrapper;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/controls/management/ControlInfoWrapper;->setFavorite(Z)V
-
-    goto :goto_0
-
-    :cond_3
-    if-le p1, v0, :cond_4
-
-    if-gt p2, v0, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/controls/management/ControlInfoWrapper;
-
-    invoke-virtual {v0, v2}, Lcom/android/systemui/controls/management/ControlInfoWrapper;->setFavorite(Z)V
-
-    :cond_4
-    :goto_0
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/controls/management/FavoritesModel;->updateDivider(II)V
-
-    move v1, v2
-
-    :cond_5
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/controls/management/FavoritesModel;->moveElement(II)V
-
-    iget-object v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
-
-    if-nez v0, :cond_6
-
-    goto :goto_1
-
-    :cond_6
-    invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyItemMoved(II)V
-
-    :goto_1
-    if-eqz v1, :cond_8
-
-    iget-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
-
-    if-nez p1, :cond_7
-
-    goto :goto_2
-
-    :cond_7
-    new-instance v0, Ljava/lang/Object;
-
-    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
-
-    invoke-virtual {p1, p2, v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyItemChanged(ILjava/lang/Object;)V
-
-    :cond_8
-    :goto_2
-    iget-boolean p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->modified:Z
-
-    if-nez p1, :cond_9
-
-    iput-boolean v2, p0, Lcom/android/systemui/controls/management/FavoritesModel;->modified:Z
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->favoritesModelCallback:Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
-
-    invoke-interface {p0}, Lcom/android/systemui/controls/management/ControlsModel$ControlsModelCallback;->onFirstChange()V
-
-    :cond_9
-    return-void
-.end method
-
-.method private final updateDivider(II)V
-    .locals 4
-
-    iget v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    if-ge p1, v0, :cond_1
-
-    if-lt p2, v0, :cond_1
-
-    add-int/lit8 p1, v0, -0x1
-
-    iput p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
-
-    if-nez p1, :cond_0
-
-    invoke-direct {p0, v0, v2}, Lcom/android/systemui/controls/management/FavoritesModel;->updateDividerNone(IZ)V
-
-    move v1, v2
-
-    :cond_0
-    iget p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object p2
-
-    invoke-interface {p2}, Ljava/util/List;->size()I
-
-    move-result p2
-
-    add-int/lit8 p2, p2, -0x2
-
-    if-ne p1, p2, :cond_4
-
-    invoke-direct {p0, v0, v2}, Lcom/android/systemui/controls/management/FavoritesModel;->updateDividerShow(IZ)V
-
-    :goto_0
-    move v1, v2
-
-    goto :goto_2
-
-    :cond_1
-    if-le p1, v0, :cond_4
-
-    if-gt p2, v0, :cond_4
-
-    add-int/lit8 p1, v0, 0x1
-
-    iput p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
-
-    if-ne p1, v2, :cond_2
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/controls/management/FavoritesModel;->updateDividerNone(IZ)V
-
-    move p1, v2
-
-    goto :goto_1
-
-    :cond_2
-    move p1, v1
-
-    :goto_1
-    iget p2, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    sub-int/2addr v3, v2
-
-    if-ne p2, v3, :cond_3
-
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/controls/management/FavoritesModel;->updateDividerShow(IZ)V
-
-    goto :goto_0
-
-    :cond_3
-    move v1, p1
-
-    :cond_4
-    :goto_2
-    if-eqz v1, :cond_6
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
-
-    if-nez p0, :cond_5
-
-    goto :goto_3
-
-    :cond_5
-    invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyItemChanged(I)V
-
-    :cond_6
-    :goto_3
-    return-void
-.end method
-
-.method private final updateDividerNone(IZ)V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/controls/management/DividerWrapper;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/controls/management/DividerWrapper;->setShowNone(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->favoritesModelCallback:Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
-
-    invoke-interface {p0, p2}, Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;->onNoneChanged(Z)V
-
-    return-void
-.end method
-
-.method private final updateDividerShow(IZ)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object p0
-
-    invoke-interface {p0, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Lcom/android/systemui/controls/management/DividerWrapper;
-
-    invoke-virtual {p0, p2}, Lcom/android/systemui/controls/management/DividerWrapper;->setShowDivider(Z)V
+    iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->itemTouchHelperCallback:Lcom/android/systemui/controls/management/FavoritesModel$itemTouchHelperCallback$1;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public attachAdapter(Landroidx/recyclerview/widget/RecyclerView$Adapter;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
-            "*>;)V"
-        }
-    .end annotation
-
-    const-string v0, "adapter"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
-
-    return-void
-.end method
-
-.method public changeFavoriteStatus(Ljava/lang/String;Z)V
+.method public final changeFavoriteStatus(Ljava/lang/String;Z)V
     .locals 7
 
-    const-string v0, "controlId"
+    iget-object v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v0
 
@@ -634,28 +227,26 @@
     :cond_6
     if-eqz p2, :cond_7
 
-    invoke-direct {p0, v2, p1}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItemInternal(II)V
+    invoke-virtual {p0, v2, p1}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItemInternal(II)V
 
     goto :goto_3
 
     :cond_7
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
+    iget-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
 
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result p1
 
     sub-int/2addr p1, v5
 
-    invoke-direct {p0, v2, p1}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItemInternal(II)V
+    invoke-virtual {p0, v2, p1}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItemInternal(II)V
 
     :goto_3
     return-void
 .end method
 
-.method public getElements()Ljava/util/List;
+.method public final getElements()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -666,29 +257,19 @@
         }
     .end annotation
 
-    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
 
     return-object p0
 .end method
 
-.method public getFavorites()Ljava/util/List;
+.method public final getFavorites()Ljava/util/ArrayList;
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/ControlInfo;",
-            ">;"
-        }
-    .end annotation
 
-    invoke-virtual {p0}, Lcom/android/systemui/controls/management/FavoritesModel;->getElements()Ljava/util/List;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
 
     iget p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
 
-    invoke-static {v0, p0}, Lkotlin/collections/CollectionsKt;->take(Ljava/lang/Iterable;I)Ljava/util/List;
+    invoke-static {v0, p0}, Lkotlin/collections/CollectionsKt___CollectionsKt;->take(Ljava/lang/Iterable;I)Ljava/util/List;
 
     move-result-object p0
 
@@ -696,7 +277,7 @@
 
     const/16 v1, 0xa
 
-    invoke-static {p0, v1}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
+    invoke-static {p0, v1}, Lkotlin/collections/CollectionsKt__IteratorsJVMKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
 
     move-result v1
 
@@ -721,11 +302,9 @@
 
     check-cast v1, Lcom/android/systemui/controls/management/ControlInfoWrapper;
 
-    invoke-virtual {v1}, Lcom/android/systemui/controls/management/ControlInfoWrapper;->getControlInfo()Lcom/android/systemui/controls/controller/ControlInfo;
+    iget-object v1, v1, Lcom/android/systemui/controls/management/ControlInfoWrapper;->controlInfo:Lcom/android/systemui/controls/controller/ControlInfo;
 
-    move-result-object v1
-
-    invoke-interface {v0, v1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -733,26 +312,286 @@
     return-object v0
 .end method
 
-.method public final getItemTouchHelperCallback()Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;
+.method public final getMoveHelper()Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->itemTouchHelperCallback:Landroidx/recyclerview/widget/ItemTouchHelper$SimpleCallback;
+    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->moveHelper:Lcom/android/systemui/controls/management/FavoritesModel$moveHelper$1;
 
     return-object p0
 .end method
 
-.method public getMoveHelper()Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
-    .locals 0
+.method public final onMoveItemInternal(II)V
+    .locals 6
 
-    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->moveHelper:Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;
+    iget v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
 
-    return-object p0
-.end method
+    if-ne p1, v0, :cond_0
 
-.method public onMoveItem(II)V
-    .locals 0
+    return-void
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/controls/management/FavoritesModel;->onMoveItemInternal(II)V
+    :cond_0
+    const/4 v1, 0x0
 
+    const/4 v2, 0x1
+
+    if-ge p1, v0, :cond_1
+
+    if-ge p2, v0, :cond_2
+
+    :cond_1
+    if-le p1, v0, :cond_c
+
+    if-gt p2, v0, :cond_c
+
+    :cond_2
+    if-ge p1, v0, :cond_3
+
+    if-lt p2, v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/controls/management/ControlInfoWrapper;
+
+    iput-boolean v1, v0, Lcom/android/systemui/controls/management/ControlInfoWrapper;->favorite:Z
+
+    goto :goto_0
+
+    :cond_3
+    if-le p1, v0, :cond_4
+
+    if-gt p2, v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/controls/management/ControlInfoWrapper;
+
+    iput-boolean v2, v0, Lcom/android/systemui/controls/management/ControlInfoWrapper;->favorite:Z
+
+    :cond_4
+    :goto_0
+    iget v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
+
+    if-ge p1, v0, :cond_6
+
+    if-lt p2, v0, :cond_6
+
+    add-int/lit8 v3, v0, -0x1
+
+    iput v3, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
+
+    if-nez v3, :cond_5
+
+    iget-object v1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/controls/management/DividerWrapper;
+
+    iput-boolean v2, v1, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
+
+    iget-object v1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->favoritesModelCallback:Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
+
+    invoke-interface {v1, v2}, Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;->onNoneChanged(Z)V
+
+    move v1, v2
+
+    :cond_5
+    iget v3, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
+
+    iget-object v4, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    add-int/lit8 v4, v4, -0x2
+
+    if-ne v3, v4, :cond_9
+
+    iget-object v1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/controls/management/DividerWrapper;
+
+    iput-boolean v2, v1, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
+
+    goto :goto_2
+
+    :cond_6
+    if-le p1, v0, :cond_9
+
+    if-gt p2, v0, :cond_9
+
+    add-int/lit8 v3, v0, 0x1
+
+    iput v3, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
+
+    if-ne v3, v2, :cond_7
+
+    iget-object v3, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/controls/management/DividerWrapper;
+
+    iput-boolean v1, v3, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
+
+    iget-object v3, p0, Lcom/android/systemui/controls/management/FavoritesModel;->favoritesModelCallback:Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
+
+    invoke-interface {v3, v1}, Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;->onNoneChanged(Z)V
+
+    move v3, v2
+
+    goto :goto_1
+
+    :cond_7
+    move v3, v1
+
+    :goto_1
+    iget v4, p0, Lcom/android/systemui/controls/management/FavoritesModel;->dividerPosition:I
+
+    iget-object v5, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+
+    move-result v5
+
+    sub-int/2addr v5, v2
+
+    if-ne v4, v5, :cond_8
+
+    iget-object v3, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/controls/management/DividerWrapper;
+
+    iput-boolean v1, v3, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
+
+    :goto_2
+    move v1, v2
+
+    goto :goto_3
+
+    :cond_8
+    move v1, v3
+
+    :cond_9
+    :goto_3
+    if-eqz v1, :cond_b
+
+    iget-object v1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
+
+    if-nez v1, :cond_a
+
+    goto :goto_4
+
+    :cond_a
+    invoke-virtual {v1, v0}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyItemChanged(I)V
+
+    :cond_b
+    :goto_4
+    move v1, v2
+
+    :cond_c
+    if-ge p1, p2, :cond_d
+
+    move v0, p1
+
+    :goto_5
+    if-ge v0, p2, :cond_f
+
+    add-int/lit8 v3, v0, 0x1
+
+    iget-object v4, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-static {v4, v0, v3}, Ljava/util/Collections;->swap(Ljava/util/List;II)V
+
+    move v0, v3
+
+    goto :goto_5
+
+    :cond_d
+    add-int/lit8 v0, p2, 0x1
+
+    if-gt v0, p1, :cond_f
+
+    move v3, p1
+
+    :goto_6
+    add-int/lit8 v4, v3, -0x1
+
+    iget-object v5, p0, Lcom/android/systemui/controls/management/FavoritesModel;->elements:Ljava/util/ArrayList;
+
+    invoke-static {v5, v3, v4}, Ljava/util/Collections;->swap(Ljava/util/List;II)V
+
+    if-ne v3, v0, :cond_e
+
+    goto :goto_7
+
+    :cond_e
+    move v3, v4
+
+    goto :goto_6
+
+    :cond_f
+    :goto_7
+    iget-object v0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
+
+    if-nez v0, :cond_10
+
+    goto :goto_8
+
+    :cond_10
+    invoke-virtual {v0, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->notifyItemMoved(II)V
+
+    :goto_8
+    if-eqz v1, :cond_12
+
+    iget-object p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->adapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
+
+    if-nez p1, :cond_11
+
+    goto :goto_9
+
+    :cond_11
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$Adapter;->mObservable:Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;
+
+    invoke-virtual {p1, p2, v2, v0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->notifyItemRangeChanged(IILjava/lang/Object;)V
+
+    :cond_12
+    :goto_9
+    iget-boolean p1, p0, Lcom/android/systemui/controls/management/FavoritesModel;->modified:Z
+
+    if-nez p1, :cond_13
+
+    iput-boolean v2, p0, Lcom/android/systemui/controls/management/FavoritesModel;->modified:Z
+
+    iget-object p0, p0, Lcom/android/systemui/controls/management/FavoritesModel;->favoritesModelCallback:Lcom/android/systemui/controls/management/FavoritesModel$FavoritesModelCallback;
+
+    invoke-interface {p0}, Lcom/android/systemui/controls/management/ControlsModel$ControlsModelCallback;->onFirstChange()V
+
+    :cond_13
     return-void
 .end method

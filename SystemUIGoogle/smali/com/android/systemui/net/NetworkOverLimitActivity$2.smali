@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/net/NetworkOverLimitActivity$2;
+.class public final Lcom/android/systemui/net/NetworkOverLimitActivity$2;
 .super Ljava/lang/Object;
 .source "NetworkOverLimitActivity.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/net/NetworkOverLimitActivity;
+.field public final synthetic this$0:Lcom/android/systemui/net/NetworkOverLimitActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/net/NetworkOverLimitActivity;)V
+.method public constructor <init>(Lcom/android/systemui/net/NetworkOverLimitActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/net/NetworkOverLimitActivity$2;->this$0:Lcom/android/systemui/net/NetworkOverLimitActivity;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
+.method public final onDismiss(Landroid/content/DialogInterface;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/net/NetworkOverLimitActivity$2;->this$0:Lcom/android/systemui/net/NetworkOverLimitActivity;

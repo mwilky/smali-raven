@@ -23,13 +23,9 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
+.field public static final synthetic $VALUES:[Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
 
 .field public static final enum HIGH:Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
-
-.field public static final enum LOW:Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
-
-.field public static final enum MEDIUM:Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
 
 
 # instance fields
@@ -41,20 +37,20 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 19
 
     new-instance v6, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
-
-    sget v4, Lcom/android/settingslib/widget/R$color;->banner_background_attention_high:I
-
-    sget v5, Lcom/android/settingslib/widget/R$color;->banner_accent_attention_high:I
 
     const-string v1, "HIGH"
 
     const/4 v2, 0x0
 
     const/4 v3, 0x0
+
+    const v4, 0x7f060043
+
+    const v5, 0x7f060040
 
     move-object v0, v6
 
@@ -64,27 +60,21 @@
 
     new-instance v0, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
 
-    sget v11, Lcom/android/settingslib/widget/R$color;->banner_background_attention_medium:I
-
-    sget v12, Lcom/android/settingslib/widget/R$color;->banner_accent_attention_medium:I
-
     const-string v8, "MEDIUM"
 
     const/4 v9, 0x1
 
     const/4 v10, 0x1
 
+    const v11, 0x7f060045
+
+    const v12, 0x7f060042
+
     move-object v7, v0
 
     invoke-direct/range {v7 .. v12}, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;-><init>(Ljava/lang/String;IIII)V
 
-    sput-object v0, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;->MEDIUM:Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
-
     new-instance v1, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
-
-    sget v17, Lcom/android/settingslib/widget/R$color;->banner_background_attention_low:I
-
-    sget v18, Lcom/android/settingslib/widget/R$color;->banner_accent_attention_low:I
 
     const-string v14, "LOW"
 
@@ -92,11 +82,13 @@
 
     const/16 v16, 0x2
 
+    const v17, 0x7f060044
+
+    const v18, 0x7f060041
+
     move-object v13, v1
 
     invoke-direct/range {v13 .. v18}, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;-><init>(Ljava/lang/String;IIII)V
-
-    sput-object v1, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;->LOW:Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
 
     const/4 v2, 0x3
 
@@ -117,7 +109,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;IIII)V
+.method public constructor <init>(Ljava/lang/String;IIII)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -136,7 +128,7 @@
     return-void
 .end method
 
-.method static fromAttr(I)Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
+.method public static fromAttr(I)Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
     .locals 5
 
     invoke-static {}, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;->values()[Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;
@@ -201,7 +193,7 @@
 
 
 # virtual methods
-.method public getAccentColorResId()I
+.method public final getAccentColorResId()I
     .locals 0
 
     iget p0, p0, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;->mAccentColorResId:I
@@ -209,7 +201,7 @@
     return p0
 .end method
 
-.method public getBackgroundColorResId()I
+.method public final getBackgroundColorResId()I
     .locals 0
 
     iget p0, p0, Lcom/android/settingslib/widget/BannerMessagePreference$AttentionLevel;->mBackgroundColorResId:I

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;
+.class public interface abstract Lcom/android/systemui/screenshot/ScrollCaptureClient$Session;
 .super Ljava/lang/Object;
 .source "ScrollCaptureClient.java"
 
@@ -9,24 +9,16 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "Session"
 .end annotation
 
 
 # virtual methods
-.method public abstract end()Lcom/google/common/util/concurrent/ListenableFuture;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
-            "Ljava/lang/Void;",
-            ">;"
-        }
-    .end annotation
+.method public abstract end()Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 .end method
 
-.method public abstract getMaxTiles()I
+.method public abstract getMaxTiles()V
 .end method
 
 .method public abstract getPageHeight()I
@@ -41,13 +33,5 @@
 .method public abstract release()V
 .end method
 
-.method public abstract requestTile(I)Lcom/google/common/util/concurrent/ListenableFuture;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)",
-            "Lcom/google/common/util/concurrent/ListenableFuture<",
-            "Lcom/android/systemui/screenshot/ScrollCaptureClient$CaptureResult;",
-            ">;"
-        }
-    .end annotation
+.method public abstract requestTile(I)Landroidx/concurrent/futures/CallbackToFutureAdapter$SafeFuture;
 .end method

@@ -15,17 +15,9 @@
 
 
 # instance fields
-.field private final mInflateListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/AutoReinflateContainer$InflateListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mInflateListeners:Ljava/util/ArrayList;
 
-.field private final mLayout:I
+.field public final mLayout:I
 
 
 # direct methods
@@ -38,7 +30,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/AutoReinflateContainer;->mInflateListeners:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/AutoReinflateContainer;->mInflateListeners:Ljava/util/ArrayList;
 
     sget-object v0, Lcom/android/systemui/R$styleable;->AutoReinflateContainer:[I
 
@@ -46,7 +38,7 @@
 
     move-result-object p1
 
-    sget p2, Lcom/android/systemui/R$styleable;->AutoReinflateContainer_android_layout:I
+    const/4 p2, 0x0
 
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -54,9 +46,7 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, p2, v0}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, p2, p2}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result p2
 
@@ -80,34 +70,16 @@
 
 
 # virtual methods
-.method public addInflateListener(Lcom/android/systemui/AutoReinflateContainer$InflateListener;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/AutoReinflateContainer;->mInflateListeners:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
-
-    move-result-object p0
-
-    invoke-interface {p1, p0}, Lcom/android/systemui/AutoReinflateContainer$InflateListener;->onInflated(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public inflateLayout()V
-    .locals 5
+.method public final inflateLayout()V
+    .locals 4
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->removeAllViews()V
 
     invoke-virtual {p0}, Lcom/android/systemui/AutoReinflateContainer;->inflateLayoutImpl()V
 
-    iget-object v0, p0, Lcom/android/systemui/AutoReinflateContainer;->mInflateListeners:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/AutoReinflateContainer;->mInflateListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -118,9 +90,9 @@
     :goto_0
     if-ge v2, v0, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/AutoReinflateContainer;->mInflateListeners:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/systemui/AutoReinflateContainer;->mInflateListeners:Ljava/util/ArrayList;
 
-    invoke-interface {v3, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
@@ -128,9 +100,7 @@
 
     invoke-virtual {p0, v1}, Landroid/widget/FrameLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v4
-
-    invoke-interface {v3, v4}, Lcom/android/systemui/AutoReinflateContainer$InflateListener;->onInflated(Landroid/view/View;)V
+    invoke-interface {v3}, Lcom/android/systemui/AutoReinflateContainer$InflateListener;->onInflated()V
 
     add-int/lit8 v2, v2, 0x1
 
@@ -140,7 +110,7 @@
     return-void
 .end method
 
-.method protected inflateLayoutImpl()V
+.method public inflateLayoutImpl()V
     .locals 2
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
@@ -158,7 +128,7 @@
     return-void
 .end method
 
-.method protected onAttachedToWindow()V
+.method public onAttachedToWindow()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
@@ -176,7 +146,7 @@
     return-void
 .end method
 
-.method public onDensityOrFontScaleChanged()V
+.method public final onDensityOrFontScaleChanged()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/AutoReinflateContainer;->inflateLayout()V
@@ -184,7 +154,7 @@
     return-void
 .end method
 
-.method protected onDetachedFromWindow()V
+.method public onDetachedFromWindow()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onDetachedFromWindow()V
@@ -202,7 +172,7 @@
     return-void
 .end method
 
-.method public onLocaleListChanged()V
+.method public final onLocaleListChanged()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/AutoReinflateContainer;->inflateLayout()V
@@ -210,7 +180,7 @@
     return-void
 .end method
 
-.method public onThemeChanged()V
+.method public final onThemeChanged()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/AutoReinflateContainer;->inflateLayout()V
@@ -218,7 +188,7 @@
     return-void
 .end method
 
-.method public onUiModeChanged()V
+.method public final onUiModeChanged()V
     .locals 0
 
     invoke-virtual {p0}, Lcom/android/systemui/AutoReinflateContainer;->inflateLayout()V

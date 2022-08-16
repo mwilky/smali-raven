@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/connectivity/MobileSignalController$3;
+.class public final Lcom/android/systemui/statusbar/connectivity/MobileSignalController$3;
 .super Landroid/database/ContentObserver;
 .source "MobileSignalController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$3;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
@@ -31,12 +31,12 @@
 
 
 # virtual methods
-.method public onChange(Z)V
+.method public final onChange(Z)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/MobileSignalController$3;->this$0:Lcom/android/systemui/statusbar/connectivity/MobileSignalController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->access$300(Lcom/android/systemui/statusbar/connectivity/MobileSignalController;)V
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/MobileSignalController;->updateTelephony()V
 
     return-void
 .end method

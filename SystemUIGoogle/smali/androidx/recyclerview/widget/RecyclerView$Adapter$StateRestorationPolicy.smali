@@ -23,98 +23,66 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
+.field public static final synthetic $VALUES:[Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
 .field public static final enum ALLOW:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-.field public static final enum PREVENT:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
-
-.field public static final enum PREVENT_WHEN_EMPTY:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
-
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 7
 
     new-instance v0, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-    const-string v1, "ALLOW"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "ALLOW"
 
-    invoke-direct {v0, v1, v2}, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;->ALLOW:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-    new-instance v1, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
+    new-instance v2, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-    const-string v3, "PREVENT_WHEN_EMPTY"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "PREVENT_WHEN_EMPTY"
 
-    invoke-direct {v1, v3, v4}, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;->PREVENT_WHEN_EMPTY:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
+    new-instance v4, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-    new-instance v3, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
+    const/4 v5, 0x2
 
-    const-string v5, "PREVENT"
+    const-string v6, "PREVENT"
 
-    const/4 v6, 0x2
+    invoke-direct {v4, v5, v6}, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v3, v5, v6}, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;-><init>(Ljava/lang/String;I)V
+    const/4 v6, 0x3
 
-    sput-object v3, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;->PREVENT:Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
+    new-array v6, v6, [Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
-    const/4 v5, 0x3
+    aput-object v0, v6, v1
 
-    new-array v5, v5, [Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
+    aput-object v2, v6, v3
 
-    aput-object v0, v5, v2
+    aput-object v4, v6, v5
 
-    aput-object v1, v5, v4
-
-    aput-object v3, v5, v6
-
-    sput-object v5, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;->$VALUES:[Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
+    sput-object v6, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;->$VALUES:[Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1000,
-            0x1000
-        }
-        names = {
-            "$enum$name",
-            "$enum$ordinal"
-        }
-    .end annotation
 
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
-
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method
 
 .method public static valueOf(Ljava/lang/String;)Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8000
-        }
-        names = {
-            "name"
-        }
-    .end annotation
 
     const-class v0, Landroidx/recyclerview/widget/RecyclerView$Adapter$StateRestorationPolicy;
 

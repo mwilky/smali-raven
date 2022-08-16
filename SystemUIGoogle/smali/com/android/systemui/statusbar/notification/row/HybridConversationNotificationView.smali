@@ -4,19 +4,19 @@
 
 
 # instance fields
-.field private mConversationFacePile:Landroid/view/View;
+.field public mConversationFacePile:Landroid/view/View;
 
-.field private mConversationIconView:Landroid/widget/ImageView;
+.field public mConversationIconView:Landroid/widget/ImageView;
 
-.field private mConversationSenderName:Landroid/widget/TextView;
+.field public mConversationSenderName:Landroid/widget/TextView;
 
-.field private mFacePileAvatarSize:I
+.field public mFacePileAvatarSize:I
 
-.field private mFacePileProtectionWidth:I
+.field public mFacePileProtectionWidth:I
 
-.field private mFacePileSize:I
+.field public mFacePileSize:I
 
-.field private mSingleAvatarSize:I
+.field public mSingleAvatarSize:I
 
 
 # direct methods
@@ -58,7 +58,7 @@
     return-void
 .end method
 
-.method private static setSize(Landroid/view/View;I)V
+.method public static setSize(Landroid/view/View;I)V
     .locals 1
 
     invoke-virtual {p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -78,7 +78,7 @@
 
 
 # virtual methods
-.method public bind(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/View;)V
+.method public final bind(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Landroid/view/View;)V
     .locals 7
 
     instance-of v0, p3, Lcom/android/internal/widget/ConversationLayout;
@@ -131,7 +131,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x102025c
+    const v0, 0x1020276
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->requireViewById(I)Landroid/view/View;
 
@@ -139,7 +139,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 
-    const v3, 0x102025e
+    const v3, 0x1020278
 
     invoke-virtual {v0, v3}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 
-    const v4, 0x102025d
+    const v4, 0x1020277
 
     invoke-virtual {v3, v4}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -159,7 +159,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 
-    const v5, 0x102025f
+    const v5, 0x1020279
 
     invoke-virtual {v4, v5}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
@@ -189,9 +189,9 @@
 
     mul-int/lit8 v6, v6, 0x2
 
-    add-int/2addr v5, v6
+    add-int/2addr v6, v5
 
-    invoke-static {v0, v5}, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->setSize(Landroid/view/View;I)V
+    invoke-static {v0, v6}, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->setSize(Landroid/view/View;I)V
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
@@ -269,12 +269,12 @@
     return-void
 .end method
 
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 2
 
     invoke-super {p0}, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->onFinishInflate()V
 
-    const v0, 0x1020261
+    const v0, 0x102027b
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->requireViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationIconView:Landroid/widget/ImageView;
 
-    const v0, 0x102025c
+    const v0, 0x1020276
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->requireViewById(I)Landroid/view/View;
 
@@ -292,7 +292,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->conversation_notification_sender:I
+    const v0, 0x7f0b01d0
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->requireViewById(I)Landroid/view/View;
 
@@ -306,7 +306,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->conversation_single_line_face_pile_size:I
+    const v1, 0x7f0701b7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -318,7 +318,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->conversation_single_line_face_pile_avatar_size:I
+    const v1, 0x7f0701b5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -330,7 +330,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->conversation_single_line_avatar_size:I
+    const v1, 0x7f0701b4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -342,7 +342,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->conversation_single_line_face_pile_protection_width:I
+    const v1, 0x7f0701b6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -365,10 +365,8 @@
     return-void
 .end method
 
-.method public setNotificationFaded(Z)V
+.method public final setNotificationFaded(Z)V
     .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->setNotificationFaded(Z)V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridConversationNotificationView;->mConversationFacePile:Landroid/view/View;
 

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final autoTilesProvider:Ljavax/inject/Provider;
+.field public final autoTilesProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final bgLooperProvider:Ljavax/inject/Provider;
+.field public final bgLooperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,18 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final centralSurfacesOptionalProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +69,7 @@
     .end annotation
 .end field
 
-.field private final customTileStatePersisterProvider:Ljavax/inject/Provider;
+.field public final customTileStatePersisterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +79,7 @@
     .end annotation
 .end field
 
-.field private final defaultFactoryProvider:Ljavax/inject/Provider;
+.field public final defaultFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +89,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,17 +99,7 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final iconControllerProvider:Ljavax/inject/Provider;
+.field public final iconControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +109,7 @@
     .end annotation
 .end field
 
-.field private final mainHandlerProvider:Ljavax/inject/Provider;
+.field public final mainHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -118,7 +119,7 @@
     .end annotation
 .end field
 
-.field private final pluginManagerProvider:Ljavax/inject/Provider;
+.field public final pluginManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -128,7 +129,7 @@
     .end annotation
 .end field
 
-.field private final qsLoggerProvider:Ljavax/inject/Provider;
+.field public final qsLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -138,7 +139,7 @@
     .end annotation
 .end field
 
-.field private final secureSettingsProvider:Ljavax/inject/Provider;
+.field public final secureSettingsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -148,18 +149,27 @@
     .end annotation
 .end field
 
-.field private final statusBarOptionalProvider:Ljavax/inject/Provider;
+.field public final tileLifecycleManagerFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;"
+            "Lcom/android/systemui/qs/external/TileLifecycleManager$Factory;",
+            ">;"
         }
     .end annotation
 .end field
 
-.field private final tunerServiceProvider:Ljavax/inject/Provider;
+.field public final tileServiceRequestControllerBuilderProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/external/TileServiceRequestController$Builder;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final tunerServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -169,7 +179,7 @@
     .end annotation
 .end field
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -179,7 +189,7 @@
     .end annotation
 .end field
 
-.field private final userTrackerProvider:Ljavax/inject/Provider;
+.field public final userTrackerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -191,65 +201,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ldagger/internal/InstanceFactory;)V
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarIconController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/qs/QSFactory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/plugins/PluginManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/AutoTileManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/UserTracker;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/settings/SecureSettings;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/external/CustomTileStatePersister;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            ">;)V"
-        }
-    .end annotation
 
     move-object v0, p0
 
@@ -297,7 +250,7 @@
 
     move-object v1, p11
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->statusBarOptionalProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->centralSurfacesOptionalProvider:Ljavax/inject/Provider;
 
     move-object v1, p12
 
@@ -321,71 +274,17 @@
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->tileServiceRequestControllerBuilderProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p18
+
+    iput-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->tileLifecycleManagerFactoryProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QSTileHost_Factory;
-    .locals 19
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/StatusBarIconController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/qs/QSFactory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Handler;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/os/Looper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/plugins/PluginManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/AutoTileManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/UserTracker;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/util/settings/SecureSettings;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/external/CustomTileStatePersister;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            ">;)",
-            "Lcom/android/systemui/qs/QSTileHost_Factory;"
-        }
-    .end annotation
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ldagger/internal/InstanceFactory;)Lcom/android/systemui/qs/QSTileHost_Factory;
+    .locals 20
 
     move-object/from16 v1, p0
 
@@ -421,92 +320,20 @@
 
     move-object/from16 v17, p16
 
-    new-instance v18, Lcom/android/systemui/qs/QSTileHost_Factory;
+    move-object/from16 v18, p17
 
-    move-object/from16 v0, v18
+    new-instance v19, Lcom/android/systemui/qs/QSTileHost_Factory;
 
-    invoke-direct/range {v0 .. v17}, Lcom/android/systemui/qs/QSTileHost_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v0, v19
 
-    return-object v18
-.end method
+    invoke-direct/range {v0 .. v18}, Lcom/android/systemui/qs/QSTileHost_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ldagger/internal/InstanceFactory;)V
 
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/plugins/qs/QSFactory;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/Optional;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/qs/external/CustomTileStatePersister;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/qs/QSTileHost;
-    .locals 19
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/android/systemui/statusbar/phone/StatusBarIconController;",
-            "Lcom/android/systemui/plugins/qs/QSFactory;",
-            "Landroid/os/Handler;",
-            "Landroid/os/Looper;",
-            "Lcom/android/systemui/shared/plugins/PluginManager;",
-            "Lcom/android/systemui/tuner/TunerService;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/AutoTileManager;",
-            ">;",
-            "Lcom/android/systemui/dump/DumpManager;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            "Lcom/android/systemui/settings/UserTracker;",
-            "Lcom/android/systemui/util/settings/SecureSettings;",
-            "Lcom/android/systemui/qs/external/CustomTileStatePersister;",
-            "Lcom/android/systemui/flags/FeatureFlags;",
-            ")",
-            "Lcom/android/systemui/qs/QSTileHost;"
-        }
-    .end annotation
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p1
-
-    move-object/from16 v3, p2
-
-    move-object/from16 v4, p3
-
-    move-object/from16 v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    move-object/from16 v13, p12
-
-    move-object/from16 v14, p13
-
-    move-object/from16 v15, p14
-
-    move-object/from16 v16, p15
-
-    move-object/from16 v17, p16
-
-    new-instance v18, Lcom/android/systemui/qs/QSTileHost;
-
-    move-object/from16 v0, v18
-
-    invoke-direct/range {v0 .. v17}, Lcom/android/systemui/qs/QSTileHost;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/plugins/qs/QSFactory;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/Optional;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/qs/external/CustomTileStatePersister;Lcom/android/systemui/flags/FeatureFlags;)V
-
-    return-object v18
+    return-object v19
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/QSTileHost;
+.method public final get()Ljava/lang/Object;
     .locals 19
 
     move-object/from16 v0, p0
@@ -517,9 +344,9 @@
 
     move-result-object v1
 
-    move-object v2, v1
+    move-object v3, v1
 
-    check-cast v2, Landroid/content/Context;
+    check-cast v3, Landroid/content/Context;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->iconControllerProvider:Ljavax/inject/Provider;
 
@@ -527,9 +354,9 @@
 
     move-result-object v1
 
-    move-object v3, v1
+    move-object v4, v1
 
-    check-cast v3, Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+    check-cast v4, Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->defaultFactoryProvider:Ljavax/inject/Provider;
 
@@ -537,9 +364,9 @@
 
     move-result-object v1
 
-    move-object v4, v1
+    move-object v5, v1
 
-    check-cast v4, Lcom/android/systemui/plugins/qs/QSFactory;
+    check-cast v5, Lcom/android/systemui/plugins/qs/QSFactory;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->mainHandlerProvider:Ljavax/inject/Provider;
 
@@ -547,9 +374,9 @@
 
     move-result-object v1
 
-    move-object v5, v1
+    move-object v6, v1
 
-    check-cast v5, Landroid/os/Handler;
+    check-cast v6, Landroid/os/Handler;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->bgLooperProvider:Ljavax/inject/Provider;
 
@@ -557,9 +384,7 @@
 
     move-result-object v1
 
-    move-object v6, v1
-
-    check-cast v6, Landroid/os/Looper;
+    check-cast v1, Landroid/os/Looper;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->pluginManagerProvider:Ljavax/inject/Provider;
 
@@ -599,19 +424,17 @@
 
     move-result-object v1
 
-    move-object v11, v1
+    check-cast v1, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    check-cast v11, Lcom/android/systemui/broadcast/BroadcastDispatcher;
-
-    iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->statusBarOptionalProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->centralSurfacesOptionalProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    move-object v12, v1
+    move-object v11, v1
 
-    check-cast v12, Ljava/util/Optional;
+    check-cast v11, Ljava/util/Optional;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
 
@@ -619,9 +442,9 @@
 
     move-result-object v1
 
-    move-object v13, v1
+    move-object v12, v1
 
-    check-cast v13, Lcom/android/systemui/qs/logging/QSLogger;
+    check-cast v12, Lcom/android/systemui/qs/logging/QSLogger;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
@@ -629,9 +452,9 @@
 
     move-result-object v1
 
-    move-object v14, v1
+    move-object v13, v1
 
-    check-cast v14, Lcom/android/internal/logging/UiEventLogger;
+    check-cast v13, Lcom/android/internal/logging/UiEventLogger;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->userTrackerProvider:Ljavax/inject/Provider;
 
@@ -639,9 +462,9 @@
 
     move-result-object v1
 
-    move-object v15, v1
+    move-object v14, v1
 
-    check-cast v15, Lcom/android/systemui/settings/UserTracker;
+    check-cast v14, Lcom/android/systemui/settings/UserTracker;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->secureSettingsProvider:Ljavax/inject/Provider;
 
@@ -649,9 +472,9 @@
 
     move-result-object v1
 
-    move-object/from16 v16, v1
+    move-object v15, v1
 
-    check-cast v16, Lcom/android/systemui/util/settings/SecureSettings;
+    check-cast v15, Lcom/android/systemui/util/settings/SecureSettings;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->customTileStatePersisterProvider:Ljavax/inject/Provider;
 
@@ -659,11 +482,21 @@
 
     move-result-object v1
 
+    move-object/from16 v16, v1
+
+    check-cast v16, Lcom/android/systemui/qs/external/CustomTileStatePersister;
+
+    iget-object v1, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->tileServiceRequestControllerBuilderProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
     move-object/from16 v17, v1
 
-    check-cast v17, Lcom/android/systemui/qs/external/CustomTileStatePersister;
+    check-cast v17, Lcom/android/systemui/qs/external/TileServiceRequestController$Builder;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iget-object v0, v0, Lcom/android/systemui/qs/QSTileHost_Factory;->tileLifecycleManagerFactoryProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -671,21 +504,13 @@
 
     move-object/from16 v18, v0
 
-    check-cast v18, Lcom/android/systemui/flags/FeatureFlags;
+    check-cast v18, Lcom/android/systemui/qs/external/TileLifecycleManager$Factory;
 
-    invoke-static/range {v2 .. v18}, Lcom/android/systemui/qs/QSTileHost_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/plugins/qs/QSFactory;Landroid/os/Handler;Landroid/os/Looper;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ljava/util/Optional;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/qs/external/CustomTileStatePersister;Lcom/android/systemui/flags/FeatureFlags;)Lcom/android/systemui/qs/QSTileHost;
+    new-instance v0, Lcom/android/systemui/qs/QSTileHost;
 
-    move-result-object v0
+    move-object v2, v0
+
+    invoke-direct/range {v2 .. v18}, Lcom/android/systemui/qs/QSTileHost;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/plugins/qs/QSFactory;Landroid/os/Handler;Lcom/android/systemui/shared/plugins/PluginManager;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;Lcom/android/systemui/dump/DumpManager;Ljava/util/Optional;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/util/settings/SecureSettings;Lcom/android/systemui/qs/external/CustomTileStatePersister;Lcom/android/systemui/qs/external/TileServiceRequestController$Builder;Lcom/android/systemui/qs/external/TileLifecycleManager$Factory;)V
 
     return-object v0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSTileHost_Factory;->get()Lcom/android/systemui/qs/QSTileHost;
-
-    move-result-object p0
-
-    return-object p0
 .end method

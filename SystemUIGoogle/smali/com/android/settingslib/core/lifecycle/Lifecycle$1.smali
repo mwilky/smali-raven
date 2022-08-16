@@ -1,4 +1,4 @@
-.class synthetic Lcom/android/settingslib/core/lifecycle/Lifecycle$1;
+.class public final synthetic Lcom/android/settingslib/core/lifecycle/Lifecycle$1;
 .super Ljava/lang/Object;
 .source "Lifecycle.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x1009
     name = null
 .end annotation
 
 
 # static fields
-.field static final synthetic $SwitchMap$androidx$lifecycle$Lifecycle$Event:[I
+.field public static final synthetic $SwitchMap$androidx$lifecycle$Lifecycle$Event:[I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     invoke-static {}, Landroidx/lifecycle/Lifecycle$Event;->values()[Landroidx/lifecycle/Lifecycle$Event;

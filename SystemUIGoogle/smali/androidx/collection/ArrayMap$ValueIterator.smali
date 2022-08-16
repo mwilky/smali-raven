@@ -1,4 +1,4 @@
-.class final Landroidx/collection/ArrayMap$ValueIterator;
+.class public final Landroidx/collection/ArrayMap$ValueIterator;
 .super Landroidx/collection/IndexBasedArrayIterator;
 .source "ArrayMap.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "ValueIterator"
 .end annotation
 
@@ -22,11 +22,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/collection/ArrayMap;
+.field public final synthetic this$0:Landroidx/collection/ArrayMap;
 
 
 # direct methods
-.method constructor <init>(Landroidx/collection/ArrayMap;)V
+.method public constructor <init>(Landroidx/collection/ArrayMap;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/collection/ArrayMap$ValueIterator;->this$0:Landroidx/collection/ArrayMap;
@@ -40,7 +40,7 @@
 
 
 # virtual methods
-.method protected elementAt(I)Ljava/lang/Object;
+.method public final elementAt(I)Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
     return-object p0
 .end method
 
-.method protected removeAt(I)V
+.method public final removeAt(I)V
     .locals 0
 
     iget-object p0, p0, Landroidx/collection/ArrayMap$ValueIterator;->this$0:Landroidx/collection/ArrayMap;

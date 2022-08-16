@@ -4,11 +4,15 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final DEBUG:Z
+
+
+# instance fields
+.field public mSimImageView:Landroid/widget/ImageView;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
@@ -38,15 +42,15 @@
 
 
 # virtual methods
-.method protected getPasswordTextViewId()I
+.method public final getPasswordTextViewId()I
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$id;->pukEntry:I
+    const p0, 0x7f0b0518
 
     return p0
 .end method
 
-.method protected getPromptReasonStringRes(I)I
+.method public final getPromptReasonStringRes(I)I
     .locals 0
 
     const/4 p0, 0x0
@@ -54,7 +58,7 @@
     return p0
 .end method
 
-.method getPukPasswordErrorMessage(IZZ)Ljava/lang/String;
+.method public final getPukPasswordErrorMessage(IZZ)Ljava/lang/String;
     .locals 5
 
     const/4 v0, 0x0
@@ -67,7 +71,7 @@
 
     move-result-object p2
 
-    sget v2, Lcom/android/systemui/R$string;->kg_password_wrong_puk_code_dead:I
+    const v2, 0x7f1303cb
 
     invoke-virtual {p2, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -80,12 +84,12 @@
 
     if-eqz p2, :cond_1
 
-    sget p2, Lcom/android/systemui/R$plurals;->kg_password_default_puk_message:I
+    const p2, 0x7f110006
 
     goto :goto_0
 
     :cond_1
-    sget p2, Lcom/android/systemui/R$plurals;->kg_password_wrong_puk_code:I
+    const p2, 0x7f110008
 
     :goto_0
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
@@ -113,12 +117,12 @@
     :cond_2
     if-eqz p2, :cond_3
 
-    sget p2, Lcom/android/systemui/R$string;->kg_puk_enter_puk_hint:I
+    const p2, 0x7f1303d5
 
     goto :goto_1
 
     :cond_3
-    sget p2, Lcom/android/systemui/R$string;->kg_password_puk_failed:I
+    const p2, 0x7f1303c9
 
     :goto_1
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
@@ -136,7 +140,7 @@
 
     move-result-object p0
 
-    sget p3, Lcom/android/systemui/R$string;->kg_sim_lock_esim_instructions:I
+    const p3, 0x7f1303d7
 
     new-array v1, v1, [Ljava/lang/Object;
 
@@ -179,14 +183,14 @@
     return-object p2
 .end method
 
-.method public getTitle()Ljava/lang/CharSequence;
+.method public final getTitle()Ljava/lang/String;
     .locals 1
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    const v0, 0x104043f
+    const v0, 0x1040489
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -195,8 +199,18 @@
     return-object p0
 .end method
 
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
+
+    const v0, 0x7f0b0354
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Landroid/widget/ImageView;
 
     invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->onFinishInflate()V
 
@@ -208,24 +222,58 @@
 
     check-cast p0, Lcom/android/keyguard/EmergencyCarrierArea;
 
-    const/4 v0, 0x1
+    iget-object p0, p0, Lcom/android/keyguard/EmergencyCarrierArea;->mCarrierText:Lcom/android/keyguard/CarrierText;
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/EmergencyCarrierArea;->setCarrierTextVisible(Z)V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_0
     return-void
 .end method
 
-.method public startAppearAnimation()V
-    .locals 0
+.method public final reloadColors()V
+    .locals 3
+
+    invoke-super {p0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->reloadColors()V
+
+    const/4 v0, 0x1
+
+    new-array v0, v0, [I
+
+    const v1, 0x1010038
+
+    const/4 v2, 0x0
+
+    aput v1, v0, v2
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2, v2}, Landroid/content/res/TypedArray;->getColor(II)I
+
+    move-result v1
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukView;->mSimImageView:Landroid/widget/ImageView;
+
+    invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object p0
+
+    invoke-virtual {p0, v1}, Landroid/graphics/drawable/Drawable;->setTint(I)V
 
     return-void
 .end method
 
-.method public startDisappearAnimation(Ljava/lang/Runnable;)Z
+.method public final startAppearAnimation()V
     .locals 0
 
-    const/4 p0, 0x0
-
-    return p0
+    return-void
 .end method

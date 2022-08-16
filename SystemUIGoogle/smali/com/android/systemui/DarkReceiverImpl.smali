@@ -7,44 +7,16 @@
 
 
 # instance fields
-.field private final dualToneHandler:Lcom/android/systemui/DualToneHandler;
+.field public final dualToneHandler:Lcom/android/systemui/DualToneHandler;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 8
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/16 v6, 0xc
-
-    const/4 v7, 0x0
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/DarkReceiverImpl;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
     .locals 1
 
-    const-string v0, "context"
+    const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0, p1, p2, p3, p4}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-direct {p0, p1, p2, v0, v0}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
     new-instance p2, Lcom/android/systemui/DualToneHandler;
 
@@ -52,56 +24,33 @@
 
     iput-object p2, p0, Lcom/android/systemui/DarkReceiverImpl;->dualToneHandler:Lcom/android/systemui/DualToneHandler;
 
-    new-instance p1, Landroid/graphics/Rect;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {p1}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
     const/high16 p2, 0x3f800000    # 1.0f
 
-    const/4 p3, -0x1
+    const/4 v0, -0x1
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/DarkReceiverImpl;->onDarkChanged(Landroid/graphics/Rect;FI)V
-
-    return-void
-.end method
-
-.method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;IIILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 1
-
-    and-int/lit8 p6, p5, 0x2
-
-    if-eqz p6, :cond_0
-
-    const/4 p2, 0x0
-
-    :cond_0
-    and-int/lit8 p6, p5, 0x4
-
-    const/4 v0, 0x0
-
-    if-eqz p6, :cond_1
-
-    move p3, v0
-
-    :cond_1
-    and-int/lit8 p5, p5, 0x8
-
-    if-eqz p5, :cond_2
-
-    move p4, v0
-
-    :cond_2
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/DarkReceiverImpl;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
+    invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/DarkReceiverImpl;->onDarkChanged(Ljava/util/ArrayList;FI)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onDarkChanged(Landroid/graphics/Rect;FI)V
+.method public final onDarkChanged(Ljava/util/ArrayList;FI)V
     .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList<",
+            "Landroid/graphics/Rect;",
+            ">;FI)V"
+        }
+    .end annotation
 
-    invoke-static {p1, p0}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
+    invoke-static {p1, p0}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInAreas(Ljava/util/ArrayList;Landroid/view/View;)Z
 
     move-result p1
 

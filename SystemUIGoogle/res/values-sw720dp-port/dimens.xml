@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bouncer_user_switcher_y_trans">90.0dip</dimen>
+    <dimen name="keyguard_clock_top_margin">80.0dip</dimen>
+    <dimen name="keyguard_status_view_bottom_margin">80.0dip</dimen>
+    <dimen name="notification_panel_margin_horizontal">80.0dip</dimen>
+    <dimen name="notification_section_divider_height">16.0dip</dimen>
+    <dimen name="notification_side_paddings">40.0dip</dimen>
+    <dimen name="qqs_layout_padding_bottom">40.0dip</dimen>
+    <dimen name="status_view_margin_horizontal">124.0dip</dimen>
+</resources>

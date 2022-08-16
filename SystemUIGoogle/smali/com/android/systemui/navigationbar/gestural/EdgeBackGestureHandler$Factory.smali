@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;
+.class public final Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;
 .super Ljava/lang/Object;
 .source "EdgeBackGestureHandler.java"
 
@@ -15,31 +15,33 @@
 
 
 # instance fields
-.field private final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+.field public final mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.field private final mExecutor:Ljava/util/concurrent/Executor;
+.field public final mExecutor:Ljava/util/concurrent/Executor;
 
-.field private final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+.field public final mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-.field private final mNavigationModeController:Lcom/android/systemui/navigationbar/NavigationModeController;
+.field public final mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
-.field private final mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
+.field public final mNavigationModeController:Lcom/android/systemui/navigationbar/NavigationModeController;
 
-.field private final mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
+.field public final mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-.field private final mProtoTracer:Lcom/android/systemui/tracing/ProtoTracer;
+.field public final mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
 
-.field private final mSysUiState:Lcom/android/systemui/model/SysUiState;
+.field public final mProtoTracer:Lcom/android/systemui/tracing/ProtoTracer;
 
-.field private final mViewConfiguration:Landroid/view/ViewConfiguration;
+.field public final mSysUiState:Lcom/android/systemui/model/SysUiState;
 
-.field private final mWindowManager:Landroid/view/WindowManager;
+.field public final mViewConfiguration:Landroid/view/ViewConfiguration;
 
-.field private final mWindowManagerService:Landroid/view/IWindowManager;
+.field public final mWindowManager:Landroid/view/WindowManager;
+
+.field public final mWindowManagerService:Landroid/view/IWindowManager;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/navigationbar/NavigationModeController;Landroid/view/ViewConfiguration;Landroid/view/WindowManager;Landroid/view/IWindowManager;Lcom/android/systemui/plugins/FalsingManager;)V
+.method public constructor <init>(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/navigationbar/NavigationModeController;Landroid/view/ViewConfiguration;Landroid/view/WindowManager;Landroid/view/IWindowManager;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/util/LatencyTracker;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,43 +68,49 @@
 
     iput-object p11, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
+    iput-object p12, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public create(Landroid/content/Context;)Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
-    .locals 14
+.method public final create(Landroid/content/Context;)Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+    .locals 15
 
-    new-instance v13, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+    move-object v0, p0
 
-    iget-object v2, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
+    new-instance v14, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    iget-object v3, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mSysUiState:Lcom/android/systemui/model/SysUiState;
+    iget-object v2, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-    iget-object v4, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
+    iget-object v3, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
-    iget-object v5, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mExecutor:Ljava/util/concurrent/Executor;
+    iget-object v4, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mPluginManager:Lcom/android/systemui/shared/plugins/PluginManager;
 
-    iget-object v6, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    iget-object v5, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mExecutor:Ljava/util/concurrent/Executor;
 
-    iget-object v7, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mProtoTracer:Lcom/android/systemui/tracing/ProtoTracer;
+    iget-object v6, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    iget-object v8, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mNavigationModeController:Lcom/android/systemui/navigationbar/NavigationModeController;
+    iget-object v7, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mProtoTracer:Lcom/android/systemui/tracing/ProtoTracer;
 
-    iget-object v9, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mViewConfiguration:Landroid/view/ViewConfiguration;
+    iget-object v8, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mNavigationModeController:Lcom/android/systemui/navigationbar/NavigationModeController;
 
-    iget-object v10, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mWindowManager:Landroid/view/WindowManager;
+    iget-object v9, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mViewConfiguration:Landroid/view/ViewConfiguration;
 
-    iget-object v11, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mWindowManagerService:Landroid/view/IWindowManager;
+    iget-object v10, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mWindowManager:Landroid/view/WindowManager;
 
-    iget-object v12, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
+    iget-object v11, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mWindowManagerService:Landroid/view/IWindowManager;
 
-    move-object v0, v13
+    iget-object v12, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
-    move-object v1, p1
+    iget-object v13, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$Factory;->mLatencyTracker:Lcom/android/internal/util/LatencyTracker;
 
-    invoke-direct/range {v0 .. v12}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;-><init>(Landroid/content/Context;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/navigationbar/NavigationModeController;Landroid/view/ViewConfiguration;Landroid/view/WindowManager;Landroid/view/IWindowManager;Lcom/android/systemui/plugins/FalsingManager;)V
+    move-object v0, v14
 
-    return-object v13
+    move-object/from16 v1, p1
+
+    invoke-direct/range {v0 .. v13}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;-><init>(Landroid/content/Context;Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/model/SysUiState;Lcom/android/systemui/shared/plugins/PluginManager;Ljava/util/concurrent/Executor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/tracing/ProtoTracer;Lcom/android/systemui/navigationbar/NavigationModeController;Landroid/view/ViewConfiguration;Landroid/view/WindowManager;Landroid/view/IWindowManager;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/util/LatencyTracker;)V
+
+    return-object v14
 .end method

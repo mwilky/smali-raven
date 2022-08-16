@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationBar$2;
+.class public final Lcom/android/systemui/navigationbar/NavigationBar$2;
 .super Ljava/lang/Object;
 .source "NavigationBar.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationBar;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBar$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
@@ -34,45 +34,57 @@
 
 
 # virtual methods
-.method public updateAccessibilityServicesState()V
+.method public final updateAccessibilityServicesState()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->updateAcessibilityStateFlags()V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->updateAccessibilityStateFlags()V
 
     return-void
 .end method
 
-.method public updateAssistantAvailable(Z)V
-    .locals 2
+.method public final updateAssistantAvailable(Z)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBar$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$300(Lcom/android/systemui/navigationbar/NavigationBar;)Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     if-nez v0, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBar$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mNavBarHelper:Lcom/android/systemui/navigationbar/NavBarHelper;
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/NavigationBar;->access$500(Lcom/android/systemui/navigationbar/NavigationBar;)Lcom/android/systemui/navigationbar/NavBarHelper;
+    iget-boolean v0, v0, Lcom/android/systemui/navigationbar/NavBarHelper;->mLongPressHomeEnabled:Z
 
-    move-result-object v1
+    iput-boolean v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mLongPressHomeEnabled:Z
 
-    invoke-virtual {v1}, Lcom/android/systemui/navigationbar/NavBarHelper;->getLongPressHomeEnabled()Z
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/NavigationBar;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-    move-result v1
+    iget-object v0, v0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/navigationbar/NavigationBar;->access$402(Lcom/android/systemui/navigationbar/NavigationBar;Z)Z
+    if-eqz v0, :cond_1
 
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$2;->this$0:Lcom/android/systemui/navigationbar/NavigationBar;
+    :try_start_0
+    invoke-interface {v0, p1}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onAssistantAvailable(Z)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->access$600(Lcom/android/systemui/navigationbar/NavigationBar;Z)V
+    goto :goto_0
+
+    :catch_0
+    const-string p1, "NavigationBar"
+
+    const-string v0, "Unable to send assistant availability data to launcher"
+
+    invoke-static {p1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavigationBar;->reconfigureHomeLongClick()V
 
     return-void
 .end method

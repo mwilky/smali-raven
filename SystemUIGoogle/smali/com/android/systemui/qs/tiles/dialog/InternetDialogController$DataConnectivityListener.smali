@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;
 .super Landroid/net/ConnectivityManager$NetworkCallback;
 .source "InternetDialogController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DataConnectivityListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
@@ -29,78 +29,76 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;-><init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
-    .locals 2
+.method public final onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    const/4 v1, 0x3
-
-    invoke-virtual {p2, v1}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
-
-    move-result v1
-
-    iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    iget-boolean v1, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
-
-    if-eqz v1, :cond_1
-
-    iget-boolean v0, v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
-
-    if-nez v0, :cond_0
-
-    const/4 v0, 0x1
+    const/4 v0, 0x3
 
     invoke-virtual {p2, v0}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
 
     move-result v0
 
+    iput-boolean v0, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
+
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-boolean v0, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
     if-eqz v0, :cond_1
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+    iget-boolean p1, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$600(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p2, p1}, Landroid/net/NetworkCapabilities;->hasTransport(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-boolean p2, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCanConfigWifi:Z
+
+    if-eqz p2, :cond_1
+
+    iget-object p1, p1, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mAccessPointController:Lcom/android/systemui/statusbar/connectivity/AccessPointController;
+
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/connectivity/AccessPointController;->scanForAccessPoints()V
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
-    move-result-object p0
+    check-cast p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onCapabilitiesChanged(Landroid/net/Network;Landroid/net/NetworkCapabilities;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onCapabilitiesChanged()V
 
     return-void
 .end method
 
-.method public onLost(Landroid/net/Network;)V
-    .locals 1
+.method public final onLost(Landroid/net/Network;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$DataConnectivityListener;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    iput-boolean v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
+    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mHasEthernet:Z
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
-    move-result-object p0
+    check-cast p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    invoke-interface {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onLost(Landroid/net/Network;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;->onLost()V
 
     return-void
 .end method

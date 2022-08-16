@@ -1,4 +1,4 @@
-.class final Lcom/android/settingslib/bluetooth/HfpClientProfile;
+.class public final Lcom/android/settingslib/bluetooth/HfpClientProfile;
 .super Ljava/lang/Object;
 .source "HfpClientProfile.java"
 
@@ -14,106 +14,48 @@
 .end annotation
 
 
-# static fields
-.field static final SRC_UUIDS:[Landroid/os/ParcelUuid;
-
-
 # instance fields
-.field private final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+.field public final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
-.field private mIsProfileReady:Z
-
-.field private final mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-.field private mService:Landroid/bluetooth/BluetoothHeadsetClient;
+.field public mService:Landroid/bluetooth/BluetoothHeadsetClient;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method public static constructor <clinit>()V
+    .locals 1
 
-    const/4 v0, 0x2
+    sget-object v0, Landroid/bluetooth/BluetoothUuid;->HSP_AG:Landroid/os/ParcelUuid;
 
-    new-array v0, v0, [Landroid/os/ParcelUuid;
-
-    sget-object v1, Landroid/bluetooth/BluetoothUuid;->HSP_AG:Landroid/os/ParcelUuid;
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    sget-object v1, Landroid/bluetooth/BluetoothUuid;->HFP_AG:Landroid/os/ParcelUuid;
-
-    const/4 v2, 0x1
-
-    aput-object v1, v0, v2
-
-    sput-object v0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->SRC_UUIDS:[Landroid/os/ParcelUuid;
+    sget-object v0, Landroid/bluetooth/BluetoothUuid;->HFP_AG:Landroid/os/ParcelUuid;
 
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p2, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
-    iput-object p3, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object p2
 
-    new-instance p3, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;
+    new-instance v0, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p3, p0, v0}, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HfpClientProfile;Lcom/android/settingslib/bluetooth/HfpClientProfile$1;)V
+    invoke-direct {v0, p0}, Lcom/android/settingslib/bluetooth/HfpClientProfile$HfpClientServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HfpClientProfile;)V
 
     const/16 p0, 0x10
 
-    invoke-virtual {p2, p1, p3, p0}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
+    invoke-virtual {p2, p1, v0, p0}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/bluetooth/HfpClientProfile;)Landroid/bluetooth/BluetoothHeadsetClient;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mService:Landroid/bluetooth/BluetoothHeadsetClient;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/bluetooth/HfpClientProfile;Landroid/bluetooth/BluetoothHeadsetClient;)Landroid/bluetooth/BluetoothHeadsetClient;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mService:Landroid/bluetooth/BluetoothHeadsetClient;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/bluetooth/HfpClientProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settingslib/bluetooth/HfpClientProfile;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mIsProfileReady:Z
-
-    return p1
-.end method
-
 
 # virtual methods
-.method public accessProfileEnabled()Z
+.method public final accessProfileEnabled()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -121,7 +63,7 @@
     return p0
 .end method
 
-.method protected finalize()V
+.method public final finalize()V
     .locals 4
 
     const-string v0, "HfpClientProfile"
@@ -165,7 +107,7 @@
     return-void
 .end method
 
-.method public getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
+.method public final getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mService:Landroid/bluetooth/BluetoothHeadsetClient;
@@ -184,15 +126,15 @@
     return p0
 .end method
 
-.method public getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
+.method public final getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
     .locals 0
 
-    const p0, 0x1080337
+    const p0, 0x1080340
 
     return p0
 .end method
 
-.method public getProfileId()I
+.method public final getProfileId()I
     .locals 0
 
     const/16 p0, 0x10
@@ -200,7 +142,7 @@
     return p0
 .end method
 
-.method public setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
+.method public final setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HfpClientProfile;->mService:Landroid/bluetooth/BluetoothHeadsetClient;
@@ -240,7 +182,7 @@
     return v1
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     const-string p0, "HEADSET_CLIENT"

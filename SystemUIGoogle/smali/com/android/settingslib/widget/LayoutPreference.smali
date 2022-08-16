@@ -4,104 +4,105 @@
 
 
 # instance fields
-.field private mAllowDividerAbove:Z
+.field public mAllowDividerAbove:Z
 
-.field private mAllowDividerBelow:Z
+.field public mAllowDividerBelow:Z
 
-.field private final mClickListener:Landroid/view/View$OnClickListener;
+.field public final mClickListener:Lcom/android/settingslib/widget/LayoutPreference$$ExternalSyntheticLambda0;
 
-.field private mRootView:Landroid/view/View;
+.field public mRootView:Landroid/view/View;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$OiLRmfQWbEP-fDieCVpcBzOJp3k(Lcom/android/settingslib/widget/LayoutPreference;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/widget/LayoutPreference;->lambda$new$0(Landroid/view/View;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
+    .locals 5
 
     invoke-direct {p0, p1, p2}, Landroidx/preference/Preference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     new-instance v0, Lcom/android/settingslib/widget/LayoutPreference$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Lcom/android/settingslib/widget/LayoutPreference$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/widget/LayoutPreference;)V
+    const/4 v1, 0x0
 
-    iput-object v0, p0, Lcom/android/settingslib/widget/LayoutPreference;->mClickListener:Landroid/view/View$OnClickListener;
+    invoke-direct {v0, v1, p0}, Lcom/android/settingslib/widget/LayoutPreference$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
-    const/4 v0, 0x0
+    iput-object v0, p0, Lcom/android/settingslib/widget/LayoutPreference;->mClickListener:Lcom/android/settingslib/widget/LayoutPreference$$ExternalSyntheticLambda0;
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/settingslib/widget/LayoutPreference;->init(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-
-    return-void
-.end method
-
-.method private init(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
-
-    sget-object v0, Lcom/android/settingslib/widget/R$styleable;->Preference:[I
+    sget-object v0, Landroidx/slice/view/R$dimen;->Preference:[I
 
     invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
-    move-result-object v1
+    move-result-object v2
 
-    sget v2, Lcom/android/settingslib/widget/R$styleable;->Preference_allowDividerAbove:I
+    const/16 v3, 0x10
 
-    const/4 v3, 0x0
+    invoke-virtual {v2, v3, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    invoke-static {v1, v2, v2, v3}, Landroidx/core/content/res/TypedArrayUtils;->getBoolean(Landroid/content/res/TypedArray;IIZ)Z
+    move-result v4
 
-    move-result v2
+    invoke-virtual {v2, v3, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    iput-boolean v2, p0, Lcom/android/settingslib/widget/LayoutPreference;->mAllowDividerAbove:Z
+    move-result v3
 
-    sget v2, Lcom/android/settingslib/widget/R$styleable;->Preference_allowDividerBelow:I
+    iput-boolean v3, p0, Lcom/android/settingslib/widget/LayoutPreference;->mAllowDividerAbove:Z
 
-    invoke-static {v1, v2, v2, v3}, Landroidx/core/content/res/TypedArrayUtils;->getBoolean(Landroid/content/res/TypedArray;IIZ)Z
+    const/16 v3, 0x11
 
-    move-result v2
+    invoke-virtual {v2, v3, v1}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    iput-boolean v2, p0, Lcom/android/settingslib/widget/LayoutPreference;->mAllowDividerBelow:Z
+    move-result v4
 
-    invoke-virtual {v1}, Landroid/content/res/TypedArray;->recycle()V
+    invoke-virtual {v2, v3, v4}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    invoke-virtual {p1, p2, v0, p3, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    move-result v3
+
+    iput-boolean v3, p0, Lcom/android/settingslib/widget/LayoutPreference;->mAllowDividerBelow:Z
+
+    invoke-virtual {v2}, Landroid/content/res/TypedArray;->recycle()V
+
+    invoke-virtual {p1, p2, v0, v1, v1}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
-    sget p2, Lcom/android/settingslib/widget/R$styleable;->Preference_android_layout:I
+    const/4 p2, 0x3
 
-    invoke-virtual {p1, p2, v3}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {p1, p2, v1}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result p2
 
-    if-eqz p2, :cond_0
+    if-eqz p2, :cond_1
 
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->getContext()Landroid/content/Context;
-
-    move-result-object p1
+    iget-object p1, p0, Landroidx/preference/Preference;->mContext:Landroid/content/Context;
 
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object p1
 
-    const/4 p3, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p1, p2, p3, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-virtual {p1, p2, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object p1
 
-    invoke-direct {p0, p1}, Lcom/android/settingslib/widget/LayoutPreference;->setView(Landroid/view/View;)V
+    const p2, 0x7f0e00e4
 
-    return-void
+    iput p2, p0, Landroidx/preference/Preference;->mLayoutResId:I
+
+    iput-object p1, p0, Lcom/android/settingslib/widget/LayoutPreference;->mRootView:Landroid/view/View;
+
+    iget-boolean p1, p0, Landroidx/preference/Preference;->mShouldDisableView:Z
+
+    if-eqz p1, :cond_0
+
+    iput-boolean v1, p0, Landroidx/preference/Preference;->mShouldDisableView:Z
+
+    invoke-virtual {p0}, Landroidx/preference/Preference;->notifyChanged()V
 
     :cond_0
+    return-void
+
+    :cond_1
     new-instance p0, Ljava/lang/IllegalArgumentException;
 
     const-string p1, "LayoutPreference requires a layout to be defined"
@@ -111,44 +112,18 @@
     throw p0
 .end method
 
-.method private synthetic lambda$new$0(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->performClick(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method private setView(Landroid/view/View;)V
-    .locals 1
-
-    sget v0, Lcom/android/settingslib/widget/R$layout;->layout_preference_frame:I
-
-    invoke-virtual {p0, v0}, Landroidx/preference/Preference;->setLayoutResource(I)V
-
-    iput-object p1, p0, Lcom/android/settingslib/widget/LayoutPreference;->mRootView:Landroid/view/View;
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setShouldDisableView(Z)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+.method public final onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
     .locals 2
 
     iget-object v0, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    iget-object v1, p0, Lcom/android/settingslib/widget/LayoutPreference;->mClickListener:Landroid/view/View$OnClickListener;
+    iget-object v1, p0, Lcom/android/settingslib/widget/LayoutPreference;->mClickListener:Lcom/android/settingslib/widget/LayoutPreference$$ExternalSyntheticLambda0;
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {p0}, Landroidx/preference/Preference;->isSelectable()Z
-
-    move-result v0
+    iget-boolean v0, p0, Landroidx/preference/Preference;->mSelectable:Z
 
     iget-object v1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
@@ -160,11 +135,11 @@
 
     iget-boolean v0, p0, Lcom/android/settingslib/widget/LayoutPreference;->mAllowDividerAbove:Z
 
-    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->setDividerAllowedAbove(Z)V
+    iput-boolean v0, p1, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedAbove:Z
 
     iget-boolean v0, p0, Lcom/android/settingslib/widget/LayoutPreference;->mAllowDividerBelow:Z
 
-    invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->setDividerAllowedBelow(Z)V
+    iput-boolean v0, p1, Landroidx/preference/PreferenceViewHolder;->mDividerAllowedBelow:Z
 
     iget-object p1, p1, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 

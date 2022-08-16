@@ -14,14 +14,6 @@
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/media/AudioAttributesImplBase;
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parcel"
-        }
-    .end annotation
 
     new-instance v0, Landroidx/media/AudioAttributesImplBase;
 
@@ -72,20 +64,8 @@
 
 .method public static write(Landroidx/media/AudioAttributesImplBase;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "parcel"
-        }
-    .end annotation
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iget v0, p0, Landroidx/media/AudioAttributesImplBase;->mUsage:I
 

@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private mObservers:Ljava/util/ArrayList;
+.field public mObservers:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -42,7 +42,7 @@
 
 
 # virtual methods
-.method public addObserver(Ljava/lang/Object;)V
+.method public final addObserver(Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -59,7 +59,7 @@
     return-void
 .end method
 
-.method public dispatch(Ljava/util/function/Consumer;)V
+.method public final dispatch(Ljava/util/function/Consumer;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -93,20 +93,5 @@
     goto :goto_0
 
     :cond_0
-    return-void
-.end method
-
-.method public removeObserver(Ljava/lang/Object;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)V"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/keyguard/Lifecycle;->mObservers:Ljava/util/ArrayList;
-
-    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
     return-void
 .end method

@@ -7,4 +7,8 @@
     <item type="drawable" name="notification_template_icon_bg">#3333b5e5</item>
     <item type="drawable" name="notification_template_icon_low_bg">#0cffffff</item>
     <item type="drawable" name="system_bar_background">@color/system_bar_background_opaque</item>
+    <item type="drawable" name="unblock_hw_sensor_all">@drawable/ic_videocam_off</item>
+    <item type="drawable" name="unblock_hw_sensor_all_second">@drawable/ic_mic_off</item>
+    <item type="drawable" name="unblock_hw_sensor_camera">@drawable/ic_videocam_off</item>
+    <item type="drawable" name="unblock_hw_sensor_microphone">@drawable/ic_mic_off</item>
 </resources>

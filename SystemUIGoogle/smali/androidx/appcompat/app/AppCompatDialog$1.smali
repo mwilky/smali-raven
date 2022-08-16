@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/app/AppCompatDialog$1;
+.class public final Landroidx/appcompat/app/AppCompatDialog$1;
 .super Ljava/lang/Object;
 .source "AppCompatDialog.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/app/AppCompatDialog;
+.field public final synthetic this$0:Landroidx/appcompat/app/AppCompatDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/app/AppCompatDialog;)V
+.method public constructor <init>(Landroidx/appcompat/app/AppCompatDialog;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatDialog$1;->this$0:Landroidx/appcompat/app/AppCompatDialog;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
+.method public final superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/AppCompatDialog$1;->this$0:Landroidx/appcompat/app/AppCompatDialog;

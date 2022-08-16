@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/statusbar/commandline/CommandRegistry$onShellCommand$1;
+.class public final Lcom/android/systemui/statusbar/commandline/CommandRegistry$onShellCommand$1;
 .super Ljava/lang/Object;
 .source "CommandRegistry.kt"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $task:Ljava/util/concurrent/FutureTask;
+.field public final synthetic $task:Ljava/util/concurrent/FutureTask;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/FutureTask<",
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/concurrent/FutureTask;)V
+.method public constructor <init>(Ljava/util/concurrent/FutureTask;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

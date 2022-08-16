@@ -23,73 +23,60 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/airbnb/lottie/model/DocumentData$Justification;
+.field public static final synthetic $VALUES:[Lcom/airbnb/lottie/model/DocumentData$Justification;
 
 .field public static final enum CENTER:Lcom/airbnb/lottie/model/DocumentData$Justification;
 
-.field public static final enum LEFT_ALIGN:Lcom/airbnb/lottie/model/DocumentData$Justification;
-
-.field public static final enum RIGHT_ALIGN:Lcom/airbnb/lottie/model/DocumentData$Justification;
-
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 7
 
     new-instance v0, Lcom/airbnb/lottie/model/DocumentData$Justification;
 
-    const-string v1, "LEFT_ALIGN"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "LEFT_ALIGN"
 
-    invoke-direct {v0, v1, v2}, Lcom/airbnb/lottie/model/DocumentData$Justification;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lcom/airbnb/lottie/model/DocumentData$Justification;-><init>(ILjava/lang/String;)V
 
-    sput-object v0, Lcom/airbnb/lottie/model/DocumentData$Justification;->LEFT_ALIGN:Lcom/airbnb/lottie/model/DocumentData$Justification;
+    new-instance v2, Lcom/airbnb/lottie/model/DocumentData$Justification;
 
-    new-instance v1, Lcom/airbnb/lottie/model/DocumentData$Justification;
+    const/4 v3, 0x1
 
-    const-string v3, "RIGHT_ALIGN"
+    const-string v4, "RIGHT_ALIGN"
 
-    const/4 v4, 0x1
+    invoke-direct {v2, v3, v4}, Lcom/airbnb/lottie/model/DocumentData$Justification;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v1, v3, v4}, Lcom/airbnb/lottie/model/DocumentData$Justification;-><init>(Ljava/lang/String;I)V
+    new-instance v4, Lcom/airbnb/lottie/model/DocumentData$Justification;
 
-    sput-object v1, Lcom/airbnb/lottie/model/DocumentData$Justification;->RIGHT_ALIGN:Lcom/airbnb/lottie/model/DocumentData$Justification;
+    const/4 v5, 0x2
 
-    new-instance v3, Lcom/airbnb/lottie/model/DocumentData$Justification;
+    const-string v6, "CENTER"
 
-    const-string v5, "CENTER"
+    invoke-direct {v4, v5, v6}, Lcom/airbnb/lottie/model/DocumentData$Justification;-><init>(ILjava/lang/String;)V
 
-    const/4 v6, 0x2
+    sput-object v4, Lcom/airbnb/lottie/model/DocumentData$Justification;->CENTER:Lcom/airbnb/lottie/model/DocumentData$Justification;
 
-    invoke-direct {v3, v5, v6}, Lcom/airbnb/lottie/model/DocumentData$Justification;-><init>(Ljava/lang/String;I)V
+    const/4 v6, 0x3
 
-    sput-object v3, Lcom/airbnb/lottie/model/DocumentData$Justification;->CENTER:Lcom/airbnb/lottie/model/DocumentData$Justification;
+    new-array v6, v6, [Lcom/airbnb/lottie/model/DocumentData$Justification;
 
-    const/4 v5, 0x3
+    aput-object v0, v6, v1
 
-    new-array v5, v5, [Lcom/airbnb/lottie/model/DocumentData$Justification;
+    aput-object v2, v6, v3
 
-    aput-object v0, v5, v2
+    aput-object v4, v6, v5
 
-    aput-object v1, v5, v4
-
-    aput-object v3, v5, v6
-
-    sput-object v5, Lcom/airbnb/lottie/model/DocumentData$Justification;->$VALUES:[Lcom/airbnb/lottie/model/DocumentData$Justification;
+    sput-object v6, Lcom/airbnb/lottie/model/DocumentData$Justification;->$VALUES:[Lcom/airbnb/lottie/model/DocumentData$Justification;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

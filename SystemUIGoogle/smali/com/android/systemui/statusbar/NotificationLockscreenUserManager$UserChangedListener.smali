@@ -34,3 +34,9 @@
 
     return-void
 .end method
+
+.method public onUserRemoved(I)V
+    .locals 0
+
+    return-void
+.end method

@@ -4,15 +4,13 @@
 
 
 # instance fields
-.field private mDescFormat:Ljava/lang/String;
+.field public mDescFormat:Ljava/lang/String;
 
-.field private mHourHand:Landroid/widget/ImageView;
+.field public mHourHand:Landroid/widget/ImageView;
 
-.field private mMinuteHand:Landroid/widget/ImageView;
+.field public mMinuteHand:Landroid/widget/ImageView;
 
-.field private final mTime:Ljava/util/Calendar;
-
-.field private mTimeZone:Ljava/util/TimeZone;
+.field public final mTime:Ljava/util/Calendar;
 
 
 # direct methods
@@ -68,62 +66,18 @@
 
 
 # virtual methods
-.method protected onAttachedToWindow()V
-    .locals 2
+.method public final onAttachedToWindow()V
+    .locals 4
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mTime:Ljava/util/Calendar;
 
-    iget-object v1, p0, Lcom/android/keyguard/clock/ImageClock;->mTimeZone:Ljava/util/TimeZone;
-
-    if-eqz v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
     invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
     move-result-object v1
 
-    :goto_0
     invoke-virtual {v0, v1}, Ljava/util/Calendar;->setTimeZone(Ljava/util/TimeZone;)V
-
-    invoke-virtual {p0}, Lcom/android/keyguard/clock/ImageClock;->onTimeChanged()V
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
-    .locals 1
-
-    invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
-
-    sget v0, Lcom/android/systemui/R$id;->hour_hand:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mHourHand:Landroid/widget/ImageView;
-
-    sget v0, Lcom/android/systemui/R$id;->minute_hand:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/ImageView;
-
-    iput-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mMinuteHand:Landroid/widget/ImageView;
-
-    return-void
-.end method
-
-.method public onTimeChanged()V
-    .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mTime:Ljava/util/Calendar;
 
@@ -161,11 +115,11 @@
 
     mul-float/2addr v1, v3
 
-    add-float/2addr v0, v1
+    add-float/2addr v1, v0
 
-    iget-object v1, p0, Lcom/android/keyguard/clock/ImageClock;->mHourHand:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mHourHand:Landroid/widget/ImageView;
 
-    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setRotation(F)V
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setRotation(F)V
 
     iget-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mTime:Ljava/util/Calendar;
 
@@ -194,6 +148,34 @@
     invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setContentDescription(Ljava/lang/CharSequence;)V
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
+
+    return-void
+.end method
+
+.method public final onFinishInflate()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
+
+    const v0, 0x7f0b02fd
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mHourHand:Landroid/widget/ImageView;
+
+    const v0, 0x7f0b0412
+
+    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/android/keyguard/clock/ImageClock;->mMinuteHand:Landroid/widget/ImageView;
 
     return-void
 .end method

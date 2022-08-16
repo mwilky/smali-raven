@@ -1,4 +1,4 @@
-.class public Landroidx/leanback/widget/WindowAlignment$Axis;
+.class public final Landroidx/leanback/widget/WindowAlignment$Axis;
 .super Ljava/lang/Object;
 .source "WindowAlignment.java"
 
@@ -15,551 +15,213 @@
 
 
 # instance fields
-.field private mMaxEdge:I
+.field public mMaxEdge:I
 
-.field private mMaxScroll:I
+.field public mMaxScroll:I
 
-.field private mMinEdge:I
+.field public mMinEdge:I
 
-.field private mMinScroll:I
+.field public mMinScroll:I
 
-.field private mPaddingMax:I
+.field public mPaddingMax:I
 
-.field private mPaddingMin:I
+.field public mPaddingMin:I
 
-.field private mPreferredKeyLine:I
+.field public mReversedFlow:Z
 
-.field private mReversedFlow:Z
+.field public mSize:I
 
-.field private mSize:I
-
-.field private mWindowAlignment:I
-
-.field private mWindowAlignmentOffset:I
-
-.field private mWindowAlignmentOffsetPercent:F
+.field public mWindowAlignment:I
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "name"
-        }
-    .end annotation
+.method public constructor <init>()V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 p1, 0x2
+    const/4 v0, 0x3
 
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPreferredKeyLine:I
+    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
 
-    const/4 p1, 0x3
+    const/high16 v0, -0x80000000
 
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
 
-    const/4 p1, 0x0
+    const v0, 0x7fffffff
 
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignmentOffset:I
-
-    const/high16 p1, 0x42480000    # 50.0f
-
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignmentOffsetPercent:F
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->reset()V
+    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method final calculateKeyline()I
-    .locals 4
-
-    iget-boolean v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
-
-    const/high16 v1, 0x42c80000    # 100.0f
-
-    const/high16 v2, -0x40800000    # -1.0f
-
-    if-nez v0, :cond_1
-
-    iget v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignmentOffset:I
-
-    if-ltz v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
-
-    add-int/2addr v0, v3
-
-    :goto_0
-    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignmentOffsetPercent:F
-
-    cmpl-float v2, v3, v2
-
-    if-eqz v2, :cond_3
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
-
-    int-to-float p0, p0
-
-    mul-float/2addr p0, v3
-
-    div-float/2addr p0, v1
-
-    float-to-int p0, p0
-
-    add-int/2addr v0, p0
-
-    goto :goto_2
-
-    :cond_1
-    iget v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignmentOffset:I
-
-    if-ltz v0, :cond_2
-
-    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
-
-    sub-int/2addr v3, v0
-
-    move v0, v3
-
-    goto :goto_1
-
-    :cond_2
-    neg-int v0, v0
-
-    :goto_1
-    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignmentOffsetPercent:F
-
-    cmpl-float v2, v3, v2
-
-    if-eqz v2, :cond_3
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
-
-    int-to-float p0, p0
-
-    mul-float/2addr p0, v3
-
-    div-float/2addr p0, v1
-
-    float-to-int p0, p0
-
-    sub-int/2addr v0, p0
-
-    :cond_3
-    :goto_2
-    return v0
-.end method
-
-.method final calculateScrollToKeyLine(II)I
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "viewCenterPosition",
-            "keyLine"
-        }
-    .end annotation
-
-    sub-int/2addr p1, p2
-
-    return p1
-.end method
-
-.method public final getClientSize()I
-    .locals 2
+.method public final getScroll(I)I
+    .locals 11
 
     iget v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
 
-    iget v1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
+    iget-boolean v1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
 
-    sub-int/2addr v0, v1
+    const/high16 v2, 0x42c80000    # 100.0f
 
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMax:I
+    const/high16 v3, 0x42480000    # 50.0f
 
-    sub-int/2addr v0, p0
+    const/4 v4, 0x0
 
-    return v0
-.end method
+    if-nez v1, :cond_0
 
-.method public final getMaxScroll()I
-    .locals 0
+    int-to-float v5, v0
 
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
+    mul-float/2addr v5, v3
 
-    return p0
-.end method
+    div-float/2addr v5, v2
 
-.method public final getMinScroll()I
-    .locals 0
+    float-to-int v2, v5
 
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
-
-    return p0
-.end method
-
-.method public final getPaddingMax()I
-    .locals 0
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMax:I
-
-    return p0
-.end method
-
-.method public final getPaddingMin()I
-    .locals 0
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
-
-    return p0
-.end method
-
-.method public final getScroll(I)I
-    .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "viewCenter"
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->getSize()I
-
-    move-result v0
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateKeyline()I
-
-    move-result v1
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isMinUnknown()Z
-
-    move-result v2
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isMaxUnknown()Z
-
-    move-result v3
-
-    if-nez v2, :cond_2
-
-    iget v4, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
-
-    sub-int v5, v1, v4
-
-    iget-boolean v6, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
-
-    if-nez v6, :cond_0
-
-    iget v6, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
-
-    and-int/lit8 v6, v6, 0x1
-
-    if-eqz v6, :cond_2
+    add-int/2addr v2, v4
 
     goto :goto_0
 
     :cond_0
-    iget v6, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    add-int/lit8 v5, v0, 0x0
 
-    and-int/lit8 v6, v6, 0x2
+    int-to-float v6, v0
 
-    if-eqz v6, :cond_2
+    mul-float/2addr v6, v3
+
+    div-float/2addr v6, v2
+
+    float-to-int v2, v6
+
+    sub-int v2, v5, v2
 
     :goto_0
-    iget v6, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
+    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
 
-    sub-int v7, p1, v6
+    const/high16 v5, -0x80000000
 
-    if-gt v7, v5, :cond_2
+    const/4 v6, 0x1
 
-    sub-int/2addr v6, v4
+    if-ne v3, v5, :cond_1
 
-    if-nez v3, :cond_1
+    move v5, v6
+
+    goto :goto_1
+
+    :cond_1
+    move v5, v4
+
+    :goto_1
+    iget v7, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
+
+    const v8, 0x7fffffff
+
+    if-ne v7, v8, :cond_2
+
+    move v4, v6
+
+    :cond_2
+    if-nez v5, :cond_5
+
+    iget v8, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
+
+    sub-int v9, v2, v8
+
+    iget v10, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+
+    if-nez v1, :cond_3
+
+    and-int/2addr v10, v6
+
+    if-eqz v10, :cond_5
+
+    goto :goto_2
+
+    :cond_3
+    and-int/lit8 v10, v10, 0x2
+
+    if-eqz v10, :cond_5
+
+    :goto_2
+    sub-int v10, p1, v3
+
+    if-gt v10, v9, :cond_5
+
+    sub-int/2addr v3, v8
+
+    if-nez v4, :cond_4
 
     iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
 
-    if-le v6, p0, :cond_1
+    if-le v3, p0, :cond_4
 
-    move v6, p0
+    move v3, p0
 
-    :cond_1
-    return v6
+    :cond_4
+    return v3
 
-    :cond_2
-    if-nez v3, :cond_5
+    :cond_5
+    if-nez v4, :cond_8
 
-    sub-int v3, v0, v1
+    sub-int v3, v0, v2
 
     iget v4, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMax:I
 
     sub-int/2addr v3, v4
 
-    iget-boolean v5, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
+    if-nez v1, :cond_6
 
-    if-nez v5, :cond_3
+    iget v1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
 
-    iget v5, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    and-int/lit8 v1, v1, 0x2
 
-    and-int/lit8 v5, v5, 0x2
+    if-eqz v1, :cond_8
 
-    if-eqz v5, :cond_5
+    goto :goto_3
 
-    goto :goto_1
+    :cond_6
+    iget v1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
 
-    :cond_3
-    iget v5, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    and-int/2addr v1, v6
 
-    and-int/lit8 v5, v5, 0x1
+    if-eqz v1, :cond_8
 
-    if-eqz v5, :cond_5
+    :goto_3
+    sub-int v1, v7, p1
 
-    :goto_1
-    iget v5, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
-
-    sub-int v6, v5, p1
-
-    if-gt v6, v3, :cond_5
+    if-gt v1, v3, :cond_8
 
     sub-int/2addr v0, v4
 
-    sub-int/2addr v5, v0
+    sub-int/2addr v7, v0
 
-    if-nez v2, :cond_4
+    if-nez v5, :cond_7
 
     iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
-    if-ge v5, p0, :cond_4
+    if-ge v7, p0, :cond_7
 
-    move v5, p0
+    move v7, p0
 
-    :cond_4
-    return v5
+    :cond_7
+    return v7
 
-    :cond_5
-    invoke-virtual {p0, p1, v1}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateScrollToKeyLine(II)I
+    :cond_8
+    sub-int/2addr p1, v2
 
-    move-result p0
-
-    return p0
+    return p1
 .end method
 
-.method public final getSize()I
-    .locals 0
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
-
-    return p0
-.end method
-
-.method public final invalidateScrollMax()V
-    .locals 1
-
-    const v0, 0x7fffffff
-
-    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
-
-    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
-
-    return-void
-.end method
-
-.method public final invalidateScrollMin()V
-    .locals 1
-
-    const/high16 v0, -0x80000000
-
-    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
-
-    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
-
-    return-void
-.end method
-
-.method public final isMaxUnknown()Z
-    .locals 1
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
-
-    const v0, 0x7fffffff
-
-    if-ne p0, v0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public final isMinUnknown()Z
-    .locals 1
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
-
-    const/high16 v0, -0x80000000
-
-    if-ne p0, v0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method final isPreferKeylineOverHighEdge()Z
-    .locals 0
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPreferredKeyLine:I
-
-    and-int/lit8 p0, p0, 0x2
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method final isPreferKeylineOverLowEdge()Z
-    .locals 1
-
-    iget p0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPreferredKeyLine:I
-
-    const/4 v0, 0x1
-
-    and-int/2addr p0, v0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    return v0
-.end method
-
-.method reset()V
-    .locals 1
-
-    const/high16 v0, -0x80000000
-
-    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
-
-    const v0, 0x7fffffff
-
-    iput v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
-
-    return-void
-.end method
-
-.method public final setPadding(II)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "paddingMin",
-            "paddingMax"
-        }
-    .end annotation
-
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
-
-    iput p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMax:I
-
-    return-void
-.end method
-
-.method public final setReversedFlow(Z)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "reversedFlow"
-        }
-    .end annotation
-
-    iput-boolean p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
-
-    return-void
-.end method
-
-.method public final setSize(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "size"
-        }
-    .end annotation
-
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
-
-    return-void
-.end method
-
-.method public final setWindowAlignment(I)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "windowAlignment"
-        }
-    .end annotation
-
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, " min:"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, " min:"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
 
@@ -595,225 +257,158 @@
 .end method
 
 .method public final updateMinMax(IIII)V
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "minEdge",
-            "maxEdge",
-            "minChildViewCenter",
-            "maxChildViewCenter"
-        }
-    .end annotation
+    .locals 8
 
     iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
 
     iput p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->getClientSize()I
+    iget v0, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mSize:I
 
-    move-result p1
+    iget v1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateKeyline()I
+    sub-int v2, v0, v1
 
-    move-result p2
+    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMax:I
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isMinUnknown()Z
+    sub-int/2addr v2, v3
 
-    move-result v0
+    iget-boolean v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isMaxUnknown()Z
+    const/high16 v4, 0x42c80000    # 100.0f
 
-    move-result v1
+    const/high16 v5, 0x42480000    # 50.0f
 
-    if-nez v0, :cond_2
+    const/4 v6, 0x0
 
-    iget-boolean v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
+    if-nez v3, :cond_0
 
-    if-nez v2, :cond_0
+    int-to-float v0, v0
 
-    iget v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    mul-float/2addr v0, v5
 
-    and-int/lit8 v2, v2, 0x1
+    div-float/2addr v0, v4
 
-    if-eqz v2, :cond_1
+    float-to-int v0, v0
+
+    add-int/2addr v0, v6
 
     goto :goto_0
 
     :cond_0
-    iget v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    add-int/lit8 v7, v0, 0x0
 
-    and-int/lit8 v2, v2, 0x2
+    int-to-float v0, v0
 
-    if-eqz v2, :cond_1
+    mul-float/2addr v0, v5
+
+    div-float/2addr v0, v4
+
+    float-to-int v0, v0
+
+    sub-int v0, v7, v0
 
     :goto_0
-    iget v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinEdge:I
+    const/high16 v4, -0x80000000
 
-    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
+    const/4 v5, 0x1
 
-    sub-int/2addr v2, v3
+    if-ne p1, v4, :cond_1
 
-    iput v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
+    move v4, v5
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p0, p3, p2}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateScrollToKeyLine(II)I
+    move v4, v6
 
-    move-result v2
+    :goto_1
+    const v7, 0x7fffffff
 
-    iput v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
+    if-ne p2, v7, :cond_2
+
+    move v6, v5
 
     :cond_2
-    :goto_1
-    if-nez v1, :cond_5
+    if-nez v4, :cond_5
 
-    iget-boolean v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
+    iget v7, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
 
-    if-nez v2, :cond_3
+    if-nez v3, :cond_3
 
-    iget v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    and-int/2addr v7, v5
 
-    and-int/lit8 v2, v2, 0x2
-
-    if-eqz v2, :cond_4
+    if-eqz v7, :cond_4
 
     goto :goto_2
 
     :cond_3
-    iget v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+    and-int/lit8 v7, v7, 0x2
 
-    and-int/lit8 v2, v2, 0x1
-
-    if-eqz v2, :cond_4
+    if-eqz v7, :cond_4
 
     :goto_2
-    iget v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxEdge:I
+    sub-int/2addr p1, v1
 
-    iget v3, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mPaddingMin:I
-
-    sub-int/2addr v2, v3
-
-    sub-int/2addr v2, p1
-
-    iput v2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
+    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
     goto :goto_3
 
     :cond_4
-    invoke-virtual {p0, p4, p2}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateScrollToKeyLine(II)I
-
-    move-result p1
-
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
-
-    :cond_5
-    :goto_3
-    if-nez v1, :cond_d
-
-    if-nez v0, :cond_d
-
-    iget-boolean p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mReversedFlow:Z
-
-    if-nez p1, :cond_9
-
-    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
-
-    and-int/lit8 v0, p1, 0x1
-
-    if-eqz v0, :cond_7
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isPreferKeylineOverLowEdge()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_6
-
-    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
-
-    invoke-virtual {p0, p4, p2}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateScrollToKeyLine(II)I
-
-    move-result p2
-
-    invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
+    sub-int p1, p3, v0
 
     iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
-    :cond_6
-    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
+    :cond_5
+    :goto_3
+    if-nez v6, :cond_8
 
-    iget p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
+    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
 
-    invoke-static {p1, p2}, Ljava/lang/Math;->max(II)I
+    if-nez v3, :cond_6
 
-    move-result p1
+    and-int/lit8 p1, p1, 0x2
 
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
+    if-eqz p1, :cond_7
 
     goto :goto_4
 
+    :cond_6
+    and-int/2addr p1, v5
+
+    if-eqz p1, :cond_7
+
+    :goto_4
+    sub-int/2addr p2, v1
+
+    sub-int/2addr p2, v2
+
+    iput p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
+
+    goto :goto_5
+
     :cond_7
-    and-int/lit8 p1, p1, 0x2
-
-    if-eqz p1, :cond_d
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isPreferKeylineOverHighEdge()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_8
-
-    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
-
-    invoke-virtual {p0, p3, p2}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateScrollToKeyLine(II)I
-
-    move-result p2
-
-    invoke-static {p1, p2}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
+    sub-int p1, p4, v0
 
     iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
 
     :cond_8
+    :goto_5
+    if-nez v6, :cond_c
+
+    if-nez v4, :cond_c
+
+    if-nez v3, :cond_a
+
+    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+
+    and-int/lit8 p2, p1, 0x1
+
+    if-eqz p2, :cond_9
+
     iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
     iget p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
-
-    invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
-
-    move-result p1
-
-    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
-
-    goto :goto_4
-
-    :cond_9
-    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
-
-    and-int/lit8 v0, p1, 0x1
-
-    if-eqz v0, :cond_b
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isPreferKeylineOverLowEdge()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_a
-
-    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
-
-    invoke-virtual {p0, p3, p2}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateScrollToKeyLine(II)I
-
-    move-result p2
 
     invoke-static {p1, p2}, Ljava/lang/Math;->max(II)I
 
@@ -821,7 +416,40 @@
 
     iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
 
+    goto :goto_6
+
+    :cond_9
+    and-int/lit8 p1, p1, 0x2
+
+    if-eqz p1, :cond_c
+
+    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
+
+    sub-int/2addr p3, v0
+
+    invoke-static {p1, p3}, Ljava/lang/Math;->max(II)I
+
+    move-result p1
+
+    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
+
+    iget p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
+
+    invoke-static {p2, p1}, Ljava/lang/Math;->min(II)I
+
+    move-result p1
+
+    iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
+
+    goto :goto_6
+
     :cond_a
+    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mWindowAlignment:I
+
+    and-int/lit8 p2, p1, 0x1
+
+    if-eqz p2, :cond_b
+
     iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
     iget p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
@@ -832,33 +460,22 @@
 
     iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
-    goto :goto_4
+    goto :goto_6
 
     :cond_b
     and-int/lit8 p1, p1, 0x2
-
-    if-eqz p1, :cond_d
-
-    invoke-virtual {p0}, Landroidx/leanback/widget/WindowAlignment$Axis;->isPreferKeylineOverHighEdge()Z
-
-    move-result p1
 
     if-eqz p1, :cond_c
 
     iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
-    invoke-virtual {p0, p4, p2}, Landroidx/leanback/widget/WindowAlignment$Axis;->calculateScrollToKeyLine(II)I
+    sub-int/2addr p4, v0
 
-    move-result p2
-
-    invoke-static {p1, p2}, Ljava/lang/Math;->min(II)I
+    invoke-static {p1, p4}, Ljava/lang/Math;->min(II)I
 
     move-result p1
 
     iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
-
-    :cond_c
-    iget p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMinScroll:I
 
     iget p2, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
 
@@ -868,7 +485,7 @@
 
     iput p1, p0, Landroidx/leanback/widget/WindowAlignment$Axis;->mMaxScroll:I
 
-    :cond_d
-    :goto_4
+    :cond_c
+    :goto_6
     return-void
 .end method

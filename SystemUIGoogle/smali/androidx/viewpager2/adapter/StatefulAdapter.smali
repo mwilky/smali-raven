@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract restoreState(Landroid/os/Parcelable;)V
+.method public abstract restoreState()V
 .end method
 
 .method public abstract saveState()Landroid/os/Parcelable;

@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/animatable/AnimatableTextProperties;
+.class public final Lcom/airbnb/lottie/model/animatable/AnimatableTextProperties;
 .super Ljava/lang/Object;
 .source "AnimatableTextProperties.java"
 

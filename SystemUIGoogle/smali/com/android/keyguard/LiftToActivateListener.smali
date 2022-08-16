@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/LiftToActivateListener;
+.class public final Lcom/android/keyguard/LiftToActivateListener;
 .super Ljava/lang/Object;
 .source "LiftToActivateListener.java"
 
@@ -7,13 +7,13 @@
 
 
 # instance fields
-.field private final mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+.field public final mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-.field private mCachedClickableState:Z
+.field public mCachedClickableState:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/view/accessibility/AccessibilityManager;)V
+.method public constructor <init>(Landroid/view/accessibility/AccessibilityManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -25,7 +25,7 @@
 
 
 # virtual methods
-.method public onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onHover(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/LiftToActivateListener;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;

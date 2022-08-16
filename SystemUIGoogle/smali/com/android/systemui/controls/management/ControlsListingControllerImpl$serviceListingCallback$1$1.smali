@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;
+.class public final Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;
 .super Ljava/lang/Object;
 .source "ControlsListingControllerImpl.kt"
 
@@ -7,22 +7,13 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1;->onServicesReloaded(Ljava/util/List;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nControlsListingControllerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,181:1\n1819#2,2:182\n*E\n*S KotlinDebug\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1\n*L\n98#1,2:182\n*E\n"
+    value = "SMAP\nControlsListingControllerImpl.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,181:1\n1849#2,2:182\n*S KotlinDebug\n*F\n+ 1 ControlsListingControllerImpl.kt\ncom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1\n*L\n98#1:182,2\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic $newComponents:Ljava/util/Set;
+.field public final synthetic $newComponents:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Set<",
@@ -32,7 +23,7 @@
     .end annotation
 .end field
 
-.field final synthetic $newServices:Ljava/util/List;
+.field public final synthetic $newServices:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -42,25 +33,12 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Ljava/util/Set;Ljava/util/List;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Ljava/util/LinkedHashSet;Ljava/util/List;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/controls/management/ControlsListingControllerImpl;",
-            "Ljava/util/Set<",
-            "Landroid/content/ComponentName;",
-            ">;",
-            "Ljava/util/List<",
-            "+",
-            "Landroid/content/pm/ServiceInfo;",
-            ">;)V"
-        }
-    .end annotation
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
 
@@ -80,9 +58,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->access$getUserChangeInProgress$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Ljava/util/concurrent/atomic/AtomicInteger;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->userChangeInProgress:Ljava/util/concurrent/atomic/AtomicInteger;
 
     invoke-virtual {v0}, Ljava/util/concurrent/atomic/AtomicInteger;->get()I
 
@@ -97,9 +73,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
 
-    invoke-static {v1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->access$getAvailableComponents$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Ljava/util/Set;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableComponents:Ljava/util/Set;
 
     invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -119,7 +93,7 @@
 
     const-string v1, "ServiceConfig reloaded, count: "
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -131,25 +105,19 @@
 
     iget-object v1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->$newComponents:Ljava/util/Set;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->access$setAvailableComponents$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Ljava/util/Set;)V
-
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
+    iput-object v1, v0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableComponents:Ljava/util/Set;
 
     iget-object v1, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->$newServices:Ljava/util/List;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->access$setAvailableServices$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;Ljava/util/List;)V
+    iput-object v1, v0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->availableServices:Ljava/util/List;
 
-    iget-object v0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
-
-    invoke-virtual {v0}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->getCurrentServices()Ljava/util/List;
+    invoke-virtual {v0}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->getCurrentServices()Ljava/util/ArrayList;
 
     move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl$serviceListingCallback$1$1;->this$0:Lcom/android/systemui/controls/management/ControlsListingControllerImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->access$getCallbacks$p(Lcom/android/systemui/controls/management/ControlsListingControllerImpl;)Ljava/util/Set;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsListingControllerImpl;->callbacks:Ljava/util/LinkedHashSet;
 
     invoke-interface {p0}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
@@ -168,7 +136,7 @@
 
     check-cast v1, Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;
 
-    invoke-interface {v1, v0}, Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;->onServicesUpdated(Ljava/util/List;)V
+    invoke-interface {v1, v0}, Lcom/android/systemui/controls/management/ControlsListingController$ControlsListingCallback;->onServicesUpdated(Ljava/util/ArrayList;)V
 
     goto :goto_0
 

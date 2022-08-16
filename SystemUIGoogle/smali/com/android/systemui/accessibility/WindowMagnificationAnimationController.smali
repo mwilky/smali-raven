@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;
+.class public final Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;
 .super Ljava/lang/Object;
 .source "WindowMagnificationAnimationController.java"
 
@@ -16,29 +16,33 @@
 
 
 # static fields
-.field private static final DEBUG:Z
+.field public static final DEBUG:Z
 
 
 # instance fields
-.field private mAnimationCallback:Landroid/view/accessibility/IRemoteMagnificationAnimationCallback;
+.field public mAnimationCallback:Landroid/view/accessibility/IRemoteMagnificationAnimationCallback;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+.field public mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
 
-.field private mEndAnimationCanceled:Z
+.field public mEndAnimationCanceled:Z
 
-.field private final mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+.field public final mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
-.field private final mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+.field public mMagnificationFrameOffsetRatioX:F
 
-.field private mState:I
+.field public mMagnificationFrameOffsetRatioY:F
 
-.field private final mValueAnimator:Landroid/animation/ValueAnimator;
+.field public final mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+.field public mState:I
+
+.field public final mValueAnimator:Landroid/animation/ValueAnimator;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 2
 
     const-string v0, "WindowMagnificationAnimationController"
@@ -54,24 +58,8 @@
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/accessibility/WindowMagnificationController;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/animation/ValueAnimator;)V
     .locals 1
-
-    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->newValueAnimator(Landroid/content/res/Resources;)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;-><init>(Landroid/content/Context;Lcom/android/systemui/accessibility/WindowMagnificationController;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/accessibility/WindowMagnificationController;Landroid/animation/ValueAnimator;)V
-    .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -79,17 +67,21 @@
 
     new-instance v0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;-><init>(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$1;)V
+    invoke-direct {v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
     new-instance v0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
-    invoke-direct {v0, v1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;-><init>(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$1;)V
+    invoke-direct {v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;-><init>()V
 
     iput-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioX:F
+
+    iput v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioY:F
 
     const/4 v0, 0x0
 
@@ -99,60 +91,313 @@
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mContext:Landroid/content/Context;
 
-    iput-object p2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+    iput-object p2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
 
-    iput-object p3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
+    invoke-virtual {p2, p0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    invoke-virtual {p3, p0}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    invoke-virtual {p3, p0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {p2, p0}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     return-void
 .end method
 
-.method private static newValueAnimator(Landroid/content/res/Resources;)Landroid/animation/ValueAnimator;
-    .locals 3
 
-    new-instance v0, Landroid/animation/ValueAnimator;
+# virtual methods
+.method public final enableWindowMagnification(FFFFFLandroid/view/accessibility/IRemoteMagnificationAnimationCallback;)V
+    .locals 7
 
-    invoke-direct {v0}, Landroid/animation/ValueAnimator;-><init>()V
+    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
 
-    const v1, 0x10e0002
+    if-nez v0, :cond_0
 
-    invoke-virtual {p0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
+
+    iput p4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioX:F
+
+    iput p5, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioY:F
+
+    const/4 p4, 0x1
+
+    const/4 p5, 0x2
+
+    const/4 v0, 0x3
+
+    if-nez p6, :cond_3
+
+    iget p6, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
+
+    if-eq p6, v0, :cond_1
+
+    if-ne p6, p5, :cond_2
+
+    :cond_1
+    iget-object p5, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p5}, Landroid/animation/ValueAnimator;->cancel()V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+
+    iget v4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioX:F
+
+    iget v5, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioY:F
+
+    move v1, p1
+
+    move v2, p2
+
+    move v3, p3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/accessibility/WindowMagnificationController;->enableWindowMagnificationInternal(FFFFF)V
+
+    invoke-virtual {p0, p4}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
+
+    return-void
+
+    :cond_3
+    iput-object p6, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mAnimationCallback:Landroid/view/accessibility/IRemoteMagnificationAnimationCallback;
+
+    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setupEnableAnimationSpecs(FFF)V
+
+    iget-object p6, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    invoke-virtual {p6, v1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->equals(Ljava/lang/Object;)Z
+
+    move-result p6
+
+    if-eqz p6, :cond_7
+
+    iget p6, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
+
+    if-nez p6, :cond_4
+
+    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+
+    iget v5, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioX:F
+
+    iget v6, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioY:F
+
+    move v2, p1
+
+    move v3, p2
+
+    move v4, p3
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/accessibility/WindowMagnificationController;->enableWindowMagnificationInternal(FFFFF)V
+
+    goto :goto_0
+
+    :cond_4
+    if-eq p6, v0, :cond_5
+
+    if-ne p6, p5, :cond_6
+
+    :cond_5
+    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->cancel()V
+
+    :cond_6
+    :goto_0
+    invoke-virtual {p0, p4}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
+
+    invoke-virtual {p0, p4}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
+
+    goto :goto_2
+
+    :cond_7
+    iget p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
+
+    if-ne p1, p5, :cond_8
+
+    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->reverse()V
+
+    goto :goto_1
+
+    :cond_8
+    if-ne p1, v0, :cond_9
+
+    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->cancel()V
+
+    :cond_9
+    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
+
+    :goto_1
+    invoke-virtual {p0, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
+
+    :goto_2
+    return-void
+.end method
+
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndAnimationCanceled:Z
+
+    return-void
+.end method
+
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final onAnimationEnd(Landroid/animation/Animator;Z)V
+    .locals 2
+
+    iget-boolean p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndAnimationCanceled:Z
+
+    if-nez p1, :cond_3
+
+    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+
+    if-nez p1, :cond_0
+
+    goto :goto_2
+
+    :cond_0
+    invoke-virtual {p1}, Lcom/android/systemui/accessibility/WindowMagnificationController;->isWindowVisible()Z
+
+    move-result p2
+
+    if-eqz p2, :cond_1
+
+    iget p1, p1, Lcom/android/systemui/accessibility/WindowMagnificationController;->mScale:F
+
+    goto :goto_0
+
+    :cond_1
+    const/high16 p1, 0x7fc00000    # Float.NaN
+
+    :goto_0
+    invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
+
+    move-result p1
+
+    const/4 p2, 0x1
+
+    if-eqz p1, :cond_2
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-virtual {p0, p2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
+
+    :goto_1
+    invoke-virtual {p0, p2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
+
+    iget-object p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const p2, 0x10e0002
+
+    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result p0
 
-    int-to-long v1, p0
+    int-to-long v0, p0
 
-    invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {p1, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    new-instance p0, Landroid/view/animation/AccelerateInterpolator;
-
-    const/high16 v1, 0x40200000    # 2.5f
-
-    invoke-direct {p0, v1}, Landroid/view/animation/AccelerateInterpolator;-><init>(F)V
-
-    invoke-virtual {v0, p0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    const/4 p0, 0x2
-
-    new-array p0, p0, [F
-
-    fill-array-data p0, :array_0
-
-    invoke-virtual {v0, p0}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
-
-    return-object v0
-
-    :array_0
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
+    :cond_3
+    :goto_2
+    return-void
 .end method
 
-.method private sendAnimationCallback(Z)V
+.method public final onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndAnimationCanceled:Z
+
+    return-void
+.end method
+
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+    .locals 10
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p1
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    iget v1, v0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mScale:F
+
+    iget-object v2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    iget v3, v2, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mScale:F
+
+    invoke-static {v3, v1, p1, v1}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
+
+    move-result v5
+
+    iget v1, v0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterX:F
+
+    iget v3, v2, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterX:F
+
+    invoke-static {v3, v1, p1, v1}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
+
+    move-result v6
+
+    iget v0, v0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterY:F
+
+    iget v1, v2, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterY:F
+
+    invoke-static {v1, v0, p1, v0}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
+
+    move-result v7
+
+    iget-object v4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+
+    iget v8, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioX:F
+
+    iget v9, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mMagnificationFrameOffsetRatioY:F
+
+    invoke-virtual/range {v4 .. v9}, Lcom/android/systemui/accessibility/WindowMagnificationController;->enableWindowMagnificationInternal(FFFFF)V
+
+    return-void
+.end method
+
+.method public final sendAnimationCallback(Z)V
     .locals 3
 
     const-string v0, "WindowMagnificationAnimationController"
@@ -172,7 +417,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "sendAnimationCallback success = "
+    const-string/jumbo v2, "sendAnimationCallback success = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -195,7 +440,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "sendAnimationCallback failed : "
+    const-string/jumbo v2, "sendAnimationCallback failed : "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -217,20 +462,18 @@
     return-void
 .end method
 
-.method private setState(I)V
+.method public final setState(I)V
     .locals 2
 
     sget-boolean v0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string/jumbo v0, "setState from "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "setState from "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
 
@@ -256,30 +499,70 @@
     return-void
 .end method
 
-.method private setupEnableAnimationSpecs(FFF)V
+.method public final setupEnableAnimationSpecs(FFF)V
     .locals 5
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/accessibility/WindowMagnificationController;->getScale()F
+    if-nez v0, :cond_0
 
-    move-result v0
+    return-void
 
-    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/accessibility/WindowMagnificationController;->getCenterX()F
+    :cond_0
+    invoke-virtual {v0}, Lcom/android/systemui/accessibility/WindowMagnificationController;->isWindowVisible()Z
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+    const/high16 v2, 0x7fc00000    # Float.NaN
 
-    invoke-virtual {v2}, Lcom/android/systemui/accessibility/WindowMagnificationController;->getCenterY()F
+    if-eqz v1, :cond_1
+
+    iget v0, v0, Lcom/android/systemui/accessibility/WindowMagnificationController;->mScale:F
+
+    goto :goto_0
+
+    :cond_1
+    move v0, v2
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+
+    invoke-virtual {v1}, Lcom/android/systemui/accessibility/WindowMagnificationController;->isWindowVisible()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v1, v1, Lcom/android/systemui/accessibility/WindowMagnificationController;->mMagnificationFrame:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/Rect;->exactCenterX()F
+
+    move-result v1
+
+    goto :goto_1
+
+    :cond_2
+    move v1, v2
+
+    :goto_1
+    iget-object v3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
+
+    invoke-virtual {v3}, Lcom/android/systemui/accessibility/WindowMagnificationController;->isWindowVisible()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_3
+
+    iget-object v2, v3, Lcom/android/systemui/accessibility/WindowMagnificationController;->mMagnificationFrame:Landroid/graphics/Rect;
+
+    invoke-virtual {v2}, Landroid/graphics/Rect;->exactCenterY()F
 
     move-result v2
 
+    :cond_3
     iget v3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_5
 
     iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
@@ -293,7 +576,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_4
 
     iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mContext:Landroid/content/Context;
 
@@ -301,7 +584,7 @@
 
     move-result-object p1
 
-    sget v1, Lcom/android/systemui/R$integer;->magnification_default_scale:I
+    const v1, 0x7f0c0099
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -309,59 +592,82 @@
 
     int-to-float p1, p1
 
-    :cond_0
+    :cond_4
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->set(FFF)V
 
-    goto :goto_0
+    goto :goto_2
 
-    :cond_1
+    :cond_5
     iget-object v3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
     invoke-virtual {v3, v0, v1, v2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->set(FFF)V
 
+    iget v3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
+
+    const/4 v4, 0x3
+
+    if-ne v3, v4, :cond_6
+
+    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    iget v0, v0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mScale:F
+
+    :cond_6
+    if-ne v3, v4, :cond_7
+
+    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    iget v1, v1, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterX:F
+
+    :cond_7
+    if-ne v3, v4, :cond_8
+
+    iget-object v2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+
+    iget v2, v2, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterY:F
+
+    :cond_8
     iget-object v3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
     invoke-static {p1}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_9
 
     move p1, v0
 
-    :cond_2
+    :cond_9
     invoke-static {p2}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_a
 
     move p2, v1
 
-    :cond_3
+    :cond_a
     invoke-static {p3}, Ljava/lang/Float;->isNaN(F)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_b
 
     move p3, v2
 
-    :cond_4
+    :cond_b
     invoke-virtual {v3, p1, p2, p3}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->set(FFF)V
 
-    :goto_0
+    :goto_2
     sget-boolean p1, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->DEBUG:Z
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_c
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "SetupEnableAnimationSpecs : mStartSpec = "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "SetupEnableAnimationSpecs : mStartSpec = "
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget-object p2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 
@@ -383,374 +689,6 @@
 
     invoke-static {p1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_5
-    return-void
-.end method
-
-
-# virtual methods
-.method deleteWindowMagnification(Landroid/view/accessibility/IRemoteMagnificationAnimationCallback;)V
-    .locals 3
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
-
-    iput-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mAnimationCallback:Landroid/view/accessibility/IRemoteMagnificationAnimationCallback;
-
-    iget p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
-
-    if-eqz p1, :cond_1
-
-    const/4 v0, 0x2
-
-    if-ne p1, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    const/high16 v1, 0x3f800000    # 1.0f
-
-    const/high16 v2, 0x7fc00000    # Float.NaN
-
-    invoke-virtual {p1, v1, v2, v2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->set(FFF)V
-
-    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {v1}, Lcom/android/systemui/accessibility/WindowMagnificationController;->getScale()F
-
-    move-result v1
-
-    invoke-virtual {p1, v1, v2, v2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->set(FFF)V
-
-    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->reverse()V
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
-
-    return-void
-
-    :cond_1
-    :goto_0
-    if-nez p1, :cond_2
-
-    const/4 p1, 0x1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
-
-    :cond_2
-    return-void
-.end method
-
-.method dump(Ljava/io/PrintWriter;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationController;->dump(Ljava/io/PrintWriter;)V
-
-    return-void
-.end method
-
-.method enableWindowMagnification(FFFLandroid/view/accessibility/IRemoteMagnificationAnimationCallback;)V
-    .locals 2
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
-
-    iput-object p4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mAnimationCallback:Landroid/view/accessibility/IRemoteMagnificationAnimationCallback;
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setupEnableAnimationSpecs(FFF)V
-
-    iget-object p4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-virtual {p4, v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->equals(Ljava/lang/Object;)Z
-
-    move-result p4
-
-    const/4 v0, 0x2
-
-    const/4 v1, 0x3
-
-    if-eqz p4, :cond_3
-
-    iget p4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
-
-    if-nez p4, :cond_0
-
-    iget-object p4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p4, p1, p2, p3}, Lcom/android/systemui/accessibility/WindowMagnificationController;->enableWindowMagnification(FFF)V
-
-    goto :goto_0
-
-    :cond_0
-    if-eq p4, v1, :cond_1
-
-    if-ne p4, v0, :cond_2
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->cancel()V
-
-    :cond_2
-    :goto_0
-    const/4 p1, 0x1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
-
-    goto :goto_2
-
-    :cond_3
-    iget p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mState:I
-
-    if-ne p1, v0, :cond_4
-
-    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->reverse()V
-
-    goto :goto_1
-
-    :cond_4
-    if-ne p1, v1, :cond_5
-
-    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->cancel()V
-
-    :cond_5
-    iget-object p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
-
-    :goto_1
-    invoke-direct {p0, v1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
-
-    :goto_2
-    return-void
-.end method
-
-.method moveWindowMagnifier(FF)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/accessibility/WindowMagnificationController;->moveWindowMagnifier(FF)V
-
-    return-void
-.end method
-
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndAnimationCanceled:Z
-
-    return-void
-.end method
-
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationEnd(Landroid/animation/Animator;Z)V
-    .locals 0
-
-    iget-boolean p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndAnimationCanceled:Z
-
-    if-eqz p1, :cond_0
-
-    return-void
-
-    :cond_0
-    const/4 p1, 0x1
-
-    if-eqz p2, :cond_1
-
-    iget-object p2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p2}, Lcom/android/systemui/accessibility/WindowMagnificationController;->deleteWindowMagnification()V
-
-    const/4 p2, 0x0
-
-    invoke-direct {p0, p2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
-
-    goto :goto_0
-
-    :cond_1
-    invoke-direct {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->setState(I)V
-
-    :goto_0
-    invoke-direct {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->sendAnimationCallback(Z)V
-
-    return-void
-.end method
-
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
-
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndAnimationCanceled:Z
-
-    return-void
-.end method
-
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 5
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
-
-    move-result p1
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$100(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$100(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$100(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v2
-
-    sub-float/2addr v1, v2
-
-    mul-float/2addr v1, p1
-
-    add-float/2addr v0, v1
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v1}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$200(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$200(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v3}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$200(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v3
-
-    sub-float/2addr v2, v3
-
-    mul-float/2addr v2, p1
-
-    add-float/2addr v1, v2
-
-    iget-object v2, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v2}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$300(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v2
-
-    iget-object v3, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mEndSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v3}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$300(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mStartSpec:Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
-
-    invoke-static {v4}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->access$300(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-
-    move-result v4
-
-    sub-float/2addr v3, v4
-
-    mul-float/2addr v3, p1
-
-    add-float/2addr v2, v3
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p0, v0, v1, v2}, Lcom/android/systemui/accessibility/WindowMagnificationController;->enableWindowMagnification(FFF)V
-
-    return-void
-.end method
-
-.method onConfigurationChanged(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationController;->onConfigurationChanged(I)V
-
-    return-void
-.end method
-
-.method setScale(F)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->isRunning()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/WindowMagnificationController;->setScale(F)V
-
-    return-void
-.end method
-
-.method public updateSysUiStateFlag()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController;->mController:Lcom/android/systemui/accessibility/WindowMagnificationController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/WindowMagnificationController;->updateSysUIStateFlag()V
-
+    :cond_c
     return-void
 .end method

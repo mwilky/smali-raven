@@ -7,15 +7,11 @@
 
 
 # instance fields
-.field private mAdapter:Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+.field public final mOnSelectedListener:Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;
 
-.field private mListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+.field public mPosition:I
 
-.field private final mOnSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
-
-.field private mPosition:I
-
-.field private mShouldPerformClick:Z
+.field public mShouldPerformClick:Z
 
 
 # direct methods
@@ -28,57 +24,33 @@
 
     invoke-direct {p1, p0}, Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;-><init>(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)V
 
-    iput-object p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mOnSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+    iput-object p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mOnSelectedListener:Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;
 
-    sget p1, Lcom/android/settingslib/widget/R$layout;->settings_spinner_preference:I
+    const p1, 0x7f0e0213
 
-    invoke-virtual {p0, p1}, Landroidx/preference/Preference;->setLayoutResource(I)V
+    iput p1, p0, Landroidx/preference/Preference;->mLayoutResId:I
 
-    invoke-virtual {p0, p0}, Landroidx/preference/Preference;->setOnPreferenceClickListener(Landroidx/preference/Preference$OnPreferenceClickListener;)V
+    iput-object p0, p0, Landroidx/preference/Preference;->mOnClickListener:Landroidx/preference/Preference$OnPreferenceClickListener;
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
-
-    return p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/widget/SettingsSpinnerPreference;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mPosition:I
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/widget/SettingsSpinnerPreference;)Landroid/widget/AdapterView$OnItemSelectedListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mListener:Landroid/widget/AdapterView$OnItemSelectedListener;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
+.method public final onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroidx/preference/Preference;->onBindViewHolder(Landroidx/preference/PreferenceViewHolder;)V
 
-    sget v0, Lcom/android/settingslib/widget/R$id;->spinner:I
+    const v0, 0x7f0b061d
 
     invoke-virtual {p1, v0}, Landroidx/preference/PreferenceViewHolder;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
-    check-cast p1, Lcom/android/settingslib/widget/settingsspinner/SettingsSpinner;
+    check-cast p1, Landroid/widget/Spinner;
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mAdapter:Lcom/android/settingslib/widget/settingsspinner/SettingsSpinnerAdapter;
+    const/4 v0, 0x0
 
     invoke-virtual {p1, v0}, Landroid/widget/Spinner;->setAdapter(Landroid/widget/SpinnerAdapter;)V
 
@@ -86,7 +58,7 @@
 
     invoke-virtual {p1, v0}, Landroid/widget/Spinner;->setSelection(I)V
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mOnSelectedListener:Landroid/widget/AdapterView$OnItemSelectedListener;
+    iget-object v0, p0, Lcom/android/settingslib/widget/SettingsSpinnerPreference;->mOnSelectedListener:Lcom/android/settingslib/widget/SettingsSpinnerPreference$1;
 
     invoke-virtual {p1, v0}, Landroid/widget/Spinner;->setOnItemSelectedListener(Landroid/widget/AdapterView$OnItemSelectedListener;)V
 
@@ -104,7 +76,7 @@
     return-void
 .end method
 
-.method public onPreferenceClick(Landroidx/preference/Preference;)Z
+.method public final onPreferenceClick(Landroidx/preference/Preference;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -113,5 +85,5 @@
 
     invoke-virtual {p0}, Landroidx/preference/Preference;->notifyChanged()V
 
-    return p1
+    return-void
 .end method

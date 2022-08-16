@@ -47,7 +47,7 @@
     .end annotation
 .end method
 
-.method public abstract onBackAction(ZIIZZ)V
+.method public abstract onBackAction(IIZZZ)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -104,14 +104,6 @@
 .end method
 
 .method public abstract onScreenTurnedOn()V
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Landroid/os/RemoteException;
-        }
-    .end annotation
-.end method
-
-.method public abstract onSplitScreenSecondaryBoundsChanged(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

@@ -21,12 +21,6 @@
 .method public abstract hideForSystem()V
 .end method
 
-.method public abstract onContentScrollStarted()V
-.end method
-
-.method public abstract onContentScrollStopped()V
-.end method
-
 .method public abstract onWindowVisibilityChanged(I)V
 .end method
 

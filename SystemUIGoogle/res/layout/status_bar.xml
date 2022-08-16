@@ -14,8 +14,11 @@
             </LinearLayout>
         </FrameLayout>
         <android.widget.Space android:gravity="center" android:id="@id/cutout_space_view" android:layout_width="0.0dip" android:layout_height="fill_parent" />
-        <com.android.systemui.statusbar.AlphaOptimizedFrameLayout android:gravity="center" android:orientation="horizontal" android:id="@id/centered_icon_area" android:clipChildren="false" android:layout_width="wrap_content" android:layout_height="fill_parent" />
         <com.android.keyguard.AlphaOptimizedLinearLayout android:gravity="end|center" android:orientation="horizontal" android:id="@id/system_icon_area" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.android.systemui.statusbar.phone.userswitcher.StatusBarUserSwitcherContainer android:gravity="center" android:orientation="horizontal" android:id="@id/user_switcher_container" android:background="@drawable/status_bar_user_chip_bg" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingStart="8.0dip" android:paddingEnd="8.0dip" android:layout_marginEnd="16.0dip">
+                <ImageView android:id="@id/current_user_avatar" android:layout_width="@dimen/multi_user_avatar_keyguard_size" android:layout_height="@dimen/multi_user_avatar_keyguard_size" android:scaleType="centerInside" android:paddingEnd="4.0dip" />
+                <TextView android:textAppearance="@style/TextAppearance.StatusBar.Clock" android:id="@id/current_user_name" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            </com.android.systemui.statusbar.phone.userswitcher.StatusBarUserSwitcherContainer>
             <include layout="@layout/system_icons" />
         </com.android.keyguard.AlphaOptimizedLinearLayout>
     </LinearLayout>

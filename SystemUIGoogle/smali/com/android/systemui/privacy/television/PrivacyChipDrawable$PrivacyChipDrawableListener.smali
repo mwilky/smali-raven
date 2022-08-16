@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
+.class public interface abstract Lcom/android/systemui/privacy/television/PrivacyChipDrawable$PrivacyChipDrawableListener;
 .super Ljava/lang/Object;
 .source "PrivacyChipDrawable.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "PrivacyChipDrawableListener"
 .end annotation
 

@@ -6,17 +6,11 @@
 .implements Landroidx/lifecycle/LifecycleEventObserver;
 
 
-# instance fields
-.field final synthetic val$observer:Landroidx/lifecycle/LifecycleEventObserver;
-
-
 # virtual methods
-.method public onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
+.method public final onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 0
 
-    iget-object p0, p0, Landroidx/lifecycle/Lifecycling$1;->val$observer:Landroidx/lifecycle/LifecycleEventObserver;
+    const/4 p0, 0x0
 
-    invoke-interface {p0, p1, p2}, Landroidx/lifecycle/LifecycleEventObserver;->onStateChanged(Landroidx/lifecycle/LifecycleOwner;Landroidx/lifecycle/Lifecycle$Event;)V
-
-    return-void
+    throw p0
 .end method

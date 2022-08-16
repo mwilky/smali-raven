@@ -1,4 +1,4 @@
-.class Landroidx/exifinterface/media/ExifInterface$Rational;
+.class public final Landroidx/exifinterface/media/ExifInterface$Rational;
 .super Ljava/lang/Object;
 .source "ExifInterface.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Rational"
 .end annotation
 
@@ -21,23 +21,7 @@
 
 
 # direct methods
-.method constructor <init>(D)V
-    .locals 2
-
-    const-wide v0, 0x40c3880000000000L    # 10000.0
-
-    mul-double/2addr p1, v0
-
-    double-to-long p1, p1
-
-    const-wide/16 v0, 0x2710
-
-    invoke-direct {p0, p1, p2, v0, v1}, Landroidx/exifinterface/media/ExifInterface$Rational;-><init>(JJ)V
-
-    return-void
-.end method
-
-.method constructor <init>(JJ)V
+.method public constructor <init>(JJ)V
     .locals 3
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,23 +50,7 @@
 
 
 # virtual methods
-.method public calculate()D
-    .locals 4
-
-    iget-wide v0, p0, Landroidx/exifinterface/media/ExifInterface$Rational;->numerator:J
-
-    long-to-double v0, v0
-
-    iget-wide v2, p0, Landroidx/exifinterface/media/ExifInterface$Rational;->denominator:J
-
-    long-to-double v2, v2
-
-    div-double/2addr v0, v2
-
-    return-wide v0
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;

@@ -1,39 +1,40 @@
 .class public final synthetic Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/qs/tiles/DataSaverTile;
 
-.field public final synthetic f$1:Landroid/view/View;
-
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/qs/tiles/DataSaverTile;Landroid/view/View;)V
+.method public synthetic constructor <init>(Lcom/android/systemui/qs/tiles/DataSaverTile;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/tiles/DataSaverTile;
 
-    iput-object p2, p0, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;->f$1:Landroid/view/View;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final onClick(Landroid/content/DialogInterface;I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/tiles/DataSaverTile;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/tiles/DataSaverTile;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/DataSaverTile$$ExternalSyntheticLambda1;->f$1:Landroid/view/View;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/DataSaverTile;->toggleDataSaver()V
 
-    invoke-static {v0, p0}, Lcom/android/systemui/qs/tiles/DataSaverTile;->$r8$lambda$sM2_jsFl18I2p9IXiyUQrFO-7ds(Lcom/android/systemui/qs/tiles/DataSaverTile;Landroid/view/View;)V
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+
+    const-string p1, "QsDataSaverDialogShown"
+
+    invoke-static {p0, p1}, Lcom/android/systemui/Prefs;->putBoolean(Landroid/content/Context;Ljava/lang/String;)V
 
     return-void
 .end method

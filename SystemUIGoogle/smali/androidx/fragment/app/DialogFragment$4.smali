@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/DialogFragment$4;
+.class public final Landroidx/fragment/app/DialogFragment$4;
 .super Ljava/lang/Object;
 .source "DialogFragment.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/fragment/app/DialogFragment;
+.field public final synthetic this$0:Landroidx/fragment/app/DialogFragment;
 
 
 # direct methods
-.method constructor <init>(Landroidx/fragment/app/DialogFragment;)V
+.method public constructor <init>(Landroidx/fragment/app/DialogFragment;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/fragment/app/DialogFragment$4;->this$0:Landroidx/fragment/app/DialogFragment;
@@ -43,7 +43,7 @@
 
 
 # virtual methods
-.method public onChanged(Landroidx/lifecycle/LifecycleOwner;)V
+.method public final onChanged(Ljava/lang/Object;)V
     .locals 2
     .annotation build Landroid/annotation/SuppressLint;
         value = {
@@ -51,17 +51,15 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_2
-
-    iget-object p1, p0, Landroidx/fragment/app/DialogFragment$4;->this$0:Landroidx/fragment/app/DialogFragment;
-
-    invoke-static {p1}, Landroidx/fragment/app/DialogFragment;->access$200(Landroidx/fragment/app/DialogFragment;)Z
-
-    move-result p1
+    check-cast p1, Landroidx/lifecycle/LifecycleOwner;
 
     if-eqz p1, :cond_2
 
     iget-object p1, p0, Landroidx/fragment/app/DialogFragment$4;->this$0:Landroidx/fragment/app/DialogFragment;
+
+    iget-boolean v0, p1, Landroidx/fragment/app/DialogFragment;->mShowsDialog:Z
+
+    if-eqz v0, :cond_2
 
     invoke-virtual {p1}, Landroidx/fragment/app/Fragment;->requireView()Landroid/view/View;
 
@@ -75,9 +73,7 @@
 
     iget-object v0, p0, Landroidx/fragment/app/DialogFragment$4;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    invoke-static {v0}, Landroidx/fragment/app/DialogFragment;->access$000(Landroidx/fragment/app/DialogFragment;)Landroid/app/Dialog;
-
-    move-result-object v0
+    iget-object v0, v0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
     if-eqz v0, :cond_2
 
@@ -105,9 +101,7 @@
 
     iget-object v1, p0, Landroidx/fragment/app/DialogFragment$4;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    invoke-static {v1}, Landroidx/fragment/app/DialogFragment;->access$000(Landroidx/fragment/app/DialogFragment;)Landroid/app/Dialog;
-
-    move-result-object v1
+    iget-object v1, v1, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -122,9 +116,7 @@
     :cond_0
     iget-object p0, p0, Landroidx/fragment/app/DialogFragment$4;->this$0:Landroidx/fragment/app/DialogFragment;
 
-    invoke-static {p0}, Landroidx/fragment/app/DialogFragment;->access$000(Landroidx/fragment/app/DialogFragment;)Landroid/app/Dialog;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/fragment/app/DialogFragment;->mDialog:Landroid/app/Dialog;
 
     invoke-virtual {p0, p1}, Landroid/app/Dialog;->setContentView(Landroid/view/View;)V
 
@@ -141,20 +133,5 @@
 
     :cond_2
     :goto_0
-    return-void
-.end method
-
-.method public bridge synthetic onChanged(Ljava/lang/Object;)V
-    .locals 0
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "SyntheticAccessor"
-        }
-    .end annotation
-
-    check-cast p1, Landroidx/lifecycle/LifecycleOwner;
-
-    invoke-virtual {p0, p1}, Landroidx/fragment/app/DialogFragment$4;->onChanged(Landroidx/lifecycle/LifecycleOwner;)V
-
     return-void
 .end method

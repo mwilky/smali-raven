@@ -28,12 +28,6 @@
 
 
 # virtual methods
-.method public onAnimationAtEnd()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public onAnimationAtStart()V
     .locals 0
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/globalactions/GlobalActionsImpl;
+.class public final Lcom/android/systemui/globalactions/GlobalActionsImpl;
 .super Ljava/lang/Object;
 .source "GlobalActionsImpl.java"
 
@@ -8,62 +8,30 @@
 
 
 # instance fields
-.field private final mBlurUtils:Lcom/android/systemui/statusbar/BlurUtils;
+.field public final mBlurUtils:Lcom/android/systemui/statusbar/BlurUtils;
 
-.field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+.field public final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+.field public final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-.field private mDisabled:Z
+.field public mDisabled:Z
 
-.field private mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+.field public final mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-.field private final mGlobalActionsDialogLazy:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/globalactions/GlobalActionsDialogLite;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+.field public final mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$znZgs6HApTku0mDCtkvQnyk5YlI(Lcom/android/systemui/globalactions/GlobalActionsImpl;Lcom/android/systemui/scrim/ScrimDrawable;Landroid/app/Dialog;Landroid/content/DialogInterface;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Lcom/android/systemui/globalactions/GlobalActionsDialogLite;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;)V
     .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/globalactions/GlobalActionsImpl;->lambda$showShutdownUi$0(Lcom/android/systemui/scrim/ScrimDrawable;Landroid/app/Dialog;Landroid/content/DialogInterface;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Lcom/android/systemui/statusbar/BlurUtils;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/globalactions/GlobalActionsDialogLite;",
-            ">;",
-            "Lcom/android/systemui/statusbar/BlurUtils;",
-            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
-            "Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;",
-            ")V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    iput-object p3, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialogLazy:Ldagger/Lazy;
+    iput-object p3, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
     iput-object p5, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
@@ -78,196 +46,28 @@
     return-void
 .end method
 
-.method private getReasonMessage(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-
-    if-eqz p1, :cond_0
-
-    const-string v0, "recovery-update"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
-
-    const p1, 0x1040761
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    if-eqz p1, :cond_1
-
-    const-string v0, "recovery"
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
-
-    const p1, 0x104075d
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-.method private getRebootMessage(ZLjava/lang/String;)I
-    .locals 1
-
-    if-eqz p2, :cond_0
-
-    const-string p0, "recovery-update"
-
-    invoke-virtual {p2, p0}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const p0, 0x1040760
-
-    return p0
-
-    :cond_0
-    const p0, 0x104075c
-
-    if-eqz p2, :cond_1
-
-    const-string v0, "recovery"
-
-    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_1
-
-    return p0
-
-    :cond_1
-    if-eqz p1, :cond_2
-
-    return p0
-
-    :cond_2
-    const p0, 0x10407f1
-
-    return p0
-.end method
-
-.method private synthetic lambda$showShutdownUi$0(Lcom/android/systemui/scrim/ScrimDrawable;Landroid/app/Dialog;Landroid/content/DialogInterface;)V
-    .locals 0
-
-    iget-object p3, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mBlurUtils:Lcom/android/systemui/statusbar/BlurUtils;
-
-    invoke-virtual {p3}, Lcom/android/systemui/statusbar/BlurUtils;->supportsBlursOnWindows()Z
-
-    move-result p3
-
-    if-eqz p3, :cond_0
-
-    const/16 p3, 0xff
-
-    invoke-virtual {p1, p3}, Lcom/android/systemui/scrim/ScrimDrawable;->setAlpha(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mBlurUtils:Lcom/android/systemui/statusbar/BlurUtils;
-
-    invoke-virtual {p2}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object p2
-
-    invoke-virtual {p2}, Landroid/view/View;->getViewRootImpl()Landroid/view/ViewRootImpl;
-
-    move-result-object p2
-
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mBlurUtils:Lcom/android/systemui/statusbar/BlurUtils;
-
-    const/high16 p3, 0x3f800000    # 1.0f
-
-    invoke-virtual {p0, p3}, Lcom/android/systemui/statusbar/BlurUtils;->blurRadiusOfRatio(F)F
-
-    move-result p0
-
-    float-to-int p0, p0
-
-    const/4 p3, 0x1
-
-    invoke-virtual {p1, p2, p0, p3}, Lcom/android/systemui/statusbar/BlurUtils;->applyBlur(Landroid/view/ViewRootImpl;IZ)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    sget p2, Lcom/android/systemui/R$dimen;->shutdown_scrim_behind_alpha:I
-
-    invoke-virtual {p0, p2}, Landroid/content/res/Resources;->getFloat(I)F
-
-    move-result p0
-
-    const/high16 p2, 0x437f0000    # 255.0f
-
-    mul-float/2addr p0, p2
-
-    float-to-int p0, p0
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/scrim/ScrimDrawable;->setAlpha(I)V
-
-    :goto_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public destroy()V
+.method public final destroy()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
     invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/CommandQueue;->removeCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
 
-    iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->destroy()V
 
-    invoke-virtual {v0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->destroy()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-
-    :cond_0
     return-void
 .end method
 
-.method public disable(IIIZ)V
+.method public final disable(IIIZ)V
     .locals 0
 
     and-int/lit8 p2, p3, 0x8
+
+    const/4 p3, 0x0
 
     if-eqz p2, :cond_0
 
@@ -276,16 +76,16 @@
     goto :goto_0
 
     :cond_0
-    const/4 p2, 0x0
+    move p2, p3
 
     :goto_0
-    iget-object p3, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
+    iget-object p4, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p3}, Landroid/content/Context;->getDisplayId()I
+    invoke-virtual {p4}, Landroid/content/Context;->getDisplayId()I
 
-    move-result p3
+    move-result p4
 
-    if-ne p1, p3, :cond_2
+    if-ne p1, p4, :cond_2
 
     iget-boolean p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mDisabled:Z
 
@@ -300,16 +100,20 @@
 
     iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
-    if-eqz p0, :cond_2
+    iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHandler:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->dismissDialog()V
+    invoke-virtual {p1, p3}, Landroid/os/Handler;->removeMessages(I)V
+
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->mHandler:Lcom/android/systemui/globalactions/GlobalActionsDialogLite$8;
+
+    invoke-virtual {p0, p3}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     :cond_2
     :goto_1
     return-void
 .end method
 
-.method public showGlobalActions(Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;)V
+.method public final showGlobalActions(Lcom/android/systemui/plugins/GlobalActions$GlobalActionsManager;)V
     .locals 2
 
     iget-boolean p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mDisabled:Z
@@ -319,15 +123,7 @@
     return-void
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialogLazy:Ldagger/Lazy;
-
-    invoke-interface {p1}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
-
-    iput-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
+    iget-object p1, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mGlobalActionsDialog:Lcom/android/systemui/globalactions/GlobalActionsDialogLite;
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mKeyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
@@ -343,13 +139,13 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p1, v0, p0, v1}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->showOrHideDialog(ZZLandroid/view/View;)V
+    invoke-virtual {p1, v1, v0, p0}, Lcom/android/systemui/globalactions/GlobalActionsDialogLite;->showOrHideDialog(Landroid/view/View;ZZ)V
 
     return-void
 .end method
 
-.method public showShutdownUi(ZLjava/lang/String;)V
-    .locals 5
+.method public final showShutdownUi(ZLjava/lang/String;)V
+    .locals 8
 
     new-instance v0, Lcom/android/systemui/scrim/ScrimDrawable;
 
@@ -359,7 +155,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    sget v3, Lcom/android/systemui/R$style;->Theme_SystemUI_Dialog_GlobalActions:I
+    const v3, 0x7f14044f
 
     invoke-direct {v1, v2, v3}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
 
@@ -433,11 +229,11 @@
 
     invoke-virtual {v2, v0}, Landroid/view/Window;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    sget v0, Lcom/android/systemui/R$style;->Animation_ShutdownUi:I
+    const v0, 0x7f14000e
 
     invoke-virtual {v2, v0}, Landroid/view/Window;->setWindowAnimations(I)V
 
-    const v0, 0x109010d
+    const v0, 0x1090119
 
     invoke-virtual {v1, v0}, Landroid/app/Dialog;->setContentView(I)V
 
@@ -453,7 +249,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
 
-    sget v2, Lcom/android/systemui/R$attr;->wallpaperTextColor:I
+    const v2, 0x7f040603
 
     invoke-static {v0, v2}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
 
@@ -468,7 +264,7 @@
 
     move-result-object v0
 
-    sget v2, Lcom/android/systemui/R$color;->global_actions_shutdown_ui_text:I
+    const v2, 0x7f0600e1
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -509,23 +305,97 @@
 
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setTextColor(I)V
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsImpl;->getRebootMessage(ZLjava/lang/String;)I
+    const-string/jumbo v0, "recovery"
+
+    const-string/jumbo v5, "recovery-update"
+
+    if-eqz p2, :cond_1
+
+    invoke-virtual {p2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    const p1, 0x10407d1
+
+    goto :goto_2
+
+    :cond_1
+    const v6, 0x10407cd
+
+    if-eqz p2, :cond_2
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    if-eqz p1, :cond_3
+
+    :goto_1
+    move p1, v6
+
+    goto :goto_2
+
+    :cond_3
+    const p1, 0x1040866
+
+    :goto_2
+    invoke-virtual {v3, p1}, Landroid/widget/TextView;->setText(I)V
+
+    if-eqz p2, :cond_4
+
+    invoke-virtual {p2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result p1
 
-    invoke-virtual {v3, p1}, Landroid/widget/TextView;->setText(I)V
+    if-eqz p1, :cond_4
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/globalactions/GlobalActionsImpl;->getReasonMessage(Ljava/lang/String;)Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
+
+    const p1, 0x10407d2
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
-    if-eqz p0, :cond_1
+    goto :goto_3
+
+    :cond_4
+    if-eqz p2, :cond_5
+
+    invoke-virtual {p2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_5
+
+    iget-object p0, p0, Lcom/android/systemui/globalactions/GlobalActionsImpl;->mContext:Landroid/content/Context;
+
+    const p1, 0x10407ce
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_3
+
+    :cond_5
+    const/4 p0, 0x0
+
+    :goto_3
+    if-eqz p0, :cond_6
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     invoke-virtual {v2, p0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :cond_1
+    :cond_6
     invoke-virtual {v1}, Landroid/app/Dialog;->show()V
 
     return-void

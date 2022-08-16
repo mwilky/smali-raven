@@ -1,12 +1,10 @@
-.class public Lcom/android/systemui/statusbar/NotificationUiAdjustment;
+.class public final Lcom/android/systemui/statusbar/NotificationUiAdjustment;
 .super Ljava/lang/Object;
 .source "NotificationUiAdjustment.java"
 
 
 # instance fields
 .field public final isConversation:Z
-
-.field public final key:Ljava/lang/String;
 
 .field public final smartActions:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -30,7 +28,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;Ljava/util/List;Ljava/util/List;Z)V
+.method public constructor <init>(Ljava/lang/String;Ljava/util/List;Ljava/util/List;Z)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -46,8 +44,6 @@
     .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->key:Ljava/lang/String;
 
     if-nez p2, :cond_0
 
@@ -72,40 +68,8 @@
     return-void
 .end method
 
-.method private static areDifferent(Landroid/graphics/drawable/Icon;Landroid/graphics/drawable/Icon;)Z
-    .locals 1
-
-    if-ne p0, p1, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    const/4 v0, 0x1
-
-    if-eqz p0, :cond_2
-
-    if-nez p1, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Icon;->sameAs(Landroid/graphics/drawable/Icon;)Z
-
-    move-result p0
-
-    xor-int/2addr p0, v0
-
-    return p0
-
-    :cond_2
-    :goto_0
-    return v0
-.end method
-
 .method public static areDifferent(Ljava/util/List;Ljava/util/List;)Z
-    .locals 7
+    .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -127,11 +91,11 @@
     :cond_0
     const/4 v1, 0x1
 
-    if-eqz p0, :cond_8
+    if-eqz p0, :cond_18
 
     if-nez p1, :cond_1
 
-    goto :goto_1
+    goto/16 :goto_a
 
     :cond_1
     invoke-interface {p0}, Ljava/util/List;->size()I
@@ -154,7 +118,7 @@
 
     move-result v3
 
-    if-ge v2, v3, :cond_7
+    if-ge v2, v3, :cond_17
 
     invoke-interface {p0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -189,15 +153,38 @@
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->areDifferent(Landroid/graphics/drawable/Icon;Landroid/graphics/drawable/Icon;)Z
+    if-ne v5, v6, :cond_4
+
+    move v5, v0
+
+    goto :goto_2
+
+    :cond_4
+    if-eqz v5, :cond_6
+
+    if-nez v6, :cond_5
+
+    goto :goto_1
+
+    :cond_5
+    invoke-virtual {v5, v6}, Landroid/graphics/drawable/Icon;->sameAs(Landroid/graphics/drawable/Icon;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    xor-int/2addr v5, v1
+
+    goto :goto_2
+
+    :cond_6
+    :goto_1
+    move v5, v1
+
+    :goto_2
+    if-eqz v5, :cond_7
 
     return v1
 
-    :cond_4
+    :cond_7
     iget-object v5, v3, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
 
     iget-object v6, v4, Landroid/app/Notification$Action;->actionIntent:Landroid/app/PendingIntent;
@@ -206,11 +193,11 @@
 
     move-result v5
 
-    if-nez v5, :cond_5
+    if-nez v5, :cond_8
 
     return v1
 
-    :cond_5
+    :cond_8
     invoke-virtual {v3}, Landroid/app/Notification$Action;->getRemoteInputs()[Landroid/app/RemoteInput;
 
     move-result-object v3
@@ -219,248 +206,149 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->areDifferent([Landroid/app/RemoteInput;[Landroid/app/RemoteInput;)Z
+    if-ne v3, v4, :cond_a
 
-    move-result v3
+    :cond_9
+    move v3, v0
 
-    if-eqz v3, :cond_6
+    goto/16 :goto_9
 
-    return v1
+    :cond_a
+    if-eqz v3, :cond_15
 
-    :cond_6
-    add-int/lit8 v2, v2, 0x1
+    if-nez v4, :cond_b
 
-    goto :goto_0
+    goto :goto_8
 
-    :cond_7
-    return v0
+    :cond_b
+    array-length v5, v3
 
-    :cond_8
-    :goto_1
-    return v1
-.end method
+    array-length v6, v4
 
-.method private static areDifferent([Landroid/app/RemoteInput;[Landroid/app/RemoteInput;)Z
-    .locals 7
+    if-eq v5, v6, :cond_c
 
-    const/4 v0, 0x0
+    goto :goto_8
 
-    if-ne p0, p1, :cond_0
+    :cond_c
+    move v5, v0
 
-    return v0
+    :goto_3
+    array-length v6, v3
 
-    :cond_0
-    const/4 v1, 0x1
+    if-ge v5, v6, :cond_9
 
-    if-eqz p0, :cond_6
+    aget-object v6, v3, v5
 
-    if-nez p1, :cond_1
+    aget-object v7, v4, v5
 
-    goto :goto_1
+    invoke-virtual {v6}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
 
-    :cond_1
-    array-length v2, p0
+    move-result-object v8
 
-    array-length v3, p1
+    invoke-virtual {v7}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
 
-    if-eq v2, v3, :cond_2
+    move-result-object v9
 
-    return v1
+    invoke-static {v8, v9}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    :cond_2
-    move v2, v0
+    move-result v8
 
-    :goto_0
-    array-length v3, p0
+    if-nez v8, :cond_d
 
-    if-ge v2, v3, :cond_5
+    goto :goto_8
 
-    aget-object v3, p0, v2
-
-    aget-object v4, p1, v2
-
-    invoke-virtual {v3}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
-
-    move-result-object v5
-
-    invoke-virtual {v4}, Landroid/app/RemoteInput;->getLabel()Ljava/lang/CharSequence;
+    :cond_d
+    invoke-virtual {v6}, Landroid/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-virtual {v7}, Landroid/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
 
-    move-result v5
+    move-result-object v7
 
-    if-nez v5, :cond_3
+    if-ne v6, v7, :cond_e
+
+    goto :goto_5
+
+    :cond_e
+    if-eqz v6, :cond_13
+
+    if-nez v7, :cond_f
+
+    goto :goto_6
+
+    :cond_f
+    array-length v8, v6
+
+    array-length v9, v7
+
+    if-eq v8, v9, :cond_10
+
+    goto :goto_6
+
+    :cond_10
+    move v8, v0
+
+    :goto_4
+    array-length v9, v6
+
+    if-ge v8, v9, :cond_12
+
+    aget-object v9, v6, v8
+
+    aget-object v10, v7, v8
+
+    invoke-static {v9, v10}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_11
+
+    goto :goto_6
+
+    :cond_11
+    add-int/lit8 v8, v8, 0x1
+
+    goto :goto_4
+
+    :cond_12
+    :goto_5
+    move v6, v0
+
+    goto :goto_7
+
+    :cond_13
+    :goto_6
+    move v6, v1
+
+    :goto_7
+    if-eqz v6, :cond_14
+
+    goto :goto_8
+
+    :cond_14
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_3
+
+    :cond_15
+    :goto_8
+    move v3, v1
+
+    :goto_9
+    if-eqz v3, :cond_16
 
     return v1
 
-    :cond_3
-    invoke-virtual {v3}, Landroid/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    invoke-virtual {v4}, Landroid/app/RemoteInput;->getChoices()[Ljava/lang/CharSequence;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->areDifferent([Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    return v1
-
-    :cond_4
+    :cond_16
     add-int/lit8 v2, v2, 0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_5
+    :cond_17
     return v0
 
-    :cond_6
-    :goto_1
+    :cond_18
+    :goto_a
     return v1
-.end method
-
-.method private static areDifferent([Ljava/lang/CharSequence;[Ljava/lang/CharSequence;)Z
-    .locals 5
-
-    const/4 v0, 0x0
-
-    if-ne p0, p1, :cond_0
-
-    return v0
-
-    :cond_0
-    const/4 v1, 0x1
-
-    if-eqz p0, :cond_5
-
-    if-nez p1, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    array-length v2, p0
-
-    array-length v3, p1
-
-    if-eq v2, v3, :cond_2
-
-    return v1
-
-    :cond_2
-    move v2, v0
-
-    :goto_0
-    array-length v3, p0
-
-    if-ge v2, v3, :cond_4
-
-    aget-object v3, p0, v2
-
-    aget-object v4, p1, v2
-
-    invoke-static {v3, v4}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
-
-    return v1
-
-    :cond_3
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_0
-
-    :cond_4
-    return v0
-
-    :cond_5
-    :goto_1
-    return v1
-.end method
-
-.method public static extractFromNotificationEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Lcom/android/systemui/statusbar/NotificationUiAdjustment;
-    .locals 4
-
-    new-instance v0, Lcom/android/systemui/statusbar/NotificationUiAdjustment;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSmartActions()Ljava/util/List;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSmartReplies()Ljava/util/List;
-
-    move-result-object v3
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->isConversation()Z
-
-    move-result p0
-
-    invoke-direct {v0, v1, v2, v3, p0}, Lcom/android/systemui/statusbar/NotificationUiAdjustment;-><init>(Ljava/lang/String;Ljava/util/List;Ljava/util/List;Z)V
-
-    return-object v0
-.end method
-
-.method public static needReinflate(Lcom/android/systemui/statusbar/NotificationUiAdjustment;Lcom/android/systemui/statusbar/NotificationUiAdjustment;)Z
-    .locals 4
-
-    const/4 v0, 0x0
-
-    if-ne p0, p1, :cond_0
-
-    return v0
-
-    :cond_0
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->isConversation:Z
-
-    iget-boolean v2, p1, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->isConversation:Z
-
-    const/4 v3, 0x1
-
-    if-eq v1, v2, :cond_1
-
-    return v3
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->smartActions:Ljava/util/List;
-
-    iget-object v2, p1, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->smartActions:Ljava/util/List;
-
-    invoke-static {v1, v2}, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->areDifferent(Ljava/util/List;Ljava/util/List;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    return v3
-
-    :cond_2
-    iget-object p1, p1, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->smartReplies:Ljava/util/List;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationUiAdjustment;->smartReplies:Ljava/util/List;
-
-    invoke-interface {p1, p0}, Ljava/util/List;->equals(Ljava/lang/Object;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_3
-
-    return v3
-
-    :cond_3
-    return v0
 .end method

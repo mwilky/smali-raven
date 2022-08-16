@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;
+.class public final Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;
 .super Landroid/os/Handler;
 .source "CachedBluetoothDevice.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+.field public final synthetic this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Landroid/os/Looper;)V
+.method public constructor <init>(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
@@ -31,72 +31,79 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 4
+.method public final handleMessage(Landroid/os/Message;)V
+    .locals 3
 
     iget v0, p1, Landroid/os/Message;->what:I
 
-    const-string v1, "CachedBluetoothDevice"
+    const/4 v1, 0x1
 
-    const/4 v2, 0x1
+    const-string v2, "CachedBluetoothDevice"
 
-    if-eq v0, v2, :cond_2
+    if-eq v0, v1, :cond_3
 
-    const/4 v3, 0x2
+    const/4 v1, 0x2
 
-    if-eq v0, v3, :cond_1
+    if-eq v0, v1, :cond_2
 
-    const/16 v3, 0x15
+    const/16 v1, 0x15
 
-    if-eq v0, v3, :cond_0
+    if-eq v0, v1, :cond_1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const/16 v1, 0x16
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    if-eq v0, v1, :cond_0
 
-    const-string v2, "handleMessage(): unknown message : "
+    const-string v0, "handleMessage(): unknown message : "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v2, p1, Landroid/os/Message;->what:I
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    iget v1, p1, Landroid/os/Message;->what:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_0
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->access$202(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)Z
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     goto :goto_0
 
     :cond_1
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->access$002(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)Z
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     goto :goto_0
 
     :cond_2
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    invoke-static {v0, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->access$102(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;Z)Z
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     :goto_0
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Connect to profile : "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "Connect to profile : "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget p1, p1, Landroid/os/Message;->what:I
 
@@ -110,7 +117,7 @@
 
     move-result-object p1
 
-    invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$1;->this$0:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 

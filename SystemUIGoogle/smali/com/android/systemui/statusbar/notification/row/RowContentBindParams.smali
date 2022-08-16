@@ -4,17 +4,17 @@
 
 
 # instance fields
-.field private mContentViews:I
+.field public mContentViews:I
 
-.field private mDirtyContentViews:I
+.field public mDirtyContentViews:I
 
-.field private mUseIncreasedHeadsUpHeight:Z
+.field public mUseIncreasedHeadsUpHeight:Z
 
-.field private mUseIncreasedHeight:Z
+.field public mUseIncreasedHeight:Z
 
-.field private mUseLowPriority:Z
+.field public mUseLowPriority:Z
 
-.field private mViewsNeedReinflation:Z
+.field public mViewsNeedReinflation:Z
 
 
 # direct methods
@@ -34,71 +34,29 @@
 
 
 # virtual methods
-.method clearDirtyContentViews()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    return-void
-.end method
-
-.method public getContentViews()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mContentViews:I
-
-    return p0
-.end method
-
-.method public getDirtyContentViews()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    return p0
-.end method
-
-.method public markContentViewsFreeable(I)V
-    .locals 1
+.method public final markContentViewsFreeable(I)V
+    .locals 2
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mContentViews:I
 
-    not-int p1, p1
+    and-int/2addr p1, v0
 
-    and-int/2addr v0, p1
+    not-int v1, p1
+
+    and-int/2addr v0, v1
 
     iput v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mContentViews:I
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
 
-    and-int/2addr p1, v0
+    or-int/2addr p1, v0
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
 
     return-void
 .end method
 
-.method public needsReinflation()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mViewsNeedReinflation:Z
-
-    return p0
-.end method
-
-.method public rebindAllContentViews()V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mContentViews:I
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    return-void
-.end method
-
-.method public requireContentViews(I)V
+.method public final requireContentViews(I)V
     .locals 2
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mContentViews:I
@@ -120,80 +78,7 @@
     return-void
 .end method
 
-.method public setNeedsReinflation(Z)V
-    .locals 1
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mViewsNeedReinflation:Z
-
-    iget p1, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mContentViews:I
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    or-int/2addr p1, v0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    return-void
-.end method
-
-.method public setUseIncreasedCollapsedHeight(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseIncreasedHeight:Z
-
-    if-eq v0, p1, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    or-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseIncreasedHeight:Z
-
-    return-void
-.end method
-
-.method public setUseIncreasedHeadsUpHeight(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseIncreasedHeadsUpHeight:Z
-
-    if-eq v0, p1, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    or-int/lit8 v0, v0, 0x4
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseIncreasedHeadsUpHeight:Z
-
-    return-void
-.end method
-
-.method public setUseLowPriority(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseLowPriority:Z
-
-    if-eq v0, p1, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    or-int/lit8 v0, v0, 0x3
-
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mDirtyContentViews:I
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseLowPriority:Z
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     const/4 v0, 0x6
@@ -267,28 +152,4 @@
     move-result-object p0
 
     return-object p0
-.end method
-
-.method public useIncreasedHeadsUpHeight()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseIncreasedHeadsUpHeight:Z
-
-    return p0
-.end method
-
-.method public useIncreasedHeight()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseIncreasedHeight:Z
-
-    return p0
-.end method
-
-.method public useLowPriority()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;->mUseLowPriority:Z
-
-    return p0
 .end method

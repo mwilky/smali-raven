@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "Callback"
 .end annotation
-
-
-# virtual methods
-.method public abstract onSensorPulse(IFF[F)V
-.end method

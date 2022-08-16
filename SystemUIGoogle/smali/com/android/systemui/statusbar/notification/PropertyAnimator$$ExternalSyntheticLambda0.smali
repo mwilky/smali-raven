@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/statusbar/notification/PropertyAnimator$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -33,7 +34,13 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/PropertyAnimator$$ExternalSyntheticLambda0;->f$1:Landroid/view/View;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->$r8$lambda$T5f-JIfwsdoPWaJ1XCzMTWFCDI4(Landroid/util/Property;Landroid/view/View;Landroid/animation/ValueAnimator;)V
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {v0, p0, p1}, Landroid/util/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
 
     return-void
 .end method

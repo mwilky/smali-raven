@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaCarouselController;-><init>(Landroid/content/Context;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/notification/collection/legacy/VisualStabilityManager;Lcom/android/systemui/media/MediaHostStatesManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;)V
+    value = Lcom/android/systemui/media/MediaCarouselController;-><init>(Landroid/content/Context;Ljavax/inject/Provider;Lcom/android/systemui/statusbar/notification/collection/provider/VisualStabilityProvider;Lcom/android/systemui/media/MediaHostStatesManager;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/media/MediaDataManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/media/MediaUiEventLogger;Lcom/android/systemui/media/MediaCarouselControllerLogger;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaCarouselController;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaCarouselController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaCarouselController;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaCarouselController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaCarouselController$8;->this$0:Lcom/android/systemui/media/MediaCarouselController;
@@ -34,40 +34,24 @@
 
 
 # virtual methods
-.method public onHostStateChanged(ILcom/android/systemui/media/MediaHostState;)V
-    .locals 11
-
-    const-string v0, "mediaHostState"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onHostStateChanged(ILcom/android/systemui/media/MediaHostState;)V
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaCarouselController$8;->this$0:Lcom/android/systemui/media/MediaCarouselController;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaCarouselController;->access$getDesiredLocation$p(Lcom/android/systemui/media/MediaCarouselController;)I
+    iget v1, v0, Lcom/android/systemui/media/MediaCarouselController;->desiredLocation:I
 
-    move-result v0
+    if-ne p1, v1, :cond_0
 
-    if-ne p1, v0, :cond_0
+    const-wide/16 v4, 0xc8
 
-    iget-object v1, p0, Lcom/android/systemui/media/MediaCarouselController$8;->this$0:Lcom/android/systemui/media/MediaCarouselController;
+    const-wide/16 v6, 0x0
 
-    invoke-static {v1}, Lcom/android/systemui/media/MediaCarouselController;->access$getDesiredLocation$p(Lcom/android/systemui/media/MediaCarouselController;)I
+    const/4 v3, 0x0
 
-    move-result v2
+    move-object v2, p2
 
-    const/4 v4, 0x0
-
-    const-wide/16 v5, 0x0
-
-    const-wide/16 v7, 0x0
-
-    const/16 v9, 0x18
-
-    const/4 v10, 0x0
-
-    move-object v3, p2
-
-    invoke-static/range {v1 .. v10}, Lcom/android/systemui/media/MediaCarouselController;->onDesiredLocationChanged$default(Lcom/android/systemui/media/MediaCarouselController;ILcom/android/systemui/media/MediaHostState;ZJJILjava/lang/Object;)V
+    invoke-virtual/range {v0 .. v7}, Lcom/android/systemui/media/MediaCarouselController;->onDesiredLocationChanged(ILcom/android/systemui/media/MediaHostState;ZJJ)Lkotlin/Unit;
 
     :cond_0
     return-void

@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/bluetooth/BluetoothEventManager$BluetoothBroadcastReceiver;
+.class public final Lcom/android/settingslib/bluetooth/BluetoothEventManager$BluetoothBroadcastReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "BluetoothEventManager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "BluetoothBroadcastReceiver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
+.field public final synthetic this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)V
+.method public constructor <init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$BluetoothBroadcastReceiver;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
@@ -29,17 +29,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;Lcom/android/settingslib/bluetooth/BluetoothEventManager$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/bluetooth/BluetoothEventManager$BluetoothBroadcastReceiver;-><init>(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -56,11 +48,9 @@
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager$BluetoothBroadcastReceiver;->this$0:Lcom/android/settingslib/bluetooth/BluetoothEventManager;
 
-    invoke-static {p0}, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->access$1200(Lcom/android/settingslib/bluetooth/BluetoothEventManager;)Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/settingslib/bluetooth/BluetoothEventManager;->mHandlerMap:Ljava/util/HashMap;
 
-    move-result-object p0
-
-    invoke-interface {p0, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 

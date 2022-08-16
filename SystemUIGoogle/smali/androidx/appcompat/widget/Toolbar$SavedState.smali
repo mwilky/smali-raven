@@ -27,13 +27,13 @@
 
 
 # instance fields
-.field expandedMenuItemId:I
+.field public expandedMenuItemId:I
 
-.field isOverflowOpen:Z
+.field public isOverflowOpen:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroidx/appcompat/widget/Toolbar$SavedState$1;
@@ -85,10 +85,12 @@
 
 
 # virtual methods
-.method public writeToParcel(Landroid/os/Parcel;I)V
-    .locals 0
+.method public final writeToParcel(Landroid/os/Parcel;I)V
+    .locals 1
 
-    invoke-super {p0, p1, p2}, Landroidx/customview/view/AbsSavedState;->writeToParcel(Landroid/os/Parcel;I)V
+    iget-object v0, p0, Landroidx/customview/view/AbsSavedState;->mSuperState:Landroid/os/Parcelable;
+
+    invoke-virtual {p1, v0, p2}, Landroid/os/Parcel;->writeParcelable(Landroid/os/Parcelable;I)V
 
     iget p2, p0, Landroidx/appcompat/widget/Toolbar$SavedState;->expandedMenuItemId:I
 

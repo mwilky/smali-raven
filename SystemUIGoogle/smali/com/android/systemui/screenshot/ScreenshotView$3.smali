@@ -1,103 +1,96 @@
-.class Lcom/android/systemui/screenshot/ScreenshotView$3;
-.super Landroid/animation/AnimatorListenerAdapter;
+.class public final Lcom/android/systemui/screenshot/ScreenshotView$3;
+.super Ljava/lang/Object;
 .source "ScreenshotView.java"
+
+# interfaces
+.implements Lcom/android/systemui/screenshot/DraggableConstraintLayout$SwipeDismissCallbacks;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/screenshot/ScreenshotView;->createScreenshotDropInAnimation(Landroid/graphics/Rect;Z)Landroid/animation/AnimatorSet;
+    value = Lcom/android/systemui/screenshot/ScreenshotView;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/screenshot/ScreenshotView;
-
-.field final synthetic val$currentScale:F
+.field public final synthetic this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;F)V
+.method public constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    iput p2, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->val$currentScale:F
-
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onDismissComplete()V
     .locals 2
 
-    iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    iget-object v0, v0, Lcom/android/systemui/screenshot/ScreenshotView;->mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
-    move-result-object p1
+    const/16 v1, 0x36
 
-    iget v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->val$currentScale:F
+    invoke-virtual {v0, v1}, Lcom/android/internal/jank/InteractionJankMonitor;->isInstrumenting(I)Z
 
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setScaleX(F)V
+    move-result v0
 
-    iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
+    if-eqz v0, :cond_0
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    move-result-object p1
+    iget-object v0, v0, Lcom/android/systemui/screenshot/ScreenshotView;->mInteractionJankMonitor:Lcom/android/internal/jank/InteractionJankMonitor;
 
-    iget v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->val$currentScale:F
+    invoke-virtual {v0, v1}, Lcom/android/internal/jank/InteractionJankMonitor;->end(I)Z
 
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setScaleY(F)V
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mCallbacks:Lcom/android/systemui/screenshot/ScreenshotView$ScreenshotViewCallback;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$200(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/ImageView;
+    invoke-interface {p0}, Lcom/android/systemui/screenshot/ScreenshotView$ScreenshotViewCallback;->onDismiss()V
 
-    move-result-object p1
+    return-void
+.end method
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
-
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$300(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
-
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
-
-    move-result-object p1
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v1}, Landroid/widget/FrameLayout;->setAlpha(F)V
+.method public final onInteraction()V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->access$400(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/FrameLayout;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mCallbacks:Lcom/android/systemui/screenshot/ScreenshotView$ScreenshotViewCallback;
 
-    move-result-object p0
+    invoke-interface {p0}, Lcom/android/systemui/screenshot/ScreenshotView$ScreenshotViewCallback;->onUserInteraction()V
 
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
+    return-void
+.end method
 
-    :cond_0
+.method public final onSwipeDismissInitiated(Landroid/animation/ValueAnimator;)V
+    .locals 2
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$3;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
+
+    iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v0, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_SWIPE_DISMISSED:Lcom/android/systemui/screenshot/ScreenshotEvent;
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mPackageName:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    invoke-interface {p1, v0, v1, p0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;ILjava/lang/String;)V
+
     return-void
 .end method

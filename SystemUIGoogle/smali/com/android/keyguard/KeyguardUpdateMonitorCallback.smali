@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mShowing:Z
+.field public mShowing:Z
 
-.field private mVisibilityChangedCalled:J
+.field public mVisibilityChangedCalled:J
 
 
 # direct methods
@@ -20,7 +20,7 @@
 
 
 # virtual methods
-.method public onBiometricAcquired(Landroid/hardware/biometrics/BiometricSourceType;)V
+.method public onBiometricAcquired(Landroid/hardware/biometrics/BiometricSourceType;I)V
     .locals 0
 
     return-void
@@ -44,13 +44,13 @@
     return-void
 .end method
 
-.method public onBiometricHelp(ILjava/lang/String;Landroid/hardware/biometrics/BiometricSourceType;)V
+.method public onBiometricHelp$1(ILjava/lang/String;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onBiometricRunningStateChanged(ZLandroid/hardware/biometrics/BiometricSourceType;)V
+.method public onBiometricRunningStateChanged(Landroid/hardware/biometrics/BiometricSourceType;Z)V
     .locals 0
 
     return-void
@@ -92,7 +92,7 @@
     return-void
 .end method
 
-.method public onFaceUnlockStateChanged(ZI)V
+.method public onFaceUnlockStateChanged()V
     .locals 0
 
     return-void
@@ -106,13 +106,19 @@
     return-void
 .end method
 
-.method public onKeyguardBouncerChanged(Z)V
+.method public onKeyguardBouncerFullyShowingChanged(Z)V
     .locals 0
 
     return-void
 .end method
 
-.method public onKeyguardOccludedChanged(Z)V
+.method public onKeyguardBouncerStateChanged(Z)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onKeyguardDismissAnimationFinished()V
     .locals 0
 
     return-void
@@ -120,39 +126,6 @@
 
 .method public onKeyguardVisibilityChanged(Z)V
     .locals 0
-
-    return-void
-.end method
-
-.method public onKeyguardVisibilityChangedRaw(Z)V
-    .locals 6
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v0
-
-    iget-boolean v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->mShowing:Z
-
-    if-ne p1, v2, :cond_0
-
-    iget-wide v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->mVisibilityChangedCalled:J
-
-    sub-long v2, v0, v2
-
-    const-wide/16 v4, 0x3e8
-
-    cmp-long v2, v2, v4
-
-    if-gez v2, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->onKeyguardVisibilityChanged(Z)V
-
-    iput-wide v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->mVisibilityChangedCalled:J
-
-    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;->mShowing:Z
 
     return-void
 .end method
@@ -169,7 +142,7 @@
     return-void
 .end method
 
-.method public onPhoneStateChanged(I)V
+.method public onPhoneStateChanged()V
     .locals 0
 
     return-void
@@ -193,28 +166,6 @@
     return-void
 .end method
 
-.method public onRingerModeChanged(I)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onScreenTurnedOff()V
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    return-void
-.end method
-
-.method public onScreenTurnedOn()V
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    return-void
-.end method
-
 .method public onSecondaryLockscreenRequirementChanged(I)V
     .locals 0
 
@@ -233,7 +184,7 @@
     return-void
 .end method
 
-.method public onStartedGoingToSleep(I)V
+.method public onStartedGoingToSleep$1()V
     .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -297,13 +248,13 @@
     return-void
 .end method
 
-.method public onTrustManagedChanged(I)V
+.method public onTrustManagedChanged()V
     .locals 0
 
     return-void
 .end method
 
-.method public onUserInfoChanged(I)V
+.method public onUserInfoChanged()V
     .locals 0
 
     return-void
@@ -322,6 +273,12 @@
 .end method
 
 .method public onUserUnlocked()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public showTrustGrantedMessage(Ljava/lang/String;)V
     .locals 0
 
     return-void

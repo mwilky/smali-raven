@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/TextAnimator;
+.field public final synthetic this$0:Lcom/android/keyguard/TextAnimator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/TextAnimator;)V
+.method public constructor <init>(Lcom/android/keyguard/TextAnimator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/TextAnimator$animator$1$2;->this$0:Lcom/android/keyguard/TextAnimator;
@@ -31,28 +31,24 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/TextAnimator$animator$1$2;->this$0:Lcom/android/keyguard/TextAnimator;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/TextAnimator;->getTextInterpolator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Lcom/android/keyguard/TextInterpolator;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/TextAnimator;->textInterpolator:Lcom/android/keyguard/TextInterpolator;
 
     invoke-virtual {p0}, Lcom/android/keyguard/TextInterpolator;->rebase()V
 
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/TextAnimator$animator$1$2;->this$0:Lcom/android/keyguard/TextAnimator;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/TextAnimator;->getTextInterpolator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Lcom/android/keyguard/TextInterpolator;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/TextAnimator;->textInterpolator:Lcom/android/keyguard/TextInterpolator;
 
     invoke-virtual {p0}, Lcom/android/keyguard/TextInterpolator;->rebase()V
 

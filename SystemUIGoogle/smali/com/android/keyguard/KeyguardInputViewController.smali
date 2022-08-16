@@ -26,21 +26,21 @@
 
 
 # instance fields
-.field private final mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
+.field public final mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
 
-.field private final mEmergencyButtonController:Lcom/android/keyguard/EmergencyButtonController;
+.field public final mEmergencyButtonController:Lcom/android/keyguard/EmergencyButtonController;
 
-.field private final mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+.field public final mKeyguardSecurityCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
 
-.field private mNullCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+.field public mNullCallback:Lcom/android/keyguard/KeyguardInputViewController$1;
 
-.field private mPaused:Z
+.field public mPaused:Z
 
-.field private final mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+.field public final mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/keyguard/KeyguardInputView;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/EmergencyButtonController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardInputView;Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/EmergencyButtonController;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -56,9 +56,9 @@
 
     new-instance v0, Lcom/android/keyguard/KeyguardInputViewController$1;
 
-    invoke-direct {v0, p0}, Lcom/android/keyguard/KeyguardInputViewController$1;-><init>(Lcom/android/keyguard/KeyguardInputViewController;)V
+    invoke-direct {v0}, Lcom/android/keyguard/KeyguardInputViewController$1;-><init>()V
 
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mNullCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mNullCallback:Lcom/android/keyguard/KeyguardInputViewController$1;
 
     iput-object p2, p0, Lcom/android/keyguard/KeyguardInputViewController;->mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
@@ -71,7 +71,7 @@
     goto :goto_0
 
     :cond_0
-    sget p2, Lcom/android/systemui/R$id;->emergency_call_button:I
+    const p2, 0x7f0b0252
 
     invoke-virtual {p1, p2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -89,26 +89,14 @@
 
 
 # virtual methods
-.method public getIndexIn(Lcom/android/keyguard/KeyguardSecurityViewFlipper;)I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
-
-    invoke-virtual {p1, p0}, Landroid/widget/ViewFlipper;->indexOfChild(Landroid/view/View;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method protected getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
+.method public final getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mPaused:Z
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mNullCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mNullCallback:Lcom/android/keyguard/KeyguardInputViewController$1;
 
     return-object p0
 
@@ -118,15 +106,7 @@
     return-object p0
 .end method
 
-.method getSecurityMode()Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mSecurityMode:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
-
-    return-object p0
-.end method
-
-.method protected onInit()V
+.method public onInit()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mEmergencyButtonController:Lcom/android/keyguard/EmergencyButtonController;
@@ -156,26 +136,48 @@
     return-void
 .end method
 
-.method protected onViewAttached()V
+.method public onViewAttached()V
     .locals 0
 
     return-void
 .end method
 
-.method protected onViewDetached()V
+.method public onViewDetached()V
     .locals 0
 
     return-void
 .end method
 
 .method public reloadColors()V
-    .locals 0
+    .locals 2
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardInputViewController;->mEmergencyButton:Lcom/android/keyguard/EmergencyButton;
 
     if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/keyguard/EmergencyButton;->reloadColors()V
+    invoke-virtual {p0}, Landroid/widget/Button;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x11200ef
+
+    invoke-static {v0, v1}, Lcom/android/settingslib/Utils;->getColorAttrDefaultColor(Landroid/content/Context;I)I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/Button;->setTextColor(I)V
+
+    invoke-virtual {p0}, Landroid/widget/Button;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const v1, 0x7f0806c0
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Landroid/widget/Button;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     :cond_0
     return-void
@@ -218,7 +220,9 @@
 
     check-cast p0, Lcom/android/keyguard/KeyguardInputView;
 
-    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardInputView;->startDisappearAnimation(Ljava/lang/Runnable;)Z
+    check-cast p1, Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardInputView;->startDisappearAnimation(Lcom/android/keyguard/CarrierTextManager$$ExternalSyntheticLambda2;)Z
 
     move-result p0
 

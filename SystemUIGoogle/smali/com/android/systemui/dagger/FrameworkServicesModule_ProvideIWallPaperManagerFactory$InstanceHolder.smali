@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory$InstanceHolder;
+.class public final Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory$InstanceHolder;
 .super Ljava/lang/Object;
 .source "FrameworkServicesModule_ProvideIWallPaperManagerFactory.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "InstanceHolder"
 .end annotation
 
 
 # static fields
-.field private static final INSTANCE:Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
+.field public static final INSTANCE:Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
@@ -29,12 +29,4 @@
     sput-object v0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory$InstanceHolder;->INSTANCE:Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
 
     return-void
-.end method
-
-.method static synthetic access$000()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory$InstanceHolder;->INSTANCE:Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
-
-    return-object v0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$8;
+.class public final Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$8;
 .super Ljava/lang/Object;
 .source "NetworkControllerImpl.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -26,15 +26,9 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$8;->this$0:Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,8 +37,12 @@
 
 
 # virtual methods
-.method public compare(Landroid/telephony/SubscriptionInfo;Landroid/telephony/SubscriptionInfo;)I
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
+
+    check-cast p1, Landroid/telephony/SubscriptionInfo;
+
+    check-cast p2, Landroid/telephony/SubscriptionInfo;
 
     invoke-virtual {p1}, Landroid/telephony/SubscriptionInfo;->getSimSlotIndex()I
 
@@ -77,20 +75,6 @@
 
     :goto_0
     sub-int/2addr p0, p1
-
-    return p0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 0
-
-    check-cast p1, Landroid/telephony/SubscriptionInfo;
-
-    check-cast p2, Landroid/telephony/SubscriptionInfo;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl$8;->compare(Landroid/telephony/SubscriptionInfo;Landroid/telephony/SubscriptionInfo;)I
-
-    move-result p0
 
     return p0
 .end method

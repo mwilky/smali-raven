@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver;
+.class public final Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver;
 .super Lcom/android/systemui/accessibility/SecureSettingsContentObserver;
 .source "AccessibilityButtonTargetsObserver.java"
 
@@ -32,30 +32,12 @@
 
 
 # virtual methods
-.method public getCurrentAccessibilityButtonTargets()Ljava/lang/String;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/SecureSettingsContentObserver;->getSettingsValue()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method onValueChanged(Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver$TargetsChangedListener;Ljava/lang/String;)V
-    .locals 0
-
-    invoke-interface {p1, p2}, Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver$TargetsChangedListener;->onAccessibilityButtonTargetsChanged(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method bridge synthetic onValueChanged(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onValueChanged(Ljava/lang/Object;Ljava/lang/String;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver$TargetsChangedListener;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver;->onValueChanged(Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver$TargetsChangedListener;Ljava/lang/String;)V
+    invoke-interface {p1, p2}, Lcom/android/systemui/accessibility/AccessibilityButtonTargetsObserver$TargetsChangedListener;->onAccessibilityButtonTargetsChanged(Ljava/lang/String;)V
 
     return-void
 .end method

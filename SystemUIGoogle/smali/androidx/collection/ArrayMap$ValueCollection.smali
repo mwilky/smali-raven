@@ -1,4 +1,4 @@
-.class final Landroidx/collection/ArrayMap$ValueCollection;
+.class public final Landroidx/collection/ArrayMap$ValueCollection;
 .super Ljava/lang/Object;
 .source "ArrayMap.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "ValueCollection"
 .end annotation
 
@@ -26,11 +26,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/collection/ArrayMap;
+.field public final synthetic this$0:Landroidx/collection/ArrayMap;
 
 
 # direct methods
-.method constructor <init>(Landroidx/collection/ArrayMap;)V
+.method public constructor <init>(Landroidx/collection/ArrayMap;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/collection/ArrayMap$ValueCollection;->this$0:Landroidx/collection/ArrayMap;
@@ -42,7 +42,7 @@
 
 
 # virtual methods
-.method public add(Ljava/lang/Object;)Z
+.method public final add(Ljava/lang/Object;)Z
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -57,7 +57,7 @@
     throw p0
 .end method
 
-.method public addAll(Ljava/util/Collection;)Z
+.method public final addAll(Ljava/util/Collection;)Z
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,7 +74,7 @@
     throw p0
 .end method
 
-.method public clear()V
+.method public final clear()V
     .locals 0
 
     iget-object p0, p0, Landroidx/collection/ArrayMap$ValueCollection;->this$0:Landroidx/collection/ArrayMap;
@@ -84,7 +84,7 @@
     return-void
 .end method
 
-.method public contains(Ljava/lang/Object;)Z
+.method public final contains(Ljava/lang/Object;)Z
     .locals 0
 
     iget-object p0, p0, Landroidx/collection/ArrayMap$ValueCollection;->this$0:Landroidx/collection/ArrayMap;
@@ -106,7 +106,7 @@
     return p0
 .end method
 
-.method public containsAll(Ljava/util/Collection;)Z
+.method public final containsAll(Ljava/util/Collection;)Z
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -147,7 +147,7 @@
     return p0
 .end method
 
-.method public isEmpty()Z
+.method public final isEmpty()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/collection/ArrayMap$ValueCollection;->this$0:Landroidx/collection/ArrayMap;
@@ -159,7 +159,7 @@
     return p0
 .end method
 
-.method public iterator()Ljava/util/Iterator;
+.method public final iterator()Ljava/util/Iterator;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -178,7 +178,7 @@
     return-object v0
 .end method
 
-.method public remove(Ljava/lang/Object;)Z
+.method public final remove(Ljava/lang/Object;)Z
     .locals 1
 
     iget-object v0, p0, Landroidx/collection/ArrayMap$ValueCollection;->this$0:Landroidx/collection/ArrayMap;
@@ -203,7 +203,7 @@
     return p0
 .end method
 
-.method public removeAll(Ljava/util/Collection;)Z
+.method public final removeAll(Ljava/util/Collection;)Z
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -257,7 +257,7 @@
     return v2
 .end method
 
-.method public retainAll(Ljava/util/Collection;)Z
+.method public final retainAll(Ljava/util/Collection;)Z
     .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -311,7 +311,7 @@
     return v2
 .end method
 
-.method public size()I
+.method public final size()I
     .locals 0
 
     iget-object p0, p0, Landroidx/collection/ArrayMap$ValueCollection;->this$0:Landroidx/collection/ArrayMap;
@@ -321,7 +321,7 @@
     return p0
 .end method
 
-.method public toArray()[Ljava/lang/Object;
+.method public final toArray()[Ljava/lang/Object;
     .locals 4
 
     iget-object v0, p0, Landroidx/collection/ArrayMap$ValueCollection;->this$0:Landroidx/collection/ArrayMap;
@@ -351,7 +351,7 @@
     return-object v1
 .end method
 
-.method public toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+.method public final toArray([Ljava/lang/Object;)[Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -365,7 +365,7 @@
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, p1, v0}, Landroidx/collection/ArrayMap;->toArrayHelper([Ljava/lang/Object;I)[Ljava/lang/Object;
+    invoke-virtual {p0, v0, p1}, Landroidx/collection/ArrayMap;->toArrayHelper(I[Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object p0
 

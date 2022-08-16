@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$3;
+.class public final Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$3;
 .super Ljava/lang/Object;
 .source "NotificationChildrenContainer.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;
 
-.field final synthetic val$removedOverflowNumber:Landroid/view/View;
+.field public final synthetic val$removedOverflowNumber:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;Landroid/view/View;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;Landroid/widget/TextView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$3;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;
@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer$3;->this$0:Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;

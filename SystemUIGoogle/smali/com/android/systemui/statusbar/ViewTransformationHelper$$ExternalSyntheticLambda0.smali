@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/statusbar/ViewTransformationHelper$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -33,7 +34,13 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper$$ExternalSyntheticLambda0;->f$1:Lcom/android/systemui/statusbar/TransformableView;
 
-    invoke-static {v0, p0, p1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->$r8$lambda$0S3YJ7QLfQAko2JyDztLOcIyc50(Lcom/android/systemui/statusbar/ViewTransformationHelper;Lcom/android/systemui/statusbar/TransformableView;Landroid/animation/ValueAnimator;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
+
+    move-result p1
+
+    invoke-virtual {v0, p1, p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->transformTo(FLcom/android/systemui/statusbar/TransformableView;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/doze/DozeSensors$1;
+.class public final Lcom/android/systemui/doze/DozeSensors$1;
 .super Landroid/database/ContentObserver;
 .source "DozeSensors.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
+.field public final synthetic this$0:Lcom/android/systemui/doze/DozeSensors;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/doze/DozeSensors;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/doze/DozeSensors;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeSensors$1;->this$0:Lcom/android/systemui/doze/DozeSensors;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onChange(ZLjava/util/Collection;II)V
+.method public final onChange(ZLjava/util/Collection;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

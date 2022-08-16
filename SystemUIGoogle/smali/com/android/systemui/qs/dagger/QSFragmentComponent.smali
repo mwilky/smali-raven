@@ -24,6 +24,9 @@
 .method public abstract getQSFooter()Lcom/android/systemui/qs/QSFooter;
 .end method
 
+.method public abstract getQSFooterActionController()Lcom/android/systemui/qs/FooterActionsController;
+.end method
+
 .method public abstract getQSPanelController()Lcom/android/systemui/qs/QSPanelController;
 .end method
 

@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/management/ControlInfoWrapper;-><init>(Landroid/content/ComponentName;Lcom/android/systemui/controls/controller/ControlInfo;Z)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/FunctionReferenceImpl;",
@@ -29,26 +20,24 @@
 
 
 # static fields
-.field public static final INSTANCE:Lcom/android/systemui/controls/management/ControlInfoWrapper$customIconGetter$1;
+.field public static final synthetic $r8$clinit:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/controls/management/ControlInfoWrapper$customIconGetter$1;
 
     invoke-direct {v0}, Lcom/android/systemui/controls/management/ControlInfoWrapper$customIconGetter$1;-><init>()V
 
-    sput-object v0, Lcom/android/systemui/controls/management/ControlInfoWrapper$customIconGetter$1;->INSTANCE:Lcom/android/systemui/controls/management/ControlInfoWrapper$customIconGetter$1;
-
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 6
 
-    const-class v2, Lcom/android/systemui/controls/management/ControlsModelKt;
+    const-class v2, Landroidx/mediarouter/R$color;
 
     const/4 v1, 0x2
 
@@ -67,34 +56,14 @@
 
 
 # virtual methods
-.method public final invoke(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;
-    .locals 0
-
-    const-string p0, "p0"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "p1"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {p1, p2}, Lcom/android/systemui/controls/management/ControlsModelKt;->access$nullIconGetter(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+.method public final bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Landroid/content/ComponentName;
 
     check-cast p2, Ljava/lang/String;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/controls/management/ControlInfoWrapper$customIconGetter$1;->invoke(Landroid/content/ComponentName;Ljava/lang/String;)Landroid/graphics/drawable/Icon;
-
-    move-result-object p0
+    const/4 p0, 0x0
 
     return-object p0
 .end method

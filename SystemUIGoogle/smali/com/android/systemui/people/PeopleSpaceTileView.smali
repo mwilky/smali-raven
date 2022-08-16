@@ -1,14 +1,14 @@
-.class public Lcom/android/systemui/people/PeopleSpaceTileView;
+.class public final Lcom/android/systemui/people/PeopleSpaceTileView;
 .super Landroid/widget/LinearLayout;
 .source "PeopleSpaceTileView.java"
 
 
 # instance fields
-.field private mNameView:Landroid/widget/TextView;
+.field public mNameView:Landroid/widget/TextView;
 
-.field private mPersonIconView:Landroid/widget/ImageView;
+.field public mPersonIconView:Landroid/widget/ImageView;
 
-.field private mTileView:Landroid/view/View;
+.field public mTileView:Landroid/view/View;
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     move-result-object p1
 
-    sget v0, Lcom/android/systemui/R$layout;->people_space_tile_view:I
+    const v0, 0x7f0e019d
 
     const/4 v1, 0x0
 
@@ -49,7 +49,7 @@
 
     if-nez p4, :cond_0
 
-    sget p3, Lcom/android/systemui/R$layout;->people_space_activity_list_divider:I
+    const p3, 0x7f0e0199
 
     const/4 p4, 0x1
 
@@ -58,7 +58,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/people/PeopleSpaceTileView;->mTileView:Landroid/view/View;
 
-    sget p2, Lcom/android/systemui/R$id;->tile_view_name:I
+    const p2, 0x7f0b06be
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -70,7 +70,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/people/PeopleSpaceTileView;->mTileView:Landroid/view/View;
 
-    sget p2, Lcom/android/systemui/R$id;->tile_view_person_icon:I
+    const p2, 0x7f0b06bf
 
     invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -85,32 +85,12 @@
 
 
 # virtual methods
-.method public setName(Ljava/lang/String;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/PeopleSpaceTileView;->mNameView:Landroid/widget/TextView;
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    return-void
-.end method
-
-.method public setOnClickListener(Landroid/view/View$OnClickListener;)V
+.method public final setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/people/PeopleSpaceTileView;->mTileView:Landroid/view/View;
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    return-void
-.end method
-
-.method public setPersonIcon(Landroid/graphics/Bitmap;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/PeopleSpaceTileView;->mPersonIconView:Landroid/widget/ImageView;
-
-    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     return-void
 .end method

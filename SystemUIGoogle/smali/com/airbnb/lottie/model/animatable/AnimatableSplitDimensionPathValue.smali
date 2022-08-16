@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/animatable/AnimatableSplitDimensionPathValue;
+.class public final Lcom/airbnb/lottie/model/animatable/AnimatableSplitDimensionPathValue;
 .super Ljava/lang/Object;
 .source "AnimatableSplitDimensionPathValue.java"
 
@@ -19,9 +19,9 @@
 
 
 # instance fields
-.field private final animatableXDimension:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final animatableXDimension:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-.field private final animatableYDimension:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
+.field public final animatableYDimension:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
 
 # direct methods
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method public createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.method public final createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -65,12 +65,16 @@
 
     move-result-object p0
 
-    invoke-direct {v0, v1, p0}, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;-><init>(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;)V
+    check-cast v1, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+
+    check-cast p0, Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;
+
+    invoke-direct {v0, v1, p0}, Lcom/airbnb/lottie/animation/keyframe/SplitDimensionPathKeyframeAnimation;-><init>(Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;Lcom/airbnb/lottie/animation/keyframe/FloatKeyframeAnimation;)V
 
     return-object v0
 .end method
 
-.method public getKeyframes()Ljava/util/List;
+.method public final getKeyframes()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -91,12 +95,12 @@
     throw p0
 .end method
 
-.method public isStatic()Z
+.method public final isStatic()Z
     .locals 1
 
     iget-object v0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableSplitDimensionPathValue;->animatableXDimension:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-    invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;->isStatic()Z
+    invoke-virtual {v0}, Lcom/airbnb/lottie/model/animatable/BaseAnimatableValue;->isStatic()Z
 
     move-result v0
 
@@ -104,7 +108,7 @@
 
     iget-object p0, p0, Lcom/airbnb/lottie/model/animatable/AnimatableSplitDimensionPathValue;->animatableYDimension:Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;
 
-    invoke-virtual {p0}, Lcom/airbnb/lottie/model/animatable/AnimatableFloatValue;->isStatic()Z
+    invoke-virtual {p0}, Lcom/airbnb/lottie/model/animatable/BaseAnimatableValue;->isStatic()Z
 
     move-result p0
 

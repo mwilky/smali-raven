@@ -3,23 +3,12 @@
 .source "PrivacyLogger.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/privacy/logging/PrivacyLogger;->listToString(Ljava/util/List;)Ljava/lang/String;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
-    name = null
-.end annotation
-
-
 # static fields
 .field public static final INSTANCE:Lcom/android/systemui/privacy/logging/PrivacyLogger$listToString$1;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/privacy/logging/PrivacyLogger$listToString$1;
@@ -31,7 +20,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 4
 
     const-class v0, Lcom/android/systemui/privacy/PrivacyItem;
@@ -49,14 +38,12 @@
 
 
 # virtual methods
-.method public get(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     check-cast p1, Lcom/android/systemui/privacy/PrivacyItem;
 
-    invoke-virtual {p1}, Lcom/android/systemui/privacy/PrivacyItem;->getLog()Ljava/lang/String;
-
-    move-result-object p0
+    iget-object p0, p1, Lcom/android/systemui/privacy/PrivacyItem;->log:Ljava/lang/String;
 
     return-object p0
 .end method

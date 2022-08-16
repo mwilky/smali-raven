@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$3;
+.class public final Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$3;
 .super Ljava/lang/Object;
 .source "MediaRouteProvider.java"
 
@@ -6,44 +6,19 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;->notifyDynamicRoutesChanged(Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/Collection;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
+.field public final synthetic this$0:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
 
-.field final synthetic val$dynamicRoutes:Ljava/util/Collection;
+.field public final synthetic val$dynamicRoutes:Ljava/util/Collection;
 
-.field final synthetic val$groupRoute:Landroidx/mediarouter/media/MediaRouteDescriptor;
+.field public final synthetic val$groupRoute:Landroidx/mediarouter/media/MediaRouteDescriptor;
 
-.field final synthetic val$listener:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;
+.field public final synthetic val$listener:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/Collection;)V
+.method public constructor <init>(Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;Landroidx/mediarouter/media/MediaRouteDescriptor;Ljava/util/ArrayList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$listener",
-            "val$groupRoute",
-            "val$dynamicRoutes"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$3;->this$0:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController;
 
@@ -60,7 +35,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$3;->val$listener:Landroidx/mediarouter/media/MediaRouteProvider$DynamicGroupRouteController$OnDynamicRoutesChangedListener;

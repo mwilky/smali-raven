@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/SearchBar$1;
+.class public final Landroidx/leanback/widget/SearchBar$1;
 .super Ljava/lang/Object;
 .source "SearchBar.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/SearchBar;
+.field public final synthetic this$0:Landroidx/leanback/widget/SearchBar;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/SearchBar;)V
+.method public constructor <init>(Landroidx/leanback/widget/SearchBar;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/SearchBar$1;->this$0:Landroidx/leanback/widget/SearchBar;
 
@@ -42,31 +34,37 @@
 
 
 # virtual methods
-.method public onFocusChange(Landroid/view/View;Z)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "hasFocus"
-        }
-    .end annotation
+.method public final onFocusChange(Landroid/view/View;Z)V
+    .locals 2
 
     if-eqz p2, :cond_0
 
     iget-object p1, p0, Landroidx/leanback/widget/SearchBar$1;->this$0:Landroidx/leanback/widget/SearchBar;
 
-    invoke-virtual {p1}, Landroidx/leanback/widget/SearchBar;->showNativeKeyboard()V
+    iget-object v0, p1, Landroidx/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Landroidx/leanback/widget/SearchBar$8;
+
+    invoke-direct {v1, p1}, Landroidx/leanback/widget/SearchBar$8;-><init>(Landroidx/leanback/widget/SearchBar;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
     :cond_0
     iget-object p1, p0, Landroidx/leanback/widget/SearchBar$1;->this$0:Landroidx/leanback/widget/SearchBar;
 
-    invoke-virtual {p1}, Landroidx/leanback/widget/SearchBar;->hideNativeKeyboard()V
+    iget-object v0, p1, Landroidx/leanback/widget/SearchBar;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
+
+    iget-object p1, p1, Landroidx/leanback/widget/SearchBar;->mSearchTextEditor:Landroidx/leanback/widget/SearchEditText;
+
+    invoke-virtual {p1}, Landroid/widget/EditText;->getWindowToken()Landroid/os/IBinder;
+
+    move-result-object p1
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, p1, v1}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
 
     :goto_0
     iget-object p0, p0, Landroidx/leanback/widget/SearchBar$1;->this$0:Landroidx/leanback/widget/SearchBar;

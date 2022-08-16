@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private final componentName:Landroid/content/ComponentName;
+.field public final componentName:Landroid/content/ComponentName;
 
-.field private final controls:Ljava/util/List;
+.field public final controls:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -16,12 +16,12 @@
     .end annotation
 .end field
 
-.field private final structure:Ljava/lang/CharSequence;
+.field public final structure:Ljava/lang/CharSequence;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/util/List;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -32,18 +32,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "componentName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "structure"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "controls"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -56,73 +44,9 @@
     return-void
 .end method
 
-.method public static synthetic copy$default(Lcom/android/systemui/controls/controller/StructureInfo;Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/util/List;ILjava/lang/Object;)Lcom/android/systemui/controls/controller/StructureInfo;
-    .locals 0
-
-    and-int/lit8 p5, p4, 0x1
-
-    if-eqz p5, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/controls/controller/StructureInfo;->componentName:Landroid/content/ComponentName;
-
-    :cond_0
-    and-int/lit8 p5, p4, 0x2
-
-    if-eqz p5, :cond_1
-
-    iget-object p2, p0, Lcom/android/systemui/controls/controller/StructureInfo;->structure:Ljava/lang/CharSequence;
-
-    :cond_1
-    and-int/lit8 p4, p4, 0x4
-
-    if-eqz p4, :cond_2
-
-    iget-object p3, p0, Lcom/android/systemui/controls/controller/StructureInfo;->controls:Ljava/util/List;
-
-    :cond_2
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/controls/controller/StructureInfo;->copy(Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/util/List;)Lcom/android/systemui/controls/controller/StructureInfo;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public final copy(Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/util/List;)Lcom/android/systemui/controls/controller/StructureInfo;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/ComponentName;",
-            "Ljava/lang/CharSequence;",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/ControlInfo;",
-            ">;)",
-            "Lcom/android/systemui/controls/controller/StructureInfo;"
-        }
-    .end annotation
-
-    const-string p0, "componentName"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "structure"
-
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p0, "controls"
-
-    invoke-static {p3, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    new-instance p0, Lcom/android/systemui/controls/controller/StructureInfo;
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/controls/controller/StructureInfo;-><init>(Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/util/List;)V
-
-    return-object p0
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -185,39 +109,7 @@
     return v0
 .end method
 
-.method public final getComponentName()Landroid/content/ComponentName;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/StructureInfo;->componentName:Landroid/content/ComponentName;
-
-    return-object p0
-.end method
-
-.method public final getControls()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/ControlInfo;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/StructureInfo;->controls:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method public final getStructure()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/StructureInfo;->structure:Ljava/lang/CharSequence;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/controls/controller/StructureInfo;->componentName:Landroid/content/ComponentName;
@@ -234,9 +126,9 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
     iget-object p0, p0, Lcom/android/systemui/controls/controller/StructureInfo;->controls:Ljava/util/List;
 
@@ -244,21 +136,19 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v1
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "StructureInfo(componentName="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "StructureInfo(componentName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/controls/controller/StructureInfo;->componentName:Landroid/content/ComponentName;
 

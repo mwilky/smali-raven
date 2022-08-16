@@ -17,6 +17,7 @@
         <item>Að hámarki 3 vinnslur</item>
         <item>Að hámarki 4 vinnslur</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Slökkt</item>
         <item>Kveikt</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Ekki í boði</item>
+        <item>Slökkt</item>
+        <item>Kveikt</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Ekki í boði</item>
         <item>Slökkt</item>
@@ -306,6 +312,16 @@
         <item>Kveikt</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Ekki í boði</item>
+        <item>Slökkt</item>
+        <item>Kveikt</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Ekki í boði</item>
+        <item>Slökkt</item>
+        <item>Kveikt</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Ekki í boði</item>
         <item>Slökkt</item>
         <item>Kveikt</item>
@@ -374,6 +390,12 @@
         <item>Leifturhratt</item>
         <item>Næsthraðast</item>
         <item>Hraðast</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Færa til vinstri</item>
+        <item>Færa niður</item>
+        <item>Færa til hægri</item>
+        <item>Færa upp</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Í hleðslu</item>

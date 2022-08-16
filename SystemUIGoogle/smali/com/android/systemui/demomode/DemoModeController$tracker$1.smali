@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/demomode/DemoModeController;
+.field public final synthetic this$0:Lcom/android/systemui/demomode/DemoModeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/demomode/DemoModeController;Landroid/content/Context;)V
+.method public constructor <init>(Lcom/android/systemui/demomode/DemoModeController;Landroid/content/Context;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/demomode/DemoModeController$tracker$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
@@ -31,61 +31,60 @@
 
 
 # virtual methods
-.method public onDemoModeAvailabilityChanged()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/demomode/DemoModeController$tracker$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isDemoModeAvailable()Z
-
-    move-result p0
-
-    invoke-static {v0, p0}, Lcom/android/systemui/demomode/DemoModeController;->access$setIsDemoModeAllowed(Lcom/android/systemui/demomode/DemoModeController;Z)V
-
-    return-void
-.end method
-
-.method public onDemoModeFinished()V
+.method public final onDemoModeAvailabilityChanged()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/demomode/DemoModeController$tracker$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/demomode/DemoModeController;->isInDemoMode()Z
+    iget-boolean p0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isDemoModeAvailable:Z
 
-    move-result v0
+    iget-boolean v1, v0, Lcom/android/systemui/demomode/DemoModeController;->isInDemoMode:Z
 
-    invoke-virtual {p0}, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isInDemoMode()Z
+    if-eqz v1, :cond_0
 
-    move-result v1
+    if-nez p0, :cond_0
 
-    if-eq v0, v1, :cond_0
+    iget-object p0, v0, Lcom/android/systemui/demomode/DemoModeController;->globalSettings:Lcom/android/systemui/util/settings/GlobalSettings;
 
-    iget-object p0, p0, Lcom/android/systemui/demomode/DemoModeController$tracker$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
+    const/4 v0, 0x0
 
-    invoke-static {p0}, Lcom/android/systemui/demomode/DemoModeController;->access$exitDemoMode(Lcom/android/systemui/demomode/DemoModeController;)V
+    const-string/jumbo v1, "sysui_tuner_demo_on"
+
+    invoke-interface {p0, v0, v1}, Lcom/android/systemui/util/settings/SettingsProxy;->putInt(ILjava/lang/String;)V
 
     :cond_0
     return-void
 .end method
 
-.method public onDemoModeStarted()V
+.method public final onDemoModeFinished()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/demomode/DemoModeController$tracker$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/demomode/DemoModeController;->isInDemoMode()Z
+    iget-boolean v1, v0, Lcom/android/systemui/demomode/DemoModeController;->isInDemoMode:Z
 
-    move-result v0
+    iget-boolean p0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isInDemoMode:Z
 
-    invoke-virtual {p0}, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isInDemoMode()Z
+    if-eq v1, p0, :cond_0
 
-    move-result v1
+    invoke-virtual {v0}, Lcom/android/systemui/demomode/DemoModeController;->exitDemoMode()V
 
-    if-eq v0, v1, :cond_0
+    :cond_0
+    return-void
+.end method
 
-    iget-object p0, p0, Lcom/android/systemui/demomode/DemoModeController$tracker$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
+.method public final onDemoModeStarted()V
+    .locals 2
 
-    invoke-static {p0}, Lcom/android/systemui/demomode/DemoModeController;->access$enterDemoMode(Lcom/android/systemui/demomode/DemoModeController;)V
+    iget-object v0, p0, Lcom/android/systemui/demomode/DemoModeController$tracker$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
+
+    iget-boolean v1, v0, Lcom/android/systemui/demomode/DemoModeController;->isInDemoMode:Z
+
+    iget-boolean p0, p0, Lcom/android/systemui/demomode/DemoModeAvailabilityTracker;->isInDemoMode:Z
+
+    if-eq v1, p0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/demomode/DemoModeController;->enterDemoMode()V
 
     :cond_0
     return-void

@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "LayoutListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onLayout()V
-.end method

@@ -12,23 +12,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x14
+    accessFlags = 0x11
     name = "InternetSignalCallback"
 .end annotation
 
 
 # instance fields
-.field final mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
+.field public final mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
 
-.field final mEthernetInfo:Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
+.field public final mEthernetInfo:Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
 
-.field final mWifiInfo:Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
+.field public final mWifiInfo:Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
 
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/InternetTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/systemui/qs/tiles/InternetTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/InternetTile;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
@@ -39,19 +39,19 @@
 
     const/4 v0, 0x0
 
-    invoke-direct {p1, v0}, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;-><init>(Lcom/android/systemui/qs/tiles/InternetTile$1;)V
+    invoke-direct {p1, v0}, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;-><init>(I)V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mWifiInfo:Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
 
     new-instance p1, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
 
-    invoke-direct {p1, v0}, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;-><init>(Lcom/android/systemui/qs/tiles/InternetTile$1;)V
+    invoke-direct {p1, v0}, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;-><init>(I)V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
 
     new-instance p1, Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
 
-    invoke-direct {p1, v0}, Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;-><init>(Lcom/android/systemui/qs/tiles/InternetTile$1;)V
+    invoke-direct {p1, v0}, Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;-><init>(I)V
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mEthernetInfo:Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
 
@@ -60,26 +60,22 @@
 
 
 # virtual methods
-.method public setConnectivityStatus(ZZZ)V
+.method public final setConnectivityStatus(ZZZ)V
     .locals 3
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1800()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1900(Lcom/android/systemui/qs/tiles/InternetTile;)Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "setConnectivityStatus: noDefaultNetwork = "
+    const-string/jumbo v2, "setConnectivityStatus: noDefaultNetwork = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -95,13 +91,7 @@
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p3, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor$14$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/lang/String;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
@@ -122,33 +112,27 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {p0, v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$2000(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public setEthernetIndicators(Lcom/android/systemui/statusbar/connectivity/IconState;)V
+.method public final setEthernetIndicators(Lcom/android/systemui/statusbar/connectivity/IconState;)V
     .locals 3
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$900()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->DEBUG:Z
 
     if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1000(Lcom/android/systemui/qs/tiles/InternetTile;)Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
-    move-result-object v0
+    const-string/jumbo v1, "setEthernetIndicators: icon = "
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "setEthernetIndicators: icon = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     if-nez p1, :cond_0
 
@@ -162,13 +146,7 @@
     move-result-object v2
 
     :goto_0
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mEthernetInfo:Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
@@ -189,34 +167,28 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {p0, v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1100(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     :cond_2
     return-void
 .end method
 
-.method public setIsAirplaneMode(Lcom/android/systemui/statusbar/connectivity/IconState;)V
+.method public final setIsAirplaneMode(Lcom/android/systemui/statusbar/connectivity/IconState;)V
     .locals 3
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1400()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->DEBUG:Z
 
     if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1500(Lcom/android/systemui/qs/tiles/InternetTile;)Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
-    move-result-object v0
+    const-string/jumbo v1, "setIsAirplaneMode: icon = "
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "setIsAirplaneMode: icon = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     if-nez p1, :cond_0
 
@@ -230,13 +202,7 @@
     move-result-object v2
 
     :goto_0
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2, v0}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
@@ -278,38 +244,34 @@
 
     if-eqz p1, :cond_3
 
-    invoke-static {p0, v1}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1600(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
+    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     goto :goto_1
 
     :cond_3
-    invoke-static {p0, v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1700(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     :cond_4
     :goto_1
     return-void
 .end method
 
-.method public setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
+.method public final setMobileDataIndicators(Lcom/android/systemui/statusbar/connectivity/MobileDataIndicators;)V
     .locals 3
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$600()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$700(Lcom/android/systemui/qs/tiles/InternetTile;)Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "setMobileDataIndicators: "
+    const-string/jumbo v2, "setMobileDataIndicators: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -408,31 +370,27 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mCellularInfo:Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
 
-    invoke-static {p1, p0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$800(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
+    invoke-virtual {p1, p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public setNoSims(ZZ)V
+.method public final setNoSims(ZZ)V
     .locals 3
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1200()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$1300(Lcom/android/systemui/qs/tiles/InternetTile;)Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "setNoSims: show = "
+    const-string/jumbo v2, "setNoSims: show = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -467,26 +425,22 @@
     return-void
 .end method
 
-.method public setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
+.method public final setWifiIndicators(Lcom/android/systemui/statusbar/connectivity/WifiIndicators;)V
     .locals 4
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/InternetTile;->access$300()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->DEBUG:Z
 
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$400(Lcom/android/systemui/qs/tiles/InternetTile;)Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "setWifiIndicators: "
+    const-string/jumbo v2, "setWifiIndicators: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -538,22 +492,22 @@
 
     iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mActivityOut:Z
 
-    iget-boolean v1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isTransient:Z
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->isTransient:Z
 
-    iput-boolean v1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mIsTransient:Z
+    iput-boolean p1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mIsTransient:Z
 
-    iget-object p1, p1, Lcom/android/systemui/statusbar/connectivity/WifiIndicators;->statusLabel:Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    iput-object p1, v0, Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;->mStatusLabel:Ljava/lang/String;
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->this$0:Lcom/android/systemui/qs/tiles/InternetTile;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/InternetTile$InternetSignalCallback;->mWifiInfo:Lcom/android/systemui/qs/tiles/InternetTile$WifiCallbackInfo;
 
-    invoke-static {p0, v0}, Lcom/android/systemui/qs/tiles/InternetTile;->access$500(Lcom/android/systemui/qs/tiles/InternetTile;Ljava/lang/Object;)V
+    invoke-virtual {p1, p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;

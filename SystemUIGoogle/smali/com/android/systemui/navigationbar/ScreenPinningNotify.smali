@@ -1,14 +1,14 @@
-.class public Lcom/android/systemui/navigationbar/ScreenPinningNotify;
+.class public final Lcom/android/systemui/navigationbar/ScreenPinningNotify;
 .super Ljava/lang/Object;
 .source "ScreenPinningNotify.java"
 
 
 # instance fields
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private mLastShowToastTime:J
+.field public mLastShowToastTime:J
 
-.field private mLastToast:Landroid/widget/Toast;
+.field public mLastToast:Landroid/widget/Toast;
 
 
 # direct methods
@@ -22,25 +22,9 @@
     return-void
 .end method
 
-.method private makeAllUserToastAndShow(I)Landroid/widget/Toast;
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/ScreenPinningNotify;->mContext:Landroid/content/Context;
-
-    const/4 v0, 0x1
-
-    invoke-static {p0, p1, v0}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/widget/Toast;->show()V
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public showEscapeToast(ZZ)V
+.method public final showEscapeToast(ZZ)V
     .locals 6
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -75,48 +59,38 @@
     :cond_1
     if-eqz p1, :cond_2
 
-    sget p1, Lcom/android/systemui/R$string;->screen_pinning_toast_gesture_nav:I
+    const p1, 0x7f130635
 
     goto :goto_0
 
     :cond_2
     if-eqz p2, :cond_3
 
-    sget p1, Lcom/android/systemui/R$string;->screen_pinning_toast:I
+    const p1, 0x7f130634
 
     goto :goto_0
 
     :cond_3
-    sget p1, Lcom/android/systemui/R$string;->screen_pinning_toast_recents_invisible:I
+    const p1, 0x7f130636
 
     :goto_0
-    invoke-direct {p0, p1}, Lcom/android/systemui/navigationbar/ScreenPinningNotify;->makeAllUserToastAndShow(I)Landroid/widget/Toast;
+    iget-object p2, p0, Lcom/android/systemui/navigationbar/ScreenPinningNotify;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p2, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
+
+    const/4 v2, 0x1
+
+    invoke-static {p2, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/widget/Toast;->show()V
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/ScreenPinningNotify;->mLastToast:Landroid/widget/Toast;
 
     iput-wide v0, p0, Lcom/android/systemui/navigationbar/ScreenPinningNotify;->mLastShowToastTime:J
-
-    return-void
-.end method
-
-.method public showPinningExitToast()V
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$string;->screen_pinning_exit:I
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/navigationbar/ScreenPinningNotify;->makeAllUserToastAndShow(I)Landroid/widget/Toast;
-
-    return-void
-.end method
-
-.method public showPinningStartToast()V
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$string;->screen_pinning_start:I
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/navigationbar/ScreenPinningNotify;->makeAllUserToastAndShow(I)Landroid/widget/Toast;
 
     return-void
 .end method

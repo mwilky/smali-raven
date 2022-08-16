@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaSessionBasedFilter$1;
+.class public final Lcom/android/systemui/media/MediaSessionBasedFilter$1;
 .super Ljava/lang/Object;
 .source "MediaSessionBasedFilter.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $context:Landroid/content/Context;
+.field public final synthetic $context:Landroid/content/Context;
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/media/MediaSessionBasedFilter;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/media/MediaSessionBasedFilter;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$1;->$context:Landroid/content/Context;
@@ -51,31 +51,19 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {v1}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getSessionManager$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Landroid/media/session/MediaSessionManager;
+    iget-object v2, v1, Lcom/android/systemui/media/MediaSessionBasedFilter;->sessionManager:Landroid/media/session/MediaSessionManager;
 
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/MediaSessionBasedFilter;->sessionListener:Lcom/android/systemui/media/MediaSessionBasedFilter$sessionListener$1;
 
-    iget-object v2, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
-
-    invoke-static {v2}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getSessionListener$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Lcom/android/systemui/media/MediaSessionBasedFilter$sessionListener$1;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2, v0}, Landroid/media/session/MediaSessionManager;->addOnActiveSessionsChangedListener(Landroid/media/session/MediaSessionManager$OnActiveSessionsChangedListener;Landroid/content/ComponentName;)V
+    invoke-virtual {v2, v1, v0}, Landroid/media/session/MediaSessionManager;->addOnActiveSessionsChangedListener(Landroid/media/session/MediaSessionManager$OnActiveSessionsChangedListener;Landroid/content/ComponentName;)V
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaSessionBasedFilter$1;->this$0:Lcom/android/systemui/media/MediaSessionBasedFilter;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$getSessionManager$p(Lcom/android/systemui/media/MediaSessionBasedFilter;)Landroid/media/session/MediaSessionManager;
-
-    move-result-object v1
+    iget-object v1, p0, Lcom/android/systemui/media/MediaSessionBasedFilter;->sessionManager:Landroid/media/session/MediaSessionManager;
 
     invoke-virtual {v1, v0}, Landroid/media/session/MediaSessionManager;->getActiveSessions(Landroid/content/ComponentName;)Ljava/util/List;
 
     move-result-object v0
-
-    const-string v1, "sessionManager.getActiveSessions(name)"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-static {p0, v0}, Lcom/android/systemui/media/MediaSessionBasedFilter;->access$handleControllersChanged(Lcom/android/systemui/media/MediaSessionBasedFilter;Ljava/util/List;)V
 

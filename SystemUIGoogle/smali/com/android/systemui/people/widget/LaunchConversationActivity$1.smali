@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/people/widget/LaunchConversationActivity$1;
+.class public final Lcom/android/systemui/people/widget/LaunchConversationActivity$1;
 .super Ljava/lang/Object;
 .source "LaunchConversationActivity.java"
 
@@ -8,21 +8,21 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/people/widget/LaunchConversationActivity;-><init>(Lcom/android/systemui/statusbar/notification/NotificationEntryManager;Ljava/util/Optional;Landroid/os/UserManager;Lcom/android/systemui/statusbar/CommandQueue;)V
+    value = Lcom/android/systemui/people/widget/LaunchConversationActivity;-><init>(Lcom/android/systemui/statusbar/notification/collection/render/NotificationVisibilityProvider;Lcom/android/systemui/statusbar/notification/collection/notifcollection/CommonNotifCollection;Ljava/util/Optional;Landroid/os/UserManager;Lcom/android/systemui/statusbar/CommandQueue;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
+.field public final synthetic this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/people/widget/LaunchConversationActivity;)V
+.method public constructor <init>(Lcom/android/systemui/people/widget/LaunchConversationActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public appTransitionFinished(I)V
+.method public final appTransitionFinished(I)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
 
-    invoke-static {p1}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$000(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Ljava/util/Optional;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubblesManagerOptional:Ljava/util/Optional;
 
     invoke-virtual {p1}, Ljava/util/Optional;->isPresent()Z
 
@@ -51,17 +49,11 @@
 
     iget-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
 
-    invoke-static {p1}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$100(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/wm/shell/bubbles/Bubble;
+    iget-object v0, p1, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
-    move-result-object p1
+    if-eqz v0, :cond_0
 
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
-
-    invoke-static {p1}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$000(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Ljava/util/Optional;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubblesManagerOptional:Ljava/util/Optional;
 
     invoke-virtual {p1}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
@@ -71,28 +63,20 @@
 
     iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$100(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/wm/shell/bubbles/Bubble;
+    iget-object v0, v0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubble:Lcom/android/wm/shell/bubbles/Bubble;
 
-    move-result-object v0
+    iget-object p1, p1, Lcom/android/systemui/wmshell/BubblesManager;->mBubbles:Lcom/android/wm/shell/bubbles/Bubbles;
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/wmshell/BubblesManager;->expandStackAndSelectBubble(Lcom/android/wm/shell/bubbles/Bubble;)V
+    invoke-interface {p1, v0}, Lcom/android/wm/shell/bubbles/Bubbles;->expandStackAndSelectBubble(Lcom/android/wm/shell/bubbles/Bubble;)V
 
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
+    iget-object v0, p1, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mEntryToBubble:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-static {p1}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$200(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    if-eqz v0, :cond_1
 
-    move-result-object p1
-
-    if-eqz p1, :cond_1
-
-    iget-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
-
-    invoke-static {p1}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$000(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Ljava/util/Optional;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mBubblesManagerOptional:Ljava/util/Optional;
 
     invoke-virtual {p1}, Ljava/util/Optional;->get()Ljava/lang/Object;
 
@@ -102,19 +86,21 @@
 
     iget-object v0, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
 
-    invoke-static {v0}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$200(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+    iget-object v0, v0, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mEntryToBubble:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    iget-object p1, p1, Lcom/android/systemui/wmshell/BubblesManager;->mBubbles:Lcom/android/wm/shell/bubbles/Bubbles;
+
+    invoke-static {v0}, Lcom/android/systemui/wmshell/BubblesManager;->notifToBubbleEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Lcom/android/wm/shell/bubbles/BubbleEntry;
 
     move-result-object v0
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/wmshell/BubblesManager;->expandStackAndSelectBubble(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-interface {p1, v0}, Lcom/android/wm/shell/bubbles/Bubbles;->expandStackAndSelectBubble(Lcom/android/wm/shell/bubbles/BubbleEntry;)V
 
     :cond_1
     :goto_0
     iget-object p1, p0, Lcom/android/systemui/people/widget/LaunchConversationActivity$1;->this$0:Lcom/android/systemui/people/widget/LaunchConversationActivity;
 
-    invoke-static {p1}, Lcom/android/systemui/people/widget/LaunchConversationActivity;->access$300(Lcom/android/systemui/people/widget/LaunchConversationActivity;)Lcom/android/systemui/statusbar/CommandQueue;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/people/widget/LaunchConversationActivity;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
     invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/CommandQueue;->removeCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
 

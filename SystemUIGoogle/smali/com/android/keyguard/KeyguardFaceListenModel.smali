@@ -4,54 +4,56 @@
 
 
 # instance fields
-.field private final authInterruptActive:Z
+.field public final authInterruptActive:Z
 
-.field private final becauseCannotSkipBouncer:Z
+.field public final becauseCannotSkipBouncer:Z
 
-.field private final biometricSettingEnabledForUser:Z
+.field public final biometricSettingEnabledForUser:Z
 
-.field private final bouncer:Z
+.field public final bouncerFullyShown:Z
 
-.field private final faceAuthenticated:Z
+.field public final faceAuthenticated:Z
 
-.field private final faceDisabled:Z
+.field public final faceDisabled:Z
 
-.field private final keyguardAwake:Z
+.field public final goingToSleep:Z
 
-.field private final keyguardGoingAway:Z
+.field public final keyguardAwake:Z
 
-.field private final listening:Z
+.field public final keyguardGoingAway:Z
 
-.field private final listeningForFaceAssistant:Z
+.field public final listening:Z
 
-.field private final lockIconPressed:Z
+.field public final listeningForFaceAssistant:Z
 
-.field private final modality:I
+.field public final lockIconPressed:Z
 
-.field private final occludingAppRequestingFaceAuth:Z
+.field public final occludingAppRequestingFaceAuth:Z
 
-.field private final primaryUser:Z
+.field public final primaryUser:Z
 
-.field private final scanningAllowedByStrongAuth:Z
+.field public final scanningAllowedByStrongAuth:Z
 
-.field private final secureCameraLaunched:Z
+.field public final secureCameraLaunched:Z
 
-.field private final switchingUser:Z
+.field public final switchingUser:Z
 
-.field private final timeMillis:J
+.field public final timeMillis:J
 
-.field private final userId:I
+.field public final udfpsBouncerShowing:Z
+
+.field public final userId:I
 
 
 # direct methods
-.method public constructor <init>(JIZZZZZZZZZZZZZZZZ)V
+.method public constructor <init>(JIZZZZZZZZZZZZZZZZZZ)V
     .locals 3
 
     move-object v0, p0
 
     const/4 v1, 0x0
 
-    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardListenModel;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    invoke-direct {p0, v1}, Lcom/android/keyguard/KeyguardListenModel;-><init>(I)V
 
     move-wide v1, p1
 
@@ -79,7 +81,7 @@
 
     move v1, p8
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncer:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncerFullyShown:Z
 
     move v1, p9
 
@@ -91,50 +93,54 @@
 
     move v1, p11
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->goingToSleep:Z
 
     move v1, p12
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
 
     move/from16 v1, p13
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
 
     move/from16 v1, p14
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
 
     move/from16 v1, p15
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
 
     move/from16 v1, p16
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
 
     move/from16 v1, p17
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
 
     move/from16 v1, p18
 
-    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
 
     move/from16 v1, p19
 
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
+
+    move/from16 v1, p20
+
     iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
 
-    const/4 v1, 0x2
+    move/from16 v1, p21
 
-    iput v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->modality:I
+    iput-boolean v1, v0, Lcom/android/keyguard/KeyguardFaceListenModel;->udfpsBouncerShowing:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 7
 
     const/4 v0, 0x1
@@ -155,13 +161,9 @@
     :cond_1
     check-cast p1, Lcom/android/keyguard/KeyguardFaceListenModel;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getTimeMillis()J
+    iget-wide v3, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->timeMillis:J
 
-    move-result-wide v3
-
-    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardFaceListenModel;->getTimeMillis()J
-
-    move-result-wide v5
+    iget-wide v5, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->timeMillis:J
 
     cmp-long v1, v3, v5
 
@@ -170,26 +172,18 @@
     return v2
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getUserId()I
+    iget v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->userId:I
 
-    move-result v1
-
-    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardFaceListenModel;->getUserId()I
-
-    move-result v3
+    iget v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->userId:I
 
     if-eq v1, v3, :cond_3
 
     return v2
 
     :cond_3
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getListening()Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listening:Z
 
-    move-result v1
-
-    invoke-virtual {p1}, Lcom/android/keyguard/KeyguardFaceListenModel;->getListening()Z
-
-    move-result v3
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->listening:Z
 
     if-eq v1, v3, :cond_4
 
@@ -223,9 +217,9 @@
     return v2
 
     :cond_7
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncer:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncerFullyShown:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncer:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncerFullyShown:Z
 
     if-eq v1, v3, :cond_8
 
@@ -250,91 +244,109 @@
     return v2
 
     :cond_a
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->goingToSleep:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->goingToSleep:Z
 
     if-eq v1, v3, :cond_b
 
     return v2
 
     :cond_b
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
 
     if-eq v1, v3, :cond_c
 
     return v2
 
     :cond_c
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
 
     if-eq v1, v3, :cond_d
 
     return v2
 
     :cond_d
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
 
     if-eq v1, v3, :cond_e
 
     return v2
 
     :cond_e
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
 
     if-eq v1, v3, :cond_f
 
     return v2
 
     :cond_f
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
 
     if-eq v1, v3, :cond_10
 
     return v2
 
     :cond_10
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
 
     if-eq v1, v3, :cond_11
 
     return v2
 
     :cond_11
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
 
-    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
 
     if-eq v1, v3, :cond_12
 
     return v2
 
     :cond_12
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
 
-    iget-boolean p1, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
 
-    if-eq p0, p1, :cond_13
+    if-eq v1, v3, :cond_13
 
     return v2
 
     :cond_13
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
+
+    iget-boolean v3, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
+
+    if-eq v1, v3, :cond_14
+
+    return v2
+
+    :cond_14
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->udfpsBouncerShowing:Z
+
+    iget-boolean p1, p1, Lcom/android/keyguard/KeyguardFaceListenModel;->udfpsBouncerShowing:Z
+
+    if-eq p0, p1, :cond_15
+
+    return v2
+
+    :cond_15
     return v0
 .end method
 
-.method public getListening()Z
+.method public final getListening()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listening:Z
@@ -342,7 +354,7 @@
     return p0
 .end method
 
-.method public getTimeMillis()J
+.method public final getTimeMillis()J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->timeMillis:J
@@ -350,20 +362,10 @@
     return-wide v0
 .end method
 
-.method public getUserId()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->userId:I
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 3
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getTimeMillis()J
-
-    move-result-wide v0
+    iget-wide v0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->timeMillis:J
 
     invoke-static {v0, v1}, Ljava/lang/Long;->hashCode(J)I
 
@@ -371,21 +373,15 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getUserId()I
+    iget v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->userId:I
 
-    move-result v1
+    const/16 v2, 0x1f
 
-    invoke-static {v1}, Ljava/lang/Integer;->hashCode(I)I
+    invoke-static {v1, v0, v2}, Lcom/android/keyguard/FontInterpolator$VarFontKey$$ExternalSyntheticOutline0;->m(III)I
 
-    move-result v1
+    move-result v0
 
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getListening()Z
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listening:Z
 
     const/4 v2, 0x1
 
@@ -431,7 +427,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncer:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncerFullyShown:Z
 
     if-eqz v1, :cond_4
 
@@ -464,7 +460,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->goingToSleep:Z
 
     if-eqz v1, :cond_7
 
@@ -475,7 +471,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardAwake:Z
 
     if-eqz v1, :cond_8
 
@@ -486,7 +482,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->keyguardGoingAway:Z
 
     if-eqz v1, :cond_9
 
@@ -497,7 +493,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listeningForFaceAssistant:Z
 
     if-eqz v1, :cond_a
 
@@ -508,7 +504,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->lockIconPressed:Z
 
     if-eqz v1, :cond_b
 
@@ -519,7 +515,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->occludingAppRequestingFaceAuth:Z
 
     if-eqz v1, :cond_c
 
@@ -530,7 +526,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->primaryUser:Z
 
     if-eqz v1, :cond_d
 
@@ -541,7 +537,7 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->scanningAllowedByStrongAuth:Z
 
     if-eqz v1, :cond_e
 
@@ -552,13 +548,35 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->secureCameraLaunched:Z
 
-    if-eqz p0, :cond_f
+    if-eqz v1, :cond_f
+
+    move v1, v2
+
+    :cond_f
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
+
+    if-eqz v1, :cond_10
+
+    move v1, v2
+
+    :cond_10
+    add-int/2addr v0, v1
+
+    mul-int/lit8 v0, v0, 0x1f
+
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->udfpsBouncerShowing:Z
+
+    if-eqz p0, :cond_11
 
     goto :goto_0
 
-    :cond_f
+    :cond_11
     move v2, p0
 
     :goto_0
@@ -567,20 +585,16 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "KeyguardFaceListenModel(timeMillis="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "KeyguardFaceListenModel(timeMillis="
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getTimeMillis()J
-
-    move-result-wide v1
+    iget-wide v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->timeMillis:J
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
@@ -588,9 +602,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getUserId()I
-
-    move-result v1
+    iget v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->userId:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -598,9 +610,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardFaceListenModel;->getListening()Z
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->listening:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -628,11 +638,11 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const-string v1, ", bouncer="
+    const-string v1, ", bouncerFullyShown="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncer:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->bouncerFullyShown:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -649,6 +659,14 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->faceDisabled:Z
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    const-string v1, ", goingToSleep="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->goingToSleep:Z
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -720,15 +738,19 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->switchingUser:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    const/16 p0, 0x29
+    const-string v1, ", udfpsBouncerShowing="
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-boolean p0, p0, Lcom/android/keyguard/KeyguardFaceListenModel;->udfpsBouncerShowing:Z
+
+    const/16 v1, 0x29
+
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

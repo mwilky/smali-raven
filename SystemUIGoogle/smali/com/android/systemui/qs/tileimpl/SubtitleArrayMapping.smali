@@ -6,7 +6,7 @@
 # static fields
 .field public static final INSTANCE:Lcom/android/systemui/qs/tileimpl/SubtitleArrayMapping;
 
-.field private static final subtitleIdsMap:Ljava/util/Map;
+.field public static final subtitleIdsMap:Ljava/util/Map;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Map<",
@@ -19,8 +19,8 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method public static constructor <clinit>()V
+    .locals 5
 
     new-instance v0, Lcom/android/systemui/qs/tileimpl/SubtitleArrayMapping;
 
@@ -28,411 +28,459 @@
 
     sput-object v0, Lcom/android/systemui/qs/tileimpl/SubtitleArrayMapping;->INSTANCE:Lcom/android/systemui/qs/tileimpl/SubtitleArrayMapping;
 
-    const/16 v0, 0x19
+    const/16 v0, 0x1c
 
     new-array v0, v0, [Lkotlin/Pair;
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_internet:I
+    const v1, 0x7f03006f
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
-    const-string v2, "internet"
+    new-instance v2, Lkotlin/Pair;
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    const-string v3, "internet"
 
-    move-result-object v1
+    invoke-direct {v2, v3, v1}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    aput-object v1, v0, v2
+    aput-object v2, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_wifi:I
+    const/4 v1, 0x1
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03007c
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v2, "wifi"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "wifi"
 
-    const/4 v2, 0x1
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_cell:I
+    const/4 v1, 0x2
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030067
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "cell"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "cell"
 
-    const/4 v2, 0x2
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_battery:I
+    const/4 v1, 0x3
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030063
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "battery"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "battery"
 
-    const/4 v2, 0x3
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_dnd:I
+    const/4 v1, 0x4
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03006c
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "dnd"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "dnd"
 
-    const/4 v2, 0x4
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_flashlight:I
+    const/4 v1, 0x5
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03006d
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "flashlight"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "flashlight"
 
-    const/4 v2, 0x5
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_rotation:I
+    const/4 v1, 0x6
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030078
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "rotation"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "rotation"
 
-    const/4 v2, 0x6
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_bt:I
+    const/4 v1, 0x7
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030064
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "bt"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "bt"
 
-    const/4 v2, 0x7
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_airplane:I
+    const/16 v1, 0x8
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030061
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "airplane"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "airplane"
 
-    const/16 v2, 0x8
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_location:I
+    const/16 v1, 0x9
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030071
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "location"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "location"
 
-    const/16 v2, 0x9
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_hotspot:I
+    const/16 v1, 0xa
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03006e
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "hotspot"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "hotspot"
 
-    const/16 v2, 0xa
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_inversion:I
+    const/16 v1, 0xb
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030070
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "inversion"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "inversion"
 
-    const/16 v2, 0xb
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_saver:I
+    const/16 v1, 0xc
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030079
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "saver"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "saver"
 
-    const/16 v2, 0xc
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_dark:I
+    const/16 v1, 0xd
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03006a
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "dark"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "dark"
 
-    const/16 v2, 0xd
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_work:I
+    const/16 v1, 0xe
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03007d
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v2, "work"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "work"
 
-    const/16 v2, 0xe
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_cast:I
+    const/16 v1, 0xf
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030066
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "cast"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "cast"
 
-    const/16 v2, 0xf
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_night:I
+    const/16 v1, 0x10
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030073
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "night"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "night"
 
-    const/16 v2, 0x10
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_screenrecord:I
+    const/16 v1, 0x11
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03007a
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "screenrecord"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "screenrecord"
 
-    const/16 v2, 0x11
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_reverse:I
+    const/16 v1, 0x12
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030077
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "reverse"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "reverse"
 
-    const/16 v2, 0x12
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_reduce_brightness:I
+    const/16 v1, 0x13
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030076
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "reduce_brightness"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "reduce_brightness"
 
-    const/16 v2, 0x13
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_cameratoggle:I
+    const/16 v1, 0x14
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030065
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "cameratoggle"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "cameratoggle"
 
-    const/16 v2, 0x14
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_mictoggle:I
+    const/16 v1, 0x15
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030072
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "mictoggle"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "mictoggle"
 
-    const/16 v2, 0x15
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_controls:I
+    const/16 v1, 0x16
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030069
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "controls"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string v4, "controls"
 
-    const/16 v2, 0x16
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_wallet:I
+    const/16 v1, 0x17
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f03007b
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string/jumbo v2, "wallet"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "wallet"
 
-    const/16 v2, 0x17
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    sget v1, Lcom/android/systemui/R$array;->tile_states_alarm:I
+    const/16 v1, 0x18
 
-    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const v2, 0x7f030075
 
-    move-result-object v1
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v2, "alarm"
+    move-result-object v2
 
-    invoke-static {v2, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+    new-instance v3, Lkotlin/Pair;
 
-    move-result-object v1
+    const-string/jumbo v4, "qr_code_scanner"
 
-    const/16 v2, 0x18
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
-    aput-object v1, v0, v2
+    aput-object v3, v0, v1
 
-    invoke-static {v0}, Lkotlin/collections/MapsKt;->mapOf([Lkotlin/Pair;)Ljava/util/Map;
+    const/16 v1, 0x19
+
+    const v2, 0x7f030062
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    new-instance v3, Lkotlin/Pair;
+
+    const-string v4, "alarm"
+
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v3, v0, v1
+
+    const/16 v1, 0x1a
+
+    const v2, 0x7f030074
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    new-instance v3, Lkotlin/Pair;
+
+    const-string/jumbo v4, "onehanded"
+
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v3, v0, v1
+
+    const/16 v1, 0x1b
+
+    const v2, 0x7f030068
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    new-instance v3, Lkotlin/Pair;
+
+    const-string v4, "color_correction"
+
+    invoke-direct {v3, v4, v2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    aput-object v3, v0, v1
+
+    invoke-static {v0}, Lkotlin/collections/MapsKt___MapsKt;->mapOf([Lkotlin/Pair;)Ljava/util/Map;
 
     move-result-object v0
 
@@ -447,30 +495,4 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
-.end method
-
-
-# virtual methods
-.method public final getSubtitleId(Ljava/lang/String;)I
-    .locals 1
-
-    sget-object p0, Lcom/android/systemui/qs/tileimpl/SubtitleArrayMapping;->subtitleIdsMap:Ljava/util/Map;
-
-    sget v0, Lcom/android/systemui/R$array;->tile_states_default:I
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-interface {p0, p1, v0}, Ljava/util/Map;->getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/lang/Number;
-
-    invoke-virtual {p0}, Ljava/lang/Number;->intValue()I
-
-    move-result p0
-
-    return p0
 .end method

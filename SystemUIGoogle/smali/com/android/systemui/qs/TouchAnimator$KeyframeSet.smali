@@ -1,4 +1,4 @@
-.class abstract Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
+.class public abstract Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
 .super Ljava/lang/Object;
 .source "TouchAnimator.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x40a
+    accessFlags = 0x409
     name = "KeyframeSet"
 .end annotation
 
 
 # instance fields
-.field private final mFrameWidth:F
+.field public final mFrameWidth:F
 
-.field private final mSize:I
+.field public final mSize:I
 
 
 # direct methods
@@ -41,59 +41,7 @@
     return-void
 .end method
 
-.method public static varargs ofFloat(Landroid/util/Property;[F)Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;-><init>(Landroid/util/Property;[F)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method protected abstract interpolate(IFLjava/lang/Object;)V
-.end method
-
-.method setValue(FLjava/lang/Object;)V
-    .locals 3
-
-    iget v0, p0, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->mFrameWidth:F
-
-    div-float v0, p1, v0
-
-    float-to-double v0, v0
-
-    invoke-static {v0, v1}, Ljava/lang/Math;->ceil(D)D
-
-    move-result-wide v0
-
-    double-to-int v0, v0
-
-    iget v1, p0, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->mSize:I
-
-    const/4 v2, 0x1
-
-    sub-int/2addr v1, v2
-
-    invoke-static {v0, v2, v1}, Landroid/util/MathUtils;->constrain(III)I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->mFrameWidth:F
-
-    add-int/lit8 v2, v0, -0x1
-
-    int-to-float v2, v2
-
-    mul-float/2addr v2, v1
-
-    sub-float/2addr p1, v2
-
-    div-float/2addr p1, v1
-
-    invoke-virtual {p0, v0, p1, p2}, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->interpolate(IFLjava/lang/Object;)V
-
-    return-void
+.method public abstract interpolate(IFLjava/lang/Object;)V
 .end method

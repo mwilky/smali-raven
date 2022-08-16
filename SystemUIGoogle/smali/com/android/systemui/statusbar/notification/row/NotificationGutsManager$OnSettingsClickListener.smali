@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "OnSettingsClickListener"
 .end annotation
-
-
-# virtual methods
-.method public abstract onSettingsClick(Ljava/lang/String;)V
-.end method

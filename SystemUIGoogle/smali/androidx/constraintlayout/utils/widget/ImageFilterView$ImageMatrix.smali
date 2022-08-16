@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;
+.class public final Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;
 .super Ljava/lang/Object;
 .source "ImageFilterView.java"
 
@@ -9,29 +9,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ImageMatrix"
 .end annotation
 
 
 # instance fields
-.field m:[F
+.field public m:[F
 
-.field mBrightness:F
+.field public mBrightness:F
 
-.field mColorMatrix:Landroid/graphics/ColorMatrix;
+.field public mColorMatrix:Landroid/graphics/ColorMatrix;
 
-.field mContrast:F
+.field public mContrast:F
 
-.field mSaturation:F
+.field public mSaturation:F
 
-.field mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+.field public mTmpColorMatrix:Landroid/graphics/ColorMatrix;
 
-.field mWarmth:F
+.field public mWarmth:F
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -67,340 +67,287 @@
     return-void
 .end method
 
-.method private brightness(F)V
-    .locals 2
 
-    iget-object p0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
+# virtual methods
+.method public final updateMatrix(Landroid/widget/ImageView;)V
+    .locals 29
 
-    const/4 v0, 0x0
+    move-object/from16 v0, p0
 
-    aput p1, p0, v0
+    iget-object v1, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
 
-    const/4 v0, 0x1
+    invoke-virtual {v1}, Landroid/graphics/ColorMatrix;->reset()V
 
-    const/4 v1, 0x0
+    iget v1, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mSaturation:F
 
-    aput v1, p0, v0
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    const/4 v0, 0x2
+    cmpl-float v3, v1, v2
 
-    aput v1, p0, v0
+    const/16 v5, 0x12
 
-    const/4 v0, 0x3
+    const/16 v6, 0x11
 
-    aput v1, p0, v0
+    const/16 v7, 0x10
 
-    const/4 v0, 0x4
+    const/16 v8, 0xf
 
-    aput v1, p0, v0
+    const/16 v9, 0xe
 
-    const/4 v0, 0x5
+    const/16 v10, 0xd
 
-    aput v1, p0, v0
+    const/16 v11, 0xc
 
-    const/4 v0, 0x6
+    const/16 v12, 0xb
 
-    aput p1, p0, v0
+    const/16 v13, 0xa
 
-    const/4 v0, 0x7
+    const/16 v14, 0x9
 
-    aput v1, p0, v0
+    const/16 v15, 0x8
 
-    const/16 v0, 0x8
+    const/16 v16, 0x7
 
-    aput v1, p0, v0
+    const/16 v17, 0x6
 
-    const/16 v0, 0x9
+    const/16 v18, 0x5
 
-    aput v1, p0, v0
+    const/16 v19, 0x4
 
-    const/16 v0, 0xa
+    const/4 v4, 0x0
 
-    aput v1, p0, v0
+    const/16 v20, 0x3
 
-    const/16 v0, 0xb
+    const/16 v21, 0x2
 
-    aput v1, p0, v0
+    const/16 v22, 0x0
 
-    const/16 v0, 0xc
+    const/16 v23, 0x1
 
-    aput p1, p0, v0
+    if-eqz v3, :cond_0
 
-    const/16 p1, 0xd
+    sub-float v3, v2, v1
 
-    aput v1, p0, p1
+    const v24, 0x3e998c7e    # 0.2999f
 
-    const/16 p1, 0xe
+    mul-float v24, v24, v3
 
-    aput v1, p0, p1
+    const v25, 0x3f1645a2    # 0.587f
 
-    const/16 p1, 0xf
+    mul-float v25, v25, v3
 
-    aput v1, p0, p1
+    const v26, 0x3de978d5    # 0.114f
 
-    const/16 p1, 0x10
+    mul-float v3, v3, v26
 
-    aput v1, p0, p1
+    iget-object v2, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
 
-    const/16 p1, 0x11
+    add-float v27, v24, v1
 
-    aput v1, p0, p1
+    aput v27, v2, v22
 
-    const/16 p1, 0x12
+    aput v25, v2, v23
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    aput v3, v2, v21
 
-    aput v0, p0, p1
+    aput v4, v2, v20
 
-    const/16 p1, 0x13
+    aput v4, v2, v19
 
-    aput v1, p0, p1
+    aput v24, v2, v18
 
-    return-void
-.end method
+    add-float v27, v25, v1
 
-.method private saturation(F)V
-    .locals 7
+    aput v27, v2, v17
 
-    const/high16 v0, 0x3f800000    # 1.0f
+    aput v3, v2, v16
 
-    sub-float v1, v0, p1
+    aput v4, v2, v15
 
-    const v2, 0x3e998c7e    # 0.2999f
+    aput v4, v2, v14
 
-    mul-float/2addr v2, v1
+    aput v24, v2, v13
 
-    const v3, 0x3f1645a2    # 0.587f
+    aput v25, v2, v12
 
-    mul-float/2addr v3, v1
+    add-float/2addr v3, v1
 
-    const v4, 0x3de978d5    # 0.114f
+    aput v3, v2, v11
 
-    mul-float/2addr v1, v4
+    aput v4, v2, v10
 
-    iget-object p0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
+    aput v4, v2, v9
 
-    add-float v4, v2, p1
+    aput v4, v2, v8
 
-    const/4 v5, 0x0
+    aput v4, v2, v7
 
-    aput v4, p0, v5
+    aput v4, v2, v6
 
-    const/4 v4, 0x1
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    aput v3, p0, v4
+    aput v1, v2, v5
 
-    const/4 v4, 0x2
+    const/16 v3, 0x13
 
-    aput v1, p0, v4
+    aput v4, v2, v3
 
-    const/4 v4, 0x3
+    iget-object v3, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
 
-    const/4 v5, 0x0
+    invoke-virtual {v3, v2}, Landroid/graphics/ColorMatrix;->set([F)V
 
-    aput v5, p0, v4
-
-    const/4 v4, 0x4
-
-    aput v5, p0, v4
-
-    const/4 v4, 0x5
-
-    aput v2, p0, v4
-
-    add-float v4, v3, p1
-
-    const/4 v6, 0x6
-
-    aput v4, p0, v6
-
-    const/4 v4, 0x7
-
-    aput v1, p0, v4
-
-    const/16 v4, 0x8
-
-    aput v5, p0, v4
-
-    const/16 v4, 0x9
-
-    aput v5, p0, v4
-
-    const/16 v4, 0xa
-
-    aput v2, p0, v4
-
-    const/16 v2, 0xb
-
-    aput v3, p0, v2
-
-    add-float/2addr v1, p1
-
-    const/16 p1, 0xc
-
-    aput v1, p0, p1
-
-    const/16 p1, 0xd
-
-    aput v5, p0, p1
-
-    const/16 p1, 0xe
-
-    aput v5, p0, p1
-
-    const/16 p1, 0xf
-
-    aput v5, p0, p1
-
-    const/16 p1, 0x10
-
-    aput v5, p0, p1
-
-    const/16 p1, 0x11
-
-    aput v5, p0, p1
-
-    const/16 p1, 0x12
-
-    aput v0, p0, p1
-
-    const/16 p1, 0x13
-
-    aput v5, p0, p1
-
-    return-void
-.end method
-
-.method private warmth(F)V
-    .locals 11
-
-    const/4 v0, 0x0
-
-    cmpg-float v1, p1, v0
-
-    if-gtz v1, :cond_0
-
-    const p1, 0x3c23d70a    # 0.01f
-
-    :cond_0
-    const v1, 0x459c4000    # 5000.0f
-
-    div-float/2addr v1, p1
-
-    const/high16 p1, 0x42c80000    # 100.0f
-
-    div-float/2addr v1, p1
-
-    const/high16 p1, 0x42840000    # 66.0f
-
-    cmpl-float v2, v1, p1
-
-    const v3, 0x43211e9c
-
-    const v4, 0x42c6f10d
-
-    const/high16 v5, 0x437f0000    # 255.0f
-
-    if-lez v2, :cond_1
-
-    const/high16 v2, 0x42700000    # 60.0f
-
-    sub-float v2, v1, v2
-
-    const v6, 0x43a4d970
-
-    float-to-double v7, v2
-
-    const-wide v9, -0x403ef32580000000L    # -0.13320475816726685
-
-    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v9
-
-    double-to-float v2, v9
-
-    mul-float/2addr v2, v6
-
-    const v6, 0x43900fa3
-
-    const-wide v9, 0x3fb354f0e0000000L
-
-    invoke-static {v7, v8, v9, v10}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide v7
-
-    double-to-float v7, v7
-
-    mul-float/2addr v7, v6
+    move/from16 v2, v23
 
     goto :goto_0
 
+    :cond_0
+    move v1, v2
+
+    move/from16 v2, v22
+
+    :goto_0
+    iget v3, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mContrast:F
+
+    cmpl-float v24, v3, v1
+
+    if-eqz v24, :cond_1
+
+    iget-object v2, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+
+    invoke-virtual {v2, v3, v3, v3, v1}, Landroid/graphics/ColorMatrix;->setScale(FFFF)V
+
+    iget-object v2, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+
+    iget-object v3, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+
+    invoke-virtual {v2, v3}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
+
+    move/from16 v2, v23
+
     :cond_1
+    iget v3, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mWarmth:F
+
+    cmpl-float v24, v3, v1
+
+    if-eqz v24, :cond_6
+
+    cmpg-float v1, v3, v4
+
+    if-gtz v1, :cond_2
+
+    const v3, 0x3c23d70a    # 0.01f
+
+    :cond_2
+    const v1, 0x459c4000    # 5000.0f
+
+    div-float/2addr v1, v3
+
+    const/high16 v2, 0x42c80000    # 100.0f
+
+    div-float/2addr v1, v2
+
+    const/high16 v2, 0x42840000    # 66.0f
+
+    cmpl-float v3, v1, v2
+
+    const v24, 0x43211e9c
+
+    const v25, 0x42c6f10d
+
+    const/high16 v5, 0x437f0000    # 255.0f
+
+    if-lez v3, :cond_3
+
+    const/high16 v3, 0x42700000    # 60.0f
+
+    sub-float v3, v1, v3
+
+    const v28, 0x43a4d970
+
+    float-to-double v6, v3
+
+    const-wide v8, -0x403ef32580000000L    # -0.13320475816726685
+
+    invoke-static {v6, v7, v8, v9}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v8
+
+    double-to-float v8, v8
+
+    mul-float v8, v8, v28
+
+    const v9, 0x43900fa3
+
+    const-wide v10, 0x3fb354f0e0000000L
+
+    invoke-static {v6, v7, v10, v11}, Ljava/lang/Math;->pow(DD)D
+
+    move-result-wide v6
+
+    double-to-float v6, v6
+
+    mul-float/2addr v6, v9
+
+    goto :goto_1
+
+    :cond_3
     float-to-double v6, v1
 
     invoke-static {v6, v7}, Ljava/lang/Math;->log(D)D
 
     move-result-wide v6
 
-    double-to-float v2, v6
+    double-to-float v6, v6
 
-    mul-float/2addr v2, v4
+    mul-float v6, v6, v25
 
-    sub-float v7, v2, v3
+    sub-float v6, v6, v24
 
-    move v2, v5
-
-    :goto_0
-    cmpg-float p1, v1, p1
-
-    const v6, 0x439885bc
-
-    const v8, 0x430a848a
-
-    if-gez p1, :cond_3
-
-    const/high16 p1, 0x41980000    # 19.0f
-
-    cmpl-float p1, v1, p1
-
-    if-lez p1, :cond_2
-
-    const/high16 p1, 0x41200000    # 10.0f
-
-    sub-float/2addr v1, p1
-
-    float-to-double v9, v1
-
-    invoke-static {v9, v10}, Ljava/lang/Math;->log(D)D
-
-    move-result-wide v9
-
-    double-to-float p1, v9
-
-    mul-float/2addr p1, v8
-
-    sub-float/2addr p1, v6
-
-    goto :goto_1
-
-    :cond_2
-    move p1, v0
-
-    goto :goto_1
-
-    :cond_3
-    move p1, v5
+    move v8, v5
 
     :goto_1
-    invoke-static {v2, v0}, Ljava/lang/Math;->max(FF)F
+    cmpg-float v2, v1, v2
 
-    move-result v1
+    const v7, 0x439885bc
 
-    invoke-static {v5, v1}, Ljava/lang/Math;->min(FF)F
+    const v9, 0x430a848a
 
-    move-result v1
+    if-gez v2, :cond_5
 
-    invoke-static {v7, v0}, Ljava/lang/Math;->max(FF)F
+    const/high16 v2, 0x41980000    # 19.0f
+
+    cmpl-float v2, v1, v2
+
+    if-lez v2, :cond_4
+
+    const/high16 v2, 0x41200000    # 10.0f
+
+    sub-float/2addr v1, v2
+
+    float-to-double v1, v1
+
+    invoke-static {v1, v2}, Ljava/lang/Math;->log(D)D
+
+    move-result-wide v1
+
+    double-to-float v1, v1
+
+    mul-float/2addr v1, v9
+
+    sub-float/2addr v1, v7
+
+    goto :goto_2
+
+    :cond_4
+    move v1, v4
+
+    goto :goto_2
+
+    :cond_5
+    move v1, v5
+
+    :goto_2
+    invoke-static {v8, v4}, Ljava/lang/Math;->max(FF)F
 
     move-result v2
 
@@ -408,51 +355,7 @@
 
     move-result v2
 
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(FF)F
-
-    move-result p1
-
-    invoke-static {v5, p1}, Ljava/lang/Math;->min(FF)F
-
-    move-result p1
-
-    const/high16 v7, 0x42480000    # 50.0f
-
-    float-to-double v9, v7
-
-    invoke-static {v9, v10}, Ljava/lang/Math;->log(D)D
-
-    move-result-wide v9
-
-    double-to-float v7, v9
-
-    mul-float/2addr v7, v4
-
-    sub-float/2addr v7, v3
-
-    const/high16 v3, 0x42200000    # 40.0f
-
-    float-to-double v3, v3
-
-    invoke-static {v3, v4}, Ljava/lang/Math;->log(D)D
-
-    move-result-wide v3
-
-    double-to-float v3, v3
-
-    mul-float/2addr v3, v8
-
-    sub-float/2addr v3, v6
-
-    invoke-static {v5, v0}, Ljava/lang/Math;->max(FF)F
-
-    move-result v4
-
-    invoke-static {v5, v4}, Ljava/lang/Math;->min(FF)F
-
-    move-result v4
-
-    invoke-static {v7, v0}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v6, v4}, Ljava/lang/Math;->max(FF)F
 
     move-result v6
 
@@ -460,225 +363,248 @@
 
     move-result v6
 
-    invoke-static {v3, v0}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v1, v4}, Ljava/lang/Math;->max(FF)F
 
-    move-result v3
+    move-result v1
 
-    invoke-static {v5, v3}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v5, v1}, Ljava/lang/Math;->min(FF)F
 
-    move-result v3
+    move-result v1
 
-    div-float/2addr v1, v4
+    const/high16 v8, 0x42480000    # 50.0f
 
-    div-float/2addr v2, v6
+    float-to-double v10, v8
 
-    div-float/2addr p1, v3
+    invoke-static {v10, v11}, Ljava/lang/Math;->log(D)D
 
-    iget-object p0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
+    move-result-wide v10
 
-    const/4 v3, 0x0
+    double-to-float v8, v10
 
-    aput v1, p0, v3
+    mul-float v8, v8, v25
 
-    const/4 v1, 0x1
+    sub-float v8, v8, v24
 
-    aput v0, p0, v1
+    const/high16 v10, 0x42200000    # 40.0f
 
-    const/4 v1, 0x2
+    float-to-double v10, v10
 
-    aput v0, p0, v1
+    invoke-static {v10, v11}, Ljava/lang/Math;->log(D)D
 
-    const/4 v1, 0x3
+    move-result-wide v10
 
-    aput v0, p0, v1
+    double-to-float v10, v10
 
-    const/4 v1, 0x4
+    mul-float/2addr v10, v9
 
-    aput v0, p0, v1
+    sub-float/2addr v10, v7
 
-    const/4 v1, 0x5
+    invoke-static {v5, v4}, Ljava/lang/Math;->max(FF)F
 
-    aput v0, p0, v1
+    move-result v7
 
-    const/4 v1, 0x6
+    invoke-static {v5, v7}, Ljava/lang/Math;->min(FF)F
 
-    aput v2, p0, v1
+    move-result v7
 
-    const/4 v1, 0x7
+    invoke-static {v8, v4}, Ljava/lang/Math;->max(FF)F
 
-    aput v0, p0, v1
+    move-result v8
 
-    const/16 v1, 0x8
+    invoke-static {v5, v8}, Ljava/lang/Math;->min(FF)F
 
-    aput v0, p0, v1
+    move-result v8
 
-    const/16 v1, 0x9
+    invoke-static {v10, v4}, Ljava/lang/Math;->max(FF)F
 
-    aput v0, p0, v1
+    move-result v9
 
-    const/16 v1, 0xa
+    invoke-static {v5, v9}, Ljava/lang/Math;->min(FF)F
 
-    aput v0, p0, v1
+    move-result v5
 
-    const/16 v1, 0xb
+    div-float/2addr v2, v7
 
-    aput v0, p0, v1
+    div-float/2addr v6, v8
 
-    const/16 v1, 0xc
+    div-float/2addr v1, v5
 
-    aput p1, p0, v1
+    iget-object v5, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
 
-    const/16 p1, 0xd
+    aput v2, v5, v22
 
-    aput v0, p0, p1
+    aput v4, v5, v23
 
-    const/16 p1, 0xe
+    aput v4, v5, v21
 
-    aput v0, p0, p1
+    aput v4, v5, v20
 
-    const/16 p1, 0xf
+    aput v4, v5, v19
 
-    aput v0, p0, p1
+    aput v4, v5, v18
 
-    const/16 p1, 0x10
+    aput v6, v5, v17
 
-    aput v0, p0, p1
+    aput v4, v5, v16
 
-    const/16 p1, 0x11
+    aput v4, v5, v15
 
-    aput v0, p0, p1
+    aput v4, v5, v14
 
-    const/16 p1, 0x12
+    aput v4, v5, v13
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    aput v4, v5, v12
 
-    aput v1, p0, p1
+    const/16 v2, 0xc
 
-    const/16 p1, 0x13
+    aput v1, v5, v2
 
-    aput v0, p0, p1
+    const/16 v1, 0xd
 
-    return-void
-.end method
+    aput v4, v5, v1
 
+    const/16 v1, 0xe
 
-# virtual methods
-.method updateMatrix(Landroid/widget/ImageView;)V
-    .locals 5
+    aput v4, v5, v1
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+    const/16 v1, 0xf
 
-    invoke-virtual {v0}, Landroid/graphics/ColorMatrix;->reset()V
+    aput v4, v5, v1
 
-    iget v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mSaturation:F
+    const/16 v1, 0x10
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    aput v4, v5, v1
 
-    cmpl-float v2, v0, v1
+    const/16 v1, 0x11
 
-    const/4 v3, 0x1
+    aput v4, v5, v1
 
-    if-eqz v2, :cond_0
+    const/16 v1, 0x12
 
-    invoke-direct {p0, v0}, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->saturation(F)V
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+    aput v2, v5, v1
 
-    iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
+    const/16 v1, 0x13
 
-    invoke-virtual {v0, v2}, Landroid/graphics/ColorMatrix;->set([F)V
+    aput v4, v5, v1
 
-    move v0, v3
+    iget-object v1, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
 
-    goto :goto_0
+    invoke-virtual {v1, v5}, Landroid/graphics/ColorMatrix;->set([F)V
 
-    :cond_0
-    const/4 v0, 0x0
+    iget-object v1, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
 
-    :goto_0
-    iget v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mContrast:F
+    iget-object v2, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
 
-    cmpl-float v4, v2, v1
+    invoke-virtual {v1, v2}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
 
-    if-eqz v4, :cond_1
+    move/from16 v2, v23
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+    :cond_6
+    iget v1, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mBrightness:F
 
-    invoke-virtual {v0, v2, v2, v2, v1}, Landroid/graphics/ColorMatrix;->setScale(FFFF)V
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+    cmpl-float v6, v1, v5
 
-    iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+    if-eqz v6, :cond_7
 
-    invoke-virtual {v0, v2}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
+    iget-object v2, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
 
-    move v0, v3
+    aput v1, v2, v22
 
-    :cond_1
-    iget v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mWarmth:F
+    aput v4, v2, v23
 
-    cmpl-float v4, v2, v1
+    aput v4, v2, v21
 
-    if-eqz v4, :cond_2
+    aput v4, v2, v20
 
-    invoke-direct {p0, v2}, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->warmth(F)V
+    aput v4, v2, v19
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+    aput v4, v2, v18
 
-    iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
+    aput v1, v2, v17
 
-    invoke-virtual {v0, v2}, Landroid/graphics/ColorMatrix;->set([F)V
+    aput v4, v2, v16
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+    aput v4, v2, v15
 
-    iget-object v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+    aput v4, v2, v14
 
-    invoke-virtual {v0, v2}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
+    aput v4, v2, v13
 
-    move v0, v3
+    aput v4, v2, v12
 
-    :cond_2
-    iget v2, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mBrightness:F
+    const/16 v5, 0xc
 
-    cmpl-float v1, v2, v1
+    aput v1, v2, v5
 
-    if-eqz v1, :cond_3
+    const/16 v1, 0xd
 
-    invoke-direct {p0, v2}, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->brightness(F)V
+    aput v4, v2, v1
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+    const/16 v1, 0xe
 
-    iget-object v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->m:[F
+    aput v4, v2, v1
 
-    invoke-virtual {v0, v1}, Landroid/graphics/ColorMatrix;->set([F)V
+    const/16 v1, 0xf
 
-    iget-object v0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+    aput v4, v2, v1
 
-    iget-object v1, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+    const/16 v1, 0x10
 
-    invoke-virtual {v0, v1}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
+    aput v4, v2, v1
 
-    goto :goto_1
+    const/16 v1, 0x11
 
-    :cond_3
-    move v3, v0
+    aput v4, v2, v1
 
-    :goto_1
-    if-eqz v3, :cond_4
+    const/16 v1, 0x12
 
-    new-instance v0, Landroid/graphics/ColorMatrixColorFilter;
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    iget-object p0, p0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+    aput v3, v2, v1
 
-    invoke-direct {v0, p0}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+    const/16 v1, 0x13
 
-    invoke-virtual {p1, v0}, Landroid/widget/ImageView;->setColorFilter(Landroid/graphics/ColorFilter;)V
+    aput v4, v2, v1
 
-    goto :goto_2
+    iget-object v1, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
 
-    :cond_4
-    invoke-virtual {p1}, Landroid/widget/ImageView;->clearColorFilter()V
+    invoke-virtual {v1, v2}, Landroid/graphics/ColorMatrix;->set([F)V
 
-    :goto_2
+    iget-object v1, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+
+    iget-object v2, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mTmpColorMatrix:Landroid/graphics/ColorMatrix;
+
+    invoke-virtual {v1, v2}, Landroid/graphics/ColorMatrix;->postConcat(Landroid/graphics/ColorMatrix;)V
+
+    goto :goto_3
+
+    :cond_7
+    move/from16 v23, v2
+
+    :goto_3
+    if-eqz v23, :cond_8
+
+    new-instance v1, Landroid/graphics/ColorMatrixColorFilter;
+
+    iget-object v0, v0, Landroidx/constraintlayout/utils/widget/ImageFilterView$ImageMatrix;->mColorMatrix:Landroid/graphics/ColorMatrix;
+
+    invoke-direct {v1, v0}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setColorFilter(Landroid/graphics/ColorFilter;)V
+
+    goto :goto_4
+
+    :cond_8
+    move-object/from16 v0, p1
+
+    invoke-virtual/range {p1 .. p1}, Landroid/widget/ImageView;->clearColorFilter()V
+
+    :goto_4
     return-void
 .end method

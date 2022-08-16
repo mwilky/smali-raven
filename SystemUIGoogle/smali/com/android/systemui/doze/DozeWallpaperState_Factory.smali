@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final biometricUnlockControllerProvider:Ljavax/inject/Provider;
+.field public final biometricUnlockControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final parametersProvider:Ljavax/inject/Provider;
+.field public final parametersProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final wallpaperManagerServiceProvider:Ljavax/inject/Provider;
+.field public final wallpaperManagerServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -50,73 +50,26 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/app/IWallpaperManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            ">;)V"
-        }
-    .end annotation
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory$InstanceHolder;->INSTANCE:Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->wallpaperManagerServiceProvider:Ljavax/inject/Provider;
+    iput-object v0, p0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->wallpaperManagerServiceProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->biometricUnlockControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->parametersProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->parametersProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeWallpaperState_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/app/IWallpaperManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/BiometricUnlockController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            ">;)",
-            "Lcom/android/systemui/doze/DozeWallpaperState_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/doze/DozeWallpaperState_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/phone/DozeParameters;)Lcom/android/systemui/doze/DozeWallpaperState;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/doze/DozeWallpaperState;
-
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/doze/DozeWallpaperState;-><init>(Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/phone/DozeParameters;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/doze/DozeWallpaperState;
-    .locals 2
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->wallpaperManagerServiceProvider:Ljavax/inject/Provider;
 
@@ -142,19 +95,9 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->newInstance(Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/phone/DozeParameters;)Lcom/android/systemui/doze/DozeWallpaperState;
+    new-instance v2, Lcom/android/systemui/doze/DozeWallpaperState;
 
-    move-result-object p0
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/doze/DozeWallpaperState;-><init>(Landroid/app/IWallpaperManager;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;Lcom/android/systemui/statusbar/phone/DozeParameters;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeWallpaperState_Factory;->get()Lcom/android/systemui/doze/DozeWallpaperState;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v2
 .end method

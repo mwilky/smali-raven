@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavBarHelper$1;
+.class public final Lcom/android/systemui/navigationbar/NavBarHelper$1;
 .super Landroid/database/ContentObserver;
 .source "NavBarHelper.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavBarHelper;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavBarHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavBarHelper;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavBarHelper;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavBarHelper$1;->this$0:Lcom/android/systemui/navigationbar/NavBarHelper;
@@ -31,12 +31,12 @@
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;)V
+.method public final onChange(ZLandroid/net/Uri;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavBarHelper$1;->this$0:Lcom/android/systemui/navigationbar/NavBarHelper;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/NavBarHelper;->access$000(Lcom/android/systemui/navigationbar/NavBarHelper;)V
+    invoke-virtual {p0}, Lcom/android/systemui/navigationbar/NavBarHelper;->updateAssistantAvailability()V
 
     return-void
 .end method

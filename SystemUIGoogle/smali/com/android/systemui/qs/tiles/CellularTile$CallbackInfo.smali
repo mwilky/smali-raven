@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;
+.class public final Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;
 .super Ljava/lang/Object;
 .source "CellularTile.java"
 
@@ -9,42 +9,42 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "CallbackInfo"
 .end annotation
 
 
 # instance fields
-.field activityIn:Z
+.field public activityIn:Z
 
-.field activityOut:Z
+.field public activityOut:Z
 
-.field airplaneModeEnabled:Z
+.field public airplaneModeEnabled:Z
 
-.field dataContentDescription:Ljava/lang/CharSequence;
+.field public dataContentDescription:Ljava/lang/CharSequence;
 
-.field dataSubscriptionName:Ljava/lang/CharSequence;
+.field public dataSubscriptionName:Ljava/lang/String;
 
-.field multipleSubs:Z
+.field public multipleSubs:Z
 
-.field noSim:Z
+.field public noSim:Z
 
-.field roaming:Z
+.field public roaming:Z
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/CellularTile$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/CellularTile$CallbackInfo;-><init>()V
 
     return-void
 .end method

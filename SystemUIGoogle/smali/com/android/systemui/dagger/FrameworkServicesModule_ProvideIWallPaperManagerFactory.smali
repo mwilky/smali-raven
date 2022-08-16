@@ -32,42 +32,18 @@
     return-void
 .end method
 
-.method public static create()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory$InstanceHolder;->access$000()Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static provideIWallPaperManager()Landroid/app/IWallpaperManager;
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule;->provideIWallPaperManager()Landroid/app/IWallpaperManager;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Landroid/app/IWallpaperManager;
+.method public final get()Ljava/lang/Object;
     .locals 0
 
-    invoke-static {}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;->provideIWallPaperManager()Landroid/app/IWallpaperManager;
+    const-string/jumbo p0, "wallpaper"
+
+    invoke-static {p0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
     move-result-object p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/dagger/FrameworkServicesModule_ProvideIWallPaperManagerFactory;->get()Landroid/app/IWallpaperManager;
+    invoke-static {p0}, Landroid/app/IWallpaperManager$Stub;->asInterface(Landroid/os/IBinder;)Landroid/app/IWallpaperManager;
 
     move-result-object p0
 

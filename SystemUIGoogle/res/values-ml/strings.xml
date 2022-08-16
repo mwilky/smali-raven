@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="a11y_action_pip_move_done">പൂർത്തിയായി</string>
+    <string name="a11y_action_pip_move_down">താഴേക്ക് നീക്കുക</string>
+    <string name="a11y_action_pip_move_left">ഇടത്തേക്ക് നീക്കുക</string>
+    <string name="a11y_action_pip_move_right">വലത്തേക്ക് നീക്കുക</string>
+    <string name="a11y_action_pip_move_up">മുകളിലേക്ക് നീക്കുക</string>
+    <string name="a11y_pip_menu_entered">ചിത്രത്തിനുള്ളിൽ ചിത്രം മെനു.</string>
     <string name="abc_action_bar_home_description">ഹോമിലേക്ക് പോവുക</string>
     <string name="abc_action_bar_up_description">മുകളിലേക്ക് പോവുക</string>
     <string name="abc_action_menu_overflow_description">കൂടുതൽ ഓപ്ഷനുകൾ</string>
@@ -30,11 +36,10 @@
     <string name="abc_slice_more">കൂടുതൽ</string>
     <string name="abc_slice_more_content">+ %1$d</string>
     <string name="abc_slice_permission_allow">അനുവദിക്കുക</string>
-    <string name="abc_slice_permission_checkbox">ഏത് ആപ്പിൽ നിന്നും സ്ലൈസുകൾ കാണിക്കാൻ %1$s-നെ അനുവദിക്കുക</string>
     <string name="abc_slice_permission_deny">നിരസിക്കുക</string>
-    <string name="abc_slice_permission_text_1">- ഇതിന് %1$s-ൽ നിന്ന് വിവരങ്ങൾ വായിക്കാനാകും</string>
-    <string name="abc_slice_permission_text_2">- ഇതിന് %1$s-നുള്ളിൽ പ്രവർത്തനങ്ങൾ ചെയ്യാനാകും</string>
-    <string name="abc_slice_permission_title">%2$s സ്ലൈസുകൾ കാണിക്കാൻ %1$s-നെ അനുവദിക്കണോ?</string>
+    <string name="abc_slice_permission_text_1">- ഇതിന് %1$s എന്നതിൽ നിന്ന് വിവരങ്ങൾ വായിക്കാനാകും</string>
+    <string name="abc_slice_permission_text_2">- ഇതിന് %1$s എന്നതിനുള്ളിൽ പ്രവർത്തനങ്ങൾ ചെയ്യാനാകും</string>
+    <string name="abc_slice_permission_title">%2$s സ്ലൈസുകൾ കാണിക്കാൻ %1$s എന്നതിനെ അനുവദിക്കണോ?</string>
     <string name="abc_slice_show_more">കൂടുതൽ കാണിക്കുക</string>
     <string name="abc_slice_updated">%1$s അപ്‌ഡേറ്റ് ചെയ്‌തു</string>
     <string name="abc_slices_permission_request">%2$s സ്ലൈസുകൾ കാണിക്കാൻ %1$s താൽപ്പര്യപ്പെടുന്നു</string>
@@ -96,7 +101,7 @@
     <string name="accessibility_desc_quick_settings">ദ്രുത ക്രമീകരണങ്ങൾ.</string>
     <string name="accessibility_desc_quick_settings_edit">ദ്രുത ക്രമീകരണ എഡിറ്റർ.</string>
     <string name="accessibility_desc_work_lock">ഔദ്യോഗിക ലോക്ക് സ്ക്രീൻ</string>
-    <string name="accessibility_display_daltonizer_preference_subtitle">നിങ്ങളുടെ ഉപകരണത്തിൽ നിറങ്ങൾ എങ്ങനെ പ്രദർശിപ്പിക്കണമെന്ന് ക്രമീകരിക്കുക. ഇനിപ്പറയുന്ന കാര്യങ്ങൾ ചെയ്യാൻ ആഗ്രഹിക്കുമ്പോൾ ഇത് സഹായകരമാകും:&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp;നിറങ്ങൾ കൂടുതൽ കൃത്യമായി കാണാൻ&lt;/li> &lt;li>&amp;nbsp;ഫോക്കസ് ചെയ്യാൻ നിങ്ങളെ സഹായിക്കുന്നതിന് നിറങ്ങൾ നീക്കം ചെയ്യാൻ&lt;/li> &lt;/ol></string>
+    <string name="accessibility_display_daltonizer_preference_subtitle">ഇനിപ്പറയുന്ന കാര്യങ്ങൾ ചെയ്യാൻ ആഗ്രഹിക്കുമ്പോൾ നിറം ശരിയാക്കൽ സഹായകരമാകും:&lt;br/> &lt;ol> &lt;li>&amp;nbsp;നിറങ്ങൾ കൂടുതൽ കൃത്യമായി കാണാൻ&lt;/li> &lt;li>&amp;nbsp;ഫോക്കസ് ചെയ്യാൻ നിങ്ങളെ സഹായിക്കുന്നതിന് നിറങ്ങൾ നീക്കം ചെയ്യാൻ&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_daltonizer_preference_title">നിറം ശരിയാക്കൽ</string>
     <string name="accessibility_divider">സ്പ്ലിറ്റ്-സ്ക്രീൻ ഡിവൈഡർ</string>
     <string name="accessibility_enter_hint">ഉപകരണം നൽകുക</string>
@@ -116,23 +121,6 @@
     <string name="accessibility_floating_button_migration_tooltip">"ഉപയോഗസഹായി ഫീച്ചർ തുറക്കാൻ ടാപ്പ് ചെയ്യൂ. ക്രമീകരണത്തിൽ ഈ ബട്ടൺ ഇഷ്ടാനുസൃതമാക്കാം, മാറ്റാം.
 
 "<annotation id="link">ക്രമീകരണം കാണൂ</annotation></string>
-    <string name="accessibility_game_dashboard_back_button">ഗെയിം ഡാഷ്ബോർഡിലേക്ക് മടങ്ങുക</string>
-    <string name="accessibility_game_dashboard_dnd_toggle">ഗെയിമിംഗിന്റെ ശല്യപ്പെടുത്തരുത് മോഡ് മാറ്റുക</string>
-    <string name="accessibility_game_dashboard_entry">ഗെയിം ഡാഷ്ബോർഡിലേക്ക് പ്രവേശിക്കുക</string>
-    <string name="accessibility_game_dashboard_exit_button">ഗെയിം ഡാഷ്ബോർഡിന്റെ പുറത്തുകടക്കുക</string>
-    <string name="accessibility_game_dashboard_fps_toggle">FPS കൗണ്ടറിന്റെ കുറുക്കുവഴി മാറ്റുക</string>
-    <string name="accessibility_game_dashboard_screen_record_cancelled">സ്ക്രീൻ റെക്കോർഡ് ചെയ്യൽ റദ്ദാക്കി</string>
-    <string name="accessibility_game_dashboard_screen_record_stopped">സ്‌ക്രീൻ റെക്കോർഡ് ചെയ്യൽ നിർത്തി</string>
-    <string name="accessibility_game_dashboard_screen_record_toggle">സ്ക്രീൻ റെക്കോർഡ് ചെയ്യുന്നതിന്റെ കുറുക്കുവഴി മാറ്റുക</string>
-    <string name="accessibility_game_dashboard_screenshot_toggle">സ്ക്രീൻഷോട്ടിനുള്ള കുറുക്കുവഴി മാറ്റുക</string>
-    <string name="accessibility_game_dashboard_settings_button">ഗെയിം ക്രമീകരണത്തിലേക്ക് പോകുക</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_fps">ഓരോ സെക്കൻഡിലെയും ഫ്രെയിം എണ്ണം</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_screenshot">ഒരു സ്ക്രീൻഷോട്ട് എടുക്കുക</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_start_recording">റെക്കോർഡിംഗ് ആരംഭിക്കൂ</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_stop_recording">റെക്കോർഡിംഗ് നിർത്തൂ</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_undock">അൺഡോക്ക് ചെയ്യുക</string>
-    <string name="accessibility_game_dashboard_shortcut_button_disabled">പ്രവർത്തനരഹിതമാക്കി</string>
-    <string name="accessibility_game_dashboard_shortcut_button_enabled">പ്രവർത്തനക്ഷമമാക്കി</string>
     <string name="accessibility_home">ഹോം</string>
     <string name="accessibility_ime_switch_button">ഇൻപുട്ട് രീതി മാറുക</string>
     <string name="accessibility_key">ഇഷ്ടാനുസൃത നാവിഗേഷൻ ബട്ടൺ</string>
@@ -157,6 +145,7 @@
     <string name="accessibility_phone_signal_full">ഫോൺ സിഗ്‌നൽ പൂർണ്ണമാണ്.</string>
     <string name="accessibility_phone_three_bars">ഫോണിൽ മൂന്ന് ബാർ.</string>
     <string name="accessibility_phone_two_bars">ഫോണിൽ രണ്ട് ബാർ.</string>
+    <string name="accessibility_qr_code_scanner_button">QR കോഡ് സ്കാനർ</string>
     <string name="accessibility_qs_edit_position">സ്ഥാനം %1$d</string>
     <string name="accessibility_qs_edit_remove_tile_action">ടൈൽ നീക്കം ചെയ്യുക</string>
     <string name="accessibility_qs_edit_tile_add_action">ടൈൽ, അവസാന ഭാഗത്ത് ചേർക്കുക</string>
@@ -166,44 +155,24 @@
     <string name="accessibility_qs_edit_tile_removed">ടൈൽ നീക്കം ചെയ്‌തു</string>
     <string name="accessibility_qs_edit_tile_start_add">ടൈൽ ചേർക്കുക</string>
     <string name="accessibility_qs_edit_tile_start_move">ടൈൽ നീക്കുക</string>
-    <string name="accessibility_quick_settings_airplane_changed_off">ഫ്ലൈറ്റ് മോഡ് ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_airplane_changed_on">ഫ്ലൈറ്റ് മോഡ് ഓണാക്കി.</string>
     <string name="accessibility_quick_settings_alarm">%s-ന് അലാറം സജ്ജീകരിച്ചു.</string>
     <string name="accessibility_quick_settings_bluetooth">Bluetooth</string>
-    <string name="accessibility_quick_settings_bluetooth_changed_off">ബ്ലൂടൂത്ത് ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_bluetooth_changed_on">ബ്ലൂടൂത്ത് ഓണാക്കി.</string>
     <string name="accessibility_quick_settings_bluetooth_on">ബ്ലൂടൂത്ത് ഓണാണ്.</string>
     <string name="accessibility_quick_settings_choose_user_action">ഉപയോക്താവിനെ തിരഞ്ഞെടുക്കുക</string>
     <string name="accessibility_quick_settings_collapse">ദ്രുത ക്രമീകരണം അടയ്ക്കുക.</string>
-    <string name="accessibility_quick_settings_color_inversion_changed_off">വർണ്ണ വൈപരീത്യം ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_color_inversion_changed_on">വർണ്ണ വൈപരീത്യം ഓണാക്കി.</string>
-    <string name="accessibility_quick_settings_data_saver_changed_off">ഡാറ്റ സേവർ ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_data_saver_changed_on">ഡാറ്റ സേവർ ഓണാക്കി.</string>
-    <string name="accessibility_quick_settings_detail">ദ്രുത ക്രമീകരണം, %s.</string>
     <string name="accessibility_quick_settings_dnd">ശല്യപ്പെടുത്തരുത്.</string>
     <string name="accessibility_quick_settings_dnd_alarms_on">അലാറങ്ങൾ മാത്രം</string>
-    <string name="accessibility_quick_settings_dnd_changed_off">ശല്യപ്പെടുത്തരുത് എന്നത് ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_dnd_changed_on">ശല്യപ്പെടുത്തരുത് എന്നത് ഓണാക്കി.</string>
     <string name="accessibility_quick_settings_dnd_none_on">പൂർണ്ണ നിശബ്‌ദത</string>
     <string name="accessibility_quick_settings_edit">ക്രമീകരണ ക്രമം എഡിറ്റുചെയ്യുക.</string>
     <string name="accessibility_quick_settings_expand">ദ്രുത ക്രമീകരണം തുറക്കുക.</string>
-    <string name="accessibility_quick_settings_flashlight_changed_off">ടോർച്ച് ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_flashlight_changed_on">ടോർച്ച് ഓണാക്കി.</string>
-    <string name="accessibility_quick_settings_hotspot_changed_off">മൊബൈൽ ഹോട്ട്‌സ്‌പോട്ട് ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_hotspot_changed_on">മൊബൈൽ ഹോട്ട്‌സ്‌പോട്ട് ഓണാക്കി.</string>
     <string name="accessibility_quick_settings_less_time">സമയം കുറയ്‌ക്കുക.</string>
-    <string name="accessibility_quick_settings_location_changed_off">ലൊക്കേഷൻ റിപ്പോർട്ടുചെയ്യൽ ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_location_changed_on">ലൊക്കേഷൻ റിപ്പോർട്ടുചെയ്യൽ ഓണാക്കി.</string>
     <string name="accessibility_quick_settings_more_time">കൂടുതൽ സമയം.</string>
-    <string name="accessibility_quick_settings_open_details">വിശദാംശങ്ങൾ തുറക്കുക.</string>
     <string name="accessibility_quick_settings_open_settings">%s ക്രമീകരണം തുറക്കുക.</string>
     <string name="accessibility_quick_settings_page">പേജ് %1$d / %2$d</string>
     <string name="accessibility_quick_settings_power_menu">പവർ മെനു</string>
     <string name="accessibility_quick_settings_rotation">സ്‌ക്രീൻ സ്വയമേവ തിരിക്കുക</string>
     <string name="accessibility_quick_settings_settings">ക്രമീകരണം തുറക്കുക.</string>
     <string name="accessibility_quick_settings_user">%s ആയി സൈൻ ഇൻ ചെയ്‌തു</string>
-    <string name="accessibility_quick_settings_wifi_changed_off">വൈഫൈ ഓഫാക്കി.</string>
-    <string name="accessibility_quick_settings_wifi_changed_on">വൈഫൈ ഓണാക്കി.</string>
     <string name="accessibility_recent">അവലോകനം</string>
     <string name="accessibility_ringer_silent">റിംഗർ നിശ്ശബ്‌ദമാണ്.</string>
     <string name="accessibility_ringer_vibrate">റിംഗർ വൈബ്രേറ്റ് ചെയ്യുന്നു.</string>
@@ -224,7 +193,7 @@
     <string name="accessibility_volume_close_odi_captions_tip">അടിക്കുറിപ്പുകൾക്കുള്ള നുറുങ്ങ്</string>
     <string name="accessibility_volume_settings">ശബ്‌ദ ക്രമീകരണം</string>
     <string name="accessibility_vpn_on">VPN ഓണാണ്.</string>
-    <string name="accessibility_wallet_button">വാലറ്റ്</string>
+    <string name="accessibility_wallet_button">Wallet</string>
     <string name="accessibility_wifi_off">വൈഫൈ ഓഫാണ്.</string>
     <string name="accessibility_wifi_one_bar">വൈഫൈ സിഗ്നൽ ഒരു ബാർ.</string>
     <string name="accessibility_wifi_security_type_none">ഓപ്പൺ നെറ്റ്‍വര്‍ക്ക്</string>
@@ -237,7 +206,7 @@
     <string name="accessor_no_description_text">ആപ്പ് വിവരണമൊന്നും നൽകിയിട്ടില്ല.</string>
     <string name="active_input_method_subtypes">സജീവ ടൈപ്പുചെയ്യൽ രീതികൾ</string>
     <string name="activity_launch_on_secondary_display_failed_text">രണ്ടാം ഡിസ്‌പ്ലേകളിൽ സമാരംഭിക്കുന്നതിനെ ആപ്പ് അനുവദിക്കുന്നില്ല.</string>
-    <string name="adaptive_charging_notify_des">%1$s-ഓടെ ബാറ്ററി പൂർണ്ണമായി ചാർജാകും. ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കുന്നതിന് തുടർച്ചയായി ചാർജ് ചെയ്യുന്നു.</string>
+    <string name="adaptive_charging_notify_des">%1$s-ഓടെ ബാറ്ററി പൂർണ്ണമായി ചാർജാകും. ബാറ്ററിയുടെ ആയുസ്സ് വർദ്ധിപ്പിക്കുന്നതിന് സ്ഥിരമായി ചാർജ് ചെയ്യുന്നു.</string>
     <string name="adaptive_charging_notify_title">അഡാപ്റ്റീവ് ചാർജിംഗ് ഓണാണ്</string>
     <string name="adaptive_charging_notify_turn_off_once">ഒറ്റത്തവണത്തേക്ക് ഓഫാക്കുക</string>
     <string name="adaptive_charging_time_estimate">%1$s • അഡാപ്റ്റീവ് ചാർജിംഗ് (%2$s-ന് പൂർത്തിയാകും)</string>
@@ -271,6 +240,8 @@
     <string name="adb_wireless_verifying_qrcode_text">ഉപകരണം ജോടിയാക്കുന്നു…</string>
     <string name="adbwifi_warning_message">വയർലെസ് ഡീബഗ്ഗിംഗ് ഡെവലപ്മെന്റ് ആവശ്യങ്ങൾക്ക് മാത്രമുള്ളതാണ്. നിങ്ങളുടെ കമ്പ്യൂട്ടറിൽ നിന്ന് ഉപകരണത്തിലേക്കും തിരിച്ചും ഡാറ്റ പകർത്തുന്നതിനും അറിയിപ്പില്ലാതെ തന്നെ നിങ്ങളുടെ ഉപകരണത്തിൽ ആപ്പുകൾ ഇൻസ്റ്റാൾ ചെയ്യുന്നതിനും ലോഗ് ഡാറ്റ റീഡ് ചെയ്യുന്നതിനും ഇത് ഉപയോഗിക്കുക.</string>
     <string name="adbwifi_warning_title">വയർലെസ് ഡീബഗ്ഗിംഗ് അനുവദിക്കണോ?</string>
+    <string name="add">ചേർക്കുക</string>
+    <string name="add_guest_failed">പുതിയ അതിഥിയെ സൃഷ്‌ടിക്കാനായില്ല</string>
     <string name="add_user_failed">പുതിയ ഉപയോക്താവിനെ സൃഷ്‌ടിക്കാനായില്ല</string>
     <string name="airplane_mode">ഫ്ലൈറ്റ് മോഡ്</string>
     <string name="alarm_template">%1$s-ന്</string>
@@ -284,6 +255,8 @@
     <string name="all_network_unavailable">നെറ്റ്‌വർക്കുകളൊന്നും ലഭ്യമല്ല</string>
     <string name="allow_mock_location">വ്യാജ ലൊക്കേഷനുകൾ അനുവദിക്കുക</string>
     <string name="allow_mock_location_summary">വ്യാജ ലൊക്കേഷനുകൾ അനുവദിക്കുക</string>
+    <string name="allow_turn_screen_on">സ്ക്രീൻ ഓണാക്കാൻ അനുവദിക്കുക</string>
+    <string name="allow_turn_screen_on_description">സ്ക്രീൻ ഓണാക്കാൻ ആപ്പിനെ അനുവദിക്കുക. അനുവദിക്കുകയാണെങ്കിൽ, നിങ്ങളുടെ താൽപ്പര്യം കൂടാതെ ഏതുസമയത്തും സ്ക്രീൻ ഓണാക്കാൻ ആപ്പിന് കഴിയും.</string>
     <string name="always_use_accessory">%2$s കണക്‌റ്റ് ചെയ്‌തിരിക്കുമ്പോൾ എപ്പോഴും %1$s തുറക്കൂ</string>
     <string name="always_use_device">%2$s കണക്‌റ്റ് ചെയ്‌തിരിക്കുമ്പോൾ എപ്പോഴും %1$s തുറക്കൂ</string>
     <string name="animator_duration_scale_title">ആനിമേറ്റർ ദൈർഘ്യ സ്‌കെയിൽ</string>
@@ -301,6 +274,10 @@
     <string name="auto_saver_title">ബാറ്ററി ലാഭിക്കൽ ഷെഡ്യൂൾ ചെയ്യാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="available_via_carrier">%1$s വഴി ലഭ്യം</string>
     <string name="available_via_passpoint">%1$s വഴി ലഭ്യം</string>
+    <string name="avatar_picker_title">പ്രൊഫൈൽ ചിത്രം തിരഞ്ഞെടുക്കുക</string>
+    <string name="back_navigation_animation">പ്രെഡിക്റ്റീവ് ബാക്ക് ആനിമേഷനുകൾ</string>
+    <string name="back_navigation_animation_dialog">ഈ ക്രമീകരണം പ്രെഡിക്റ്റീവ് ജെസ്ച്ചർ ആനിമേഷന് വേണ്ടി സിസ്റ്റം ആനിമേഷനുകളെ പ്രവർത്തനക്ഷമമാക്കുന്നു. ഇതിന് ഓരോ ആപ്പിലും enableOnBackInvokedCallback എന്നത് മാനിഫെസ്റ്റ് ഫയലിൽ ശരി എന്ന് സജ്ജീകരിക്കേണ്ടതുണ്ട്.</string>
+    <string name="back_navigation_animation_summary">പ്രെഡിക്റ്റീവ് ബാക്കിനായി സിസ്റ്റം ആനിമേഷനുകൾ പ്രവർത്തനക്ഷമമാക്കുക.</string>
     <string name="basic_status">സംഭാഷണം തുറക്കുക</string>
     <string name="battery">ബാറ്ററി</string>
     <string name="battery_detail_switch_title">ബാറ്ററി ലാഭിക്കൽ</string>
@@ -311,14 +288,18 @@
     <string name="battery_info_status_charging_wireless">വയർലെസായി ചാർജുചെയ്യുന്നു</string>
     <string name="battery_info_status_discharging">ചാർജ്ജുചെയ്യുന്നില്ല</string>
     <string name="battery_info_status_full">ചാർജായി</string>
+    <string name="battery_info_status_full_charged">പൂർണ്ണമായി ചാർജ് ചെയ്തു</string>
     <string name="battery_info_status_not_charging">കണക്റ്റ് ചെയ്‌തിരിക്കുന്നു, ചാർജ് ചെയ്യുന്നില്ല</string>
     <string name="battery_info_status_unknown">അജ്ഞാതം</string>
+    <string name="battery_low_description">നിങ്ങളുടെ ബാറ്ററിയിൽ %s ചാർജ് ശേഷിക്കുന്നു. ബാറ്ററി ലാഭിക്കൽ, ഡാർക്ക് തീം ഓണാക്കുകയും പശ്ചാത്തല ആക്‌റ്റിവിറ്റി നിയന്ത്രിക്കുകയും അറിയിപ്പുകൾ വെെകിപ്പിക്കുകയും ചെയ്യുന്നു.</string>
+    <string name="battery_low_intro">ബാറ്ററി ലാഭിക്കൽ, ഡാർക്ക് തീം ഓണാക്കുകയും പശ്ചാത്തല ആക്‌റ്റിവിറ്റി നിയന്ത്രിക്കുകയും അറിയിപ്പുകൾ വെെകിപ്പിക്കുകയും ചെയ്യുന്നു.</string>
     <string name="battery_low_percent_format">%s ശേഷിക്കുന്നു</string>
-    <string name="battery_low_title">ബാറ്ററി ഉടൻ തീർന്നേക്കാം</string>
+    <string name="battery_low_title">ബാറ്ററി ലാഭിക്കൽ ഓണാക്കണോ?</string>
     <string name="battery_saver_confirmation_ok">ഓൺ ചെയ്യുക</string>
     <string name="battery_saver_confirmation_title">ബാറ്ററി ലാഭിക്കൽ ഓണാക്കണോ?</string>
     <string name="battery_saver_confirmation_title_generic">ബാറ്ററി ലാഭിക്കലിനെ കുറിച്ച്</string>
-    <string name="battery_saver_start_action">ബാറ്ററി ലാഭിക്കൽ ഓണാക്കുക</string>
+    <string name="battery_saver_dismiss_action">വേണ്ട</string>
+    <string name="battery_saver_start_action">ഓണാക്കുക</string>
     <string name="battery_state_unknown_notification_text">കൂടുതൽ വിവരങ്ങൾക്ക് ടാപ്പ് ചെയ്യുക</string>
     <string name="battery_state_unknown_notification_title">നിങ്ങളുടെ ബാറ്ററി മീറ്റർ വായിക്കുന്നതിൽ പ്രശ്‌നമുണ്ട്</string>
     <string name="biometric_dialog_authenticated">പരിശോധിച്ചുറപ്പിച്ചു</string>
@@ -331,9 +312,6 @@
     <string name="biometric_dialog_face_icon_description_authenticating">നിങ്ങളുടെ മുഖത്തിന് വേണ്ടി തിരയുന്നു</string>
     <string name="biometric_dialog_face_icon_description_confirmed">സ്ഥിരീകരിച്ചു</string>
     <string name="biometric_dialog_face_icon_description_idle">വീണ്ടും ശ്രമിക്കുക</string>
-    <string name="biometric_dialog_failed_attempts_now_wiping_device">ഒരുപാട് തെറ്റായ ശ്രമങ്ങൾ. ഈ ഉപകരണത്തിലെ ഡാറ്റ ഇല്ലാതാക്കപ്പെടും.</string>
-    <string name="biometric_dialog_failed_attempts_now_wiping_profile">ഒരുപാട് തെറ്റായ ശ്രമങ്ങൾ. ഈ ഔദ്യോഗിക പ്രൊഫൈലും അതിന്റെ ഡാറ്റയും ഇല്ലാതാക്കപ്പെടും.</string>
-    <string name="biometric_dialog_failed_attempts_now_wiping_user">ഒരുപാട് തെറ്റായ ശ്രമങ്ങൾ. ഈ ഉപയോക്താവ് ഇല്ലാതാക്കപ്പെടും.</string>
     <string name="biometric_dialog_last_attempt_before_wipe_dialog_title">നിങ്ങളുടെ ഡാറ്റ ഇല്ലാതാക്കപ്പെടും</string>
     <string name="biometric_dialog_last_password_attempt_before_wipe_device">അടുത്ത തവണയും നിങ്ങൾ തെറ്റായ പാസ്‌വേഡ് നൽകിയാൽ, ഈ ഉപകരണത്തിലെ ഡാറ്റ ഇല്ലാതാക്കപ്പെടും.</string>
     <string name="biometric_dialog_last_password_attempt_before_wipe_profile">അടുത്ത തവണയും നിങ്ങൾ തെറ്റായ പാസ്‌വേഡ് നൽകിയാൽ, നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലും അതിന്റെ ഡാറ്റയും ഇല്ലാതാക്കപ്പെടും.</string>
@@ -344,8 +322,8 @@
     <string name="biometric_dialog_last_pin_attempt_before_wipe_device">അടുത്ത തവണയും നിങ്ങൾ തെറ്റായ പിൻ നൽകിയാൽ, ഈ ഉപകരണത്തിലെ ഡാറ്റ ഇല്ലാതാക്കപ്പെടും.</string>
     <string name="biometric_dialog_last_pin_attempt_before_wipe_profile">അടുത്ത തവണയും നിങ്ങൾ തെറ്റായ പിൻ നൽകിയാൽ, നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലും അതിന്റെ ഡാറ്റയും ഇല്ലാതാക്കപ്പെടും.</string>
     <string name="biometric_dialog_last_pin_attempt_before_wipe_user">അടുത്ത തവണയും നിങ്ങൾ തെറ്റായ പിൻ നൽകിയാൽ, ഈ ഉപയോക്താവ് ഇല്ലാതാക്കപ്പെടും.</string>
-    <string name="biometric_dialog_now_wiping_dialog_dismiss">ഡിസ്മിസ് ചെയ്യുക</string>
     <string name="biometric_dialog_tap_confirm">പൂർത്തിയാക്കാൻ സ്ഥിരീകരിക്കുക ടാപ്പ് ചെയ്യൂ</string>
+    <string name="biometric_dialog_tap_confirm_with_face">മുഖം ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്‌തു. തുടരാൻ അൺലോക്ക് ഐക്കൺ അമർത്തുക.</string>
     <string name="biometric_dialog_try_again">വീണ്ടും ശ്രമിക്കുക</string>
     <string name="biometric_dialog_use_password">പാസ്‌വേഡ് ഉപയോഗിക്കുക</string>
     <string name="biometric_dialog_use_pattern">പാറ്റേൺ ഉപയോഗിക്കുക</string>
@@ -382,14 +360,15 @@
     <string name="bluetooth_enable_gabeldorsche_summary">Bluetooth Gabeldorsche ഫീച്ചർ സ്റ്റാക്ക് പ്രവർത്തനക്ഷമമാക്കുന്നു.</string>
     <string name="bluetooth_headset_profile_summary_connected">ഫോൺ ഓഡിയോയിൽ കണ‌ക്റ്റുചെ‌യ്‌തു</string>
     <string name="bluetooth_headset_profile_summary_use_for">ഫോൺ ഓഡിയോയ്ക്കായി ഉപയോഗിക്കുക</string>
+    <string name="bluetooth_hearing_aid_left_active">സജീവമാണ്, ഇടത്തേത് മാത്രം</string>
+    <string name="bluetooth_hearing_aid_left_and_right_active">സജീവമാണ്, ഇടത്തേതും വലത്തേതും</string>
     <string name="bluetooth_hearing_aid_profile_summary_connected">ശ്രവണ സഹായികളിലേക്ക് കണക്‌റ്റ് ചെയ്‌തു</string>
     <string name="bluetooth_hearing_aid_profile_summary_use_for">ശ്രവണ സഹായികൾക്കായി ഉപയോഗിക്കുക</string>
-    <string name="bluetooth_hearingaid_left_battery_level">ഇടത് വശത്ത്- %1$s ബാറ്ററി</string>
-    <string name="bluetooth_hearingaid_left_pairing_message">ഇടത് വശത്തെ ശ്രവണ സഹായി ജോടിയാക്കുന്നു…</string>
-    <string name="bluetooth_hearingaid_right_battery_level">വലത് വശത്ത് - %1$s ബാറ്ററി</string>
-    <string name="bluetooth_hearingaid_right_pairing_message">വലത് വശത്തെ ശ്രവണ സഹായി ജോടിയാക്കുന്നു…</string>
+    <string name="bluetooth_hearing_aid_right_active">സജീവമാണ്, വലത്തേത് മാത്രം</string>
     <string name="bluetooth_hid_profile_summary_connected">ഇൻപുട്ട് ഉപകരണത്തിൽ കണക്റ്റുചെയ്‌തു</string>
     <string name="bluetooth_hid_profile_summary_use_for">ഇൻപുട്ടിനായി ഉപയോഗിക്കുക</string>
+    <string name="bluetooth_le_audio_profile_summary_connected">LE_AUDIO-യിലേക്ക് കണക്റ്റ് ചെയ്തു</string>
+    <string name="bluetooth_le_audio_profile_summary_use_for">LE_AUDIO ഉപയോഗിക്കുക</string>
     <string name="bluetooth_map_profile_summary_connected">മാപ്പിലേക്ക് കണക്റ്റുചെയ്‌തു</string>
     <string name="bluetooth_map_profile_summary_use_for">മാപ്പിനായി ഉപയോഗിക്കുക</string>
     <string name="bluetooth_opp_profile_summary_connected">ഫയൽ കൈമാറ്റ സെർവറിലേക്ക് കണ‌ക്റ്റുചെ‌യ്‌തു</string>
@@ -413,6 +392,7 @@
     <string name="bluetooth_profile_headset">ഫോണ്‍‌ കോളുകൾ</string>
     <string name="bluetooth_profile_hearing_aid">ശ്രവണ സഹായികൾ</string>
     <string name="bluetooth_profile_hid">ഇൻപുട്ട് ഉപകരണം</string>
+    <string name="bluetooth_profile_le_audio">LE_AUDIO</string>
     <string name="bluetooth_profile_map">അക്ഷര സന്ദേശങ്ങൾ</string>
     <string name="bluetooth_profile_opp">ഫയൽ കൈമാറൽ</string>
     <string name="bluetooth_profile_pan">ഇന്‍റർനെറ്റ് ആക്‌സസ്</string>
@@ -456,6 +436,10 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="bt_hci_snoop_log">ബ്ലൂടൂത്ത് HCI സ്‌നൂപ്പ് ലോഗ് പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="bt_hci_snoop_log_summary">Bluetooth പായ്ക്കറ്റുകൾ ക്യാപ്‌ചർ ചെയ്യുക. (ഈ ക്രമീകരണം മാറ്റിയ ശേഷം Bluetooth മാറ്റുക)</string>
     <string name="bt_is_off">Bluetooth ഓഫാണ്</string>
+    <string name="bt_le_audio_broadcast_dialog_different_output">ഔട്ട്പുട്ട് മാറ്റുക</string>
+    <string name="bt_le_audio_broadcast_dialog_sub_title">നിങ്ങൾ %1$s ബ്രോഡ്‌കാസ്റ്റ് ചെയ്യുകയോ ഔട്ട്പുട്ട് മാറ്റുകയോ ചെയ്താൽ നിങ്ങളുടെ നിലവിലുള്ള ബ്രോഡ്‌കാസ്റ്റ് അവസാനിക്കും</string>
+    <string name="bt_le_audio_broadcast_dialog_switch_app">%1$s ബ്രോഡ്‌കാസ്റ്റ് ചെയ്യുക</string>
+    <string name="bt_le_audio_broadcast_dialog_title">%1$s ബ്രോഡ്‌കാസ്റ്റ് ചെയ്യുന്നത് അവസാനിപ്പിക്കണോ?</string>
     <string name="bubble_accessibility_action_add_back">അടുക്കുകളിലേക്ക് തിരിച്ച് ചേർക്കുക</string>
     <string name="bubble_accessibility_action_move_bottom_left">ചുവടെ ഇടതുഭാഗത്തേക്ക് നീക്കുക</string>
     <string name="bubble_accessibility_action_move_bottom_right">ചുവടെ വലതുഭാഗത്തേക്ക് നീക്കുക</string>
@@ -479,11 +463,15 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="bugreport_in_power_summary">ബഗ് റിപ്പോർട്ട് എടുക്കുന്നതിന് പവർ മെനുവിൽ ഒരു ബട്ടൺ കാണിക്കുക</string>
     <string name="build_number_clip_data_label">ബിൽഡ് നമ്പർ</string>
     <string name="build_number_copy_toast">ക്ലിപ്പ്ബോർഡിലേക്ക് ബിൽഡ് നമ്പർ പകർത്തി.</string>
-    <string name="button_convert_fbe">വൈപ്പുചെയ്ത് പരിവർത്തിപ്പിക്കുക…</string>
     <string name="cached_apps_freezer_device_default">ഉപകരണത്തിന്റെ ഡിഫോൾട്ട് പ്രവർത്തനം</string>
     <string name="cached_apps_freezer_disabled">പ്രവർത്തനരഹിതമാക്കി</string>
     <string name="cached_apps_freezer_enabled">പ്രവർത്തനക്ഷമമാക്കി</string>
     <string name="cached_apps_freezer_reboot_dialog_text">ഈ മാറ്റം ബാധകമാകുന്നതിന് നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യേണ്ടതുണ്ട്. ഇപ്പോൾ റീബൂട്ട് ചെയ്യുകയോ റദ്ദാക്കുകയോ ചെയ്യുക.</string>
+    <string name="camera_compat_dismiss_button_description">ക്യാമറാ പ്രശ്നങ്ങളൊന്നുമില്ലേ? നിരസിക്കാൻ ടാപ്പ് ചെയ്യുക.</string>
+    <string name="camera_compat_treatment_applied_button_description">"അത് പരിഹരിച്ചില്ലേ?
+പുനഃസ്ഥാപിക്കാൻ ടാപ്പ് ചെയ്യുക"</string>
+    <string name="camera_compat_treatment_suggested_button_description">"ക്യാമറ പ്രശ്നങ്ങളുണ്ടോ?
+ശരിയാക്കാൻ ടാപ്പ് ചെയ്യുക"</string>
     <string name="camera_hint">ക്യാമറ ഐക്കണിൽ നിന്ന് സ്വൈപ്പുചെയ്യുക</string>
     <string name="camera_label">ക്യാമറ തുറക്കുക</string>
     <string name="camera_recording_announcement">ക്യാമറ റെക്കോർഡ് ചെയ്യുകയാണ്</string>
@@ -503,6 +491,21 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="clear_all_notifications_text">എല്ലാം മായ്‌ക്കുക</string>
     <string name="clear_text_end_icon_content_description">ടെക്‌സ്‌റ്റ് മായ്‌ക്കുക</string>
     <string name="clipboard">ക്ലിപ്പ്ബോർഡ്</string>
+    <string name="clipboard_content_copied">ഉള്ളടക്കം പകർത്തി</string>
+    <string name="clipboard_dismiss_description">പകർത്തിയ ടെക്സ്റ്റ് ഡിസ്‌മിസ് ചെയ്യുക</string>
+    <string name="clipboard_edit">എഡിറ്റ് ചെയ്യുക</string>
+    <string name="clipboard_edit_image_description">പകർത്തിയ ചിത്രം എഡിറ്റ് ചെയ്യുക</string>
+    <string name="clipboard_edit_source">%1$s എന്നതിൽ നിന്ന്</string>
+    <string name="clipboard_edit_text_description">പകർത്തിയ ടെക്സ്റ്റ് എഡിറ്റ് ചെയ്യുക</string>
+    <string name="clipboard_edit_text_done">പൂർത്തിയായി</string>
+    <string name="clipboard_editor">ക്ലിപ്പ്‌ബോർഡ് എഡിറ്റർ</string>
+    <string name="clipboard_image_copied">ചിത്രം പകർത്തി</string>
+    <string name="clipboard_image_preview">ചിത്രത്തിന്റെ പ്രിവ്യൂ</string>
+    <string name="clipboard_overlay_text_copied">പകർത്തി</string>
+    <string name="clipboard_overlay_window_name">ക്ലിപ്പ്‌ബോർഡ്</string>
+    <string name="clipboard_send_nearby_description">സമീപത്തുള്ള ഉപകരണത്തിലേക്ക് അയയ്ക്കുക</string>
+    <string name="clipboard_text_copied">ടെക്‌സ്റ്റ് പകർത്തി</string>
+    <string name="clipboard_text_hidden">കാണാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="clock_title_analog">അനലോഗ്</string>
     <string name="clock_title_bubble">ബബിൾ</string>
     <string name="clock_title_default">ഡിഫോൾട്ട്</string>
@@ -540,8 +543,13 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="controls_favorite_subtitle">ദ്രുത ക്രമീകരണത്തിൽ നിന്ന് ആക്സസ് ചെയ്യേണ്ട നിയന്ത്രണങ്ങൾ തിരഞ്ഞെടുക്കുക</string>
     <string name="controls_favorite_toast_no_changes">മാറ്റങ്ങൾ സംരക്ഷിച്ചിട്ടില്ല</string>
     <string name="controls_media_active_session">നിലവിലെ മീഡിയ സെഷൻ മറയ്ക്കാനാകില്ല.</string>
-    <string name="controls_media_close_session">ഈ മീഡിയ സെഷൻ മറയ്ക്കണോ?</string>
-    <string name="controls_media_dismiss_button">ഡിസ്‌മിസ് ചെയ്യുക</string>
+    <string name="controls_media_button_connecting">കണക്റ്റ് ചെയ്യുന്നു</string>
+    <string name="controls_media_button_next">അടുത്ത ട്രാക്ക്</string>
+    <string name="controls_media_button_pause">താൽക്കാലികമായി നിർത്തുക</string>
+    <string name="controls_media_button_play">പ്ലേ ചെയ്യുക</string>
+    <string name="controls_media_button_prev">മുമ്പത്തെ ട്രാക്ക്</string>
+    <string name="controls_media_close_session">%1$s ആപ്പിനുള്ള ഈ മീഡിയാ കൺട്രോൾ മറയ്ക്കണോ?</string>
+    <string name="controls_media_dismiss_button">മറയ്‌ക്കുക</string>
     <string name="controls_media_playing_item_description">%2$s എന്ന ആർട്ടിസ്റ്റിന്റെ %1$s എന്ന ഗാനം %3$s ആപ്പിൽ പ്ലേ ചെയ്യുന്നു</string>
     <string name="controls_media_resume">പുനരാരംഭിക്കുക</string>
     <string name="controls_media_seekbar_description">%2$s-ൽ %1$s</string>
@@ -562,18 +570,24 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="controls_providers_title">നിയന്ത്രണങ്ങൾ ചേർക്കാൻ ആപ്പ് തിരഞ്ഞെടുക്കുക</string>
     <string name="controls_removed">നീക്കം ചെയ്‌തു</string>
     <string name="controls_seeding_in_progress">നിർദ്ദേശങ്ങൾ ലോഡ് ചെയ്യുന്നു</string>
+    <string name="controls_settings_dialog_neutral_button">വേണ്ട, നന്ദി</string>
+    <string name="controls_settings_dialog_positive_button">ഉവ്വ്</string>
+    <string name="controls_settings_show_controls_dialog_message">"നിങ്ങളുടെ ബാഹ്യ ഉപകരണങ്ങൾക്കുള്ള നിയന്ത്രണങ്ങൾ ലോക്ക് സ്‌ക്രീനിലേക്ക് ചേർക്കാനാകും.
+
+നിങ്ങളുടെ ഫോണോ ടാബ്‌ലെറ്റോ അൺലോക്ക് ചെയ്യാതെ ചില ഉപകരണങ്ങൾ നിയന്ത്രിക്കാൻ നിങ്ങളുടെ ഉപകരണ ആപ്പ് അനുവദിച്ചേക്കും.
+
+നിങ്ങൾക്ക് ക്രമീകരണത്തിൽ ഏതുസമയത്തും മാറ്റങ്ങൾ വരുത്താം."</string>
+    <string name="controls_settings_show_controls_dialog_title">ലോക്ക് സ്‌ക്രീനിൽ നിന്ന് ഉപകരണങ്ങൾ കാണിക്കുകയും നിയന്ത്രിക്കുകയും ചെയ്യണോ?</string>
+    <string name="controls_settings_trivial_controls_dialog_message">"നിങ്ങളുടെ ഫോണോ ടാബ്‌ലെറ്റോ അൺലോക്ക് ചെയ്യാതെ ചില ഉപകരണങ്ങൾ നിയന്ത്രിക്കാം.
+
+ഏതൊക്കെ ഉപകരണങ്ങൾ ഈ രീതിയിൽ നിയന്ത്രിക്കാൻ കഴിയുമെന്ന് നിങ്ങളുടെ ഉപകരണ ആപ്പ് നിർണ്ണയിക്കുന്നു."</string>
+    <string name="controls_settings_trivial_controls_dialog_title">ലോക്ക് സ്‌ക്രീനിൽ നിന്ന് ഉപകരണങ്ങൾ നിയന്ത്രിക്കണോ?</string>
     <string name="controls_structure_tooltip">കൂടുതൽ കാണാൻ സ്വൈപ്പ് ചെയ്യുക</string>
     <string name="controls_tile_locked">ഉപകരണം ലോക്ക് ചെയ്തു</string>
-    <string name="convert_to_fbe_warning">"ഡാറ്റാ വിഭജനം, ഫയൽ അധിഷ്ഠിത എൻക്രിപ്ഷനിലേക്ക് പരിവർത്തിപ്പിക്കുക.
- !!മുന്നറിയിപ്പ്!! ഇങ്ങനെ ചെയ്താൽ നിങ്ങളുടെ എല്ലാ ഡാറ്റയും മായ്ക്കപ്പെടും.
- ഈ ഫീച്ചറിപ്പോൾ ആൽഫാ ഘട്ടത്തിലാണ്, ശരിയായി പ്രവർത്തിച്ചേക്കില്ല.
- തുടരുന്നതിന് 'വൈപ്പുചെയ്ത് പരിവർത്തിപ്പിക്കുക...' അമർത്തുക."</string>
-    <string name="convert_to_file_encryption">ഫയൽ എൻക്രിപ്ഷനിലേക്ക് പരിവർത്തിപ്പിക്കുക</string>
-    <string name="convert_to_file_encryption_done">ഇതിനകം തന്നെ ഫയൽ എൻക്രിപ്റ്റ് ചെയ്തു</string>
-    <string name="convert_to_file_encryption_enabled">പരിവർത്തിപ്പിക്കുക…</string>
     <string name="copied_text_label">പകർത്തിയ ടെക്‌സ്‌റ്റ്</string>
     <string name="copy">പകർത്തുക</string>
     <string name="copy_url_description">ടെക്‌സ്റ്റ് പകർത്തി</string>
+    <string name="creating_new_guest_dialog_message">പുതിയ അതിഥിയെ സൃഷ്‌ടിക്കുന്നു…</string>
     <string name="creating_new_user_dialog_message">പുതിയ ഉപയോക്താവിനെ സൃഷ്‌ടിക്കുന്നു…</string>
     <string name="daltonizer_mode_deuteranomaly">വർണ്ണാന്ധത (ചുവപ്പ്-പച്ച‌)</string>
     <string name="daltonizer_mode_disabled">പ്രവർത്തനരഹിതമാക്കി</string>
@@ -619,6 +633,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="debug_monitoring_category">മോണിറ്ററിംഗ്</string>
     <string name="debug_networking_category">നെറ്റ്‍വര്‍ക്കിംഗ്</string>
     <string name="debug_view_attributes">ആട്രിബ്യൂട്ട് പരിശോധന കാണൽ പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="default_user_icon_description">ഡിഫോൾട്ട് ഉപയോക്തൃ ഐക്കൺ</string>
     <string name="defender_notify_des">ബാറ്ററിയുടെ ആരോഗ്യം സംരക്ഷിക്കുന്നതിന് നിങ്ങളുടെ ഫോൺ ചാർജ് ചെയ്യൽ പരിമിതപ്പെടുത്തുന്നു</string>
     <string name="defender_notify_resume_charge">ചാർജിംഗ് പുനരാരംഭിക്കുക</string>
     <string name="defender_notify_title">ചാർജിംഗ് താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
@@ -643,21 +658,37 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="disabled">പ്രവർത്തനരഹിതമാക്കി</string>
     <string name="disabled_by_admin">അഡ്‌മിൻ പ്രവർത്തനരഹിതമാക്കി</string>
     <string name="disabled_by_admin_summary_text">അഡ്‌മിൻ നിയന്ത്രിക്കുന്നത്</string>
+    <string name="disabled_by_app_ops_text">നിയന്ത്രിത ക്രമീകരണം ഉപയോഗിച്ച് നിയന്ത്രിക്കുന്നത്</string>
     <string name="dnd_is_off">"'ശല്യപ്പെടുത്തരുത്' ഓഫാണ്"</string>
     <string name="dnd_suppressing_shade_text">"'ശല്യപ്പെടുത്തരുത്' വഴി അറിയിപ്പുകൾ താൽക്കാലികമായി നിർത്തി"</string>
     <string name="do_disclosure_generic">ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്</string>
     <string name="do_disclosure_with_name">ഈ ഉപകരണം %s എന്ന സ്ഥാപനത്തിന്റേതാണ്</string>
     <string name="do_financed_disclosure_with_name">%s നൽകിയ ഉപകരണമാണിത്</string>
+    <string name="dock_a11y_action_show_photo_text">ഫോട്ടോ ഫ്രെയിം കാണിക്കുക</string>
     <string name="dock_alignment_not_charging">വയർലെസായി ചാർജ് ചെയ്യാൻ ഫോണിന്റെ സ്ഥാനം പുനഃക്രമീകരിക്കുക</string>
     <string name="dock_alignment_slow_charging">അതിവേഗം ചാർജ് ചെയ്യാൻ ഫോണിന്റെ സ്ഥാനം പുനഃക്രമീകരിക്കുക</string>
     <string name="dock_forced_resizable">സ്‌ക്രീൻ വിഭജന മോഡിൽ ആപ്പ് പ്രവർത്തിച്ചേക്കില്ല.</string>
     <string name="dock_non_resizeble_failed_to_dock_text">സ്പ്ലിറ്റ്-സ്ക്രീനിനെ ആപ്പ് പിന്തുണയ്ക്കുന്നില്ല.</string>
     <string name="dock_photo_preview_text">ഫോട്ടോ ഫ്രെയിം ആരംഭിക്കുന്നു...</string>
     <string name="dock_promo_text">ഫോട്ടോ ഫ്രെയിമിന് ഇടത്തോട്ട് സ്വെെപ്പ് ചെയ്യുക</string>
+    <string name="done">പൂർത്തിയായി</string>
+    <string name="drag_split_not_supported">സ്പ്ലിറ്റ് സ്ക്രീനിലേക്ക് വലിച്ചിടുന്നതിനെ ഈ അറിയിപ്പ് പിന്തുണയ്ക്കുന്നില്ല.</string>
     <string name="drag_to_add_tiles">ടൈലുകൾ ചേർക്കാൻ അമർത്തിപ്പിടിച്ച് വലിച്ചിടുക</string>
     <string name="drag_to_rearrange_tiles">ടൈലുകൾ പുനഃക്രമീകരിക്കാൻ അമർത്തിപ്പിടിച്ച് വലിച്ചിടുക</string>
     <string name="drag_to_remove_disabled">നിങ്ങൾക്ക് ചുരുങ്ങിയത് %1$d ടൈലുകളെങ്കിലും വേണം</string>
     <string name="drag_to_remove_tiles">നീക്കംചെയ്യുന്നതിന് ഇവിടെ വലിച്ചിടുക</string>
+    <string name="dream_complication_title_aqi">വായു നിലവാരം</string>
+    <string name="dream_complication_title_cast_info">കാസ്റ്റ് വിവരങ്ങൾ</string>
+    <string name="dream_complication_title_date">തീയതി</string>
+    <string name="dream_complication_title_time">സമയം</string>
+    <string name="dream_complication_title_weather">കാലാവസ്ഥ</string>
+    <string name="dream_overlay_status_bar_alarm_set">അലാറം സജ്ജീകരിച്ചു</string>
+    <string name="dream_overlay_status_bar_camera_mic_off">ക്യാമറയും മൈക്കും ഓഫാണ്</string>
+    <string name="dream_overlay_status_bar_notification_indicator">{count,plural, =1{# അറിയിപ്പ്}other{# അറിയിപ്പുകൾ}}</string>
+    <string name="dream_overlay_status_bar_priority_mode">മുൻഗണനാ മോഡ്</string>
+    <string name="dream_overlay_status_bar_wifi_off">വൈഫൈ ലഭ്യമല്ല</string>
+    <string name="dream_settings_notification_text">നിങ്ങളുടെ സ്ക്രീൻ സേവർ ഇഷ്‌ടാനുസൃതമാക്കുക</string>
+    <string name="dream_settings_notification_title">ക്രമീകരണം</string>
     <string name="empty_shade_text">അറിയിപ്പുകൾ ഒന്നുമില്ല</string>
     <string name="empty_status">ഇന്നുരാത്രി ചാറ്റ് ചെയ്യാം!</string>
     <string name="empty_user_name">സുഹൃത്തുക്കൾ</string>
@@ -699,12 +730,21 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="face_reenroll_failure_dialog_content">ഫെയ്‌സ് അൺലോക്ക് സജ്ജീകരിക്കാനായില്ല. വീണ്ടും ശ്രമിക്കാൻ ക്രമീകരണത്തിലേക്ക് പോവുക.</string>
     <string name="face_reenroll_notification_content">സുരക്ഷയും പ്രകടനവും മെച്ചപ്പെടുത്താൻ സജ്ജീകരണം ആവശ്യമാണ്</string>
     <string name="face_reenroll_notification_title">ഫെയ്‌സ് അൺലോക്ക് വീണ്ടും സജ്ജീകരിക്കേണ്ടതുണ്ട്</string>
+    <string name="failed_attempts_now_wiping_device">ഒരുപാട് തെറ്റായ ശ്രമങ്ങൾ. ഈ ഉപകരണത്തിലെ ഡാറ്റ ഇല്ലാതാക്കപ്പെടും.</string>
+    <string name="failed_attempts_now_wiping_dialog_dismiss">ഡിസ്‌മിസ് ചെയ്യുക</string>
+    <string name="failed_attempts_now_wiping_profile">ഒരുപാട് തെറ്റായ ശ്രമങ്ങൾ. ഈ ഔദ്യോഗിക പ്രൊഫൈലും അതിന്റെ ഡാറ്റയും ഇല്ലാതാക്കപ്പെടും.</string>
+    <string name="failed_attempts_now_wiping_user">ഒരുപാട് തെറ്റായ ശ്രമങ്ങൾ. ഈ ഉപയോക്താവ് ഇല്ലാതാക്കപ്പെടും.</string>
     <string name="failed_to_open_app_settings_toast">%1$s എന്നതിനായുള്ള ക്രമീകരണങ്ങൾ തുറക്കുന്നതിൽ പരാജയപ്പെട്ടു</string>
     <string name="feedback_alerted">ഈ അറിയിപ്പ്, സിസ്‌റ്റം സ്വയമേവ &lt;b>ഡിഫോൾട്ടാക്കി പ്രമോട്ട് ചെയ്‌തു&lt;/b>.</string>
     <string name="feedback_demoted">ഈ അറിയിപ്പിന് നിങ്ങളുടെ ഷെയ്‌ഡിൽ സ്വയമേവ &lt;b>താഴ്ന്ന റാങ്കിംഗ് നൽകി&lt;/b>.</string>
     <string name="feedback_promoted">ഈ അറിയിപ്പിന് നിങ്ങളുടെ ഷെയ്‌ഡിൽ സ്വയമേവ &lt;b>ഉയർന്ന റാങ്കിംഗ് നൽകി&lt;/b>.</string>
     <string name="feedback_prompt">ഡെവലപ്പറിനെ നിങ്ങളുടെ ഫീഡ്ബാക്ക് അറിയിക്കൂ. ഇത് ശരിയായിരുന്നോ?</string>
     <string name="feedback_silenced">ഈ അറിയിപ്പ്, സിസ്‌റ്റം സ്വയമേവ &lt;b>നിശബ്‌ദമാക്കി തരം താഴ്ത്തി&lt;/b>.</string>
+    <string name="fgs_dot_content_description">പുതിയ വിവരങ്ങൾ</string>
+    <string name="fgs_manager_app_item_stop_button_label">നിർത്തുക</string>
+    <string name="fgs_manager_app_item_stop_button_stopped_label">നിർത്തി</string>
+    <string name="fgs_manager_dialog_message">നിങ്ങൾ ഉപയോഗിക്കാത്തപ്പോൾ പോലും ഈ ആപ്പുകൾ സജീവമായിരിക്കും, പ്രവർത്തിച്ചുകൊണ്ടിരിക്കുകയും ചെയ്യും. ഇത് അവയുടെ പ്രവർത്തനക്ഷമത മെച്ചപ്പെടുത്തുന്നു, എന്നാൽ ഇത് ബാറ്ററി ലൈഫിനെ ബാധിച്ചേക്കാനിടയുണ്ട്.</string>
+    <string name="fgs_manager_dialog_title">സജീവമായ ആപ്പുകൾ</string>
     <string name="fingerprint_dialog_touch_sensor">ഫിംഗർപ്രിന്റ് സെൻസർ സ്‌പർശിക്കുക</string>
     <string name="fingerprint_dialog_use_fingerprint_instead">മുഖം തിരിച്ചറിയാനായില്ല. പകരം ഫിംഗർപ്രിന്റ് ഉപയോഗിക്കൂ.</string>
     <string name="force_allow_on_external">ബാഹ്യമായതിൽ നിർബന്ധിച്ച് അനുവദിക്കുക</string>
@@ -716,35 +756,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="force_rtl_layout_all_locales">RTL ലേഔട്ട് ഡയറക്ഷൻ നിർബന്ധമാക്കുക</string>
     <string name="force_rtl_layout_all_locales_summary">എല്ലാ ഭാഷകൾക്കുമായി സ്‌ക്രീൻ ലേഔട്ട് ഡയറക്ഷൻ RTL-ലേക്ക് നിർബന്ധമാക്കുക</string>
     <string name="forced_resizable_secondary_display">രണ്ടാം ഡിസ്‌പ്ലേയിൽ ആപ്പ് പ്രവർത്തിച്ചേക്കില്ല.</string>
-    <string name="game_dashboard_dnd_on">"ഗെയിമുകൾക്ക് 'ശല്യപ്പെടുത്തരുത്' ഓണാക്കിയിരിക്കുന്നു"</string>
-    <string name="game_dashboard_fps_counter_on">ഫ്രെയിം റേറ്റ് കൗണ്ടർ ഓണാണ്</string>
-    <string name="game_dashboard_game_menu_title">ഗെയിം ഡാഷ്ബോർഡ്</string>
-    <string name="game_dashboard_record_shortcut_available">റെക്കോർഡ് ചെയ്യൽ കുറുക്കുവഴി ലഭ്യമാണ്</string>
-    <string name="game_dashboard_screenshot_shortcut_available">സ്‌ക്രീൻഷോട്ട് കുറുക്കുവഴി ലഭ്യമാണ്</string>
-    <string name="game_launch_battery">ബാറ്ററി ലൈഫിന് ഒപ്റ്റിമൈസ് ചെയ്‌തു</string>
-    <string name="game_launch_change">മാറ്റുക</string>
-    <string name="game_launch_dnd_on">"ഗെയിമുകൾക്ക് 'ശല്യപ്പെടുത്തരുത്' ഓണാണ്"</string>
-    <string name="game_launch_performance">പ്രകടനത്തിനായി ഒപ്‌റ്റിമെെസ് ചെയ്‌തു</string>
-    <string name="game_menu_game_mode_description">പ്രകടനം അല്ലെങ്കിൽ ബാറ്ററി ലാഭിക്കൽ തിരഞ്ഞെടുക്കുക</string>
-    <string name="game_menu_game_mode_title">ഒപ്റ്റിമൈസേഷന്‍</string>
-    <string name="game_menu_youtube_live_stream_widget_description">നിങ്ങളുടെ ഗെയിംപ്ലേ സ്ട്രീം ചെയ്യുക</string>
-    <string name="game_menu_youtube_live_stream_widget_title">YouTube തത്സമയം</string>
-    <string name="game_mode_battery_description">ബാറ്ററി ലൈഫ് വർദ്ധിപ്പിക്കുന്നു</string>
-    <string name="game_mode_battery_title">ബാറ്ററി ലാഭിക്കൽ</string>
-    <string name="game_mode_dnd_rule_name">ഗെയിമിംഗ്</string>
-    <string name="game_mode_performance_description">ഫ്രെയിം എണ്ണം പരമാവധിയാക്കുന്നു</string>
-    <string name="game_mode_performance_title">പ്രകടനം</string>
-    <string name="game_mode_restart_dialog_cancel">റദ്ദാക്കുക</string>
-    <string name="game_mode_restart_dialog_confirm">റീസ്‌റ്റാർട്ട് ചെയ്യുക</string>
-    <string name="game_mode_restart_dialog_message_battery">ഗെയിം റീസ്‌റ്റാർട്ട് ചെയ്യുമ്പോൾ ബാറ്ററി ലെെഫിന് ഞങ്ങൾ ഒപ്‌റ്റിമെെസ് ചെയ്യും</string>
-    <string name="game_mode_restart_dialog_message_performance">ഗെയിം റീസ്‌റ്റാർട്ട് ചെയ്യുമ്പോൾ പ്രകടനത്തിനായി ഞങ്ങൾ ഒപ്‌റ്റിമെെസ് ചെയ്യും</string>
-    <string name="game_mode_restart_dialog_message_standard">ഗെയിം റീസ്‌റ്റാർട്ട് ചെയ്യുമ്പോൾ ഗെയിമിന്റെ ഡിഫോൾട്ട് ഞങ്ങൾ ഉപയോഗിക്കും</string>
-    <string name="game_mode_restart_dialog_title">ഈ ഗെയിം റീസ്‌റ്റാർട്ട് ചെയ്യണോ?</string>
-    <string name="game_mode_standard_description">ഗെയിമിന്റെ ഡിഫോൾട്ടുകൾ ഉപയോഗിക്കുന്നു</string>
-    <string name="game_mode_standard_title">സ്റ്റാൻഡേർഡ്</string>
-    <string name="game_mode_subtitle">ഈ ഗെയിമിനുള്ള നിങ്ങളുടെ മുൻഗണന തിരഞ്ഞെടുക്കുക</string>
-    <string name="game_mode_unsupported_description">ഈ ഗെയിമിന് ലഭ്യമല്ല</string>
-    <string name="game_screen_record_saved">സ്ക്രീൻ റെക്കോർഡിംഗ് സംരക്ഷിച്ചു</string>
     <string name="game_status">കളിക്കുന്നു</string>
     <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
     <string name="global_action_lock_message">കൂടുതൽ ഓപ്ഷനുകൾക്ക് നിങ്ങളുടെ ഫോൺ അൺലോക്ക് ചെയ്യുക</string>
@@ -754,10 +765,9 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="got_it">മനസ്സിലായി</string>
     <string name="guest_exit_guest">അതിഥിയെ നീക്കം ചെയ്യുക</string>
     <string name="guest_exit_guest_dialog_message">ഈ സെഷനിലെ എല്ലാ ആപ്പുകളും ഡാറ്റയും ഇല്ലാതാക്കും.</string>
-    <string name="guest_exit_guest_dialog_remove">നീക്കംചെയ്യുക</string>
-    <string name="guest_exit_guest_dialog_title">അതിഥിയെ നീക്കംചെയ്യണോ?</string>
     <string name="guest_new_guest">അതിഥിയെ ചേർക്കുക</string>
-    <string name="guest_nickname">അതിഥി</string>
+    <string name="guest_remove_guest_confirm_button">നീക്കം ചെയ്യുക</string>
+    <string name="guest_remove_guest_dialog_title">അതിഥിയെ നീക്കം ചെയ്യണോ?</string>
     <string name="guest_reset_guest">അതിഥിയെ റീസെറ്റ് ചെയ്യുക</string>
     <string name="guest_reset_guest_confirm_button">റീസെറ്റ് ചെയ്യുക</string>
     <string name="guest_reset_guest_dialog_title">അതിഥിയെ റീസെറ്റ് ചെയ്യണോ?</string>
@@ -769,6 +779,10 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="handle_invocation_prompt">സംസാരിക്കാൻ സ്വൈപ്പ് ചെയ്യുക</string>
     <string name="hdcp_checking_dialog_title">HDCP ചെക്കിംഗ്‌രീതി സജ്ജമാക്കുക</string>
     <string name="hdcp_checking_title">HDCP പരിശോധന</string>
+    <string name="hdmi_cec_set_menu_language_accept">ഭാഷ മാറ്റുക</string>
+    <string name="hdmi_cec_set_menu_language_decline">നിലവിലെ ഭാഷ നിലനിർത്തുക</string>
+    <string name="hdmi_cec_set_menu_language_description">സിസ്റ്റത്തിന്റെ ഭാഷ മാറ്റാൻ മറ്റൊരു ഉപകരണം അഭ്യർത്ഥിച്ചു</string>
+    <string name="hdmi_cec_set_menu_language_title">സിസ്റ്റത്തിന്റെ ഭാഷ %1$s ആക്കണോ?</string>
     <string name="headset">ഹെഡ്‌സെറ്റ്</string>
     <string name="heap_dump_tile_name">SysUI ഹീപ്പ് ഡമ്പ് ചെയ്യുക</string>
     <string name="help_feedback_label">സഹായവും ഫീഡ്‌ബാക്കും</string>
@@ -784,6 +798,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
 കൂടുതൽ വിവരങ്ങൾക്ക് ടാപ്പ് ചെയ്യുക"</string>
     <string name="high_temp_title">ഫോൺ ചൂടായിക്കൊണ്ടിരിക്കുന്നു</string>
     <string name="home">ക്രമീകരണ ഹോം</string>
+    <string name="home_controls_tile_title">ഹോം</string>
     <string name="icon_content_description">ഡയലോഗ് ഐക്കൺ</string>
     <string name="image_content_description">തിരഞ്ഞെടുക്കാവുന്ന ചിത്രം</string>
     <string name="ime_security_warning">പാസ്‌വേഡുകൾ, ക്രെഡിറ്റ് കാർഡ് നമ്പറുകൾ എന്നിവ പോലുള്ള വ്യക്തിഗതമായ ഡാറ്റയുൾപ്പെടെ നിങ്ങൾ ടൈപ്പുചെയ്യുന്ന എല്ലാ വാചകവും ഈ ടൈപ്പുചെയ്യൽ രീതിയ്‌ക്ക് ശേഖരിക്കാനായേക്കും. ഇത് %1$s അപ്ലിക്കേഷനിൽ നിന്നും വരുന്നു. ഈ ടൈപ്പുചെയ്യൽ രീതി ഉപയോഗിക്കണോ?</string>
@@ -845,7 +860,9 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="keyboard_key_page_down">പേജ് ഡൗൺ</string>
     <string name="keyboard_key_page_up">പേജ് അപ്പ്</string>
     <string name="keyboard_key_space">സ്പെയ്സ്</string>
-    <string name="keyboard_key_tab">ടാബ്</string>
+    <string name="keyboard_key_tab">TAB</string>
+    <string name="keyboard_layout_default_label">ഡിഫോൾട്ട്</string>
+    <string name="keyboard_layout_dialog_title">കീബോർഡ് ലേഔട്ട് തിരഞ്ഞെടുക്കുക</string>
     <string name="keyboard_shortcut_group_applications">അപ്ലിക്കേഷനുകൾ</string>
     <string name="keyboard_shortcut_group_applications_assist">അസിസ്റ്റ്</string>
     <string name="keyboard_shortcut_group_applications_browser">ബ്രൗസർ</string>
@@ -856,7 +873,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="keyboard_shortcut_group_applications_sms">SMS:</string>
     <string name="keyboard_shortcut_group_system">സിസ്‌റ്റം</string>
     <string name="keyboard_shortcut_group_system_back">മടങ്ങുക</string>
-    <string name="keyboard_shortcut_group_system_home">വീട്</string>
+    <string name="keyboard_shortcut_group_system_home">ഹോം</string>
     <string name="keyboard_shortcut_group_system_notifications">അറിയിപ്പുകൾ</string>
     <string name="keyboard_shortcut_group_system_recents">പുതിയവ</string>
     <string name="keyboard_shortcut_group_system_shortcuts_helper">കീബോർഡ് കുറുക്കുവഴികൾ</string>
@@ -871,7 +888,9 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="keyguard_enter_your_password">നിങ്ങളുടെ പാസ്‌വേഡ് നല്‍‌കുക</string>
     <string name="keyguard_enter_your_pattern">നിങ്ങളുടെ പാറ്റേൺ നൽകുക</string>
     <string name="keyguard_enter_your_pin">പിൻ നൽകുക</string>
+    <string name="keyguard_face_successful_unlock_press">മുഖം ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്‌തു. തുറക്കാൻ അൺലോക്ക് ഐക്കൺ അമർത്തുക.</string>
     <string name="keyguard_indication_charging_time">%2$s • ചാർജ് ചെയ്യുന്നു • %1$s-ൽ പൂർത്തിയാകും</string>
+    <string name="keyguard_indication_charging_time_dock">%2$s • ചാർജിംഗ് ഡോക്ക് • %1$s-ൽ പൂർത്തിയാകും</string>
     <string name="keyguard_indication_charging_time_fast">%2$s • വേഗത്തിൽ ചാർജ് ചെയ്യുന്നു • %1$s-ൽ പൂർത്തിയാകും</string>
     <string name="keyguard_indication_charging_time_slowly">%2$s • പതുക്കെ ചാർജ് ചെയ്യുന്നു • %1$s-ൽ പൂർത്തിയാകും</string>
     <string name="keyguard_indication_charging_time_wireless">%2$s • വയർലെസ്സ് ആയി ചാർജ് ചെയ്യുന്നു • %1$s-ൽ പൂർത്തിയാകും</string>
@@ -889,6 +908,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="keyguard_plugged_in_charging_fast">%s • വേഗത്തിൽ ചാർജ് ചെയ്യുന്നു</string>
     <string name="keyguard_plugged_in_charging_limited">%s • ചാർജിംഗ് താൽക്കാലികമായി പരിമിതപ്പെടുത്തിയിരിക്കുന്നു</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • പതുക്കെ ചാർജ് ചെയ്യുന്നു</string>
+    <string name="keyguard_plugged_in_dock">%s • ചാർജിംഗ് ഡോക്ക്</string>
     <string name="keyguard_plugged_in_wireless">%s • വയർലെസ്സ് ആയി ചാർജ് ചെയ്യുന്നു</string>
     <string name="keyguard_retry">വീണ്ടും ശ്രമിക്കാൻ മുകളിലേക്ക് സ്വൈപ്പ് ചെയ്യുക</string>
     <string name="keyguard_sim_error_message_short">അസാധുവായ കാർഡ്.</string>
@@ -897,7 +917,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="keyguard_sim_unlock_progress_dialog_message">സിം കാർഡ് അൺലോക്കുചെയ്യുന്നു…</string>
     <string name="keyguard_try_fingerprint">തുറക്കുന്നതിന് നിങ്ങളുടെ ഫിംഗർപ്രിന്റ് ഉപയോഗിക്കുക</string>
     <string name="keyguard_unlock">തുറക്കാൻ മുകളിലോട്ട് സ്വൈപ്പ് ചെയ്യുക</string>
-    <string name="keyguard_unlock_press">തുറക്കാൻ അമർത്തുക</string>
+    <string name="keyguard_unlock_press">തുറക്കാൻ അൺലോക്ക് ഐക്കൺ അമർത്തുക</string>
     <string name="keywords_adb_wireless">adb, debug, dev</string>
     <string name="keywords_alarms_and_reminders">ഷെഡ്യൂൾ, അലാറം, റിമെെൻഡർ, ക്ലോക്ക്</string>
     <string name="kg_enter_confirm_pin_hint">താൽപ്പര്യപ്പെടുന്ന പിൻകോ‌ഡ് സ്ഥിരീകരിക്കുക</string>
@@ -912,7 +932,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="kg_failed_attempts_now_erasing_profile">നിങ്ങൾ %d തവണ തെറ്റായ രീതിയിൽ ഫോൺ അൺലോക്ക് ചെയ്യാൻ ശ്രമിച്ചു. ഔദ്യോഗിക പ്രൊഫൈൽ നീക്കം ചെയ്യപ്പെടുകയും, അതുവഴി എല്ലാ പ്രൊഫൈൽ ഡാറ്റയും ഇല്ലാതാകുകയും ചെയ്യും.</string>
     <string name="kg_failed_attempts_now_erasing_user">നിങ്ങൾ %d തവണ തെറ്റായ രീതിയിൽ ഫോൺ അൺലോക്ക് ചെയ്യാൻ ശ്രമിച്ചു. ഈ ഉപയോക്താവിനെ ‌നീക്കം ചെയ്യുകയും, അതുവഴി ഉപയോക്താവിന്റെ എല്ലാ ഡാറ്റയും ഇല്ലാതാകുകയും ചെയ്യും.</string>
     <string name="kg_failed_attempts_now_wiping">നിങ്ങൾ %d തവണ തെറ്റായ രീതിയിൽ ഫോൺ അൺലോക്ക് ചെയ്യാൻ ശ്രമിച്ചു. ഈ ഫോൺ റീസെറ്റ് ചെയ്യപ്പെടുകയും, അതുവഴി അതിലെ എല്ലാ ഡാറ്റയും ഇല്ലാതാകുകയും ചെയ്യും.</string>
-    <string name="kg_fingerprint_not_recognized">തിരിച്ചറിയുന്നില്ല</string>
     <string name="kg_invalid_confirm_pin_hint">പിൻ കോഡുകൾ പൊരുത്തപ്പെടുന്നില്ല</string>
     <string name="kg_invalid_sim_pin_hint">4 മുതൽ 8 വരെ അക്കങ്ങളുള്ള ഒരു പിൻ ടൈപ്പുചെയ്യുക.</string>
     <string name="kg_invalid_sim_puk_hint">PUK കോഡിൽ 8 അല്ലെങ്കിൽ അതിലധികം സംഖ്യകൾ ഉണ്ടായിരിക്കണം.</string>
@@ -935,6 +954,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="kg_sim_pin_instructions">സിം പിൻ നൽകുക.</string>
     <string name="kg_sim_pin_instructions_multi">\"%1$s\" എന്ന കാരിയർക്കുള്ള സിം പിൻ നൽകുക.</string>
     <string name="kg_sim_unlock_progress_dialog_message">സിം കാർഡ് അൺലോക്കുചെയ്യുന്നു…</string>
+    <string name="kg_too_many_failed_attempts_countdown">{count,plural, =1{# സെക്കൻഡിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.}other{# സെക്കൻഡിനുള്ളിൽ വീണ്ടും ശ്രമിക്കുക.}}</string>
     <string name="kg_too_many_failed_password_attempts_dialog_message">"നിങ്ങൾ %1$d തവണ നിങ്ങളുടെ പാസ്‌വേഡ് ‌തെറ്റായി ‌ടൈപ്പുചെയ്തു. 
 
  %2$d സെക്കന്റിനു‌ശേഷം വീണ്ടും ശ്രമിക്കുക."</string>
@@ -993,6 +1013,11 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="left_keycode">ഇടതുവശത്തെ കീകോഡ്</string>
     <string name="left_nav_bar_button_type">അധിക ഇടത് ബട്ടൺ തരം</string>
     <string name="legacy_vpn_name">VPN</string>
+    <string name="letterbox_education_dialog_subtext">നിങ്ങളുടെ ഇടം പരമാവധി പ്രയോജനപ്പെടുത്താൻ ഈ ഓപ്ഷനുകളിലൊന്ന് പരീക്ഷിക്കുക</string>
+    <string name="letterbox_education_dialog_title">ചില ആപ്പുകൾ പോർട്രെയ്റ്റിൽ മികച്ച രീതിയിൽ പ്രവർത്തിക്കുന്നു</string>
+    <string name="letterbox_education_got_it">മനസ്സിലായി</string>
+    <string name="letterbox_education_reposition_text">ഒരു ആപ്പിന്റെ സ്ഥാനം മാറ്റാൻ, അതിന് തൊട്ടടുത്ത് ഡബിൾ ടാപ്പ് ചെയ്യുക</string>
+    <string name="letterbox_education_screen_rotation_text">പൂർണ്ണ സ്ക്രീനിലേക്ക് മാറാൻ ഈ ഉപകരണം റൊട്ടേറ്റ് ചെയ്യുക</string>
     <string name="loading_injected_setting_summary">ലോഡ് ചെയ്യുന്നു…</string>
     <string name="local_backup_password_summary_change">ഡെസ്‌ക്‌ടോപ്പ് പൂർണ്ണ ബാക്കപ്പുകൾക്കായി പാസ്‌വേഡുകൾ മാറ്റാനോ നീക്കംചെയ്യാനോ ടാപ്പുചെയ്യുക</string>
     <string name="local_backup_password_summary_none">ഡെസ്‌ക്‌ടോപ്പ് പൂർണ്ണ ബാക്കപ്പുകൾ നിലവിൽ പരിരക്ഷിച്ചിട്ടില്ല</string>
@@ -1017,6 +1042,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="manage_bubbles_text">മാനേജ് ചെയ്യുക</string>
     <string name="manage_notifications_history_text">ചരിത്രം</string>
     <string name="manage_notifications_text">മാനേജ് ചെയ്യുക</string>
+    <string name="manage_users">ഉപയോക്താക്കളെ മാനേജ് ചെയ്യുക</string>
     <string name="managed_user_title">എല്ലാ ഔദ്യോഗിക ആപ്‌സും</string>
     <string name="material_clock_toggle_content_description">AM അല്ലെങ്കിൽ PM തിരഞ്ഞെടുക്കുക</string>
     <string name="material_hour_selection">മണിക്കൂർ തിരഞ്ഞെടുക്കുക</string>
@@ -1031,21 +1057,43 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="material_timepicker_select_time">സമയം തിരഞ്ഞെടുക്കുക</string>
     <string name="material_timepicker_text_input_mode_description">സമയം നൽകുന്നതിന് ടെക്സ്റ്റ് ഇൻപുട്ട് ‌മോ‌ഡിലേക്ക് ‌മാറുക.</string>
     <string name="media_category">മീഡിയ</string>
+    <string name="media_move_closer_to_end_cast">ഇവിടെ പ്ലേ ചെയ്യാൻ %1$s എന്നതിന് അടുത്തേക്ക് നീക്കുക</string>
+    <string name="media_move_closer_to_start_cast">%1$s എന്നതിൽ പ്ലേ ചെയ്യാൻ അടുത്തേക്ക് നീക്കുക</string>
+    <string name="media_output_broadcast">ബ്രോഡ്‌കാസ്റ്റ്</string>
+    <string name="media_output_broadcast_code">പാസ്‌വേഡ്</string>
+    <string name="media_output_broadcast_dialog_save">സംരക്ഷിക്കുക</string>
+    <string name="media_output_broadcast_last_update_error">സംരക്ഷിക്കാൻ കഴിയില്ല.</string>
+    <string name="media_output_broadcast_name">ബ്രോഡ്‌കാസ്‌റ്റിന്റെ പേര്</string>
+    <string name="media_output_broadcast_start_failed">ബ്രോഡ്‌കാസ്‌റ്റ് ചെയ്യാനാകുന്നില്ല</string>
+    <string name="media_output_broadcast_starting">ആരംഭിക്കുന്നു…</string>
+    <string name="media_output_broadcast_update_error">സംരക്ഷിക്കാൻ കഴിയില്ല. വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="media_output_broadcasting_message">നിങ്ങളുടെ ബ്രോഡ്‌കാസ്‌റ്റ് കേൾക്കാൻ, അനുയോജ്യമായ Bluetooth ഉപകരണങ്ങളോടെ സമീപമുള്ള ആളുകൾക്ക് നിങ്ങളുടെ QR കോഡ് സ്കാൻ ചെയ്യുകയോ നിങ്ങളുടെ ബ്രോഡ്‌കാസ്‌റ്റിന്റെ പേരും പാസ്‌വേഡും ഉപയോഗിക്കുകയോ ചെയ്യാം</string>
+    <string name="media_output_dialog_accessibility_seekbar">വോളിയം</string>
+    <string name="media_output_dialog_accessibility_title">ഓഡിയോ ഔട്ട്‌പുട്ടിന് ലഭ്യമായ ഉപകരണങ്ങൾ.</string>
     <string name="media_output_dialog_add_output">ഔട്ട്പുട്ടുകൾ ചേർക്കുക</string>
-    <string name="media_output_dialog_connect_failed">കണക്റ്റ് ചെയ്യാനായില്ല. വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="media_output_dialog_button_stop_casting">കാസ്റ്റ് ചെയ്യുന്നത് നിർത്തുക</string>
+    <string name="media_output_dialog_connect_failed">മാറാനാകുന്നില്ല. വീണ്ടും ശ്രമിക്കാൻ ടാപ്പ് ചെയ്യുക.</string>
     <string name="media_output_dialog_disconnected">(വിച്ഛേദിച്ചു)</string>
     <string name="media_output_dialog_group">ഗ്രൂപ്പ്</string>
+    <string name="media_output_dialog_launch_app_text">ഈ സെഷൻ കാസ്റ്റ് ചെയ്യാൻ, ആപ്പ് തുറക്കുക.</string>
     <string name="media_output_dialog_multiple_devices">%1$d ഉപകരണങ്ങൾ തിരഞ്ഞെടുത്തു</string>
     <string name="media_output_dialog_pairing_new">പുതിയ ഉപകരണവുമായി ജോടിയാക്കുക</string>
     <string name="media_output_dialog_single_device">ഒരു ഉപകരണം തിരഞ്ഞെടുത്തു</string>
+    <string name="media_output_dialog_unknown_launch_app_name">അജ്ഞാതമായ ആപ്പ്</string>
+    <string name="media_output_first_broadcast_title">ബ്രോഡ്‌കാസ്‌റ്റ് എങ്ങനെയാണ് പ്രവർത്തിക്കുന്നത്</string>
+    <string name="media_output_first_notify_broadcast_message">അനുയോജ്യമായ Bluetooth ഉപകരണങ്ങളോടെ സമീപമുള്ള ആളുകൾക്ക് നിങ്ങൾ ബ്രോഡ്‌കാസ്‌റ്റ് ചെയ്യുന്ന മീഡിയ കേൾക്കാനാകും</string>
     <string name="media_projection_action_text">ഇപ്പോൾ ആരംഭിക്കുക</string>
     <string name="media_projection_dialog_service_text">റെക്കോർഡ് ചെയ്യുമ്പോഴോ കാസ്‌റ്റ് ചെയ്യുമ്പോഴോ നിങ്ങളുടെ ഉപകരണത്തിൽ നിന്ന് പ്ലേ ചെയ്യുന്നതോ നിങ്ങളുടെ സ്‌ക്രീനിൽ ദൃശ്യമാകുന്നതോ ആയ എല്ലാ വിവരങ്ങളിലേക്കും ഈ ഫംഗ്‌ഷൻ ലഭ്യമാക്കുന്ന സേവനത്തിന് ആക്‌സസ് ഉണ്ടായിരിക്കും. നിങ്ങൾ പ്ലേ ചെയ്യുന്ന ഓഡിയോ, സന്ദേശങ്ങൾ, ഫോട്ടോകൾ, പേയ്‌മെന്റ് വിശദാംശങ്ങൾ, പാസ്‌വേഡുകൾ എന്നിവ പോലുള്ള വിവരങ്ങൾ ഇതിൽ ഉൾപ്പെടുന്നു.</string>
     <string name="media_projection_dialog_service_title">റെക്കോർഡ് ചെയ്യൽ അല്ലെങ്കിൽ കാസ്റ്റ് ചെയ്യൽ ആരംഭിക്കണോ?</string>
     <string name="media_projection_dialog_text">റെക്കോർഡ് ചെയ്യുമ്പോഴോ കാസ്‌റ്റ് ചെയ്യുമ്പോഴോ നിങ്ങളുടെ ഉപകരണത്തിൽ നിന്ന് പ്ലേ ചെയ്യുന്നതോ നിങ്ങളുടെ സ്‌ക്രീനിൽ ദൃശ്യമാകുന്നതോ ആയ എല്ലാ വിവരങ്ങളിലേക്കും %s-ന് ആക്‌സസ് ഉണ്ടായിരിക്കും. നിങ്ങൾ പ്ലേ ചെയ്യുന്ന ഒഡിയോ, സന്ദേശങ്ങൾ, ഫോട്ടോകൾ, പേയ്‌മെന്റ് വിശദാംശങ്ങൾ, പാസ്‌വേഡുകൾ എന്നിവ പോലുള്ള വിവരങ്ങൾ ഇതിൽ ഉൾപ്പെടുന്നു.</string>
     <string name="media_projection_dialog_title">%s ഉപയോഗിച്ച് റെക്കോർഡ് ചെയ്യൽ അല്ലെങ്കിൽ കാസ്‌റ്റ് ചെയ്യൽ ആരംഭിക്കണോ?</string>
     <string name="media_seamless_other_device">മറ്റ് ഉപകരണം</string>
-    <string name="media_transfer_this_device_name">ഫോൺ സ്‌പീക്കർ</string>
+    <string name="media_transfer_failed">എന്തോ കുഴപ്പമുണ്ടായി. വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="media_transfer_playing_different_device">%1$s എന്നതിൽ പ്ലേ ചെയ്യുന്നു</string>
+    <string name="media_transfer_playing_this_device">ഈ ഫോണിൽ പ്ലേ ചെയ്യുന്നു</string>
+    <string name="media_transfer_this_device_name">ഈ ഫോൺ</string>
     <string name="media_transfer_this_phone">ഈ ഫോൺ</string>
+    <string name="media_transfer_undo">പഴയപടിയാക്കുക</string>
     <string name="media_transfer_wired_device_name">വയർ മുഖേന ബന്ധിപ്പിച്ച ഓഡിയോ ഉപകരണം</string>
     <string name="media_transfer_wired_usb_device_name">വയേർഡ് ഹെഡ്ഫോൺ</string>
     <string name="messages_count_overflow_indicator">%d+</string>
@@ -1063,7 +1111,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="mobile_data_disable_message_default_carrier">നിങ്ങളുടെ കാരിയർ</string>
     <string name="mobile_data_disable_title">മൊബൈൽ ഡാറ്റ ഓഫാക്കണോ?</string>
     <string name="mobile_data_no_connection">കണക്ഷനില്ല</string>
-    <string name="mobile_data_off_summary">മൊബൈൽ ഡാറ്റ സ്വയമേവ കണക്റ്റ് ചെയ്യില്ല</string>
+    <string name="mobile_data_off_summary">മൊബൈൽ ഡാറ്റ സ്വയം കണക്റ്റ് ചെയ്യില്ല</string>
     <string name="mobile_data_settings_title">മൊബൈൽ ഡാറ്റ</string>
     <string name="mobile_data_text_format">%1$s — %2$s</string>
     <string name="mock_location_app">മോക്ക്‌ലൊക്കേഷൻ ആപ്പ് തിരഞ്ഞെടുക്കൂ</string>
@@ -1073,7 +1121,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="monitoring_button_view_policies">നയങ്ങൾ കാണുക</string>
     <string name="monitoring_description_ca_certificate">നിങ്ങളുടെ ഉപകരണത്തിൽ ഒരു സർട്ടിഫിക്കറ്റ് അതോറിറ്റി ഇൻസ്റ്റാൾ ചെയ്തിരിക്കുന്നു. നിങ്ങളുടെ സുരക്ഷിത നെറ്റ്‌വർക്ക് ട്രാഫിക്ക് നിരീക്ഷിക്കപ്പെടുകയോ പരിഷ്കരിക്കപ്പെടുയോ ചെയ്തേക്കാം.</string>
     <string name="monitoring_description_managed_profile_ca_certificate">നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിൽ നിങ്ങളുടെ സ്ഥാപനമൊരു സർട്ടിഫിക്കറ്റ് അതോറിറ്റി ഇൻസ്റ്റാൾ ചെയ്തിരിക്കുന്നു. നിങ്ങളുടെ സുരക്ഷിത നെറ്റ്‌വർക്ക് ട്രാഫിക്ക് നിരീക്ഷിക്കപ്പെടുകയോ പരിഷ്കരിക്കപ്പെടുയോ ചെയ്തേക്കാം.</string>
-    <string name="monitoring_description_managed_profile_named_vpn">%1$s ആപ്പിലേക്ക് നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ കണക്റ്റുചെയ്‌തിരിക്കുന്നു, ഇമെയിലുകൾ, ആപ്‌സ്, വെബ്‌സൈറ്റുകൾ എന്നിവ ഉൾപ്പെടെ നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്റ്റിവിറ്റി നിരീക്ഷിക്കാൻ ഈ ആപ്പിന് കഴിയും.</string>
+    <string name="monitoring_description_managed_profile_named_vpn">നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ %1$s വഴി ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു. ഇമെയിലുകളും ബ്രൗസിംഗ് ഡാറ്റയും ഉൾപ്പെടെയുള്ള, ഔദ്യോഗിക ആപ്പുകളിലെ നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്‌റ്റിവിറ്റി നിങ്ങളുടെ ഐടി അഡ്‌മിനും VPN ദാതാവിനും ദൃശ്യമാകും.</string>
     <string name="monitoring_description_managed_profile_network_logging">നിങ്ങളുടെ അഡ്‌മിൻ നെറ്റ്‌വർക്ക് ലോഗിംഗ് ഓണാക്കി, ഇത് നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിലെ ട്രാഫിക് നിരീക്ഷിക്കുന്നു എന്നാൽ വ്യക്തിപരമായ പ്രൊഫൈലിലെ ട്രാഫിക് നിരീക്ഷിക്കുന്നില്ല.</string>
     <string name="monitoring_description_management">"ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്.
 
@@ -1087,12 +1135,12 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
 ക്രമീകരണം, കോർപ്പറേറ്റ് ആക്‌സസ്, ആപ്പുകൾ, നിങ്ങളുടെ ഉപകരണവുമായി ബന്ധപ്പെട്ട ഡാറ്റ, ഉപകരണത്തിന്റെ ലൊക്കേഷൻ ‌വിവരങ്ങൾ എന്നിവ നിരീക്ഷിക്കാനും മാനേജ് ചെയ്യാനും നിങ്ങളുടെ ഐടി അഡ്‌മിന് കഴിയും.
 
 കൂടുതൽ വിവരങ്ങൾക്ക് നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെടുക."</string>
-    <string name="monitoring_description_named_vpn">നിങ്ങൾ %1$s എന്ന ആപ്പിലേക്ക് കണക്റ്റുചെയ്‌തിരിക്കുന്നു, ഇമെയിലുകൾ, ആപ്പുകൾ, വെബ്‌സൈറ്റുകൾ എന്നിവ ഉൾപ്പെടെ നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്റ്റിവിറ്റി നിരീക്ഷിക്കാൻ ഈ ആപ്പിന് കഴിയും.</string>
+    <string name="monitoring_description_named_vpn">ഈ ഉപകരണം %1$s വഴി ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു. ഇമെയിലുകളും ബ്രൗസിംഗ് ഡാറ്റയും ഉൾപ്പെടെയുള്ള നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്‌റ്റിവിറ്റി നിങ്ങളുടെ ഐടി അഡ്‌മിന് ദൃശ്യമാകും.</string>
     <string name="monitoring_description_parental_controls">ഈ ഉപകരണം മാനേജ് ചെയ്യുന്നത് നിങ്ങളുടെ രക്ഷിതാവാണ്. നിങ്ങൾ ഉപയോഗിക്കുന്ന ആപ്പുകൾ, സ്‌ക്രീൻ സമയം, ലൊക്കേഷൻ എന്നിവ പോലുള്ള വിവരങ്ങൾ നിങ്ങളുടെ രക്ഷിതാവിന് കാണാനും നിയന്ത്രിക്കാനുമാകും.</string>
-    <string name="monitoring_description_personal_profile_named_vpn">%1$s ആപ്പിലേക്ക് നിങ്ങളുടെ വ്യക്തിഗത പ്രൊഫൈൽ കണക്റ്റുചെയ്‌തിരിക്കുന്നു, ഇമെയിലുകൾ, ആപ്പുകൾ, വെബ്‌സൈറ്റുകൾ എന്നിവ ഉൾപ്പെടെ നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്റ്റിവിറ്റി നിരീക്ഷിക്കാൻ ഈ ആപ്പിന് കഴിയും.</string>
-    <string name="monitoring_description_two_named_vpns">നിങ്ങൾ %1$s, %2$s എന്നീ ആപ്പുകളിലേക്ക് കണക്റ്റുചെയ്‌തിരിക്കുന്നു, ഇമെയിലുകൾ, ആപ്പുകൾ, വെബ്‌സൈറ്റുകൾ എന്നിവ ഉൾപ്പെടെ നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്റ്റിവിറ്റി നിരീക്ഷിക്കാൻ ഈ ആപ്പിന് കഴിയും.</string>
+    <string name="monitoring_description_personal_profile_named_vpn">നിങ്ങളുടെ വ്യക്തിപര ആപ്പുകൾ %1$s വഴി ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു. ഇമെയിലുകളും ബ്രൗസിംഗ് ഡാറ്റയും ഉൾപ്പെടെയുള്ള നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്‌റ്റിവിറ്റി നിങ്ങളുടെ VPN ദാതാവിന് ദൃശ്യമാകും.</string>
+    <string name="monitoring_description_two_named_vpns">ഈ ഉപകരണം %1$s, %2$s എന്നിവയിലൂടെ ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു. ഇമെയിലുകളും ബ്രൗസിംഗ് ഡാറ്റയും ഉൾപ്പെടെയുള്ള നിങ്ങളുടെ നെറ്റ്‌വർക്ക് ആക്‌റ്റിവിറ്റി നിങ്ങളുടെ ഐടി അഡ്‌മിന് ദൃശ്യമാകും.</string>
     <string name="monitoring_description_vpn_settings">VPN ക്രമീകരണം തുറക്കുക</string>
-    <string name="monitoring_description_vpn_settings_separator">" 5"</string>
+    <string name="monitoring_description_vpn_settings_separator">" "</string>
     <string name="monitoring_financed_description_named_management">"ഈ ഉപകരണവുമായി ബന്ധപ്പെട്ട ഡാറ്റ ആക്‌സസ് ചെയ്യാനും ആപ്പുകൾ മാനേജ് ചെയ്യാനും ഈ ഉപകരണത്തിന്റെ ക്രമീകരണം മാറ്റാനും %1$s എന്നതിന് കഴിഞ്ഞേക്കാം.
 
 നിങ്ങൾക്ക് ചോദ്യങ്ങളുണ്ടെങ്കിൽ %2$s എന്നതുമായി ബന്ധപ്പെടുക."</string>
@@ -1221,6 +1269,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="notification_section_header_incoming">പുതിയത്</string>
     <string name="notification_silence_title">നിശബ്‌ദം</string>
     <string name="notification_tap_again">തുറക്കുന്നതിന് വീണ്ടും ടാപ്പുചെയ്യുക</string>
+    <string name="notification_unblockable_call_desc">കോൾ അറിയിപ്പുകൾ പരിഷ്‌കരിക്കാനാകുന്നില്ല.</string>
     <string name="notification_unblockable_desc">ഈ അറിയിപ്പുകൾ പരിഷ്ക്കരിക്കാനാവില്ല.</string>
     <string name="notification_vpn_connected">VPN കണക്റ്റ് ചെയ്‌തു</string>
     <string name="notification_vpn_disconnected">VPN വിച്ഛേദിച്ചു</string>
@@ -1232,6 +1281,9 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="one_week_timestamp">ഒരാഴ്‌ച മുമ്പ്</string>
     <string name="ongoing_phone_call_content_description">സജീവമായ ഫോൺ കോൾ</string>
     <string name="ongoing_privacy_chip_content_multiple_apps">ആപ്പുകൾ നിങ്ങളുടെ %s ഉപയോഗിക്കുന്നു.</string>
+    <string name="ongoing_privacy_dialog_a11y_title">ഉപയോഗത്തിലാണ്</string>
+    <string name="ongoing_privacy_dialog_attribution_label">(%s)</string>
+    <string name="ongoing_privacy_dialog_attribution_proxy_label">(%1$s • %2$s)</string>
     <string name="ongoing_privacy_dialog_attribution_text">(%s എന്നതിലൂടെ)</string>
     <string name="ongoing_privacy_dialog_enterprise">(ഔദ്യോഗികം)</string>
     <string name="ongoing_privacy_dialog_last_separator">" കൂടാതെ "</string>
@@ -1256,11 +1308,16 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="person_available">ലഭ്യമാണ്</string>
     <string name="phone_hint">ഫോൺ ഐക്കണിൽ നിന്ന് സ്വൈപ്പുചെയ്യുക</string>
     <string name="phone_label">ഫോൺ തുറക്കുക</string>
+    <string name="physical_keyboard_title">ഫിസിക്കൽ കീബോർഡ്</string>
     <string name="picture_color_mode">ചിത്ര വർണ്ണ മോഡ്</string>
     <string name="picture_color_mode_desc">sRGB ഉപയോഗിക്കുക</string>
-    <string name="pip_close">PIP അടയ്ക്കുക</string>
+    <string name="pip_close">അടയ്ക്കുക</string>
+    <string name="pip_collapse">ചുരുക്കുക</string>
+    <string name="pip_edu_text">" നിയന്ത്രണങ്ങൾക്കായി "<annotation icon="home_icon"> ഹോം </annotation> രണ്ട് തവണ അമർത്തുക</string>
+    <string name="pip_expand">വികസിപ്പിക്കുക</string>
     <string name="pip_fullscreen">പൂര്‍ണ്ണ സ്ക്രീന്‍</string>
     <string name="pip_menu_title">മെനു</string>
+    <string name="pip_move">നീക്കുക</string>
     <string name="pip_notification_message">%s ഈ ഫീച്ചർ ഉപയോഗിക്കേണ്ടെങ്കിൽ, ടാപ്പ് ചെയ്‌ത് ക്രമീകരണം തുറന്ന് അത് ഓഫാക്കുക.</string>
     <string name="pip_notification_title">%s ചിത്രത്തിനുള്ളിൽ ചിത്രം രീതിയിലാണ്</string>
     <string name="pip_notification_unknown_title">(പേരില്ലാത്ത പ്രോഗ്രാം)</string>
@@ -1329,6 +1386,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="priority_conversations">മുൻഗണനാ സംഭാഷണങ്ങൾ</string>
     <string name="privacy_type_camera">ക്യാമറ</string>
     <string name="privacy_type_location">ലൊക്കേഷന്‍</string>
+    <string name="privacy_type_media_projection">സ്ക്രീൻ റെക്കോർഡിംഗ്</string>
     <string name="privacy_type_microphone">മൈക്രോഫോൺ</string>
     <string name="private_dns_broken">സ്വകാര്യ DNS സെർവർ ആക്‌സസ് ചെയ്യാനാവില്ല</string>
     <string name="private_dns_mode_off">ഓഫ്</string>
@@ -1339,11 +1397,15 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="process_kernel_label">Android OS</string>
     <string name="profile_connect_timeout_subtext">കണക്‌റ്റ് ചെയ്യുന്നതിൽ പ്രശ്‌നമുണ്ടായി. ഉപകരണം ഓഫാക്കി വീണ്ടും ഓണാക്കുക</string>
     <string name="profile_info_settings_title">പ്രൊഫൈൽ വിവരം</string>
+    <string name="qr_code_scanner_title">QR കോഡ് സ്‌കാൻ ചെയ്യുക</string>
     <string name="qs_alarm_tile_no_alarm">അലാറം സജ്ജീകരിച്ചിട്ടില്ല</string>
     <string name="qs_dnd_prompt_app">"ഒരു ആപ്പ് (%s) 'ശല്യപ്പെടുത്തരുത്' ഓണാക്കിയിരിക്കുന്നു."</string>
     <string name="qs_dnd_prompt_auto_rule">"സ്വയമേവയുള്ള ഒരു നയം (%s) 'ശല്യപ്പെടുത്തരുത്' ഓണാക്കിയിരിക്കുന്നു."</string>
     <string name="qs_dnd_prompt_auto_rule_app">"സ്വയമേവയുള്ള ഒരു നയമോ ആപ്പോ 'ശല്യപ്പെടുത്തരുത്' ഓണാക്കിയിരിക്കുന്നു."</string>
     <string name="qs_edit">എഡിറ്റ് ചെയ്യുക</string>
+    <string name="qs_tile_request_dialog_add">ടൈൽ ചേർക്കുക</string>
+    <string name="qs_tile_request_dialog_not_add">ടൈൽ ചേർക്കരുത്</string>
+    <string name="qs_tile_request_dialog_text">ദ്രുത ക്രമീകരണത്തിലേക്ക് ഇനിപ്പറയുന്ന ടൈൽ ചേർക്കാൻ %1$s ആവശ്യപ്പെടുന്നു</string>
     <string name="qs_user_switch_dialog_title">ഉപയോക്താവിനെ തിരഞ്ഞെടുക്കൂ</string>
     <string name="quick_controls_title">ഉപകരണ നിയന്ത്രണങ്ങൾ</string>
     <string name="quick_settings_bluetooth_detail_empty_text">ജോടിയാക്കിയ ഉപകരണങ്ങളൊന്നും ലഭ്യമല്ല</string>
@@ -1371,31 +1433,34 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="quick_settings_cellular_detail_remaining_data">ശേഷിക്കുന്ന ഡാറ്റ</string>
     <string name="quick_settings_cellular_detail_title">മൊബൈൽ ഡാറ്റ</string>
     <string name="quick_settings_close_user_panel">അടയ്ക്കുക</string>
+    <string name="quick_settings_color_correction_label">നിറം ശരിയാക്കൽ</string>
     <string name="quick_settings_connected">കണക്‌റ്റുചെയ്‌തു</string>
     <string name="quick_settings_connected_battery_level">കണക്‌റ്റുചെയ്‌തു, ബാറ്ററി നില %1$s</string>
     <string name="quick_settings_connecting">കണക്റ്റുചെയ്യുന്നു...</string>
     <string name="quick_settings_dark_mode_secondary_label_battery_saver">ബാറ്ററി ലാഭിക്കൽ</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at">%s-ന്</string>
+    <string name="quick_settings_dark_mode_secondary_label_on_at_bedtime">ഉറക്ക സമയത്ത്</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at_sunset">സൂര്യാസ്‌തമയത്തിന്</string>
     <string name="quick_settings_dark_mode_secondary_label_until">%s വരെ</string>
+    <string name="quick_settings_dark_mode_secondary_label_until_bedtime_ends">ഉറക്ക സമയം അവസാനിക്കുന്നത് വരെ</string>
     <string name="quick_settings_dark_mode_secondary_label_until_sunrise">സൂര്യോദയം വരെ</string>
     <string name="quick_settings_disclosure_managed_profile_monitoring">നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിലെ നെറ്റ്‌വർക്ക് ട്രാഫിക്ക് നിരീക്ഷിക്കാൻ നിങ്ങളുടെ സ്ഥാപനത്തിന് കഴിഞ്ഞേക്കാം</string>
-    <string name="quick_settings_disclosure_managed_profile_named_vpn">%1$s എന്നതിലേക്ക് നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ കണക്റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_managed_profile_named_vpn">നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ %1$s വഴി ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
     <string name="quick_settings_disclosure_managed_profile_network_activity">ഔദ്യോഗിക പ്രൊഫൈലിലെ നെറ്റ്‍വര്‍ക്ക് ആക്റ്റിവിറ്റി ഐടി അഡ്‌മിന് കാണാനാകും</string>
     <string name="quick_settings_disclosure_management">ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്</string>
     <string name="quick_settings_disclosure_management_monitoring">ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റെ ഉടമസ്ഥതയിലായതിനാൽ നെറ്റ്‌വർക്ക് ട്രാഫിക്ക് നിരീക്ഷിച്ചേക്കാം</string>
-    <string name="quick_settings_disclosure_management_named_vpn">ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്, കൂടാതെ %1$s എന്നതിലേക്ക് കണക്റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
-    <string name="quick_settings_disclosure_management_vpns">ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്, കൂടാതെ VPN-കളിലേക്ക് കണക്റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_management_named_vpn">ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്, %1$s വഴി ഇത് ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_management_vpns">ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്, VPN-കൾ വഴി ഇത് ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
     <string name="quick_settings_disclosure_monitoring">നെറ്റ്‌വർക്ക് നിരീക്ഷിക്കപ്പെടാം</string>
     <string name="quick_settings_disclosure_named_managed_profile_monitoring">നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിലെ നെറ്റ്‌വർക്ക് ട്രാഫിക്ക് %1$s നിരീക്ഷിച്ചേക്കാം</string>
     <string name="quick_settings_disclosure_named_management">ഈ ഉപകരണം %1$s എന്ന സ്ഥാപനത്തിന്റേതാണ്</string>
     <string name="quick_settings_disclosure_named_management_monitoring">ഈ ഉപകരണം %1$s എന്ന സ്ഥാപനത്തിന്റെ ഉടമസ്ഥതയിലായതിനാൽ നെറ്റ്‌വർക്ക് ട്രാഫിക്ക് നിരീക്ഷിച്ചേക്കാം</string>
-    <string name="quick_settings_disclosure_named_management_named_vpn">ഈ ഉപകരണം %1$s എന്ന സ്ഥാപനത്തിന്റേതാണ്, കൂടാതെ %2$s എന്നതിലേക്ക് കണക്റ്റ് ചെയ്തിരിക്കുന്നു</string>
-    <string name="quick_settings_disclosure_named_management_vpns">ഈ ഉപകരണം %1$s എന്ന സ്ഥാപനത്തിന്റേതാണ്, കൂടാതെ VPN-കളിലേക്ക് കണക്റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
-    <string name="quick_settings_disclosure_named_vpn">ഈ ഉപകരണം %1$s എന്നതിലേക്ക് കണക്റ്റ് ചെയ്തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_named_management_named_vpn">ഈ ഉപകരണം %1$s എന്ന സ്ഥാപനത്തിന്റേതാണ്, %2$s വഴി ഇത് ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_named_management_vpns">ഈ ഉപകരണം %1$s എന്ന സ്ഥാപനത്തിന്റേതാണ്, VPN-കൾ വഴി ഇത് ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_named_vpn">ഈ ഉപകരണം %1$s വഴി ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
     <string name="quick_settings_disclosure_parental_controls">ഈ ഉപകരണം മാനേജ് ചെയ്യുന്നത് നിങ്ങളുടെ രക്ഷിതാവാണ്</string>
-    <string name="quick_settings_disclosure_personal_profile_named_vpn">നിങ്ങളുടെ വ്യക്തിപരമായ പ്രൊഫൈൽ %1$s ആപ്പിലേക്ക് കണക്റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
-    <string name="quick_settings_disclosure_vpns">ഈ ഉപകരണം VPN-കളിലേക്ക് കണക്റ്റ് ചെയ്തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_personal_profile_named_vpn">നിങ്ങളുടെ വ്യക്തിപര ആപ്പുകൾ %1$s വഴി ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
+    <string name="quick_settings_disclosure_vpns">ഈ ഉപകരണം VPN-കൾ വഴി ഇന്റർനെറ്റിലേക്ക് കണക്‌റ്റ് ചെയ്‌തിരിക്കുന്നു</string>
     <string name="quick_settings_dnd_label">ശല്യപ്പെടുത്തരുത്</string>
     <string name="quick_settings_done">പൂർത്തിയാക്കി</string>
     <string name="quick_settings_financed_disclosure_named_management">%s നൽകിയ ഉപകരണമാണിത്</string>
@@ -1409,7 +1474,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="quick_settings_location_label">ലൊക്കേഷൻ</string>
     <string name="quick_settings_media_device_label">മീഡിയ ഉപകരണം</string>
     <string name="quick_settings_mic_label">മൈക്ക് ആക്‌സസ്</string>
-    <string name="quick_settings_more_settings">കൂടുതൽ ക്രമീകരണങ്ങൾ</string>
     <string name="quick_settings_more_user_settings">ഉപയോക്തൃ ക്രമീകരണം</string>
     <string name="quick_settings_networks_available">നെറ്റ്‌വർക്കുകൾ ലഭ്യമാണ്</string>
     <string name="quick_settings_networks_unavailable">നെറ്റ്‌വർക്കുകൾ ലഭ്യമല്ല</string>
@@ -1420,6 +1484,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="quick_settings_night_secondary_label_on_at">%s-ന്</string>
     <string name="quick_settings_night_secondary_label_on_at_sunset">സൂര്യാസ്‌തമയത്തിന്</string>
     <string name="quick_settings_night_secondary_label_until_sunrise">സൂര്യോദയം വരെ</string>
+    <string name="quick_settings_onehanded_label">ഒറ്റക്കൈ മോഡ്</string>
     <string name="quick_settings_rotation_posture_folded">ഫോൾഡ് ചെയ്തിരിക്കുന്നു</string>
     <string name="quick_settings_rotation_posture_unfolded">അൺഫോൾഡ് ചെയ്തിരിക്കുന്നു</string>
     <string name="quick_settings_rotation_unlocked_label">സ്‌ക്രീൻ സ്വയമേവ തിരിയൽ</string>
@@ -1452,6 +1517,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="right_icon">വലതുവശത്തെ ചിഹ്നം</string>
     <string name="right_keycode">വലതുവശത്തെ കീകോഡ്</string>
     <string name="right_nav_bar_button_type">അധിക വലത് ബട്ടൺ തരം</string>
+    <string name="rotation_lock_camera_rotation_on">ഓണാണ് - ഫേസ് ബേസ്‌ഡ്</string>
     <string name="running_foreground_services_msg">ബാറ്ററി, ഡാറ്റ ഉപയോഗം എന്നിവയുടെ വിശദാംശങ്ങളറിയാൻ ടാപ്പുചെയ്യുക</string>
     <string name="running_foreground_services_title">ആപ്പുകൾ പശ്ചാത്തലത്തിൽ റൺ ചെയ്യുന്നു</string>
     <string name="running_process_item_user_label">ഉപയോക്താവ്: %1$s</string>
@@ -1459,6 +1525,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="runningservices_settings_title">പ്രവർത്തിക്കുന്ന സേവനങ്ങൾ</string>
     <string name="save">സംരക്ഷിക്കുക</string>
     <string name="saved_network">%1$s സംരക്ഷിച്ചത്</string>
+    <string name="saver_confirmation_dialog_text">പരമാവധി ബാറ്ററി ലാഭിക്കൽ ഒട്ടുമിക്ക ആപ്പുകളെയും അറിയിപ്പുകളെയും താൽക്കാലികമായി നിർത്തും.</string>
     <string name="screen_pinning_can_open_other_apps">പിൻ ചെയ്‌ത ആപ്പ് മറ്റ് ആപ്പുകൾ തുറന്നേക്കാം.</string>
     <string name="screen_pinning_description">"നിങ്ങൾ അൺപിൻ ചെയ്യുന്നതുവരെ ഇത് കാണുന്ന വിധത്തിൽ നിലനിർത്തും. അൺപിൻ ചെയ്യാൻ 'തിരികെ', 'ചുരുക്കവിവരണം' എന്നിവ സ്‌പർശിച്ച് പിടിക്കുക."</string>
     <string name="screen_pinning_description_accessible">"നിങ്ങൾ അൺപിൻ ചെയ്യുന്നതുവരെ ഇത് കാണുന്ന വിധത്തിൽ നിലനിർത്തും. അൺപിൻ ചെയ്യാൻ 'ചുരുക്കവിവരണം' സ്‌പർശിച്ച് പിടിക്കുക."</string>
@@ -1500,6 +1567,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="screenrecord_start_label">റെക്കോർഡിംഗ് ആരംഭിക്കണോ?</string>
     <string name="screenrecord_stop_label">നിർത്തുക</string>
     <string name="screenrecord_taps_label">സ്‌ക്രീനിൽ തൊടുന്ന ഭാഗങ്ങൾ കാണിക്കുക</string>
+    <string name="screenshot_blocked_by_admin">സ്ക്രീൻഷോട്ടുകൾ എടുക്കുന്നത് നിങ്ങളുടെ ഐടി അഡ്‌മിൻ ബ്ലോക്ക് ചെയ്തിരിക്കുന്നു</string>
     <string name="screenshot_bottom_boundary_pct">താഴെയുള്ള അതിർത്തി %1$d ശതമാനം</string>
     <string name="screenshot_dismiss_description">സ്ക്രീൻഷോട്ട് ഡിസ്‌മിസ് ചെയ്യുക</string>
     <string name="screenshot_edit_description">സ്ക്രീൻഷോട്ട് എഡിറ്റ് ചെയ്യുക</string>
@@ -1536,13 +1604,26 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="select_webview_provider_title">WebView നടപ്പാക്കൽ</string>
     <string name="select_webview_provider_toast_text">ഈ തിരഞ്ഞെടുപ്പിന് തുടർന്നങ്ങോട്ട് സാധുതയില്ല. വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="selectable_url_description">തിരഞ്ഞെടുക്കാവുന്ന URL</string>
+    <string name="sensor_privacy_camera_unblocked_toast_content">ക്യാമറ ലഭ്യമാണ്</string>
+    <string name="sensor_privacy_mic_camera_unblocked_toast_content">മൈക്രോഫോണും ക്യാമറയും ലഭ്യമാണ്</string>
+    <string name="sensor_privacy_mic_unblocked_toast_content">മൈക്രോഫോൺ ലഭ്യമാണ്</string>
+    <string name="sensor_privacy_start_use_camera_blocked_dialog_content">അൺബ്ലോക്ക് ചെയ്യാൻ, ക്യാമറാ ആക്സസ് അനുവദിക്കുന്നതിന്, ക്യാമറ ഓണാണ് എന്ന സ്ഥാനത്തേക്ക് നിങ്ങളുടെ ഉപകരണത്തിലെ സ്വകാര്യത മാറ്റുക. നിങ്ങളുടെ ഉപകരണത്തിലെ സ്വകാര്യതാ സ്വിച്ച് കണ്ടെത്താൻ ഉപകരണ മാന്വൽ പരിശോധിക്കുക.</string>
+    <string name="sensor_privacy_start_use_camera_blocked_dialog_title">ക്യാമറ ബ്ലോക്ക് ചെയ്തിരിക്കുന്നു</string>
     <string name="sensor_privacy_start_use_camera_dialog_content">നിങ്ങളുടെ ക്യാമറ ഉപയോഗിക്കാൻ അനുവദിച്ചിരിക്കുന്ന എല്ലാ ആപ്പുകൾക്കും സേവനങ്ങൾക്കുമുള്ള ആക്‌സസ് ഇത് അൺബ്ലോക്ക് ചെയ്യുന്നു.</string>
     <string name="sensor_privacy_start_use_camera_dialog_title">ഉപകരണ ക്യാമറ അൺബ്ലോക്ക് ചെയ്യണോ?</string>
+    <string name="sensor_privacy_start_use_mic_blocked_dialog_content">അൺബ്ലോക്ക് ചെയ്യാൻ, മൈക്രോഫോൺ ആക്സസ് അനുവദിക്കുന്നതിന്, മൈക്രോഫോൺ ഓണാണ് എന്ന സ്ഥാനത്തേക്ക് നിങ്ങളുടെ ഉപകരണത്തിലെ സ്വകാര്യത മാറ്റുക. നിങ്ങളുടെ ഉപകരണത്തിലെ സ്വകാര്യതാ സ്വിച്ച് കണ്ടെത്താൻ ഉപകരണ മാന്വൽ പരിശോധിക്കുക.</string>
+    <string name="sensor_privacy_start_use_mic_blocked_dialog_title">മൈക്രോഫോൺ ബ്ലോക്ക് ചെയ്തിരിക്കുന്നു</string>
+    <string name="sensor_privacy_start_use_mic_camera_blocked_dialog_content">അവ അൺബ്ലോക്ക് ചെയ്യാൻ, ആക്സസ് അനുവദിക്കുന്നതിന്, അൺബ്ലോക്ക് ചെയ്തു എന്ന സ്ഥാനത്തേക്ക് നിങ്ങളുടെ ഉപകരണത്തിലെ സ്വകാര്യത മാറ്റുക. നിങ്ങളുടെ ഉപകരണത്തിലെ സ്വകാര്യതാ സ്വിച്ച് കണ്ടെത്താൻ ഉപകരണ മാന്വൽ പരിശോധിക്കുക.</string>
+    <string name="sensor_privacy_start_use_mic_camera_blocked_dialog_title">മൈക്കും ക്യാമറയും ബ്ലോക്ക് ചെയ്തിരിക്കുന്നു</string>
     <string name="sensor_privacy_start_use_mic_camera_dialog_content">നിങ്ങളുടെ ക്യാമറയോ മൈക്രോഫോണോ ഉപയോഗിക്കാൻ അനുവദിച്ചിരിക്കുന്ന എല്ലാ ആപ്പുകൾക്കും സേവനങ്ങൾക്കുമുള്ള ആക്‌സസ് ഇത് അൺബ്ലോക്ക് ചെയ്യുന്നു.</string>
     <string name="sensor_privacy_start_use_mic_camera_dialog_title">ഉപകരണ ക്യാമറയോ മൈക്രോഫോണോ അൺബ്ലോക്ക് ചെയ്യണോ?</string>
     <string name="sensor_privacy_start_use_mic_dialog_content">നിങ്ങളുടെ മൈക്രോഫോൺ ഉപയോഗിക്കാൻ അനുവദിച്ചിരിക്കുന്ന എല്ലാ ആപ്പുകൾക്കും സേവനങ്ങൾക്കുമുള്ള ആക്‌സസ് ഇത് അൺബ്ലോക്ക് ചെയ്യുന്നു.</string>
     <string name="sensor_privacy_start_use_mic_dialog_title">ഉപകരണ മൈക്രോഫോൺ അൺബ്ലോക്ക് ചെയ്യണോ?</string>
+    <string name="settings_label">ക്രമീകരണം</string>
     <string name="settingslib_learn_more_text">കൂടുതലറിയുക</string>
+    <string name="severe_low_battery_dialog_checkbox_title">വീണ്ടും ആവശ്യപ്പെടരുത്</string>
+    <string name="severe_low_battery_dialog_text">നിങ്ങളുടെ ബാറ്ററിയിൽ %s ചാർജ് ശേഷിക്കുന്നു. പരമാവധി ബാറ്ററി ലാഭിക്കൽ ഒട്ടുമിക്ക ആപ്പുകളെയും അറിയിപ്പുകളെയും താൽക്കാലികമായി നിർത്തും.</string>
+    <string name="severe_low_battery_dialog_title">പരമാവധി ബാറ്ററി ലാഭിക്കൽ ഓണാക്കണോ?</string>
     <string name="shared_data_delete_failure_text">പങ്കിട്ട ഡാറ്റ ഇല്ലാതാക്കുന്നതിൽ എന്തോ പിശകുണ്ടായി.</string>
     <string name="shared_data_no_accessors_dialog_text">പങ്കിട്ട ഈ ഡാറ്റയ്‌ക്കായി ലീസുകളൊന്നും നേടിയിട്ടില്ല. അത് ഇല്ലാതാക്കണോ?</string>
     <string name="shared_data_no_blobs_text">ഈ ഉപയോക്താവിന്, പങ്കിട്ട ഡാറ്റയൊന്നുമില്ല.</string>
@@ -1572,6 +1653,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="slice_permission_title">%2$s സ്ലൈസുകൾ കാണിക്കാൻ %1$s-നെ അനുവദിക്കണോ?</string>
     <string name="smartspace_flight_card_gate_header">ഗേറ്റ്</string>
     <string name="smartspace_flight_card_seat_header">സീറ്റ്</string>
+    <string name="smartspace_flight_qr_code">QR കോഡ്</string>
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="smartspace_now">ഇപ്പോൾ</string>
     <string name="smartspace_shopping_list_overflow">+ %1$d എണ്ണം കൂടി</string>
@@ -1635,7 +1717,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="tile_disabled">പ്രവർത്തനരഹിതമാക്കി</string>
     <string name="tile_unavailable">ലഭ്യമല്ല</string>
     <string name="time_unit_just_now">ഇപ്പോൾ</string>
-    <string name="title_convert_fbe">ഫയൽ അധിഷ്ഠിത എൻക്രിപ്ഷനിലേക്ക് പരിവർത്തിപ്പിക്കുന്നു</string>
     <string name="title_usb_accessory">USB ആക്‌സസ്സറി</string>
     <string name="to_switch_networks_disconnect_ethernet">മറ്റ് നെറ്റ്‌വർക്കുകളിലേക്ക് മാറാൻ, ഇതർനെറ്റ് വിച്ഛേദിക്കുക</string>
     <string name="too_hot_label">Pixel വളരെയധികം ചൂടായിരിക്കുന്നു</string>
@@ -1695,6 +1776,7 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="tuner_warning_title">ചിലർക്ക് വിനോദം, എന്നാൽ എല്ലാവർക്കുമില്ല</string>
     <string name="turn_off_airplane_mode">ഫ്ലൈറ്റ് മോഡ് ഓഫാക്കുക</string>
     <string name="turn_on_wifi">വൈഫൈ</string>
+    <string name="turn_screen_on_title">സ്ക്രീൻ ഓണാക്കുക</string>
     <string name="tv_notification_panel_no_notifications">അറിയിപ്പുകൾ ഒന്നുമില്ല</string>
     <string name="tv_notification_panel_title">അറിയിപ്പുകൾ</string>
     <string name="two_weeks_timestamp">2 ആഴ്ച മുമ്പ്</string>
@@ -1735,20 +1817,19 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="use_system_language_to_select_input_method_subtypes">സിസ്റ്റം ഭാഷകൾ ഉപയോഗിക്കുക</string>
     <string name="user_add_profile_item_summary">നിങ്ങളുടെ അക്കൗണ്ടിൽ നിന്നും അപ്ലിക്കേഷനുകളിലേക്കും ഉള്ളടക്കത്തിലേക്കുമുള്ള ആക്‌സസ്സ് നിയന്ത്രിക്കാനാകും</string>
     <string name="user_add_profile_item_title">നിയന്ത്രിത പ്രൊഫൈൽ</string>
-    <string name="user_add_user">ഉപയോക്താവിനെ ചേര്‍ക്കുക</string>
+    <string name="user_add_user">ഉപയോക്താവിനെ ചേർക്കുക</string>
     <string name="user_add_user_item_summary">ഉപയോക്താക്കൾക്ക് സ്വന്തമായ അപ്ലിക്കേഷനുകളും ഉള്ളടക്കവും ഉണ്ടായിരിക്കും</string>
     <string name="user_add_user_item_title">ഉപയോക്താവ്</string>
-    <string name="user_add_user_message_long">"കൂടുതൽ ഉപയോക്താക്കളെ സൃഷ്‌ടിച്ചുകൊണ്ട് ഈ ഉപകരണം മറ്റുള്ളവരുമായി നിങ്ങൾക്ക് പങ്കിടാം. ആപ്പുകളും വാൾപേപ്പറുകളും മറ്റും ഉപയോഗിച്ച് ഇഷ്‌ടാനുസൃതമാക്കാൻ ഓരോ ഉപയോക്താവിനും സാധിക്കും. വൈഫൈ പോലെ എല്ലാവരെയും ബാധിക്കുന്ന ഉപകരണ ക്രമീകരണവും ഉപയോക്താക്കൾക്ക് ക്രമീകരിക്കാം.
+    <string name="user_add_user_message_long">"കൂടുതൽ ഉപയോക്താക്കളെ സൃഷ്‌ടിച്ചുകൊണ്ട് ഈ ഉപകരണം മറ്റുള്ളവരുമായി നിങ്ങൾക്ക് പങ്കിടാം. ആപ്പുകളും വാൾപേപ്പറുകളും മറ്റും ഉപയോഗിച്ച് ഇഷ്‌ടാനുസൃതമാക്കാൻ ഓരോ ഉപയോക്താവിനും സാധിക്കും. വൈഫൈ പോലെ എല്ലാവരെയും ബാധിക്കുന്ന ഉപകരണ ക്രമീകരണവും ഉപയോക്താക്കൾക്ക് അഡ്ജസ്റ്റ് ചെയ്യാം.
 
-നിങ്ങളൊരു പുതിയ ഉപയോക്താവിനെ ചേർക്കുമ്പോൾ, ആ വ്യക്തിക്ക് സ്വന്തമായ ഇടം സജ്ജീകരിക്കേണ്ടതുണ്ട്.
+നിങ്ങളൊരു പുതിയ ഉപയോക്താവിനെ ചേർക്കുമ്പോൾ, ആ വ്യക്തി സ്വന്തമായ ഇടം സജ്ജീകരിക്കേണ്ടതുണ്ട്.
 
- എല്ലാ ഉപയോക്താക്കൾക്കുമായി ആപ്പുകൾ അപ്‌ഡേറ്റ് ചെയ്യാൻ ഏതൊരു ഉപയോക്താവിനുമാവും. ഉപയോഗസഹായി ക്രമീകരണവും സേവനങ്ങളും പുതിയ ഉപയോക്താവിന് കൈമാറുകയില്ല."</string>
-    <string name="user_add_user_message_short">"നിങ്ങൾ പുതിയൊരു ഉപയോക്താവിനെ ചേർക്കുമ്പോൾ, ആ വ്യക്തിക്ക് അവരുടെ ഇടം സജ്ജീകരിക്കേണ്ടതുണ്ട്.
+ ഏതെങ്കിലും ഉപയോക്താവിന് എല്ലാ ഉപയോക്താക്കൾക്കുമായി ആപ്പുകൾ അപ്‌ഡേറ്റ് ചെയ്യാനാകും. ഉപയോഗസഹായി ക്രമീകരണവും സേവനങ്ങളും പുതിയ ഉപയോക്താവിന് കൈമാറുകയില്ല."</string>
+    <string name="user_add_user_message_short">"നിങ്ങൾ ഒരു പുതിയ ഉപയോക്താവിനെ ചേർക്കുമ്പോൾ, ആ വ്യക്തി സ്വന്തമായ ഇടം സജ്ജീകരിക്കേണ്ടതുണ്ട്.
 
-മറ്റ് എല്ലാ ഉപയോക്താക്കൾക്കുമായി ഏതൊരു ഉപയോക്താവിനും ആപ്പുകൾ അപ്‌ഡേറ്റ് ചെയ്യാനാവും."</string>
+മറ്റെല്ലാ ഉപയോക്താക്കൾക്കുമായി ഏതെങ്കിലും ഉപയോക്താവിന് ആപ്പുകൾ അപ്‌ഡേറ്റ് ചെയ്യാം."</string>
     <string name="user_add_user_title">പുതിയ ഉപയോക്താവിനെ ചേർക്കണോ?</string>
     <string name="user_add_user_type_title">ചേര്‍ക്കുക</string>
-    <string name="user_guest">അതിഥി</string>
     <string name="user_image_choose_photo">ഒരു ചിത്രം തിരഞ്ഞെടുക്കുക</string>
     <string name="user_image_photo_selector">ഫോട്ടോ തിരഞ്ഞെടുക്കുക</string>
     <string name="user_image_take_photo">ഒരു ഫോട്ടോ എടുക്കുക</string>
@@ -1805,9 +1886,9 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wallet_error_generic">നിങ്ങളുടെ കാർഡുകൾ ലഭ്യമാക്കുന്നതിൽ ഒരു പ്രശ്‌നമുണ്ടായി, പിന്നീട് വീണ്ടും ശ്രമിക്കുക</string>
     <string name="wallet_lockscreen_settings_label">ലോക്ക് സ്ക്രീൻ ക്രമീകരണം</string>
     <string name="wallet_secondary_label_device_locked">ഉപയോഗിക്കാൻ അൺലോക്ക് ചെയ്യുക</string>
-    <string name="wallet_secondary_label_no_card">കാർഡ് ചേർക്കുക</string>
+    <string name="wallet_secondary_label_no_card">തുറക്കാൻ ടാപ്പ് ചെയ്യുക</string>
     <string name="wallet_secondary_label_updating">അപ്‌ഡേറ്റ് ചെയ്യുന്നു</string>
-    <string name="wallet_title">വാലറ്റ്</string>
+    <string name="wallet_title">Wallet</string>
     <string name="wifi_ap_unable_to_handle_new_sta">ആക്‌സസ് പോയിന്റ് താൽക്കാലികമായി നിറഞ്ഞിരിക്കുന്നു</string>
     <string name="wifi_cant_connect">കണക്റ്റുചെയ്യാനാകുന്നില്ല</string>
     <string name="wifi_cant_connect_to_ap">"'%1$s' എന്നതിലേക്ക് കണക്‌റ്റുചെയ്യാനാകുന്നില്ല"</string>
@@ -1833,8 +1914,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wifi_display_certification">വയർലെസ് ഡിസ്‌പ്ലേ സർട്ടിഫിക്കേഷൻ</string>
     <string name="wifi_display_certification_summary">വയർലെസ് ഡിസ്‌പ്ലേ സർട്ടിഫിക്കേഷനായി ഓപ്‌ഷനുകൾ ദൃശ്യമാക്കുക</string>
     <string name="wifi_empty_list_wifi_on">നെറ്റ്‌വർക്കുകൾ തിരയുന്നു…</string>
-    <string name="wifi_enhanced_mac_randomization">വൈഫൈ വഴിയുള്ള, സ്ഥിരതയില്ലാത്ത MAC ക്രമരഹിതമാക്കൽ</string>
-    <string name="wifi_enhanced_mac_randomization_summary">ഈ മോഡ് പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ, MAC ക്രമരഹിതമാക്കൽ പ്രവർത്തനക്ഷമമാക്കിയിരിക്കുന്ന നെറ്റ്‌വർക്കിലേക്ക് കണക്റ്റ് ചെയ്യുമ്പോഴെല്ലാം ഈ ഉപകരണത്തിന്റെ MAC വിലാസം മാറിയേക്കാം.</string>
     <string name="wifi_fail_to_scan">നെ‌റ്റ്‌വർക്കുകൾക്കായി സ്കാൻ ചെയ്യാനായില്ല</string>
     <string name="wifi_failed_connect_message">നെറ്റ്‌വർക്കിൽ കണക്റ്റ് ചെയ്യാനായില്ല</string>
     <string name="wifi_hotspot_switch_off_text">ഓഫാണ്</string>
@@ -1844,25 +1923,54 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wifi_metered_label">മീറ്റർ ചെയ്തത്</string>
     <string name="wifi_no_internet">ഇന്റർനെറ്റ് ആക്‌സസ് ഇല്ല</string>
     <string name="wifi_no_internet_no_reconnect">സ്വയമേവ കണക്‌റ്റുചെയ്യില്ല</string>
+    <string name="wifi_non_persistent_mac_randomization">വൈഫൈ വഴിയുള്ള, സ്ഥിരതയില്ലാത്ത MAC ക്രമരഹിതമാക്കൽ</string>
+    <string name="wifi_non_persistent_mac_randomization_summary">ഈ മോഡ് പ്രവർത്തനക്ഷമമാക്കുമ്പോൾ, MAC ക്രമരഹിതമാക്കൽ പ്രവർത്തനക്ഷമമാക്കിയിരിക്കുന്ന നെറ്റ്‌വർക്കിലേക്ക് കണക്റ്റ് ചെയ്യുമ്പോഴെല്ലാം ഈ ഉപകരണത്തിന്റെ MAC വിലാസം മാറിയേക്കാം.</string>
     <string name="wifi_not_in_range">പരിധിയിലില്ല</string>
     <string name="wifi_passpoint_expired">കാലഹരണപ്പെട്ടത്</string>
     <string name="wifi_remembered">സംരക്ഷിച്ചു</string>
     <string name="wifi_scan_notify_message">ഉപകരണ അനുഭവം മെച്ചപ്പെടുത്താൻ, വൈഫൈ ഓഫാക്കിയിരിക്കുമ്പോൾ പോലും ആപ്പുകൾക്കും സേവനങ്ങൾക്കും വൈഫൈ നെറ്റ്‌വർക്കുകൾ കണ്ടെത്താൻ ഏത് സമയത്തും സ്‌കാൻ ചെയ്യാനാകും. നിങ്ങൾക്ക് ഇത് വൈഫൈ സ്‌കാനിംഗ് ക്രമീകരണത്തിൽ മാറ്റാം. <annotation id="link">മാറ്റുക</annotation></string>
     <string name="wifi_scan_throttling">വൈഫൈ സ്‌കാൻ ത്രോട്ടിലിംഗ്</string>
     <string name="wifi_scan_throttling_summary">ബാറ്ററി ചാർജ് വേഗത്തിൽ തീരുന്ന അവസ്ഥ കുറച്ച് നെറ്റ്‌വർക്ക് പ്രകടനം മെച്ചപ്പെടുത്തുന്നു</string>
+    <string name="wifi_security_eap">WPA/WPA2/WPA3-Enterprise</string>
+    <string name="wifi_security_eap_suiteb">WPA3-Enterprise 192-bit</string>
+    <string name="wifi_security_eap_wpa">WPA-Enterprise</string>
+    <string name="wifi_security_eap_wpa2_wpa3">WPA2/WPA3-Enterprise</string>
+    <string name="wifi_security_eap_wpa3">WPA3-Enterprise</string>
+    <string name="wifi_security_eap_wpa_wpa2">WPA/WPA2-Enterprise</string>
     <string name="wifi_security_none">ഒന്നുമില്ല</string>
+    <string name="wifi_security_none_owe">ഒന്നുമില്ല/Enhanced Open</string>
+    <string name="wifi_security_owe">Enhanced Open</string>
+    <string name="wifi_security_passpoint">പാസ്പോയിന്റ്</string>
+    <string name="wifi_security_psk_sae">WPA2/WPA3-Personal</string>
+    <string name="wifi_security_sae">WPA3-Personal</string>
+    <string name="wifi_security_short_eap">802.1x</string>
+    <string name="wifi_security_short_eap_suiteb">Suite-B-192</string>
+    <string name="wifi_security_short_eap_wpa">WPA-EAP</string>
+    <string name="wifi_security_short_eap_wpa2_wpa3">RSN-EAP</string>
+    <string name="wifi_security_short_none_owe">ഒന്നുമില്ല/OWE</string>
+    <string name="wifi_security_short_owe">OWE</string>
+    <string name="wifi_security_short_psk_sae">WPA2/WPA3</string>
+    <string name="wifi_security_short_sae">WPA3</string>
+    <string name="wifi_security_short_wep">WEP</string>
+    <string name="wifi_security_short_wpa">WPA</string>
+    <string name="wifi_security_short_wpa2">WPA2</string>
+    <string name="wifi_security_short_wpa_wpa2">WPA/WPA2</string>
+    <string name="wifi_security_wep">WEP</string>
+    <string name="wifi_security_wpa">WPA-Personal</string>
+    <string name="wifi_security_wpa2">WPA2-Personal</string>
+    <string name="wifi_security_wpa_wpa2">WPA/WPA2-Personal</string>
     <string name="wifi_status_mac_randomized">MAC യാദൃച്ഛികമാക്കിയിരിക്കുന്നു</string>
     <string name="wifi_status_no_internet">ഇന്റർനെറ്റ് ഇല്ല</string>
     <string name="wifi_status_sign_in_required">സൈൻ ഇൻ ചെയ്യേണ്ടത് ആവശ്യമാണ്</string>
+    <string name="wifi_tether_connected_summary">{count,plural, =0{0 ഉപകരണം കണക്റ്റ് ചെയ്‌തു}=1{1 ഉപകരണം കണക്റ്റ് ചെയ്‌തു}other{# ഉപകരണങ്ങൾ കണക്‌റ്റ് ചെയ്‌തു}}</string>
     <string name="wifi_unmetered_label">മീറ്റർമാപകമല്ലാത്തത്</string>
     <string name="wifi_verbose_logging">വൈഫൈ വെർബോസ് ലോഗിംഗ് പ്രവർത്തനക്ഷമമാക്കുക</string>
     <string name="wifi_verbose_logging_summary">വൈഫൈ പിക്കറിൽ ഓരോ SSID RSSI പ്രകാരം കാണിക്കാൻ വൈഫൈ ലോഗിംഗ് നില വർദ്ധിപ്പിക്കുക</string>
     <string name="wifi_wont_autoconnect_for_now">വൈഫൈ ഇപ്പോൾ സ്വയമേവ കണക്റ്റ് ചെയ്യില്ല</string>
+    <string name="wifitrackerlib_admin_restricted_network">നിങ്ങളുടെ ഓർഗനൈസേഷൻ അനുവദിക്കുന്നില്ല</string>
     <string name="wifitrackerlib_auto_connect_disable">ഓട്ടോ-കണക്റ്റ് ഓഫാണ്</string>
     <string name="wifitrackerlib_available_via_app">%1$s മുഖേന ലഭ്യമാണ്</string>
     <string name="wifitrackerlib_connected_via_app">%1$s മുഖേന കണക്‌റ്റ് ചെയ്‌തു</string>
-    <string name="wifitrackerlib_connected_via_network_scorer">%1$s മുഖേന സ്വയമേവ കണക്റ്റ് ചെയ്‌തു</string>
-    <string name="wifitrackerlib_connected_via_network_scorer_default">നെറ്റ്‌വർക്ക് റേറ്റിംഗ് ദാതാവുമായി സ്വയമേവ കണക്‌റ്റ് ചെയ്‌തു</string>
     <string name="wifitrackerlib_imsi_protection_warning">ഉപകരണ ലൊക്കേഷൻ ട്രാക്ക് ചെയ്യാൻ ഉപയോഗിക്കാവുന്ന സിം ഐഡി ഈ നെറ്റ്‌വർക്കിന് ലഭിക്കും. <annotation id="url">കൂടുതലറിയുക</annotation></string>
     <string name="wifitrackerlib_osu_completing_sign_up">സൈൻ അപ്പ് പൂർത്തിയാക്കുന്നു…</string>
     <string name="wifitrackerlib_osu_connect_failed">കണക്റ്റ് ചെയ്യാനായില്ല</string>
@@ -1871,12 +1979,6 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wifitrackerlib_osu_sign_up_failed">സൈൻ അപ്പ് പൂർത്തിയാക്കാനായില്ല. വീണ്ടും ശ്രമിക്കാൻ ടാപ്പ് ചെയ്യുക.</string>
     <string name="wifitrackerlib_private_dns_broken">സ്വകാര്യ DNS സെർവർ ആക്‌സസ് ചെയ്യാനാവുന്നില്ല</string>
     <string name="wifitrackerlib_saved_network">%1$s സംരക്ഷിച്ചത്</string>
-    <string name="wifitrackerlib_speed_label_fast">വേഗത്തിൽ</string>
-    <string name="wifitrackerlib_speed_label_medium">ഇടത്തരം</string>
-    <string name="wifitrackerlib_speed_label_okay">ശരി</string>
-    <string name="wifitrackerlib_speed_label_slow">കുറഞ്ഞ വേഗത്തിൽ</string>
-    <string name="wifitrackerlib_speed_label_very_fast">അതിവേഗം</string>
-    <string name="wifitrackerlib_speed_label_very_slow">വളരെ കുറഞ്ഞ വേഗത്തിൽ</string>
     <string name="wifitrackerlib_summary_separator">" / "</string>
     <string name="wifitrackerlib_tap_to_renew_subscription_and_connect">സബ്‌സ്ക്രിപ്ഷൻ പുതുക്കാൻ ടാപ്പ് ചെയ്ത ശേഷം കണക്റ്റ് ചെയ്യുക</string>
     <string name="wifitrackerlib_tap_to_sign_up">സൈൻ അപ്പ് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക</string>
@@ -1898,7 +2000,32 @@ Selection ട്രിഗ്ഗര്‍ ചെയ്യുക"</string>
     <string name="wifitrackerlib_wifi_passpoint_expired">കാലഹരണപ്പെട്ടു</string>
     <string name="wifitrackerlib_wifi_poor_channel_conditions">നിലവിലെ നെറ്റ്‌വർക്ക് നില മോശം</string>
     <string name="wifitrackerlib_wifi_remembered">സംരക്ഷിച്ചു</string>
+    <string name="wifitrackerlib_wifi_security_eap_suiteb">WPA3-Enterprise 192-bit</string>
+    <string name="wifitrackerlib_wifi_security_eap_wpa3">WPA3-Enterprise</string>
+    <string name="wifitrackerlib_wifi_security_eap_wpa_wpa2">WPA/WPA2-എന്റർപ്രൈസ്</string>
+    <string name="wifitrackerlib_wifi_security_eap_wpa_wpa2_wpa3">WPA/WPA2/WPA3-Enterprise</string>
     <string name="wifitrackerlib_wifi_security_none">ഒന്നുമില്ല</string>
+    <string name="wifitrackerlib_wifi_security_owe">Enhanced Open</string>
+    <string name="wifitrackerlib_wifi_security_passpoint">Passpoint</string>
+    <string name="wifitrackerlib_wifi_security_sae">WPA3-Personal</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_suiteb">Suite-B-192</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_wpa3">WPA3-EAP</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_wpa_wpa2">WPA/WPA2-EAP</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_wpa_wpa2_wpa3">WPA/WPA2/WPA3-EAP</string>
+    <string name="wifitrackerlib_wifi_security_short_owe">OWE</string>
+    <string name="wifitrackerlib_wifi_security_short_sae">WPA3</string>
+    <string name="wifitrackerlib_wifi_security_short_wpa_wpa2">WPA/WPA2</string>
+    <string name="wifitrackerlib_wifi_security_short_wpa_wpa2_wpa3">WPA/WPA2/WPA3</string>
+    <string name="wifitrackerlib_wifi_security_wep">WEP</string>
+    <string name="wifitrackerlib_wifi_security_wpa_wpa2">WPA/WPA2-Personal</string>
+    <string name="wifitrackerlib_wifi_security_wpa_wpa2_wpa3">WPA/WPA2/WPA3-Personal</string>
+    <string name="wifitrackerlib_wifi_standard_11ac">വൈഫൈ 5</string>
+    <string name="wifitrackerlib_wifi_standard_11ad">WiGig</string>
+    <string name="wifitrackerlib_wifi_standard_11ax">വൈഫൈ 6</string>
+    <string name="wifitrackerlib_wifi_standard_11be">വൈഫൈ 7</string>
+    <string name="wifitrackerlib_wifi_standard_11n">വൈഫൈ 4</string>
+    <string name="wifitrackerlib_wifi_standard_legacy">ലെഗസി</string>
+    <string name="wifitrackerlib_wifi_standard_unknown">അജ്ഞാതം</string>
     <string name="wifitrackerlib_wifi_unmetered_label">മീറ്റർമാപകമല്ലാത്തത്</string>
     <string name="wifitrackerlib_wifi_wont_autoconnect_for_now">വൈഫൈ ഇപ്പോൾ സ്വയമേവ കണക്റ്റ് ചെയ്യില്ല</string>
     <string name="window_animation_scale_title">വിൻഡോ ആനിമേഷൻ സ്‌കെയിൽ</string>

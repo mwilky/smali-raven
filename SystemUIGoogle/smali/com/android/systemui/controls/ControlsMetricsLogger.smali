@@ -6,20 +6,13 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/controls/ControlsMetricsLogger$ControlsEvents;,
-        Lcom/android/systemui/controls/ControlsMetricsLogger$DefaultImpls;
+        Lcom/android/systemui/controls/ControlsMetricsLogger$ControlsEvents;
     }
 .end annotation
 
 
 # virtual methods
-.method public abstract assignInstanceId()V
-.end method
-
 .method public abstract drag(Lcom/android/systemui/controls/ui/ControlViewHolder;Z)V
-.end method
-
-.method public abstract log(IIIZ)V
 .end method
 
 .method public abstract longPress(Lcom/android/systemui/controls/ui/ControlViewHolder;Z)V

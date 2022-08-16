@@ -467,7 +467,7 @@
     return-object p0
 .end method
 
-.method protected toStringBuilder()Ljava/lang/StringBuilder;
+.method public toStringBuilder()Ljava/lang/StringBuilder;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -486,7 +486,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    const-string v1, "spec="
+    const-string/jumbo v1, "spec="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

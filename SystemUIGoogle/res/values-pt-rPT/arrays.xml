@@ -17,6 +17,7 @@
         <item>No máximo, 3 processos</item>
         <item>No máximo, 4 processos</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -153,7 +154,7 @@
     <string-array name="hdcp_checking_summaries">
         <item>Nunca utilizar a verificação HDCP</item>
         <item>Utilizar a verificação HDCP para conteúdo DRM apenas</item>
-        <item>Utilizar sempre a verificação HDCP</item>
+        <item>Usar sempre a verificação HDCP</item>
     </string-array>
     <string-array name="hdcp_checking_titles">
         <item>Nunca verificar</item>
@@ -260,6 +261,11 @@
         <item>Desligado</item>
         <item>Ligado</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Indisponível</item>
+        <item>Desativada</item>
+        <item>Ativada</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Indisponível</item>
         <item>Desligado</item>
@@ -277,7 +283,7 @@
     </string-array>
     <string-array name="tile_states_flashlight">
         <item>Indisponível</item>
-        <item>Desligado</item>
+        <item>Desligada</item>
         <item>Ligado</item>
     </string-array>
     <string-array name="tile_states_hotspot">
@@ -306,6 +312,16 @@
         <item>Ligado</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Indisponível</item>
+        <item>Desligado</item>
+        <item>Ligado</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Indisponível</item>
+        <item>Desativado</item>
+        <item>Ativado</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Indisponível</item>
         <item>Desligado</item>
         <item>Ligado</item>
@@ -374,6 +390,12 @@
         <item>Acelerada</item>
         <item>Muito acelerada</item>
         <item>A mais rápida</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Mover para a esquerda</item>
+        <item>Mover para baixo</item>
+        <item>Mover para a direita</item>
+        <item>Mover para cima</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Carregamento</item>

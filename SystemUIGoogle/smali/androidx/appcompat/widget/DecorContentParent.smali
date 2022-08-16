@@ -22,7 +22,7 @@
 .method public abstract isOverflowMenuShowing()Z
 .end method
 
-.method public abstract setMenu(Landroid/view/Menu;Landroidx/appcompat/view/menu/MenuPresenter$Callback;)V
+.method public abstract setMenu(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/app/AppCompatDelegateImpl$ActionMenuPresenterCallback;)V
 .end method
 
 .method public abstract setMenuPrepared()V

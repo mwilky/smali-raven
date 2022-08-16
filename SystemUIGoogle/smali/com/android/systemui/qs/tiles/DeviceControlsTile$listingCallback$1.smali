@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
@@ -34,28 +34,14 @@
 
 
 # virtual methods
-.method public onServicesUpdated(Ljava/util/List;)V
+.method public final onServicesUpdated(Ljava/util/ArrayList;)V
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlsServiceInfo;",
-            ">;)V"
-        }
-    .end annotation
-
-    const-string v0, "serviceInfos"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->access$getHasControlsApps$p(Lcom/android/systemui/qs/tiles/DeviceControlsTile;)Ljava/util/concurrent/atomic/AtomicBoolean;
+    iget-object v0, v0, Lcom/android/systemui/qs/tiles/DeviceControlsTile;->hasControlsApps:Ljava/util/concurrent/atomic/AtomicBoolean;
 
-    move-result-object v0
-
-    invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
+    invoke-virtual {p1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v1
 
@@ -73,7 +59,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/DeviceControlsTile$listingCallback$1;->this$0:Lcom/android/systemui/qs/tiles/DeviceControlsTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     :cond_0
     return-void

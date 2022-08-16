@@ -1,5 +1,6 @@
 .class public final synthetic Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroidx/mediarouter/media/RegisteredMediaRouteProvider$ControllerCallback;
@@ -27,13 +28,15 @@
 
 # virtual methods
 .method public final onControllerReleasedByProvider(Landroidx/mediarouter/media/MediaRouteProvider$RouteController;)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$$ExternalSyntheticLambda0;->f$0:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;
+    iget-object p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$$ExternalSyntheticLambda0;->f$0:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;
 
-    iget-object p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$$ExternalSyntheticLambda0;->f$1:Landroidx/mediarouter/media/RegisteredMediaRouteProvider;
+    iget-object p0, p0, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->mCallback:Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher$Callback;
 
-    invoke-static {v0, p0, p1}, Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;->$r8$lambda$sRNNUhxw4NtRju42larhBrLS5ek(Landroidx/mediarouter/media/RegisteredMediaRouteProviderWatcher;Landroidx/mediarouter/media/RegisteredMediaRouteProvider;Landroidx/mediarouter/media/MediaRouteProvider$RouteController;)V
+    check-cast p0, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;
+
+    invoke-virtual {p0, p1}, Landroidx/mediarouter/media/MediaRouter$GlobalMediaRouter;->releaseProviderController(Landroidx/mediarouter/media/MediaRouteProvider$RouteController;)V
 
     return-void
 .end method

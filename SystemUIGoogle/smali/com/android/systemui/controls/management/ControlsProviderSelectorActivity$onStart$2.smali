@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/controller/ControlsController;)V
+.method public constructor <init>(Lcom/android/systemui/controls/controller/ControlsController;)V
     .locals 7
 
     const-class v3, Lcom/android/systemui/controls/controller/ControlsController;
@@ -52,30 +52,16 @@
 
 
 # virtual methods
-.method public final invoke(Landroid/content/ComponentName;)I
-    .locals 1
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 0
 
-    const-string v0, "p0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p1, Landroid/content/ComponentName;
 
     iget-object p0, p0, Lkotlin/jvm/internal/CallableReference;->receiver:Ljava/lang/Object;
 
     check-cast p0, Lcom/android/systemui/controls/controller/ControlsController;
 
     invoke-interface {p0, p1}, Lcom/android/systemui/controls/controller/ControlsController;->countFavoritesForComponent(Landroid/content/ComponentName;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p1, Landroid/content/ComponentName;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/controls/management/ControlsProviderSelectorActivity$onStart$2;->invoke(Landroid/content/ComponentName;)I
 
     move-result p0
 

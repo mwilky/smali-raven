@@ -4,15 +4,15 @@
 
 
 # static fields
-.field static final ISO_8859_1:Ljava/nio/charset/Charset;
+.field public static final ISO_8859_1:Ljava/nio/charset/Charset;
 
 .field public static final LAZY_INIT_LOCK:Ljava/lang/Object;
 
-.field static final UTF_8:Ljava/nio/charset/Charset;
+.field public static final UTF_8:Ljava/nio/charset/Charset;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-string v0, "UTF-8"
@@ -43,7 +43,7 @@
 .method public static cloneUnknownFieldData(Lcom/android/framework/protobuf/nano/ExtendableMessageNano;Lcom/android/framework/protobuf/nano/ExtendableMessageNano;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/framework/protobuf/nano/ExtendableMessageNano;->unknownFieldData:Lcom/android/framework/protobuf/nano/FieldArray;
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     return-void
 .end method

@@ -17,7 +17,7 @@
 # instance fields
 .field private mBssid:Ljava/lang/String;
 
-.field mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
 .field private mFqdn:Ljava/lang/String;
 

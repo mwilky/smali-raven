@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;
+.class public final Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;
 .super Landroidx/lifecycle/LiveData;
 .source "SliceLiveData.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SliceLiveDataImpl"
 .end annotation
 
@@ -23,42 +23,18 @@
 
 
 # instance fields
-.field final mIntent:Landroid/content/Intent;
+.field public final mSliceCallback:Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;
 
-.field final mListener:Landroidx/slice/widget/SliceLiveData$OnErrorListener;
+.field public final mSliceViewManager:Landroidx/slice/SliceViewManagerWrapper;
 
-.field final mSliceCallback:Landroidx/slice/SliceViewManager$SliceCallback;
+.field public final mUpdateSlice:Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl$1;
 
-.field final mSliceViewManager:Landroidx/slice/SliceViewManager;
-
-.field private final mUpdateSlice:Ljava/lang/Runnable;
-
-.field mUri:Landroid/net/Uri;
+.field public mUri:Landroid/net/Uri;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$FUa-N6XiJYFH8yB287kY9cykmIU(Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;Landroidx/slice/Slice;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->lambda$new$0(Landroidx/slice/Slice;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Landroid/net/Uri;Landroidx/slice/widget/SliceLiveData$OnErrorListener;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/net/Uri;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "uri",
-            "listener"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroidx/lifecycle/LiveData;-><init>()V
 
@@ -66,69 +42,31 @@
 
     invoke-direct {v0, p0}, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl$1;-><init>(Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;)V
 
-    iput-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mUpdateSlice:Ljava/lang/Runnable;
+    iput-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mUpdateSlice:Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl$1;
 
-    new-instance v0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0}, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl$$ExternalSyntheticLambda0;-><init>(Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;)V
+    invoke-direct {v0, p0}, Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;-><init>(Ljava/lang/Object;)V
 
-    iput-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceCallback:Landroidx/slice/SliceViewManager$SliceCallback;
+    iput-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceCallback:Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;
 
-    invoke-static {p1}, Landroidx/slice/SliceViewManager;->getInstance(Landroid/content/Context;)Landroidx/slice/SliceViewManager;
+    new-instance v0, Landroidx/slice/SliceViewManagerWrapper;
 
-    move-result-object p1
+    invoke-direct {v0, p1}, Landroidx/slice/SliceViewManagerWrapper;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceViewManager:Landroidx/slice/SliceViewManager;
+    iput-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceViewManager:Landroidx/slice/SliceViewManagerWrapper;
 
     iput-object p2, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mUri:Landroid/net/Uri;
-
-    const/4 p1, 0x0
-
-    iput-object p1, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mIntent:Landroid/content/Intent;
-
-    iput-object p3, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mListener:Landroidx/slice/widget/SliceLiveData$OnErrorListener;
-
-    return-void
-.end method
-
-.method static synthetic access$100(Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/lifecycle/LiveData;->postValue(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method static synthetic access$200(Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/lifecycle/LiveData;->postValue(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/lifecycle/LiveData;->postValue(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$new$0(Landroidx/slice/Slice;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroidx/lifecycle/LiveData;->postValue(Ljava/lang/Object;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected onActive()V
+.method public final onActive()V
     .locals 2
 
-    iget-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mUpdateSlice:Ljava/lang/Runnable;
+    iget-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mUpdateSlice:Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl$1;
 
     invoke-static {v0}, Landroid/os/AsyncTask;->execute(Ljava/lang/Runnable;)V
 
@@ -136,60 +74,87 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceViewManager:Landroidx/slice/SliceViewManager;
+    iget-object v1, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceViewManager:Landroidx/slice/SliceViewManagerWrapper;
 
-    iget-object p0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceCallback:Landroidx/slice/SliceViewManager$SliceCallback;
+    iget-object p0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceCallback:Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v1, v0, p0}, Landroidx/slice/SliceViewManager;->registerSliceCallback(Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
+    invoke-virtual {v1, v0, p0}, Landroidx/slice/SliceViewManagerBase;->registerSliceCallback(Landroid/net/Uri;Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;)V
 
     :cond_0
     return-void
 .end method
 
-.method protected onInactive()V
-    .locals 2
+.method public final onInactive()V
+    .locals 4
 
     iget-object v0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mUri:Landroid/net/Uri;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    iget-object v1, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceViewManager:Landroidx/slice/SliceViewManager;
+    iget-object v1, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceViewManager:Landroidx/slice/SliceViewManagerWrapper;
 
-    iget-object p0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceCallback:Landroidx/slice/SliceViewManager$SliceCallback;
+    iget-object p0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mSliceCallback:Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v1, v0, p0}, Landroidx/slice/SliceViewManager;->unregisterSliceCallback(Landroid/net/Uri;Landroidx/slice/SliceViewManager$SliceCallback;)V
+    iget-object v2, v1, Landroidx/slice/SliceViewManagerBase;->mListenerLookup:Landroid/util/ArrayMap;
 
-    :cond_0
-    return-void
-.end method
+    monitor-enter v2
 
-.method onSliceError(ILjava/lang/Throwable;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "error",
-            "t"
-        }
-    .end annotation
+    :try_start_0
+    iget-object v1, v1, Landroidx/slice/SliceViewManagerBase;->mListenerLookup:Landroid/util/ArrayMap;
 
-    iget-object p0, p0, Landroidx/slice/widget/SliceLiveData$SliceLiveDataImpl;->mListener:Landroidx/slice/widget/SliceLiveData$OnErrorListener;
+    new-instance v3, Landroid/util/Pair;
+
+    invoke-direct {v3, v0, p0}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+
+    invoke-virtual {v1, v3}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;
 
     if-eqz p0, :cond_0
 
-    invoke-interface {p0, p1, p2}, Landroidx/slice/widget/SliceLiveData$OnErrorListener;->onSliceError(ILjava/lang/Throwable;)V
+    iget-object v0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->this$0:Landroidx/slice/SliceViewManagerBase;
 
-    return-void
+    iget-object v0, v0, Landroidx/slice/SliceViewManagerBase;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    iget-object v1, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mObserver:Landroidx/slice/SliceViewManagerBase$SliceListenerImpl$2;
+
+    invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
+
+    iget-boolean v0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mPinned:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->this$0:Landroidx/slice/SliceViewManagerBase;
+
+    iget-object v1, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mUri:Landroid/net/Uri;
+
+    invoke-virtual {v0, v1}, Landroidx/slice/SliceViewManager;->unpinSlice(Landroid/net/Uri;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroidx/slice/SliceViewManagerBase$SliceListenerImpl;->mPinned:Z
 
     :cond_0
-    const-string p0, "SliceLiveData"
+    monitor-exit v2
 
-    const-string p1, "Error binding slice"
+    goto :goto_0
 
-    invoke-static {p0, p1, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :catchall_0
+    move-exception p0
 
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw p0
+
+    :cond_1
+    :goto_0
     return-void
 .end method

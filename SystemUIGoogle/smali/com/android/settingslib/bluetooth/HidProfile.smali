@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/bluetooth/HidProfile;
+.class public final Lcom/android/settingslib/bluetooth/HidProfile;
 .super Ljava/lang/Object;
 .source "HidProfile.java"
 
@@ -15,111 +15,37 @@
 
 
 # instance fields
-.field private final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
+.field public final mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
-.field private mIsProfileReady:Z
-
-.field private final mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
-.field private mService:Landroid/bluetooth/BluetoothHidHost;
+.field public mService:Landroid/bluetooth/BluetoothHidHost;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p2, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
 
-    iput-object p3, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
-
     invoke-static {}, Landroid/bluetooth/BluetoothAdapter;->getDefaultAdapter()Landroid/bluetooth/BluetoothAdapter;
 
     move-result-object p2
 
-    new-instance p3, Lcom/android/settingslib/bluetooth/HidProfile$HidHostServiceListener;
+    new-instance v0, Lcom/android/settingslib/bluetooth/HidProfile$HidHostServiceListener;
 
-    const/4 v0, 0x0
-
-    invoke-direct {p3, p0, v0}, Lcom/android/settingslib/bluetooth/HidProfile$HidHostServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HidProfile;Lcom/android/settingslib/bluetooth/HidProfile$1;)V
+    invoke-direct {v0, p0}, Lcom/android/settingslib/bluetooth/HidProfile$HidHostServiceListener;-><init>(Lcom/android/settingslib/bluetooth/HidProfile;)V
 
     const/4 p0, 0x4
 
-    invoke-virtual {p2, p1, p3, p0}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
+    invoke-virtual {p2, p1, v0, p0}, Landroid/bluetooth/BluetoothAdapter;->getProfileProxy(Landroid/content/Context;Landroid/bluetooth/BluetoothProfile$ServiceListener;I)Z
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/bluetooth/HidProfile;)Landroid/bluetooth/BluetoothHidHost;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mService:Landroid/bluetooth/BluetoothHidHost;
-
-    return-object p0
-.end method
-
-.method static synthetic access$002(Lcom/android/settingslib/bluetooth/HidProfile;Landroid/bluetooth/BluetoothHidHost;)Landroid/bluetooth/BluetoothHidHost;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mService:Landroid/bluetooth/BluetoothHidHost;
-
-    return-object p1
-.end method
-
-.method static synthetic access$100(Lcom/android/settingslib/bluetooth/HidProfile;)Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mDeviceManager:Lcom/android/settingslib/bluetooth/CachedBluetoothDeviceManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$202(Lcom/android/settingslib/bluetooth/HidProfile;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mIsProfileReady:Z
-
-    return p1
-.end method
-
-.method public static getHidClassDrawable(Landroid/bluetooth/BluetoothClass;)I
-    .locals 1
-
-    invoke-virtual {p0}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
-
-    move-result p0
-
-    const/16 v0, 0x540
-
-    if-eq p0, v0, :cond_1
-
-    const/16 v0, 0x580
-
-    if-eq p0, v0, :cond_0
-
-    const/16 v0, 0x5c0
-
-    if-eq p0, v0, :cond_1
-
-    const p0, 0x108033a
-
-    return p0
-
-    :cond_0
-    const p0, 0x108033c
-
-    return p0
-
-    :cond_1
-    const p0, 0x10803f5
-
-    return p0
-.end method
-
 
 # virtual methods
-.method public accessProfileEnabled()Z
+.method public final accessProfileEnabled()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -127,7 +53,7 @@
     return p0
 .end method
 
-.method protected finalize()V
+.method public final finalize()V
     .locals 4
 
     const-string v0, "HidProfile"
@@ -171,7 +97,7 @@
     return-void
 .end method
 
-.method public getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
+.method public final getConnectionStatus(Landroid/bluetooth/BluetoothDevice;)I
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mService:Landroid/bluetooth/BluetoothHidHost;
@@ -190,24 +116,45 @@
     return p0
 .end method
 
-.method public getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
-    .locals 0
+.method public final getDrawableResource(Landroid/bluetooth/BluetoothClass;)I
+    .locals 1
+
+    const p0, 0x1080401
 
     if-nez p1, :cond_0
-
-    const p0, 0x10803f5
 
     return p0
 
     :cond_0
-    invoke-static {p1}, Lcom/android/settingslib/bluetooth/HidProfile;->getHidClassDrawable(Landroid/bluetooth/BluetoothClass;)I
+    invoke-virtual {p1}, Landroid/bluetooth/BluetoothClass;->getDeviceClass()I
 
-    move-result p0
+    move-result p1
 
+    const/16 v0, 0x540
+
+    if-eq p1, v0, :cond_2
+
+    const/16 v0, 0x580
+
+    if-eq p1, v0, :cond_1
+
+    const/16 v0, 0x5c0
+
+    if-eq p1, v0, :cond_2
+
+    const p0, 0x1080343
+
+    goto :goto_0
+
+    :cond_1
+    const p0, 0x1080345
+
+    :cond_2
+    :goto_0
     return p0
 .end method
 
-.method public getProfileId()I
+.method public final getProfileId()I
     .locals 0
 
     const/4 p0, 0x4
@@ -215,7 +162,7 @@
     return p0
 .end method
 
-.method public setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
+.method public final setEnabled(Landroid/bluetooth/BluetoothDevice;Z)Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/bluetooth/HidProfile;->mService:Landroid/bluetooth/BluetoothHidHost;
@@ -255,7 +202,7 @@
     return v1
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     const-string p0, "HID"

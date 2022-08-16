@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
+.field public final synthetic this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;)V
+.method public constructor <init>(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onComplete$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
@@ -45,50 +45,30 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onComplete$1;->invoke()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke()V
+.method public final invoke()Ljava/lang/Object;
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onComplete$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
 
-    invoke-static {v0}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->access$getSubscriptionOpen$p(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->subscriptionOpen:Z
 
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onComplete$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
+    if-eqz v1, :cond_0
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->access$setSubscriptionOpen$p(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;Z)V
+    iput-boolean v1, v0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->subscriptionOpen:Z
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "onComplete receive from \'"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "onComplete receive from \'"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber$onComplete$1;->this$0:Lcom/android/systemui/controls/controller/StatefulControlSubscriber;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->access$getProvider$p(Lcom/android/systemui/controls/controller/StatefulControlSubscriber;)Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
+    iget-object p0, p0, Lcom/android/systemui/controls/controller/StatefulControlSubscriber;->provider:Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->getComponentName()Landroid/content/ComponentName;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsProviderLifecycleManager;->componentName:Landroid/content/ComponentName;
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -105,5 +85,7 @@
     invoke-static {v0, p0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    return-void
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

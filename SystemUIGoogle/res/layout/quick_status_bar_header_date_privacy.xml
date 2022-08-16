@@ -5,7 +5,6 @@
         <com.android.systemui.statusbar.policy.VariableDateView android:textAppearance="@style/TextAppearance.QS.Status" android:gravity="center_vertical" android:layout_gravity="start|center" android:id="@id/date" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" systemui:longDatePattern="@string/abbrev_wday_month_day_no_year_alarm" systemui:shortDatePattern="@string/abbrev_month_day_no_year" />
     </FrameLayout>
     <android.widget.Space android:layout_gravity="center" android:id="@id/space" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="fill_parent" />
-    <FrameLayout android:gravity="center" android:id="@id/header_text_container" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" android:paddingStart="16.0dip" android:paddingEnd="16.0dip" />
     <FrameLayout android:gravity="end|center" android:id="@id/privacy_container" android:layout_width="0.0dip" android:layout_height="fill_parent" android:minHeight="48.0dip" android:layout_weight="1.0">
         <include layout="@layout/ongoing_privacy_chip" />
     </FrameLayout>

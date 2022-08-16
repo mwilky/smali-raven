@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/shared/tracing/FrameProtoTracer$2;
+.class public final Lcom/android/systemui/shared/tracing/FrameProtoTracer$2;
 .super Ljava/lang/Object;
 .source "FrameProtoTracer.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -26,11 +26,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
+.field public final synthetic this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/shared/tracing/FrameProtoTracer;)V
+.method public constructor <init>(Lcom/android/systemui/shared/tracing/FrameProtoTracer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer$2;->this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
@@ -42,7 +42,7 @@
 
 
 # virtual methods
-.method public accept(Ljava/lang/Object;)V
+.method public final accept(Ljava/lang/Object;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -52,7 +52,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer$2;->this$0:Lcom/android/systemui/shared/tracing/FrameProtoTracer;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->access$100(Lcom/android/systemui/shared/tracing/FrameProtoTracer;Ljava/lang/Object;)V
+    iget-object p0, p0, Lcom/android/systemui/shared/tracing/FrameProtoTracer;->mPool:Ljava/util/LinkedList;
+
+    invoke-virtual {p0, p1}, Ljava/util/LinkedList;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method

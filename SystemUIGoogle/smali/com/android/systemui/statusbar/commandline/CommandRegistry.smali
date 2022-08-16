@@ -4,35 +4,18 @@
 
 
 # instance fields
-.field private final commandMap:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Lcom/android/systemui/statusbar/commandline/CommandWrapper;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final commandMap:Ljava/util/LinkedHashMap;
 
-.field private final context:Landroid/content/Context;
+.field public final context:Landroid/content/Context;
 
-.field private initialized:Z
+.field public initialized:Z
 
-.field private final mainExecutor:Ljava/util/concurrent/Executor;
+.field public final mainExecutor:Ljava/util/concurrent/Executor;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Ljava/util/concurrent/Executor;)V
-    .locals 1
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "mainExecutor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,12 +27,14 @@
 
     invoke-direct {p1}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/Map;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/LinkedHashMap;
 
     return-void
 .end method
 
-.method private final help(Ljava/io/PrintWriter;)V
+
+# virtual methods
+.method public final help(Ljava/io/PrintWriter;)V
     .locals 2
 
     const-string v0, "Usage: adb shell cmd statusbar <command>"
@@ -60,9 +45,9 @@
 
     invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/LinkedHashMap;
 
-    invoke-interface {p0}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-virtual {p0}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
 
     move-result-object p0
 
@@ -85,7 +70,7 @@
 
     const-string v1, "   "
 
-    invoke-static {v1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -97,78 +82,50 @@
     return-void
 .end method
 
-.method private final initializeCommands()V
-    .locals 2
+.method public final onShellCommand(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 3
 
-    const/4 v0, 0x1
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->initialized:Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->initialized:Z
+    const/4 v1, 0x1
+
+    if-nez v0, :cond_0
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->initialized:Z
 
     new-instance v0, Lcom/android/systemui/statusbar/commandline/CommandRegistry$initializeCommands$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/commandline/CommandRegistry$initializeCommands$1;-><init>(Lcom/android/systemui/statusbar/commandline/CommandRegistry;)V
 
-    const-string v1, "prefs"
+    const-string/jumbo v2, "prefs"
 
-    invoke-virtual {p0, v1, v0}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->registerCommand(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final getContext()Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->context:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method public final onShellCommand(Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 3
-
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "args"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->initialized:Z
-
-    if-nez v0, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->initializeCommands()V
+    invoke-virtual {p0, v2, v0}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->registerCommand(Ljava/lang/String;Lkotlin/jvm/functions/Function0;)V
 
     :cond_0
     array-length v0, p2
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-nez v0, :cond_1
-
-    const/4 v0, 0x1
 
     goto :goto_0
 
     :cond_1
-    move v0, v1
+    move v1, v2
 
     :goto_0
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->help(Ljava/io/PrintWriter;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->help(Ljava/io/PrintWriter;)V
 
     return-void
 
     :cond_2
-    aget-object v0, p2, v1
+    aget-object v0, p2, v2
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/Map;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/LinkedHashMap;
 
-    invoke-interface {v1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -176,14 +133,12 @@
 
     if-nez v0, :cond_3
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->help(Ljava/io/PrintWriter;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->help(Ljava/io/PrintWriter;)V
 
     return-void
 
     :cond_3
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->getCommandFactory()Lkotlin/jvm/functions/Function0;
-
-    move-result-object p0
+    iget-object p0, v0, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->commandFactory:Lkotlin/jvm/functions/Function0;
 
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
@@ -199,9 +154,7 @@
 
     invoke-direct {v1, v2}, Ljava/util/concurrent/FutureTask;-><init>(Ljava/util/concurrent/Callable;)V
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->getExecutor()Ljava/util/concurrent/Executor;
-
-    move-result-object p0
+    iget-object p0, v0, Lcom/android/systemui/statusbar/commandline/CommandWrapper;->executor:Ljava/util/concurrent/Executor;
 
     new-instance p1, Lcom/android/systemui/statusbar/commandline/CommandRegistry$onShellCommand$1;
 
@@ -230,14 +183,6 @@
     monitor-enter p0
 
     :try_start_0
-    const-string v0, "name"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "commandFactory"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->mainExecutor:Ljava/util/concurrent/Executor;
 
     invoke-virtual {p0, p1, p2, v0}, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->registerCommand(Ljava/lang/String;Lkotlin/jvm/functions/Function0;Ljava/util/concurrent/Executor;)V
@@ -274,27 +219,15 @@
     monitor-enter p0
 
     :try_start_0
-    const-string v0, "name"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/LinkedHashMap;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "commandFactory"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "executor"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/Map;
-
-    invoke-interface {v0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/LinkedHashMap;
 
     new-instance v1, Lcom/android/systemui/statusbar/commandline/CommandWrapper;
 
@@ -335,34 +268,6 @@
     throw p2
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :catchall_0
-    move-exception p1
-
-    monitor-exit p0
-
-    throw p1
-.end method
-
-.method public final declared-synchronized unregisterCommand(Ljava/lang/String;)V
-    .locals 1
-
-    monitor-enter p0
-
-    :try_start_0
-    const-string v0, "command"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/commandline/CommandRegistry;->commandMap:Ljava/util/Map;
-
-    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit p0
-
-    return-void
 
     :catchall_0
     move-exception p1

@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/IlluminationDrawable;
+.field public final synthetic this$0:Lcom/android/systemui/media/IlluminationDrawable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/IlluminationDrawable;)V
+.method public constructor <init>(Lcom/android/systemui/media/IlluminationDrawable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/IlluminationDrawable$animateBackground$1$2;->this$0:Lcom/android/systemui/media/IlluminationDrawable;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/IlluminationDrawable$animateBackground$1$2;->this$0:Lcom/android/systemui/media/IlluminationDrawable;

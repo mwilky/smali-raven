@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;
+.class public final Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;
 .super Lcom/airbnb/lottie/animation/keyframe/KeyframeAnimation;
 .source "PathKeyframeAnimation.java"
 
@@ -14,13 +14,13 @@
 
 
 # instance fields
-.field private pathMeasure:Landroid/graphics/PathMeasure;
+.field public pathMeasure:Landroid/graphics/PathMeasure;
 
-.field private pathMeasureKeyframe:Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;
+.field public pathMeasureKeyframe:Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;
 
-.field private final point:Landroid/graphics/PointF;
+.field public final point:Landroid/graphics/PointF;
 
-.field private final pos:[F
+.field public final pos:[F
 
 
 # direct methods
@@ -62,25 +62,14 @@
 
 
 # virtual methods
-.method public getValue(Lcom/airbnb/lottie/value/Keyframe;F)Landroid/graphics/PointF;
-    .locals 10
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/value/Keyframe<",
-            "Landroid/graphics/PointF;",
-            ">;F)",
-            "Landroid/graphics/PointF;"
-        }
-    .end annotation
+.method public final getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
+    .locals 4
 
     move-object v0, p1
 
     check-cast v0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;
 
-    invoke-virtual {v0}, Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;->getPath()Landroid/graphics/Path;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;->path:Landroid/graphics/Path;
 
     if-nez v1, :cond_0
 
@@ -88,36 +77,24 @@
 
     check-cast p0, Landroid/graphics/PointF;
 
-    return-object p0
+    goto :goto_0
 
     :cond_0
-    iget-object v2, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
+    iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->valueCallback:Lcom/airbnb/lottie/value/LottieValueCallback;
 
-    if-eqz v2, :cond_1
+    if-eqz p1, :cond_1
 
-    iget v3, v0, Lcom/airbnb/lottie/value/Keyframe;->startFrame:F
+    iget-object v2, v0, Lcom/airbnb/lottie/value/Keyframe;->endFrame:Ljava/lang/Float;
 
-    iget-object p1, v0, Lcom/airbnb/lottie/value/Keyframe;->endFrame:Ljava/lang/Float;
+    invoke-virtual {v2}, Ljava/lang/Float;->floatValue()F
 
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+    iget-object v2, v0, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
 
-    move-result v4
-
-    iget-object v5, v0, Lcom/airbnb/lottie/value/Keyframe;->startValue:Ljava/lang/Object;
-
-    iget-object v6, v0, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
+    iget-object v3, v0, Lcom/airbnb/lottie/value/Keyframe;->endValue:Ljava/lang/Object;
 
     invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getLinearCurrentKeyframeProgress()F
 
-    move-result v7
-
-    invoke-virtual {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;->getProgress()F
-
-    move-result v9
-
-    move v8, p2
-
-    invoke-virtual/range {v2 .. v9}, Lcom/airbnb/lottie/value/LottieValueCallback;->getValueInternal(FFLjava/lang/Object;Ljava/lang/Object;FFF)Ljava/lang/Object;
+    invoke-virtual {p1, v2, v3}, Lcom/airbnb/lottie/value/LottieValueCallback;->getValueInternal(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -125,7 +102,9 @@
 
     if-eqz p1, :cond_1
 
-    return-object p1
+    move-object p0, p1
+
+    goto :goto_0
 
     :cond_1
     iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;->pathMeasureKeyframe:Lcom/airbnb/lottie/animation/keyframe/PathKeyframe;
@@ -147,13 +126,13 @@
 
     move-result v0
 
-    mul-float/2addr p2, v0
+    mul-float/2addr v0, p2
 
-    iget-object v0, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;->pos:[F
+    iget-object p2, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;->pos:[F
 
     const/4 v1, 0x0
 
-    invoke-virtual {p1, p2, v0, v1}, Landroid/graphics/PathMeasure;->getPosTan(F[F[F)Z
+    invoke-virtual {p1, v0, p2, v1}, Landroid/graphics/PathMeasure;->getPosTan(F[F[F)Z
 
     iget-object p1, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;->point:Landroid/graphics/PointF;
 
@@ -169,15 +148,6 @@
 
     iget-object p0, p0, Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;->point:Landroid/graphics/PointF;
 
-    return-object p0
-.end method
-
-.method public bridge synthetic getValue(Lcom/airbnb/lottie/value/Keyframe;F)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2}, Lcom/airbnb/lottie/animation/keyframe/PathKeyframeAnimation;->getValue(Lcom/airbnb/lottie/value/Keyframe;F)Landroid/graphics/PointF;
-
-    move-result-object p0
-
+    :goto_0
     return-object p0
 .end method

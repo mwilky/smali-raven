@@ -4,29 +4,8 @@
 
 
 # virtual methods
-.method public abstract addValueCallback(Ljava/lang/Object;Lcom/airbnb/lottie/value/LottieValueCallback;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">(TT;",
-            "Lcom/airbnb/lottie/value/LottieValueCallback<",
-            "TT;>;)V"
-        }
-    .end annotation
+.method public abstract addValueCallback(Lcom/airbnb/lottie/value/LottieValueCallback;Ljava/lang/Object;)V
 .end method
 
-.method public abstract resolveKeyPath(Lcom/airbnb/lottie/model/KeyPath;ILjava/util/List;Lcom/airbnb/lottie/model/KeyPath;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/model/KeyPath;",
-            "I",
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/model/KeyPath;",
-            ">;",
-            "Lcom/airbnb/lottie/model/KeyPath;",
-            ")V"
-        }
-    .end annotation
+.method public abstract resolveKeyPath(Lcom/airbnb/lottie/model/KeyPath;ILjava/util/ArrayList;Lcom/airbnb/lottie/model/KeyPath;)V
 .end method

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Supplier;
+.implements Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserSwitchCallback;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final get()Ljava/lang/Object;
-    .locals 0
+.method public final onUserSwitched()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSecurityContainerController$$ExternalSyntheticLambda0;->f$0:Lcom/android/keyguard/KeyguardSecurityContainerController;
 
-    invoke-static {p0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->$r8$lambda$fVkc3_XpDNpr2tdjWUZ98k5DC44(Lcom/android/keyguard/KeyguardSecurityContainerController;)Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    const/4 v0, 0x0
 
-    move-result-object p0
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardSecurityContainerController;->showPrimarySecurityScreen(Z)V
 
-    return-object p0
+    return-void
 .end method

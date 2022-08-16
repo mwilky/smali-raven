@@ -4,13 +4,5 @@
 
 
 # virtual methods
-.method public abstract getFacetProvider(I)Landroidx/leanback/widget/FacetProvider;
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
+.method public abstract getFacetProvider()Landroidx/leanback/widget/FacetProvider;
 .end method

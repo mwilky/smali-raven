@@ -1,9 +1,32 @@
-.class public Lcom/android/systemui/FontSizeUtils;
+.class public final Lcom/android/systemui/FontSizeUtils;
 .super Ljava/lang/Object;
 .source "FontSizeUtils.java"
 
 
 # direct methods
+.method public static updateFontSize(ILandroid/widget/TextView;)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p0
+
+    int-to-float p0, p0
+
+    invoke-virtual {p1, v0, p0}, Landroid/widget/TextView;->setTextSize(IF)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public static updateFontSize(Landroid/view/View;II)V
     .locals 0
 
@@ -13,30 +36,49 @@
 
     check-cast p0, Landroid/widget/TextView;
 
-    invoke-static {p0, p2}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(Landroid/widget/TextView;I)V
+    invoke-static {p2, p0}, Lcom/android/systemui/FontSizeUtils;->updateFontSize(ILandroid/widget/TextView;)V
 
     return-void
 .end method
 
-.method public static updateFontSize(Landroid/widget/TextView;I)V
-    .locals 2
+.method public static updateFontSizeFromStyle(Landroid/widget/TextView;)V
+    .locals 4
 
-    if-eqz p0, :cond_0
+    const/4 v0, 0x1
 
-    const/4 v0, 0x0
+    new-array v0, v0, [I
 
-    invoke-virtual {p0}, Landroid/widget/TextView;->getResources()Landroid/content/res/Resources;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    const v2, 0x1010095
 
-    invoke-virtual {v1, p1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    aput v2, v0, v1
 
-    move-result p1
+    invoke-virtual {p0}, Landroid/widget/TextView;->getContext()Landroid/content/Context;
 
-    int-to-float p1, p1
+    move-result-object v2
 
-    invoke-virtual {p0, v0, p1}, Landroid/widget/TextView;->setTextSize(IF)V
+    const v3, 0x7f140396
 
-    :cond_0
+    invoke-virtual {v2, v3, v0}, Landroid/content/Context;->obtainStyledAttributes(I[I)Landroid/content/res/TypedArray;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Landroid/widget/TextView;->getTextSize()F
+
+    move-result v2
+
+    float-to-int v2, v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/res/TypedArray;->getDimensionPixelSize(II)I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    invoke-virtual {p0, v1, v2}, Landroid/widget/TextView;->setTextSize(IF)V
+
+    invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
+
     return-void
 .end method

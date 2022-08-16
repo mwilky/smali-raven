@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -34,7 +34,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$resetBadgeUi$1;
@@ -46,7 +46,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     const/4 v0, 0x1
@@ -58,40 +58,40 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final invoke(Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 2
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/ConversationNotificationManager$resetBadgeUi$1;->invoke(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;)Lkotlin/sequences/Sequence;
+    const/4 p0, 0x4
 
-    move-result-object p0
+    new-array p0, p0, [Landroid/view/View;
 
-    return-object p0
-.end method
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mContractedChild:Landroid/view/View;
 
-.method public final invoke(Lcom/android/systemui/statusbar/notification/row/NotificationContentView;)Lkotlin/sequences/Sequence;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/statusbar/notification/row/NotificationContentView;",
-            ")",
-            "Lkotlin/sequences/Sequence<",
-            "Landroid/view/View;",
-            ">;"
-        }
-    .end annotation
+    const/4 v1, 0x0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->getAllViews()[Landroid/view/View;
+    aput-object v0, p0, v1
 
-    move-result-object p0
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mHeadsUpChild:Landroid/view/View;
 
-    const-string p1, "layout.allViews"
+    const/4 v1, 0x1
 
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    aput-object v0, p0, v1
 
-    invoke-static {p0}, Lkotlin/collections/ArraysKt;->asSequence([Ljava/lang/Object;)Lkotlin/sequences/Sequence;
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mExpandedChild:Landroid/view/View;
+
+    const/4 v1, 0x2
+
+    aput-object v0, p0, v1
+
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mSingleLineView:Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;
+
+    const/4 v0, 0x3
+
+    aput-object p1, p0, v0
+
+    invoke-static {p0}, Lkotlin/collections/ArraysKt___ArraysKt;->asSequence([Ljava/lang/Object;)Lkotlin/sequences/Sequence;
 
     move-result-object p0
 

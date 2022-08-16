@@ -1,4 +1,4 @@
-.class abstract Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
+.class public abstract Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;
 .super Ljava/lang/Object;
 .source "DisplayIdIndexSupplier.java"
 
@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field private final mDisplayManager:Landroid/hardware/display/DisplayManager;
+.field public final mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-.field private final mSparseArray:Landroid/util/SparseArray;
+.field public final mSparseArray:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -28,7 +28,7 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/hardware/display/DisplayManager;)V
+.method public constructor <init>(Landroid/hardware/display/DisplayManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -46,7 +46,7 @@
 
 
 # virtual methods
-.method protected abstract createInstance(Landroid/view/Display;)Ljava/lang/Object;
+.method public abstract createInstance(Landroid/view/Display;)Ljava/lang/Object;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -56,44 +56,7 @@
     .end annotation
 .end method
 
-.method public forEach(Ljava/util/function/Consumer;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "TT;>;)V"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;->mSparseArray:Landroid/util/SparseArray;
-
-    invoke-virtual {v1}, Landroid/util/SparseArray;->size()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;->mSparseArray:Landroid/util/SparseArray;
-
-    invoke-virtual {v1, v0}, Landroid/util/SparseArray;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-interface {p1, v1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public get(I)Ljava/lang/Object;
+.method public final get(I)Ljava/lang/Object;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -134,21 +97,4 @@
     invoke-virtual {p0, p1, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
     return-object v0
-.end method
-
-.method public valueAt(I)Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I)TT;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/DisplayIdIndexSupplier;->mSparseArray:Landroid/util/SparseArray;
-
-    invoke-virtual {p0, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
-
-    move-result-object p0
-
-    return-object p0
 .end method

@@ -15,11 +15,13 @@
 
 
 # instance fields
-.field private final blockable:Z
+.field public final authIsRequired:Z
 
-.field private final controlId:Ljava/lang/String;
+.field public final blockable:Z
 
-.field private final f:Lkotlin/jvm/functions/Function0;
+.field public final controlId:Ljava/lang/String;
+
+.field public final f:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function0<",
@@ -29,33 +31,21 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Z)V
-    .locals 1
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;Lkotlin/jvm/functions/Function0;ZZ)V
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
             "Ljava/lang/String;",
             "Lkotlin/jvm/functions/Function0<",
             "Lkotlin/Unit;",
-            ">;Z)V"
+            ">;ZZ)V"
         }
     .end annotation
-
-    const-string v0, "this$0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "controlId"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "f"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->this$0:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;
 
@@ -67,41 +57,57 @@
 
     iput-boolean p4, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->blockable:Z
 
+    iput-boolean p5, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->authIsRequired:Z
+
     return-void
 .end method
 
 
 # virtual methods
-.method public final getControlId()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->controlId:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 .method public final invoke()V
-    .locals 2
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->blockable:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->this$0:Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;
 
     iget-object v1, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->controlId:Ljava/lang/String;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->access$shouldRunAction(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;)Z
+    iget-object v2, v0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->actionsInProgress:Ljava/util/LinkedHashSet;
 
-    move-result v0
+    invoke-interface {v2, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    if-eqz v0, :cond_1
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, v0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;->uiExecutor:Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
+    new-instance v3, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$shouldRunAction$1;
+
+    invoke-direct {v3, v0, v1}, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$shouldRunAction$1;-><init>(Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl;Ljava/lang/String;)V
+
+    const-wide/16 v0, 0xbb8
+
+    invoke-interface {v2, v3, v0, v1}, Lcom/android/systemui/util/concurrency/DelayableExecutor;->executeDelayed(Ljava/lang/Runnable;J)Ljava/lang/Runnable;
+
+    const/4 v0, 0x1
+
+    goto :goto_0
 
     :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    if-eqz v0, :cond_2
+
+    :cond_1
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlActionCoordinatorImpl$Action;->f:Lkotlin/jvm/functions/Function0;
 
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
-    :cond_1
+    :cond_2
     return-void
 .end method

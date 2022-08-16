@@ -27,18 +27,10 @@
 
 
 # virtual methods
-.method public abstract parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
+.method public abstract parseResult(Landroid/content/Intent;I)Ljava/lang/Object;
     .annotation build Landroid/annotation/SuppressLint;
         value = {
             "UnknownNullness"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Landroid/content/Intent;",
-            ")TO;"
         }
     .end annotation
 .end method

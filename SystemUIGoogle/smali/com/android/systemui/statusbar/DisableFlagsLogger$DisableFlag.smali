@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field private final bitMask:I
+.field public final bitMask:I
 
-.field private final flagIsSetSymbol:C
+.field public final flagIsSetSymbol:C
 
-.field private final flagNotSetSymbol:C
+.field public final flagNotSetSymbol:C
 
 
 # direct methods

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d ថ្ងៃ​មុន</item>
-        <item quantity="one">%d ថ្ងៃ​មុន</item>
+        <item quantity="other">%d ថ្ងៃមុន</item>
+        <item quantity="one">%d ថ្ងៃមុន</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
         <item quantity="other">%d នាទី​មុន</item>
@@ -15,6 +15,10 @@
     <plurals name="controls_number_of_favorites">
         <item quantity="other">បានបញ្ចូល​ការគ្រប់គ្រង %s។</item>
         <item quantity="one">បានបញ្ចូល​ការគ្រប់គ្រង %s។</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">កម្មវិធី %s កំពុងដំណើរការ</item>
+        <item quantity="one">កម្មវិធី %s កំពុងដំណើរការ</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">បញ្ចូល​កូដ PIN របស់ស៊ីម។ អ្នកនៅ​សល់ការ​ព្យាយាម %d ដងទៀត។</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">កូដ PUK របស់​ស៊ីម​មិន​ត្រឹមត្រូវ​ទេ ប្រសិន​បើ​អ្នក​បញ្ចូល​កូដខុស %d ដងទៀត ស៊ីមនឹង​មិន​អាច​ប្រើ​បាន​ជា​អចិន្ត្រៃយ៍។</item>
         <item quantity="one">កូដ PUK របស់​ស៊ីម​មិន​ត្រឹមត្រូវ​ទេ ប្រសិន​បើ​អ្នក​បញ្ចូល​កូដខុស %d ដងទៀត ស៊ីមនឹង​មិន​អាច​ប្រើ​បាន​ជា​អចិន្ត្រៃយ៍។</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">ព្យាយាមម្តងទៀតក្នុងរយៈពេល %d វិនាទី។</item>
-        <item quantity="one">ព្យាយាមម្តងទៀតក្នុងរយៈពេល 1 វិនាទី។</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">ការជូនដំណឹងថ្មី %d</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">អ្នកអាចបញ្ចូល​អ្នក​ប្រើប្រាស់បាន​រហូតដល់ %d នាក់។</item>
         <item quantity="one">អាច​បង្កើត​អ្នក​ប្រើប្រាស់​បាន​​តែម្នាក់ប៉ុណ្ណោះ។</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">ឧបករណ៍ %1$d បានភ្ជាប់</item>
-        <item quantity="one">ឧបករណ៍ %1$d បានភ្ជាប់</item>
     </plurals>
 </resources>

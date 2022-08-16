@@ -9,9 +9,13 @@
     <bool name="config_changeVolumeRowTintWhenInactive">true</bool>
     <bool name="config_clipNotificationScrollToTop">true</bool>
     <bool name="config_clipNotificationsToOutline">false</bool>
+    <bool name="config_communalServiceEnabled">false</bool>
     <bool name="config_dead_zone_flash">false</bool>
+    <bool name="config_dimNonImeAttachedSide">true</bool>
     <bool name="config_disableMenuKeyInLockScreen">false</bool>
     <bool name="config_drawNotificationBackground">false</bool>
+    <bool name="config_dreamOverlayServiceEnabled">false</bool>
+    <bool name="config_enableBouncerUserSwitcher">false</bool>
     <bool name="config_enableDisplayCutoutProtection">false</bool>
     <bool name="config_enableFullscreenUserSwitcher">false</bool>
     <item type="bool" name="config_enableLockScreenRotation">@android:bool/config_enableLockScreenRotation</item>
@@ -27,12 +31,12 @@
     <bool name="config_hspa_data_distinguishable">false</bool>
     <bool name="config_keyguardShowCameraAffordance">false</bool>
     <bool name="config_keyguardShowLeftAffordance">false</bool>
-    <bool name="config_keyguard_user_switch_opens_qs_details">false</bool>
     <bool name="config_materialPreferenceIconSpaceReserved">false</bool>
     <bool name="config_navigation_bar_enable_auto_dim_no_visible_wallpaper">true</bool>
     <bool name="config_nfc_conflict_with_usb_audio">false</bool>
     <bool name="config_nfc_conflict_with_wlc">false</bool>
     <bool name="config_notificationToContents">false</bool>
+    <bool name="config_notification_never_show_section_headers">false</bool>
     <bool name="config_one_handed_enable_round_corner">true</bool>
     <bool name="config_pipEnableDismissDragToEdge">true</bool>
     <bool name="config_pipEnableDragCornerResize">false</bool>
@@ -40,9 +44,9 @@
     <bool name="config_pipEnableResizeForMenu">true</bool>
     <bool name="config_playHomeSoundAfterAssistant">false</bool>
     <bool name="config_playHomeSoundAfterDream">false</bool>
+    <bool name="config_quickSettingsMediaLandscapeCollapsed">true</bool>
     <bool name="config_renderNotifications">true</bool>
-    <bool name="config_roundedCornerMultipleRadius">false</bool>
-    <bool name="config_roundedCornerMultipleRadiusSecondary">false</bool>
+    <bool name="config_severe_battery_dialog">true</bool>
     <bool name="config_showActivity">false</bool>
     <bool name="config_showBatteryEstimateQSBH">false</bool>
     <bool name="config_showDividersWhenGroupNotificationExpanded">false</bool>
@@ -53,8 +57,8 @@
     <bool name="config_showNotificationGear">true</bool>
     <bool name="config_showNotificationGroupCountInExpander">true</bool>
     <bool name="config_showNotificationShelf">true</bool>
-    <bool name="config_showOperatorNameInStatusBar">false</bool>
     <bool name="config_showWifiIndicatorWhenEnabled">false</bool>
+    <bool name="config_show_low_light_clock_when_docked">false</bool>
     <bool name="config_skinnyNotifsInLandscape">true</bool>
     <bool name="config_smart_replies_in_notifications_edit_choices_before_sending">false</bool>
     <bool name="config_smart_replies_in_notifications_enabled">true</bool>
@@ -62,6 +66,7 @@
     <bool name="config_smart_replies_in_notifications_show_in_heads_up">true</bool>
     <bool name="config_statusBarShowNumber">false</bool>
     <bool name="config_touch_context_enabled">false</bool>
+    <bool name="config_use_large_screen_shade_header">false</bool>
     <bool name="config_use_split_notification_shade">false</bool>
     <bool name="config_vibrateOnIconAnimation">false</bool>
     <bool name="config_volumeDialogUseBackgroundBlur">false</bool>
@@ -78,8 +83,10 @@
     <bool name="enable_volume_ui">true</bool>
     <bool name="flag_charging_ripple">false</bool>
     <bool name="flag_conversations">false</bool>
+    <bool name="flag_lockscreen_qs_user_detail_shortcut">false</bool>
     <bool name="flag_monet">true</bool>
     <bool name="flag_smartspace">false</bool>
+    <bool name="flag_user_switcher_chip">false</bool>
     <bool name="heads_up_notification_hides_header">false</bool>
     <bool name="is_tablet">false</bool>
     <bool name="kg_show_ime_at_screen_on">true</bool>
@@ -89,4 +96,5 @@
     <bool name="settingslib_config_allow_divider">false</bool>
     <bool name="settingslib_config_icon_space_reserved">false</bool>
     <bool name="simple_cache_enable_im_memory">false</bool>
+    <bool name="sudUseTabletLayout">false</bool>
 </resources>

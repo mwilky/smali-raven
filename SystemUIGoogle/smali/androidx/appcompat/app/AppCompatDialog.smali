@@ -7,72 +7,80 @@
 
 
 # instance fields
-.field private mDelegate:Landroidx/appcompat/app/AppCompatDelegate;
+.field public mDelegate:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
-.field private final mKeyDispatcher:Landroidx/core/view/KeyEventDispatcher$Component;
+.field public final mKeyDispatcher:Landroidx/appcompat/app/AppCompatDialog$1;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;I)V
-    .locals 1
+    .locals 4
 
-    invoke-static {p1, p2}, Landroidx/appcompat/app/AppCompatDialog;->getThemeResId(Landroid/content/Context;I)I
+    const/4 v0, 0x1
 
-    move-result v0
+    const v1, 0x7f040176
 
-    invoke-direct {p0, p1, v0}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
+    if-nez p2, :cond_0
 
-    new-instance v0, Landroidx/appcompat/app/AppCompatDialog$1;
+    new-instance v2, Landroid/util/TypedValue;
 
-    invoke-direct {v0, p0}, Landroidx/appcompat/app/AppCompatDialog$1;-><init>(Landroidx/appcompat/app/AppCompatDialog;)V
+    invoke-direct {v2}, Landroid/util/TypedValue;-><init>()V
 
-    iput-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mKeyDispatcher:Landroidx/core/view/KeyEventDispatcher$Component;
+    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1, v2, v0}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+
+    iget v2, v2, Landroid/util/TypedValue;->resourceId:I
+
+    goto :goto_0
+
+    :cond_0
+    move v2, p2
+
+    :goto_0
+    invoke-direct {p0, p1, v2}, Landroid/app/Dialog;-><init>(Landroid/content/Context;I)V
+
+    new-instance v2, Landroidx/appcompat/app/AppCompatDialog$1;
+
+    invoke-direct {v2, p0}, Landroidx/appcompat/app/AppCompatDialog$1;-><init>(Landroidx/appcompat/app/AppCompatDialog;)V
+
+    iput-object v2, p0, Landroidx/appcompat/app/AppCompatDialog;->mKeyDispatcher:Landroidx/appcompat/app/AppCompatDialog$1;
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
 
     move-result-object p0
 
-    invoke-static {p1, p2}, Landroidx/appcompat/app/AppCompatDialog;->getThemeResId(Landroid/content/Context;I)I
+    if-nez p2, :cond_1
 
-    move-result p1
+    new-instance p2, Landroid/util/TypedValue;
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AppCompatDelegate;->setTheme(I)V
+    invoke-direct {p2}, Landroid/util/TypedValue;-><init>()V
 
-    const/4 p1, 0x0
+    invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AppCompatDelegate;->onCreate(Landroid/os/Bundle;)V
+    move-result-object p1
+
+    invoke-virtual {p1, v1, p2, v0}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
+
+    iget p2, p2, Landroid/util/TypedValue;->resourceId:I
+
+    :cond_1
+    move-object p1, p0
+
+    check-cast p1, Landroidx/appcompat/app/AppCompatDelegateImpl;
+
+    iput p2, p1, Landroidx/appcompat/app/AppCompatDelegateImpl;->mThemeResId:I
+
+    invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDelegate;->onCreate()V
 
     return-void
 .end method
 
-.method private static getThemeResId(Landroid/content/Context;I)I
-    .locals 2
-
-    if-nez p1, :cond_0
-
-    new-instance p1, Landroid/util/TypedValue;
-
-    invoke-direct {p1}, Landroid/util/TypedValue;-><init>()V
-
-    invoke-virtual {p0}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
-
-    move-result-object p0
-
-    sget v0, Landroidx/appcompat/R$attr;->dialogTheme:I
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p0, v0, p1, v1}, Landroid/content/res/Resources$Theme;->resolveAttribute(ILandroid/util/TypedValue;Z)Z
-
-    iget p1, p1, Landroid/util/TypedValue;->resourceId:I
-
-    :cond_0
-    return p1
-.end method
-
 
 # virtual methods
-.method public addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+.method public final addContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -84,7 +92,7 @@
     return-void
 .end method
 
-.method public dismiss()V
+.method public final dismiss()V
     .locals 0
 
     invoke-super {p0}, Landroid/app/Dialog;->dismiss()V
@@ -98,8 +106,8 @@
     return-void
 .end method
 
-.method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 2
+.method public final dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 1
 
     invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
 
@@ -107,18 +115,24 @@
 
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
-    move-result-object v0
+    iget-object p0, p0, Landroidx/appcompat/app/AppCompatDialog;->mKeyDispatcher:Landroidx/appcompat/app/AppCompatDialog$1;
 
-    iget-object v1, p0, Landroidx/appcompat/app/AppCompatDialog;->mKeyDispatcher:Landroidx/core/view/KeyEventDispatcher$Component;
+    if-nez p0, :cond_0
 
-    invoke-static {v1, v0, p0, p1}, Landroidx/core/view/KeyEventDispatcher;->dispatchKeyEvent(Landroidx/core/view/KeyEventDispatcher$Component;Landroid/view/View;Landroid/view/Window$Callback;Landroid/view/KeyEvent;)Z
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AppCompatDialog$1;->superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result p0
 
+    :goto_0
     return p0
 .end method
 
-.method public findViewById(I)Landroid/view/View;
+.method public final findViewById(I)Landroid/view/View;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -139,26 +153,36 @@
     return-object p0
 .end method
 
-.method public getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
-    .locals 1
+.method public final getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
+    .locals 3
 
-    iget-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegate;
+    iget-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     if-nez v0, :cond_0
 
-    invoke-static {p0, p0}, Landroidx/appcompat/app/AppCompatDelegate;->create(Landroid/app/Dialog;Landroidx/appcompat/app/AppCompatCallback;)Landroidx/appcompat/app/AppCompatDelegate;
+    sget-object v0, Landroidx/appcompat/app/AppCompatDelegate;->sActivityDelegates:Landroidx/collection/ArraySet;
 
-    move-result-object v0
+    new-instance v0, Landroidx/appcompat/app/AppCompatDelegateImpl;
 
-    iput-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegate;
+    invoke-virtual {p0}, Landroid/app/Dialog;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v2
+
+    invoke-direct {v0, v1, v2, p0, p0}, Landroidx/appcompat/app/AppCompatDelegateImpl;-><init>(Landroid/content/Context;Landroid/view/Window;Landroidx/appcompat/app/AppCompatCallback;Ljava/lang/Object;)V
+
+    iput-object v0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     :cond_0
-    iget-object p0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegate;
+    iget-object p0, p0, Landroidx/appcompat/app/AppCompatDialog;->mDelegate:Landroidx/appcompat/app/AppCompatDelegateImpl;
 
     return-object p0
 .end method
 
-.method public invalidateOptionsMenu()V
+.method public final invalidateOptionsMenu()V
     .locals 0
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -170,7 +194,7 @@
     return-void
 .end method
 
-.method protected onCreate(Landroid/os/Bundle;)V
+.method public onCreate(Landroid/os/Bundle;)V
     .locals 1
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -185,12 +209,12 @@
 
     move-result-object p0
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AppCompatDelegate;->onCreate(Landroid/os/Bundle;)V
+    invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDelegate;->onCreate()V
 
     return-void
 .end method
 
-.method protected onStop()V
+.method public final onStop()V
     .locals 0
 
     invoke-super {p0}, Landroid/app/Dialog;->onStop()V
@@ -204,27 +228,25 @@
     return-void
 .end method
 
-.method public onSupportActionModeFinished(Landroidx/appcompat/view/ActionMode;)V
+.method public final onSupportActionModeFinished()V
     .locals 0
 
     return-void
 .end method
 
-.method public onSupportActionModeStarted(Landroidx/appcompat/view/ActionMode;)V
+.method public final onSupportActionModeStarted()V
     .locals 0
 
     return-void
 .end method
 
-.method public onWindowStartingSupportActionMode(Landroidx/appcompat/view/ActionMode$Callback;)Landroidx/appcompat/view/ActionMode;
+.method public final onWindowStartingSupportActionMode()V
     .locals 0
 
-    const/4 p0, 0x0
-
-    return-object p0
+    return-void
 .end method
 
-.method public setContentView(I)V
+.method public final setContentView(I)V
     .locals 0
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -236,7 +258,7 @@
     return-void
 .end method
 
-.method public setContentView(Landroid/view/View;)V
+.method public final setContentView(Landroid/view/View;)V
     .locals 0
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -248,7 +270,7 @@
     return-void
 .end method
 
-.method public setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+.method public final setContentView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
     .locals 0
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
@@ -296,24 +318,10 @@
     return-void
 .end method
 
-.method superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
+.method public final superDispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 0
 
     invoke-super {p0, p1}, Landroid/app/Dialog;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public supportRequestWindowFeature(I)Z
-    .locals 0
-
-    invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1}, Landroidx/appcompat/app/AppCompatDelegate;->requestWindowFeature(I)Z
 
     move-result p0
 

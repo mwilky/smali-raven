@@ -1,4 +1,4 @@
-.class Landroidx/viewpager2/widget/ViewPager2$SmoothScrollToPosition;
+.class public final Landroidx/viewpager2/widget/ViewPager2$SmoothScrollToPosition;
 .super Ljava/lang/Object;
 .source "ViewPager2.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SmoothScrollToPosition"
 .end annotation
 
 
 # instance fields
-.field private final mPosition:I
+.field public final mPosition:I
 
-.field private final mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+.field public final mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
 
 # direct methods
-.method constructor <init>(ILandroidx/recyclerview/widget/RecyclerView;)V
+.method public constructor <init>(ILandroidx/viewpager2/widget/ViewPager2$RecyclerViewImpl;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -38,7 +38,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object v0, p0, Landroidx/viewpager2/widget/ViewPager2$SmoothScrollToPosition;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;

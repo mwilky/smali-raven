@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/doze/DozeAuthRemover;
+.class public final Lcom/android/systemui/doze/DozeAuthRemover;
 .super Ljava/lang/Object;
 .source "DozeAuthRemover.java"
 
@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
+.field public final mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
 
 # direct methods
@@ -23,7 +23,7 @@
 
 
 # virtual methods
-.method public transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
+.method public final transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
     .locals 0
 
     sget-object p1, Lcom/android/systemui/doze/DozeMachine$State;->DOZE:Lcom/android/systemui/doze/DozeMachine$State;
@@ -49,7 +49,9 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeAuthRemover;->mKeyguardUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->clearBiometricRecognized()V
+    const/16 p1, -0x2710
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->clearBiometricRecognized(I)V
 
     :cond_1
     return-void

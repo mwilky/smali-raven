@@ -8,47 +8,26 @@
 
 
 # instance fields
-.field private final clicker:Lcom/android/systemui/statusbar/NotificationClickNotifier;
-
-.field private final entryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-.field private final interactions:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Boolean;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final interactions:Ljava/util/LinkedHashMap;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/statusbar/NotificationClickNotifier;Lcom/android/systemui/statusbar/notification/NotificationEntryManager;)V
     .locals 1
 
-    const-string v0, "clicker"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "entryManager"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->clicker:Lcom/android/systemui/statusbar/NotificationClickNotifier;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->entryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
     new-instance v0, Ljava/util/LinkedHashMap;
 
     invoke-direct {v0}, Ljava/util/LinkedHashMap;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/Map;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/LinkedHashMap;
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/NotificationClickNotifier;->addNotificationInteractionListener(Lcom/android/systemui/statusbar/NotificationInteractionListener;)V
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    iget-object p1, p1, Lcom/android/systemui/statusbar/NotificationClickNotifier;->listeners:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     invoke-virtual {p2, p0}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->addCollectionListener(Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifCollectionListener;)V
 
@@ -58,15 +37,11 @@
 
 # virtual methods
 .method public final hasUserInteractedWith(Ljava/lang/String;)Z
-    .locals 1
+    .locals 0
 
-    const-string v0, "key"
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/LinkedHashMap;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/Map;
-
-    invoke-interface {p0, p1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -87,22 +62,12 @@
     return p0
 .end method
 
-.method public onEntryAdded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final onEntryAdded(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 1
 
-    const-string v0, "entry"
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/LinkedHashMap;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/Map;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object p1
-
-    const-string v0, "entry.key"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
     sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
 
@@ -111,32 +76,22 @@
     return-void
 .end method
 
-.method public onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 1
+.method public final onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    .locals 0
 
-    const-string v0, "entry"
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/LinkedHashMap;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/Map;
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getKey()Ljava/lang/String;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
     invoke-interface {p0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
-.method public onNotificationInteraction(Ljava/lang/String;)V
+.method public final onNotificationInteraction(Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "key"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationInteractionTracker;->interactions:Ljava/util/LinkedHashMap;
 
     sget-object v0, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
 

@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/demomode/DemoModeController;
+.field public final synthetic this$0:Lcom/android/systemui/demomode/DemoModeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/demomode/DemoModeController;)V
+.method public constructor <init>(Lcom/android/systemui/demomode/DemoModeController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/demomode/DemoModeController$broadcastReceiver$1;->this$0:Lcom/android/systemui/demomode/DemoModeController;
@@ -31,16 +31,8 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 2
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p1, "intent"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
@@ -74,11 +66,7 @@
 
     move-result-object v0
 
-    const-string v1, "bundle.getString(\"command\", \"\")"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {v0}, Lkotlin/text/StringsKt;->trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
+    invoke-static {v0}, Lkotlin/text/StringsKt__StringsKt;->trim(Ljava/lang/String;)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -86,17 +74,9 @@
 
     move-result-object v0
 
-    const-string v1, "null cannot be cast to non-null type java.lang.String"
-
-    invoke-static {v0, v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
     invoke-virtual {v0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v0
-
-    const-string v1, "(this as java.lang.String).toLowerCase()"
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {v0}, Ljava/lang/String;->length()I
 

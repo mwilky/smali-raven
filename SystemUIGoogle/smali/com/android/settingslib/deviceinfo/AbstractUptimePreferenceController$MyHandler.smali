@@ -1,4 +1,4 @@
-.class Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController$MyHandler;
+.class public final Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController$MyHandler;
 .super Landroid/os/Handler;
 .source "AbstractUptimePreferenceController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "MyHandler"
 .end annotation
 
 
 # instance fields
-.field private mStatus:Ljava/lang/ref/WeakReference;
+.field public mStatus:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -43,46 +43,35 @@
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 3
+.method public final handleMessage(Landroid/os/Message;)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController$MyHandler;->mStatus:Ljava/lang/ref/WeakReference;
+    iget-object p0, p0, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController$MyHandler;->mStatus:Ljava/lang/ref/WeakReference;
 
-    invoke-virtual {v0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
+    invoke-virtual {p0}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    move-result-object v0
+    move-result-object p0
 
-    check-cast v0, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;
+    check-cast p0, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;
 
-    if-nez v0, :cond_0
+    if-nez p0, :cond_0
 
     return-void
 
     :cond_0
-    iget v1, p1, Landroid/os/Message;->what:I
+    iget p0, p1, Landroid/os/Message;->what:I
 
-    const/16 v2, 0x1f4
+    const/16 v0, 0x1f4
 
-    if-ne v1, v2, :cond_1
+    if-eq p0, v0, :cond_1
 
-    invoke-static {v0}, Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;->access$000(Lcom/android/settingslib/deviceinfo/AbstractUptimePreferenceController;)V
-
-    const-wide/16 v0, 0x3e8
-
-    invoke-virtual {p0, v2, v0, v1}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
-
-    return-void
-
-    :cond_1
     new-instance p0, Ljava/lang/IllegalStateException;
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Unknown message "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Unknown message "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget p1, p1, Landroid/os/Message;->what:I
 
@@ -93,6 +82,21 @@
     move-result-object p1
 
     invoke-direct {p0, p1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+
+    :cond_1
+    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
+
+    move-result-wide p0
+
+    const-wide/16 v0, 0x3e8
+
+    div-long/2addr p0, v0
+
+    invoke-static {p0, p1}, Landroid/text/format/DateUtils;->formatElapsedTime(J)Ljava/lang/String;
+
+    const/4 p0, 0x0
 
     throw p0
 .end method

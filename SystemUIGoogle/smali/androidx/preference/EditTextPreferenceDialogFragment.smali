@@ -1,4 +1,4 @@
-.class public Landroidx/preference/EditTextPreferenceDialogFragment;
+.class public final Landroidx/preference/EditTextPreferenceDialogFragment;
 .super Landroidx/preference/PreferenceDialogFragment;
 .source "EditTextPreferenceDialogFragment.java"
 
@@ -9,9 +9,9 @@
 
 
 # instance fields
-.field private mEditText:Landroid/widget/EditText;
+.field public mEditText:Landroid/widget/EditText;
 
-.field private mText:Ljava/lang/CharSequence;
+.field public mText:Ljava/lang/CharSequence;
 
 
 # direct methods
@@ -25,53 +25,9 @@
     return-void
 .end method
 
-.method private getEditTextPreference()Landroidx/preference/EditTextPreference;
-    .locals 0
-
-    invoke-virtual {p0}, Landroidx/preference/PreferenceDialogFragment;->getPreference()Landroidx/preference/DialogPreference;
-
-    move-result-object p0
-
-    check-cast p0, Landroidx/preference/EditTextPreference;
-
-    return-object p0
-.end method
-
-.method public static newInstance(Ljava/lang/String;)Landroidx/preference/EditTextPreferenceDialogFragment;
-    .locals 3
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    new-instance v0, Landroidx/preference/EditTextPreferenceDialogFragment;
-
-    invoke-direct {v0}, Landroidx/preference/EditTextPreferenceDialogFragment;-><init>()V
-
-    new-instance v1, Landroid/os/Bundle;
-
-    const/4 v2, 0x1
-
-    invoke-direct {v1, v2}, Landroid/os/Bundle;-><init>(I)V
-
-    const-string v2, "key"
-
-    invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v1}, Landroid/app/DialogFragment;->setArguments(Landroid/os/Bundle;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method protected needInputMethod()Z
-    .locals 0
-
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method protected onBindDialogView(Landroid/view/View;)V
+.method public final onBindDialogView(Landroid/view/View;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroidx/preference/PreferenceDialogFragment;->onBindDialogView(Landroid/view/View;)V
@@ -120,20 +76,20 @@
     throw p0
 .end method
 
-.method public onCreate(Landroid/os/Bundle;)V
+.method public final onCreate(Landroid/os/Bundle;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroidx/preference/PreferenceDialogFragment;->onCreate(Landroid/os/Bundle;)V
 
     if-nez p1, :cond_0
 
-    invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragment;->getEditTextPreference()Landroidx/preference/EditTextPreference;
+    invoke-virtual {p0}, Landroidx/preference/PreferenceDialogFragment;->getPreference()Landroidx/preference/DialogPreference;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroidx/preference/EditTextPreference;->getText()Ljava/lang/String;
+    check-cast p1, Landroidx/preference/EditTextPreference;
 
-    move-result-object p1
+    iget-object p1, p1, Landroidx/preference/EditTextPreference;->mText:Ljava/lang/String;
 
     iput-object p1, p0, Landroidx/preference/EditTextPreferenceDialogFragment;->mText:Ljava/lang/CharSequence;
 
@@ -152,7 +108,7 @@
     return-void
 .end method
 
-.method public onDialogClosed(Z)V
+.method public final onDialogClosed(Z)V
     .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
@@ -169,19 +125,23 @@
 
     move-result-object p1
 
-    invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragment;->getEditTextPreference()Landroidx/preference/EditTextPreference;
+    invoke-virtual {p0}, Landroidx/preference/PreferenceDialogFragment;->getPreference()Landroidx/preference/DialogPreference;
 
     move-result-object v0
 
-    invoke-virtual {v0, p1}, Landroidx/preference/Preference;->callChangeListener(Ljava/lang/Object;)Z
+    check-cast v0, Landroidx/preference/EditTextPreference;
+
+    invoke-virtual {v0, p1}, Landroidx/preference/Preference;->callChangeListener(Ljava/io/Serializable;)Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0}, Landroidx/preference/EditTextPreferenceDialogFragment;->getEditTextPreference()Landroidx/preference/EditTextPreference;
+    invoke-virtual {p0}, Landroidx/preference/PreferenceDialogFragment;->getPreference()Landroidx/preference/DialogPreference;
 
     move-result-object p0
+
+    check-cast p0, Landroidx/preference/EditTextPreference;
 
     invoke-virtual {p0, p1}, Landroidx/preference/EditTextPreference;->setText(Ljava/lang/String;)V
 
@@ -189,7 +149,7 @@
     return-void
 .end method
 
-.method public onSaveInstanceState(Landroid/os/Bundle;)V
+.method public final onSaveInstanceState(Landroid/os/Bundle;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroidx/preference/PreferenceDialogFragment;->onSaveInstanceState(Landroid/os/Bundle;)V

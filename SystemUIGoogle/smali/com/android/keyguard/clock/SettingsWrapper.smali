@@ -1,4 +1,4 @@
-.class public Lcom/android/keyguard/clock/SettingsWrapper;
+.class public final Lcom/android/keyguard/clock/SettingsWrapper;
 .super Ljava/lang/Object;
 .source "SettingsWrapper.java"
 
@@ -13,25 +13,13 @@
 
 
 # instance fields
-.field private final mContentResolver:Landroid/content/ContentResolver;
+.field public final mContentResolver:Landroid/content/ContentResolver;
 
-.field private final mMigration:Lcom/android/keyguard/clock/SettingsWrapper$Migration;
+.field public final mMigration:Lcom/android/keyguard/clock/SettingsWrapper$Migration;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/ContentResolver;)V
-    .locals 1
-
-    new-instance v0, Lcom/android/keyguard/clock/SettingsWrapper$Migrator;
-
-    invoke-direct {v0, p1}, Lcom/android/keyguard/clock/SettingsWrapper$Migrator;-><init>(Landroid/content/ContentResolver;)V
-
-    invoke-direct {p0, p1, v0}, Lcom/android/keyguard/clock/SettingsWrapper;-><init>(Landroid/content/ContentResolver;Lcom/android/keyguard/clock/SettingsWrapper$Migration;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/ContentResolver;Lcom/android/keyguard/clock/SettingsWrapper$Migration;)V
+.method public constructor <init>(Landroid/content/ContentResolver;Lcom/android/keyguard/clock/SettingsWrapper$Migration;)V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -47,7 +35,7 @@
 
 
 # virtual methods
-.method decode(Ljava/lang/String;I)Ljava/lang/String;
+.method public decode(Ljava/lang/String;I)Ljava/lang/String;
     .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -97,39 +85,7 @@
 
     iget-object p0, p0, Lcom/android/keyguard/clock/SettingsWrapper;->mMigration:Lcom/android/keyguard/clock/SettingsWrapper$Migration;
 
-    invoke-interface {p0, p1, p2}, Lcom/android/keyguard/clock/SettingsWrapper$Migration;->migrate(Ljava/lang/String;I)V
+    invoke-interface {p0, p2, p1}, Lcom/android/keyguard/clock/SettingsWrapper$Migration;->migrate(ILjava/lang/String;)V
 
     return-object p1
-.end method
-
-.method getDockedClockFace(I)Ljava/lang/String;
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/keyguard/clock/SettingsWrapper;->mContentResolver:Landroid/content/ContentResolver;
-
-    const-string v0, "docked_clock_face"
-
-    invoke-static {p0, v0, p1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method getLockScreenCustomClockFace(I)Ljava/lang/String;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/clock/SettingsWrapper;->mContentResolver:Landroid/content/ContentResolver;
-
-    const-string v1, "lock_screen_custom_clock_face"
-
-    invoke-static {v0, v1, p1}, Landroid/provider/Settings$Secure;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0, p1}, Lcom/android/keyguard/clock/SettingsWrapper;->decode(Ljava/lang/String;I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
 .end method

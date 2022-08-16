@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/ViewTransformationHelper$2;
+.class public final Lcom/android/systemui/statusbar/ViewTransformationHelper$2;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ViewTransformationHelper.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -17,11 +17,11 @@
 # instance fields
 .field public mCancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper$2;->this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -43,7 +43,7 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper$2;->mCancelled:Z
@@ -61,7 +61,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper$2;->this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->access$100(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->-$$Nest$mabortTransformations(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
 
     :goto_0
     return-void

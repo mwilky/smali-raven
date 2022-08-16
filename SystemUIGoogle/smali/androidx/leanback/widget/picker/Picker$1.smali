@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/picker/Picker$1;
+.class public final Landroidx/leanback/widget/picker/Picker$1;
 .super Landroidx/leanback/widget/OnChildViewHolderSelectedListener;
 .source "Picker.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/picker/Picker;
+.field public final synthetic this$0:Landroidx/leanback/widget/picker/Picker;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/picker/Picker;)V
+.method public constructor <init>(Landroidx/leanback/widget/picker/Picker;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/picker/Picker$1;->this$0:Landroidx/leanback/widget/picker/Picker;
 
@@ -39,38 +31,22 @@
 
 
 # virtual methods
-.method public onChildViewHolderSelected(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;II)V
+.method public final onChildViewHolderSelected(Landroidx/leanback/widget/BaseGridView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "parent",
-            "child",
-            "position",
-            "subposition"
-        }
-    .end annotation
 
     check-cast p1, Landroidx/leanback/widget/VerticalGridView;
 
-    iget-object p4, p0, Landroidx/leanback/widget/picker/Picker$1;->this$0:Landroidx/leanback/widget/picker/Picker;
+    iget-object v0, p0, Landroidx/leanback/widget/picker/Picker$1;->this$0:Landroidx/leanback/widget/picker/Picker;
 
-    iget-object p4, p4, Landroidx/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/List;
+    iget-object v0, v0, Landroidx/leanback/widget/picker/Picker;->mColumnViews:Ljava/util/ArrayList;
 
-    invoke-interface {p4, p1}, Ljava/util/List;->indexOf(Ljava/lang/Object;)I
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
 
     move-result p1
 
-    iget-object p4, p0, Landroidx/leanback/widget/picker/Picker$1;->this$0:Landroidx/leanback/widget/picker/Picker;
+    iget-object v0, p0, Landroidx/leanback/widget/picker/Picker$1;->this$0:Landroidx/leanback/widget/picker/Picker;
 
-    const/4 v0, 0x1
-
-    invoke-virtual {p4, p1, v0}, Landroidx/leanback/widget/picker/Picker;->updateColumnAlpha(IZ)V
+    invoke-virtual {v0, p1}, Landroidx/leanback/widget/picker/Picker;->updateColumnAlpha(I)V
 
     if-eqz p2, :cond_0
 
@@ -84,9 +60,7 @@
 
     check-cast p2, Landroidx/leanback/widget/picker/PickerColumn;
 
-    invoke-virtual {p2}, Landroidx/leanback/widget/picker/PickerColumn;->getMinValue()I
-
-    move-result p2
+    iget p2, p2, Landroidx/leanback/widget/picker/PickerColumn;->mMinValue:I
 
     add-int/2addr p2, p3
 

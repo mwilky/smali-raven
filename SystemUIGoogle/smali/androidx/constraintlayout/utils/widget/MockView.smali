@@ -4,32 +4,32 @@
 
 
 # instance fields
-.field private mDiagonalsColor:I
+.field public mDiagonalsColor:I
 
-.field private mDrawDiagonals:Z
+.field public mDrawDiagonals:Z
 
-.field private mDrawLabel:Z
+.field public mDrawLabel:Z
 
-.field private mMargin:I
+.field public mMargin:I
 
-.field private mPaintDiagonals:Landroid/graphics/Paint;
+.field public mPaintDiagonals:Landroid/graphics/Paint;
 
-.field private mPaintText:Landroid/graphics/Paint;
+.field public mPaintText:Landroid/graphics/Paint;
 
-.field private mPaintTextBackground:Landroid/graphics/Paint;
+.field public mPaintTextBackground:Landroid/graphics/Paint;
 
-.field protected mText:Ljava/lang/String;
+.field public mText:Ljava/lang/String;
 
-.field private mTextBackgroundColor:I
+.field public mTextBackgroundColor:I
 
-.field private mTextBounds:Landroid/graphics/Rect;
+.field public mTextBounds:Landroid/graphics/Rect;
 
-.field private mTextColor:I
+.field public mTextColor:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 6
 
     invoke-direct {p0, p1, p2}, Landroid/view/View;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -57,163 +57,147 @@
 
     iput-boolean v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawLabel:Z
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
-
-    iput-object v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBounds:Landroid/graphics/Rect;
-
-    const/16 v0, 0xff
-
     const/4 v1, 0x0
 
-    invoke-static {v0, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
+    iput-object v1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
+
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBounds:Landroid/graphics/Rect;
+
+    const/16 v1, 0xff
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2, v2, v2}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v3
+
+    iput v3, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
+
+    const/16 v3, 0xc8
+
+    invoke-static {v1, v3, v3, v3}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v3
+
+    iput v3, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
+
+    const/16 v3, 0x32
+
+    invoke-static {v1, v3, v3, v3}, Landroid/graphics/Color;->argb(IIII)I
 
     move-result v1
 
-    iput v1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
+    iput v1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
 
-    const/16 v1, 0xc8
+    const/4 v1, 0x4
 
-    invoke-static {v0, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
-
-    move-result v1
-
-    iput v1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
-
-    const/16 v1, 0x32
-
-    invoke-static {v0, v1, v1, v1}, Landroid/graphics/Color;->argb(IIII)I
-
-    move-result v0
-
-    iput v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
-
-    const/4 v0, 0x4
-
-    iput v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mMargin:I
-
-    invoke-direct {p0, p1, p2}, Landroidx/constraintlayout/utils/widget/MockView;->init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
-.end method
-
-.method private init(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 4
+    iput v1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mMargin:I
 
     if-eqz p2, :cond_6
 
-    sget-object v0, Landroidx/constraintlayout/widget/R$styleable;->MockView:[I
+    sget-object v3, Landroidx/constraintlayout/widget/R$styleable;->MockView:[I
 
-    invoke-virtual {p1, p2, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, p2, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object p2
 
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->getIndexCount()I
 
-    move-result v0
-
-    const/4 v1, 0x0
+    move-result v3
 
     :goto_0
-    if-ge v1, v0, :cond_6
+    if-ge v2, v3, :cond_6
 
-    invoke-virtual {p2, v1}, Landroid/content/res/TypedArray;->getIndex(I)I
+    invoke-virtual {p2, v2}, Landroid/content/res/TypedArray;->getIndex(I)I
 
-    move-result v2
+    move-result v4
 
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_label:I
+    if-ne v4, v0, :cond_0
 
-    if-ne v2, v3, :cond_0
+    invoke-virtual {p2, v4}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {p2, v2}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v2
-
-    iput-object v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
+    iput-object v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mText:Ljava/lang/String;
 
     goto :goto_1
 
     :cond_0
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_showDiagonals:I
+    if-ne v4, v1, :cond_1
 
-    if-ne v2, v3, :cond_1
+    iget-boolean v5, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawDiagonals:Z
 
-    iget-boolean v3, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawDiagonals:Z
+    invoke-virtual {p2, v4, v5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    move-result v4
 
-    move-result v2
-
-    iput-boolean v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawDiagonals:Z
+    iput-boolean v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawDiagonals:Z
 
     goto :goto_1
 
     :cond_1
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_diagonalsColor:I
+    if-nez v4, :cond_2
 
-    if-ne v2, v3, :cond_2
+    iget v5, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
 
-    iget v3, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
+    invoke-virtual {p2, v4, v5}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getColor(II)I
+    move-result v4
 
-    move-result v2
-
-    iput v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
+    iput v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDiagonalsColor:I
 
     goto :goto_1
 
     :cond_2
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_labelBackgroundColor:I
+    const/4 v5, 0x2
 
-    if-ne v2, v3, :cond_3
+    if-ne v4, v5, :cond_3
 
-    iget v3, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
+    iget v5, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {p2, v4, v5}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    move-result v2
+    move-result v4
 
-    iput v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
+    iput v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextBackgroundColor:I
 
     goto :goto_1
 
     :cond_3
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_labelColor:I
+    const/4 v5, 0x3
 
-    if-ne v2, v3, :cond_4
+    if-ne v4, v5, :cond_4
 
-    iget v3, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
+    iget v5, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {p2, v4, v5}, Landroid/content/res/TypedArray;->getColor(II)I
 
-    move-result v2
+    move-result v4
 
-    iput v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
+    iput v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
 
     goto :goto_1
 
     :cond_4
-    sget v3, Landroidx/constraintlayout/widget/R$styleable;->MockView_mock_showLabel:I
+    const/4 v5, 0x5
 
-    if-ne v2, v3, :cond_5
+    if-ne v4, v5, :cond_5
 
-    iget-boolean v3, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawLabel:Z
+    iget-boolean v5, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawLabel:Z
 
-    invoke-virtual {p2, v2, v3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    invoke-virtual {p2, v4, v5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    move-result v2
+    move-result v4
 
-    iput-boolean v2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawLabel:Z
+    iput-boolean v4, p0, Landroidx/constraintlayout/utils/widget/MockView;->mDrawLabel:Z
 
     :cond_5
     :goto_1
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
@@ -249,19 +233,17 @@
 
     iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mPaintDiagonals:Landroid/graphics/Paint;
 
-    const/4 p2, 0x1
-
-    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mPaintText:Landroid/graphics/Paint;
 
-    iget v0, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
+    iget p2, p0, Landroidx/constraintlayout/utils/widget/MockView;->mTextColor:I
 
-    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setColor(I)V
+    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setColor(I)V
 
     iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mPaintText:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, p2}, Landroid/graphics/Paint;->setAntiAlias(Z)V
+    invoke-virtual {p1, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
     iget-object p1, p0, Landroidx/constraintlayout/utils/widget/MockView;->mPaintTextBackground:Landroid/graphics/Paint;
 
@@ -287,9 +269,9 @@
 
     div-float/2addr p2, v0
 
-    mul-float/2addr p1, p2
+    mul-float/2addr p2, p1
 
-    invoke-static {p1}, Ljava/lang/Math;->round(F)I
+    invoke-static {p2}, Ljava/lang/Math;->round(F)I
 
     move-result p1
 

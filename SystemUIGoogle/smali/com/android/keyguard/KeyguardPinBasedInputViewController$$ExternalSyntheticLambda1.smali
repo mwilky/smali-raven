@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardPinBasedInputViewController$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnKeyListener;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # instance fields
@@ -22,14 +23,33 @@
 
 
 # virtual methods
-.method public final onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 0
+.method public final onLongClick(Landroid/view/View;)Z
+    .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPinBasedInputViewController$$ExternalSyntheticLambda1;->f$0:Lcom/android/keyguard/KeyguardPinBasedInputViewController;
 
-    invoke-static {p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardPinBasedInputViewController;->$r8$lambda$ycb30UV0rTdlIFYcYY9-q1olm_o(Lcom/android/keyguard/KeyguardPinBasedInputViewController;Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    iget-object p1, p0, Lcom/android/keyguard/KeyguardPinBasedInputViewController;->mPasswordEntry:Lcom/android/keyguard/PasswordTextView;
 
-    move-result p0
+    invoke-virtual {p1}, Landroid/view/View;->isEnabled()Z
 
-    return p0
+    move-result p1
+
+    const/4 v0, 0x1
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p1, Lcom/android/keyguard/KeyguardPinBasedInputView;
+
+    invoke-virtual {p1, v0, v0}, Lcom/android/keyguard/KeyguardPinBasedInputView;->resetPasswordText(ZZ)V
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/keyguard/KeyguardPinBasedInputView;
+
+    invoke-virtual {p0, v0, v0}, Landroid/widget/LinearLayout;->performHapticFeedback(II)Z
+
+    return v0
 .end method

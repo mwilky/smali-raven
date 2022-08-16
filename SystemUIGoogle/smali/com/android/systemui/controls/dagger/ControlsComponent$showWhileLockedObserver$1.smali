@@ -3,23 +3,12 @@
 .source "ControlsComponent.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/dagger/ControlsComponent;-><init>(ZLandroid/content/Context;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/settings/UserTracker;Lcom/android/systemui/util/settings/SecureSettings;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/dagger/ControlsComponent;
+.field public final synthetic this$0:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/dagger/ControlsComponent;)V
+.method public constructor <init>(Lcom/android/systemui/controls/dagger/ControlsComponent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/dagger/ControlsComponent$showWhileLockedObserver$1;->this$0:Lcom/android/systemui/controls/dagger/ControlsComponent;
@@ -33,12 +22,29 @@
 
 
 # virtual methods
-.method public onChange(Z)V
-    .locals 0
+.method public final onChange(Z)V
+    .locals 3
 
     iget-object p0, p0, Lcom/android/systemui/controls/dagger/ControlsComponent$showWhileLockedObserver$1;->this$0:Lcom/android/systemui/controls/dagger/ControlsComponent;
 
-    invoke-static {p0}, Lcom/android/systemui/controls/dagger/ControlsComponent;->access$updateShowWhileLocked(Lcom/android/systemui/controls/dagger/ControlsComponent;)V
+    iget-object p1, p0, Lcom/android/systemui/controls/dagger/ControlsComponent;->secureSettings:Lcom/android/systemui/util/settings/SecureSettings;
+
+    const/4 v0, 0x0
+
+    const/4 v1, -0x2
+
+    const-string v2, "lockscreen_show_controls"
+
+    invoke-interface {p1, v2, v0, v1}, Lcom/android/systemui/util/settings/SettingsProxy;->getIntForUser(Ljava/lang/String;II)I
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    iput-boolean v0, p0, Lcom/android/systemui/controls/dagger/ControlsComponent;->canShowWhileLockedSetting:Z
 
     return-void
 .end method

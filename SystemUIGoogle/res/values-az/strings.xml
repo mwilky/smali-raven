@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="a11y_action_pip_move_done">Hazırdır</string>
+    <string name="a11y_action_pip_move_down">Aşağı köçürün</string>
+    <string name="a11y_action_pip_move_left">Sola köçürün</string>
+    <string name="a11y_action_pip_move_right">Sağa köçürün</string>
+    <string name="a11y_action_pip_move_up">Yuxarı köçürün</string>
+    <string name="a11y_pip_menu_entered">Şəkildə şəkil menyusu.</string>
     <string name="abc_action_bar_home_description">Əsas səhifəyə keçin</string>
     <string name="abc_action_bar_up_description">Yuxarı keçin</string>
     <string name="abc_action_menu_overflow_description">Digər seçimlər</string>
@@ -27,16 +33,15 @@
     <string name="abc_shareactionprovider_share_with">Paylaşın</string>
     <string name="abc_shareactionprovider_share_with_application">%s ilə paylaşın</string>
     <string name="abc_slice_error">Qoşulmaq mümkün olmadı</string>
-    <string name="abc_slice_more">Digər</string>
+    <string name="abc_slice_more">Ardı</string>
     <string name="abc_slice_more_content">+ %1$d</string>
     <string name="abc_slice_permission_allow">İcazə verin</string>
-    <string name="abc_slice_permission_checkbox">%1$s tətbiqinə istənilən tətbiqdən hissə göstərmək icazəsi verin</string>
     <string name="abc_slice_permission_deny">Rədd edin</string>
     <string name="abc_slice_permission_text_1">- %1$s tətbiqindən məlumat oxuya bilər</string>
     <string name="abc_slice_permission_text_2">- %1$s daxilində əməliyyatlar edə bilər</string>
     <string name="abc_slice_permission_title">%1$s tətbiqinə %2$s hissələrini göstərmək üçün icazə verilsin?</string>
-    <string name="abc_slice_show_more">Digərinə baxın</string>
-    <string name="abc_slice_updated">%1$s tarixində yenilənib</string>
+    <string name="abc_slice_show_more">Digərlərinə baxın</string>
+    <string name="abc_slice_updated">Güncəllənib: %1$s</string>
     <string name="abc_slices_permission_request">%1$s %2$s tətbiqindən hissələr göstərmək istəyir</string>
     <string name="abc_toolbar_collapse_description">Yığcamlaşdırın</string>
     <string name="accessibility_accessibility_button">Əlçatımlılıq</string>
@@ -96,7 +101,7 @@
     <string name="accessibility_desc_quick_settings">Tez ayarlar.</string>
     <string name="accessibility_desc_quick_settings_edit">Sürətli ayarlar redaktoru.</string>
     <string name="accessibility_desc_work_lock">Ekran kilidi</string>
-    <string name="accessibility_display_daltonizer_preference_subtitle">Ekranda rəngi korreksiya edə bilərsiniz. Mümkün olanlar:&lt;br/>&lt;br/> &lt;ol> &lt;li>&amp;nbsp;rəng ötürülməsinin yaxşılaşdırılması;&lt;/li> &lt;li>&amp;nbsp;rahat fokuslanmaq üçün ağ-qara rejimə keçid.&lt;/li> &lt;/ol></string>
+    <string name="accessibility_display_daltonizer_preference_subtitle">Rəng korreksiyası bunları etmək istədikdə faydalı ola bilər:&lt;br/> &lt;ol> &lt;li>&amp;nbsp;Rəngləri daha dəqiq görmək&lt;/li> &lt;li>&amp;nbsp;Fokuslanmaq üçün rəngləri ləğv etmək&lt;/li> &lt;/ol></string>
     <string name="accessibility_display_daltonizer_preference_title">Rəng korreksiyası</string>
     <string name="accessibility_divider">Bölünmüş ekran ayırıcısı</string>
     <string name="accessibility_enter_hint">cihaz daxil edin</string>
@@ -116,23 +121,6 @@
     <string name="accessibility_floating_button_migration_tooltip">"Əlçatımlılıq funksiyalarını açmaq üçün toxunun. Ayarlarda bu düyməni fərdiləşdirin və ya dəyişdirin.
 
 "<annotation id="link">Ayarlara baxın</annotation></string>
-    <string name="accessibility_game_dashboard_back_button">Oyun Panelinə qayıdın</string>
-    <string name="accessibility_game_dashboard_dnd_toggle">Oyunun \"Narahat Etməyin\" rejimini keçirin</string>
-    <string name="accessibility_game_dashboard_entry">Oyun idarə panelinə daxil olun</string>
-    <string name="accessibility_game_dashboard_exit_button">Oyun Panelindən çıxın</string>
-    <string name="accessibility_game_dashboard_fps_toggle">FPS sayğac qısayolunu keçirin</string>
-    <string name="accessibility_game_dashboard_screen_record_cancelled">Ekran çəkilişi ləğv edilib</string>
-    <string name="accessibility_game_dashboard_screen_record_stopped">Ekran çəkilişi dayandırılıb</string>
-    <string name="accessibility_game_dashboard_screen_record_toggle">Ekran yazma qısayolunu keçirin</string>
-    <string name="accessibility_game_dashboard_screenshot_toggle">Skrinşot qısayolunu keçirin</string>
-    <string name="accessibility_game_dashboard_settings_button">Oyun ayarlarına keçin</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_fps">Kadr tezliyi</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_screenshot">Skrinşot çəkin</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_start_recording">Yazılışa başlayın</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_stop_recording">Yazılışı dayandırın</string>
-    <string name="accessibility_game_dashboard_shortcut_bar_undock">Çıxarın</string>
-    <string name="accessibility_game_dashboard_shortcut_button_disabled">deaktiv</string>
-    <string name="accessibility_game_dashboard_shortcut_button_enabled">aktiv</string>
     <string name="accessibility_home">Ana səhifə</string>
     <string name="accessibility_ime_switch_button">Daxiletmə metoduna keçin</string>
     <string name="accessibility_key">Fərdi naviqasiya düyməsi</string>
@@ -157,6 +145,7 @@
     <string name="accessibility_phone_signal_full">Tam şəbəkə.</string>
     <string name="accessibility_phone_three_bars">Şəbəkə üç xətdir.</string>
     <string name="accessibility_phone_two_bars">Şəbəkə iki xətdir.</string>
+    <string name="accessibility_qr_code_scanner_button">QR Kodu Skaneri</string>
     <string name="accessibility_qs_edit_position">%1$d mövqeyi</string>
     <string name="accessibility_qs_edit_remove_tile_action">lövhəni silin</string>
     <string name="accessibility_qs_edit_tile_add_action">sona lövhə əlavə edin</string>
@@ -166,44 +155,24 @@
     <string name="accessibility_qs_edit_tile_removed">Mozaik silinib</string>
     <string name="accessibility_qs_edit_tile_start_add">Lövhə əlavə edin</string>
     <string name="accessibility_qs_edit_tile_start_move">Lövhəni köçürün</string>
-    <string name="accessibility_quick_settings_airplane_changed_off">Təyyarə rejimi deaktiv edildi.</string>
-    <string name="accessibility_quick_settings_airplane_changed_on">Təyyarə rejimi aktiv edildi.</string>
     <string name="accessibility_quick_settings_alarm">Alarm %s üçün qurulub.</string>
     <string name="accessibility_quick_settings_bluetooth">Bluetooth.</string>
-    <string name="accessibility_quick_settings_bluetooth_changed_off">Bluetooth deaktivdir.</string>
-    <string name="accessibility_quick_settings_bluetooth_changed_on">Bluetooth aktivdir.</string>
     <string name="accessibility_quick_settings_bluetooth_on">Bluetooth aktiv.</string>
     <string name="accessibility_quick_settings_choose_user_action">istifadəçi seçin</string>
     <string name="accessibility_quick_settings_collapse">Cəld ayarları bağlayın.</string>
-    <string name="accessibility_quick_settings_color_inversion_changed_off">Rəng inversiyası deaktivdir.</string>
-    <string name="accessibility_quick_settings_color_inversion_changed_on">Rəng inversiyası aktivdir.</string>
-    <string name="accessibility_quick_settings_data_saver_changed_off">Trafikə qənaət edilmir.</string>
-    <string name="accessibility_quick_settings_data_saver_changed_on">Trafikə qənaət edilir.</string>
-    <string name="accessibility_quick_settings_detail">Sürətli Ayarlar, %s.</string>
     <string name="accessibility_quick_settings_dnd">Narahat Etməyin.</string>
     <string name="accessibility_quick_settings_dnd_alarms_on">bildirişlər</string>
-    <string name="accessibility_quick_settings_dnd_changed_off">\"Narahat etməyin\" deaktivdir.</string>
-    <string name="accessibility_quick_settings_dnd_changed_on">\"Narahat etməyin\" aktivdir.</string>
     <string name="accessibility_quick_settings_dnd_none_on">tam sakitlik</string>
     <string name="accessibility_quick_settings_edit">Ayarların sıralanmasını redaktə edin.</string>
     <string name="accessibility_quick_settings_expand">Cəld ayarları açın.</string>
-    <string name="accessibility_quick_settings_flashlight_changed_off">Fənər deaktivdir.</string>
-    <string name="accessibility_quick_settings_flashlight_changed_on">Fənər aktivdir.</string>
-    <string name="accessibility_quick_settings_hotspot_changed_off">Mobil hotspot deaktivdir.</string>
-    <string name="accessibility_quick_settings_hotspot_changed_on">Mobil hotspot aktivdir.</string>
     <string name="accessibility_quick_settings_less_time">Daha az vaxt.</string>
-    <string name="accessibility_quick_settings_location_changed_off">Məkan xəbərdarlığı deaktivdir.</string>
-    <string name="accessibility_quick_settings_location_changed_on">Məkan xəbərdarlığı aktivdir.</string>
     <string name="accessibility_quick_settings_more_time">Daha çox vaxt.</string>
-    <string name="accessibility_quick_settings_open_details">Detalları açın.</string>
     <string name="accessibility_quick_settings_open_settings">%s ayarlarını açın.</string>
     <string name="accessibility_quick_settings_page">%2$d səhifədən %1$d səhifə</string>
     <string name="accessibility_quick_settings_power_menu">Qidalanma düyməsi menyusu</string>
     <string name="accessibility_quick_settings_rotation">Ekranın avtomatik dönməsi</string>
     <string name="accessibility_quick_settings_settings">Ayarları açın.</string>
     <string name="accessibility_quick_settings_user">%s kimi daxil olunub</string>
-    <string name="accessibility_quick_settings_wifi_changed_off">Wifi deaktivdir.</string>
-    <string name="accessibility_quick_settings_wifi_changed_on">Wifi aktivdir.</string>
     <string name="accessibility_recent">İcmal</string>
     <string name="accessibility_ringer_silent">Zəngvuran səssiz.</string>
     <string name="accessibility_ringer_vibrate">Zəng vibrasiyası</string>
@@ -237,7 +206,7 @@
     <string name="accessor_no_description_text">Tətbiq tərəfindən heç bir təsvir təmin edilməyib.</string>
     <string name="active_input_method_subtypes">Aktiv daxiletmə üsulları</string>
     <string name="activity_launch_on_secondary_display_failed_text">Tətbiq ikinci ekranda başlamağı dəstəkləmir.</string>
-    <string name="adaptive_charging_notify_des">Batareya %1$s sonra tam dolacaq. Batareyanı qorumaq üçün sabit şarj edilir.</string>
+    <string name="adaptive_charging_notify_des">Batareya %1$s sonra tam dolacaq. Batareya ömrünü artırmaq üçün sabit şarj edilir.</string>
     <string name="adaptive_charging_notify_title">Uyğunlaşan Şarj aktivdir</string>
     <string name="adaptive_charging_notify_turn_off_once">Deaktiv edin</string>
     <string name="adaptive_charging_time_estimate">%1$s • Uyğunlaşan şarj (%2$s radələrində dolacaq)</string>
@@ -271,6 +240,8 @@
     <string name="adb_wireless_verifying_qrcode_text">Cihaz cütləşdirilir…</string>
     <string name="adbwifi_warning_message">WiFi sazlaması yalnız inkişaf məqsədlidir. Ondan kompüteriniz və cihazınız arasında datanı kopyalamaq, cihazınızda bildiriş olmadan tətbiqləri quraşdırmaq və qeydiyyat datasını oxumaq üçün istifadə edin.</string>
     <string name="adbwifi_warning_title">WiFi sazlamasına icazə verilsin?</string>
+    <string name="add">Əlavə edin</string>
+    <string name="add_guest_failed">Yeni qonaq yaratmaq alınmadı</string>
     <string name="add_user_failed">Yeni istifadəçi yaratmaq alınmadı</string>
     <string name="airplane_mode">Təyyarə rejimi</string>
     <string name="alarm_template">%1$s</string>
@@ -284,6 +255,8 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="all_network_unavailable">Əlçatan şəbəkə yoxdur</string>
     <string name="allow_mock_location">Sınaq yerləşmələrə icazə verin</string>
     <string name="allow_mock_location_summary">Sınaq yerləşmələrə icazə verin</string>
+    <string name="allow_turn_screen_on">Ekranı aktiv etməyə icazə verin</string>
+    <string name="allow_turn_screen_on_description">Tətbiqin ekranı aktiv etməsinə icazə verin. İcazə verilərsə, tətbiq istənilən vaxt sizə soruşmadan ekranı aktiv edə bilər.</string>
     <string name="always_use_accessory">%2$s qoşulduqda həmişə %1$s tətbiqini açın</string>
     <string name="always_use_device">%2$s qoşulduqda həmişə %1$s tətbiqini açın</string>
     <string name="animator_duration_scale_title">Animasiya müddəti</string>
@@ -301,6 +274,10 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="auto_saver_title">Batareya Qənaətini planlaşdırmaq üçün klikləyin</string>
     <string name="available_via_carrier">%1$s vasitəsilə əlçatandır</string>
     <string name="available_via_passpoint">%1$s vasitəsilə əlçatandır</string>
+    <string name="avatar_picker_title">Profil şəkli seçin</string>
+    <string name="back_navigation_animation">Proqnozlaşdırılan geri animasiyalar</string>
+    <string name="back_navigation_animation_dialog">Bu ayar proqnozlaşdırıcı jest animasiyası üçün sistem animasiyalarını aktiv edir. Bu, manifest faylında hər bir tətbiq üçün enableOnBackInvokedCallback-in doğru kimi ayarlanmasını tələb edir.</string>
+    <string name="back_navigation_animation_summary">Proqnozlaşdırıcı geri jest üçün sistem animasiyalarını aktiv edin.</string>
     <string name="basic_status">Açıq söhbət</string>
     <string name="battery">Batareya</string>
     <string name="battery_detail_switch_title">Enerjiyə qənaət</string>
@@ -311,14 +288,18 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="battery_info_status_charging_wireless">Simsiz şarj edilir</string>
     <string name="battery_info_status_discharging">Doldurulmur</string>
     <string name="battery_info_status_full">Şarj edilib</string>
+    <string name="battery_info_status_full_charged">Tam şarj edilib</string>
     <string name="battery_info_status_not_charging">Qoşulub, şarj edilmir</string>
     <string name="battery_info_status_unknown">Naməlum</string>
+    <string name="battery_low_description">%s enerji qalıb. Enerjiyə Qənaət rejimi Tünd temanı aktivləşdirir, arxa fon fəaliyyətini məhdudlaşdırır və bildirişləri gecikdirir.</string>
+    <string name="battery_low_intro">Enerjiyə Qənaət rejimi Tünd temanı aktivləşdirir, arxa fon fəaliyyətini məhdudlaşdırır və bildirişləri gecikdirir.</string>
     <string name="battery_low_percent_format">%s qalır</string>
-    <string name="battery_low_title">Batareya tezliklə bitə bilər</string>
+    <string name="battery_low_title">Enerjiyə Qənaət aktiv edilsin?</string>
     <string name="battery_saver_confirmation_ok">Aktivləşdirin</string>
     <string name="battery_saver_confirmation_title">Batareya Qənaəti aktiv edilsin?</string>
     <string name="battery_saver_confirmation_title_generic">Enerjiyə Qənaət Haqqında</string>
-    <string name="battery_saver_start_action">Batareya Qənaətini aktiv edin</string>
+    <string name="battery_saver_dismiss_action">Xeyr, təşəkkür</string>
+    <string name="battery_saver_start_action">Aktiv edin</string>
     <string name="battery_state_unknown_notification_text">Ətraflı məlumat üçün toxunun</string>
     <string name="battery_state_unknown_notification_title">Batareya ölçüsünü oxuyarkən problem yarandı</string>
     <string name="biometric_dialog_authenticated">Doğrulandı</string>
@@ -331,9 +312,6 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="biometric_dialog_face_icon_description_authenticating">Üzünüz axtarılır</string>
     <string name="biometric_dialog_face_icon_description_confirmed">Təsdiqləndi</string>
     <string name="biometric_dialog_face_icon_description_idle">Yenidən cəhd edin</string>
-    <string name="biometric_dialog_failed_attempts_now_wiping_device">Həddindən artıq yanlış cəhd. Bu cihazın datası silinəcək.</string>
-    <string name="biometric_dialog_failed_attempts_now_wiping_profile">Həddindən artıq yanlış cəhd. Bu iş profili və oradakı data silinəcək.</string>
-    <string name="biometric_dialog_failed_attempts_now_wiping_user">Həddindən artıq yanlış cəhd. Bu istifadəçi silinəcək.</string>
     <string name="biometric_dialog_last_attempt_before_wipe_dialog_title">Data silinəcək</string>
     <string name="biometric_dialog_last_password_attempt_before_wipe_device">Növbəti cəhddə yanlış parol daxil etsəniz, bu cihazın datası silinəcək.</string>
     <string name="biometric_dialog_last_password_attempt_before_wipe_profile">Növbəti cəhddə yanlış parol daxil etsəniz, iş profili və datası silinəcək.</string>
@@ -344,8 +322,8 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="biometric_dialog_last_pin_attempt_before_wipe_device">Növbəti cəhddə yanlış PIN daxil etsəniz, bu cihazın datası silinəcək.</string>
     <string name="biometric_dialog_last_pin_attempt_before_wipe_profile">Növbəti cəhddə yanlış PIN daxil etsəniz, iş profili və datası silinəcək.</string>
     <string name="biometric_dialog_last_pin_attempt_before_wipe_user">Növbəti cəhddə yanlış PIN daxil etsəniz, bu istifadəçi silinəcək.</string>
-    <string name="biometric_dialog_now_wiping_dialog_dismiss">Ötürün</string>
     <string name="biometric_dialog_tap_confirm">Tamamlamaq üçün \"Təsdiq edin\" seçiminə toxunun</string>
+    <string name="biometric_dialog_tap_confirm_with_face">Üzlə kilidi açılıb. \"Kilidi aç\" ikonasına basıb davam edin.</string>
     <string name="biometric_dialog_try_again">Yenidən cəhd edin</string>
     <string name="biometric_dialog_use_password">Parol istifadə edin</string>
     <string name="biometric_dialog_use_pattern">Model istifadə edin</string>
@@ -382,14 +360,15 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="bluetooth_enable_gabeldorsche_summary">Bluetooth Gabeldorsche funksiya toplusunu aktiv edir.</string>
     <string name="bluetooth_headset_profile_summary_connected">Telefon audiosuna qoşulu</string>
     <string name="bluetooth_headset_profile_summary_use_for">Telefon audiosu istifadə edin</string>
+    <string name="bluetooth_hearing_aid_left_active">Aktiv, yalnız sol</string>
+    <string name="bluetooth_hearing_aid_left_and_right_active">Aktiv, sol və sağ</string>
     <string name="bluetooth_hearing_aid_profile_summary_connected">Eşitmə Aparatlarına qoşuldu</string>
     <string name="bluetooth_hearing_aid_profile_summary_use_for">Eşitmə Aparatları üçün istifadə edin</string>
-    <string name="bluetooth_hearingaid_left_battery_level">Sol - %1$s batareya</string>
-    <string name="bluetooth_hearingaid_left_pairing_message">Sol qulaqlıq birləşdirilir…</string>
-    <string name="bluetooth_hearingaid_right_battery_level">Sağ - %1$s batareya</string>
-    <string name="bluetooth_hearingaid_right_pairing_message">Sağ qulaqlıq birləşdirilir…</string>
+    <string name="bluetooth_hearing_aid_right_active">Aktiv, yalnız sağ</string>
     <string name="bluetooth_hid_profile_summary_connected">Daxiletmə cihazına qoşuldu</string>
     <string name="bluetooth_hid_profile_summary_use_for">Daxiletmə üçün istifadə edin</string>
+    <string name="bluetooth_le_audio_profile_summary_connected">LE_AUDIO audiosuna qoşulub</string>
+    <string name="bluetooth_le_audio_profile_summary_use_for">LE_AUDIO üçün istifadə edin</string>
     <string name="bluetooth_map_profile_summary_connected">Xəritəyə qoşulu</string>
     <string name="bluetooth_map_profile_summary_use_for">Xəritə üçün istifadə et</string>
     <string name="bluetooth_opp_profile_summary_connected">Fayl transfer serverinə qoşulu</string>
@@ -413,6 +392,7 @@ Bu icazə deaktiv olsa, bu tətbiq tərəfindən planlaşdırılan mövcud siqna
     <string name="bluetooth_profile_headset">Telefon zəngləri</string>
     <string name="bluetooth_profile_hearing_aid">Eşitmə cihazları</string>
     <string name="bluetooth_profile_hid">Daxiletmə cihazı</string>
+    <string name="bluetooth_profile_le_audio">LE_AUDIO</string>
     <string name="bluetooth_profile_map">Mətn Mesajları</string>
     <string name="bluetooth_profile_opp">Fayl transferi</string>
     <string name="bluetooth_profile_pan">İnternetə giriş</string>
@@ -456,6 +436,10 @@ Seçimini aktiv edin"</string>
     <string name="bt_hci_snoop_log">Bluetooth HCI jurnalı aktivləşdirilsin</string>
     <string name="bt_hci_snoop_log_summary">"Bluetooth paketləri əldə edin. (Bu ayarı dəyişdikdən sonra Bluetooth'u aktiv/deaktiv edin)"</string>
     <string name="bt_is_off">Bluetooth deaktivdir</string>
+    <string name="bt_le_audio_broadcast_dialog_different_output">Nəticəni dəyişdirin</string>
+    <string name="bt_le_audio_broadcast_dialog_sub_title">%1$s tətbiqini yayımlasanız və ya nəticəni dəyişsəniz, cari yayımınız dayandırılacaq</string>
+    <string name="bt_le_audio_broadcast_dialog_switch_app">%1$s tətbiqini yayımlayın</string>
+    <string name="bt_le_audio_broadcast_dialog_title">%1$s tətbiqinin yayımlanması dayandırılsın?</string>
     <string name="bubble_accessibility_action_add_back">Yenidən dəstəyə əlavə edin</string>
     <string name="bubble_accessibility_action_move_bottom_left">Aşağıya sola köçürün</string>
     <string name="bubble_accessibility_action_move_bottom_right">Aşağıya sağa köçürün</string>
@@ -479,11 +463,15 @@ Seçimini aktiv edin"</string>
     <string name="bugreport_in_power_summary">Qidalanma düyməsi menyusunda xəta hesabatının göndərilməsi punktu göstərilsin</string>
     <string name="build_number_clip_data_label">Montaj nömrəsi</string>
     <string name="build_number_copy_toast">Versiya nömrəsi mübadilə buferinə kopyalandı.</string>
-    <string name="button_convert_fbe">Silin və çevirin...</string>
     <string name="cached_apps_freezer_device_default">Cihaz defoltu</string>
     <string name="cached_apps_freezer_disabled">Deaktiv</string>
     <string name="cached_apps_freezer_enabled">Aktiv</string>
     <string name="cached_apps_freezer_reboot_dialog_text">Bu dəyişikliyin tətbiq edilməsi üçün cihaz yenidən başladılmalıdır. İndi yenidən başladın və ya ləğv edin.</string>
+    <string name="camera_compat_dismiss_button_description">Kamera problemi yoxdur? Qapatmaq üçün toxunun.</string>
+    <string name="camera_compat_treatment_applied_button_description">"Düzəltməmisiniz?
+Geri qaytarmaq üçün toxunun"</string>
+    <string name="camera_compat_treatment_suggested_button_description">"Kamera problemi var?
+Bərpa etmək üçün toxunun"</string>
     <string name="camera_hint">Kamera üçün ikonadan sürüşdürün</string>
     <string name="camera_label">kemaranı açın</string>
     <string name="camera_recording_announcement">Kamera yazır</string>
@@ -503,6 +491,21 @@ Seçimini aktiv edin"</string>
     <string name="clear_all_notifications_text">Hamısını silin</string>
     <string name="clear_text_end_icon_content_description">Mətni silin</string>
     <string name="clipboard">Pano</string>
+    <string name="clipboard_content_copied">Məzmun kopyalanıb</string>
+    <string name="clipboard_dismiss_description">Kopyalanmış mətni qapadın</string>
+    <string name="clipboard_edit">redaktə</string>
+    <string name="clipboard_edit_image_description">Kopyalanmış şəkli redaktə edin</string>
+    <string name="clipboard_edit_source">Mənbə: %1$s</string>
+    <string name="clipboard_edit_text_description">Kopyalanmış mətni redaktə edin</string>
+    <string name="clipboard_edit_text_done">Oldu</string>
+    <string name="clipboard_editor">Mübadilə Buferi Redaktoru</string>
+    <string name="clipboard_image_copied">Şəkil Kopyalanıb</string>
+    <string name="clipboard_image_preview">Şəkil önizləməsi</string>
+    <string name="clipboard_overlay_text_copied">Kopyalandı</string>
+    <string name="clipboard_overlay_window_name">Mübadilə buferi</string>
+    <string name="clipboard_send_nearby_description">Yaxınlıqdakı cihaza göndərin</string>
+    <string name="clipboard_text_copied">Mətn kopyalanıb</string>
+    <string name="clipboard_text_hidden">Baxmaq üçün toxunun</string>
     <string name="clock_title_analog">Analoq</string>
     <string name="clock_title_bubble">Qabarcıq</string>
     <string name="clock_title_default">Defolt</string>
@@ -540,8 +543,13 @@ Seçimini aktiv edin"</string>
     <string name="controls_favorite_subtitle">Sürətli Ayarlardan giriş üçün nizamlayıcıları seçin</string>
     <string name="controls_favorite_toast_no_changes">Dəyişikliklər yadda saxlanmadı</string>
     <string name="controls_media_active_session">Cari media sessiyası gizlədilə bilməz.</string>
-    <string name="controls_media_close_session">Bu media sessiyası gizlədilsin?</string>
-    <string name="controls_media_dismiss_button">İmtina edin</string>
+    <string name="controls_media_button_connecting">Qoşulur</string>
+    <string name="controls_media_button_next">Növbəti trek</string>
+    <string name="controls_media_button_pause">Durdurun</string>
+    <string name="controls_media_button_play">Oxudun</string>
+    <string name="controls_media_button_prev">Əvvəlki trek</string>
+    <string name="controls_media_close_session">%1$s üçün bu media nizamlayıcısı gizlədilsin?</string>
+    <string name="controls_media_dismiss_button">Gizlədin</string>
     <string name="controls_media_playing_item_description">%2$s tərəfindən %1$s %3$s tətbiqindən oxudulur</string>
     <string name="controls_media_resume">Davam edin</string>
     <string name="controls_media_seekbar_description">%1$s/%2$s</string>
@@ -562,18 +570,24 @@ Seçimini aktiv edin"</string>
     <string name="controls_providers_title">Kontrol əlavə etmək üçün tətbiq seçin</string>
     <string name="controls_removed">Silinib</string>
     <string name="controls_seeding_in_progress">Tövsiyələr yüklənir</string>
+    <string name="controls_settings_dialog_neutral_button">Xeyr, təşəkkür</string>
+    <string name="controls_settings_dialog_positive_button">Bəli</string>
+    <string name="controls_settings_show_controls_dialog_message">"Xarici cihazlarınız üçün kilid ekranına nizamlayıcılar əlavə edə bilərsiniz.
+
+Cihaz tətbiqiniz sizə telefon və ya planşetinizin kilidini açmadan bəzi cihazları idarə etməyə imkan verə bilər.
+
+İstənilən vaxt Ayarlarda dəyişiklik edə bilərsiniz."</string>
+    <string name="controls_settings_show_controls_dialog_title">Kilid ekranından cihazlar göstərilsin və idarə edilsin?</string>
+    <string name="controls_settings_trivial_controls_dialog_message">"Telefon və ya planşetinizin kilidini açmadan bəzi cihazları idarə edə bilərsiniz.
+
+Cihaz tətbiqiniz hansı cihazların bu şəkildə idarə oluna biləcəyini müəyyən edir."</string>
+    <string name="controls_settings_trivial_controls_dialog_title">Cihazları kilid ekranından idarə etmək istəyirsiniz?</string>
     <string name="controls_structure_tooltip">Digərlərini görmək üçün sürüşdürün</string>
     <string name="controls_tile_locked">Cihaz kilidlənib</string>
-    <string name="convert_to_fbe_warning">"Data bölgüsünü fayl əsaslı şifrələməyə çevirin.
- !!Xəbərdarlıq!! Bu, bütün datanızı siləcək.
- Bu xüsusiyyət alfadır və düzgün işləməyə bilər.
- Davam etmək üçün 'Silin və çevirin...' düyməsinə basın."</string>
-    <string name="convert_to_file_encryption">Fayl şifrələnməsinə çevirin</string>
-    <string name="convert_to_file_encryption_done">Fayl artıq şifrələnib</string>
-    <string name="convert_to_file_encryption_enabled">Çevirin...</string>
     <string name="copied_text_label">Kopyalanmış mətn</string>
     <string name="copy">Kopyalayın</string>
     <string name="copy_url_description">Mətn kopyalandı</string>
+    <string name="creating_new_guest_dialog_message">Yeni qonaq yaradılır…</string>
     <string name="creating_new_user_dialog_message">Yeni istifadəçi yaradılır…</string>
     <string name="daltonizer_mode_deuteranomaly">Deuteranomaliya (qırmızı-yaşıl)</string>
     <string name="daltonizer_mode_disabled">Deaktiv</string>
@@ -619,6 +633,7 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="debug_monitoring_category">Monitorinq</string>
     <string name="debug_networking_category">Şəbəkələşmə</string>
     <string name="debug_view_attributes">Atributlar yoxlanılsın</string>
+    <string name="default_user_icon_description">Defolt istifadəçi ikonası</string>
     <string name="defender_notify_des">Batareyanı qorumaq üçün telefonunuz şarjı məhdudlaşdırır</string>
     <string name="defender_notify_resume_charge">Şarja davam edin</string>
     <string name="defender_notify_title">Şarj müvəqqəti məhdudlaşdırılıb</string>
@@ -643,21 +658,37 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="disabled">Deaktiv</string>
     <string name="disabled_by_admin">Admin tərəfindən deaktiv edildi</string>
     <string name="disabled_by_admin_summary_text">Admin tərəfindən nəzarət olunur</string>
+    <string name="disabled_by_app_ops_text">Məhdudlaşdırılmış Ayar ilə nəzarət edilir</string>
     <string name="dnd_is_off">\"Narahat Etməyin\" deaktivdir</string>
     <string name="dnd_suppressing_shade_text">Bildirişlər \"Narahat Etməyin\" rejimi tərəfindən dayandırıldı</string>
     <string name="do_disclosure_generic">Bu cihaz təşkilatınıza məxsusdur</string>
     <string name="do_disclosure_with_name">Bu cihaz %s təşkilatına məxsusdur</string>
     <string name="do_financed_disclosure_with_name">Bu cihaz %s tərəfindən təmin edilib</string>
+    <string name="dock_a11y_action_show_photo_text">Foto çərçivəni göstərin</string>
     <string name="dock_alignment_not_charging">Simsiz şarj etmək üçün telefonu doğru yerləşdirin</string>
     <string name="dock_alignment_slow_charging">Sürətli şarj etmək üçün telefonu doğru yerləşdirin</string>
     <string name="dock_forced_resizable">Tətbiq bölünmüş ekran ilə işləməyə bilər.</string>
     <string name="dock_non_resizeble_failed_to_dock_text">Tətbiq ekran bölünməsini dəstəkləmir.</string>
     <string name="dock_photo_preview_text">Foto çərçivə başlayır...</string>
     <string name="dock_promo_text">Foto çərçivəsi üçün sola sürüşdürün</string>
+    <string name="done">Hazırdır</string>
+    <string name="drag_split_not_supported">Bu bildiriş Ayrılmış ekrana sürüşdürməyi dəstəkləmir.</string>
     <string name="drag_to_add_tiles">Mozaika əlavə etmək üçün basıb saxlayaraq çəkin</string>
     <string name="drag_to_rearrange_tiles">İkonları yenidən düzənləmək üçün saxlayaraq dartın</string>
     <string name="drag_to_remove_disabled">Minimum %1$d mozaika lazımdır</string>
     <string name="drag_to_remove_tiles">Silmək üçün bura sürüşdürün</string>
+    <string name="dream_complication_title_aqi">Havanın keyfiyyəti</string>
+    <string name="dream_complication_title_cast_info">Yayım məlumatı</string>
+    <string name="dream_complication_title_date">Tarix</string>
+    <string name="dream_complication_title_time">Vaxt</string>
+    <string name="dream_complication_title_weather">Hava</string>
+    <string name="dream_overlay_status_bar_alarm_set">Siqnal ayarlanıb</string>
+    <string name="dream_overlay_status_bar_camera_mic_off">Kamera və mikrofon deaktivdir</string>
+    <string name="dream_overlay_status_bar_notification_indicator">{count,plural, =1{# bildiriş}other{# bildiriş}}</string>
+    <string name="dream_overlay_status_bar_priority_mode">Prioritet rejimi</string>
+    <string name="dream_overlay_status_bar_wifi_off">Wi‑Fi əlçatan deyil</string>
+    <string name="dream_settings_notification_text">Ekran qoruyucunuzu fərdiləşdirin</string>
+    <string name="dream_settings_notification_title">Ayarlar</string>
     <string name="empty_shade_text">Heç bir bildiriş yoxdur</string>
     <string name="empty_status">Bugün söhbət edək!</string>
     <string name="empty_user_name">Dostlar</string>
@@ -684,7 +715,7 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="error_disable_esim_title">eSIM-i deaktiv etmək alınmadı</string>
     <string name="error_icon_content_description">Xəta</string>
     <string name="ethernet_label">Ethernet</string>
-    <string name="expand_button_title">Qabaqcıl ayarlar</string>
+    <string name="expand_button_title">Əlavə</string>
     <string name="exposed_dropdown_menu_content_description">Açılan menyunu göstərin</string>
     <string name="external_source_trusted">İcazə verilib</string>
     <string name="external_source_untrusted">İcazə verilməyib</string>
@@ -699,12 +730,21 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="face_reenroll_failure_dialog_content">Üz ilə kiliddən çıxarma ayarlana bilmədi. Yenidən cəhd etmək üçün Ayarlara keçin.</string>
     <string name="face_reenroll_notification_content">Təhlükəsizlik və performansı təkmilləşdirmək üçün tələb olunanı ayarlayın</string>
     <string name="face_reenroll_notification_title">Üz ilə kiliddən çıxarma yenidən ayarlanmalıdır</string>
+    <string name="failed_attempts_now_wiping_device">Həddindən artıq yanlış cəhd. Bu cihazın datası silinəcək.</string>
+    <string name="failed_attempts_now_wiping_dialog_dismiss">Qapadın</string>
+    <string name="failed_attempts_now_wiping_profile">Həddindən artıq yanlış cəhd. Bu iş profili və datası silinəcək.</string>
+    <string name="failed_attempts_now_wiping_user">Həddindən artıq yanlış cəhd. Bu istifadəçi silinəcək.</string>
     <string name="failed_to_open_app_settings_toast">%1$s üçün ayarları açmaq alınmadı</string>
     <string name="feedback_alerted">Bu bildiriş sistem tərəfindən avtomatik olaraq &lt;b>Defolt ayara keçirilib&lt;/b>.</string>
     <string name="feedback_demoted">Bu bildiriş avtomatik olaraq siyahıda &lt;b>aşağı sıraya keçirilib&lt;/b>.</string>
     <string name="feedback_promoted">Bu bildiriş avtomatik olaraq siyahıda &lt;b>yuxarı sıraya keçirilib&lt;/b>.</string>
     <string name="feedback_prompt">Developerə rəyinizi bildirin. Bu, doğru idi?</string>
     <string name="feedback_silenced">Bu bildiriş sistem tərəfindən avtomatik olaraq &lt;b>Səssiz rejimə keçirilib&lt;/b>.</string>
+    <string name="fgs_dot_content_description">Yeni məlumat</string>
+    <string name="fgs_manager_app_item_stop_button_label">Dayandırın</string>
+    <string name="fgs_manager_app_item_stop_button_stopped_label">Dayandırılıb</string>
+    <string name="fgs_manager_dialog_message">İstifadə etmədiyiniz zaman belə bu tətbiqlər aktiv olur və işləyir. Bu, onların funksionallığını yaxşılaşdırır, lakin bu, batareyanın ömrünə də təsir edə bilər.</string>
+    <string name="fgs_manager_dialog_title">Aktiv tətbiqlər</string>
     <string name="fingerprint_dialog_touch_sensor">Barmaq izi sensoruna klikləyin</string>
     <string name="fingerprint_dialog_use_fingerprint_instead">Tanımaq olmur. Barmaq izini işlədin.</string>
     <string name="force_allow_on_external">Xarici daşıyıcılarda saxlanmaya icazə verilsin</string>
@@ -716,35 +756,6 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="force_rtl_layout_all_locales">RTL düzən istiqamətinə məcbur edin</string>
     <string name="force_rtl_layout_all_locales_summary">Ekran düzən istiqamətini RTL üzərinə bütün yerli variantlar üçün məcbur edin</string>
     <string name="forced_resizable_secondary_display">Tətbiq ikinci ekranda işləməyə bilər.</string>
-    <string name="game_dashboard_dnd_on">Narahat Etməyin rejimi oyunlar üçün aktivdir</string>
-    <string name="game_dashboard_fps_counter_on">Kadr tezliyi sayğacı aktivdir</string>
-    <string name="game_dashboard_game_menu_title">Oyun Paneli</string>
-    <string name="game_dashboard_record_shortcut_available">Çəkiliş qısayolu əlçatandır</string>
-    <string name="game_dashboard_screenshot_shortcut_available">Skrinşot qısayolu əlçatandır</string>
-    <string name="game_launch_battery">Batareya ömrü üçün optimallaşdırılıb</string>
-    <string name="game_launch_change">Dəyişin</string>
-    <string name="game_launch_dnd_on">Oyunlar üçün Narahat Etməyin rejimi aktivdir</string>
-    <string name="game_launch_performance">Performans üçün optimallaşdırılıb</string>
-    <string name="game_menu_game_mode_description">Performans və ya enerjiyə qənaət seçin</string>
-    <string name="game_menu_game_mode_title">Optimallaşdırma</string>
-    <string name="game_menu_youtube_live_stream_widget_description">Oyunu canlı yayımlayın</string>
-    <string name="game_menu_youtube_live_stream_widget_title">YouTube Live</string>
-    <string name="game_mode_battery_description">Batareya ömrünü artırır</string>
-    <string name="game_mode_battery_title">Enerjiyə qənaət</string>
-    <string name="game_mode_dnd_rule_name">Oyun</string>
-    <string name="game_mode_performance_description">Kadr tezliyini artırır</string>
-    <string name="game_mode_performance_title">Performans</string>
-    <string name="game_mode_restart_dialog_cancel">Ləğv edin</string>
-    <string name="game_mode_restart_dialog_confirm">Yenidən başladın</string>
-    <string name="game_mode_restart_dialog_message_battery">Oyun yenidən başladıldıqda batareya istifadəsini optimallaşdıracağıq</string>
-    <string name="game_mode_restart_dialog_message_performance">Təkrar başlasa məhsuldarlığı artacaq</string>
-    <string name="game_mode_restart_dialog_message_standard">Oyun yenidən başladıldıqda oyunun defoltundan istifadə edəcəyik</string>
-    <string name="game_mode_restart_dialog_title">Oyun təkrar başlasın?</string>
-    <string name="game_mode_standard_description">Oyun defoltlarından istifadə edir</string>
-    <string name="game_mode_standard_title">Standart</string>
-    <string name="game_mode_subtitle">Bu oyun üçün prioritetinizi seçin</string>
-    <string name="game_mode_unsupported_description">Bu oyun üçün əlçatan deyil</string>
-    <string name="game_screen_record_saved">Ekran çəkilişi yadda saxlanıldı</string>
     <string name="game_status">Oxudulur</string>
     <string name="generic_smartspace_concatenated_desc">%1$s, %2$s</string>
     <string name="global_action_lock_message">Daha çox seçim üçün telefonu kiliddən çıxarın</string>
@@ -754,10 +765,9 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="got_it">Anladım</string>
     <string name="guest_exit_guest">Qonağı silin</string>
     <string name="guest_exit_guest_dialog_message">Bu sessiyada bütün tətbiqlər və data silinəcək.</string>
-    <string name="guest_exit_guest_dialog_remove">Yığışdır</string>
-    <string name="guest_exit_guest_dialog_title">Qonaq silinsin?</string>
     <string name="guest_new_guest">Qonaq əlavə edin</string>
-    <string name="guest_nickname">Qonaq</string>
+    <string name="guest_remove_guest_confirm_button">Silin</string>
+    <string name="guest_remove_guest_dialog_title">Qonaq silinsin?</string>
     <string name="guest_reset_guest">Qonaq sessiyasını sıfırlayın</string>
     <string name="guest_reset_guest_confirm_button">Sıfırlayın</string>
     <string name="guest_reset_guest_dialog_title">Qonaq məlumatı sıfırlansın?</string>
@@ -769,6 +779,10 @@ Davam etsəniz, data istifadəsi üçün ödəniş tutulacaq."</string>
     <string name="handle_invocation_prompt">Danışmaq üçün sürüşdürün</string>
     <string name="hdcp_checking_dialog_title">HDCP yoxlanışı qaydası ayalansın</string>
     <string name="hdcp_checking_title">HDCP yoxlanışı</string>
+    <string name="hdmi_cec_set_menu_language_accept">Dili dəyişin</string>
+    <string name="hdmi_cec_set_menu_language_decline">Cari dili saxlayın</string>
+    <string name="hdmi_cec_set_menu_language_description">Sistem dilinin dəyişdirilməsi başqa cihaz tərəfindən tələb olunur</string>
+    <string name="hdmi_cec_set_menu_language_title">Sistem dili %1$s dilinə dəyişdirilsin?</string>
     <string name="headset">Qulaqlıq</string>
     <string name="heap_dump_tile_name">Dump SysUI Heap</string>
     <string name="help_feedback_label">Yardım və rəy</string>
@@ -784,6 +798,7 @@ Telefonunuz soyuduqdan sonra normal işləyəcək."</string>
 Ətraflı məlumat üçün toxunun"</string>
     <string name="high_temp_title">Telefon qızmağa başlayır</string>
     <string name="home">Ayarların əsas səhifəsi</string>
+    <string name="home_controls_tile_title">Ev</string>
     <string name="icon_content_description">Dialoq ikonası</string>
     <string name="image_content_description">Seçilə bilən şəkil</string>
     <string name="ime_security_warning">Bu daxiletmə metodu yazdığınız bütün mətni toplaya bilər. Buna kredit kart kimi şəxsi məlumat aid ola bilər. Kökü %1$s tətbiqindədir. Bu daxiletmə metodu istifadə olunsun?</string>
@@ -846,6 +861,8 @@ prioritet"</string>
     <string name="keyboard_key_page_up">Yuxarı Səhifə</string>
     <string name="keyboard_key_space">Boşluq</string>
     <string name="keyboard_key_tab">Tab</string>
+    <string name="keyboard_layout_default_label">Defolt</string>
+    <string name="keyboard_layout_dialog_title">Klaviatura düzənini seçin</string>
     <string name="keyboard_shortcut_group_applications">Tətbiqlər</string>
     <string name="keyboard_shortcut_group_applications_assist">Yardım</string>
     <string name="keyboard_shortcut_group_applications_browser">Brauzer</string>
@@ -871,7 +888,9 @@ prioritet"</string>
     <string name="keyguard_enter_your_password">Şifrənizi daxil edin</string>
     <string name="keyguard_enter_your_pattern">Modeli daxil edin</string>
     <string name="keyguard_enter_your_pin">PIN kodu daxil edin</string>
+    <string name="keyguard_face_successful_unlock_press">Üzlə kilidi açılıb. \"Kilidi aç\" ikonasına basıb açın.</string>
     <string name="keyguard_indication_charging_time">%2$s • Şarj edilir • %1$s sonra dolacaq</string>
+    <string name="keyguard_indication_charging_time_dock">%2$s • Şarj Doku • %1$s sonra dolacaq</string>
     <string name="keyguard_indication_charging_time_fast">%2$s • Sürətlə şarj edilir • %1$s sonra dolacaq</string>
     <string name="keyguard_indication_charging_time_slowly">%2$s • Asta şarj edilir • %1$s sonra dolacaq</string>
     <string name="keyguard_indication_charging_time_wireless">%2$s • Simsiz şarj edilir • %1$s sonra dolacaq</string>
@@ -889,6 +908,7 @@ prioritet"</string>
     <string name="keyguard_plugged_in_charging_fast">%s • Sürətlə enerji yığır</string>
     <string name="keyguard_plugged_in_charging_limited">%s • Şarj müvəqqəti məhdudlaşdırılıb</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • Yavaş enerji yığır</string>
+    <string name="keyguard_plugged_in_dock">%s • Şarj Doku</string>
     <string name="keyguard_plugged_in_wireless">%s • Simsiz şəkildə batareya yığır</string>
     <string name="keyguard_retry">Yenidən cəhd etmək üçün yuxarı sürüşdürün</string>
     <string name="keyguard_sim_error_message_short">Yanlış Kart.</string>
@@ -897,7 +917,7 @@ prioritet"</string>
     <string name="keyguard_sim_unlock_progress_dialog_message">SIM kartın kilidi açılır...</string>
     <string name="keyguard_try_fingerprint">Açmaq üçün barmaq izindən istifadə edin</string>
     <string name="keyguard_unlock">Açmaq üçün yuxarı sürüşdürün</string>
-    <string name="keyguard_unlock_press">Açmaq üçün basın</string>
+    <string name="keyguard_unlock_press">\"Kilidi aç\" ikonasına basıb açın</string>
     <string name="keywords_adb_wireless">adb, debug, dev</string>
     <string name="keywords_alarms_and_reminders">cədvəl, siqnal, xatırlatma, saat</string>
     <string name="kg_enter_confirm_pin_hint">İstədiyiniz PIN kodu təsdiqləyin</string>
@@ -912,7 +932,6 @@ prioritet"</string>
     <string name="kg_failed_attempts_now_erasing_profile">Telefonun kilidini açmaq üçün %d dəfə yanlış cəhd etmisiniz. İş profili silinəcək və bütün data ləğv ediləcək.</string>
     <string name="kg_failed_attempts_now_erasing_user">Telefonun kilidini açmaq üçün %d dəfə yanlış cəhd etmisiniz. Bu istifadəçi silinəcək və bütün data ləğv ediləcək.</string>
     <string name="kg_failed_attempts_now_wiping">Telefonun kilidini açmaq üçün %d dəfə yanlış cəhd etmisiniz. Bu telefon sıfırlanacaq və bütün data silinəcək.</string>
-    <string name="kg_fingerprint_not_recognized">Tanınmır</string>
     <string name="kg_invalid_confirm_pin_hint">PIN kodlar uyğun gəlmir</string>
     <string name="kg_invalid_sim_pin_hint">4-8 rəqəmli PIN daxil edin.</string>
     <string name="kg_invalid_sim_puk_hint">PUK kod 8 rəqəm və ya daha çox olmalıdır.</string>
@@ -935,6 +954,7 @@ prioritet"</string>
     <string name="kg_sim_pin_instructions">"SIM PIN'ni daxil edin."</string>
     <string name="kg_sim_pin_instructions_multi">"\"%1$s\" üçün SIM PIN'ni daxil edin."</string>
     <string name="kg_sim_unlock_progress_dialog_message">SIM kartın kilidi açılır...</string>
+    <string name="kg_too_many_failed_attempts_countdown">{count,plural, =1{# saniyə sonra yenidən cəhd edin.}other{# saniyə sonra yenidən cəhd edin.}}</string>
     <string name="kg_too_many_failed_password_attempts_dialog_message">"Parolu %1$d dəfə yanlış daxil etdiniz. 
 
 %2$d saniyə sonra yenidən cəhd edin."</string>
@@ -993,6 +1013,11 @@ prioritet"</string>
     <string name="left_keycode">Sol açar kodu</string>
     <string name="left_nav_bar_button_type">Əlavə sol düymə növü</string>
     <string name="legacy_vpn_name">VPN (Virtual Şəxsi Şəbəkələr)</string>
+    <string name="letterbox_education_dialog_subtext">Məkanınızdan maksimum yararlanmaq üçün bu seçimlərdən birini sınayın</string>
+    <string name="letterbox_education_dialog_title">Bəzi tətbiqlər portret rejimində daha yaxşı işləyir</string>
+    <string name="letterbox_education_got_it">Anladım</string>
+    <string name="letterbox_education_reposition_text">Tətbiqin yerini dəyişmək üçün yanına iki dəfə toxunun</string>
+    <string name="letterbox_education_screen_rotation_text">Tam ekrana keçmək üçün cihazınızı fırladın</string>
     <string name="loading_injected_setting_summary">Yüklənir…</string>
     <string name="local_backup_password_summary_change">Masaüstünün tam rezerv kopyalanması üçün parolu dəyişmək və ya silmək üçün basın</string>
     <string name="local_backup_password_summary_none">Masaüstü tam rezervlər hazırda qorunmayıblar.</string>
@@ -1017,6 +1042,7 @@ prioritet"</string>
     <string name="manage_bubbles_text">İdarə edin</string>
     <string name="manage_notifications_history_text">Tarixçə</string>
     <string name="manage_notifications_text">İdarə edin</string>
+    <string name="manage_users">İstifadəçiləri idarə edin</string>
     <string name="managed_user_title">Bütün iş tətbiqləri</string>
     <string name="material_clock_toggle_content_description">Gündüz və ya axşam seçin</string>
     <string name="material_hour_selection">Saatı seçin</string>
@@ -1031,21 +1057,43 @@ prioritet"</string>
     <string name="material_timepicker_select_time">Vaxt seçin</string>
     <string name="material_timepicker_text_input_mode_description">Zamanı daxil etmək üçün mətnlə daxiletmə rejiminə keçin</string>
     <string name="media_category">Media</string>
+    <string name="media_move_closer_to_end_cast">Burada oxutmaq üçün %1$s cihazına yaxınlaşın</string>
+    <string name="media_move_closer_to_start_cast">%1$s cihazında oxutmaq üçün yaxınlaşın</string>
+    <string name="media_output_broadcast">Yayım</string>
+    <string name="media_output_broadcast_code">Parol</string>
+    <string name="media_output_broadcast_dialog_save">Saxlayın</string>
+    <string name="media_output_broadcast_last_update_error">Yadda saxlamaq mümkün deyil.</string>
+    <string name="media_output_broadcast_name">Yayım Adı</string>
+    <string name="media_output_broadcast_start_failed">Yayımlamaq mümkün deyil</string>
+    <string name="media_output_broadcast_starting">Başlanır…</string>
+    <string name="media_output_broadcast_update_error">Yadda saxlamaq mümkün deyil. Yenə cəhd edin.</string>
+    <string name="media_output_broadcasting_message">Yayımınızı dinləmək üçün uyğun Bluetooth cihazları olan yaxınlıqdakı insanlar QR kodunuzu skan edə və ya yayım adınızı və parolunuzu istifadə edə bilər.</string>
+    <string name="media_output_dialog_accessibility_seekbar">Səs</string>
+    <string name="media_output_dialog_accessibility_title">Audio çıxış üçün əlçatan cihazlar.</string>
     <string name="media_output_dialog_add_output">Nəticələri əlavə edin</string>
-    <string name="media_output_dialog_connect_failed">Qoşulmaq alınmadı. Yenə cəhd edin.</string>
+    <string name="media_output_dialog_button_stop_casting">Yayımı dayandırın</string>
+    <string name="media_output_dialog_connect_failed">Dəyişmək olmur. Yenidən cəhd etmək üçün toxunun.</string>
     <string name="media_output_dialog_disconnected">(bağlantı kəsildi)</string>
     <string name="media_output_dialog_group">Qrup</string>
+    <string name="media_output_dialog_launch_app_text">Bu sessiyanı yayımlamaq üçün tətbiqi açın.</string>
     <string name="media_output_dialog_multiple_devices">%1$d cihaz seçilib</string>
     <string name="media_output_dialog_pairing_new">Cihaz əlavə edin</string>
     <string name="media_output_dialog_single_device">1 cihaz seçilib</string>
+    <string name="media_output_dialog_unknown_launch_app_name">Naməlum tətbiq</string>
+    <string name="media_output_first_broadcast_title">Yayım necə işləyir</string>
+    <string name="media_output_first_notify_broadcast_message">Uyğun Bluetooth cihazları olan yaxınlığınızdakı insanlar yayımladığınız medianı dinləyə bilər</string>
     <string name="media_projection_action_text">İndi başlayın</string>
     <string name="media_projection_dialog_service_text">Bu funksiyanı təmin edən xidmətin yazma və ya yayım zamanı ekranda görünən və ya cihazdan oxudulan bütün bilgilərə girişi olacaq. Buraya parollar, ödəniş detalları, fotolar, mesajlar və oxudulan audio kimi məlumatlar daxildir.</string>
     <string name="media_projection_dialog_service_title">Yazma və ya yayımlama başladılsın?</string>
     <string name="media_projection_dialog_text">%s tətbiqinin yazma və ya yayım zamanı ekranda görünən və ya cihazdan oxudulan bütün məlumatlara girişi olacaq. Bura parollar, ödəniş detalları, fotolar, mesajlar və oxudulan audio kimi məlumatlar daxildir.</string>
     <string name="media_projection_dialog_title">%s ilə yazma və ya yayımlama başladılsın?</string>
     <string name="media_seamless_other_device">Digər cihaz</string>
-    <string name="media_transfer_this_device_name">Telefon dinamiki</string>
+    <string name="media_transfer_failed">Xəta oldu. Yenə cəhd edin.</string>
+    <string name="media_transfer_playing_different_device">%1$s cihazında oxudulur</string>
+    <string name="media_transfer_playing_this_device">Bu telefonda oxudulur</string>
+    <string name="media_transfer_this_device_name">Bu telefon</string>
     <string name="media_transfer_this_phone">Bu telefon</string>
+    <string name="media_transfer_undo">Geri qaytarın</string>
     <string name="media_transfer_wired_device_name">Simli audio cihaz</string>
     <string name="media_transfer_wired_usb_device_name">Naqilli qulaqlıq</string>
     <string name="messages_count_overflow_indicator">%d+</string>
@@ -1073,7 +1121,7 @@ prioritet"</string>
     <string name="monitoring_button_view_policies">Siyasətlərə Baxın</string>
     <string name="monitoring_description_ca_certificate">Bu cihazda sertifikat səlahiyyəti quraşdırıldı. Təhlükəsiz şəbəkə ötürülməsinə nəzarət edilə və ya dəyişdirilə bilər.</string>
     <string name="monitoring_description_managed_profile_ca_certificate">Təşkilat iş profilində sertifikat səlahiyyəti quraşdırdı. Təhlükəsiz şəbəkə ötürülməsinə nəzarət edilə və ya dəyişdirilə bilər.</string>
-    <string name="monitoring_description_managed_profile_named_vpn">İş profili e-poçt, tətbiq və veb saytlar da daxil olmaqla şəbəkə fəaliyyətinə nəzarət edən %1$s tətbiqinə qoşuludur.</string>
+    <string name="monitoring_description_managed_profile_named_vpn">İş tətbiqləriniz %1$s vasitəsilə internetə qoşulub. E-məktublar və baxış datası daxil olmaqla, iş tətbiqlərindəki şəbəkə fəaliyyətiniz İT admininiz və VPN provayderinizə görünür.</string>
     <string name="monitoring_description_managed_profile_network_logging">Admininiz şəxsi profilinizdəki deyil, iş profilinizdəki trafikə nəzarət edən şəbəkə qeydiyyatını aktiv edib.</string>
     <string name="monitoring_description_management">"Bu cihaz təşkilatınıza məxsusdur.
 
@@ -1087,10 +1135,10 @@ IT admininiz cihaz və cihaz məkan məlumatı ilə əlaqəli ayarlara, korporat
 IT admininiz cihaz və cihaz məkan məlumatı ilə əlaqəli ayarlara, korporativ girişə, tətbiqə və dataya nəzarət edə və idarə edə bilər.
 
 Ətraflı məlumat üçün IT admini ilə əlaqə saxlayın."</string>
-    <string name="monitoring_description_named_vpn">E-poçt, tətbiq və veb saytlar daxil olmaqla şəbəkə fəaliyyətinə nəzarət edən %1$s tətbiqinə qoşulusunuz.</string>
+    <string name="monitoring_description_named_vpn">Bu cihaz %1$s vasitəsilə internetə qoşulub. E-məktublar və baxış datası daxil olmaqla, iş tətbiqlərindəki şəbəkə fəaliyyətiniz İT admininiz görünür.</string>
     <string name="monitoring_description_parental_controls">Bu cihaz valideyniniz tərəfindən idarə olunur. Valideyniniz işlətdiyiniz tətbiqlər, məkanınız və ekran vaxtınız kimi bilgiləri görə və idarə edə bilər.</string>
-    <string name="monitoring_description_personal_profile_named_vpn">Şəxsi profil e-poçt, tətbiq və veb saytlar daxil olmaqla şəbəkə fəaliyyətinə nəzarət edən %1$s tətbiqinə qoşuludur.</string>
-    <string name="monitoring_description_two_named_vpns">E-poçt, tətbiq və veb saytlar daxil olmaqla şəbəkə fəaliyyətinə nəzarət edən %1$s və %2$s tətbiqlərinə qoşulusunuz.</string>
+    <string name="monitoring_description_personal_profile_named_vpn">Şəxsi tətbiqləriniz %1$s vasitəsilə internetə qoşulub. E-məktublar və baxış datası daxil olmaqla, iş tətbiqlərindəki şəbəkə fəaliyyətiniz VPN provayderinizə görünür.</string>
+    <string name="monitoring_description_two_named_vpns">Bu cihaz %1$s və %2$s vasitəsilə internetə qoşulub. E-məktublar və baxış datası daxil olmaqla, iş tətbiqlərindəki şəbəkə fəaliyyətiniz İT admininiz görünür.</string>
     <string name="monitoring_description_vpn_settings">VPN ayarlarını açın</string>
     <string name="monitoring_description_vpn_settings_separator">" ("</string>
     <string name="monitoring_financed_description_named_management">"%1$s bu cihazla əlaqəli məlumatlara daxil ola, tətbiqləri idarə edə və bu cihazın ayarlarını dəyişdirə bilər.
@@ -1221,6 +1269,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="notification_section_header_incoming">Yeni</string>
     <string name="notification_silence_title">Səssiz</string>
     <string name="notification_tap_again">Açmaq üçün yenidən tıklayın</string>
+    <string name="notification_unblockable_call_desc">Zəng bildirişləri dəyişdirilə bilməz.</string>
     <string name="notification_unblockable_desc">Bu bildirişlər dəyişdirilə bilməz.</string>
     <string name="notification_vpn_connected">VPN qoşulub</string>
     <string name="notification_vpn_disconnected">VPN ayrılıb</string>
@@ -1232,6 +1281,9 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="one_week_timestamp">1 həftə əvvəl</string>
     <string name="ongoing_phone_call_content_description">Davam edən zəng</string>
     <string name="ongoing_privacy_chip_content_multiple_apps">Tətbiqlər %s istifadə edir.</string>
+    <string name="ongoing_privacy_dialog_a11y_title">İstifadə olunur</string>
+    <string name="ongoing_privacy_dialog_attribution_label">(%s)</string>
+    <string name="ongoing_privacy_dialog_attribution_proxy_label">(%1$s • %2$s)</string>
     <string name="ongoing_privacy_dialog_attribution_text">(%s vasitəsilə)</string>
     <string name="ongoing_privacy_dialog_enterprise">(iş)</string>
     <string name="ongoing_privacy_dialog_last_separator">" və "</string>
@@ -1256,11 +1308,16 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="person_available">Əlçatan</string>
     <string name="phone_hint">Telefon üçün ikonadan sürüşdürün</string>
     <string name="phone_label">telefonu açın</string>
+    <string name="physical_keyboard_title">Fiziki klaviatura</string>
     <string name="picture_color_mode">Şəkil rəng rejimi</string>
     <string name="picture_color_mode_desc">sRGB istifadə edin</string>
-    <string name="pip_close">PIP bağlayın</string>
+    <string name="pip_close">Bağlayın</string>
+    <string name="pip_collapse">Yığcamlaşdırın</string>
+    <string name="pip_edu_text">" Nizamlayıcılar üçün "<annotation icon="home_icon"> ƏSAS SƏHİFƏ </annotation> süçimini iki dəfə basın</string>
+    <string name="pip_expand">Genişləndirin</string>
     <string name="pip_fullscreen">Tam ekran</string>
     <string name="pip_menu_title">Menyu</string>
+    <string name="pip_move">Köçürün</string>
     <string name="pip_notification_message">%s tətbiqinin bu funksiyadan istifadə etməyini istəmirsinizsə, ayarları açmaq və deaktiv etmək üçün klikləyin.</string>
     <string name="pip_notification_title">%s şəkil içində şəkildədir</string>
     <string name="pip_notification_unknown_title">(Başlıqsız proqram)</string>
@@ -1329,6 +1386,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="priority_conversations">Önəmli söhbətlər</string>
     <string name="privacy_type_camera">kamera</string>
     <string name="privacy_type_location">məkan</string>
+    <string name="privacy_type_media_projection">ekran çəkimi</string>
     <string name="privacy_type_microphone">mikrofon</string>
     <string name="private_dns_broken">Özəl DNS serverinə giriş mümkün deyil</string>
     <string name="private_dns_mode_off">Deaktiv</string>
@@ -1339,11 +1397,15 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="process_kernel_label">Android OS</string>
     <string name="profile_connect_timeout_subtext">Qoşulmaqla bağlı problem. Cihazı deaktiv edin, sonra yenidən aktiv edin</string>
     <string name="profile_info_settings_title">Profil info</string>
+    <string name="qr_code_scanner_title">QR kodu skanlayın</string>
     <string name="qs_alarm_tile_no_alarm">Siqnal ayarlanmayıb</string>
     <string name="qs_dnd_prompt_app">\"Narahat etməyin\" rejimi (%s) tətbiqi tərəfindən aktiv edildi.</string>
     <string name="qs_dnd_prompt_auto_rule">\"Narahat etməyin\" rejimi (%s) avtomatik qaydası tərəfindən aktiv edildi.</string>
     <string name="qs_dnd_prompt_auto_rule_app">\"Narahat etməyin\" rejimi avtomatik qayda və ya tətbiq tərəfindən aktiv edildi.</string>
     <string name="qs_edit">Redaktə edin</string>
+    <string name="qs_tile_request_dialog_add">Mozaik əlavə edin</string>
+    <string name="qs_tile_request_dialog_not_add">Mozaik əlavə etməyin</string>
+    <string name="qs_tile_request_dialog_text">%1$s aşağıdakı mozaiki Sürətli Ayarlara əlavə etmək istəyir</string>
     <string name="qs_user_switch_dialog_title">İstifadəçi seçin</string>
     <string name="quick_controls_title">Cihaz kontrolları</string>
     <string name="quick_settings_bluetooth_detail_empty_text">Heç bir cütlənmiş cihaz əlçatan deyil</string>
@@ -1371,31 +1433,34 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="quick_settings_cellular_detail_remaining_data">Qalan data</string>
     <string name="quick_settings_cellular_detail_title">Mobil data</string>
     <string name="quick_settings_close_user_panel">Bağlayın</string>
+    <string name="quick_settings_color_correction_label">Rəng korreksiyası</string>
     <string name="quick_settings_connected">Qoşulu</string>
     <string name="quick_settings_connected_battery_level">Qoşuldu, %1$s batareya</string>
     <string name="quick_settings_connecting">Qoşulur...</string>
     <string name="quick_settings_dark_mode_secondary_label_battery_saver">Enerjiyə qənaət</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at">Bu vaxt aktiv olur: %s</string>
+    <string name="quick_settings_dark_mode_secondary_label_on_at_bedtime">Yuxu vaxtı aktiv</string>
     <string name="quick_settings_dark_mode_secondary_label_on_at_sunset">Qürubda aktiv olacaq</string>
     <string name="quick_settings_dark_mode_secondary_label_until">Bu vaxtadək: %s</string>
+    <string name="quick_settings_dark_mode_secondary_label_until_bedtime_ends">Yuxu vaxtı bitənədək</string>
     <string name="quick_settings_dark_mode_secondary_label_until_sunrise">Şəfəq vaxtına qədər</string>
     <string name="quick_settings_disclosure_managed_profile_monitoring">Təşkilat iş profilində şəbəkə ötürülməsinə nəzarət edə bilər</string>
-    <string name="quick_settings_disclosure_managed_profile_named_vpn">İş profiliniz %1$s şəbəkəsinə qoşulub</string>
+    <string name="quick_settings_disclosure_managed_profile_named_vpn">İş tətbiqləriniz %1$s vasitəsilə internetə qoşulub</string>
     <string name="quick_settings_disclosure_managed_profile_network_activity">İş profili şəbəkəsi fəalliyyətini IT admini görə bilir</string>
     <string name="quick_settings_disclosure_management">Bu cihaz təşkilatınıza məxsusdur</string>
     <string name="quick_settings_disclosure_management_monitoring">Təşkilatınız bu cihazın sahibidir və şəbəkə trafikinə nəzarət edə bilər</string>
-    <string name="quick_settings_disclosure_management_named_vpn">Bu cihaz təşkilatınıza məxsusdur və %1$s şəbəkəsinə qoşulub</string>
-    <string name="quick_settings_disclosure_management_vpns">Bu cihaz təşkilatınıza məxsusdur və VPN şəbəkəsinə qoşulub</string>
+    <string name="quick_settings_disclosure_management_named_vpn">Bu cihaz təşkilatınıza məxsusdur və %1$s vasitəsilə internetə qoşulub</string>
+    <string name="quick_settings_disclosure_management_vpns">Bu cihaz təşkilatınıza məxsusdur və VPN vasitəsilə internetə qoşulub</string>
     <string name="quick_settings_disclosure_monitoring">Şəbəkəyə nəzarət edilə bilər</string>
     <string name="quick_settings_disclosure_named_managed_profile_monitoring">%1$s iş profilində şəbəkə ötürülməsinə nəzarət edə bilər</string>
     <string name="quick_settings_disclosure_named_management">Bu cihaz %1$s təşkilatına məxsusdur</string>
     <string name="quick_settings_disclosure_named_management_monitoring">%1$s bu cihazın sahibidir və şəbəkə trafikinə nəzarət edə bilər</string>
-    <string name="quick_settings_disclosure_named_management_named_vpn">Bu cihaz %1$s təşkilatına məxsusdur və %2$s şəbəkəsinə qoşulub</string>
-    <string name="quick_settings_disclosure_named_management_vpns">Bu cihaz %1$s təşkilatına məxsusdur və VPN şəbəkəsinə qoşulub</string>
-    <string name="quick_settings_disclosure_named_vpn">Bu cihaz %1$s şəbəkəsinə qoşulub</string>
+    <string name="quick_settings_disclosure_named_management_named_vpn">Bu cihaz %1$s təşkilatına məxsusdur və %2$s vasitəsilə internetə qoşulub</string>
+    <string name="quick_settings_disclosure_named_management_vpns">Bu cihaz %1$s təşkilatına məxsusdur və VPN vasitəsilə internetə qoşulub</string>
+    <string name="quick_settings_disclosure_named_vpn">Bu cihaz %1$s vasitəsilə internetə qoşulub</string>
     <string name="quick_settings_disclosure_parental_controls">Bu cihaz valideyniniz tərəfindən idarə olunur</string>
-    <string name="quick_settings_disclosure_personal_profile_named_vpn">Şəxsi profiliniz %1$s şəbəkəsinə qoşulub</string>
-    <string name="quick_settings_disclosure_vpns">Bu cihaz VPN şəbəkəsinə qoşulub</string>
+    <string name="quick_settings_disclosure_personal_profile_named_vpn">Şəxsi tətbiqləriniz %1$s vasitəsilə internetə qoşulub</string>
+    <string name="quick_settings_disclosure_vpns">Bu cihaz VPN vasitəsilə internetə qoşulub</string>
     <string name="quick_settings_dnd_label">Narahat etməyin</string>
     <string name="quick_settings_done">Hazır</string>
     <string name="quick_settings_financed_disclosure_named_management">Bu cihaz %s tərəfindən təmin edilib</string>
@@ -1409,7 +1474,6 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="quick_settings_location_label">Məkan</string>
     <string name="quick_settings_media_device_label">Media cihazı</string>
     <string name="quick_settings_mic_label">Mikrofona giriş</string>
-    <string name="quick_settings_more_settings">Digər ayarlar</string>
     <string name="quick_settings_more_user_settings">İstifadəçi ayarları</string>
     <string name="quick_settings_networks_available">Şəbəkələr əlçatandır</string>
     <string name="quick_settings_networks_unavailable">Şəbəkələr əlçatan deyil</string>
@@ -1420,6 +1484,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="quick_settings_night_secondary_label_on_at">%s olduqda aktiv ediləcək</string>
     <string name="quick_settings_night_secondary_label_on_at_sunset">Qürubda aktiv ediləcək</string>
     <string name="quick_settings_night_secondary_label_until_sunrise">Şəfəq vaxtına qədər</string>
+    <string name="quick_settings_onehanded_label">Birəlli rejim</string>
     <string name="quick_settings_rotation_posture_folded">qatlanmış</string>
     <string name="quick_settings_rotation_posture_unfolded">açıq</string>
     <string name="quick_settings_rotation_unlocked_label">Avtodönüş</string>
@@ -1452,6 +1517,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="right_icon">Sağ ikona</string>
     <string name="right_keycode">Sağ açar kodu</string>
     <string name="right_nav_bar_button_type">Əlavə sağ düymə növü</string>
+    <string name="rotation_lock_camera_rotation_on">Aktiv - Üz əsaslı</string>
     <string name="running_foreground_services_msg">Batareya və data istifadəsi haqqında ətraflı məlumat üçün klikləyin</string>
     <string name="running_foreground_services_title">Arxa fonda işləyən tətbiqlər</string>
     <string name="running_process_item_user_label">İstifadəçi: %1$s</string>
@@ -1459,6 +1525,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="runningservices_settings_title">İşləyən xidmətlər</string>
     <string name="save">Saxlayın</string>
     <string name="saved_network">Yadda saxlayan: %1$s</string>
+    <string name="saver_confirmation_dialog_text">Yüksək Enerji Qənaəti əksər tətbiqlər və bildirişləri durduracaq.</string>
     <string name="screen_pinning_can_open_other_apps">Bərkidilmiş tətbiq digər tətbiqləri aça bilər.</string>
     <string name="screen_pinning_description">Sancaq götürülənə qədər bu görünəcək. Sancağı götürmək üçün Geri və İcmal düymələrinə basıb saxlayın.</string>
     <string name="screen_pinning_description_accessible">\"İcmal\" düyməsinin davamlı basılması ilə çıxarılana qədər tətbiq göz önündə qalır.</string>
@@ -1500,6 +1567,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="screenrecord_start_label">Yazmağa başlanılsın?</string>
     <string name="screenrecord_stop_label">Dayandırın</string>
     <string name="screenrecord_taps_label">Ekrana toxunuş göstərilsin</string>
+    <string name="screenshot_blocked_by_admin">Skrinşot çəkilməsi İT admininiz tərəfindən bloklanıb</string>
     <string name="screenshot_bottom_boundary_pct">Aşağı sərhəd %1$d faiz</string>
     <string name="screenshot_dismiss_description">Ekran şəklini ötürün</string>
     <string name="screenshot_edit_description">Skrinşota düzəliş edin</string>
@@ -1536,13 +1604,26 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="select_webview_provider_title">WebView servisi</string>
     <string name="select_webview_provider_toast_text">Bu seçim artıq etibarlı deyil. Yenidən cəhd edin.</string>
     <string name="selectable_url_description">Seçilə bilən URL</string>
+    <string name="sensor_privacy_camera_unblocked_toast_content">Kamera əlçatandır</string>
+    <string name="sensor_privacy_mic_camera_unblocked_toast_content">Mikrofon və kamera əlçatandır</string>
+    <string name="sensor_privacy_mic_unblocked_toast_content">Mikrofon əlçatandır</string>
+    <string name="sensor_privacy_start_use_camera_blocked_dialog_content">Blokdan çıxarmaq üçün cihazınızda məxfilik açarını \"kamera aktivdir\" vəziyyətinə keçirərək kameraya giriş icazəsi verin. Cihazınızda məxfilik açarını tapmaq üçün cihazın təlimatlarına baxın.</string>
+    <string name="sensor_privacy_start_use_camera_blocked_dialog_title">Kamera blok edilib</string>
     <string name="sensor_privacy_start_use_camera_dialog_content">Kamera və mikrofon istifadə edən bütün tətbiq və xidmətlərə giriş verir.</string>
     <string name="sensor_privacy_start_use_camera_dialog_title">Cihaz kamerası blokdan çıxarılsın?</string>
+    <string name="sensor_privacy_start_use_mic_blocked_dialog_content">Blokdan çıxarmaq üçün cihazınızda məxfilik açarını \"mikrofon aktivdir\" vəziyyətinə keçirərək mikrofona giriş icazəsi verin. Cihazınızda məxfilik açarını tapmaq üçün cihazın təlimatlarına baxın.</string>
+    <string name="sensor_privacy_start_use_mic_blocked_dialog_title">Mikrofon blok edilib</string>
+    <string name="sensor_privacy_start_use_mic_camera_blocked_dialog_content">Blokdan çıxarmaq üçün cihazınızda məxfilik açarını \"blokdan çıxarılıb\" vəziyyətinə keçirərək giriş icazəsi verin. Cihazınızda məxfilik açarını tapmaq üçün cihazın təlimatlarına baxın.</string>
+    <string name="sensor_privacy_start_use_mic_camera_blocked_dialog_title">Mikrofon və kamera blok edilib</string>
     <string name="sensor_privacy_start_use_mic_camera_dialog_content">Kamera və mikrofon istifadə edən bütün tətbiq və xidmətlərə giriş verir.</string>
     <string name="sensor_privacy_start_use_mic_camera_dialog_title">Cihaz kamerası və mikrofonu blokdan çıxarılsın?</string>
     <string name="sensor_privacy_start_use_mic_dialog_content">Kamera və mikrofon istifadə edən bütün tətbiq və xidmətlərə giriş verir.</string>
     <string name="sensor_privacy_start_use_mic_dialog_title">Cihaz mikrofonu blokdan çıxarılsın?</string>
+    <string name="settings_label">Ayarlar</string>
     <string name="settingslib_learn_more_text">Ətraflı məlumat</string>
+    <string name="severe_low_battery_dialog_checkbox_title">Bir daha soruşmayın</string>
+    <string name="severe_low_battery_dialog_text">%s enerji qalıb. Yüksək Enerji Qənaəti əksər tətbiqlər və bildirişləri durduracaq.</string>
+    <string name="severe_low_battery_dialog_title">Yüksək Enerji Qənaəti aktiv edilsin?</string>
     <string name="shared_data_delete_failure_text">Paylaşılan datanı silərkən xəta oldu.</string>
     <string name="shared_data_no_accessors_dialog_text">Bu paylaşılan data üçün lizinq əldə edilməyib. Onu silmək istərdiniz?</string>
     <string name="shared_data_no_blobs_text">Bu istifadəçi üçün paylaşılan data yoxdur.</string>
@@ -1572,6 +1653,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="slice_permission_title">%1$s tətbiqinə %2$s hissələrini göstərmək üçün icazə verilsin?</string>
     <string name="smartspace_flight_card_gate_header">Qapı</string>
     <string name="smartspace_flight_card_seat_header">Yer</string>
+    <string name="smartspace_flight_qr_code">QR kodu</string>
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="smartspace_now">İndi</string>
     <string name="smartspace_shopping_list_overflow">+ daha %1$d ədəd</string>
@@ -1635,7 +1717,6 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="tile_disabled">Deaktiv edilib</string>
     <string name="tile_unavailable">Əlçatan deyil</string>
     <string name="time_unit_just_now">İndicə</string>
-    <string name="title_convert_fbe">Fayl əsaslı şifrələnməyə çevrilir</string>
     <string name="title_usb_accessory">USB aksesuar</string>
     <string name="to_switch_networks_disconnect_ethernet">Şəbəkəni dəyişmək üçün etherneti ayırın</string>
     <string name="too_hot_label">Piksel çox istidir</string>
@@ -1695,6 +1776,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="tuner_warning_title">Hamı üçün deyil, bəziləri üçün əyləncəli</string>
     <string name="turn_off_airplane_mode">Təyyarə rejimini deaktiv edin</string>
     <string name="turn_on_wifi">Wi-Fi</string>
+    <string name="turn_screen_on_title">Ekranı aktiv etmək</string>
     <string name="tv_notification_panel_no_notifications">Bildiriş yoxdur</string>
     <string name="tv_notification_panel_title">Bildirişlər</string>
     <string name="two_weeks_timestamp">2 həftə əvvəl</string>
@@ -1710,7 +1792,7 @@ Suallarınız varsa, %2$s ilə əlaqə saxlayın."</string>
     <string name="usb_audio_device_confirm_prompt_title">%2$s cihazını idarə etmək üçün %1$s tətbiqi açılsın?</string>
     <string name="usb_audio_device_permission_prompt_title">%1$s tətbiqinə %2$s cihazına giriş icazəsi verilsin?</string>
     <string name="usb_audio_device_prompt">%1$s tətbiqindən bu cihazla istifadə etsəniz zənglər, bildirişlər və siqnallar eşidilməyə bilər.</string>
-    <string name="usb_audio_device_prompt_warn">Bu tətbiqə yazmaq icazəsi verilməyib, lakin, bu USB vasitəsilə səs yaza bilər. %1$s tətbiqindən bu cihazla istifadə etsəniz zənglər, bildirişlər və siqnallar eşidilməyə bilər.</string>
+    <string name="usb_audio_device_prompt_warn">Tətbiqə qeydə almaq icazəsi verilməsə də, bu USB vasitəsilə səsi qeydə ala bilər. %1$s tətbiqinin bu cihazla istifadəsi zənglərin və bildirişlərin eşidilməməsinə səbəb ola bilər.</string>
     <string name="usb_audio_disable_routing">USB audiomarşrut deaktiv edilsin</string>
     <string name="usb_audio_disable_routing_summary">Xarici USB-yə avto-marşrutizasiya deaktiv edilsin</string>
     <string name="usb_contaminant_message">"USB portu deaktivdir. Cihazı maye və zərbədən qorumaq üçün aksesuar aşkarlanmayacaq.
@@ -1725,11 +1807,11 @@ USB portu yenidən istifadə üçün təhlükəsiz olduqda bildiriş göndəril�
     <string name="usb_debugging_secondary_user_title">USB ilə sazlama qadağandır</string>
     <string name="usb_debugging_title">USB sazlamaya icazə verilsin?</string>
     <string name="usb_device_confirm_prompt">%2$s cihazını idarə etmək üçün %1$s tətbiqi açılsın?</string>
-    <string name="usb_device_confirm_prompt_warn">"%2$s cihazını idarə etmək üçün %1$s tətbiqi açılsın?
-Bu tətbiqə yazmaq icazəsi verilməyib, lakin, bu USB vasitəsilə səs yaza bilər."</string>
+    <string name="usb_device_confirm_prompt_warn">"%1$s tətbiqinə %2$s cihazına giriş verilsin?
+Tətbiqə qeydə almaq icazəsi verilməsə də, bu USB vasitəsilə səsi qeydə ala bilər."</string>
     <string name="usb_device_permission_prompt">%1$s tətbiqinə %2$s cihazına giriş icazəsi verilsin?</string>
-    <string name="usb_device_permission_prompt_warn">"%1$s tətbiqinə %2$s cihazına giriş icazəsi verilsin?
-Bu tətbiqə qeydə almaq icazəsi verilməyib lakin, bu USB vasitəsilə səs yaza bilər."</string>
+    <string name="usb_device_permission_prompt_warn">"%1$s tətbiqinə %2$s cihazına giriş verilsin?
+Tətbiqə qeydə almaq icazəsi verilməsə də, bu USB vasitəsilə səsi qeydə ala bilər."</string>
     <string name="usb_disable_contaminant_detection">USB-ni aktiv edin</string>
     <string name="usb_port_enabled">Adapter və aksesuarları aşkarlamaq üçün USB portu aktiv edildi</string>
     <string name="use_system_language_to_select_input_method_subtypes">Sistem dillərini istifadə edin</string>
@@ -1743,12 +1825,11 @@ Bu tətbiqə qeydə almaq icazəsi verilməyib lakin, bu USB vasitəsilə səs y
 Yeni istifadəçi əlavə etdiyiniz zaman həmin istifadəçi öz məkanını ayarlamalıdır.
 
 İstənilən istifadəçi tətbiqləri digər bütün istifadəçilər üçün güncəlləyə bilər. Əlçatımlılıq ayarları və xidmətlər yeni istifadəçiyə transfer edilməyə bilər."</string>
-    <string name="user_add_user_message_short">"Yeni istifadəçi əlavə etdiyiniz zaman həmin şəxs öz yerini quraşdırmalıdır. 
+    <string name="user_add_user_message_short">"Yeni istifadəçi əlavə etdiyiniz zaman həmin şəxs öz yerini quraşdırmalıdır.
 
- İstənilən istifadəçi bütün digər istifadəçilərdən olan tətbiqləri güncəlləşdirə bilər."</string>
+İstənilən istifadəçi bütün digər istifadəçilərdən olan tətbiqləri güncəlləşdirə bilər."</string>
     <string name="user_add_user_title">Yeni istifadəçi əlavə edilsin?</string>
     <string name="user_add_user_type_title">Əlavə edin</string>
-    <string name="user_guest">Qonaq</string>
     <string name="user_image_choose_photo">Şəkil seçin</string>
     <string name="user_image_photo_selector">Foto seçin</string>
     <string name="user_image_take_photo">Foto çəkin</string>
@@ -1805,7 +1886,7 @@ Yeni istifadəçi əlavə etdiyiniz zaman həmin istifadəçi öz məkanını ay
     <string name="wallet_error_generic">Kartların əldə edilməsində problem oldu, sonra yenidən cəhd edin</string>
     <string name="wallet_lockscreen_settings_label">Kilid ekranı ayarları</string>
     <string name="wallet_secondary_label_device_locked">İstifadə etmək üçün kiliddən çıxarın</string>
-    <string name="wallet_secondary_label_no_card">Kart əlavə edin</string>
+    <string name="wallet_secondary_label_no_card">Açmaq üçün toxunun</string>
     <string name="wallet_secondary_label_updating">Güncəllənir</string>
     <string name="wallet_title">Pulqabı</string>
     <string name="wifi_ap_unable_to_handle_new_sta">Giriş nöqtəsi müvəqqəti olaraq doludur</string>
@@ -1833,8 +1914,6 @@ Wi‑Fi Ünvanı (BSSID)
     <string name="wifi_display_certification">Simsiz monitor sertifikatlaşması</string>
     <string name="wifi_display_certification_summary">Simsiz monitorların sertifikasiya parametrləri göstərilsin</string>
     <string name="wifi_empty_list_wifi_on">Şəbəkə axtarılır…</string>
-    <string name="wifi_enhanced_mac_randomization">Wi‑Fi müvəqqəti MAC randomizasiyası</string>
-    <string name="wifi_enhanced_mac_randomization_summary">Bu rejimdə şəbəkəyə hər dəfə qoşulanda cihaza təsadüfi MAC ünvanı verilə bilər.</string>
     <string name="wifi_fail_to_scan">Şəbəkə axtarmaq olmur</string>
     <string name="wifi_failed_connect_message">Şəbəkəyə qoşulmaq alınmadı</string>
     <string name="wifi_hotspot_switch_off_text">Deaktiv</string>
@@ -1844,25 +1923,54 @@ Wi‑Fi Ünvanı (BSSID)
     <string name="wifi_metered_label">Tarif sayğacılı</string>
     <string name="wifi_no_internet">İnternet girişi yoxdur</string>
     <string name="wifi_no_internet_no_reconnect">Avtomatik qoşulmayacaq</string>
+    <string name="wifi_non_persistent_mac_randomization">Wi‑Fi müvəqqəti MAC randomizasiyası</string>
+    <string name="wifi_non_persistent_mac_randomization_summary">Bu rejim aktiv edildikdə, bu cihaz hər dəfə MAC randomizasiyası aktiv olan şəbəkəyə qoşulanda onun MAC ünvanı dəyişə bilər.</string>
     <string name="wifi_not_in_range">Diapazonda deyil</string>
     <string name="wifi_passpoint_expired">Vaxtı keçib</string>
     <string name="wifi_remembered">Yadda saxlanılan</string>
     <string name="wifi_scan_notify_message">Cihaz təcrübəsini yaxşılaşdırmaq üçün Wi-Fi deaktiv olduqda belə, tətbiqlər və xidmətlər Wi-Fi şəbəkəsini axtara biləcək. Bunu Wi-Fi axtarışı ayarlarında dəyişə bilərsiniz. <annotation id="link">Dəyişin</annotation></string>
     <string name="wifi_scan_throttling">Wi‑Fi axtarışının məhdudlaşdırılması</string>
     <string name="wifi_scan_throttling_summary">Enerji sərfiyyatını azaldır və şəbəkənin işini yaxşılaşdırır</string>
+    <string name="wifi_security_eap">WPA/WPA2/WPA3-Müəssisə</string>
+    <string name="wifi_security_eap_suiteb">WPA3-Müəssisə 192-bit</string>
+    <string name="wifi_security_eap_wpa">WPA-Müəssisə</string>
+    <string name="wifi_security_eap_wpa2_wpa3">WPA2/WPA3-Müəssisə</string>
+    <string name="wifi_security_eap_wpa3">WPA3-Müəssisə</string>
+    <string name="wifi_security_eap_wpa_wpa2">WPA/WPA2-Müəssisə</string>
     <string name="wifi_security_none">Heç biri</string>
+    <string name="wifi_security_none_owe">Heç biri/Genişləndirilmiş Açılış</string>
+    <string name="wifi_security_owe">Genişləndirilmiş Açılış</string>
+    <string name="wifi_security_passpoint">Keçid nöqtəsi</string>
+    <string name="wifi_security_psk_sae">WPA2/WPA3-Şəxsi</string>
+    <string name="wifi_security_sae">WPA3-Şəxsi</string>
+    <string name="wifi_security_short_eap">802.1x</string>
+    <string name="wifi_security_short_eap_suiteb">Dəst-B-192</string>
+    <string name="wifi_security_short_eap_wpa">WPA-EAP</string>
+    <string name="wifi_security_short_eap_wpa2_wpa3">RSN-EAP</string>
+    <string name="wifi_security_short_none_owe">Heç biri/OWE</string>
+    <string name="wifi_security_short_owe">OWE</string>
+    <string name="wifi_security_short_psk_sae">WPA2/WPA3</string>
+    <string name="wifi_security_short_sae">WPA3</string>
+    <string name="wifi_security_short_wep">WEP</string>
+    <string name="wifi_security_short_wpa">WPA</string>
+    <string name="wifi_security_short_wpa2">WPA2</string>
+    <string name="wifi_security_short_wpa_wpa2">WPA/WPA2</string>
+    <string name="wifi_security_wep">WEP</string>
+    <string name="wifi_security_wpa">WPA-Şəxsi</string>
+    <string name="wifi_security_wpa2">WPA2-Şəxsi</string>
+    <string name="wifi_security_wpa_wpa2">WPA/WPA2-Şəxsi</string>
     <string name="wifi_status_mac_randomized">MAC ixtiyari olaraq seçildi</string>
     <string name="wifi_status_no_internet">İnternet yoxdur</string>
     <string name="wifi_status_sign_in_required">Giriş tələb olunur</string>
+    <string name="wifi_tether_connected_summary">{count,plural, =0{0 cihaz qoşulub}=1{1 cihaz qoşulub}other{# cihaz qoşulub}}</string>
     <string name="wifi_unmetered_label">Limitsiz</string>
     <string name="wifi_verbose_logging">Wi‑Fi Çoxsözlü Girişə icazə verin</string>
     <string name="wifi_verbose_logging_summary">Wi‑Fi giriş səviyyəsini qaldırın, Wi‑Fi seçəndə hər SSID RSSI üzrə göstərin</string>
     <string name="wifi_wont_autoconnect_for_now">Wi-Fi hələlik avtomatik qoşulmayacaq</string>
+    <string name="wifitrackerlib_admin_restricted_network">Təşkilatınız icazə vermir</string>
     <string name="wifitrackerlib_auto_connect_disable">Avtomatik qoşulma deaktivdir</string>
     <string name="wifitrackerlib_available_via_app">%1$s vasitəsilə əlçatandır</string>
     <string name="wifitrackerlib_connected_via_app">%1$s vasitəsilə qoşulub</string>
-    <string name="wifitrackerlib_connected_via_network_scorer">%1$s vasitəsilə avtomatik qoşulub</string>
-    <string name="wifitrackerlib_connected_via_network_scorer_default">Avtomatik olaraq şəbəkə reytinq provayderi vasitəsilə qoşulub</string>
     <string name="wifitrackerlib_imsi_protection_warning">Bu şəbəkə cihaz məkanını izləmək üçün istifadə edilə biləcək SIM ID qəbul edir. <annotation id="url">Ətraflı məlumat</annotation></string>
     <string name="wifitrackerlib_osu_completing_sign_up">Qeydiyyat tamamlanır…</string>
     <string name="wifitrackerlib_osu_connect_failed">Qoşulmaq mümkün olmadı</string>
@@ -1871,12 +1979,6 @@ Wi‑Fi Ünvanı (BSSID)
     <string name="wifitrackerlib_osu_sign_up_failed">Qeydiyyat tamamlanmadı. Yenidən cəhd etmək üçün toxunun.</string>
     <string name="wifitrackerlib_private_dns_broken">Özəl DNS serverinə giriş mümkün deyil</string>
     <string name="wifitrackerlib_saved_network">Yadda saxlayan: %1$s</string>
-    <string name="wifitrackerlib_speed_label_fast">Sürətli</string>
-    <string name="wifitrackerlib_speed_label_medium">Orta</string>
-    <string name="wifitrackerlib_speed_label_okay">OK</string>
-    <string name="wifitrackerlib_speed_label_slow">Zəif</string>
-    <string name="wifitrackerlib_speed_label_very_fast">Çox Sürətli</string>
-    <string name="wifitrackerlib_speed_label_very_slow">Çox Zəif</string>
     <string name="wifitrackerlib_summary_separator">" / "</string>
     <string name="wifitrackerlib_tap_to_renew_subscription_and_connect">Abunəliyi yeniləmək və qoşulmaq üçün toxunun</string>
     <string name="wifitrackerlib_tap_to_sign_up">Qeydiyyatdan keçmək üçün toxunun</string>
@@ -1898,7 +2000,32 @@ Wi‑Fi Ünvanı (BSSID)
     <string name="wifitrackerlib_wifi_passpoint_expired">Bitib</string>
     <string name="wifitrackerlib_wifi_poor_channel_conditions">Şəbəkə bağlantısı müvəqqəti zəifdir</string>
     <string name="wifitrackerlib_wifi_remembered">Yadda saxlandı</string>
+    <string name="wifitrackerlib_wifi_security_eap_suiteb">WPA3-Müəssisə 192-bit</string>
+    <string name="wifitrackerlib_wifi_security_eap_wpa3">WPA3-Müəssisə</string>
+    <string name="wifitrackerlib_wifi_security_eap_wpa_wpa2">WPA/WPA2-Müəssisə</string>
+    <string name="wifitrackerlib_wifi_security_eap_wpa_wpa2_wpa3">WPA/WPA2/WPA3-Müəssisə</string>
     <string name="wifitrackerlib_wifi_security_none">Heç</string>
+    <string name="wifitrackerlib_wifi_security_owe">Genişləndirilmiş Açılış</string>
+    <string name="wifitrackerlib_wifi_security_passpoint">Keçid nöqtəsi</string>
+    <string name="wifitrackerlib_wifi_security_sae">WPA3-Şəxsi</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_suiteb">Dəst-B-192</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_wpa3">WPA3-EAP</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_wpa_wpa2">WPA/WPA2-EAP</string>
+    <string name="wifitrackerlib_wifi_security_short_eap_wpa_wpa2_wpa3">WPA/WPA2/WPA3-EAP</string>
+    <string name="wifitrackerlib_wifi_security_short_owe">OWE</string>
+    <string name="wifitrackerlib_wifi_security_short_sae">WPA3</string>
+    <string name="wifitrackerlib_wifi_security_short_wpa_wpa2">WPA/WPA2</string>
+    <string name="wifitrackerlib_wifi_security_short_wpa_wpa2_wpa3">WPA/WPA2/WPA3</string>
+    <string name="wifitrackerlib_wifi_security_wep">WEP</string>
+    <string name="wifitrackerlib_wifi_security_wpa_wpa2">WPA/WPA2-Şəxsi</string>
+    <string name="wifitrackerlib_wifi_security_wpa_wpa2_wpa3">WPA/WPA2/WPA3-Şəxsi</string>
+    <string name="wifitrackerlib_wifi_standard_11ac">Wi‑Fi 5</string>
+    <string name="wifitrackerlib_wifi_standard_11ad">WiGig</string>
+    <string name="wifitrackerlib_wifi_standard_11ax">Wi‑Fi 6</string>
+    <string name="wifitrackerlib_wifi_standard_11be">Wi‑Fi 7</string>
+    <string name="wifitrackerlib_wifi_standard_11n">Wi‑Fi 4</string>
+    <string name="wifitrackerlib_wifi_standard_legacy">Keçmiş versiya</string>
+    <string name="wifitrackerlib_wifi_standard_unknown">Naməlum</string>
     <string name="wifitrackerlib_wifi_unmetered_label">Limitsiz</string>
     <string name="wifitrackerlib_wifi_wont_autoconnect_for_now">Wi-Fi hələlik avtomatik qoşulmayacaq</string>
     <string name="window_animation_scale_title">Pəncərə animasiyası</string>

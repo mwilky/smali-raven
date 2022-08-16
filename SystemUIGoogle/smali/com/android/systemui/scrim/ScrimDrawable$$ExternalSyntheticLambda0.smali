@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/scrim/ScrimDrawable$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
@@ -39,7 +40,25 @@
 
     iget p0, p0, Lcom/android/systemui/scrim/ScrimDrawable$$ExternalSyntheticLambda0;->f$2:I
 
-    invoke-static {v0, v1, p0, p1}, Lcom/android/systemui/scrim/ScrimDrawable;->$r8$lambda$jXuXmmKAkZ5VU4gxG8V26xT-gU4(Lcom/android/systemui/scrim/ScrimDrawable;IILandroid/animation/ValueAnimator;)V
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    invoke-static {v1, p0, p1}, Lcom/android/internal/graphics/ColorUtils;->blendARGB(IIF)I
+
+    move-result p0
+
+    iput p0, v0, Lcom/android/systemui/scrim/ScrimDrawable;->mMainColor:I
+
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     return-void
 .end method

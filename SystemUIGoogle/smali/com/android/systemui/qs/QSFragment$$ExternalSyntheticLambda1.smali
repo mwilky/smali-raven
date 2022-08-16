@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/qs/QSFragment$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnLayoutChangeListener;
+.implements Landroid/view/View$OnScrollChangeListener;
 
 
 # instance fields
@@ -22,32 +23,33 @@
 
 
 # virtual methods
-.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 10
+.method public final onScrollChange(Landroid/view/View;IIII)V
+    .locals 0
 
-    move-object v0, p0
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/QSFragment;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSFragment$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/qs/QSFragment;
+    iget-object p1, p0, Lcom/android/systemui/qs/QSFragment;->mQSAnimator:Lcom/android/systemui/qs/QSAnimator;
 
-    move-object v1, p1
+    const/4 p2, 0x1
 
-    move v2, p2
+    iput-boolean p2, p1, Lcom/android/systemui/qs/QSAnimator;->mNeedsAnimatorUpdate:Z
 
-    move v3, p3
+    iget-object p1, p0, Lcom/android/systemui/qs/QSFragment;->mHeader:Lcom/android/systemui/qs/QuickStatusBarHeader;
 
-    move v4, p4
+    iget-object p2, p1, Lcom/android/systemui/qs/QuickStatusBarHeader;->mStatusIconsView:Landroid/view/View;
 
-    move v5, p5
+    invoke-virtual {p2, p3}, Landroid/view/View;->setScrollY(I)V
 
-    move/from16 v6, p6
+    iget-object p1, p1, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDatePrivacyView:Landroid/view/View;
 
-    move/from16 v7, p7
+    invoke-virtual {p1, p3}, Landroid/view/View;->setScrollY(I)V
 
-    move/from16 v8, p8
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFragment;->mScrollListener:Lcom/android/systemui/plugins/qs/QS$ScrollListener;
 
-    move/from16 v9, p9
+    if-eqz p0, :cond_0
 
-    invoke-static/range {v0 .. v9}, Lcom/android/systemui/qs/QSFragment;->$r8$lambda$lTvt7moPVBPdCeAzjAAkQwspBis(Lcom/android/systemui/qs/QSFragment;Landroid/view/View;IIIIIIII)V
+    invoke-interface {p0, p3}, Lcom/android/systemui/plugins/qs/QS$ScrollListener;->onQsPanelScrollChanged(I)V
 
+    :cond_0
     return-void
 .end method

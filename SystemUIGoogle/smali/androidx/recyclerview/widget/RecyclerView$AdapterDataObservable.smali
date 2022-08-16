@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;
+.class public final Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;
 .super Landroid/database/Observable;
 .source "RecyclerView.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "AdapterDataObservable"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/database/Observable;-><init>()V
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public hasObservers()Z
+.method public final hasObservers()Z
     .locals 0
 
     iget-object p0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
@@ -47,7 +47,7 @@
     return p0
 .end method
 
-.method public notifyChanged()V
+.method public final notifyChanged()V
     .locals 2
 
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
@@ -79,18 +79,8 @@
     return-void
 .end method
 
-.method public notifyItemMoved(II)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "fromPosition",
-            "toPosition"
-        }
-    .end annotation
+.method public final notifyItemMoved(II)V
+    .locals 2
 
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
@@ -98,22 +88,20 @@
 
     move-result v0
 
-    const/4 v1, 0x1
-
-    sub-int/2addr v0, v1
+    add-int/lit8 v0, v0, -0x1
 
     :goto_0
     if-ltz v0, :cond_0
 
-    iget-object v2, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
+    iget-object v1, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
-    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;
+    check-cast v1, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;
 
-    invoke-virtual {v2, p1, p2, v1}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onItemRangeMoved(III)V
+    invoke-virtual {v1, p1, p2}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObserver;->onItemRangeMoved(II)V
 
     add-int/lit8 v0, v0, -0x1
 
@@ -123,40 +111,8 @@
     return-void
 .end method
 
-.method public notifyItemRangeChanged(II)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, p1, p2, v0}, Landroidx/recyclerview/widget/RecyclerView$AdapterDataObservable;->notifyItemRangeChanged(IILjava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public notifyItemRangeChanged(IILjava/lang/Object;)V
+.method public final notifyItemRangeChanged(IILjava/lang/Object;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount",
-            "payload"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
@@ -187,18 +143,8 @@
     return-void
 .end method
 
-.method public notifyItemRangeInserted(II)V
+.method public final notifyItemRangeInserted(II)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 
@@ -229,18 +175,8 @@
     return-void
 .end method
 
-.method public notifyItemRangeRemoved(II)V
+.method public final notifyItemRangeRemoved(II)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "positionStart",
-            "itemCount"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroid/database/Observable;->mObservers:Ljava/util/ArrayList;
 

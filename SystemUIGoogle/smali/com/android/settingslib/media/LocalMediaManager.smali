@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/media/LocalMediaManager;
+.class public final Lcom/android/settingslib/media/LocalMediaManager;
 .super Ljava/lang/Object;
 .source "LocalMediaManager.java"
 
@@ -16,47 +16,27 @@
 .end annotation
 
 
-# static fields
-.field private static final COMPARATOR:Ljava/util/Comparator;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Comparator<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
 # instance fields
-.field mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+.field public mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private final mCallbacks:Ljava/util/Collection;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Collection<",
-            "Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
 
-.field private mContext:Landroid/content/Context;
+.field public mContext:Landroid/content/Context;
 
-.field mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
+.field public mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field mDeviceAttributeChangeCallback:Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;
+.field public mDeviceAttributeChangeCallback:Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field mDisconnectedMediaDevices:Ljava/util/List;
+.field public mDisconnectedMediaDevices:Ljava/util/List;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -69,16 +49,16 @@
     .end annotation
 .end field
 
-.field private mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+.field public mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
 
-.field private mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+.field public mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-.field final mMediaDeviceCallback:Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;
+.field public final mMediaDeviceCallback:Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field mMediaDevices:Ljava/util/List;
+.field public mMediaDevices:Ljava/util/List;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -91,31 +71,19 @@
     .end annotation
 .end field
 
-.field private final mMediaDevicesLock:Ljava/lang/Object;
+.field public final mMediaDevicesLock:Ljava/lang/Object;
 
-.field private mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
+.field public mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
 
-.field private mPackageName:Ljava/lang/String;
+.field public mPackageName:Ljava/lang/String;
 
-.field mPhoneDevice:Lcom/android/settingslib/media/MediaDevice;
+.field public mPhoneDevice:Lcom/android/settingslib/media/MediaDevice;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    invoke-static {}, Ljava/util/Comparator;->naturalOrder()Ljava/util/Comparator;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/settingslib/media/LocalMediaManager;->COMPARATOR:Ljava/util/Comparator;
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Lcom/android/settingslib/bluetooth/LocalBluetoothManager;Lcom/android/settingslib/media/InfoMediaManager;Ljava/lang/String;)V
     .locals 1
 
@@ -125,7 +93,7 @@
 
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCallbacks:Ljava/util/Collection;
+    iput-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     new-instance v0, Ljava/lang/Object;
 
@@ -174,177 +142,539 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/Object;
-    .locals 0
+.method public static getMediaDeviceById(Ljava/lang/String;Ljava/util/List;)Lcom/android/settingslib/media/MediaDevice;
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevicesLock:Ljava/lang/Object;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    return-object p0
-.end method
+    move-result-object p1
 
-.method static synthetic access$100()Ljava/util/Comparator;
-    .locals 1
+    :cond_0
+    invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
 
-    sget-object v0, Lcom/android/settingslib/media/LocalMediaManager;->COMPARATOR:Ljava/util/Comparator;
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/settingslib/media/MediaDevice;
+
+    invoke-virtual {v0}, Lcom/android/settingslib/media/MediaDevice;->getId()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1, p0}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     return-object v0
-.end method
 
-.method static synthetic access$200(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/InfoMediaManager;
-    .locals 0
+    :cond_1
+    const-string p0, "LocalMediaManager"
 
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+    const-string p1, "getMediaDeviceById() can\'t found device"
 
-    return-object p0
-.end method
+    invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-.method static synthetic access$300(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/media/MediaDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
+    const/4 p0, 0x0
 
     return-object p0
 .end method
 
-.method static synthetic access$302(Lcom/android/settingslib/media/LocalMediaManager;Lcom/android/settingslib/media/MediaDevice;)Lcom/android/settingslib/media/MediaDevice;
-    .locals 0
+
+# virtual methods
+.method public final connectDevice(Lcom/android/settingslib/media/MediaDevice;)V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevicesLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
+
+    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, v1}, Lcom/android/settingslib/media/LocalMediaManager;->getMediaDeviceById(Ljava/lang/String;Ljava/util/List;)Lcom/android/settingslib/media/MediaDevice;
+
+    move-result-object v1
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_1
+
+    const/4 v0, 0x0
+
+    if-nez v1, :cond_0
+
+    const-string p0, "LocalMediaManager"
+
+    const-string p1, "connectDevice() connectDevice not in the list!"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    instance-of v2, v1, Lcom/android/settingslib/media/BluetoothMediaDevice;
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_1
+
+    move-object v2, v1
+
+    check-cast v2, Lcom/android/settingslib/media/BluetoothMediaDevice;
+
+    iget-object v2, v2, Lcom/android/settingslib/media/BluetoothMediaDevice;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isBusy()Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
 
     iput-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
 
-    return-object p1
-.end method
+    iput v3, v1, Lcom/android/settingslib/media/MediaDevice;->mState:I
 
-.method static synthetic access$400(Lcom/android/settingslib/media/LocalMediaManager;)Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
-
-    return-object p0
-.end method
-
-.method static synthetic access$500(Lcom/android/settingslib/media/LocalMediaManager;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->unRegisterDeviceAttributeChangeCallback()V
+    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->connect$1()V
 
     return-void
+
+    :cond_1
+    iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
+
+    invoke-virtual {v1, p1}, Lcom/android/settingslib/media/MediaDevice;->equals(Ljava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    const-string p0, "LocalMediaManager"
+
+    const-string p1, "connectDevice() this device is already connected! : "
+
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p1
+
+    invoke-virtual {v1}, Lcom/android/settingslib/media/MediaDevice;->getName()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    iput v3, v1, Lcom/android/settingslib/media/MediaDevice;->mState:I
+
+    iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mPackageName:Ljava/lang/String;
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_3
+
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+
+    iget-object p1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/media/MediaRouter2Manager;->getSystemRoutingSession(Ljava/lang/String;)Landroid/media/RoutingSessionInfo;
+
+    move-result-object p1
+
+    if-eqz p1, :cond_5
+
+    iget-object p0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    iget-object v0, v1, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
+
+    invoke-virtual {p0, p1, v0}, Landroid/media/MediaRouter2Manager;->transfer(Landroid/media/RoutingSessionInfo;Landroid/media/MediaRoute2Info;)V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object p0, v1, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
+
+    if-nez p0, :cond_4
+
+    const-string p0, "MediaDevice"
+
+    const-string p1, "Unable to connect. RouteInfo is empty"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_4
+    iget p0, v1, Lcom/android/settingslib/media/MediaDevice;->mConnectedRecord:I
+
+    add-int/2addr p0, v3
+
+    iput p0, v1, Lcom/android/settingslib/media/MediaDevice;->mConnectedRecord:I
+
+    invoke-static {}, Lcom/android/settingslib/media/ConnectionRecordManager;->getInstance()Lcom/android/settingslib/media/ConnectionRecordManager;
+
+    move-result-object p0
+
+    iget-object p1, v1, Lcom/android/settingslib/media/MediaDevice;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Lcom/android/settingslib/media/MediaDevice;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    iget v3, v1, Lcom/android/settingslib/media/MediaDevice;->mConnectedRecord:I
+
+    monitor-enter p0
+
+    :try_start_1
+    const-string/jumbo v4, "seamless_transfer_record"
+
+    invoke-virtual {p1, v4, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
+    move-result-object p1
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object p1
+
+    iput-object v2, p0, Lcom/android/settingslib/media/ConnectionRecordManager;->mLastSelectedDevice:Ljava/lang/String;
+
+    invoke-interface {p1, v2, v3}, Landroid/content/SharedPreferences$Editor;->putInt(Ljava/lang/String;I)Landroid/content/SharedPreferences$Editor;
+
+    const-string v0, "last_selected_device"
+
+    iget-object v2, p0, Lcom/android/settingslib/media/ConnectionRecordManager;->mLastSelectedDevice:Ljava/lang/String;
+
+    invoke-interface {p1, v0, v2}, Landroid/content/SharedPreferences$Editor;->putString(Ljava/lang/String;Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+
+    invoke-interface {p1}, Landroid/content/SharedPreferences$Editor;->apply()V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    monitor-exit p0
+
+    iget-object p0, v1, Lcom/android/settingslib/media/MediaDevice;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    iget-object p1, v1, Lcom/android/settingslib/media/MediaDevice;->mPackageName:Ljava/lang/String;
+
+    iget-object v0, v1, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
+
+    invoke-virtual {p0, p1, v0}, Landroid/media/MediaRouter2Manager;->selectRoute(Ljava/lang/String;Landroid/media/MediaRoute2Info;)V
+
+    :cond_5
+    :goto_0
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    monitor-exit p0
+
+    throw p1
+
+    :catchall_1
+    move-exception p0
+
+    :try_start_2
+    monitor-exit v0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    throw p0
 .end method
 
-.method static synthetic access$600(Lcom/android/settingslib/media/LocalMediaManager;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/settingslib/media/LocalMediaManager;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mPackageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method private getCallbacks()Ljava/util/Collection;
+.method public final getCallbacks()Ljava/util/concurrent/CopyOnWriteArrayList;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Collection<",
-            "Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;",
-            ">;"
-        }
-    .end annotation
 
     new-instance v0, Ljava/util/concurrent/CopyOnWriteArrayList;
 
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCallbacks:Ljava/util/Collection;
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
 
     invoke-direct {v0, p0}, Ljava/util/concurrent/CopyOnWriteArrayList;-><init>(Ljava/util/Collection;)V
 
     return-object v0
 .end method
 
-.method private isActiveDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
-    .locals 3
+.method public final isActiveDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
+    .locals 5
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getProfileManager()Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getA2dpProfile()Lcom/android/settingslib/bluetooth/A2dpProfile;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->mA2dpProfile:Lcom/android/settingslib/bluetooth/A2dpProfile;
 
     const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
+    iget-object v2, p1, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
-    move-result-object v2
+    iget-object v0, v0, Lcom/android/settingslib/bluetooth/A2dpProfile;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
 
-    invoke-virtual {v0}, Lcom/android/settingslib/bluetooth/A2dpProfile;->getActiveDevice()Landroid/bluetooth/BluetoothDevice;
+    const/4 v3, 0x0
 
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Landroid/bluetooth/BluetoothDevice;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
+    if-nez v0, :cond_0
 
     goto :goto_0
 
     :cond_0
+    const/4 v4, 0x2
+
+    invoke-virtual {v0, v4}, Landroid/bluetooth/BluetoothAdapter;->getActiveDevices(I)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v4
+
+    if-lez v4, :cond_1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v3, v0
+
+    check-cast v3, Landroid/bluetooth/BluetoothDevice;
+
+    :cond_1
+    :goto_0
+    invoke-virtual {v2, v3}, Landroid/bluetooth/BluetoothDevice;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    goto :goto_1
+
+    :cond_2
     move v0, v1
 
-    :goto_0
-    if-nez v0, :cond_1
+    :goto_1
+    if-nez v0, :cond_4
+
+    iget-object v2, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
+
+    iget-object v2, v2, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    iget-object v2, v2, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->mHearingAidProfile:Lcom/android/settingslib/bluetooth/HearingAidProfile;
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, v2, Lcom/android/settingslib/bluetooth/HearingAidProfile;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    if-nez v2, :cond_3
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    goto :goto_2
+
+    :cond_3
+    const/16 v3, 0x15
+
+    invoke-virtual {v2, v3}, Landroid/bluetooth/BluetoothAdapter;->getActiveDevices(I)Ljava/util/List;
+
+    move-result-object v2
+
+    :goto_2
+    iget-object v3, p1, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mDevice:Landroid/bluetooth/BluetoothDevice;
+
+    invoke-interface {v2, v3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    goto :goto_3
+
+    :cond_4
+    move v2, v1
+
+    :goto_3
+    if-nez v0, :cond_6
+
+    if-nez v2, :cond_6
 
     iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mLocalBluetoothManager:Lcom/android/settingslib/bluetooth/LocalBluetoothManager;
 
-    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->getProfileManager()Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+    iget-object p0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothManager;->mProfileManager:Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;
+
+    iget-object p0, p0, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->mLeAudioProfile:Lcom/android/settingslib/bluetooth/LeAudioProfile;
+
+    if-eqz p0, :cond_6
+
+    iget-object p0, p0, Lcom/android/settingslib/bluetooth/LeAudioProfile;->mBluetoothAdapter:Landroid/bluetooth/BluetoothAdapter;
+
+    if-nez p0, :cond_5
+
+    new-instance p0, Ljava/util/ArrayList;
+
+    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+
+    goto :goto_4
+
+    :cond_5
+    const/16 v3, 0x16
+
+    invoke-virtual {p0, v3}, Landroid/bluetooth/BluetoothAdapter;->getActiveDevices(I)Ljava/util/List;
 
     move-result-object p0
 
-    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/LocalBluetoothProfileManager;->getHearingAidProfile()Lcom/android/settingslib/bluetooth/HearingAidProfile;
-
-    move-result-object p0
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/settingslib/bluetooth/HearingAidProfile;->getActiveDevices()Ljava/util/List;
-
-    move-result-object p0
-
-    invoke-virtual {p1}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->getDevice()Landroid/bluetooth/BluetoothDevice;
-
-    move-result-object p1
+    :goto_4
+    iget-object p1, p1, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mDevice:Landroid/bluetooth/BluetoothDevice;
 
     invoke-interface {p0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result p0
 
-    goto :goto_1
+    goto :goto_5
 
-    :cond_1
+    :cond_6
     move p0, v1
 
-    :goto_1
-    if-nez v0, :cond_2
+    :goto_5
+    if-nez v0, :cond_7
 
-    if-eqz p0, :cond_3
+    if-nez v2, :cond_7
 
-    :cond_2
+    if-eqz p0, :cond_8
+
+    :cond_7
     const/4 v1, 0x1
 
-    :cond_3
+    :cond_8
     return v1
 .end method
 
-.method private unRegisterDeviceAttributeChangeCallback()V
+.method public final startScan()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevicesLock:Ljava/lang/Object;
+
+    monitor-enter v0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->clear()V
+
+    monitor-exit v0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+
+    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDeviceCallback:Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;
+
+    iget-object v2, v0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-object v0, v0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+
+    iget-object v0, p0, Lcom/android/settingslib/media/MediaManager;->mMediaDevices:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v0}, Ljava/util/concurrent/CopyOnWriteArrayList;->clear()V
+
+    iget-object v0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    iget-object v1, p0, Lcom/android/settingslib/media/InfoMediaManager;->mExecutor:Ljava/util/concurrent/Executor;
+
+    iget-object v2, p0, Lcom/android/settingslib/media/InfoMediaManager;->mMediaRouterCallback:Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;
+
+    invoke-virtual {v0, v1, v2}, Landroid/media/MediaRouter2Manager;->registerCallback(Ljava/util/concurrent/Executor;Landroid/media/MediaRouter2Manager$Callback;)V
+
+    iget-object v0, p0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    invoke-virtual {v0}, Landroid/media/MediaRouter2Manager;->startScan()V
+
+    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->refreshDevices()V
+
+    return-void
+
+    :catchall_0
+    move-exception p0
+
+    :try_start_1
+    monitor-exit v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p0
+.end method
+
+.method public final stopScan()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+
+    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDeviceCallback:Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;
+
+    iget-object v2, v0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v2, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v0, v0, Lcom/android/settingslib/media/MediaManager;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
+
+    iget-object v1, v0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    iget-object v2, v0, Lcom/android/settingslib/media/InfoMediaManager;->mMediaRouterCallback:Lcom/android/settingslib/media/InfoMediaManager$RouterManagerCallback;
+
+    invoke-virtual {v1, v2}, Landroid/media/MediaRouter2Manager;->unregisterCallback(Landroid/media/MediaRouter2Manager$Callback;)V
+
+    iget-object v0, v0, Lcom/android/settingslib/media/InfoMediaManager;->mRouterManager:Landroid/media/MediaRouter2Manager;
+
+    invoke-virtual {v0}, Landroid/media/MediaRouter2Manager;->stopScan()V
+
+    invoke-virtual {p0}, Lcom/android/settingslib/media/LocalMediaManager;->unRegisterDeviceAttributeChangeCallback()V
+
+    return-void
+.end method
+
+.method public final unRegisterDeviceAttributeChangeCallback()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mDisconnectedMediaDevices:Ljava/util/List;
@@ -368,13 +698,13 @@
 
     check-cast v1, Lcom/android/settingslib/media/BluetoothMediaDevice;
 
-    invoke-virtual {v1}, Lcom/android/settingslib/media/BluetoothMediaDevice;->getCachedDevice()Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/settingslib/media/BluetoothMediaDevice;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
     iget-object v2, p0, Lcom/android/settingslib/media/LocalMediaManager;->mDeviceAttributeChangeCallback:Lcom/android/settingslib/media/LocalMediaManager$DeviceAttributeChangeCallback;
 
-    invoke-virtual {v1, v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->unregisterCallback(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice$Callback;)V
+    iget-object v1, v1, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->mCallbacks:Ljava/util/concurrent/CopyOnWriteArrayList;
+
+    invoke-virtual {v1, v2}, Ljava/util/concurrent/CopyOnWriteArrayList;->remove(Ljava/lang/Object;)Z
 
     goto :goto_0
 
@@ -382,580 +712,7 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public addDeviceToPlayMedia(Lcom/android/settingslib/media/MediaDevice;)Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/media/InfoMediaManager;->addDeviceToPlayMedia(Lcom/android/settingslib/media/MediaDevice;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public adjustSessionVolume(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/media/InfoMediaManager;->adjustSessionVolume(I)V
-
-    return-void
-.end method
-
-.method public connectDevice(Lcom/android/settingslib/media/MediaDevice;)Z
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevicesLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
-
-    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getId()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1, v2}, Lcom/android/settingslib/media/LocalMediaManager;->getMediaDeviceById(Ljava/util/List;Ljava/lang/String;)Lcom/android/settingslib/media/MediaDevice;
-
-    move-result-object v1
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    const/4 v0, 0x0
-
-    if-nez v1, :cond_0
-
-    const-string p0, "LocalMediaManager"
-
-    const-string p1, "connectDevice() connectDevice not in the list!"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v0
-
-    :cond_0
-    instance-of v2, v1, Lcom/android/settingslib/media/BluetoothMediaDevice;
-
-    const/4 v3, 0x1
-
-    if-eqz v2, :cond_1
-
-    move-object v2, v1
-
-    check-cast v2, Lcom/android/settingslib/media/BluetoothMediaDevice;
-
-    invoke-virtual {v2}, Lcom/android/settingslib/media/BluetoothMediaDevice;->getCachedDevice()Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isConnected()Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->isBusy()Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    iput-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mOnTransferBluetoothDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    invoke-virtual {v1, v3}, Lcom/android/settingslib/media/MediaDevice;->setState(I)V
-
-    invoke-virtual {v2}, Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;->connect()V
-
-    return v3
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    invoke-virtual {v1, p1}, Lcom/android/settingslib/media/MediaDevice;->equals(Ljava/lang/Object;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    const-string p0, "LocalMediaManager"
-
-    new-instance p1, Ljava/lang/StringBuilder;
-
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "connectDevice() this device is already connected! : "
-
-    invoke-virtual {p1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Lcom/android/settingslib/media/MediaDevice;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p1
-
-    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v0
-
-    :cond_2
-    iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    if-eqz p1, :cond_3
-
-    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->disconnect()V
-
-    :cond_3
-    invoke-virtual {v1, v3}, Lcom/android/settingslib/media/MediaDevice;->setState(I)V
-
-    iget-object p1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mPackageName:Ljava/lang/String;
-
-    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_4
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0, v1}, Lcom/android/settingslib/media/InfoMediaManager;->connectDeviceWithoutPackageName(Lcom/android/settingslib/media/MediaDevice;)Z
-
-    goto :goto_0
-
-    :cond_4
-    invoke-virtual {v1}, Lcom/android/settingslib/media/MediaDevice;->connect()Z
-
-    :goto_0
-    return v3
-
-    :catchall_0
-    move-exception p0
-
-    :try_start_1
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw p0
-.end method
-
-.method dispatchDeviceAttributesChanged()V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->getCallbacks()Ljava/util/Collection;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;
-
-    invoke-interface {v0}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onDeviceAttributesChanged()V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method dispatchDeviceListUpdate()V
-    .locals 2
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
-
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->getCallbacks()Ljava/util/Collection;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;
-
-    invoke-interface {v1, v0}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onDeviceListUpdate(Ljava/util/List;)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method dispatchOnRequestFailed(I)V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->getCallbacks()Ljava/util/Collection;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;
-
-    invoke-interface {v0, p1}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onRequestFailed(I)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method dispatchSelectedDeviceStateChanged(Lcom/android/settingslib/media/MediaDevice;I)V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->getCallbacks()Ljava/util/Collection;
-
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;
-
-    invoke-interface {v0, p1, p2}, Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;->onSelectedDeviceStateChanged(Lcom/android/settingslib/media/MediaDevice;I)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public getCurrentConnectedDevice()Lcom/android/settingslib/media/MediaDevice;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCurrentConnectedDevice:Lcom/android/settingslib/media/MediaDevice;
-
-    return-object p0
-.end method
-
-.method public getDeselectableMediaDevice()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->getDeselectableMediaDevice()Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getMediaDeviceById(Ljava/util/List;Ljava/lang/String;)Lcom/android/settingslib/media/MediaDevice;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;",
-            "Ljava/lang/String;",
-            ")",
-            "Lcom/android/settingslib/media/MediaDevice;"
-        }
-    .end annotation
-
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :cond_0
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settingslib/media/MediaDevice;
-
-    invoke-virtual {p1}, Lcom/android/settingslib/media/MediaDevice;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0, p2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    return-object p1
-
-    :cond_1
-    const-string p0, "LocalMediaManager"
-
-    const-string p1, "getMediaDeviceById() can\'t found device"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-.method public getSelectableMediaDevice()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->getSelectableMediaDevice()Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getSelectedMediaDevice()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/media/MediaDevice;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->getSelectedMediaDevice()Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getSessionName()Ljava/lang/CharSequence;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->getSessionName()Ljava/lang/CharSequence;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getSessionVolume()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->getSessionVolume()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getSessionVolumeMax()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->getSessionVolumeMax()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public isMediaSessionAvailableForVolumeControl()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->isRoutingSessionAvailableForVolumeControl()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public registerCallback(Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCallbacks:Ljava/util/Collection;
-
-    invoke-interface {p0, p1}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public releaseSession()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->releaseSession()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public removeDeviceFromPlayMedia(Lcom/android/settingslib/media/MediaDevice;)Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0, p1}, Lcom/android/settingslib/media/InfoMediaManager;->removeDeviceFromPlayMedia(Lcom/android/settingslib/media/MediaDevice;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public startScan()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevicesLock:Ljava/lang/Object;
-
-    monitor-enter v0
-
-    :try_start_0
-    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDevices:Ljava/util/List;
-
-    invoke-interface {v1}, Ljava/util/List;->clear()V
-
-    monitor-exit v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDeviceCallback:Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;
-
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/media/MediaManager;->registerCallback(Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;)V
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaManager;->startScan()V
-
-    return-void
-
-    :catchall_0
-    move-exception p0
-
-    :try_start_1
-    monitor-exit v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    throw p0
-.end method
-
-.method public stopScan()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    iget-object v1, p0, Lcom/android/settingslib/media/LocalMediaManager;->mMediaDeviceCallback:Lcom/android/settingslib/media/LocalMediaManager$MediaDeviceCallback;
-
-    invoke-virtual {v0, v1}, Lcom/android/settingslib/media/MediaManager;->unregisterCallback(Lcom/android/settingslib/media/MediaManager$MediaDeviceCallback;)V
-
-    iget-object v0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mInfoMediaManager:Lcom/android/settingslib/media/InfoMediaManager;
-
-    invoke-virtual {v0}, Lcom/android/settingslib/media/InfoMediaManager;->stopScan()V
-
-    invoke-direct {p0}, Lcom/android/settingslib/media/LocalMediaManager;->unRegisterDeviceAttributeChangeCallback()V
-
-    return-void
-.end method
-
-.method public unregisterCallback(Lcom/android/settingslib/media/LocalMediaManager$DeviceCallback;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/media/LocalMediaManager;->mCallbacks:Ljava/util/Collection;
-
-    invoke-interface {p0, p1}, Ljava/util/Collection;->remove(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method updateCurrentConnectedDevice()Lcom/android/settingslib/media/MediaDevice;
+.method public updateCurrentConnectedDevice()Lcom/android/settingslib/media/MediaDevice;
     .locals 5
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -995,11 +752,9 @@
 
     check-cast v4, Lcom/android/settingslib/media/BluetoothMediaDevice;
 
-    invoke-virtual {v4}, Lcom/android/settingslib/media/BluetoothMediaDevice;->getCachedDevice()Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
+    iget-object v4, v4, Lcom/android/settingslib/media/BluetoothMediaDevice;->mCachedDevice:Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;
 
-    move-result-object v4
-
-    invoke-direct {p0, v4}, Lcom/android/settingslib/media/LocalMediaManager;->isActiveDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
+    invoke-virtual {p0, v4}, Lcom/android/settingslib/media/LocalMediaManager;->isActiveDevice(Lcom/android/settingslib/bluetooth/CachedBluetoothDevice;)Z
 
     move-result v4
 

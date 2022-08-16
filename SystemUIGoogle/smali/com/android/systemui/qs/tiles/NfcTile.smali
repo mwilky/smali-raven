@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/NfcTile;
+.class public final Lcom/android/systemui/qs/tiles/NfcTile;
 .super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "NfcTile.java"
 
@@ -14,15 +14,13 @@
 
 
 # instance fields
-.field private mAdapter:Landroid/nfc/NfcAdapter;
+.field public mAdapter:Landroid/nfc/NfcAdapter;
 
-.field private mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+.field public mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.field private final mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+.field public final mIcon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-.field private mListening:Z
-
-.field private mNfcReceiver:Landroid/content/BroadcastReceiver;
+.field public mNfcReceiver:Lcom/android/systemui/qs/tiles/NfcTile$1;
 
 
 # direct methods
@@ -31,7 +29,7 @@
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
 
-    sget p1, Lcom/android/systemui/R$drawable;->ic_qs_nfc:I
+    const p1, 0x7f080643
 
     invoke-static {p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -43,14 +41,16 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/qs/tiles/NfcTile$1;-><init>(Lcom/android/systemui/qs/tiles/NfcTile;)V
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mNfcReceiver:Landroid/content/BroadcastReceiver;
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mNfcReceiver:Lcom/android/systemui/qs/tiles/NfcTile$1;
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     return-void
 .end method
 
-.method private getAdapter()Landroid/nfc/NfcAdapter;
+
+# virtual methods
+.method public final getAdapter()Landroid/nfc/NfcAdapter;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mAdapter:Landroid/nfc/NfcAdapter;
@@ -82,42 +82,7 @@
     return-object p0
 .end method
 
-
-# virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    sget v0, Lcom/android/systemui/R$string;->quick_settings_nfc_on:I
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    sget v0, Lcom/android/systemui/R$string;->quick_settings_nfc_off:I
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 1
 
     new-instance p0, Landroid/content/Intent;
@@ -129,7 +94,7 @@
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/16 p0, 0x320
@@ -137,12 +102,12 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
+.method public final getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->quick_settings_nfc_label:I
+    const v0, 0x7f1305ef
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -151,10 +116,10 @@
     return-object p0
 .end method
 
-.method protected handleClick(Landroid/view/View;)V
+.method public final handleClick(Landroid/view/View;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object p1
 
@@ -163,7 +128,7 @@
     return-void
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object p1
 
@@ -173,7 +138,7 @@
 
     if-nez p1, :cond_1
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object p0
 
@@ -182,7 +147,7 @@
     goto :goto_0
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object p0
 
@@ -192,18 +157,16 @@
     return-void
 .end method
 
-.method public handleSetListening(Z)V
+.method public final handleSetListening(Z)V
     .locals 2
 
     invoke-super {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleSetListening(Z)V
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mListening:Z
 
     if-eqz p1, :cond_0
 
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mNfcReceiver:Landroid/content/BroadcastReceiver;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mNfcReceiver:Lcom/android/systemui/qs/tiles/NfcTile$1;
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -218,7 +181,7 @@
     :cond_0
     iget-object p1, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mBroadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mNfcReceiver:Landroid/content/BroadcastReceiver;
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/NfcTile;->mNfcReceiver:Lcom/android/systemui/qs/tiles/NfcTile$1;
 
     invoke-virtual {p1, p0}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
@@ -226,10 +189,12 @@
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
+.method public final handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object p2
 
@@ -239,7 +204,7 @@
 
     if-eqz p2, :cond_0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object p2
 
@@ -259,7 +224,7 @@
     :goto_0
     iput-boolean p2, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->getAdapter()Landroid/nfc/NfcAdapter;
 
     move-result-object p2
 
@@ -286,7 +251,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget p2, Lcom/android/systemui/R$string;->quick_settings_nfc_label:I
+    const p2, 0x7f1305ef
 
     invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -309,28 +274,18 @@
     return-void
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/NfcTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method protected handleUserSwitch(I)V
+.method public final handleUserSwitch(I)V
     .locals 0
 
     return-void
 .end method
 
-.method public isAvailable()Z
+.method public final isAvailable()Z
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v1, Lcom/android/systemui/R$string;->quick_settings_tiles_stock:I
+    const v1, 0x7f130601
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -364,22 +319,12 @@
     return p0
 .end method
 
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;-><init>()V
-
-    return-object p0
-.end method
-
-.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/NfcTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    move-result-object p0
 
     return-object p0
 .end method

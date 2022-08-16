@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final accessPointControllerProvider:Ljavax/inject/Provider;
+.field public final accessPointControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final bgExecutorProvider:Ljavax/inject/Provider;
+.field public final bgExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final bgLooperProvider:Ljavax/inject/Provider;
+.field public final bgLooperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final callbackHandlerProvider:Ljavax/inject/Provider;
+.field public final callbackHandlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final carrierConfigTrackerProvider:Ljavax/inject/Provider;
+.field public final carrierConfigTrackerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final connectivityManagerProvider:Ljavax/inject/Provider;
+.field public final connectivityManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final demoModeControllerProvider:Ljavax/inject/Provider;
+.field public final demoModeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +108,7 @@
     .end annotation
 .end field
 
-.field private final deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+.field public final deviceProvisionedControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -118,7 +118,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -128,7 +128,7 @@
     .end annotation
 .end field
 
-.field private final featureFlagsProvider:Ljavax/inject/Provider;
+.field public final featureFlagsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -138,7 +138,7 @@
     .end annotation
 .end field
 
-.field private final handlerProvider:Ljavax/inject/Provider;
+.field public final handlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -148,7 +148,7 @@
     .end annotation
 .end field
 
-.field private final internetDialogFactoryProvider:Ljavax/inject/Provider;
+.field public final internetDialogFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -158,17 +158,7 @@
     .end annotation
 .end field
 
-.field private final networkScoreManagerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/net/NetworkScoreManager;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final subscriptionManagerProvider:Ljavax/inject/Provider;
+.field public final subscriptionManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -178,7 +168,7 @@
     .end annotation
 .end field
 
-.field private final telephonyListenerManagerProvider:Ljavax/inject/Provider;
+.field public final telephonyListenerManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -188,7 +178,7 @@
     .end annotation
 .end field
 
-.field private final telephonyManagerProvider:Ljavax/inject/Provider;
+.field public final telephonyManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -198,7 +188,17 @@
     .end annotation
 .end field
 
-.field private final wifiManagerProvider:Ljavax/inject/Provider;
+.field public final trackerFactoryProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final wifiManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -249,9 +249,6 @@
             "Landroid/net/wifi/WifiManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/net/NetworkScoreManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -261,13 +258,16 @@
             "Lcom/android/systemui/util/CarrierConfigTracker;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
@@ -325,31 +325,31 @@
 
     move-object v1, p12
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->networkScoreManagerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->accessPointControllerProvider:Ljavax/inject/Provider;
 
     move-object v1, p13
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->accessPointControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->demoModeControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p14
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->demoModeControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->carrierConfigTrackerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p15
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->carrierConfigTrackerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->trackerFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p16
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->handlerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->handlerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->internetDialogFactoryProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->internetDialogFactoryProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p19
 
@@ -397,9 +397,6 @@
             "Landroid/net/wifi/WifiManager;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Landroid/net/NetworkScoreManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -409,13 +406,16 @@
             "Lcom/android/systemui/util/CarrierConfigTracker;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/flags/FeatureFlags;",
+            "Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;",
             ">;",
             "Ljavax/inject/Provider<",
             "Landroid/os/Handler;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/flags/FeatureFlags;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/dump/DumpManager;",
@@ -471,60 +471,10 @@
     return-object v20
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/flags/FeatureFlags;Landroid/os/Handler;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-    .locals 21
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, p1
-
-    move-object/from16 v3, p2
-
-    move-object/from16 v4, p3
-
-    move-object/from16 v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    move-object/from16 v13, p12
-
-    move-object/from16 v14, p13
-
-    move-object/from16 v15, p14
-
-    move-object/from16 v16, p15
-
-    move-object/from16 v17, p16
-
-    move-object/from16 v18, p17
-
-    move-object/from16 v19, p18
-
-    new-instance v20, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    move-object/from16 v0, v20
-
-    invoke-direct/range {v0 .. v19}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/flags/FeatureFlags;Landroid/os/Handler;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;Lcom/android/systemui/dump/DumpManager;)V
-
-    return-object v20
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-    .locals 21
+.method public final get()Ljava/lang/Object;
+    .locals 26
 
     move-object/from16 v0, p0
 
@@ -534,179 +484,179 @@
 
     move-result-object v1
 
-    move-object v2, v1
-
-    check-cast v2, Landroid/content/Context;
-
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->bgLooperProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v1
+    check-cast v1, Landroid/content/Context;
 
     move-object v3, v1
 
-    check-cast v3, Landroid/os/Looper;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->bgLooperProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v10, v2
 
-    move-object v4, v1
+    check-cast v10, Landroid/os/Looper;
 
-    check-cast v4, Ljava/util/concurrent/Executor;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->bgExecutorProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->subscriptionManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v11, v2
 
-    move-object v5, v1
+    check-cast v11, Ljava/util/concurrent/Executor;
 
-    check-cast v5, Landroid/telephony/SubscriptionManager;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->subscriptionManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->callbackHandlerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v8, v2
 
-    move-object v6, v1
+    check-cast v8, Landroid/telephony/SubscriptionManager;
 
-    check-cast v6, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->callbackHandlerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v12, v2
 
-    move-object v7, v1
+    check-cast v12, Lcom/android/systemui/statusbar/connectivity/CallbackHandler;
 
-    check-cast v7, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->deviceProvisionedControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v16, v2
 
-    move-object v8, v1
+    check-cast v16, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-    check-cast v8, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->connectivityManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v17, v2
 
-    move-object v9, v1
+    check-cast v17, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    check-cast v9, Landroid/net/ConnectivityManager;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->connectivityManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->telephonyManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v4, v2
 
-    move-object v10, v1
+    check-cast v4, Landroid/net/ConnectivityManager;
 
-    check-cast v10, Landroid/telephony/TelephonyManager;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->telephonyManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v5, v2
 
-    move-object v11, v1
+    check-cast v5, Landroid/telephony/TelephonyManager;
 
-    check-cast v11, Lcom/android/systemui/telephony/TelephonyListenerManager;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->telephonyListenerManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->wifiManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v6, v2
 
-    move-object v12, v1
+    check-cast v6, Lcom/android/systemui/telephony/TelephonyListenerManager;
 
-    check-cast v12, Landroid/net/wifi/WifiManager;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->wifiManagerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->networkScoreManagerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v7, v2
 
-    move-object v13, v1
+    check-cast v7, Landroid/net/wifi/WifiManager;
 
-    check-cast v13, Landroid/net/NetworkScoreManager;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->accessPointControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->accessPointControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v13, v2
 
-    move-object v14, v1
+    check-cast v13, Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
 
-    check-cast v14, Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->demoModeControllerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->demoModeControllerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v18, v2
 
-    move-object v15, v1
+    check-cast v18, Lcom/android/systemui/demomode/DemoModeController;
 
-    check-cast v15, Lcom/android/systemui/demomode/DemoModeController;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->carrierConfigTrackerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->carrierConfigTrackerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v19, v2
 
-    move-object/from16 v16, v1
+    check-cast v19, Lcom/android/systemui/util/CarrierConfigTracker;
 
-    check-cast v16, Lcom/android/systemui/util/CarrierConfigTracker;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->trackerFactoryProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v20, v2
 
-    move-object/from16 v17, v1
+    check-cast v20, Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;
 
-    check-cast v17, Lcom/android/systemui/flags/FeatureFlags;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->handlerProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->handlerProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object/from16 v21, v2
 
-    move-object/from16 v18, v1
+    check-cast v21, Landroid/os/Handler;
 
-    check-cast v18, Landroid/os/Handler;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->internetDialogFactoryProvider:Ljavax/inject/Provider;
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->internetDialogFactoryProvider:Ljavax/inject/Provider;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-result-object v2
 
-    move-result-object v1
+    move-object v15, v2
 
-    move-object/from16 v19, v1
+    check-cast v15, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
-    check-cast v19, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->featureFlagsProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object/from16 v22, v2
+
+    check-cast v22, Lcom/android/systemui/flags/FeatureFlags;
 
     iget-object v0, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -714,23 +664,47 @@
 
     move-result-object v0
 
-    move-object/from16 v20, v0
+    move-object/from16 v23, v0
 
-    check-cast v20, Lcom/android/systemui/dump/DumpManager;
+    check-cast v23, Lcom/android/systemui/dump/DumpManager;
 
-    invoke-static/range {v2 .. v20}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->newInstance(Landroid/content/Context;Landroid/os/Looper;Ljava/util/concurrent/Executor;Landroid/telephony/SubscriptionManager;Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/net/NetworkScoreManager;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/flags/FeatureFlags;Landroid/os/Handler;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;Lcom/android/systemui/dump/DumpManager;)Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
+    new-instance v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
 
-    move-result-object v0
+    move-object v2, v0
+
+    invoke-static {v1}, Lcom/android/settingslib/mobile/MobileMappings$Config;->readConfig(Landroid/content/Context;)Lcom/android/settingslib/mobile/MobileMappings$Config;
+
+    move-result-object v9
+
+    new-instance v14, Lcom/android/settingslib/net/DataUsageController;
+
+    move-object/from16 p0, v14
+
+    move-object/from16 v24, v15
+
+    move-object/from16 v15, p0
+
+    invoke-direct {v15, v1}, Lcom/android/settingslib/net/DataUsageController;-><init>(Landroid/content/Context;)V
+
+    new-instance v1, Lcom/android/settingslib/mobile/MobileStatusTracker$SubscriptionDefaults;
+
+    move-object/from16 v25, v24
+
+    move-object v15, v1
+
+    invoke-direct {v1}, Lcom/android/settingslib/mobile/MobileStatusTracker$SubscriptionDefaults;-><init>()V
+
+    invoke-direct/range {v2 .. v23}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;-><init>(Landroid/content/Context;Landroid/net/ConnectivityManager;Landroid/telephony/TelephonyManager;Lcom/android/systemui/telephony/TelephonyListenerManager;Landroid/net/wifi/WifiManager;Landroid/telephony/SubscriptionManager;Lcom/android/settingslib/mobile/MobileMappings$Config;Landroid/os/Looper;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/connectivity/CallbackHandler;Lcom/android/systemui/statusbar/connectivity/AccessPointControllerImpl;Lcom/android/settingslib/net/DataUsageController;Lcom/android/settingslib/mobile/MobileStatusTracker$SubscriptionDefaults;Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/demomode/DemoModeController;Lcom/android/systemui/util/CarrierConfigTracker;Lcom/android/systemui/statusbar/connectivity/WifiStatusTrackerFactory;Landroid/os/Handler;Lcom/android/systemui/flags/FeatureFlags;Lcom/android/systemui/dump/DumpManager;)V
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mReceiverHandler:Landroid/os/Handler;
+
+    iget-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mRegisterListeners:Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda9;
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    move-object/from16 v2, v25
+
+    iput-object v2, v0, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;->mInternetDialogFactory:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;
 
     return-object v0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl_Factory;->get()Lcom/android/systemui/statusbar/connectivity/NetworkControllerImpl;
-
-    move-result-object p0
-
-    return-object p0
 .end method

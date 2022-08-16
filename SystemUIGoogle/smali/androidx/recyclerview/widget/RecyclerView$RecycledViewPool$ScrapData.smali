@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;
+.class public final Landroidx/recyclerview/widget/RecyclerView$RecycledViewPool$ScrapData;
 .super Ljava/lang/Object;
 .source "RecyclerView.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "ScrapData"
 .end annotation
 
 
 # instance fields
-.field mBindRunningAverageNs:J
+.field public mBindRunningAverageNs:J
 
-.field mCreateRunningAverageNs:J
+.field public mCreateRunningAverageNs:J
 
-.field mMaxScrap:I
+.field public mMaxScrap:I
 
-.field final mScrapHeap:Ljava/util/ArrayList;
+.field public final mScrapHeap:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -33,7 +33,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

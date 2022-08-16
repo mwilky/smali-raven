@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/SeekBarViewModel$onDestroy$1;
+.class public final Lcom/android/systemui/media/SeekBarViewModel$onDestroy$1;
 .super Ljava/lang/Object;
 .source "SeekBarViewModel.kt"
 
@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/SeekBarViewModel;->onDestroy()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
+.field public final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
+.method public constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel$onDestroy$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
@@ -41,17 +30,13 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/media/SeekBarViewModel;->access$setController(Lcom/android/systemui/media/SeekBarViewModel;Landroid/media/session/MediaController;)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/media/SeekBarViewModel;->setController(Landroid/media/session/MediaController;)V
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$onDestroy$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-static {v0, v1}, Lcom/android/systemui/media/SeekBarViewModel;->access$setPlaybackState$p(Lcom/android/systemui/media/SeekBarViewModel;Landroid/media/session/PlaybackState;)V
+    iput-object v1, v0, Lcom/android/systemui/media/SeekBarViewModel;->playbackState:Landroid/media/session/PlaybackState;
 
-    iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$onDestroy$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
-
-    invoke-static {v0}, Lcom/android/systemui/media/SeekBarViewModel;->access$getCancel$p(Lcom/android/systemui/media/SeekBarViewModel;)Ljava/lang/Runnable;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/SeekBarViewModel;->cancel:Ljava/lang/Runnable;
 
     if-nez v0, :cond_0
 
@@ -63,7 +48,11 @@
     :goto_0
     iget-object p0, p0, Lcom/android/systemui/media/SeekBarViewModel$onDestroy$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-static {p0, v1}, Lcom/android/systemui/media/SeekBarViewModel;->access$setCancel$p(Lcom/android/systemui/media/SeekBarViewModel;Ljava/lang/Runnable;)V
+    iput-object v1, p0, Lcom/android/systemui/media/SeekBarViewModel;->cancel:Ljava/lang/Runnable;
+
+    iput-object v1, p0, Lcom/android/systemui/media/SeekBarViewModel;->scrubbingChangeListener:Lcom/android/systemui/media/SeekBarViewModel$ScrubbingChangeListener;
+
+    iput-object v1, p0, Lcom/android/systemui/media/SeekBarViewModel;->enabledChangeListener:Lcom/android/systemui/media/SeekBarViewModel$EnabledChangeListener;
 
     return-void
 .end method

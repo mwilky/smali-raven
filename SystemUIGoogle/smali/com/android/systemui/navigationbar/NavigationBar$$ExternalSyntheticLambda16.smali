@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda16;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Consumer;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # instance fields
@@ -22,14 +23,14 @@
 
 
 # virtual methods
-.method public final accept(Ljava/lang/Object;)V
+.method public final onLongClick(Landroid/view/View;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBar$$ExternalSyntheticLambda16;->f$0:Lcom/android/systemui/navigationbar/NavigationBar;
 
-    check-cast p1, Ljava/lang/Long;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->onHomeLongClick(Landroid/view/View;)Z
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/NavigationBar;->$r8$lambda$LCNaADsgtD7BEqiJjLxeEA3aoT0(Lcom/android/systemui/navigationbar/NavigationBar;Ljava/lang/Long;)V
+    move-result p0
 
-    return-void
+    return p0
 .end method

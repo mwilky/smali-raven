@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/ItemTouchHelper$3;
+.class public final Landroidx/recyclerview/widget/ItemTouchHelper$3;
 .super Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;
 .source "ItemTouchHelper.java"
 
@@ -9,48 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
+.field public final synthetic this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
-.field final synthetic val$prevSelected:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+.field public final synthetic val$prevSelected:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-.field final synthetic val$swipeDir:I
+.field public final synthetic val$swipeDir:I
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIFFFFILandroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-    .locals 8
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "viewHolder",
-            "animationType",
-            "actionState",
-            "startDx",
-            "startDy",
-            "targetX",
-            "targetY",
-            "val$swipeDir",
-            "val$prevSelected"
-        }
-    .end annotation
+.method public constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIFFFFILandroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
+    .locals 7
 
     move-object v0, p0
 
@@ -68,35 +42,25 @@
 
     move-object v1, p2
 
-    move v2, p3
+    move v2, p4
 
-    move v3, p4
+    move v3, p5
 
-    move v4, p5
+    move v4, p6
 
-    move v5, p6
+    move v5, p7
 
-    move v6, p7
+    move v6, p8
 
-    move/from16 v7, p8
-
-    invoke-direct/range {v0 .. v7}, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;-><init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIFFFF)V
+    invoke-direct/range {v0 .. v6}, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;-><init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IFFFF)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 3
 
     invoke-super {p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->onAnimationEnd(Landroid/animation/Animator;)V
 
@@ -126,13 +90,13 @@
     :cond_1
     iget-object p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$3;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
-    iget-object p1, p1, Landroidx/recyclerview/widget/ItemTouchHelper;->mPendingCleanup:Ljava/util/List;
+    iget-object p1, p1, Landroidx/recyclerview/widget/ItemTouchHelper;->mPendingCleanup:Ljava/util/ArrayList;
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$3;->val$prevSelected:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
     iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-interface {p1, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     const/4 p1, 0x1
 
@@ -144,7 +108,13 @@
 
     iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$3;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
-    invoke-virtual {v0, p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper;->postDispatchSwipe(Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;I)V
+    iget-object v1, v0, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+
+    new-instance v2, Landroidx/recyclerview/widget/ItemTouchHelper$4;
+
+    invoke-direct {v2, v0, p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper$4;-><init>(Landroidx/recyclerview/widget/ItemTouchHelper;Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;I)V
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->post(Ljava/lang/Runnable;)Z
 
     :cond_2
     :goto_0

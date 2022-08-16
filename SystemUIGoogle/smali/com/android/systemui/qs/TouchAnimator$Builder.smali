@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/TouchAnimator$Builder;
+.class public final Lcom/android/systemui/qs/TouchAnimator$Builder;
 .super Ljava/lang/Object;
 .source "TouchAnimator.java"
 
@@ -15,33 +15,17 @@
 
 
 # instance fields
-.field private mEndDelay:F
+.field public mEndDelay:F
 
-.field private mInterpolator:Landroid/view/animation/Interpolator;
+.field public mInterpolator:Landroid/view/animation/Interpolator;
 
-.field private mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
+.field public mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
-.field private mStartDelay:F
+.field public mStartDelay:F
 
-.field private mTargets:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/Object;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mTargets:Ljava/util/ArrayList;
 
-.field private mValues:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mValues:Ljava/util/ArrayList;
 
 
 # direct methods
@@ -54,284 +38,271 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mTargets:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mTargets:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mValues:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mValues:Ljava/util/ArrayList;
 
     return-void
 .end method
 
-.method private add(Ljava/lang/Object;Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;)V
-    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mTargets:Ljava/util/List;
+# virtual methods
+.method public final varargs addFloat(Ljava/lang/Object;Ljava/lang/String;[F)V
+    .locals 3
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mValues:Ljava/util/List;
+    instance-of v1, p1, Landroid/view/View;
 
-    invoke-interface {p0, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    if-eqz v1, :cond_9
 
-    return-void
-.end method
+    const/4 v1, -0x1
 
-.method private static getProperty(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Class;)Landroid/util/Property;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/Object;",
-            "Ljava/lang/String;",
-            "Ljava/lang/Class<",
-            "*>;)",
-            "Landroid/util/Property;"
-        }
-    .end annotation
+    invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
 
-    instance-of v0, p0, Landroid/view/View;
+    move-result v2
 
-    if-eqz v0, :cond_9
-
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
-
-    const/4 v0, -0x1
-
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
-
-    move-result v1
-
-    sparse-switch v1, :sswitch_data_0
+    sparse-switch v2, :sswitch_data_0
 
     goto/16 :goto_0
 
     :sswitch_0
-    const-string v1, "alpha"
+    const-string v2, "alpha"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_0
 
     goto/16 :goto_0
 
     :cond_0
-    const/16 v0, 0x8
+    const/16 v1, 0x8
 
     goto/16 :goto_0
 
     :sswitch_1
-    const-string/jumbo v1, "y"
+    const-string/jumbo v2, "y"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x7
+    const/4 v1, 0x7
 
     goto :goto_0
 
     :sswitch_2
-    const-string/jumbo v1, "x"
+    const-string/jumbo v2, "x"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_2
+    if-nez v2, :cond_2
 
     goto :goto_0
 
     :cond_2
-    const/4 v0, 0x6
+    const/4 v1, 0x6
 
     goto :goto_0
 
     :sswitch_3
-    const-string v1, "rotation"
+    const-string/jumbo v2, "rotation"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_3
+    if-nez v2, :cond_3
 
     goto :goto_0
 
     :cond_3
-    const/4 v0, 0x5
+    const/4 v1, 0x5
 
     goto :goto_0
 
     :sswitch_4
-    const-string v1, "scaleY"
+    const-string/jumbo v2, "scaleY"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_4
+    if-nez v2, :cond_4
 
     goto :goto_0
 
     :cond_4
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
     goto :goto_0
 
     :sswitch_5
-    const-string v1, "scaleX"
+    const-string/jumbo v2, "scaleX"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_5
+    if-nez v2, :cond_5
 
     goto :goto_0
 
     :cond_5
-    const/4 v0, 0x3
+    const/4 v1, 0x3
 
     goto :goto_0
 
     :sswitch_6
-    const-string v1, "translationZ"
+    const-string/jumbo v2, "translationZ"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_6
+    if-nez v2, :cond_6
 
     goto :goto_0
 
     :cond_6
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
     goto :goto_0
 
     :sswitch_7
-    const-string v1, "translationY"
+    const-string/jumbo v2, "translationY"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_7
+    if-nez v2, :cond_7
 
     goto :goto_0
 
     :cond_7
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     goto :goto_0
 
     :sswitch_8
-    const-string v1, "translationX"
+    const-string/jumbo v2, "translationX"
 
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_8
+    if-nez v2, :cond_8
 
     goto :goto_0
 
     :cond_8
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
     goto :goto_1
 
     :pswitch_0
-    sget-object p0, Landroid/view/View;->ALPHA:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_1
-    sget-object p0, Landroid/view/View;->Y:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->Y:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_2
-    sget-object p0, Landroid/view/View;->X:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->X:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_3
-    sget-object p0, Landroid/view/View;->ROTATION:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->ROTATION:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_4
-    sget-object p0, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_5
-    sget-object p0, Landroid/view/View;->SCALE_X:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->SCALE_X:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_6
-    sget-object p0, Landroid/view/View;->TRANSLATION_Z:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->TRANSLATION_Z:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_7
-    sget-object p0, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :pswitch_8
-    sget-object p0, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
+    sget-object p2, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
 
-    return-object p0
+    goto :goto_2
 
     :cond_9
     :goto_1
-    instance-of v0, p0, Lcom/android/systemui/qs/TouchAnimator;
+    instance-of v1, p1, Lcom/android/systemui/qs/TouchAnimator;
 
-    if-eqz v0, :cond_a
+    if-eqz v1, :cond_a
 
-    const-string v0, "position"
+    const-string/jumbo v1, "position"
 
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_a
+    if-eqz v1, :cond_a
 
-    invoke-static {}, Lcom/android/systemui/qs/TouchAnimator;->access$100()Landroid/util/FloatProperty;
+    sget-object p2, Lcom/android/systemui/qs/TouchAnimator;->POSITION:Lcom/android/systemui/qs/TouchAnimator$1;
 
-    move-result-object p0
-
-    return-object p0
+    goto :goto_2
 
     :cond_a
-    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result-object p0
+    move-result-object v1
 
-    invoke-static {p0, p2, p1}, Landroid/util/Property;->of(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Landroid/util/Property;
+    invoke-static {v1, v0, p2}, Landroid/util/Property;->of(Ljava/lang/Class;Ljava/lang/Class;Ljava/lang/String;)Landroid/util/Property;
 
-    move-result-object p0
+    move-result-object p2
 
-    return-object p0
+    :goto_2
+    new-instance v0, Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;
 
-    nop
+    invoke-direct {v0, p2, p3}, Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;-><init>(Landroid/util/Property;[F)V
+
+    iget-object p2, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mTargets:Ljava/util/ArrayList;
+
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object p0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mValues:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    return-void
 
     :sswitch_data_0
     .sparse-switch
@@ -360,52 +331,32 @@
     .end packed-switch
 .end method
 
+.method public final build()Lcom/android/systemui/qs/TouchAnimator;
+    .locals 8
 
-# virtual methods
-.method public varargs addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-    .locals 1
+    new-instance v7, Lcom/android/systemui/qs/TouchAnimator;
 
-    sget-object v0, Ljava/lang/Float;->TYPE:Ljava/lang/Class;
+    iget-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mTargets:Ljava/util/ArrayList;
 
-    invoke-static {p1, p2, v0}, Lcom/android/systemui/qs/TouchAnimator$Builder;->getProperty(Ljava/lang/Object;Ljava/lang/String;Ljava/lang/Class;)Landroid/util/Property;
-
-    move-result-object p2
-
-    invoke-static {p2, p3}, Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;->ofFloat(Landroid/util/Property;[F)Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
-
-    move-result-object p2
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/TouchAnimator$Builder;->add(Ljava/lang/Object;Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;)V
-
-    return-object p0
-.end method
-
-.method public build()Lcom/android/systemui/qs/TouchAnimator;
-    .locals 9
-
-    new-instance v8, Lcom/android/systemui/qs/TouchAnimator;
-
-    iget-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mTargets:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    invoke-interface {v0, v1}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v1
 
-    iget-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mValues:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mValues:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     new-array v2, v2, [Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
 
-    invoke-interface {v0, v2}, Ljava/util/List;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v0
 
@@ -421,43 +372,9 @@
 
     iget-object v6, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
 
-    const/4 v7, 0x0
+    move-object v0, v7
 
-    move-object v0, v8
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/qs/TouchAnimator;-><init>([Ljava/lang/Object;[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;FFLandroid/view/animation/Interpolator;Lcom/android/systemui/qs/TouchAnimator$Listener;)V
 
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/qs/TouchAnimator;-><init>([Ljava/lang/Object;[Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;FFLandroid/view/animation/Interpolator;Lcom/android/systemui/qs/TouchAnimator$Listener;Lcom/android/systemui/qs/TouchAnimator$1;)V
-
-    return-object v8
-.end method
-
-.method public setEndDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mEndDelay:F
-
-    return-object p0
-.end method
-
-.method public setInterpolator(Landroid/view/animation/Interpolator;)Lcom/android/systemui/qs/TouchAnimator$Builder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mInterpolator:Landroid/view/animation/Interpolator;
-
-    return-object p0
-.end method
-
-.method public setListener(Lcom/android/systemui/qs/TouchAnimator$Listener;)Lcom/android/systemui/qs/TouchAnimator$Builder;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mListener:Lcom/android/systemui/qs/TouchAnimator$Listener;
-
-    return-object p0
-.end method
-
-.method public setStartDelay(F)Lcom/android/systemui/qs/TouchAnimator$Builder;
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/qs/TouchAnimator$Builder;->mStartDelay:F
-
-    return-object p0
+    return-object v7
 .end method

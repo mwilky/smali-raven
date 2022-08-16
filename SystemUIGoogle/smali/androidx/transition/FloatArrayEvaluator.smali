@@ -1,4 +1,4 @@
-.class Landroidx/transition/FloatArrayEvaluator;
+.class public final Landroidx/transition/FloatArrayEvaluator;
 .super Ljava/lang/Object;
 .source "FloatArrayEvaluator.java"
 
@@ -17,11 +17,11 @@
 
 
 # instance fields
-.field private mArray:[F
+.field public mArray:[F
 
 
 # direct methods
-.method constructor <init>([F)V
+.method public constructor <init>([F)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -33,22 +33,12 @@
 
 
 # virtual methods
-.method public bridge synthetic evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final evaluate(FLjava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 3
 
     check-cast p2, [F
 
     check-cast p3, [F
-
-    invoke-virtual {p0, p1, p2, p3}, Landroidx/transition/FloatArrayEvaluator;->evaluate(F[F[F)[F
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public evaluate(F[F[F)[F
-    .locals 3
 
     iget-object p0, p0, Landroidx/transition/FloatArrayEvaluator;->mArray:[F
 
@@ -70,11 +60,9 @@
 
     aget v2, p3, v0
 
-    sub-float/2addr v2, v1
+    invoke-static {v2, v1, p1, v1}, Landroidx/constraintlayout/motion/widget/MotionController$$ExternalSyntheticOutline0;->m(FFFF)F
 
-    mul-float/2addr v2, p1
-
-    add-float/2addr v1, v2
+    move-result v1
 
     aput v1, p0, v0
 

@@ -1,4 +1,4 @@
-.class final synthetic Lcom/android/systemui/animation/AnimatedDialog$addTouchSurfaceGhost$1;
+.class public final synthetic Lcom/android/systemui/animation/AnimatedDialog$addTouchSurfaceGhost$1;
 .super Ljava/lang/Object;
 .source "DialogLaunchAnimator.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $tmp0:Lcom/android/systemui/animation/AnimatedDialog;
+.field public final synthetic $tmp0:Lcom/android/systemui/animation/AnimatedDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
+.method public constructor <init>(Lcom/android/systemui/animation/AnimatedDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/animation/AnimatedDialog$addTouchSurfaceGhost$1;->$tmp0:Lcom/android/systemui/animation/AnimatedDialog;
@@ -39,7 +39,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/animation/AnimatedDialog$addTouchSurfaceGhost$1;->$tmp0:Lcom/android/systemui/animation/AnimatedDialog;
 
-    invoke-static {p0}, Lcom/android/systemui/animation/AnimatedDialog;->access$addTouchSurfaceGhost(Lcom/android/systemui/animation/AnimatedDialog;)V
+    invoke-virtual {p0}, Lcom/android/systemui/animation/AnimatedDialog;->addTouchSurfaceGhost()V
 
     return-void
 .end method

@@ -7,24 +7,14 @@
 
 
 # instance fields
-.field private final listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+.field public final listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
-.field private final nodeLabel:Ljava/lang/String;
-
-.field private final view:Landroid/view/View;
+.field public final view:Landroid/view/View;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;Landroid/view/View;)V
-    .locals 1
-
-    const-string v0, "listContainer"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "view"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -32,34 +22,56 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->view:Landroid/view/View;
 
-    const-string p1, "<root>"
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->nodeLabel:Ljava/lang/String;
-
     return-void
 .end method
 
 
 # virtual methods
-.method public addChildAt(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;I)V
-    .locals 1
+.method public final addChildAt(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;I)V
+    .locals 2
 
-    const-string v0, "child"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
     invoke-interface {p1}, Lcom/android/systemui/statusbar/notification/collection/render/NodeController;->getView()Landroid/view/View;
 
-    move-result-object p1
+    move-result-object v1
 
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->addContainerViewAt(Landroid/view/View;I)V
+    invoke-interface {v0, v1, p2}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->addContainerViewAt(Landroid/view/View;I)V
 
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/notification/collection/render/NodeController;->getView()Landroid/view/View;
+
+    move-result-object p0
+
+    instance-of p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz p1, :cond_0
+
+    check-cast p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    if-nez p0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mChangingPosition:Z
+
+    :goto_1
     return-void
 .end method
 
-.method public getChildAt(I)Landroid/view/View;
+.method public final getChildAt(I)Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
@@ -71,7 +83,7 @@
     return-object p0
 .end method
 
-.method public getChildCount()I
+.method public final getChildCount()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
@@ -83,15 +95,15 @@
     return p0
 .end method
 
-.method public getNodeLabel()Ljava/lang/String;
+.method public final getNodeLabel()Ljava/lang/String;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->nodeLabel:Ljava/lang/String;
+    const-string p0, "<root>"
 
     return-object p0
 .end method
 
-.method public getView()Landroid/view/View;
+.method public final getView()Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->view:Landroid/view/View;
@@ -99,12 +111,8 @@
     return-object p0
 .end method
 
-.method public moveChildTo(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;I)V
-    .locals 1
-
-    const-string v0, "child"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final moveChildTo(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;I)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
@@ -119,14 +127,28 @@
     return-void
 .end method
 
-.method public removeChild(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;Z)V
-    .locals 2
+.method public final onViewAdded()V
+    .locals 0
 
-    const-string v0, "child"
+    return-void
+.end method
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onViewMoved()V
+    .locals 0
 
-    if-eqz p2, :cond_0
+    return-void
+.end method
+
+.method public final onViewRemoved()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final removeChild(Lcom/android/systemui/statusbar/notification/collection/render/NodeController;Z)V
+    .locals 3
+
+    if-eqz p2, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
@@ -134,7 +156,31 @@
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->setChildTransferInProgress(Z)V
 
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/notification/collection/render/NodeController;->getView()Landroid/view/View;
+
+    move-result-object v0
+
+    instance-of v2, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz v2, :cond_0
+
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    goto :goto_0
+
     :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    if-nez v0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    iput-boolean v1, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mChangingPosition:Z
+
+    :cond_2
+    :goto_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
     invoke-interface {p1}, Lcom/android/systemui/statusbar/notification/collection/render/NodeController;->getView()Landroid/view/View;
@@ -143,7 +189,7 @@
 
     invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->removeContainerView(Landroid/view/View;)V
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_3
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/render/RootNodeController;->listContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
@@ -151,6 +197,6 @@
 
     invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;->setChildTransferInProgress(Z)V
 
-    :cond_1
+    :cond_3
     return-void
 .end method

@@ -54,9 +54,6 @@
 .method public abstract hasVibrator()Z
 .end method
 
-.method public abstract isCaptionStreamOptedOut()Z
-.end method
-
 .method public abstract notifyVisible(Z)V
 .end method
 

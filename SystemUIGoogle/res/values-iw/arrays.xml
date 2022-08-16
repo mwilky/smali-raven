@@ -17,6 +17,7 @@
         <item>3 תהליכים לכל היותר</item>
         <item>4 תהליכים לכל היותר</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>כבוי</item>
         <item>פועל</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>לא זמין</item>
+        <item>כבוי</item>
+        <item>פועל</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>לא זמין</item>
         <item>כבוי</item>
@@ -306,6 +312,16 @@
         <item>פועל</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>לא זמין</item>
+        <item>כבוי</item>
+        <item>פועל</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>לא זמין</item>
+        <item>כבוי</item>
+        <item>פועל</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>לא זמין</item>
         <item>כבוי</item>
         <item>פועל</item>
@@ -374,6 +390,12 @@
         <item>מהיר במיוחד</item>
         <item>יותר מהיר ממהיר במיוחד</item>
         <item>הכי מהיר</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>הזזה שמאלה</item>
+        <item>הזזה למטה</item>
+        <item>הזזה ימינה</item>
+        <item>הזזה למעלה</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>בטעינה</item>

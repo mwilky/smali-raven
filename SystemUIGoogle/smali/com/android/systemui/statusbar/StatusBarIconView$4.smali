@@ -1,27 +1,16 @@
-.class Lcom/android/systemui/statusbar/StatusBarIconView$4;
+.class public final Lcom/android/systemui/statusbar/StatusBarIconView$4;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "StatusBarIconView.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/StatusBarIconView;->setVisibleState(IZLjava/lang/Runnable;J)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
 
-.field final synthetic val$endRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$endRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/StatusBarIconView;Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/StatusBarIconView;Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda22;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/StatusBarIconView$4;->this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
@@ -35,20 +24,21 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/StatusBarIconView$4;->this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/StatusBarIconView;->access$202(Lcom/android/systemui/statusbar/StatusBarIconView;Landroid/animation/ObjectAnimator;)Landroid/animation/ObjectAnimator;
-
-    iget-object p1, p0, Lcom/android/systemui/statusbar/StatusBarIconView$4;->this$0:Lcom/android/systemui/statusbar/StatusBarIconView;
+    iput-object v0, p1, Lcom/android/systemui/statusbar/StatusBarIconView;->mIconAppearAnimator:Landroid/animation/ObjectAnimator;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/StatusBarIconView$4;->val$endRunnable:Ljava/lang/Runnable;
 
-    invoke-static {p1, p0}, Lcom/android/systemui/statusbar/StatusBarIconView;->access$300(Lcom/android/systemui/statusbar/StatusBarIconView;Ljava/lang/Runnable;)V
+    if-eqz p0, :cond_0
 
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    :cond_0
     return-void
 .end method

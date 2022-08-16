@@ -1,25 +1,14 @@
-.class Landroidx/transition/Transition$3;
+.class public final Landroidx/transition/Transition$3;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "Transition.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/transition/Transition;->animate(Landroid/animation/Animator;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/transition/Transition;
+.field public final synthetic this$0:Landroidx/transition/Transition;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/Transition;)V
+.method public constructor <init>(Landroidx/transition/Transition;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/transition/Transition$3;->this$0:Landroidx/transition/Transition;
@@ -31,7 +20,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object v0, p0, Landroidx/transition/Transition$3;->this$0:Landroidx/transition/Transition;

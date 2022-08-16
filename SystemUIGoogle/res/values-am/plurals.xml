@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d ቀናት በፊት</item>
-        <item quantity="one">%d ቀናት በፊት</item>
+        <item quantity="other">ከ%d ቀናት በፊት</item>
+        <item quantity="one">ከ%d ቀናት በፊት</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d ደቂቃ በፊት</item>
-        <item quantity="one">%d ደቂቃ በፊት</item>
+        <item quantity="other">ከ%d ደቂቃ በፊት</item>
+        <item quantity="one">ከ%d ደቂቃ በፊት</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d ዓመት በፊት</item>
-        <item quantity="one">%d ዓመት በፊት</item>
+        <item quantity="other">ከ%d ዓመት በፊት</item>
+        <item quantity="one">ከ%d ዓመት በፊት</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s ቁጥጥሮች ታክለዋል።</item>
         <item quantity="one">%s ቁጥጥሮች ታክለዋል።</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s መተግበሪያዎች ንቁ ናቸው</item>
+        <item quantity="one">%s መተግበሪያዎች ንቁ ናቸው</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">የሲም ፒን ያስገቡ። %d ሙከራዎች ይቀረዎታል።</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">ልክ ያልሆነ የሲም ፒዩኬ ኮድ፣ ሲሙ እስከመጨረሻው የማይሰራ ከመሆኑ በፊት %d ሙከራዎች ይቀረዎታል።</item>
         <item quantity="one">ልክ ያልሆነ የሲም ፒዩኬ ኮድ፣ ሲሙ እስከመጨረሻው የማይሰራ ከመሆኑ በፊት %d ሙከራዎች ይቀረዎታል።</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">በ%d ሰኮንዶች ውስጥ እንደገና ይሞክሩ።</item>
-        <item quantity="one">በ%d ሰኮንዶች ውስጥ እንደገና ይሞክሩ።</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d አዲስ ማሳወቂያዎች</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">%d ተጠቃሚዎች ብቻ ናቸው ሊፈጠሩ የሚችሉት።</item>
         <item quantity="one">%d ተጠቃሚዎች ብቻ ናቸው ሊፈጠሩ የሚችሉት።</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d መሣሪያዎች ተገናኝተዋል</item>
-        <item quantity="one">%1$d መሣሪያዎች ተገናኝተዋል</item>
     </plurals>
 </resources>

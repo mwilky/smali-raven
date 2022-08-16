@@ -1,22 +1,22 @@
-.class public Lcom/android/systemui/people/widget/PeopleTileKey;
+.class public final Lcom/android/systemui/people/widget/PeopleTileKey;
 .super Ljava/lang/Object;
 .source "PeopleTileKey.java"
 
 
 # static fields
-.field private static final KEY_PATTERN:Ljava/util/regex/Pattern;
+.field public static final KEY_PATTERN:Ljava/util/regex/Pattern;
 
 
 # instance fields
-.field private mPackageName:Ljava/lang/String;
+.field public mPackageName:Ljava/lang/String;
 
-.field private mShortcutId:Ljava/lang/String;
+.field public mShortcutId:Ljava/lang/String;
 
-.field private mUserId:I
+.field public mUserId:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-string v0, "(.+)/(-?\\d+)/(\\p{L}.*)"
@@ -65,15 +65,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
 
     if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-
-    move-result-object v0
 
     invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->getConversationShortcutInfo()Landroid/content/pm/ShortcutInfo;
 
@@ -81,9 +75,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
 
     invoke-virtual {v0}, Landroid/service/notification/NotificationListenerService$Ranking;->getConversationShortcutInfo()Landroid/content/pm/ShortcutInfo;
 
@@ -101,9 +93,7 @@
     :goto_0
     iput-object v0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mShortcutId:Ljava/lang/String;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
 
@@ -111,9 +101,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object v0
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getUser()Landroid/os/UserHandle;
 
@@ -131,9 +119,7 @@
     :goto_1
     iput v0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mUserId:I
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getPackageName()Ljava/lang/String;
 
@@ -144,16 +130,16 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;ILjava/lang/String;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mShortcutId:Ljava/lang/String;
 
-    iput p2, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mUserId:I
+    iput p3, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mUserId:I
 
-    iput-object p3, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mPackageName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mPackageName:Ljava/lang/String;
 
     return-void
 .end method
@@ -205,7 +191,7 @@
 
     move-result-object p0
 
-    invoke-direct {v2, v3, v1, p0}, Lcom/android/systemui/people/widget/PeopleTileKey;-><init>(Ljava/lang/String;ILjava/lang/String;)V
+    invoke-direct {v2, v3, p0, v1}, Lcom/android/systemui/people/widget/PeopleTileKey;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -217,64 +203,56 @@
 .end method
 
 .method public static isValid(Lcom/android/systemui/people/widget/PeopleTileKey;)Z
-    .locals 0
+    .locals 3
 
-    if-eqz p0, :cond_0
+    const/4 v0, 0x1
 
-    invoke-direct {p0}, Lcom/android/systemui/people/widget/PeopleTileKey;->validate()Z
+    const/4 v1, 0x0
 
-    move-result p0
+    if-eqz p0, :cond_1
 
-    if-eqz p0, :cond_0
+    iget-object v2, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mShortcutId:Ljava/lang/String;
 
-    const/4 p0, 0x1
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    goto :goto_0
+    move-result v2
 
-    :cond_0
-    const/4 p0, 0x0
+    if-nez v2, :cond_0
 
-    :goto_0
-    return p0
-.end method
+    iget-object v2, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mPackageName:Ljava/lang/String;
 
-.method private validate()Z
-    .locals 1
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mShortcutId:Ljava/lang/String;
+    move-result v2
 
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mPackageName:Ljava/lang/String;
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
+    if-nez v2, :cond_0
 
     iget p0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mUserId:I
 
     if-ltz p0, :cond_0
 
-    const/4 p0, 0x1
+    move p0, v0
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    move p0, v1
 
     :goto_0
-    return p0
+    if-eqz p0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v0, v1
+
+    :goto_1
+    return v0
 .end method
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 1
 
     if-ne p0, p1, :cond_0
@@ -310,31 +288,7 @@
     return p0
 .end method
 
-.method public getPackageName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mPackageName:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getShortcutId()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mShortcutId:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public getUserId()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mUserId:I
-
-    return p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mPackageName:Ljava/lang/String;
@@ -353,7 +307,7 @@
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
     iget-object p0, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mShortcutId:Ljava/lang/String;
 
@@ -361,20 +315,12 @@
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v1
 
-    return v0
+    return p0
 .end method
 
-.method public setUserId(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/people/widget/PeopleTileKey;->mUserId:I
-
-    return-void
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;

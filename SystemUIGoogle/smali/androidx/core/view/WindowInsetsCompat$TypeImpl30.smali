@@ -1,4 +1,4 @@
-.class final Landroidx/core/view/WindowInsetsCompat$TypeImpl30;
+.class public final Landroidx/core/view/WindowInsetsCompat$TypeImpl30;
 .super Ljava/lang/Object;
 .source "WindowInsetsCompat.java"
 
@@ -9,22 +9,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "TypeImpl30"
 .end annotation
 
 
 # direct methods
-.method static toPlatformType(I)I
+.method public static toPlatformType(I)I
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x10
-        }
-        names = {
-            "typeMask"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 

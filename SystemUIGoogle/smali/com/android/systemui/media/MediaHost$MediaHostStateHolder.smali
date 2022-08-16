@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private changedListener:Lkotlin/jvm/functions/Function0;
+.field public changedListener:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function0<",
@@ -28,19 +28,19 @@
     .end annotation
 .end field
 
-.field private disappearParameters:Lcom/android/systemui/util/animation/DisappearParameters;
+.field public disappearParameters:Lcom/android/systemui/util/animation/DisappearParameters;
 
-.field private expansion:F
+.field public expansion:F
 
-.field private falsingProtectionNeeded:Z
+.field public falsingProtectionNeeded:Z
 
-.field private lastDisappearHash:I
+.field public lastDisappearHash:I
 
-.field private measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
+.field public measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
 
-.field private showsOnlyActiveMedia:Z
+.field public showsOnlyActiveMedia:Z
 
-.field private visible:Z
+.field public visible:Z
 
 
 # direct methods
@@ -59,10 +59,6 @@
 
     iput-object v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->disappearParameters:Lcom/android/systemui/util/animation/DisappearParameters;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
-
-    move-result-object v0
-
     invoke-virtual {v0}, Lcom/android/systemui/util/animation/DisappearParameters;->hashCode()I
 
     move-result v0
@@ -74,73 +70,190 @@
 
 
 # virtual methods
-.method public copy()Lcom/android/systemui/media/MediaHostState;
+.method public final copy()Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
     .locals 5
 
     new-instance v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
 
     invoke-direct {v0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;-><init>()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getExpansion()F
-
-    move-result v1
+    iget v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->expansion:F
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setExpansion(F)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getShowsOnlyActiveMedia()Z
+    iget-boolean v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
 
-    move-result v1
+    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setShowsOnlyActiveMedia(Z)V
+    move-result-object v2
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getMeasurementInput()Lcom/android/systemui/util/animation/MeasurementInput;
+    iget-boolean v3, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
 
-    move-result-object v1
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    const/4 v2, 0x0
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    iput-boolean v1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
 
     if-nez v1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    const/4 v3, 0x3
+    invoke-interface {v1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
-    const/4 v4, 0x0
-
-    invoke-static {v1, v4, v4, v3, v2}, Lcom/android/systemui/util/animation/MeasurementInput;->copy$default(Lcom/android/systemui/util/animation/MeasurementInput;IIILjava/lang/Object;)Lcom/android/systemui/util/animation/MeasurementInput;
-
-    move-result-object v2
-
+    :cond_1
     :goto_0
-    invoke-virtual {v0, v2}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setMeasurementInput(Lcom/android/systemui/util/animation/MeasurementInput;)V
+    iget-object v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getVisible()Z
+    if-nez v1, :cond_2
 
-    move-result v1
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setVisible(Z)V
+    goto :goto_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
+    :cond_2
+    iget v2, v1, Lcom/android/systemui/util/animation/MeasurementInput;->widthMeasureSpec:I
 
-    move-result-object v1
+    iget v1, v1, Lcom/android/systemui/util/animation/MeasurementInput;->heightMeasureSpec:I
 
-    invoke-virtual {v1}, Lcom/android/systemui/util/animation/DisappearParameters;->deepCopy()Lcom/android/systemui/util/animation/DisappearParameters;
+    new-instance v3, Lcom/android/systemui/util/animation/MeasurementInput;
 
-    move-result-object v1
+    invoke-direct {v3, v2, v1}, Lcom/android/systemui/util/animation/MeasurementInput;-><init>(II)V
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setDisappearParameters(Lcom/android/systemui/util/animation/DisappearParameters;)V
+    move-object v1, v3
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getFalsingProtectionNeeded()Z
+    :goto_1
+    const/4 v2, 0x0
 
-    move-result p0
+    const/4 v3, 0x1
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setFalsingProtectionNeeded(Z)V
+    if-nez v1, :cond_3
 
+    goto :goto_2
+
+    :cond_3
+    iget-object v4, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
+
+    invoke-virtual {v1, v4}, Lcom/android/systemui/util/animation/MeasurementInput;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-ne v4, v3, :cond_4
+
+    move v2, v3
+
+    :cond_4
+    :goto_2
+    if-nez v2, :cond_6
+
+    iput-object v1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
+
+    if-nez v1, :cond_5
+
+    goto :goto_3
+
+    :cond_5
+    invoke-interface {v1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    :cond_6
+    :goto_3
+    iget-boolean v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
+
+    iget-boolean v2, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
+
+    if-ne v2, v1, :cond_7
+
+    goto :goto_4
+
+    :cond_7
+    iput-boolean v1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
+
+    iget-object v1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
+
+    if-nez v1, :cond_8
+
+    goto :goto_4
+
+    :cond_8
+    invoke-interface {v1}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    :goto_4
+    iget-object v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->disappearParameters:Lcom/android/systemui/util/animation/DisappearParameters;
+
+    invoke-virtual {v1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    new-instance v2, Lcom/android/systemui/util/animation/DisappearParameters;
+
+    invoke-direct {v2}, Lcom/android/systemui/util/animation/DisappearParameters;-><init>()V
+
+    iget-object v3, v2, Lcom/android/systemui/util/animation/DisappearParameters;->disappearSize:Landroid/graphics/PointF;
+
+    iget-object v4, v1, Lcom/android/systemui/util/animation/DisappearParameters;->disappearSize:Landroid/graphics/PointF;
+
+    invoke-virtual {v3, v4}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
+
+    iget-object v3, v2, Lcom/android/systemui/util/animation/DisappearParameters;->gonePivot:Landroid/graphics/PointF;
+
+    iget-object v4, v1, Lcom/android/systemui/util/animation/DisappearParameters;->gonePivot:Landroid/graphics/PointF;
+
+    invoke-virtual {v3, v4}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
+
+    iget-object v3, v2, Lcom/android/systemui/util/animation/DisappearParameters;->contentTranslationFraction:Landroid/graphics/PointF;
+
+    iget-object v4, v1, Lcom/android/systemui/util/animation/DisappearParameters;->contentTranslationFraction:Landroid/graphics/PointF;
+
+    invoke-virtual {v3, v4}, Landroid/graphics/PointF;->set(Landroid/graphics/PointF;)V
+
+    iget v3, v1, Lcom/android/systemui/util/animation/DisappearParameters;->disappearStart:F
+
+    iput v3, v2, Lcom/android/systemui/util/animation/DisappearParameters;->disappearStart:F
+
+    iget v3, v1, Lcom/android/systemui/util/animation/DisappearParameters;->disappearEnd:F
+
+    iput v3, v2, Lcom/android/systemui/util/animation/DisappearParameters;->disappearEnd:F
+
+    iget v1, v1, Lcom/android/systemui/util/animation/DisappearParameters;->fadeStartPosition:F
+
+    iput v1, v2, Lcom/android/systemui/util/animation/DisappearParameters;->fadeStartPosition:F
+
+    invoke-virtual {v0, v2}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->setDisappearParameters(Lcom/android/systemui/util/animation/DisappearParameters;)V
+
+    iget-boolean p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
+
+    iget-boolean v1, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
+
+    if-ne v1, p0, :cond_9
+
+    goto :goto_5
+
+    :cond_9
+    iput-boolean p0, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
+
+    iget-object p0, v0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
+
+    if-nez p0, :cond_a
+
+    goto :goto_5
+
+    :cond_a
+    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
+
+    :goto_5
     return-object v0
 .end method
 
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     instance-of v0, p1, Lcom/android/systemui/media/MediaHostState;
@@ -152,9 +265,7 @@
     return v1
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getMeasurementInput()Lcom/android/systemui/util/animation/MeasurementInput;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
 
     check-cast p1, Lcom/android/systemui/media/MediaHostState;
 
@@ -171,9 +282,7 @@
     return v1
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getExpansion()F
-
-    move-result v0
+    iget v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->expansion:F
 
     invoke-interface {p1}, Lcom/android/systemui/media/MediaHostState;->getExpansion()F
 
@@ -198,9 +307,7 @@
     return v1
 
     :cond_3
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getShowsOnlyActiveMedia()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
 
     invoke-interface {p1}, Lcom/android/systemui/media/MediaHostState;->getShowsOnlyActiveMedia()Z
 
@@ -211,9 +318,7 @@
     return v1
 
     :cond_4
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getVisible()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
 
     invoke-interface {p1}, Lcom/android/systemui/media/MediaHostState;->getVisible()Z
 
@@ -224,9 +329,7 @@
     return v1
 
     :cond_5
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getFalsingProtectionNeeded()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
 
     invoke-interface {p1}, Lcom/android/systemui/media/MediaHostState;->getFalsingProtectionNeeded()Z
 
@@ -237,9 +340,7 @@
     return v1
 
     :cond_6
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->disappearParameters:Lcom/android/systemui/util/animation/DisappearParameters;
 
     invoke-interface {p1}, Lcom/android/systemui/media/MediaHostState;->getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
 
@@ -257,7 +358,7 @@
     return v2
 .end method
 
-.method public getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
+.method public final getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->disappearParameters:Lcom/android/systemui/util/animation/DisappearParameters;
@@ -265,7 +366,7 @@
     return-object p0
 .end method
 
-.method public getExpansion()F
+.method public final getExpansion()F
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->expansion:F
@@ -273,7 +374,7 @@
     return p0
 .end method
 
-.method public getFalsingProtectionNeeded()Z
+.method public final getFalsingProtectionNeeded()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
@@ -281,7 +382,7 @@
     return p0
 .end method
 
-.method public getMeasurementInput()Lcom/android/systemui/util/animation/MeasurementInput;
+.method public final getMeasurementInput()Lcom/android/systemui/util/animation/MeasurementInput;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
@@ -289,7 +390,7 @@
     return-object p0
 .end method
 
-.method public getShowsOnlyActiveMedia()Z
+.method public final getShowsOnlyActiveMedia()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
@@ -297,7 +398,7 @@
     return p0
 .end method
 
-.method public getVisible()Z
+.method public final getVisible()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
@@ -305,12 +406,10 @@
     return p0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getMeasurementInput()Lcom/android/systemui/util/animation/MeasurementInput;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
 
     if-nez v0, :cond_0
 
@@ -326,95 +425,65 @@
     :goto_0
     mul-int/lit8 v0, v0, 0x1f
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getExpansion()F
-
-    move-result v1
+    iget v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->expansion:F
 
     invoke-static {v1}, Ljava/lang/Float;->hashCode(F)I
 
     move-result v1
 
+    add-int/2addr v1, v0
+
+    mul-int/lit8 v1, v1, 0x1f
+
+    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
+
+    invoke-static {v0}, Ljava/lang/Boolean;->hashCode(Z)I
+
+    move-result v0
+
     add-int/2addr v0, v1
 
     mul-int/lit8 v0, v0, 0x1f
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getFalsingProtectionNeeded()Z
-
-    move-result v1
+    iget-boolean v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
 
     invoke-static {v1}, Ljava/lang/Boolean;->hashCode(Z)I
 
     move-result v1
 
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getShowsOnlyActiveMedia()Z
+    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
 
-    move-result v1
+    if-eqz v0, :cond_1
 
-    invoke-static {v1}, Ljava/lang/Boolean;->hashCode(Z)I
-
-    move-result v1
-
-    add-int/2addr v0, v1
-
-    mul-int/lit8 v0, v0, 0x1f
-
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getVisible()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_1
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
     :goto_1
-    add-int/2addr v0, v1
+    add-int/2addr v1, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v1, v1, 0x1f
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->disappearParameters:Lcom/android/systemui/util/animation/DisappearParameters;
 
     invoke-virtual {p0}, Lcom/android/systemui/util/animation/DisappearParameters;->hashCode()I
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v1
 
-    return v0
+    return p0
 .end method
 
-.method public final setChangedListener(Lkotlin/jvm/functions/Function0;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lkotlin/jvm/functions/Function0<",
-            "Lkotlin/Unit;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
-
-    return-void
-.end method
-
-.method public setDisappearParameters(Lcom/android/systemui/util/animation/DisappearParameters;)V
+.method public final setDisappearParameters(Lcom/android/systemui/util/animation/DisappearParameters;)V
     .locals 3
-
-    const-string/jumbo v0, "value"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p1}, Lcom/android/systemui/util/animation/DisappearParameters;->hashCode()I
 
@@ -456,7 +525,7 @@
     return-void
 .end method
 
-.method public setExpansion(F)V
+.method public final setExpansion(F)V
     .locals 2
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
@@ -487,136 +556,6 @@
     invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
 
     :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method public setFalsingProtectionNeeded(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->falsingProtectionNeeded:Z
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
-
-    if-nez p0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-
-    :goto_0
-    return-void
-.end method
-
-.method public setMeasurementInput(Lcom/android/systemui/util/animation/MeasurementInput;)V
-    .locals 2
-
-    if-nez p1, :cond_0
-
-    const/4 v0, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
-
-    invoke-virtual {p1, v0}, Lcom/android/systemui/util/animation/MeasurementInput;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    :goto_0
-    sget-object v1, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
-
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    iput-object p1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->measurementInput:Lcom/android/systemui/util/animation/MeasurementInput;
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
-
-    if-nez p0, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-
-    :cond_2
-    :goto_1
-    return-void
-.end method
-
-.method public setShowsOnlyActiveMedia(Z)V
-    .locals 2
-
-    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v0
-
-    iget-boolean v1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
-
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iput-boolean p1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->showsOnlyActiveMedia:Z
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-
-    :cond_1
-    :goto_0
-    return-void
-.end method
-
-.method public setVisible(Z)V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
-
-    if-ne v0, p1, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean p1, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->visible:Z
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;->changedListener:Lkotlin/jvm/functions/Function0;
-
-    if-nez p0, :cond_1
-
-    goto :goto_0
-
-    :cond_1
-    invoke-interface {p0}, Lkotlin/jvm/functions/Function0;->invoke()Ljava/lang/Object;
-
     :goto_0
     return-void
 .end method

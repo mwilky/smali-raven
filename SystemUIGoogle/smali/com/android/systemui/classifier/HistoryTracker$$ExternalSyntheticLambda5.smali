@@ -1,29 +1,24 @@
 .class public final synthetic Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/util/function/Function;
+.implements Ljava/util/function/Consumer;
 
 
-# static fields
-.field public static final synthetic INSTANCE:Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;
+# instance fields
+.field public final synthetic $r8$classId:I
+
+.field public final synthetic f$0:Ljava/lang/Object;
 
 
 # direct methods
-.method static synthetic constructor <clinit>()V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;
-
-    invoke-direct {v0}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;-><init>()V
-
-    sput-object v0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;
-
-    return-void
-.end method
-
-.method private synthetic constructor <init>()V
+.method public synthetic constructor <init>(ILjava/lang/Object;)V
     .locals 0
+
+    iput p1, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->$r8$classId:I
+
+    iput-object p2, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->f$0:Ljava/lang/Object;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -32,18 +27,75 @@
 
 
 # virtual methods
-.method public final apply(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final accept(Ljava/lang/Object;)V
+    .locals 2
 
-    check-cast p1, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;
+    iget v0, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->$r8$classId:I
 
-    invoke-virtual {p1}, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->getScore()D
+    packed-switch v0, :pswitch_data_0
 
-    move-result-wide p0
+    goto :goto_0
 
-    invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->f$0:Ljava/lang/Object;
 
-    move-result-object p0
+    check-cast p0, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;
 
-    return-object p0
+    check-cast p1, Landroid/net/wifi/hotspot2/PasspointConfiguration;
+
+    iget-object p0, p0, Lcom/android/wifitrackerlib/PasspointNetworkDetailsTracker;->mChosenEntry:Lcom/android/wifitrackerlib/PasspointWifiEntry;
+
+    invoke-virtual {p0, p1}, Lcom/android/wifitrackerlib/PasspointWifiEntry;->updatePasspointConfig(Landroid/net/wifi/hotspot2/PasspointConfiguration;)V
+
+    return-void
+
+    :pswitch_1
+    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/navigationbar/NavigationBarView;
+
+    check-cast p1, Lcom/android/wm/shell/pip/Pip;
+
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/NavigationBarView;->mPipListener:Lcom/android/systemui/navigationbar/NavigationBarView$$ExternalSyntheticLambda1;
+
+    invoke-interface {p1, p0}, Lcom/android/wm/shell/pip/Pip;->addPipExclusionBoundsChangeListener(Ljava/util/function/Consumer;)V
+
+    return-void
+
+    :pswitch_2
+    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/classifier/HistoryTracker;
+
+    check-cast p1, Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;
+
+    invoke-virtual {p0}, Lcom/android/systemui/classifier/HistoryTracker;->falseBelief()D
+
+    move-result-wide v0
+
+    invoke-interface {p1, v0, v1}, Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;->onBeliefChanged(D)V
+
+    return-void
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/google/android/systemui/assist/uihints/edgelights/EdgeLightsView;
+
+    check-cast p1, Lcom/google/android/systemui/assist/uihints/edgelights/EdgeLightsListener;
+
+    iget-object v0, p0, Lcom/google/android/systemui/assist/uihints/edgelights/EdgeLightsView;->mMode:Lcom/google/android/systemui/assist/uihints/edgelights/EdgeLightsView$Mode;
+
+    iget-object p0, p0, Lcom/google/android/systemui/assist/uihints/edgelights/EdgeLightsView;->mAssistLights:[Lcom/android/systemui/assist/ui/EdgeLight;
+
+    invoke-interface {p1, v0, p0}, Lcom/google/android/systemui/assist/uihints/edgelights/EdgeLightsListener;->onAssistLightsUpdated(Lcom/google/android/systemui/assist/uihints/edgelights/EdgeLightsView$Mode;[Lcom/android/systemui/assist/ui/EdgeLight;)V
+
+    return-void
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

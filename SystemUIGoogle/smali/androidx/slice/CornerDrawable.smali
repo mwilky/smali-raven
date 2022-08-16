@@ -1,27 +1,17 @@
-.class public Landroidx/slice/CornerDrawable;
+.class public final Landroidx/slice/CornerDrawable;
 .super Landroid/graphics/drawable/InsetDrawable;
 .source "CornerDrawable.java"
 
 
 # instance fields
-.field private mCornerRadius:F
+.field public mCornerRadius:F
 
-.field private final mPath:Landroid/graphics/Path;
+.field public final mPath:Landroid/graphics/Path;
 
 
 # direct methods
 .method public constructor <init>(Landroid/graphics/drawable/Drawable;F)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "drawable",
-            "cornerRadius"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -40,16 +30,8 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
@@ -66,16 +48,8 @@
     return-void
 .end method
 
-.method protected onBoundsChange(Landroid/graphics/Rect;)V
+.method public final onBoundsChange(Landroid/graphics/Rect;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "r"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/slice/CornerDrawable;->mPath:Landroid/graphics/Path;
 

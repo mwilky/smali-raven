@@ -17,6 +17,7 @@
         <item>Maximaal 3 processen</item>
         <item>Maximaal 4 processen</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Uit</item>
         <item>Aan</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Niet beschikbaar</item>
+        <item>Uit</item>
+        <item>Aan</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Niet beschikbaar</item>
         <item>Uit</item>
@@ -306,6 +312,16 @@
         <item>Aan</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Niet beschikbaar</item>
+        <item>Uit</item>
+        <item>Aan</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Niet beschikbaar</item>
+        <item>Uit</item>
+        <item>Aan</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Niet beschikbaar</item>
         <item>Uit</item>
         <item>Aan</item>
@@ -374,6 +390,12 @@
         <item>Heel erg snel</item>
         <item>Snelst</item>
         <item>Allersnelst</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Naar links verplaatsen</item>
+        <item>Omlaag verplaatsen</item>
+        <item>Naar rechts verplaatsen</item>
+        <item>Omhoog verplaatsen</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Opladen</item>

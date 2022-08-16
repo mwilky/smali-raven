@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/media/RingtonePlayer$Client;
+.class public final Lcom/android/systemui/media/RingtonePlayer$Client;
 .super Ljava/lang/Object;
 .source "RingtonePlayer.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "Client"
 .end annotation
 
 
 # instance fields
-.field private final mRingtone:Landroid/media/Ringtone;
+.field public final mRingtone:Landroid/media/Ringtone;
 
-.field private final mToken:Landroid/os/IBinder;
+.field public final mToken:Landroid/os/IBinder;
 
-.field final synthetic this$0:Lcom/android/systemui/media/RingtonePlayer;
+.field public final synthetic this$0:Lcom/android/systemui/media/RingtonePlayer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/RingtonePlayer;Landroid/os/IBinder;Landroid/net/Uri;Landroid/os/UserHandle;Landroid/media/AudioAttributes;Landroid/media/VolumeShaper$Configuration;)V
+.method public constructor <init>(Lcom/android/systemui/media/RingtonePlayer;Landroid/os/IBinder;Landroid/net/Uri;Landroid/os/UserHandle;Landroid/media/AudioAttributes;Landroid/media/VolumeShaper$Configuration;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/RingtonePlayer$Client;->this$0:Lcom/android/systemui/media/RingtonePlayer;
@@ -37,7 +37,7 @@
 
     new-instance p2, Landroid/media/Ringtone;
 
-    invoke-static {p1, p4}, Lcom/android/systemui/media/RingtonePlayer;->access$000(Lcom/android/systemui/media/RingtonePlayer;Landroid/os/UserHandle;)Landroid/content/Context;
+    invoke-static {p1, p4}, Lcom/android/systemui/media/RingtonePlayer;->-$$Nest$mgetContextForUser(Lcom/android/systemui/media/RingtonePlayer;Landroid/os/UserHandle;)Landroid/content/Context;
 
     move-result-object p1
 
@@ -54,41 +54,21 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/media/RingtonePlayer$Client;)Landroid/media/Ringtone;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/media/RingtonePlayer$Client;->mRingtone:Landroid/media/Ringtone;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/media/RingtonePlayer$Client;)Landroid/os/IBinder;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/media/RingtonePlayer$Client;->mToken:Landroid/os/IBinder;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public binderDied()V
+.method public final binderDied()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/media/RingtonePlayer$Client;->this$0:Lcom/android/systemui/media/RingtonePlayer;
 
-    invoke-static {v0}, Lcom/android/systemui/media/RingtonePlayer;->access$100(Lcom/android/systemui/media/RingtonePlayer;)Ljava/util/HashMap;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/RingtonePlayer;->mClients:Ljava/util/HashMap;
 
     monitor-enter v0
 
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/media/RingtonePlayer$Client;->this$0:Lcom/android/systemui/media/RingtonePlayer;
 
-    invoke-static {v1}, Lcom/android/systemui/media/RingtonePlayer;->access$100(Lcom/android/systemui/media/RingtonePlayer;)Ljava/util/HashMap;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/media/RingtonePlayer;->mClients:Ljava/util/HashMap;
 
     iget-object v2, p0, Lcom/android/systemui/media/RingtonePlayer$Client;->mToken:Landroid/os/IBinder;
 

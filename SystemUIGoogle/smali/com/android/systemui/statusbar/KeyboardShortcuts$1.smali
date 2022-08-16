@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/KeyboardShortcuts$1;
+.class public final Lcom/android/systemui/statusbar/KeyboardShortcuts$1;
 .super Ljava/lang/Object;
 .source "KeyboardShortcuts.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/KeyboardShortcuts;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/KeyboardShortcuts;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$1;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
@@ -34,12 +34,21 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$1;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->access$000(Lcom/android/systemui/statusbar/KeyboardShortcuts;)V
+    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/AlertDialog;
 
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/Dialog;->dismiss()V
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/AlertDialog;
+
+    :cond_0
     return-void
 .end method

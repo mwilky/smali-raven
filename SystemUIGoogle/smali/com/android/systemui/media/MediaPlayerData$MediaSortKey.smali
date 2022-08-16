@@ -15,22 +15,18 @@
 
 
 # instance fields
-.field private final data:Lcom/android/systemui/media/MediaData;
+.field public final data:Lcom/android/systemui/media/MediaData;
 
-.field private final isSsMediaRec:Z
+.field public final isSsMediaRec:Z
 
-.field private final isSsReactivated:Z
+.field public final isSsReactivated:Z
 
-.field private final updateTime:J
+.field public final updateTime:J
 
 
 # direct methods
 .method public constructor <init>(ZLcom/android/systemui/media/MediaData;JZ)V
-    .locals 1
-
-    const-string v0, "data"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,7 +43,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 7
 
     const/4 v0, 0x1
@@ -113,24 +109,8 @@
     return v0
 .end method
 
-.method public final getData()Lcom/android/systemui/media/MediaData;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->data:Lcom/android/systemui/media/MediaData;
-
-    return-object p0
-.end method
-
-.method public final getUpdateTime()J
-    .locals 2
-
-    iget-wide v0, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->updateTime:J
-
-    return-wide v0
-.end method
-
-.method public hashCode()I
-    .locals 4
+.method public final hashCode()I
+    .locals 5
 
     iget-boolean v0, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->isSsMediaRec:Z
 
@@ -149,15 +129,15 @@
 
     move-result v2
 
-    add-int/2addr v0, v2
+    add-int/2addr v2, v0
 
-    mul-int/lit8 v0, v0, 0x1f
+    mul-int/lit8 v2, v2, 0x1f
 
-    iget-wide v2, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->updateTime:J
+    iget-wide v3, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->updateTime:J
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->hashCode(J)I
+    invoke-static {v3, v4}, Ljava/lang/Long;->hashCode(J)I
 
-    move-result v2
+    move-result v0
 
     add-int/2addr v0, v2
 
@@ -178,32 +158,14 @@
     return v0
 .end method
 
-.method public final isSsMediaRec()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->isSsMediaRec:Z
-
-    return p0
-.end method
-
-.method public final isSsReactivated()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->isSsReactivated:Z
-
-    return p0
-.end method
-
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "MediaSortKey(isSsMediaRec="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "MediaSortKey(isSsMediaRec="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-boolean v1, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->isSsMediaRec:Z
 
@@ -231,13 +193,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/media/MediaPlayerData$MediaSortKey;->isSsReactivated:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x29
 
-    const/16 p0, 0x29
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

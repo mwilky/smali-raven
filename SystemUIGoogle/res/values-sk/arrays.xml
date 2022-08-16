@@ -17,6 +17,7 @@
         <item>Najviac 3 procesy</item>
         <item>Najviac 4 procesy</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Vypnuté</item>
         <item>Zapnuté</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Nedostupné</item>
+        <item>Vypnuté</item>
+        <item>Zapnuté</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Nie je k dispozícii</item>
         <item>Vypnuté</item>
@@ -309,6 +315,16 @@
         <item>Nie je k dispozícii</item>
         <item>Vypnuté</item>
         <item>Zapnuté</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Nedostupné</item>
+        <item>Vypnuté</item>
+        <item>Zapnuté</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Nie je k dispozícii</item>
+        <item>Vypnutý</item>
+        <item>Zapnutý</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>Nie je k dispozícii</item>
@@ -374,6 +390,12 @@
         <item>Svižne</item>
         <item>Veľmi rýchlo</item>
         <item>Najrýchlejšie</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Posunúť doľava</item>
+        <item>Posunúť nadol</item>
+        <item>Posunúť doprava</item>
+        <item>Posunúť nahor</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Nabíja sa</item>

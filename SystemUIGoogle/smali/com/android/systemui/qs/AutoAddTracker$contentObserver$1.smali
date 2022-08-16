@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/AutoAddTracker;
+.field public final synthetic this$0:Lcom/android/systemui/qs/AutoAddTracker;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/AutoAddTracker;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/qs/AutoAddTracker;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/AutoAddTracker$contentObserver$1;->this$0:Lcom/android/systemui/qs/AutoAddTracker;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onChange(ZLjava/util/Collection;II)V
+.method public final onChange(ZLjava/util/Collection;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -43,24 +43,16 @@
         }
     .end annotation
 
-    const-string/jumbo p1, "uris"
+    iget-object p0, p0, Lcom/android/systemui/qs/AutoAddTracker$contentObserver$1;->this$0:Lcom/android/systemui/qs/AutoAddTracker;
 
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/AutoAddTracker$contentObserver$1;->this$0:Lcom/android/systemui/qs/AutoAddTracker;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/AutoAddTracker;->access$getUserId$p(Lcom/android/systemui/qs/AutoAddTracker;)I
-
-    move-result p1
+    iget p1, p0, Lcom/android/systemui/qs/AutoAddTracker;->userId:I
 
     if-eq p4, p1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/AutoAddTracker$contentObserver$1;->this$0:Lcom/android/systemui/qs/AutoAddTracker;
-
-    invoke-static {p0}, Lcom/android/systemui/qs/AutoAddTracker;->access$loadTiles(Lcom/android/systemui/qs/AutoAddTracker;)V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/AutoAddTracker;->loadTiles()V
 
     return-void
 .end method

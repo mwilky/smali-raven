@@ -65,19 +65,9 @@
     return-object p0
 .end method
 
-.method public static getArc([I[D[[D)Landroidx/constraintlayout/motion/utils/CurveFit;
-    .locals 1
-
-    new-instance v0, Landroidx/constraintlayout/motion/utils/ArcCurveFit;
-
-    invoke-direct {v0, p0, p1, p2}, Landroidx/constraintlayout/motion/utils/ArcCurveFit;-><init>([I[D[[D)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public abstract getPos(DI)D
+.method public abstract getPos(D)D
 .end method
 
 .method public abstract getPos(D[D)V
@@ -86,7 +76,7 @@
 .method public abstract getPos(D[F)V
 .end method
 
-.method public abstract getSlope(DI)D
+.method public abstract getSlope(D)D
 .end method
 
 .method public abstract getSlope(D[D)V

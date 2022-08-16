@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/privacy/PrivacyDialogController$startActivity$1;
+.class public final Lcom/android/systemui/privacy/PrivacyDialogController$startActivity$1;
 .super Ljava/lang/Object;
 .source "PrivacyDialogController.kt"
 
@@ -6,23 +6,12 @@
 .implements Lcom/android/systemui/plugins/ActivityStarter$Callback;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/privacy/PrivacyDialogController;->startActivity(Ljava/lang/String;I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/privacy/PrivacyDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/privacy/PrivacyDialogController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/privacy/PrivacyDialogController$startActivity$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
@@ -41,26 +30,31 @@
 
     move-result p1
 
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialogController$startActivity$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/privacy/PrivacyDialogController;->dismissDialog()V
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialogController;->dialog:Landroid/app/Dialog;
+
+    if-nez p0, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialogController$startActivity$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
-
-    invoke-static {p0}, Lcom/android/systemui/privacy/PrivacyDialogController;->access$getDialog$p(Lcom/android/systemui/privacy/PrivacyDialogController;)Landroid/app/Dialog;
-
-    move-result-object p0
-
-    if-nez p0, :cond_1
+    invoke-virtual {p0}, Landroid/app/Dialog;->dismiss()V
 
     goto :goto_0
 
     :cond_1
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialogController$startActivity$1;->this$0:Lcom/android/systemui/privacy/PrivacyDialogController;
+
+    iget-object p0, p0, Lcom/android/systemui/privacy/PrivacyDialogController;->dialog:Landroid/app/Dialog;
+
+    if-nez p0, :cond_2
+
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {p0}, Landroid/app/Dialog;->show()V
 
     :goto_0

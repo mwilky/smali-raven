@@ -15,7 +15,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -23,48 +23,32 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+.method public static final access$subProgress(FFF)F
+    .locals 2
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/charging/RippleShader$Companion;-><init>()V
+    sget-object v0, Lcom/android/systemui/statusbar/charging/RippleShader;->Companion:Lcom/android/systemui/statusbar/charging/RippleShader$Companion;
 
-    return-void
-.end method
-
-.method public static final synthetic access$subProgress(Lcom/android/systemui/statusbar/charging/RippleShader$Companion;FFF)F
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/charging/RippleShader$Companion;->subProgress(FFF)F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private final subProgress(FFF)F
-    .locals 1
-
-    invoke-static {p1, p2}, Ljava/lang/Math;->min(FF)F
-
-    move-result p0
-
-    invoke-static {p1, p2}, Ljava/lang/Math;->max(FF)F
+    invoke-static {p0, p1}, Ljava/lang/Math;->min(FF)F
 
     move-result v0
 
-    invoke-static {p3, p0}, Ljava/lang/Math;->max(FF)F
+    invoke-static {p0, p1}, Ljava/lang/Math;->max(FF)F
 
-    move-result p0
+    move-result v1
 
-    invoke-static {p0, v0}, Ljava/lang/Math;->min(FF)F
+    invoke-static {p2, v0}, Ljava/lang/Math;->max(FF)F
 
-    move-result p0
+    move-result p2
 
-    sub-float/2addr p0, p1
+    invoke-static {p2, v1}, Ljava/lang/Math;->min(FF)F
 
-    sub-float/2addr p2, p1
+    move-result p2
 
-    div-float/2addr p0, p2
+    sub-float/2addr p2, p0
 
-    return p0
+    sub-float/2addr p1, p0
+
+    div-float/2addr p2, p1
+
+    return p2
 .end method

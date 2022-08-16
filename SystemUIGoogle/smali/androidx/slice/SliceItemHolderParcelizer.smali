@@ -8,7 +8,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroidx/slice/SliceItemHolder$SliceItemPool;
@@ -30,21 +30,41 @@
 
 .method public static read(Landroidx/versionedparcelable/VersionedParcel;)Landroidx/slice/SliceItemHolder;
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parcel"
-        }
-    .end annotation
 
     sget-object v0, Landroidx/slice/SliceItemHolderParcelizer;->sBuilder:Landroidx/slice/SliceItemHolder$SliceItemPool;
 
-    invoke-virtual {v0}, Landroidx/slice/SliceItemHolder$SliceItemPool;->get()Landroidx/slice/SliceItemHolder;
+    iget-object v1, v0, Landroidx/slice/SliceItemHolder$SliceItemPool;->mCached:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    if-lez v1, :cond_0
+
+    iget-object v0, v0, Landroidx/slice/SliceItemHolder$SliceItemPool;->mCached:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
     move-result-object v0
 
+    check-cast v0, Landroidx/slice/SliceItemHolder;
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v1, Landroidx/slice/SliceItemHolder;
+
+    invoke-direct {v1, v0}, Landroidx/slice/SliceItemHolder;-><init>(Landroidx/slice/SliceItemHolder$SliceItemPool;)V
+
+    move-object v0, v1
+
+    :goto_0
     iget-object v1, v0, Landroidx/slice/SliceItemHolder;->mVersionedParcelable:Landroidx/versionedparcelable/VersionedParcelable;
 
     const/4 v2, 0x1
@@ -69,7 +89,7 @@
 
     const/4 v2, 0x3
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readString(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-virtual {p0, v2, v1}, Landroidx/versionedparcelable/VersionedParcel;->readString(ILjava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -89,47 +109,59 @@
 
     const/4 v3, 0x5
 
-    invoke-virtual {p0, v1, v2, v3}, Landroidx/versionedparcelable/VersionedParcel;->readLong(JI)J
+    invoke-virtual {p0, v3}, Landroidx/versionedparcelable/VersionedParcel;->readField(I)Z
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0}, Landroidx/versionedparcelable/VersionedParcel;->readLong()J
 
     move-result-wide v1
 
+    :goto_1
     iput-wide v1, v0, Landroidx/slice/SliceItemHolder;->mLong:J
 
     iget-object v1, v0, Landroidx/slice/SliceItemHolder;->mBundle:Landroid/os/Bundle;
 
     const/4 v2, 0x6
 
-    invoke-virtual {p0, v1, v2}, Landroidx/versionedparcelable/VersionedParcel;->readBundle(Landroid/os/Bundle;I)Landroid/os/Bundle;
+    invoke-virtual {p0, v2}, Landroidx/versionedparcelable/VersionedParcel;->readField(I)Z
 
-    move-result-object p0
+    move-result v2
 
-    iput-object p0, v0, Landroidx/slice/SliceItemHolder;->mBundle:Landroid/os/Bundle;
+    if-nez v2, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    invoke-virtual {p0}, Landroidx/versionedparcelable/VersionedParcel;->readBundle()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    :goto_2
+    iput-object v1, v0, Landroidx/slice/SliceItemHolder;->mBundle:Landroid/os/Bundle;
 
     return-object v0
 .end method
 
 .method public static write(Landroidx/slice/SliceItemHolder;Landroidx/versionedparcelable/VersionedParcel;)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "obj",
-            "parcel"
-        }
-    .end annotation
 
-    const/4 v0, 0x1
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {p1, v0, v0}, Landroidx/versionedparcelable/VersionedParcel;->setSerializationFlags(ZZ)V
+    iget-object v0, p0, Landroidx/slice/SliceItemHolder;->mVersionedParcelable:Landroidx/versionedparcelable/VersionedParcelable;
 
-    iget-object v1, p0, Landroidx/slice/SliceItemHolder;->mVersionedParcelable:Landroidx/versionedparcelable/VersionedParcelable;
+    if-eqz v0, :cond_0
 
-    if-eqz v1, :cond_0
+    const/4 v1, 0x1
 
-    invoke-virtual {p1, v1, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeVersionedParcelable(Landroidx/versionedparcelable/VersionedParcelable;I)V
+    invoke-virtual {p1, v1}, Landroidx/versionedparcelable/VersionedParcel;->setOutputField(I)V
+
+    invoke-virtual {p1, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeVersionedParcelable(Landroidx/versionedparcelable/VersionedParcelable;)V
 
     :cond_0
     iget-object v0, p0, Landroidx/slice/SliceItemHolder;->mParcelable:Landroid/os/Parcelable;
@@ -147,7 +179,7 @@
 
     const/4 v1, 0x3
 
-    invoke-virtual {p1, v0, v1}, Landroidx/versionedparcelable/VersionedParcel;->writeString(Ljava/lang/String;I)V
+    invoke-virtual {p1, v1, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeString(ILjava/lang/String;)V
 
     :cond_2
     iget v0, p0, Landroidx/slice/SliceItemHolder;->mInt:I
@@ -169,7 +201,9 @@
 
     const/4 v0, 0x5
 
-    invoke-virtual {p1, v2, v3, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeLong(JI)V
+    invoke-virtual {p1, v0}, Landroidx/versionedparcelable/VersionedParcel;->setOutputField(I)V
+
+    invoke-virtual {p1, v2, v3}, Landroidx/versionedparcelable/VersionedParcel;->writeLong(J)V
 
     :cond_4
     iget-object p0, p0, Landroidx/slice/SliceItemHolder;->mBundle:Landroid/os/Bundle;
@@ -178,7 +212,9 @@
 
     const/4 v0, 0x6
 
-    invoke-virtual {p1, p0, v0}, Landroidx/versionedparcelable/VersionedParcel;->writeBundle(Landroid/os/Bundle;I)V
+    invoke-virtual {p1, v0}, Landroidx/versionedparcelable/VersionedParcel;->setOutputField(I)V
+
+    invoke-virtual {p1, p0}, Landroidx/versionedparcelable/VersionedParcel;->writeBundle(Landroid/os/Bundle;)V
 
     :cond_5
     return-void

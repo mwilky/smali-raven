@@ -15,71 +15,30 @@
 
 
 # instance fields
-.field private final mComponentName:Landroid/content/ComponentName;
+.field public final mComponentName:Landroid/content/ComponentName;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/ComponentName;)V
+.method public constructor <init>(Landroid/content/ComponentName;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "componentName"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    if-eqz p1, :cond_0
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;->mComponentName:Landroid/content/ComponentName;
 
     return-void
-
-    :cond_0
-    new-instance p0, Ljava/lang/IllegalArgumentException;
-
-    const-string p1, "componentName must not be null"
-
-    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p0
 .end method
 
 
 # virtual methods
-.method public getComponentName()Landroid/content/ComponentName;
-    .locals 0
+.method public final toString()Ljava/lang/String;
+    .locals 1
 
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;->mComponentName:Landroid/content/ComponentName;
+    const-string v0, "ProviderMetadata{ componentName="
 
-    return-object p0
-.end method
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-.method public getPackageName()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;->mComponentName:Landroid/content/ComponentName;
-
-    invoke-virtual {p0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "ProviderMetadata{ componentName="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRouteProvider$ProviderMetadata;->mComponentName:Landroid/content/ComponentName;
 

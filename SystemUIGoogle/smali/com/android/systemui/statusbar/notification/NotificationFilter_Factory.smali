@@ -18,7 +18,17 @@
 
 
 # instance fields
-.field private final foregroundServiceControllerProvider:Ljavax/inject/Provider;
+.field public final debugNotificationFilterProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/provider/DebugModeFilterProvider;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final foregroundServiceControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final keyguardEnvironmentProvider:Ljavax/inject/Provider;
+.field public final keyguardEnvironmentProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final mediaFeatureFlagProvider:Ljavax/inject/Provider;
+.field public final mediaFeatureFlagProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final userManagerProvider:Ljavax/inject/Provider;
+.field public final userManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -70,11 +80,14 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/provider/DebugModeFilterProvider;",
+            ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;",
@@ -95,24 +108,29 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->debugNotificationFilterProvider:Ljavax/inject/Provider;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->keyguardEnvironmentProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->foregroundServiceControllerProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->keyguardEnvironmentProvider:Ljavax/inject/Provider;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->foregroundServiceControllerProvider:Ljavax/inject/Provider;
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->mediaFeatureFlagProvider:Ljavax/inject/Provider;
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->userManagerProvider:Ljavax/inject/Provider;
+
+    iput-object p6, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->mediaFeatureFlagProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;
-    .locals 7
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/notification/collection/provider/DebugModeFilterProvider;",
+            ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;",
@@ -132,31 +150,9 @@
         }
     .end annotation
 
-    new-instance v6, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;
+    new-instance v7, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;
 
-    move-object v0, v6
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v6
-.end method
-
-.method public static newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;Lcom/android/systemui/ForegroundServiceController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/media/MediaFeatureFlag;)Lcom/android/systemui/statusbar/notification/NotificationFilter;
-    .locals 7
-
-    new-instance v6, Lcom/android/systemui/statusbar/notification/NotificationFilter;
-
-    move-object v0, v6
+    move-object v0, v7
 
     move-object v1, p0
 
@@ -168,15 +164,27 @@
 
     move-object v5, p4
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/notification/NotificationFilter;-><init>(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;Lcom/android/systemui/ForegroundServiceController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/media/MediaFeatureFlag;)V
+    move-object v6, p5
 
-    return-object v6
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+
+    return-object v7
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/NotificationFilter;
-    .locals 4
+.method public final get()Ljava/lang/Object;
+    .locals 8
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->debugNotificationFilterProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v2, v0
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/provider/DebugModeFilterProvider;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
@@ -184,31 +192,39 @@
 
     move-result-object v0
 
-    check-cast v0, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
+    move-object v3, v0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->keyguardEnvironmentProvider:Ljavax/inject/Provider;
+    check-cast v3, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->keyguardEnvironmentProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->foregroundServiceControllerProvider:Ljavax/inject/Provider;
+    move-object v4, v0
 
-    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    check-cast v4, Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->foregroundServiceControllerProvider:Ljavax/inject/Provider;
 
-    check-cast v2, Lcom/android/systemui/ForegroundServiceController;
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->userManagerProvider:Ljavax/inject/Provider;
+    move-result-object v0
 
-    invoke-interface {v3}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    move-object v5, v0
 
-    move-result-object v3
+    check-cast v5, Lcom/android/systemui/ForegroundServiceController;
 
-    check-cast v3, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->userManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v6, v0
+
+    check-cast v6, Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->mediaFeatureFlagProvider:Ljavax/inject/Provider;
 
@@ -216,21 +232,15 @@
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/media/MediaFeatureFlag;
+    move-object v7, p0
 
-    invoke-static {v0, v1, v2, v3, p0}, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->newInstance(Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;Lcom/android/systemui/ForegroundServiceController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/media/MediaFeatureFlag;)Lcom/android/systemui/statusbar/notification/NotificationFilter;
+    check-cast v7, Lcom/android/systemui/media/MediaFeatureFlag;
 
-    move-result-object p0
+    new-instance p0, Lcom/android/systemui/statusbar/notification/NotificationFilter;
 
-    return-object p0
-.end method
+    move-object v1, p0
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationFilter_Factory;->get()Lcom/android/systemui/statusbar/notification/NotificationFilter;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v7}, Lcom/android/systemui/statusbar/notification/NotificationFilter;-><init>(Lcom/android/systemui/statusbar/notification/collection/provider/DebugModeFilterProvider;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;Lcom/android/systemui/ForegroundServiceController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/media/MediaFeatureFlag;)V
 
     return-object p0
 .end method

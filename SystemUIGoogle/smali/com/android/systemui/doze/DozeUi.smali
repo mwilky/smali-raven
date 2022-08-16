@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/doze/DozeUi;
+.class public final Lcom/android/systemui/doze/DozeUi;
 .super Ljava/lang/Object;
 .source "DozeUi.java"
 
@@ -7,82 +7,42 @@
 
 
 # instance fields
-.field private final mCanAnimateTransition:Z
+.field public final mCanAnimateTransition:Z
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mDozeLog:Lcom/android/systemui/doze/DozeLog;
+.field public final mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
-.field private final mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
+.field public final mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-.field private final mHandler:Landroid/os/Handler;
+.field public final mHandler:Landroid/os/Handler;
 
-.field private final mHost:Lcom/android/systemui/doze/DozeHost;
+.field public final mHost:Lcom/android/systemui/doze/DozeHost;
 
-.field private final mKeyguardVisibilityCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+.field public final mKeyguardVisibilityCallback:Lcom/android/systemui/doze/DozeUi$1;
 
-.field private mLastTimeTickElapsed:J
+.field public mLastTimeTickElapsed:J
 
-.field private mMachine:Lcom/android/systemui/doze/DozeMachine;
+.field public mMachine:Lcom/android/systemui/doze/DozeMachine;
 
-.field private final mStatusBarStateController:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-.field private final mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
+.field public final mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
 
-.field private final mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
+.field public final mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$2oXvcafRfs9agk1A4kbfyyGB-ok(Lcom/android/systemui/doze/DozeUi;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->onTimeTick()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$BB1OPQIP3EP9frhxxwOzPbv6P54()V
-    .locals 0
-
-    invoke-static {}, Lcom/android/systemui/doze/DozeUi;->lambda$onTimeTick$0()V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/doze/DozeLog;Ldagger/Lazy;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/app/AlarmManager;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/doze/DozeHost;Landroid/os/Handler;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/doze/DozeLog;)V
     .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Landroid/app/AlarmManager;",
-            "Lcom/android/systemui/util/wakelock/WakeLock;",
-            "Lcom/android/systemui/doze/DozeHost;",
-            "Landroid/os/Handler;",
-            "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            "Lcom/android/keyguard/KeyguardUpdateMonitor;",
-            "Lcom/android/systemui/doze/DozeLog;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     new-instance v0, Lcom/android/systemui/doze/DozeUi$1;
 
-    invoke-direct {v0, p0}, Lcom/android/systemui/doze/DozeUi$1;-><init>(Lcom/android/systemui/doze/DozeUi;)V
+    invoke-direct {v0}, Lcom/android/systemui/doze/DozeUi$1;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mKeyguardVisibilityCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+    iput-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mKeyguardVisibilityCallback:Lcom/android/systemui/doze/DozeUi$1;
 
     const-wide/16 v1, 0x0
 
@@ -120,107 +80,21 @@
 
     invoke-virtual {p7, v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->registerCallback(Lcom/android/keyguard/KeyguardUpdateMonitorCallback;)V
 
-    iput-object p8, p0, Lcom/android/systemui/doze/DozeUi;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
+    iput-object p9, p0, Lcom/android/systemui/doze/DozeUi;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
-    iput-object p9, p0, Lcom/android/systemui/doze/DozeUi;->mStatusBarStateController:Ldagger/Lazy;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/doze/DozeUi;)Lcom/android/systemui/doze/DozeMachine;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
-
-    return-object p0
-.end method
-
-.method private static synthetic lambda$onTimeTick$0()V
-    .locals 0
+    iput-object p8, p0, Lcom/android/systemui/doze/DozeUi;->mStatusBarStateController:Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
     return-void
 .end method
 
-.method private onTimeTick()V
-    .locals 3
 
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->verifyLastTimeTick()V
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-interface {v0}, Lcom/android/systemui/doze/DozeHost;->dozeTimeTick()V
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeUi;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
-
-    sget-object v2, Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda2;
-
-    invoke-interface {v1, v2}, Lcom/android/systemui/util/wakelock/WakeLock;->wrap(Ljava/lang/Runnable;)Ljava/lang/Runnable;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->scheduleTimeTick()V
-
-    return-void
-.end method
-
-.method private pulseWhileDozing(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    new-instance v1, Lcom/android/systemui/doze/DozeUi$2;
-
-    invoke-direct {v1, p0, p1}, Lcom/android/systemui/doze/DozeUi$2;-><init>(Lcom/android/systemui/doze/DozeUi;I)V
-
-    invoke-interface {v0, v1, p1}, Lcom/android/systemui/doze/DozeHost;->pulseWhileDozing(Lcom/android/systemui/doze/DozeHost$PulseCallback;I)V
-
-    return-void
-.end method
-
-.method private roundToNextMinute(J)J
-    .locals 0
-
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
-
-    move-result-object p0
-
-    invoke-virtual {p0, p1, p2}, Ljava/util/Calendar;->setTimeInMillis(J)V
-
-    const/16 p1, 0xe
-
-    const/4 p2, 0x0
-
-    invoke-virtual {p0, p1, p2}, Ljava/util/Calendar;->set(II)V
-
-    const/16 p1, 0xd
-
-    invoke-virtual {p0, p1, p2}, Ljava/util/Calendar;->set(II)V
-
-    const/16 p1, 0xc
-
-    const/4 p2, 0x1
-
-    invoke-virtual {p0, p1, p2}, Ljava/util/Calendar;->add(II)V
-
-    invoke-virtual {p0}, Ljava/util/Calendar;->getTimeInMillis()J
-
-    move-result-wide p0
-
-    return-wide p0
-.end method
-
-.method private scheduleTimeTick()V
-    .locals 6
+# virtual methods
+.method public final scheduleTimeTick()V
+    .locals 8
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
 
-    invoke-virtual {v0}, Lcom/android/systemui/util/AlarmTimeout;->isScheduled()Z
-
-    move-result v0
+    iget-boolean v0, v0, Lcom/android/systemui/util/AlarmTimeout;->mScheduled:Z
 
     if-eqz v0, :cond_0
 
@@ -231,7 +105,29 @@
 
     move-result-wide v0
 
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/doze/DozeUi;->roundToNextMinute(J)J
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0, v1}, Ljava/util/Calendar;->setTimeInMillis(J)V
+
+    const/16 v3, 0xe
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v3, 0xd
+
+    invoke-virtual {v2, v3, v4}, Ljava/util/Calendar;->set(II)V
+
+    const/16 v3, 0xc
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v3, v4}, Ljava/util/Calendar;->add(II)V
+
+    invoke-virtual {v2}, Ljava/util/Calendar;->getTimeInMillis()J
 
     move-result-wide v2
 
@@ -243,9 +139,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
 
-    const/4 v5, 0x1
-
-    invoke-virtual {v4, v2, v3, v5}, Lcom/android/systemui/util/AlarmTimeout;->schedule(JI)Z
+    invoke-virtual {v4, v2, v3}, Lcom/android/systemui/util/AlarmTimeout;->schedule(J)Z
 
     move-result v4
 
@@ -255,7 +149,25 @@
 
     add-long/2addr v2, v0
 
-    invoke-virtual {v4, v0, v1, v2, v3}, Lcom/android/systemui/doze/DozeLog;->traceTimeTickScheduled(JJ)V
+    iget-object v4, v4, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
+
+    iget-object v4, v4, Lcom/android/systemui/doze/DozeLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v5, Lcom/android/systemui/log/LogLevel;->DEBUG:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v6, Lcom/android/systemui/doze/DozeLogger$logTimeTickScheduled$2;->INSTANCE:Lcom/android/systemui/doze/DozeLogger$logTimeTickScheduled$2;
+
+    const-string v7, "DozeLog"
+
+    invoke-virtual {v4, v7, v5, v6}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v5
+
+    iput-wide v0, v5, Lcom/android/systemui/log/LogMessageImpl;->long1:J
+
+    iput-wide v2, v5, Lcom/android/systemui/log/LogMessageImpl;->long2:J
+
+    invoke-virtual {v4, v5}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
 
     :cond_1
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -267,50 +179,213 @@
     return-void
 .end method
 
-.method private unscheduleTimeTick()V
-    .locals 1
+.method public final setDozeMachine(Lcom/android/systemui/doze/DozeMachine;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
-
-    invoke-virtual {v0}, Lcom/android/systemui/util/AlarmTimeout;->isScheduled()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->verifyLastTimeTick()V
-
-    iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/AlarmTimeout;->cancel()V
+    iput-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
 
     return-void
 .end method
 
-.method private updateAnimateWakeup(Lcom/android/systemui/doze/DozeMachine$State;)V
-    .locals 2
+.method public final transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
+    .locals 5
 
-    sget-object v0, Lcom/android/systemui/doze/DozeUi$3;->$SwitchMap$com$android$systemui$doze$DozeMachine$State:[I
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
-    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+    move-result v0
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-eq v0, v2, :cond_9
+
+    const/4 v3, 0x2
+
+    if-eq v0, v3, :cond_7
+
+    const/4 v3, 0x3
+
+    if-eq v0, v3, :cond_4
+
+    const/4 v3, 0x4
+
+    if-eq v0, v3, :cond_1
+
+    packed-switch v0, :pswitch_data_0
+
+    goto/16 :goto_2
+
+    :pswitch_0
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeUi;->scheduleTimeTick()V
+
+    goto/16 :goto_2
+
+    :pswitch_1
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
+
+    invoke-interface {p1}, Lcom/android/systemui/doze/DozeHost;->stopDozing()V
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
+
+    iget-boolean p1, p1, Lcom/android/systemui/util/AlarmTimeout;->mScheduled:Z
+
+    if-nez p1, :cond_0
+
+    goto/16 :goto_2
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeUi;->verifyLastTimeTick()V
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
+
+    invoke-virtual {p1}, Lcom/android/systemui/util/AlarmTimeout;->cancel()V
+
+    goto/16 :goto_2
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeUi;->scheduleTimeTick()V
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
+
+    iget-object v0, p1, Lcom/android/systemui/doze/DozeMachine;->mState:Lcom/android/systemui/doze/DozeMachine$State;
+
+    sget-object v3, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_REQUEST_PULSE:Lcom/android/systemui/doze/DozeMachine$State;
+
+    if-eq v0, v3, :cond_3
+
+    sget-object v3, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_PULSING:Lcom/android/systemui/doze/DozeMachine$State;
+
+    if-eq v0, v3, :cond_3
+
+    sget-object v3, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_PULSING_BRIGHT:Lcom/android/systemui/doze/DozeMachine$State;
+
+    if-eq v0, v3, :cond_3
+
+    sget-object v3, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_PULSE_DONE:Lcom/android/systemui/doze/DozeMachine$State;
+
+    if-ne v0, v3, :cond_2
+
+    goto :goto_0
+
+    :cond_2
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_3
+    :goto_0
+    move v0, v2
+
+    :goto_1
+    const-string v3, "must be in pulsing state, but is "
+
+    invoke-static {v3}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p1, Lcom/android/systemui/doze/DozeMachine;->mState:Lcom/android/systemui/doze/DozeMachine$State;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3}, Lcom/android/internal/util/Preconditions;->checkState(ZLjava/lang/String;)V
+
+    iget p1, p1, Lcom/android/systemui/doze/DozeMachine;->mPulseReason:I
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
+
+    new-instance v3, Lcom/android/systemui/doze/DozeUi$2;
+
+    invoke-direct {v3, p0, p1}, Lcom/android/systemui/doze/DozeUi$2;-><init>(Lcom/android/systemui/doze/DozeUi;I)V
+
+    invoke-interface {v0, v3, p1}, Lcom/android/systemui/doze/DozeHost;->pulseWhileDozing(Lcom/android/systemui/doze/DozeUi$2;I)V
+
+    goto :goto_2
+
+    :cond_4
+    :pswitch_2
+    sget-object v0, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_AOD_PAUSED:Lcom/android/systemui/doze/DozeMachine$State;
+
+    if-eq p1, v0, :cond_5
+
+    sget-object v0, Lcom/android/systemui/doze/DozeMachine$State;->DOZE:Lcom/android/systemui/doze/DozeMachine$State;
+
+    if-ne p1, v0, :cond_6
+
+    :cond_5
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
+
+    invoke-interface {p1}, Lcom/android/systemui/doze/DozeHost;->dozeTimeTick()V
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHandler:Landroid/os/Handler;
+
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
+
+    iget-object v3, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
+
+    invoke-static {v3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v4, Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda1;
+
+    invoke-direct {v4, v1, v3}, Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
+
+    invoke-interface {v0, v4}, Lcom/android/systemui/util/wakelock/WakeLock;->wrap(Ljava/lang/Runnable;)Lcom/android/systemui/util/wakelock/WakeLock$$ExternalSyntheticLambda0;
+
+    move-result-object v0
+
+    const-wide/16 v3, 0x1f4
+
+    invoke-virtual {p1, v0, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    :cond_6
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeUi;->scheduleTimeTick()V
+
+    goto :goto_2
+
+    :cond_7
+    :pswitch_3
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
+
+    iget-boolean p1, p1, Lcom/android/systemui/util/AlarmTimeout;->mScheduled:Z
+
+    if-nez p1, :cond_8
+
+    goto :goto_2
+
+    :cond_8
+    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeUi;->verifyLastTimeTick()V
+
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mTimeTicker:Lcom/android/systemui/util/AlarmTimeout;
+
+    invoke-virtual {p1}, Lcom/android/systemui/util/AlarmTimeout;->cancel()V
+
+    goto :goto_2
+
+    :cond_9
+    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
+
+    invoke-interface {p1}, Lcom/android/systemui/doze/DozeHost;->startDozing()V
+
+    :goto_2
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
 
     move-result p1
 
-    aget p1, v0, p1
+    packed-switch p1, :pswitch_data_1
 
-    const/4 v0, 0x1
-
-    packed-switch p1, :pswitch_data_0
-
-    :pswitch_0
     iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
 
-    iget-boolean v1, p0, Lcom/android/systemui/doze/DozeUi;->mCanAnimateTransition:Z
+    iget-boolean p2, p0, Lcom/android/systemui/doze/DozeUi;->mCanAnimateTransition:Z
 
-    if-eqz v1, :cond_0
+    if-eqz p2, :cond_a
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mDozeParameters:Lcom/android/systemui/statusbar/phone/DozeParameters;
 
@@ -318,39 +393,46 @@
 
     move-result p0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_a
 
-    goto :goto_0
+    move v1, v2
 
-    :pswitch_1
+    goto :goto_3
+
+    :pswitch_4
     iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
 
-    invoke-interface {p0, v0}, Lcom/android/systemui/doze/DozeHost;->setAnimateWakeup(Z)V
+    invoke-interface {p0, v2}, Lcom/android/systemui/doze/DozeHost;->setAnimateWakeup(Z)V
 
-    goto :goto_1
+    goto :goto_4
 
-    :cond_0
-    const/4 v0, 0x0
+    :cond_a
+    :goto_3
+    invoke-interface {p1, v1}, Lcom/android/systemui/doze/DozeHost;->setAnimateWakeup(Z)V
 
-    :goto_0
-    invoke-interface {p1, v0}, Lcom/android/systemui/doze/DozeHost;->setAnimateWakeup(Z)V
-
-    :goto_1
-    :pswitch_2
+    :goto_4
+    :pswitch_5
     return-void
 
     :pswitch_data_0
-    .packed-switch 0x6
+    .packed-switch 0x8
         :pswitch_1
+        :pswitch_3
         :pswitch_0
         :pswitch_2
-        :pswitch_1
-        :pswitch_1
-        :pswitch_1
+    .end packed-switch
+
+    :pswitch_data_1
+    .packed-switch 0x4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_4
+        :pswitch_5
     .end packed-switch
 .end method
 
-.method private verifyLastTimeTick()V
+.method public final verifyLastTimeTick()V
     .locals 4
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -375,7 +457,23 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeUi;->mDozeLog:Lcom/android/systemui/doze/DozeLog;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/doze/DozeLog;->traceMissedTick(Ljava/lang/String;)V
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeLog;->mLogger:Lcom/android/systemui/doze/DozeLogger;
+
+    iget-object p0, p0, Lcom/android/systemui/doze/DozeLogger;->buffer:Lcom/android/systemui/log/LogBuffer;
+
+    sget-object v1, Lcom/android/systemui/log/LogLevel;->ERROR:Lcom/android/systemui/log/LogLevel;
+
+    sget-object v2, Lcom/android/systemui/doze/DozeLogger$logMissedTick$2;->INSTANCE:Lcom/android/systemui/doze/DozeLogger$logMissedTick$2;
+
+    const-string v3, "DozeLog"
+
+    invoke-virtual {p0, v3, v1, v2}, Lcom/android/systemui/log/LogBuffer;->obtain(Ljava/lang/String;Lcom/android/systemui/log/LogLevel;Lkotlin/jvm/functions/Function1;)Lcom/android/systemui/log/LogMessageImpl;
+
+    move-result-object v1
+
+    iput-object v0, v1, Lcom/android/systemui/log/LogMessageImpl;->str1:Ljava/lang/String;
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/log/LogBuffer;->commit(Lcom/android/systemui/log/LogMessageImpl;)V
 
     new-instance p0, Ljava/lang/StringBuilder;
 
@@ -397,125 +495,4 @@
 
     :cond_0
     return-void
-.end method
-
-
-# virtual methods
-.method public setDozeMachine(Lcom/android/systemui/doze/DozeMachine;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
-
-    return-void
-.end method
-
-.method public transitionTo(Lcom/android/systemui/doze/DozeMachine$State;Lcom/android/systemui/doze/DozeMachine$State;)V
-    .locals 3
-
-    sget-object v0, Lcom/android/systemui/doze/DozeUi$3;->$SwitchMap$com$android$systemui$doze$DozeMachine$State:[I
-
-    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    aget v0, v0, v1
-
-    packed-switch v0, :pswitch_data_0
-
-    goto :goto_0
-
-    :pswitch_0
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-interface {p1}, Lcom/android/systemui/doze/DozeHost;->stopDozing()V
-
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->unscheduleTimeTick()V
-
-    goto :goto_0
-
-    :pswitch_1
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-interface {p1}, Lcom/android/systemui/doze/DozeHost;->startDozing()V
-
-    goto :goto_0
-
-    :pswitch_2
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->scheduleTimeTick()V
-
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mMachine:Lcom/android/systemui/doze/DozeMachine;
-
-    invoke-virtual {p1}, Lcom/android/systemui/doze/DozeMachine;->getPulseReason()I
-
-    move-result p1
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeUi;->pulseWhileDozing(I)V
-
-    goto :goto_0
-
-    :pswitch_3
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->unscheduleTimeTick()V
-
-    goto :goto_0
-
-    :pswitch_4
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->scheduleTimeTick()V
-
-    goto :goto_0
-
-    :pswitch_5
-    sget-object v0, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_AOD_PAUSED:Lcom/android/systemui/doze/DozeMachine$State;
-
-    if-eq p1, v0, :cond_0
-
-    sget-object v0, Lcom/android/systemui/doze/DozeMachine$State;->DOZE:Lcom/android/systemui/doze/DozeMachine$State;
-
-    if-ne p1, v0, :cond_1
-
-    :cond_0
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-interface {p1}, Lcom/android/systemui/doze/DozeHost;->dozeTimeTick()V
-
-    iget-object p1, p0, Lcom/android/systemui/doze/DozeUi;->mHandler:Landroid/os/Handler;
-
-    iget-object v0, p0, Lcom/android/systemui/doze/DozeUi;->mWakeLock:Lcom/android/systemui/util/wakelock/WakeLock;
-
-    iget-object v1, p0, Lcom/android/systemui/doze/DozeUi;->mHost:Lcom/android/systemui/doze/DozeHost;
-
-    invoke-static {v1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    new-instance v2, Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda1;
-
-    invoke-direct {v2, v1}, Lcom/android/systemui/doze/DozeUi$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/doze/DozeHost;)V
-
-    invoke-interface {v0, v2}, Lcom/android/systemui/util/wakelock/WakeLock;->wrap(Ljava/lang/Runnable;)Ljava/lang/Runnable;
-
-    move-result-object v0
-
-    const-wide/16 v1, 0x1f4
-
-    invoke-virtual {p1, v0, v1, v2}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/doze/DozeUi;->scheduleTimeTick()V
-
-    :goto_0
-    invoke-direct {p0, p2}, Lcom/android/systemui/doze/DozeUi;->updateAnimateWakeup(Lcom/android/systemui/doze/DozeMachine$State;)V
-
-    return-void
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_5
-        :pswitch_5
-        :pswitch_4
-        :pswitch_3
-        :pswitch_3
-        :pswitch_2
-        :pswitch_1
-        :pswitch_0
-    .end packed-switch
 .end method

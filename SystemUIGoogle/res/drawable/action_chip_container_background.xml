@@ -3,5 +3,5 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
     <solid android:color="?android:^attr-private/colorSurface" />
-    <corners android:radius="@dimen/screenshot_action_container_corner_radius" />
+    <corners android:radius="@dimen/overlay_action_container_corner_radius" />
 </shape>

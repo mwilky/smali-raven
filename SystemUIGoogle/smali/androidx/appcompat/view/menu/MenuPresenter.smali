@@ -12,10 +12,10 @@
 
 
 # virtual methods
-.method public abstract collapseItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
+.method public abstract collapseItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
 .end method
 
-.method public abstract expandItemActionView(Landroidx/appcompat/view/menu/MenuBuilder;Landroidx/appcompat/view/menu/MenuItemImpl;)Z
+.method public abstract expandItemActionView(Landroidx/appcompat/view/menu/MenuItemImpl;)Z
 .end method
 
 .method public abstract flagActionItems()Z

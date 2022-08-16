@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract copy()Lcom/android/systemui/media/MediaHostState;
+.method public abstract copy()Lcom/android/systemui/media/MediaHost$MediaHostStateHolder;
 .end method
 
 .method public abstract getDisappearParameters()Lcom/android/systemui/util/animation/DisappearParameters;
@@ -23,7 +23,4 @@
 .end method
 
 .method public abstract getVisible()Z
-.end method
-
-.method public abstract setExpansion(F)V
 .end method

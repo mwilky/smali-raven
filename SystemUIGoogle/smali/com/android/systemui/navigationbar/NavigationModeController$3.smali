@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/NavigationModeController$3;
+.class public final Lcom/android/systemui/navigationbar/NavigationModeController$3;
 .super Ljava/lang/Object;
 .source "NavigationModeController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationModeController;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/NavigationModeController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/NavigationModeController;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/NavigationModeController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationModeController$3;->this$0:Lcom/android/systemui/navigationbar/NavigationModeController;
@@ -34,12 +34,10 @@
 
 
 # virtual methods
-.method public onThemeChanged()V
+.method public final onThemeChanged()V
     .locals 2
 
-    invoke-static {}, Lcom/android/systemui/navigationbar/NavigationModeController;->access$000()Ljava/lang/String;
-
-    move-result-object v0
+    const-string v0, "NavigationModeController"
 
     const-string v1, "onOverlayChanged"
 

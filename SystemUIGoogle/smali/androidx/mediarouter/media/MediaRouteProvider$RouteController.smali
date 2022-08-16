@@ -39,14 +39,6 @@
 
 .method public onSetVolume(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "volume"
-        }
-    .end annotation
 
     return-void
 .end method
@@ -61,14 +53,6 @@
 
 .method public onUnselect(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "reason"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouteProvider$RouteController;->onUnselect()V
 
@@ -77,14 +61,6 @@
 
 .method public onUpdateVolume(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "delta"
-        }
-    .end annotation
 
     return-void
 .end method

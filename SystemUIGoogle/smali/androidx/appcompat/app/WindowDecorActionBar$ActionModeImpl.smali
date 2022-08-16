@@ -1,4 +1,4 @@
-.class public Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;
+.class public final Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;
 .super Landroidx/appcompat/view/ActionMode;
 .source "WindowDecorActionBar.java"
 
@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field private final mActionModeContext:Landroid/content/Context;
+.field public final mActionModeContext:Landroid/content/Context;
 
-.field private mCallback:Landroidx/appcompat/view/ActionMode$Callback;
+.field public mCallback:Landroidx/appcompat/view/ActionMode$Callback;
 
-.field private mCustomView:Ljava/lang/ref/WeakReference;
+.field public mCustomView:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -32,13 +32,13 @@
     .end annotation
 .end field
 
-.field private final mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
+.field public final mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
-.field final synthetic this$0:Landroidx/appcompat/app/WindowDecorActionBar;
+.field public final synthetic this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
 
 # direct methods
-.method public constructor <init>(Landroidx/appcompat/app/WindowDecorActionBar;Landroid/content/Context;Landroidx/appcompat/view/ActionMode$Callback;)V
+.method public constructor <init>(Landroidx/appcompat/app/WindowDecorActionBar;Landroid/content/Context;Landroidx/appcompat/app/AppCompatDelegateImpl$ActionModeCallbackWrapperV9;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
@@ -55,55 +55,19 @@
 
     const/4 p2, 0x1
 
-    invoke-virtual {p1, p2}, Landroidx/appcompat/view/menu/MenuBuilder;->setDefaultShowAsAction(I)Landroidx/appcompat/view/menu/MenuBuilder;
-
-    move-result-object p1
+    iput p2, p1, Landroidx/appcompat/view/menu/MenuBuilder;->mDefaultShowAsAction:I
 
     iput-object p1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
-    invoke-virtual {p1, p0}, Landroidx/appcompat/view/menu/MenuBuilder;->setCallback(Landroidx/appcompat/view/menu/MenuBuilder$Callback;)V
+    iput-object p0, p1, Landroidx/appcompat/view/menu/MenuBuilder;->mCallback:Landroidx/appcompat/view/menu/MenuBuilder$Callback;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public dispatchOnCreate()Z
-    .locals 2
-
-    iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
-
-    invoke-virtual {v0}, Landroidx/appcompat/view/menu/MenuBuilder;->stopDispatchingItemsChanged()V
-
-    :try_start_0
-    iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroidx/appcompat/view/ActionMode$Callback;
-
-    iget-object v1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
-
-    invoke-interface {v0, p0, v1}, Landroidx/appcompat/view/ActionMode$Callback;->onCreateActionMode(Landroidx/appcompat/view/ActionMode;Landroid/view/Menu;)Z
-
-    move-result v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
-
-    invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuBuilder;->startDispatchingItemsChanged()V
-
-    return v0
-
-    :catchall_0
-    move-exception v0
-
-    iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
-
-    invoke-virtual {p0}, Landroidx/appcompat/view/menu/MenuBuilder;->startDispatchingItemsChanged()V
-
-    throw v0
-.end method
-
-.method public finish()V
-    .locals 3
+.method public final finish()V
+    .locals 5
 
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
@@ -114,21 +78,13 @@
     return-void
 
     :cond_0
-    iget-boolean v1, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mHiddenByApp:Z
+    iget-boolean v1, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mHiddenBySystem:Z
 
-    iget-boolean v0, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mHiddenBySystem:Z
+    xor-int/lit8 v1, v1, 0x1
 
-    const/4 v2, 0x0
+    if-nez v1, :cond_1
 
-    invoke-static {v1, v0, v2}, Landroidx/appcompat/app/WindowDecorActionBar;->checkShowingFlags(ZZZ)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
-
-    iput-object p0, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mDeferredDestroyActionMode:Landroidx/appcompat/view/ActionMode;
+    iput-object p0, v0, Landroidx/appcompat/app/WindowDecorActionBar;->mDeferredDestroyActionMode:Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;
 
     iget-object v1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroidx/appcompat/view/ActionMode$Callback;
 
@@ -148,34 +104,62 @@
 
     iget-object v1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
+    const/4 v2, 0x0
+
     invoke-virtual {v1, v2}, Landroidx/appcompat/app/WindowDecorActionBar;->animateToMode(Z)V
 
     iget-object v1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object v1, v1, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {v1}, Landroidx/appcompat/widget/ActionBarContextView;->closeMode()V
+    iget-object v3, v1, Landroidx/appcompat/widget/ActionBarContextView;->mClose:Landroid/view/View;
 
+    if-nez v3, :cond_2
+
+    invoke-virtual {v1}, Landroidx/appcompat/widget/ActionBarContextView;->killMode()V
+
+    :cond_2
     iget-object v1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
-    iget-object v1, v1, Landroidx/appcompat/app/WindowDecorActionBar;->mDecorToolbar:Landroidx/appcompat/widget/DecorToolbar;
-
-    invoke-interface {v1}, Landroidx/appcompat/widget/DecorToolbar;->getViewGroup()Landroid/view/ViewGroup;
-
-    move-result-object v1
-
-    const/16 v2, 0x20
-
-    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->sendAccessibilityEvent(I)V
-
-    iget-object v1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
-
-    iget-object v2, v1, Landroidx/appcompat/app/WindowDecorActionBar;->mOverlayLayout:Landroidx/appcompat/widget/ActionBarOverlayLayout;
+    iget-object v3, v1, Landroidx/appcompat/app/WindowDecorActionBar;->mOverlayLayout:Landroidx/appcompat/widget/ActionBarOverlayLayout;
 
     iget-boolean v1, v1, Landroidx/appcompat/app/WindowDecorActionBar;->mHideOnContentScroll:Z
 
-    invoke-virtual {v2, v1}, Landroidx/appcompat/widget/ActionBarOverlayLayout;->setHideOnContentScrollEnabled(Z)V
+    iget-boolean v4, v3, Landroidx/appcompat/widget/ActionBarOverlayLayout;->mHideOnContentScroll:Z
 
+    if-eq v1, v4, :cond_3
+
+    iput-boolean v1, v3, Landroidx/appcompat/widget/ActionBarOverlayLayout;->mHideOnContentScroll:Z
+
+    if-nez v1, :cond_3
+
+    invoke-virtual {v3}, Landroidx/appcompat/widget/ActionBarOverlayLayout;->haltActionBarHideOffsetAnimations()V
+
+    invoke-virtual {v3}, Landroidx/appcompat/widget/ActionBarOverlayLayout;->haltActionBarHideOffsetAnimations()V
+
+    iget-object v1, v3, Landroidx/appcompat/widget/ActionBarOverlayLayout;->mActionBarTop:Landroidx/appcompat/widget/ActionBarContainer;
+
+    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getHeight()I
+
+    move-result v1
+
+    invoke-static {v2, v1}, Ljava/lang/Math;->min(II)I
+
+    move-result v1
+
+    invoke-static {v2, v1}, Ljava/lang/Math;->max(II)I
+
+    move-result v1
+
+    iget-object v2, v3, Landroidx/appcompat/widget/ActionBarOverlayLayout;->mActionBarTop:Landroidx/appcompat/widget/ActionBarContainer;
+
+    neg-int v1, v1
+
+    int-to-float v1, v1
+
+    invoke-virtual {v2, v1}, Landroid/widget/FrameLayout;->setTranslationY(F)V
+
+    :cond_3
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iput-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mActionMode:Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;
@@ -183,7 +167,7 @@
     return-void
 .end method
 
-.method public getCustomView()Landroid/view/View;
+.method public final getCustomView()Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mCustomView:Ljava/lang/ref/WeakReference;
@@ -205,7 +189,7 @@
     return-object p0
 .end method
 
-.method public getMenu()Landroid/view/Menu;
+.method public final getMenu()Landroidx/appcompat/view/menu/MenuBuilder;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
@@ -213,7 +197,7 @@
     return-object p0
 .end method
 
-.method public getMenuInflater()Landroid/view/MenuInflater;
+.method public final getMenuInflater()Landroid/view/MenuInflater;
     .locals 1
 
     new-instance v0, Landroidx/appcompat/view/SupportMenuInflater;
@@ -225,35 +209,31 @@
     return-object v0
 .end method
 
-.method public getSubtitle()Ljava/lang/CharSequence;
+.method public final getSubtitle()Ljava/lang/CharSequence;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionBarContextView;->getSubtitle()Ljava/lang/CharSequence;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/appcompat/widget/ActionBarContextView;->mSubtitle:Ljava/lang/CharSequence;
 
     return-object p0
 .end method
 
-.method public getTitle()Ljava/lang/CharSequence;
+.method public final getTitle()Ljava/lang/CharSequence;
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionBarContextView;->getTitle()Ljava/lang/CharSequence;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/appcompat/widget/ActionBarContextView;->mTitle:Ljava/lang/CharSequence;
 
     return-object p0
 .end method
 
-.method public invalidate()V
+.method public final invalidate()V
     .locals 2
 
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
@@ -274,7 +254,7 @@
 
     iget-object v1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
-    invoke-interface {v0, p0, v1}, Landroidx/appcompat/view/ActionMode$Callback;->onPrepareActionMode(Landroidx/appcompat/view/ActionMode;Landroid/view/Menu;)Z
+    invoke-interface {v0, p0, v1}, Landroidx/appcompat/view/ActionMode$Callback;->onPrepareActionMode(Landroidx/appcompat/view/ActionMode;Landroidx/appcompat/view/menu/MenuBuilder;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -294,21 +274,19 @@
     throw v0
 .end method
 
-.method public isTitleOptional()Z
+.method public final isTitleOptional()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionBarContextView;->isTitleOptional()Z
-
-    move-result p0
+    iget-boolean p0, p0, Landroidx/appcompat/widget/ActionBarContextView;->mTitleOptional:Z
 
     return p0
 .end method
 
-.method public onMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
+.method public final onMenuItemSelected(Landroidx/appcompat/view/menu/MenuBuilder;Landroid/view/MenuItem;)Z
     .locals 0
 
     iget-object p1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroidx/appcompat/view/ActionMode$Callback;
@@ -327,7 +305,7 @@
     return p0
 .end method
 
-.method public onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
+.method public final onMenuModeChange(Landroidx/appcompat/view/menu/MenuBuilder;)V
     .locals 0
 
     iget-object p1, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->mCallback:Landroidx/appcompat/view/ActionMode$Callback;
@@ -343,12 +321,17 @@
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionBarContextView;->showOverflowMenu()Z
+    iget-object p0, p0, Landroidx/appcompat/widget/AbsActionBarView;->mActionMenuPresenter:Landroidx/appcompat/widget/ActionMenuPresenter;
 
+    if-eqz p0, :cond_1
+
+    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionMenuPresenter;->showOverflowMenu()Z
+
+    :cond_1
     return-void
 .end method
 
-.method public setCustomView(Landroid/view/View;)V
+.method public final setCustomView(Landroid/view/View;)V
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
@@ -366,7 +349,7 @@
     return-void
 .end method
 
-.method public setSubtitle(I)V
+.method public final setSubtitle(I)V
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
@@ -386,19 +369,21 @@
     return-void
 .end method
 
-.method public setSubtitle(Ljava/lang/CharSequence;)V
+.method public final setSubtitle(Ljava/lang/CharSequence;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ActionBarContextView;->setSubtitle(Ljava/lang/CharSequence;)V
+    iput-object p1, p0, Landroidx/appcompat/widget/ActionBarContextView;->mSubtitle:Ljava/lang/CharSequence;
+
+    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionBarContextView;->initTitle()V
 
     return-void
 .end method
 
-.method public setTitle(I)V
+.method public final setTitle(I)V
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
@@ -418,28 +403,39 @@
     return-void
 .end method
 
-.method public setTitle(Ljava/lang/CharSequence;)V
+.method public final setTitle(Ljava/lang/CharSequence;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ActionBarContextView;->setTitle(Ljava/lang/CharSequence;)V
+    iput-object p1, p0, Landroidx/appcompat/widget/ActionBarContextView;->mTitle:Ljava/lang/CharSequence;
+
+    invoke-virtual {p0}, Landroidx/appcompat/widget/ActionBarContextView;->initTitle()V
+
+    invoke-static {p0, p1}, Landroidx/core/view/ViewCompat;->setAccessibilityPaneTitle(Landroid/view/View;Ljava/lang/CharSequence;)V
 
     return-void
 .end method
 
-.method public setTitleOptionalHint(Z)V
-    .locals 0
+.method public final setTitleOptionalHint(Z)V
+    .locals 1
 
-    invoke-super {p0, p1}, Landroidx/appcompat/view/ActionMode;->setTitleOptionalHint(Z)V
+    iput-boolean p1, p0, Landroidx/appcompat/view/ActionMode;->mTitleOptionalHint:Z
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar$ActionModeImpl;->this$0:Landroidx/appcompat/app/WindowDecorActionBar;
 
     iget-object p0, p0, Landroidx/appcompat/app/WindowDecorActionBar;->mContextView:Landroidx/appcompat/widget/ActionBarContextView;
 
-    invoke-virtual {p0, p1}, Landroidx/appcompat/widget/ActionBarContextView;->setTitleOptional(Z)V
+    iget-boolean v0, p0, Landroidx/appcompat/widget/ActionBarContextView;->mTitleOptional:Z
+
+    if-eq p1, v0, :cond_0
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->requestLayout()V
+
+    :cond_0
+    iput-boolean p1, p0, Landroidx/appcompat/widget/ActionBarContextView;->mTitleOptional:Z
 
     return-void
 .end method

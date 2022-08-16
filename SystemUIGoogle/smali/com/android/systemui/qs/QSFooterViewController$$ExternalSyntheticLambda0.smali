@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnLayoutChangeListener;
+.implements Landroid/view/View$OnLongClickListener;
 
 
 # instance fields
@@ -22,32 +23,69 @@
 
 
 # virtual methods
-.method public final onLayoutChange(Landroid/view/View;IIIIIIII)V
-    .locals 10
+.method public final onLongClick(Landroid/view/View;)Z
+    .locals 4
 
-    move-object v0, p0
+    iget-object p0, p0, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/QSFooterViewController;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/QSFooterViewController;
+    iget-object p1, p0, Lcom/android/systemui/qs/QSFooterViewController;->mBuildText:Landroid/widget/TextView;
 
-    move-object v1, p1
+    invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move v2, p2
+    move-result-object p1
 
-    move v3, p3
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move v4, p4
+    move-result v0
 
-    move v5, p5
+    const/4 v1, 0x0
 
-    move/from16 v6, p6
+    if-nez v0, :cond_0
 
-    move/from16 v7, p7
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFooterViewController;->mUserTracker:Lcom/android/systemui/settings/UserTracker;
 
-    move/from16 v8, p8
+    invoke-interface {v0}, Lcom/android/systemui/settings/UserContextProvider;->getUserContext()Landroid/content/Context;
 
-    move/from16 v9, p9
+    move-result-object v0
 
-    invoke-static/range {v0 .. v9}, Lcom/android/systemui/qs/QSFooterViewController;->$r8$lambda$NASq1B-6K5EFvckIHNgjIM4jWOM(Lcom/android/systemui/qs/QSFooterViewController;Landroid/view/View;IIIIIIII)V
+    const-class v2, Landroid/content/ClipboardManager;
 
-    return-void
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/ClipboardManager;
+
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f1301cd
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2, p1}, Landroid/content/ClipData;->newPlainText(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Landroid/content/ClipData;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/content/ClipboardManager;->setPrimaryClip(Landroid/content/ClipData;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->getContext()Landroid/content/Context;
+
+    move-result-object p0
+
+    const p1, 0x7f1301ce
+
+    invoke-static {p0, p1, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/widget/Toast;->show()V
+
+    const/4 v1, 0x1
+
+    :cond_0
+    return v1
 .end method

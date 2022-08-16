@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;
+.class public interface abstract Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;
 .super Ljava/lang/Object;
 .source "HistoryTracker.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "BeliefListener"
 .end annotation
 

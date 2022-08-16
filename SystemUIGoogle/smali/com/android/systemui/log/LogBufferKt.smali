@@ -4,11 +4,13 @@
 
 
 # static fields
-.field private static final DATE_FORMAT:Ljava/text/SimpleDateFormat;
+.field public static final DATE_FORMAT:Ljava/text/SimpleDateFormat;
+
+.field public static final FROZEN_MESSAGE:Lcom/android/systemui/log/LogMessageImpl;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     new-instance v0, Ljava/text/SimpleDateFormat;
@@ -21,13 +23,13 @@
 
     sput-object v0, Lcom/android/systemui/log/LogBufferKt;->DATE_FORMAT:Ljava/text/SimpleDateFormat;
 
+    new-instance v0, Lcom/android/systemui/log/LogMessageImpl;
+
+    sget-object v1, Lcom/android/systemui/log/LogMessageImplKt;->DEFAULT_RENDERER:Lkotlin/jvm/functions/Function1;
+
+    invoke-direct {v0}, Lcom/android/systemui/log/LogMessageImpl;-><init>()V
+
+    sput-object v0, Lcom/android/systemui/log/LogBufferKt;->FROZEN_MESSAGE:Lcom/android/systemui/log/LogMessageImpl;
+
     return-void
-.end method
-
-.method public static final synthetic access$getDATE_FORMAT$p()Ljava/text/SimpleDateFormat;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/log/LogBufferKt;->DATE_FORMAT:Ljava/text/SimpleDateFormat;
-
-    return-object v0
 .end method

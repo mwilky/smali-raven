@@ -1,10 +1,10 @@
-.class public Landroidx/transition/TransitionValues;
+.class public final Landroidx/transition/TransitionValues;
 .super Ljava/lang/Object;
 .source "TransitionValues.java"
 
 
 # instance fields
-.field final mTargetedTransitions:Ljava/util/ArrayList;
+.field public final mTargetedTransitions:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -14,41 +14,20 @@
     .end annotation
 .end field
 
-.field public final values:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Object;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final values:Ljava/util/HashMap;
 
 .field public view:Landroid/view/View;
 
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 0
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 p0, 0x0
 
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Landroidx/transition/TransitionValues;->mTargetedTransitions:Ljava/util/ArrayList;
-
-    return-void
+    throw p0
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
@@ -60,7 +39,7 @@
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
 
-    iput-object v0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
+    iput-object v0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/HashMap;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -75,7 +54,7 @@
 
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 2
 
     instance-of v0, p1, Landroidx/transition/TransitionValues;
@@ -90,9 +69,9 @@
 
     if-ne v0, v1, :cond_0
 
-    iget-object p0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
+    iget-object p0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/HashMap;
 
-    iget-object p1, p1, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
+    iget-object p1, p1, Landroidx/transition/TransitionValues;->values:Ljava/util/HashMap;
 
     invoke-interface {p0, p1}, Ljava/util/Map;->equals(Ljava/lang/Object;)Z
 
@@ -110,7 +89,7 @@
     return p0
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
     iget-object v0, p0, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
@@ -121,27 +100,25 @@
 
     mul-int/lit8 v0, v0, 0x1f
 
-    iget-object p0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
+    iget-object p0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/HashMap;
 
     invoke-interface {p0}, Ljava/util/Map;->hashCode()I
 
     move-result p0
 
-    add-int/2addr v0, p0
+    add-int/2addr p0, v0
 
-    return v0
+    return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 5
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "TransitionValues@"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "TransitionValues@"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     invoke-virtual {p0}, Landroidx/transition/TransitionValues;->hashCode()I
 
@@ -161,45 +138,33 @@
 
     move-result-object v0
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "    view = "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0, v1}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    const-string v0, "    view = "
+    iget-object v1, p0, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Landroidx/transition/TransitionValues;->view:Landroid/view/View;
+    const-string v1, "\n"
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, "\n"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, "    values:"
 
-    move-result-object v1
+    invoke-static {v0, v2}, Landroidx/appcompat/view/SupportMenuInflater$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    move-result-object v0
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    iget-object v2, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/HashMap;
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, "    values:"
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v2, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
-
-    invoke-interface {v2}, Ljava/util/Map;->keySet()Ljava/util/Set;
+    invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
 
     move-result-object v2
 
@@ -224,34 +189,34 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "    "
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v1, ": "
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v1, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/Map;
-
-    invoke-interface {v1, v3}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const-string v0, "    "
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, ": "
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v0, p0, Landroidx/transition/TransitionValues;->values:Ljava/util/HashMap;
+
+    invoke-virtual {v0, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
     goto :goto_0
 
     :cond_0
-    return-object v1
+    return-object v0
 .end method

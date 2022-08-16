@@ -16,6 +16,10 @@
         <item quantity="other">%s na kontrol ang naidagdag.</item>
         <item quantity="one">%s kontrol ang naidagdag.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s na app ang aktibo</item>
+        <item quantity="one">%s app ang aktibo</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Ilagay ang PIN ng SIM. Mayroon kang %d na natitirang pagsubok.</item>
         <item quantity="one">Ilagay ang PIN ng SIM. Mayroon kang %d natitirang pagsubok.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Mali ang PUK code ng SIM, mayroon kang %d na natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
         <item quantity="one">Mali ang PUK code ng SIM, mayroon kang %d natitirang pagsubok bago tuluyang hindi magamit ang SIM.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Subukang muli sa loob ng %d na segundo.</item>
-        <item quantity="one">Subukang muli sa loob ng %d segundo.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d na bagong notification</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Maaari kang magdagdag ng hanggang %d na user.</item>
         <item quantity="one">Maaari kang magdagdag ng hanggang %d user.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d na device ang nakakonekta</item>
-        <item quantity="one">%1$d device ang nakakonekta</item>
     </plurals>
 </resources>

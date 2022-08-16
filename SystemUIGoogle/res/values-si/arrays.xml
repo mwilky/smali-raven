@@ -17,6 +17,7 @@
         <item>උපරිම ලෙස ක්‍රියාවලි 3 කි</item>
         <item>උපරිම ලෙස ක්‍රියාවලි 4 කි</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>අක්‍රියයි</item>
         <item>සක්‍රියයි</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>නොමැත</item>
+        <item>ක්‍රියාවිරහිතයි</item>
+        <item>ක්‍රියාත්මකයි</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>නොමැත</item>
         <item>අක්‍රියයි</item>
@@ -309,6 +315,16 @@
         <item>නොමැත</item>
         <item>අක්‍රියයි</item>
         <item>සක්‍රියයි</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>නොමැත</item>
+        <item>ක්‍රියාවිරහිතයි</item>
+        <item>ක්‍රියාත්මකයි</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>නොමැත</item>
+        <item>ක්‍රියාවිරහිතයි</item>
+        <item>ක්‍රියාත්මකයි</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>නොමැත</item>
@@ -374,6 +390,12 @@
         <item>ශීඝ්‍ර</item>
         <item>ඉතා ශීඝ්‍ර</item>
         <item>ඉතාම වේගවත්</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>වමට ගෙන යන්න</item>
+        <item>පහළට ගෙන යන්න</item>
+        <item>දකුණට ගෙන යන්න</item>
+        <item>ඉහළට ගෙන යන්න</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>ආරෝපණය වෙමින්</item>

@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+.field public static final synthetic $VALUES:[Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
 .field public static final enum BASELINE:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
@@ -37,149 +37,140 @@
 
 .field public static final enum LEFT:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-.field public static final enum NONE:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
-
 .field public static final enum RIGHT:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
 .field public static final enum TOP:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 16
 
     new-instance v0, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    const-string v1, "NONE"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "NONE"
 
-    invoke-direct {v0, v1, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    sput-object v0, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->NONE:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    new-instance v2, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    new-instance v1, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    const/4 v3, 0x1
 
-    const-string v3, "LEFT"
+    const-string v4, "LEFT"
 
-    const/4 v4, 0x1
+    invoke-direct {v2, v3, v4}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v1, v3, v4}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    sput-object v2, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    sput-object v1, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->LEFT:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    new-instance v4, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    new-instance v3, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    const/4 v5, 0x2
 
-    const-string v5, "TOP"
+    const-string v6, "TOP"
 
-    const/4 v6, 0x2
+    invoke-direct {v4, v5, v6}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v3, v5, v6}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    sput-object v4, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->TOP:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    sput-object v3, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->TOP:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    new-instance v6, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    new-instance v5, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    const/4 v7, 0x3
 
-    const-string v7, "RIGHT"
+    const-string v8, "RIGHT"
 
-    const/4 v8, 0x3
+    invoke-direct {v6, v7, v8}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v5, v7, v8}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    sput-object v6, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    sput-object v5, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->RIGHT:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    new-instance v8, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    new-instance v7, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    const/4 v9, 0x4
 
-    const-string v9, "BOTTOM"
+    const-string v10, "BOTTOM"
 
-    const/4 v10, 0x4
+    invoke-direct {v8, v9, v10}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v7, v9, v10}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    sput-object v8, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    sput-object v7, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->BOTTOM:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    new-instance v10, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    new-instance v9, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    const/4 v11, 0x5
 
-    const-string v11, "BASELINE"
+    const-string v12, "BASELINE"
 
-    const/4 v12, 0x5
+    invoke-direct {v10, v11, v12}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v9, v11, v12}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    sput-object v10, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->BASELINE:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    sput-object v9, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->BASELINE:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    new-instance v12, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    new-instance v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    const/4 v13, 0x6
 
-    const-string v13, "CENTER"
+    const-string v14, "CENTER"
 
-    const/4 v14, 0x6
+    invoke-direct {v12, v13, v14}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    invoke-direct {v11, v13, v14}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    sput-object v12, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->CENTER:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    sput-object v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->CENTER:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    new-instance v14, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+
+    const/4 v15, 0x7
+
+    const-string v13, "CENTER_X"
+
+    invoke-direct {v14, v15, v13}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
+
+    sput-object v14, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->CENTER_X:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
     new-instance v13, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    const-string v15, "CENTER_X"
+    const/16 v15, 0x8
 
-    const/4 v14, 0x7
+    const-string v11, "CENTER_Y"
 
-    invoke-direct {v13, v15, v14}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v13, v15, v11}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(ILjava/lang/String;)V
 
-    sput-object v13, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->CENTER_X:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    sput-object v13, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->CENTER_Y:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    new-instance v15, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    const/16 v11, 0x9
 
-    const-string v14, "CENTER_Y"
+    new-array v11, v11, [Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
-    const/16 v12, 0x8
+    aput-object v0, v11, v1
 
-    invoke-direct {v15, v14, v12}, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;-><init>(Ljava/lang/String;I)V
+    aput-object v2, v11, v3
 
-    sput-object v15, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->CENTER_Y:Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    aput-object v4, v11, v5
 
-    const/16 v14, 0x9
+    aput-object v6, v11, v7
 
-    new-array v14, v14, [Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
-
-    aput-object v0, v14, v2
-
-    aput-object v1, v14, v4
-
-    aput-object v3, v14, v6
-
-    aput-object v5, v14, v8
-
-    aput-object v7, v14, v10
+    aput-object v8, v11, v9
 
     const/4 v0, 0x5
 
-    aput-object v9, v14, v0
+    aput-object v10, v11, v0
 
     const/4 v0, 0x6
 
-    aput-object v11, v14, v0
+    aput-object v12, v11, v0
 
     const/4 v0, 0x7
 
-    aput-object v13, v14, v0
+    aput-object v14, v11, v0
 
-    aput-object v15, v14, v12
+    aput-object v13, v11, v15
 
-    sput-object v14, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->$VALUES:[Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
+    sput-object v11, Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;->$VALUES:[Landroidx/constraintlayout/solver/widgets/ConstraintAnchor$Type;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

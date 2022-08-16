@@ -12,7 +12,7 @@
 
 
 # instance fields
-.field private mLockPatternView:Lcom/android/internal/widget/LockPatternView;
+.field public mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 
 
 # direct methods
@@ -24,22 +24,14 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)Lcom/android/internal/widget/LockPatternView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method protected onAttachedToWindow()V
-    .locals 3
+.method public final onAttachedToWindow()V
+    .locals 2
 
     invoke-super {p0}, Lcom/android/systemui/biometrics/AuthCredentialView;->onAttachedToWindow()V
 
-    sget v0, Lcom/android/systemui/R$id;->lockPattern:I
+    const v0, 0x7f0b03a9
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -51,9 +43,7 @@
 
     new-instance v1, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;
 
-    const/4 v2, 0x0
-
-    invoke-direct {v1, p0, v2}, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;-><init>(Lcom/android/systemui/biometrics/AuthCredentialPatternView;Lcom/android/systemui/biometrics/AuthCredentialPatternView$1;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthCredentialPatternView$UnlockPatternListener;-><init>(Lcom/android/systemui/biometrics/AuthCredentialPatternView;)V
 
     invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setOnPatternListener(Lcom/android/internal/widget/LockPatternView$OnPatternListener;)V
 
@@ -61,33 +51,21 @@
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    iget v2, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mUserId:I
+    iget p0, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mUserId:I
 
-    invoke-virtual {v1, v2}, Lcom/android/internal/widget/LockPatternUtils;->isVisiblePatternEnabled(I)Z
-
-    move-result v1
-
-    xor-int/lit8 v1, v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/internal/widget/LockPatternView;->setInStealthMode(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {p0}, Lcom/android/internal/widget/LockPatternUtils;->isTactileFeedbackEnabled()Z
+    invoke-virtual {v1, p0}, Lcom/android/internal/widget/LockPatternUtils;->isVisiblePatternEnabled(I)Z
 
     move-result p0
 
-    invoke-virtual {v0, p0}, Lcom/android/internal/widget/LockPatternView;->setTactileFeedbackEnabled(Z)V
+    xor-int/lit8 p0, p0, 0x1
+
+    invoke-virtual {v0, p0}, Lcom/android/internal/widget/LockPatternView;->setInStealthMode(Z)V
 
     return-void
 .end method
 
-.method protected onErrorTimeoutFinish()V
+.method public final onErrorTimeoutFinish()V
     .locals 1
-
-    invoke-super {p0}, Lcom/android/systemui/biometrics/AuthCredentialView;->onErrorTimeoutFinish()V
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthCredentialPatternView;->mLockPatternView:Lcom/android/internal/widget/LockPatternView;
 

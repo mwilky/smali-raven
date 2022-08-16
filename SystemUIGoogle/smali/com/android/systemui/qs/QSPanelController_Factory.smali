@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final brightnessControllerFactoryProvider:Ljavax/inject/Provider;
+.field public final brightnessControllerFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final brightnessSliderFactoryProvider:Ljavax/inject/Provider;
+.field public final brightnessSliderFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,17 +38,7 @@
     .end annotation
 .end field
 
-.field private final commandQueueProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final falsingManagerProvider:Ljavax/inject/Provider;
+.field public final falsingManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final mediaHostProvider:Ljavax/inject/Provider;
+.field public final mediaHostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final metricsLoggerProvider:Ljavax/inject/Provider;
+.field public final metricsLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final qsCustomizerControllerProvider:Ljavax/inject/Provider;
+.field public final qsCustomizerControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final qsLoggerProvider:Ljavax/inject/Provider;
+.field public final qsLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,17 +98,7 @@
     .end annotation
 .end field
 
-.field private final qsSecurityFooterProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSSecurityFooter;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final qsTileRevealControllerFactoryProvider:Ljavax/inject/Provider;
+.field public final qsTileRevealControllerFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -128,7 +108,7 @@
     .end annotation
 .end field
 
-.field private final qstileHostProvider:Ljavax/inject/Provider;
+.field public final qstileHostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -138,7 +118,17 @@
     .end annotation
 .end field
 
-.field private final tunerServiceProvider:Ljavax/inject/Provider;
+.field public final statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final tunerServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -148,7 +138,7 @@
     .end annotation
 .end field
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -158,7 +148,7 @@
     .end annotation
 .end field
 
-.field private final usingMediaPlayerProvider:Ljavax/inject/Provider;
+.field public final usingMediaPlayerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -168,7 +158,7 @@
     .end annotation
 .end field
 
-.field private final viewProvider:Ljavax/inject/Provider;
+.field public final viewProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -180,189 +170,50 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSPanel;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSSecurityFooter;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSTileHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/customize/QSCustomizerController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/lang/Boolean;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/MediaHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSTileRevealController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/MetricsLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/brightness/BrightnessController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
-            ">;)V"
-        }
-    .end annotation
-
-    move-object v0, p0
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    move-object v1, p1
+    iput-object p1, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->viewProvider:Ljavax/inject/Provider;
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->viewProvider:Ljavax/inject/Provider;
+    iput-object p2, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
 
-    move-object v1, p2
+    iput-object p3, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->qstileHostProvider:Ljavax/inject/Provider;
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsSecurityFooterProvider:Ljavax/inject/Provider;
+    iput-object p4, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsCustomizerControllerProvider:Ljavax/inject/Provider;
 
-    move-object v1, p3
+    iput-object p5, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->usingMediaPlayerProvider:Ljavax/inject/Provider;
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
+    iput-object p6, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->mediaHostProvider:Ljavax/inject/Provider;
 
-    move-object v1, p4
+    iput-object p7, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsTileRevealControllerFactoryProvider:Ljavax/inject/Provider;
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qstileHostProvider:Ljavax/inject/Provider;
+    iput-object p8, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
-    move-object v1, p5
+    iput-object p9, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsCustomizerControllerProvider:Ljavax/inject/Provider;
+    iput-object p10, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
-    move-object v1, p6
+    iput-object p11, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->usingMediaPlayerProvider:Ljavax/inject/Provider;
+    iput-object p12, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessControllerFactoryProvider:Ljavax/inject/Provider;
 
-    move-object v1, p7
+    iput-object p13, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessSliderFactoryProvider:Ljavax/inject/Provider;
 
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->mediaHostProvider:Ljavax/inject/Provider;
+    iput-object p14, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
-    move-object v1, p8
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsTileRevealControllerFactoryProvider:Ljavax/inject/Provider;
-
-    move-object v1, p9
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
-
-    move-object v1, p10
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
-
-    move-object v1, p11
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
-
-    move-object v1, p12
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
-
-    move-object v1, p13
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessControllerFactoryProvider:Ljavax/inject/Provider;
-
-    move-object/from16 v1, p14
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessSliderFactoryProvider:Ljavax/inject/Provider;
-
-    move-object/from16 v1, p15
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
-
-    move-object/from16 v1, p16
-
-    iput-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iput-object p15, p0, Lcom/android/systemui/qs/QSPanelController_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QSPanelController_Factory;
-    .locals 18
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSPanel;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSSecurityFooter;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/tuner/TunerService;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSTileHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/customize/QSCustomizerController;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/lang/Boolean;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/MediaHost;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/QSTileRevealController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/dump/DumpManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/MetricsLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/internal/logging/UiEventLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/qs/logging/QSLogger;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/brightness/BrightnessController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/plugins/FalsingManager;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/CommandQueue;",
-            ">;)",
-            "Lcom/android/systemui/qs/QSPanelController_Factory;"
-        }
-    .end annotation
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/qs/QSPanelController_Factory;
+    .locals 17
+
+    new-instance v16, Lcom/android/systemui/qs/QSPanelController_Factory;
+
+    move-object/from16 v0, v16
 
     move-object/from16 v1, p0
 
@@ -394,68 +245,14 @@
 
     move-object/from16 v15, p14
 
-    move-object/from16 v16, p15
+    invoke-direct/range {v0 .. v15}, Lcom/android/systemui/qs/QSPanelController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/systemui/settings/brightness/BrightnessController_Factory_Factory;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    new-instance v17, Lcom/android/systemui/qs/QSPanelController_Factory;
-
-    move-object/from16 v0, v17
-
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/qs/QSPanelController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v17
-.end method
-
-.method public static newInstance(Lcom/android/systemui/qs/QSPanel;Ljava/lang/Object;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Ljava/lang/Object;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/qs/QSPanelController;
-    .locals 18
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v3, p2
-
-    move-object/from16 v4, p3
-
-    move-object/from16 v5, p4
-
-    move/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v9, p8
-
-    move-object/from16 v10, p9
-
-    move-object/from16 v11, p10
-
-    move-object/from16 v12, p11
-
-    move-object/from16 v13, p12
-
-    move-object/from16 v14, p13
-
-    move-object/from16 v15, p14
-
-    move-object/from16 v16, p15
-
-    new-instance v17, Lcom/android/systemui/qs/QSPanelController;
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v2, p1
-
-    check-cast v2, Lcom/android/systemui/qs/QSSecurityFooter;
-
-    move-object/from16 v8, p7
-
-    check-cast v8, Lcom/android/systemui/qs/QSTileRevealController$Factory;
-
-    invoke-direct/range {v0 .. v16}, Lcom/android/systemui/qs/QSPanelController;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/qs/QSSecurityFooter;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/systemui/qs/QSTileRevealController$Factory;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/CommandQueue;)V
-
-    return-object v17
+    return-object v16
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/QSPanelController;
+.method public final get()Ljava/lang/Object;
     .locals 18
 
     move-object/from16 v0, p0
@@ -466,15 +263,9 @@
 
     move-result-object v1
 
-    move-object v2, v1
+    move-object v3, v1
 
-    check-cast v2, Lcom/android/systemui/qs/QSPanel;
-
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsSecurityFooterProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v3
+    check-cast v3, Lcom/android/systemui/qs/QSPanel;
 
     iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->tunerServiceProvider:Ljavax/inject/Provider;
 
@@ -532,79 +323,79 @@
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v9
-
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
     move-result-object v1
 
-    move-object v10, v1
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v2
+
+    move-object v10, v2
 
     check-cast v10, Lcom/android/systemui/dump/DumpManager;
 
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->metricsLoggerProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object v11, v1
+    move-object v11, v2
 
     check-cast v11, Lcom/android/internal/logging/MetricsLogger;
 
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object v12, v1
+    move-object v12, v2
 
     check-cast v12, Lcom/android/internal/logging/UiEventLogger;
 
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->qsLoggerProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object v13, v1
+    move-object v13, v2
 
     check-cast v13, Lcom/android/systemui/qs/logging/QSLogger;
 
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessControllerFactoryProvider:Ljavax/inject/Provider;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessControllerFactoryProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object v14, v1
+    move-object v14, v2
 
     check-cast v14, Lcom/android/systemui/settings/brightness/BrightnessController$Factory;
 
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessSliderFactoryProvider:Ljavax/inject/Provider;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->brightnessSliderFactoryProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object v15, v1
+    move-object v15, v2
 
     check-cast v15, Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;
 
-    iget-object v1, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
+    iget-object v2, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->falsingManagerProvider:Ljavax/inject/Provider;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    invoke-interface {v2}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    move-object/from16 v16, v1
+    move-object/from16 v16, v2
 
     check-cast v16, Lcom/android/systemui/plugins/FalsingManager;
 
-    iget-object v0, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->commandQueueProvider:Ljavax/inject/Provider;
+    iget-object v0, v0, Lcom/android/systemui/qs/QSPanelController_Factory;->statusBarKeyguardViewManagerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
@@ -612,21 +403,17 @@
 
     move-object/from16 v17, v0
 
-    check-cast v17, Lcom/android/systemui/statusbar/CommandQueue;
+    check-cast v17, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-    invoke-static/range {v2 .. v17}, Lcom/android/systemui/qs/QSPanelController_Factory;->newInstance(Lcom/android/systemui/qs/QSPanel;Ljava/lang/Object;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Ljava/lang/Object;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/CommandQueue;)Lcom/android/systemui/qs/QSPanelController;
+    new-instance v0, Lcom/android/systemui/qs/QSPanelController;
 
-    move-result-object v0
+    move-object v9, v1
+
+    check-cast v9, Lcom/android/systemui/qs/QSTileRevealController$Factory;
+
+    move-object v2, v0
+
+    invoke-direct/range {v2 .. v17}, Lcom/android/systemui/qs/QSPanelController;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/tuner/TunerService;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/QSCustomizerController;ZLcom/android/systemui/media/MediaHost;Lcom/android/systemui/qs/QSTileRevealController$Factory;Lcom/android/systemui/dump/DumpManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/qs/logging/QSLogger;Lcom/android/systemui/settings/brightness/BrightnessController$Factory;Lcom/android/systemui/settings/brightness/BrightnessSliderController$Factory;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
 
     return-object v0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QSPanelController_Factory;->get()Lcom/android/systemui/qs/QSPanelController;
-
-    move-result-object p0
-
-    return-object p0
 .end method

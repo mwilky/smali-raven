@@ -26,31 +26,15 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 9
+    .locals 1
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
 
-    new-instance v8, Lcom/android/systemui/media/RippleData;
+    new-instance v0, Lcom/android/systemui/media/RippleData;
 
-    const/4 v1, 0x0
+    invoke-direct {v0}, Lcom/android/systemui/media/RippleData;-><init>()V
 
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    move-object v0, v8
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/media/RippleData;-><init>(FFFFFFF)V
-
-    iput-object v8, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
+    iput-object v0, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
     new-instance v0, Landroid/graphics/Paint;
 
@@ -88,7 +72,7 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/media/RippleData;->setAlpha(F)V
+    iput v1, v0, Lcom/android/systemui/media/RippleData;->alpha:F
 
     invoke-virtual {p0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
@@ -132,7 +116,7 @@
 
     invoke-virtual {v4, v5, v6}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    sget-object v5, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    sget-object v5, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
 
     invoke-virtual {v4, v5}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -142,8 +126,6 @@
 
     invoke-virtual {v4, v6}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    sget-object v6, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
     const/4 v6, 0x0
 
     aput-object v4, v3, v6
@@ -152,9 +134,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v4}, Lcom/android/systemui/media/RippleData;->getProgress()F
-
-    move-result v4
+    iget v4, v4, Lcom/android/systemui/media/RippleData;->progress:F
 
     aput v4, v2, v6
 
@@ -192,8 +172,6 @@
 
     return-void
 
-    nop
-
     :array_0
     .array-data 4
         0x3f800000    # 1.0f
@@ -229,13 +207,11 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/media/RippleData;->setAlpha(F)V
-
-    iget-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
+    iput v0, p1, Lcom/android/systemui/media/RippleData;->alpha:F
 
     const v0, 0x3d4ccccd    # 0.05f
 
-    invoke-virtual {p1, v0}, Lcom/android/systemui/media/RippleData;->setProgress(F)V
+    iput v0, p1, Lcom/android/systemui/media/RippleData;->progress:F
 
     goto :goto_2
 
@@ -258,9 +234,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/RippleData;->getAlpha()F
-
-    move-result v1
+    iget v1, v1, Lcom/android/systemui/media/RippleData;->alpha:F
 
     aput v1, p1, v0
 
@@ -278,7 +252,7 @@
 
     invoke-virtual {p1, v0, v1}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    sget-object v0, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/Interpolator;
+    sget-object v0, Lcom/android/systemui/animation/Interpolators;->LINEAR_OUT_SLOW_IN:Landroid/view/animation/PathInterpolator;
 
     invoke-virtual {p1, v0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
@@ -296,8 +270,6 @@
 
     invoke-virtual {p1}, Landroid/animation/ValueAnimator;->start()V
 
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
     iput-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleAnimation:Landroid/animation/Animator;
 
     :goto_2
@@ -309,7 +281,7 @@
 .method private final updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
     .locals 3
 
-    sget v0, Lcom/android/systemui/R$styleable;->IlluminationDrawable_rippleMinSize:I
+    const/4 v0, 0x3
 
     invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -325,10 +297,10 @@
 
     move-result v0
 
-    invoke-virtual {v1, v0}, Lcom/android/systemui/media/RippleData;->setMinSize(F)V
+    iput v0, v1, Lcom/android/systemui/media/RippleData;->minSize:F
 
     :cond_0
-    sget v0, Lcom/android/systemui/R$styleable;->IlluminationDrawable_rippleMaxSize:I
+    const/4 v0, 0x2
 
     invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -342,10 +314,10 @@
 
     move-result v0
 
-    invoke-virtual {v1, v0}, Lcom/android/systemui/media/RippleData;->setMaxSize(F)V
+    iput v0, v1, Lcom/android/systemui/media/RippleData;->maxSize:F
 
     :cond_1
-    sget v0, Lcom/android/systemui/R$styleable;->IlluminationDrawable_highlight:I
+    const/4 v0, 0x1
 
     invoke-virtual {p1, v0}, Landroid/content/res/TypedArray;->hasValue(I)Z
 
@@ -367,7 +339,7 @@
 
     div-float/2addr p1, v0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/media/RippleData;->setHighlight(F)V
+    iput p1, p0, Lcom/android/systemui/media/RippleData;->highlight:F
 
     :cond_2
     return-void
@@ -377,10 +349,6 @@
 # virtual methods
 .method public applyTheme(Landroid/content/res/Resources$Theme;)V
     .locals 2
-
-    const-string v0, "t"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->applyTheme(Landroid/content/res/Resources$Theme;)V
 
@@ -396,10 +364,6 @@
     invoke-virtual {p1, v0, v1}, Landroid/content/res/Resources$Theme;->resolveAttributes([I[I)Landroid/content/res/TypedArray;
 
     move-result-object p1
-
-    const-string v0, "a"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/systemui/media/LightSourceDrawable;->updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
 
@@ -444,29 +408,15 @@
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 11
 
-    const-string v0, "canvas"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     iget-object v0, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/RippleData;->getMinSize()F
+    iget v1, v0, Lcom/android/systemui/media/RippleData;->minSize:F
 
-    move-result v0
+    iget v2, v0, Lcom/android/systemui/media/RippleData;->maxSize:F
 
-    iget-object v1, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
+    iget v0, v0, Lcom/android/systemui/media/RippleData;->progress:F
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/RippleData;->getMaxSize()F
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
-
-    invoke-virtual {v2}, Lcom/android/systemui/media/RippleData;->getProgress()F
-
-    move-result v2
-
-    invoke-static {v0, v1, v2}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v1, v2, v0}, Landroid/util/MathUtils;->lerp(FFF)F
 
     move-result v0
 
@@ -474,9 +424,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v2}, Lcom/android/systemui/media/RippleData;->getAlpha()F
-
-    move-result v2
+    iget v2, v2, Lcom/android/systemui/media/RippleData;->alpha:F
 
     const/16 v3, 0xff
 
@@ -496,15 +444,9 @@
 
     iget-object v3, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v3}, Lcom/android/systemui/media/RippleData;->getX()F
+    iget v4, v3, Lcom/android/systemui/media/RippleData;->x:F
 
-    move-result v4
-
-    iget-object v3, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
-
-    invoke-virtual {v3}, Lcom/android/systemui/media/RippleData;->getY()F
-
-    move-result v5
+    iget v5, v3, Lcom/android/systemui/media/RippleData;->y:F
 
     const/4 v3, 0x2
 
@@ -518,9 +460,7 @@
 
     aput v3, v7, v1
 
-    invoke-static {}, Lcom/android/systemui/media/LightSourceDrawableKt;->access$getGRADIENT_STOPS$p()[F
-
-    move-result-object v8
+    sget-object v8, Landroidx/preference/R$attr;->GRADIENT_STOPS:[F
 
     sget-object v9, Landroid/graphics/Shader$TileMode;->CLAMP:Landroid/graphics/Shader$TileMode;
 
@@ -534,19 +474,13 @@
 
     iget-object v1, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/RippleData;->getX()F
+    iget v2, v1, Lcom/android/systemui/media/RippleData;->x:F
 
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
-
-    invoke-virtual {v2}, Lcom/android/systemui/media/RippleData;->getY()F
-
-    move-result v2
+    iget v1, v1, Lcom/android/systemui/media/RippleData;->y:F
 
     iget-object p0, p0, Lcom/android/systemui/media/LightSourceDrawable;->paint:Landroid/graphics/Paint;
 
-    invoke-virtual {p1, v1, v2, v0, p0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
+    invoke-virtual {p1, v2, v1, v0, p0}, Landroid/graphics/Canvas;->drawCircle(FFFLandroid/graphics/Paint;)V
 
     return-void
 .end method
@@ -556,23 +490,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v0}, Lcom/android/systemui/media/RippleData;->getMinSize()F
+    iget v1, v0, Lcom/android/systemui/media/RippleData;->minSize:F
 
-    move-result v0
+    iget v2, v0, Lcom/android/systemui/media/RippleData;->maxSize:F
 
-    iget-object v1, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
+    iget v0, v0, Lcom/android/systemui/media/RippleData;->progress:F
 
-    invoke-virtual {v1}, Lcom/android/systemui/media/RippleData;->getMaxSize()F
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
-
-    invoke-virtual {v2}, Lcom/android/systemui/media/RippleData;->getProgress()F
-
-    move-result v2
-
-    invoke-static {v0, v1, v2}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v1, v2, v0}, Landroid/util/MathUtils;->lerp(FFF)F
 
     move-result v0
 
@@ -580,45 +504,27 @@
 
     iget-object v2, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v2}, Lcom/android/systemui/media/RippleData;->getX()F
+    iget v3, v2, Lcom/android/systemui/media/RippleData;->x:F
 
-    move-result v2
-
-    sub-float/2addr v2, v0
-
-    float-to-int v2, v2
-
-    iget-object v3, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
-
-    invoke-virtual {v3}, Lcom/android/systemui/media/RippleData;->getY()F
-
-    move-result v3
-
-    sub-float/2addr v3, v0
-
-    float-to-int v3, v3
-
-    iget-object v4, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
-
-    invoke-virtual {v4}, Lcom/android/systemui/media/RippleData;->getX()F
-
-    move-result v4
-
-    add-float/2addr v4, v0
+    sub-float v4, v3, v0
 
     float-to-int v4, v4
 
-    iget-object v5, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
+    iget v2, v2, Lcom/android/systemui/media/RippleData;->y:F
 
-    invoke-virtual {v5}, Lcom/android/systemui/media/RippleData;->getY()F
+    sub-float v5, v2, v0
 
-    move-result v5
+    float-to-int v5, v5
 
-    add-float/2addr v5, v0
+    add-float/2addr v3, v0
 
-    float-to-int v0, v5
+    float-to-int v3, v3
 
-    invoke-direct {v1, v2, v3, v4, v0}, Landroid/graphics/Rect;-><init>(IIII)V
+    add-float/2addr v2, v0
+
+    float-to-int v0, v2
+
+    invoke-direct {v1, v4, v5, v3, v0}, Landroid/graphics/Rect;-><init>(IIII)V
 
     invoke-super {p0}, Landroid/graphics/drawable/Drawable;->getDirtyBounds()Landroid/graphics/Rect;
 
@@ -648,10 +554,6 @@
 .method public getOutline(Landroid/graphics/Outline;)V
     .locals 0
 
-    const-string p0, "outline"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     return-void
 .end method
 
@@ -664,19 +566,7 @@
 .end method
 
 .method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
-    .locals 1
-
-    const-string v0, "r"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "parser"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string p2, "attrs"
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     sget-object p2, Lcom/android/systemui/R$styleable;->IlluminationDrawable:[I
 
@@ -689,10 +579,6 @@
     move-result-object p2
 
     iput-object p2, p0, Lcom/android/systemui/media/LightSourceDrawable;->themeAttrs:[I
-
-    const-string p2, "a"
-
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0, p1}, Lcom/android/systemui/media/LightSourceDrawable;->updateStateFromTypedArray(Landroid/content/res/TypedArray;)V
 
@@ -717,7 +603,7 @@
     return p0
 .end method
 
-.method protected onStateChange([I)Z
+.method public onStateChange([I)Z
     .locals 10
 
     invoke-super {p0, p1}, Landroid/graphics/drawable/Drawable;->onStateChange([I)Z
@@ -874,11 +760,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/media/RippleData;->setX(F)V
+    iput p1, v0, Lcom/android/systemui/media/RippleData;->x:F
 
-    iget-object p1, p0, Lcom/android/systemui/media/LightSourceDrawable;->rippleData:Lcom/android/systemui/media/RippleData;
-
-    invoke-virtual {p1, p2}, Lcom/android/systemui/media/RippleData;->setY(F)V
+    iput p2, v0, Lcom/android/systemui/media/RippleData;->y:F
 
     iget-boolean p1, p0, Lcom/android/systemui/media/LightSourceDrawable;->active:Z
 

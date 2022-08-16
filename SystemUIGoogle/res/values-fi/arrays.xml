@@ -17,6 +17,7 @@
         <item>Enintään 3 prosessia</item>
         <item>Enintään 4 prosessia</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0 %</item>
         <item>50 %</item>
@@ -260,6 +261,11 @@
         <item>Poissa päältä</item>
         <item>Päällä</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Ei saatavilla</item>
+        <item>Pois päältä</item>
+        <item>Päällä</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Ei saatavilla</item>
         <item>Poissa päältä</item>
@@ -306,6 +312,16 @@
         <item>Päällä</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Ei saatavilla</item>
+        <item>Poissa päältä</item>
+        <item>Päällä</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Ei saatavilla</item>
+        <item>Poissa päältä</item>
+        <item>Päällä</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Ei saatavilla</item>
         <item>Poissa päältä</item>
         <item>Päällä</item>
@@ -374,6 +390,12 @@
         <item>Vauhdikas</item>
         <item>Erittäin vauhdikas</item>
         <item>Nopein</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Siirrä vasemmalle</item>
+        <item>Siirrä alas</item>
+        <item>Siirrä oikealle</item>
+        <item>Siirrä ylös</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Lataaminen</item>

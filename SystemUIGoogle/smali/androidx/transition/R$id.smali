@@ -3,21 +3,57 @@
 .source "R.java"
 
 
-# static fields
-.field public static final ghost_view:I = 0x7f0b0270
+# direct methods
+.method public static hash(Ljava/lang/String;)I
+    .locals 1
 
-.field public static final ghost_view_holder:I = 0x7f0b0271
+    invoke-static {p0}, Ljava/util/Objects;->hashCode(Ljava/lang/Object;)I
 
-.field public static final parent_matrix:I = 0x7f0b048a
+    move-result p0
 
-.field public static final save_non_transition_alpha:I = 0x7f0b0529
+    const/16 v0, 0x2000
 
-.field public static final save_overlay_view:I = 0x7f0b052a
+    invoke-static {p0, v0}, Ljava/lang/Math;->floorMod(II)I
 
-.field public static final transition_current_scene:I = 0x7f0b0658
+    move-result p0
 
-.field public static final transition_layout_save:I = 0x7f0b0659
+    invoke-static {p0}, Ljava/lang/Math;->abs(I)I
 
-.field public static final transition_position:I = 0x7f0b065a
+    move-result p0
 
-.field public static final transition_transform:I = 0x7f0b065c
+    return p0
+.end method
+
+.method public static isDescendant(Landroid/view/View;Landroid/view/ViewGroup;)Z
+    .locals 2
+
+    :goto_0
+    const/4 v0, 0x0
+
+    if-eqz p0, :cond_2
+
+    if-ne p0, p1, :cond_0
+
+    const/4 p0, 0x1
+
+    return p0
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object p0
+
+    instance-of v1, p0, Landroid/view/View;
+
+    if-nez v1, :cond_1
+
+    return v0
+
+    :cond_1
+    check-cast p0, Landroid/view/View;
+
+    goto :goto_0
+
+    :cond_2
+    return v0
+.end method

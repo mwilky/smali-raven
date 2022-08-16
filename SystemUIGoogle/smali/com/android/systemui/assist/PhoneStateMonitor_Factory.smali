@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final bootCompleteCacheProvider:Ljavax/inject/Provider;
+.field public final bootCompleteCacheProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,18 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,20 +59,19 @@
     .end annotation
 .end field
 
-.field private final statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;"
+            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
+            ">;"
         }
     .end annotation
 .end field
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -74,10 +84,13 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
             ">;>;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/BootCompleteCache;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/plugins/statusbar/StatusBarStateController;",
             ">;)V"
         }
     .end annotation
@@ -88,70 +101,19 @@
 
     iput-object p2, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
-    iput-object p3, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    iput-object p3, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
 
     iput-object p4, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->bootCompleteCacheProvider:Ljavax/inject/Provider;
+
+    iput-object p5, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/assist/PhoneStateMonitor_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/BootCompleteCache;",
-            ">;)",
-            "Lcom/android/systemui/assist/PhoneStateMonitor_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/BootCompleteCache;)Lcom/android/systemui/assist/PhoneStateMonitor;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Ldagger/Lazy<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;",
-            "Lcom/android/systemui/BootCompleteCache;",
-            ")",
-            "Lcom/android/systemui/assist/PhoneStateMonitor;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/assist/PhoneStateMonitor;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/systemui/assist/PhoneStateMonitor;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/BootCompleteCache;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/assist/PhoneStateMonitor;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 7
 
     iget-object v0, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -159,43 +121,51 @@
 
     move-result-object v0
 
-    check-cast v0, Landroid/content/Context;
+    move-object v2, v0
 
-    iget-object v1, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
+    check-cast v2, Landroid/content/Context;
 
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+    iget-object v0, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
-    move-result-object v1
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
-    check-cast v1, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->statusBarOptionalLazyProvider:Ljavax/inject/Provider;
+    move-object v3, v0
 
-    invoke-static {v2}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+    check-cast v3, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-    move-result-object v2
+    iget-object v0, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->centralSurfacesOptionalLazyProvider:Ljavax/inject/Provider;
 
-    iget-object p0, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->bootCompleteCacheProvider:Ljavax/inject/Provider;
+    invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v4
+
+    iget-object v0, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->bootCompleteCacheProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    move-object v5, v0
+
+    check-cast v5, Lcom/android/systemui/BootCompleteCache;
+
+    iget-object p0, p0, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/BootCompleteCache;
+    move-object v6, p0
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/BootCompleteCache;)Lcom/android/systemui/assist/PhoneStateMonitor;
+    check-cast v6, Lcom/android/systemui/plugins/statusbar/StatusBarStateController;
 
-    move-result-object p0
+    new-instance p0, Lcom/android/systemui/assist/PhoneStateMonitor;
 
-    return-object p0
-.end method
+    move-object v1, p0
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/assist/PhoneStateMonitor_Factory;->get()Lcom/android/systemui/assist/PhoneStateMonitor;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/assist/PhoneStateMonitor;-><init>(Landroid/content/Context;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/BootCompleteCache;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;)V
 
     return-object p0
 .end method

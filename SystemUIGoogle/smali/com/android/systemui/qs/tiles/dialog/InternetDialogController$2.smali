@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$2;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$2;
 .super Landroid/content/BroadcastReceiver;
 .source "InternetDialogController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$2;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -46,9 +46,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$300()Z
-
-    move-result p2
+    sget-boolean p2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
 
     if-eqz p2, :cond_0
 
@@ -65,11 +63,11 @@
 
     move-result-object p1
 
-    invoke-static {p2, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$702(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Lcom/android/settingslib/mobile/MobileMappings$Config;)Lcom/android/settingslib/mobile/MobileMappings$Config;
+    iput-object p1, p2, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mConfig:Lcom/android/settingslib/mobile/MobileMappings$Config;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$2;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$500(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->-$$Nest$mupdateListener(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
 
     goto :goto_0
 
@@ -84,7 +82,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$2;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$500(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->-$$Nest$mupdateListener(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
 
     :cond_2
     :goto_0

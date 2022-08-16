@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ActivityChooserView$2;
+.class public final Landroidx/appcompat/widget/ActivityChooserView$2;
 .super Ljava/lang/Object;
 .source "ActivityChooserView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -34,12 +34,16 @@
 
 
 # virtual methods
-.method public onGlobalLayout()V
+.method public final onGlobalLayout()V
     .locals 1
 
     iget-object v0, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
-    invoke-virtual {v0}, Landroidx/appcompat/widget/ActivityChooserView;->isShowingPopup()Z
+    invoke-virtual {v0}, Landroidx/appcompat/widget/ActivityChooserView;->getListPopupWindow()Landroidx/appcompat/widget/ListPopupWindow;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroidx/appcompat/widget/ListPopupWindow;->isShowing()Z
 
     move-result v0
 
@@ -74,13 +78,7 @@
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView$2;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
-    iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView;->mProvider:Landroidx/core/view/ActionProvider;
-
-    if-eqz p0, :cond_1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Landroidx/core/view/ActionProvider;->subUiVisibilityChanged(Z)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     :cond_1
     :goto_0

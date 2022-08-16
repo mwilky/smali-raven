@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+.field public final synthetic this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)V
+.method public constructor <init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$listingCallback$1;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
@@ -34,22 +34,10 @@
 
 
 # virtual methods
-.method public onServicesUpdated(Ljava/util/List;)V
+.method public final onServicesUpdated(Ljava/util/ArrayList;)V
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlsServiceInfo;",
-            ">;)V"
-        }
-    .end annotation
 
-    const-string v0, "serviceInfos"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
     move-result p1
 
@@ -57,34 +45,21 @@
 
     if-le p1, v0, :cond_1
 
-    iget-object p1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$listingCallback$1;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
-
-    invoke-static {p1}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->access$getOtherAppsButton$p(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)Landroid/view/View;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_0
-
-    new-instance v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$listingCallback$1$onServicesUpdated$1;
-
     iget-object p0, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$listingCallback$1;->this$0:Lcom/android/systemui/controls/management/ControlsFavoritingActivity;
+
+    iget-object p1, p0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity;->otherAppsButton:Landroid/view/View;
+
+    if-nez p1, :cond_0
+
+    const/4 p1, 0x0
+
+    :cond_0
+    new-instance v0, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$listingCallback$1$onServicesUpdated$1;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/controls/management/ControlsFavoritingActivity$listingCallback$1$onServicesUpdated$1;-><init>(Lcom/android/systemui/controls/management/ControlsFavoritingActivity;)V
 
     invoke-virtual {p1, v0}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "otherAppsButton"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-
     :cond_1
-    :goto_0
     return-void
 .end method

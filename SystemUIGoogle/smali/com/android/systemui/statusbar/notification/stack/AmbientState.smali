@@ -1,102 +1,109 @@
-.class public Lcom/android/systemui/statusbar/notification/stack/AmbientState;
+.class public final Lcom/android/systemui/statusbar/notification/stack/AmbientState;
 .super Ljava/lang/Object;
 .source "AmbientState.java"
 
+# interfaces
+.implements Lcom/android/systemui/Dumpable;
+
 
 # instance fields
-.field private mActivatedChild:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
+.field public mActivatedChild:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
 
-.field private mAppearFraction:F
+.field public mAppearFraction:F
 
-.field private mAppearing:Z
+.field public mAppearing:Z
 
-.field private mBaseZHeight:I
+.field public final mBypassController:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;
 
-.field private final mBypassController:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;
+.field public mClearAllInProgress:Z
 
-.field private mContentHeight:I
+.field public mContentHeight:I
 
-.field private mCurrentScrollVelocity:F
+.field public mCurrentScrollVelocity:F
 
-.field private mDimmed:Z
+.field public mDimmed:Z
 
-.field private mDismissAllInProgress:Z
+.field public mDozeAmount:F
 
-.field private mDozeAmount:F
+.field public mDozing:Z
 
-.field private mDozing:Z
+.field public mExpandingVelocity:F
 
-.field private mExpandingVelocity:F
+.field public mExpansionChanging:Z
 
-.field private mExpansionChanging:Z
+.field public mExpansionFraction:F
 
-.field private mExpansionFraction:F
+.field public mFractionToShade:F
 
-.field private mHasAlertEntries:Z
+.field public mHideAmount:F
 
-.field private mHideAmount:F
+.field public mHideSensitive:Z
 
-.field private mHideSensitive:Z
+.field public mIsFlinging:Z
 
-.field private mIsShadeOpening:Z
+.field public mIsSwipingUp:Z
 
-.field private mLastVisibleBackgroundChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public mLastVisibleBackgroundChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-.field private mLayoutHeight:I
+.field public mLayoutHeight:I
 
-.field private mLayoutMaxHeight:I
+.field public mLayoutMaxHeight:I
 
-.field private mLayoutMinHeight:I
+.field public mLayoutMinHeight:I
 
-.field private mMaxHeadsUpTranslation:F
+.field public mMaxHeadsUpTranslation:F
 
-.field private mOnPulseHeightChangedListener:Ljava/lang/Runnable;
+.field public mNeedFlingAfterLockscreenSwipeUp:Z
 
-.field private mOverExpansion:F
+.field public mOnPulseHeightChangedListener:Ljava/lang/Runnable;
 
-.field private mOverScrollBottomAmount:F
+.field public mOverExpansion:F
 
-.field private mOverScrollTopAmount:F
+.field public mOverScrollBottomAmount:F
 
-.field private mPanelFullWidth:Z
+.field public mOverScrollTopAmount:F
 
-.field private mPanelTracking:Z
+.field public mPanelFullWidth:Z
 
-.field private mPulseHeight:F
+.field public mPanelTracking:Z
 
-.field private mPulsing:Z
+.field public mPulseHeight:F
 
-.field private mScrollY:I
+.field public mPulsing:Z
 
-.field private final mSectionProvider:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
+.field public mScrollY:I
 
-.field private mShadeExpanded:Z
+.field public final mSectionProvider:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
 
-.field private mShelf:Lcom/android/systemui/statusbar/NotificationShelf;
+.field public mShadeExpanded:Z
 
-.field private mStackEndHeight:F
+.field public mShelf:Lcom/android/systemui/statusbar/NotificationShelf;
 
-.field private mStackHeight:F
+.field public mStackEndHeight:F
 
-.field private mStackTopMargin:I
+.field public mStackHeight:F
 
-.field private mStackTranslation:F
+.field public mStackTopMargin:I
 
-.field private mStackY:F
+.field public mStackTranslation:F
 
-.field private mStatusBarState:I
+.field public mStackY:F
 
-.field private mTopPadding:I
+.field public mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
-.field private mTrackedHeadsUpRow:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+.field public mStatusBarState:I
 
-.field private mUnlockHintRunning:Z
+.field public mTopPadding:I
 
-.field private mZDistanceBetweenElements:I
+.field public mTrackedHeadsUpRow:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+.field public mUnlockHintRunning:Z
+
+.field public mZDistanceBetweenElements:I
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -113,128 +120,404 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackHeight:F
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mSectionProvider:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
+    const/4 v0, 0x0
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mBypassController:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mNeedFlingAfterLockscreenSwipeUp:Z
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->reload(Landroid/content/Context;)V
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mSectionProvider:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
+
+    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mBypassController:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;
+
+    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const p3, 0x7f0708b6
+
+    invoke-virtual {p1, p3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    const/4 p3, 0x1
+
+    invoke-static {p3, p1}, Ljava/lang/Math;->max(II)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mZDistanceBetweenElements:I
+
+    invoke-virtual {p2, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Lcom/android/systemui/Dumpable;)V
 
     return-void
 .end method
 
-.method private static getBaseHeight(I)I
-    .locals 0
 
-    const/4 p0, 0x0
+# virtual methods
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 2
 
-    return p0
-.end method
+    const-string p2, "mTopPadding="
 
-.method public static getNotificationLaunchHeight(Landroid/content/Context;)I
-    .locals 0
+    invoke-static {p2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->getZDistanceBetweenElements(Landroid/content/Context;)I
+    move-result-object p2
 
-    move-result p0
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mTopPadding:I
 
-    mul-int/lit8 p0, p0, 0x4
+    const-string v1, "mStackTopMargin="
 
-    return p0
-.end method
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-.method private static getZDistanceBetweenElements(Landroid/content/Context;)I
-    .locals 1
+    move-result-object p2
 
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTopMargin:I
+
+    const-string v1, "mStackTranslation="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTranslation:F
+
+    const-string v1, "mLayoutMinHeight="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutMinHeight:I
+
+    const-string v1, "mLayoutMaxHeight="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutMaxHeight:I
+
+    const-string v1, "mLayoutHeight="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutHeight:I
+
+    const-string v1, "mContentHeight="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mContentHeight:I
+
+    const-string v1, "mHideSensitive="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideSensitive:Z
+
+    const-string v1, "mShadeExpanded="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mShadeExpanded:Z
+
+    const-string v1, "mClearAllInProgress="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mClearAllInProgress:Z
+
+    const-string v1, "mDimmed="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDimmed:Z
+
+    const-string v1, "mStatusBarState="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStatusBarState:I
+
+    const-string v1, "mExpansionChanging="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpansionChanging:Z
+
+    const-string v1, "mPanelFullWidth="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPanelFullWidth:Z
+
+    const-string v1, "mPulsing="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulsing:Z
+
+    const-string v1, "mPulseHeight="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
+
+    const-string v1, "mTrackedHeadsUpRow.key="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mTrackedHeadsUpRow:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "null"
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    invoke-static {v0}, Lokio/Okio;->logKey(Lcom/android/systemui/statusbar/notification/collection/ListEntry;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
+
+    invoke-virtual {p1, p2}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance p2, Ljava/lang/StringBuilder;
+
+    invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v0, "mMaxHeadsUpTranslation="
+
+    invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mMaxHeadsUpTranslation:F
+
+    const-string v1, "mUnlockHintRunning="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mUnlockHintRunning:Z
+
+    const-string v1, "mDozeAmount="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
+
+    const-string v1, "mDozing="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozing:Z
+
+    const-string v1, "mFractionToShade="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mFractionToShade:F
+
+    const-string v1, "mHideAmount="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
+
+    const-string v1, "mAppearFraction="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mAppearFraction:F
+
+    const-string v1, "mAppearing="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mAppearing:Z
+
+    const-string v1, "mExpansionFraction="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpansionFraction:F
+
+    const-string v1, "mExpandingVelocity="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpandingVelocity:F
+
+    const-string v1, "mOverScrollTopAmount="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverScrollTopAmount:F
+
+    const-string v1, "mOverScrollBottomAmount="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverScrollBottomAmount:F
+
+    const-string v1, "mOverExpansion="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverExpansion:F
+
+    const-string v1, "mStackHeight="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackHeight:F
+
+    const-string v1, "mStackEndHeight="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackEndHeight:F
+
+    const-string v1, "mStackY="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackY:F
+
+    const-string v1, "mScrollY="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mScrollY:I
+
+    const-string v1, "mCurrentScrollVelocity="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline2;->m(Ljava/lang/StringBuilder;ILjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mCurrentScrollVelocity:F
+
+    const-string v1, "mIsSwipingUp="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/LockIconView$$ExternalSyntheticOutline1;->m(Ljava/lang/StringBuilder;FLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mIsSwipingUp:Z
+
+    const-string v1, "mPanelTracking="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPanelTracking:Z
+
+    const-string v1, "mIsFlinging="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mIsFlinging:Z
+
+    const-string v1, "mNeedFlingAfterLockscreenSwipeUp="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mNeedFlingAfterLockscreenSwipeUp:Z
+
+    const-string v1, "mZDistanceBetweenElements="
+
+    invoke-static {p2, v0, p1, v1}, Lcom/android/keyguard/KeyguardClockSwitchController$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZLjava/io/PrintWriter;Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object p2
+
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mZDistanceBetweenElements:I
+
+    invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$dimen;->z_distance_between_notifications:I
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const-string p0, "mBaseZHeight=0"
 
-    move-result p0
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    const/4 v0, 0x1
-
-    invoke-static {v0, p0}, Ljava/lang/Math;->max(II)I
-
-    move-result p0
-
-    return p0
+    return-void
 .end method
 
-
-# virtual methods
-.method public getActivatedChild()Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mActivatedChild:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
-
-    return-object p0
-.end method
-
-.method public getAppearFraction()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mAppearFraction:F
-
-    return p0
-.end method
-
-.method public getBaseZHeight()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mBaseZHeight:I
-
-    return p0
-.end method
-
-.method public getCurrentScrollVelocity()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mCurrentScrollVelocity:F
-
-    return p0
-.end method
-
-.method public getExpandingVelocity()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpandingVelocity:F
-
-    return p0
-.end method
-
-.method public getExpansionFraction()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpansionFraction:F
-
-    return p0
-.end method
-
-.method public getHideAmount()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
-
-    return p0
-.end method
-
-.method public getInnerHeight()I
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->getInnerHeight(Z)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getInnerHeight(Z)I
+.method public final getInnerHeight(Z)I
     .locals 3
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
@@ -302,146 +585,7 @@
     return p0
 .end method
 
-.method public getLastVisibleBackgroundChild()Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLastVisibleBackgroundChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    return-object p0
-.end method
-
-.method public getLayoutMaxHeight()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutMaxHeight:I
-
-    return p0
-.end method
-
-.method public getMaxHeadsUpTranslation()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mMaxHeadsUpTranslation:F
-
-    return p0
-.end method
-
-.method getOverExpansion()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverExpansion:F
-
-    return p0
-.end method
-
-.method public getOverScrollAmount(Z)F
-    .locals 0
-
-    if-eqz p1, :cond_0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverScrollTopAmount:F
-
-    goto :goto_0
-
-    :cond_0
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverScrollBottomAmount:F
-
-    :goto_0
-    return p0
-.end method
-
-.method public getPulseHeight()F
-    .locals 1
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
-
-    const v0, 0x47c35000    # 100000.0f
-
-    cmpl-float v0, p0, v0
-
-    if-nez v0, :cond_0
-
-    const/4 p0, 0x0
-
-    :cond_0
-    return p0
-.end method
-
-.method public getScrollY()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mScrollY:I
-
-    return p0
-.end method
-
-.method public getSectionProvider()Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mSectionProvider:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$SectionProvider;
-
-    return-object p0
-.end method
-
-.method public getShelf()Lcom/android/systemui/statusbar/NotificationShelf;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mShelf:Lcom/android/systemui/statusbar/NotificationShelf;
-
-    return-object p0
-.end method
-
-.method public getStackEndHeight()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackEndHeight:F
-
-    return p0
-.end method
-
-.method public getStackHeight()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackHeight:F
-
-    return p0
-.end method
-
-.method public getStackTopMargin()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTopMargin:I
-
-    return p0
-.end method
-
-.method public getStackTranslation()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTranslation:F
-
-    return p0
-.end method
-
-.method public getStackY()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackY:F
-
-    return p0
-.end method
-
-.method public getTopPadding()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mTopPadding:I
-
-    int-to-float p0, p0
-
-    return p0
-.end method
-
-.method public getTrackedHeadsUpRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+.method public final getTrackedHeadsUpRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mTrackedHeadsUpRow:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
@@ -468,157 +612,50 @@
     return-object p0
 .end method
 
-.method public getZDistanceBetweenElements()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mZDistanceBetweenElements:I
-
-    return p0
-.end method
-
-.method public isBypassEnabled()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mBypassController:Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/notification/stack/StackScrollAlgorithm$BypassController;->isBypassEnabled()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public isDimmed()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDimmed:Z
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isPulseExpanding()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    cmpl-float p0, p0, v0
-
-    if-eqz p0, :cond_1
-
-    :cond_0
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isDismissAllInProgress()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDismissAllInProgress:Z
-
-    return p0
-.end method
-
-.method public isDozing()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozing:Z
-
-    return p0
-.end method
-
-.method public isDozingAndNotPulsing(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)Z
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isDozing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isPulsing(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isDozingAndNotPulsing(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
-    .locals 1
+.method public final isDozingAndNotPulsing(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)Z
+    .locals 3
 
     instance-of v0, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x0
+
+    if-eqz v0, :cond_1
 
     check-cast p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->isDozingAndNotPulsing(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozing:Z
 
-    move-result p0
+    const/4 v2, 0x1
 
-    return p0
+    if-eqz v0, :cond_1
 
-    :cond_0
-    const/4 p0, 0x0
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    return p0
-.end method
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulsing:Z
 
-.method public isExpansionChanging()Z
-    .locals 0
+    if-eqz p0, :cond_0
 
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpansionChanging:Z
+    iget-boolean p0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIsAlerting:Z
 
-    return p0
-.end method
+    if-eqz p0, :cond_0
 
-.method public isFullyAwake()Z
-    .locals 1
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
-
-    const/4 v0, 0x0
-
-    cmpl-float p0, p0, v0
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
+    move p0, v2
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    move p0, v1
 
     :goto_0
-    return p0
+    if-nez p0, :cond_1
+
+    move v1, v2
+
+    :cond_1
+    return v1
 .end method
 
-.method public isFullyHidden()Z
+.method public final isFullyHidden()Z
     .locals 1
 
     iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
@@ -640,7 +677,7 @@
     return p0
 .end method
 
-.method public isHiddenAtAll()Z
+.method public final isHiddenAtAll()Z
     .locals 1
 
     iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
@@ -662,15 +699,7 @@
     return p0
 .end method
 
-.method public isHideSensitive()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideSensitive:Z
-
-    return p0
-.end method
-
-.method public isOnKeyguard()Z
+.method public final isOnKeyguard()Z
     .locals 1
 
     iget p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStatusBarState:I
@@ -688,15 +717,7 @@
     return v0
 .end method
 
-.method public isPanelTracking()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPanelTracking:Z
-
-    return p0
-.end method
-
-.method public isPulseExpanding()Z
+.method public final isPulseExpanding()Z
     .locals 2
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
@@ -732,466 +753,4 @@
 
     :goto_0
     return p0
-.end method
-
-.method public isPulsing()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulsing:Z
-
-    return p0
-.end method
-
-.method public isPulsing(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulsing:Z
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isAlerting()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isShadeExpanded()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mShadeExpanded:Z
-
-    return p0
-.end method
-
-.method public isShadeOpening()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mIsShadeOpening:Z
-
-    return p0
-.end method
-
-.method public isUnlockHintRunning()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mUnlockHintRunning:Z
-
-    return p0
-.end method
-
-.method public reload(Landroid/content/Context;)V
-    .locals 0
-
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->getZDistanceBetweenElements(Landroid/content/Context;)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mZDistanceBetweenElements:I
-
-    invoke-static {p1}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->getBaseHeight(I)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mBaseZHeight:I
-
-    return-void
-.end method
-
-.method public setActivatedChild(Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mActivatedChild:Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;
-
-    return-void
-.end method
-
-.method public setAppearFraction(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mAppearFraction:F
-
-    return-void
-.end method
-
-.method public setAppearing(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mAppearing:Z
-
-    return-void
-.end method
-
-.method public setContentHeight(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mContentHeight:I
-
-    return-void
-.end method
-
-.method public setCurrentScrollVelocity(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mCurrentScrollVelocity:F
-
-    return-void
-.end method
-
-.method public setDimmed(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDimmed:Z
-
-    return-void
-.end method
-
-.method public setDismissAllInProgress(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDismissAllInProgress:Z
-
-    return-void
-.end method
-
-.method public setDozeAmount(F)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
-
-    cmpl-float v0, p1, v0
-
-    if-eqz v0, :cond_1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozeAmount:F
-
-    const/4 v0, 0x0
-
-    cmpl-float v0, p1, v0
-
-    if-eqz v0, :cond_0
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    cmpl-float p1, p1, v0
-
-    if-nez p1, :cond_1
-
-    :cond_0
-    const p1, 0x47c35000    # 100000.0f
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->setPulseHeight(F)V
-
-    :cond_1
-    return-void
-.end method
-
-.method public setDozing(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mDozing:Z
-
-    return-void
-.end method
-
-.method public setExpandingVelocity(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpandingVelocity:F
-
-    return-void
-.end method
-
-.method public setExpansionChanging(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpansionChanging:Z
-
-    return-void
-.end method
-
-.method public setExpansionFraction(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mExpansionFraction:F
-
-    return-void
-.end method
-
-.method public setHasAlertEntries(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHasAlertEntries:Z
-
-    return-void
-.end method
-
-.method public setHideAmount(F)V
-    .locals 1
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    cmpl-float v0, p1, v0
-
-    if-nez v0, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
-
-    cmpl-float v0, v0, p1
-
-    if-eqz v0, :cond_0
-
-    const v0, 0x47c35000    # 100000.0f
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->setPulseHeight(F)V
-
-    :cond_0
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideAmount:F
-
-    return-void
-.end method
-
-.method public setHideSensitive(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mHideSensitive:Z
-
-    return-void
-.end method
-
-.method public setIsShadeOpening(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mIsShadeOpening:Z
-
-    return-void
-.end method
-
-.method public setLastVisibleBackgroundChild(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLastVisibleBackgroundChild:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-
-    return-void
-.end method
-
-.method public setLayoutHeight(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutHeight:I
-
-    return-void
-.end method
-
-.method public setLayoutMaxHeight(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutMaxHeight:I
-
-    return-void
-.end method
-
-.method public setLayoutMinHeight(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mLayoutMinHeight:I
-
-    return-void
-.end method
-
-.method public setMaxHeadsUpTranslation(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mMaxHeadsUpTranslation:F
-
-    return-void
-.end method
-
-.method public setOnPulseHeightChangedListener(Ljava/lang/Runnable;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOnPulseHeightChangedListener:Ljava/lang/Runnable;
-
-    return-void
-.end method
-
-.method setOverExpansion(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverExpansion:F
-
-    return-void
-.end method
-
-.method public setOverScrollAmount(FZ)V
-    .locals 0
-
-    if-eqz p2, :cond_0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverScrollTopAmount:F
-
-    goto :goto_0
-
-    :cond_0
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOverScrollBottomAmount:F
-
-    :goto_0
-    return-void
-.end method
-
-.method public setPanelFullWidth(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPanelFullWidth:Z
-
-    return-void
-.end method
-
-.method public setPanelTracking(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPanelTracking:Z
-
-    return-void
-.end method
-
-.method public setPulseHeight(F)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
-
-    cmpl-float v0, p1, v0
-
-    if-eqz v0, :cond_0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulseHeight:F
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mOnPulseHeightChangedListener:Ljava/lang/Runnable;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setPulsing(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mPulsing:Z
-
-    return-void
-.end method
-
-.method public setScrollY(I)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0}, Ljava/lang/Math;->max(II)I
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mScrollY:I
-
-    return-void
-.end method
-
-.method public setShadeExpanded(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mShadeExpanded:Z
-
-    return-void
-.end method
-
-.method public setShelf(Lcom/android/systemui/statusbar/NotificationShelf;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mShelf:Lcom/android/systemui/statusbar/NotificationShelf;
-
-    return-void
-.end method
-
-.method public setStackEndHeight(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackEndHeight:F
-
-    return-void
-.end method
-
-.method public setStackHeight(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackHeight:F
-
-    return-void
-.end method
-
-.method public setStackTopMargin(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTopMargin:I
-
-    return-void
-.end method
-
-.method public setStackTranslation(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackTranslation:F
-
-    return-void
-.end method
-
-.method public setStackY(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStackY:F
-
-    return-void
-.end method
-
-.method public setStatusBarState(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mStatusBarState:I
-
-    return-void
-.end method
-
-.method public setTopPadding(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mTopPadding:I
-
-    return-void
-.end method
-
-.method public setTrackedHeadsUpRow(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mTrackedHeadsUpRow:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    return-void
-.end method
-
-.method public setUnlockHintRunning(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/stack/AmbientState;->mUnlockHintRunning:Z
-
-    return-void
 .end method

@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->animateAppear(J)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/Lambda;",
@@ -27,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;->this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
@@ -45,18 +36,14 @@
 
 
 # virtual methods
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;->invoke()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
-    return-object p0
-.end method
-
-.method public final invoke()V
+.method public final invoke()Ljava/lang/Object;
     .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;->this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->logger:Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/LSShadeTransitionLogger;->logDragDownAmountReset()V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController$animateAppear$1;->this$0:Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;
 
@@ -68,7 +55,9 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->access$setForceApplyAmount$p(Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;Z)V
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/LockscreenShadeTransitionController;->forceApplyAmount:Z
 
-    return-void
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;
+.class public final Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;
 .super Ljava/lang/Object;
 .source "RequestExecutor.java"
 
@@ -12,40 +12,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/core/provider/RequestExecutor$ReplyRunnable;
+.field public final synthetic val$consumer:Landroidx/core/util/Consumer;
 
-.field final synthetic val$consumer:Landroidx/core/util/Consumer;
-
-.field final synthetic val$result:Ljava/lang/Object;
+.field public final synthetic val$result:Ljava/lang/Object;
 
 
 # direct methods
-.method constructor <init>(Landroidx/core/provider/RequestExecutor$ReplyRunnable;Landroidx/core/util/Consumer;Ljava/lang/Object;)V
+.method public constructor <init>(Landroidx/core/util/Consumer;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$consumer",
-            "val$result"
-        }
-    .end annotation
 
-    iput-object p1, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;->this$0:Landroidx/core/provider/RequestExecutor$ReplyRunnable;
+    iput-object p1, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;->val$consumer:Landroidx/core/util/Consumer;
 
-    iput-object p2, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;->val$consumer:Landroidx/core/util/Consumer;
-
-    iput-object p3, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;->val$result:Ljava/lang/Object;
+    iput-object p2, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;->val$result:Ljava/lang/Object;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -54,7 +38,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object v0, p0, Landroidx/core/provider/RequestExecutor$ReplyRunnable$1;->val$consumer:Landroidx/core/util/Consumer;

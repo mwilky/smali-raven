@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final dozeComponentBuilderProvider:Ljavax/inject/Provider;
+.field public final dozeComponentBuilderProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final pluginManagerProvider:Ljavax/inject/Provider;
+.field public final pluginManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -63,42 +63,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/doze/DozeService_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/doze/dagger/DozeComponent$Builder;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/shared/plugins/PluginManager;",
-            ">;)",
-            "Lcom/android/systemui/doze/DozeService_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/doze/DozeService_Factory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/doze/DozeService_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/systemui/doze/dagger/DozeComponent$Builder;Lcom/android/systemui/shared/plugins/PluginManager;)Lcom/android/systemui/doze/DozeService;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/doze/DozeService;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/doze/DozeService;-><init>(Lcom/android/systemui/doze/dagger/DozeComponent$Builder;Lcom/android/systemui/shared/plugins/PluginManager;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/doze/DozeService;
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeService_Factory;->dozeComponentBuilderProvider:Ljavax/inject/Provider;
 
@@ -116,19 +84,9 @@
 
     check-cast p0, Lcom/android/systemui/shared/plugins/PluginManager;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/doze/DozeService_Factory;->newInstance(Lcom/android/systemui/doze/dagger/DozeComponent$Builder;Lcom/android/systemui/shared/plugins/PluginManager;)Lcom/android/systemui/doze/DozeService;
+    new-instance v1, Lcom/android/systemui/doze/DozeService;
 
-    move-result-object p0
+    invoke-direct {v1, v0, p0}, Lcom/android/systemui/doze/DozeService;-><init>(Lcom/android/systemui/doze/dagger/DozeComponent$Builder;Lcom/android/systemui/shared/plugins/PluginManager;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeService_Factory;->get()Lcom/android/systemui/doze/DozeService;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v1
 .end method

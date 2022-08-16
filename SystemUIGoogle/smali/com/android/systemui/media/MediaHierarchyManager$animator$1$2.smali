@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaHierarchyManager;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;)V
+    value = Lcom/android/systemui/media/MediaHierarchyManager;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/KeyguardBypassController;Lcom/android/systemui/media/MediaCarouselController;Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/systemui/keyguard/WakefulnessLifecycle;Lcom/android/keyguard/KeyguardViewController;Lcom/android/systemui/dreams/DreamOverlayStateController;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field private cancelled:Z
+.field public cancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaHierarchyManager;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaHierarchyManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaHierarchyManager;)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaHierarchyManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
@@ -33,35 +33,27 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
 
     const/4 p1, 0x1
 
     iput-boolean p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->cancelled:Z
 
-    iget-object p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
+    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setAnimationPending$p(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
+    iput-boolean p1, p0, Lcom/android/systemui/media/MediaHierarchyManager;->animationPending:Z
 
-    iget-object p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
-
-    invoke-static {p1}, Lcom/android/systemui/media/MediaHierarchyManager;->access$getRootView$p(Lcom/android/systemui/media/MediaHierarchyManager;)Landroid/view/View;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/systemui/media/MediaHierarchyManager;->rootView:Landroid/view/View;
 
     if-nez p1, :cond_0
 
     goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
-
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$getStartAnimation$p(Lcom/android/systemui/media/MediaHierarchyManager;)Ljava/lang/Runnable;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager;->startAnimation:Lcom/android/systemui/media/MediaHierarchyManager$startAnimation$1;
 
     invoke-virtual {p1, p0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
 
@@ -69,28 +61,26 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setCrossFadeAnimatorRunning$p(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
+    iput-boolean v0, p1, Lcom/android/systemui/media/MediaHierarchyManager;->isCrossFadeAnimatorRunning:Z
 
-    iget-boolean p1, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->cancelled:Z
+    iget-boolean p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->cancelled:Z
 
-    if-nez p1, :cond_0
+    if-nez p0, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
-
-    invoke-static {p0}, Lcom/android/systemui/media/MediaHierarchyManager;->access$applyTargetStateIfNotAnimating(Lcom/android/systemui/media/MediaHierarchyManager;)V
+    invoke-virtual {p1}, Lcom/android/systemui/media/MediaHierarchyManager;->applyTargetStateIfNotAnimating()V
 
     :cond_0
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x0
@@ -99,7 +89,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaHierarchyManager$animator$1$2;->this$0:Lcom/android/systemui/media/MediaHierarchyManager;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/media/MediaHierarchyManager;->access$setAnimationPending$p(Lcom/android/systemui/media/MediaHierarchyManager;Z)V
+    iput-boolean p1, p0, Lcom/android/systemui/media/MediaHierarchyManager;->animationPending:Z
 
     return-void
 .end method

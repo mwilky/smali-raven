@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/app/MediaRouteControllerDialog$3;
+.class public final Landroidx/mediarouter/app/MediaRouteControllerDialog$3;
 .super Ljava/lang/Object;
 .source "MediaRouteControllerDialog.java"
 
@@ -12,28 +12,14 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
-
-
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
+.method public constructor <init>()V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$3;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,16 +28,8 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
 
     return-void
 .end method

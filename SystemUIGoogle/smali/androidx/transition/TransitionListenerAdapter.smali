@@ -17,19 +17,19 @@
 
 
 # virtual methods
-.method public onTransitionCancel(Landroidx/transition/Transition;)V
+.method public onTransitionCancel()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionPause(Landroidx/transition/Transition;)V
+.method public onTransitionPause()V
     .locals 0
 
     return-void
 .end method
 
-.method public onTransitionResume(Landroidx/transition/Transition;)V
+.method public onTransitionResume()V
     .locals 0
 
     return-void

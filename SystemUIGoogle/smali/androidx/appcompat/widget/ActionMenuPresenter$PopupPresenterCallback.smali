@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;
+.class public final Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;
 .super Ljava/lang/Object;
 .source "ActionMenuPresenter.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "PopupPresenterCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActionMenuPresenter;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActionMenuPresenter;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
+.method public final onCloseMenu(Landroidx/appcompat/view/menu/MenuBuilder;Z)V
     .locals 2
 
     instance-of v0, p1, Landroidx/appcompat/view/menu/SubMenuBuilder;
@@ -52,9 +52,7 @@
     :cond_0
     iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
 
-    invoke-virtual {p0}, Landroidx/appcompat/view/menu/BaseMenuPresenter;->getCallback()Landroidx/appcompat/view/menu/MenuPresenter$Callback;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/appcompat/view/menu/BaseMenuPresenter;->mCallback:Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
     if-eqz p0, :cond_1
 
@@ -64,14 +62,12 @@
     return-void
 .end method
 
-.method public onOpenSubMenu(Landroidx/appcompat/view/menu/MenuBuilder;)Z
-    .locals 3
+.method public final onOpenSubMenu(Landroidx/appcompat/view/menu/MenuBuilder;)Z
+    .locals 2
 
-    iget-object v0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
+    iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
 
-    invoke-static {v0}, Landroidx/appcompat/widget/ActionMenuPresenter;->access$300(Landroidx/appcompat/widget/ActionMenuPresenter;)Landroidx/appcompat/view/menu/MenuBuilder;
-
-    move-result-object v0
+    iget-object v0, p0, Landroidx/appcompat/view/menu/BaseMenuPresenter;->mMenu:Landroidx/appcompat/view/menu/MenuBuilder;
 
     const/4 v1, 0x0
 
@@ -80,27 +76,17 @@
     return v1
 
     :cond_0
-    iget-object v0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
+    move-object v0, p1
 
-    move-object v2, p1
+    check-cast v0, Landroidx/appcompat/view/menu/SubMenuBuilder;
 
-    check-cast v2, Landroidx/appcompat/view/menu/SubMenuBuilder;
+    iget-object v0, v0, Landroidx/appcompat/view/menu/SubMenuBuilder;->mItem:Landroidx/appcompat/view/menu/MenuItemImpl;
 
-    invoke-virtual {v2}, Landroidx/appcompat/view/menu/SubMenuBuilder;->getItem()Landroid/view/MenuItem;
+    iget v0, v0, Landroidx/appcompat/view/menu/MenuItemImpl;->mId:I
 
-    move-result-object v2
+    iput v0, p0, Landroidx/appcompat/widget/ActionMenuPresenter;->mOpenSubMenuId:I
 
-    invoke-interface {v2}, Landroid/view/MenuItem;->getItemId()I
-
-    move-result v2
-
-    iput v2, v0, Landroidx/appcompat/widget/ActionMenuPresenter;->mOpenSubMenuId:I
-
-    iget-object p0, p0, Landroidx/appcompat/widget/ActionMenuPresenter$PopupPresenterCallback;->this$0:Landroidx/appcompat/widget/ActionMenuPresenter;
-
-    invoke-virtual {p0}, Landroidx/appcompat/view/menu/BaseMenuPresenter;->getCallback()Landroidx/appcompat/view/menu/MenuPresenter$Callback;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/appcompat/view/menu/BaseMenuPresenter;->mCallback:Landroidx/appcompat/view/menu/MenuPresenter$Callback;
 
     if-eqz p0, :cond_1
 

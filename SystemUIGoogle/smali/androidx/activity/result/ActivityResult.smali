@@ -27,13 +27,13 @@
 
 
 # instance fields
-.field private final mData:Landroid/content/Intent;
+.field public final mData:Landroid/content/Intent;
 
-.field private final mResultCode:I
+.field public final mResultCode:I
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroidx/activity/result/ActivityResult$1;
@@ -45,19 +45,19 @@
     return-void
 .end method
 
-.method public constructor <init>(ILandroid/content/Intent;)V
+.method public constructor <init>(Landroid/content/Intent;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput p1, p0, Landroidx/activity/result/ActivityResult;->mResultCode:I
+    iput p2, p0, Landroidx/activity/result/ActivityResult;->mResultCode:I
 
-    iput-object p2, p0, Landroidx/activity/result/ActivityResult;->mData:Landroid/content/Intent;
+    iput-object p1, p0, Landroidx/activity/result/ActivityResult;->mData:Landroid/content/Intent;
 
     return-void
 .end method
 
-.method constructor <init>(Landroid/os/Parcel;)V
+.method public constructor <init>(Landroid/os/Parcel;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -93,35 +93,9 @@
     return-void
 .end method
 
-.method public static resultCodeToString(I)Ljava/lang/String;
-    .locals 1
-
-    const/4 v0, -0x1
-
-    if-eq p0, v0, :cond_1
-
-    if-eqz p0, :cond_0
-
-    invoke-static {p0}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "RESULT_CANCELED"
-
-    return-object p0
-
-    :cond_1
-    const-string p0, "RESULT_OK"
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method public describeContents()I
+.method public final describeContents()I
     .locals 0
 
     const/4 p0, 0x0
@@ -129,39 +103,38 @@
     return p0
 .end method
 
-.method public getData()Landroid/content/Intent;
-    .locals 0
+.method public final toString()Ljava/lang/String;
+    .locals 3
 
-    iget-object p0, p0, Landroidx/activity/result/ActivityResult;->mData:Landroid/content/Intent;
+    const-string v0, "ActivityResult{resultCode="
 
-    return-object p0
-.end method
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-.method public getResultCode()I
-    .locals 0
-
-    iget p0, p0, Landroidx/activity/result/ActivityResult;->mResultCode:I
-
-    return p0
-.end method
-
-.method public toString()Ljava/lang/String;
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "ActivityResult{resultCode="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Landroidx/activity/result/ActivityResult;->mResultCode:I
 
-    invoke-static {v1}, Landroidx/activity/result/ActivityResult;->resultCodeToString(I)Ljava/lang/String;
+    const/4 v2, -0x1
+
+    if-eq v1, v2, :cond_1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v1
 
+    goto :goto_0
+
+    :cond_0
+    const-string v1, "RESULT_CANCELED"
+
+    goto :goto_0
+
+    :cond_1
+    const-string v1, "RESULT_OK"
+
+    :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, ", data="
@@ -183,7 +156,7 @@
     return-object p0
 .end method
 
-.method public writeToParcel(Landroid/os/Parcel;I)V
+.method public final writeToParcel(Landroid/os/Parcel;I)V
     .locals 1
 
     iget v0, p0, Landroidx/activity/result/ActivityResult;->mResultCode:I

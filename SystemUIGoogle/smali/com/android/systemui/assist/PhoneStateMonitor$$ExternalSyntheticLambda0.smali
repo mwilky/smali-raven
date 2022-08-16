@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/assist/PhoneStateMonitor$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/BootCompleteCache$BootCompleteListener;
@@ -23,11 +24,17 @@
 
 # virtual methods
 .method public final onBootComplete()V
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/assist/PhoneStateMonitor$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/assist/PhoneStateMonitor;
 
-    invoke-static {p0}, Lcom/android/systemui/assist/PhoneStateMonitor;->$r8$lambda$GUABkCGu7fz0odzjodKjcl6hYw8(Lcom/android/systemui/assist/PhoneStateMonitor;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Lcom/android/systemui/assist/PhoneStateMonitor;->getCurrentDefaultHome()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/assist/PhoneStateMonitor;->mDefaultHome:Landroid/content/ComponentName;
 
     return-void
 .end method

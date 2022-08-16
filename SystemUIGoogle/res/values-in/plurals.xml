@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">%d hari lalu</item>
-        <item quantity="one">%d hari lalu</item>
+        <item quantity="other">%d hr lalu</item>
+        <item quantity="one">%d hr lalu</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">%d menit lalu</item>
-        <item quantity="one">%d menit lalu</item>
+        <item quantity="other">%d mnt lalu</item>
+        <item quantity="one">%d mnt lalu</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">%d tahun lalu</item>
-        <item quantity="one">%d tahun lalu</item>
+        <item quantity="other">%d thn lalu</item>
+        <item quantity="one">%d thn lalu</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s kontrol ditambahkan.</item>
         <item quantity="one">%s kontrol ditambahkan.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s aplikasi aktif</item>
+        <item quantity="one">%s aplikasi aktif</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Masukkan PIN SIM. Tersisa %d percobaan.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Kode PUK SIM salah, sisa %d percobaan sebelum SIM tidak dapat digunakan selamanya.</item>
         <item quantity="one">Kode PUK SIM salah, sisa %d percobaan sebelum SIM tidak dapat digunakan selamanya.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Coba %d detik lagi.</item>
-        <item quantity="one">Coba 1 detik lagi.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d notifikasi baru</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Anda dapat menambahkan hingga %d pengguna.</item>
         <item quantity="one">Hanya dapat membuat satu pengguna.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d perangkat terhubung</item>
-        <item quantity="one">%1$d perangkat terhubung</item>
     </plurals>
 </resources>

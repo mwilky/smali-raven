@@ -22,18 +22,17 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
-        "TT;>;"
+        "Ljava/util/Comparator;"
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$2\n+ 2 MediaDataFilter.kt\ncom/android/systemui/media/MediaDataFilter\n*L\n1#1,319:1\n129#2:320\n*E\n"
+    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$2\n+ 2 MediaDataFilter.kt\ncom/android/systemui/media/MediaDataFilter\n*L\n1#1,320:1\n132#2:321\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/MediaDataFilter;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaDataFilter;
 
 
 # direct methods
@@ -61,9 +60,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaDataFilter$onSmartspaceMediaDataLoaded$$inlined$compareBy$1;->this$0:Lcom/android/systemui/media/MediaDataFilter;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaDataFilter;->access$getUserEntries$p(Lcom/android/systemui/media/MediaDataFilter;)Ljava/util/LinkedHashMap;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
 
     invoke-virtual {v0, p1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -73,20 +70,16 @@
 
     const/4 v0, -0x1
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
     if-nez p1, :cond_0
 
-    move-object p1, v0
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/systemui/media/MediaData;->getLastActive()J
-
-    move-result-wide v1
+    iget-wide v1, p1, Lcom/android/systemui/media/MediaData;->lastActive:J
 
     invoke-static {v1, v2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -97,9 +90,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter$onSmartspaceMediaDataLoaded$$inlined$compareBy$1;->this$0:Lcom/android/systemui/media/MediaDataFilter;
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaDataFilter;->access$getUserEntries$p(Lcom/android/systemui/media/MediaDataFilter;)Ljava/util/LinkedHashMap;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/media/MediaDataFilter;->userEntries:Ljava/util/LinkedHashMap;
 
     invoke-virtual {p0, p2}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -109,19 +100,21 @@
 
     if-nez p0, :cond_1
 
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p0
+
     goto :goto_1
 
     :cond_1
-    invoke-virtual {p0}, Lcom/android/systemui/media/MediaData;->getLastActive()J
-
-    move-result-wide v0
+    iget-wide v0, p0, Lcom/android/systemui/media/MediaData;->lastActive:J
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v0
+    move-result-object p0
 
     :goto_1
-    invoke-static {p1, v0}, Lkotlin/comparisons/ComparisonsKt;->compareValues(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
+    invoke-static {p1, p0}, Lkotlin/comparisons/ComparisonsKt__ComparisonsKt;->compareValues(Ljava/lang/Comparable;Ljava/lang/Comparable;)I
 
     move-result p0
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;
+.class public final Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;
 .super Ljava/lang/Object;
 .source "WifiSignalController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "WifiTrafficStateCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/WifiSignalController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/connectivity/WifiSignalController;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;->this$0:Lcom/android/systemui/statusbar/connectivity/WifiSignalController;
@@ -32,17 +32,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;Lcom/android/systemui/statusbar/connectivity/WifiSignalController$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;-><init>(Lcom/android/systemui/statusbar/connectivity/WifiSignalController;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onStateChanged(I)V
+.method public final onStateChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/connectivity/WifiSignalController$WifiTrafficStateCallback;->this$0:Lcom/android/systemui/statusbar/connectivity/WifiSignalController;

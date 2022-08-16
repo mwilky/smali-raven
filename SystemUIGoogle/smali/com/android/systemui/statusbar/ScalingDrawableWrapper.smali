@@ -1,10 +1,10 @@
-.class public Lcom/android/systemui/statusbar/ScalingDrawableWrapper;
+.class public final Lcom/android/systemui/statusbar/ScalingDrawableWrapper;
 .super Landroid/graphics/drawable/DrawableWrapper;
 .source "ScalingDrawableWrapper.java"
 
 
 # instance fields
-.field private mScaleFactor:F
+.field public mScaleFactor:F
 
 
 # direct methods
@@ -20,7 +20,7 @@
 
 
 # virtual methods
-.method public getIntrinsicHeight()I
+.method public final getIntrinsicHeight()I
     .locals 1
 
     invoke-super {p0}, Landroid/graphics/drawable/DrawableWrapper;->getIntrinsicHeight()I
@@ -38,7 +38,7 @@
     return p0
 .end method
 
-.method public getIntrinsicWidth()I
+.method public final getIntrinsicWidth()I
     .locals 1
 
     invoke-super {p0}, Landroid/graphics/drawable/DrawableWrapper;->getIntrinsicWidth()I

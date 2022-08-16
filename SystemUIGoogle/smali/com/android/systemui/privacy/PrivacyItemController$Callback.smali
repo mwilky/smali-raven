@@ -2,6 +2,9 @@
 .super Ljava/lang/Object;
 .source "PrivacyItemController.kt"
 
+# interfaces
+.implements Lcom/android/systemui/privacy/PrivacyConfig$Callback;
+
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
@@ -15,18 +18,6 @@
 
 
 # virtual methods
-.method public onFlagLocationChanged(Z)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onFlagMicCameraChanged(Z)V
-    .locals 0
-
-    return-void
-.end method
-
 .method public abstract onPrivacyItemsChanged(Ljava/util/List;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tiles/HotspotTile;
+.class public final Lcom/android/systemui/qs/tiles/HotspotTile;
 .super Lcom/android/systemui/qs/tileimpl/QSTileImpl;
 .source "HotspotTile.java"
 
@@ -21,15 +21,13 @@
 
 
 # instance fields
-.field private final mCallbacks:Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;
+.field public final mDataSaverController:Lcom/android/systemui/statusbar/policy/DataSaverController;
 
-.field private final mDataSaverController:Lcom/android/systemui/statusbar/policy/DataSaverController;
+.field public final mEnabledStatic:Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
-.field private final mEnabledStatic:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+.field public final mHotspotController:Lcom/android/systemui/statusbar/policy/HotspotController;
 
-.field private final mHotspotController:Lcom/android/systemui/statusbar/policy/HotspotController;
-
-.field private mListening:Z
+.field public mListening:Z
 
 
 # direct methods
@@ -38,7 +36,7 @@
 
     invoke-direct/range {p0 .. p8}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;-><init>(Lcom/android/systemui/qs/QSHost;Landroid/os/Looper;Landroid/os/Handler;Lcom/android/systemui/plugins/FalsingManager;Lcom/android/internal/logging/MetricsLogger;Lcom/android/systemui/plugins/statusbar/StatusBarStateController;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/qs/logging/QSLogger;)V
 
-    sget p1, Lcom/android/systemui/R$drawable;->ic_hotspot:I
+    const p1, 0x7f080562
 
     invoke-static {p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -48,156 +46,22 @@
 
     new-instance p1, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;
 
-    const/4 p2, 0x0
-
-    invoke-direct {p1, p0, p2}, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;Lcom/android/systemui/qs/tiles/HotspotTile$1;)V
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mCallbacks:Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;
+    invoke-direct {p1, p0}, Lcom/android/systemui/qs/tiles/HotspotTile$HotspotAndDataSaverCallbacks;-><init>(Lcom/android/systemui/qs/tiles/HotspotTile;)V
 
     iput-object p9, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHotspotController:Lcom/android/systemui/statusbar/policy/HotspotController;
 
     iput-object p10, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mDataSaverController:Lcom/android/systemui/statusbar/policy/DataSaverController;
 
-    invoke-interface {p9, p0, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p9, p0, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)V
 
-    invoke-interface {p10, p0, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)Ljava/lang/Object;
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
+    invoke-interface {p10, p0, p1}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)V
 
     return-void
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/qs/tiles/HotspotTile;Ljava/lang/Object;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/qs/tiles/HotspotTile;)Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/qs/tiles/HotspotTile;)Lcom/android/systemui/qs/QSHost;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHost:Lcom/android/systemui/qs/QSHost;
-
-    return-object p0
-.end method
-
-.method private getSecondaryLabel(ZZZI)Ljava/lang/String;
-    .locals 1
-
-    if-eqz p2, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    sget p1, Lcom/android/systemui/R$string;->quick_settings_hotspot_secondary_label_transient:I
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    if-eqz p3, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    sget p1, Lcom/android/systemui/R$string;->quick_settings_hotspot_secondary_label_data_saver_enabled:I
-
-    invoke-virtual {p0, p1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_1
-    if-lez p4, :cond_2
-
-    if-eqz p1, :cond_2
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    sget p1, Lcom/android/systemui/R$plurals;->quick_settings_hotspot_secondary_label_num_devices:I
-
-    const/4 p2, 0x1
-
-    new-array p2, p2, [Ljava/lang/Object;
-
-    const/4 p3, 0x0
-
-    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    aput-object v0, p2, p3
-
-    invoke-virtual {p0, p1, p4, p2}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_2
-    const/4 p0, 0x0
-
-    return-object p0
 .end method
 
 
 # virtual methods
-.method protected composeChangeAnnouncement()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
-
-    check-cast v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    iget-boolean v0, v0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    sget v0, Lcom/android/systemui/R$string;->accessibility_quick_settings_hotspot_changed_on:I
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
-
-    sget v0, Lcom/android/systemui/R$string;->accessibility_quick_settings_hotspot_changed_off:I
-
-    invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getLongClickIntent()Landroid/content/Intent;
+.method public final getLongClickIntent()Landroid/content/Intent;
     .locals 1
 
     new-instance p0, Landroid/content/Intent;
@@ -209,7 +73,7 @@
     return-object p0
 .end method
 
-.method public getMetricsCategory()I
+.method public final getMetricsCategory()I
     .locals 0
 
     const/16 p0, 0x78
@@ -217,12 +81,12 @@
     return p0
 .end method
 
-.method public getTileLabel()Ljava/lang/CharSequence;
+.method public final getTileLabel()Ljava/lang/CharSequence;
     .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/systemui/R$string;->quick_settings_hotspot_label:I
+    const v0, 0x7f1305e4
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -231,7 +95,7 @@
     return-object p0
 .end method
 
-.method protected handleClick(Landroid/view/View;)V
+.method public final handleClick(Landroid/view/View;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mState:Lcom/android/systemui/plugins/qs/QSTile$State;
@@ -274,7 +138,7 @@
     return-void
 .end method
 
-.method protected handleDestroy()V
+.method public final handleDestroy()V
     .locals 0
 
     invoke-super {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleDestroy()V
@@ -282,7 +146,7 @@
     return-void
 .end method
 
-.method public handleSetListening(Z)V
+.method public final handleSetListening(Z)V
     .locals 1
 
     invoke-super {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->handleSetListening(Z)V
@@ -298,14 +162,18 @@
 
     if-eqz p1, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     :cond_1
     return-void
 .end method
 
-.method protected handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-    .locals 6
+.method public final handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
+    .locals 7
+
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     sget-object v0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->ARG_SHOW_TRANSIENT_ENABLING:Ljava/lang/Object;
 
@@ -436,7 +304,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
 
-    sget v5, Lcom/android/systemui/R$string;->quick_settings_hotspot_label:I
+    const v5, 0x7f1305e4
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -466,7 +334,7 @@
 
     if-eqz v3, :cond_a
 
-    const v4, 0x10803ba
+    const v4, 0x10803c4
 
     invoke-static {v4}, Lcom/android/systemui/qs/tileimpl/QSTileImpl$ResourceIcon;->get(I)Lcom/android/systemui/plugins/qs/QSTile$Icon;
 
@@ -487,45 +355,159 @@
 
     iput-object v4, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
 
-    iget-boolean v4, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+    iget-object v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mHost:Lcom/android/systemui/qs/QSHost;
 
-    if-nez v4, :cond_c
+    invoke-interface {v4}, Lcom/android/systemui/qs/QSHost;->getUserContext()Landroid/content/Context;
 
-    iget-boolean v4, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->isTransient:Z
+    move-result-object v4
 
-    if-eqz v4, :cond_b
+    const-string v5, "no_wifi_tethering"
+
+    invoke-static {v4, v5}, Lcom/android/settingslib/wifi/WifiEnterpriseRestrictionUtils;->hasUserRestrictionFromT(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_b
+
+    move v4, v1
 
     goto :goto_9
 
     :cond_b
+    const-string v4, "WifiEntResUtils"
+
+    const-string v5, "Wi-Fi Tethering isn\'t available due to user restriction."
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
     move v4, v2
+
+    :goto_9
+    if-nez p2, :cond_d
+
+    if-nez v4, :cond_c
 
     goto :goto_a
 
     :cond_c
-    :goto_9
-    move v4, v1
-
-    :goto_a
-    if-eqz p2, :cond_d
-
-    iput v2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+    move v5, v2
 
     goto :goto_b
 
     :cond_d
-    if-eqz v4, :cond_e
-
-    const/4 v1, 0x2
-
-    :cond_e
-    iput v1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+    :goto_a
+    move v5, v1
 
     :goto_b
-    invoke-direct {p0, v4, v3, p2, v0}, Lcom/android/systemui/qs/tiles/HotspotTile;->getSecondaryLabel(ZZZI)Ljava/lang/String;
+    iget-boolean v6, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;->value:Z
+
+    if-nez v6, :cond_f
+
+    iget-boolean v6, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->isTransient:Z
+
+    if-eqz v6, :cond_e
+
+    goto :goto_c
+
+    :cond_e
+    move v6, v2
+
+    goto :goto_d
+
+    :cond_f
+    :goto_c
+    move v6, v1
+
+    :goto_d
+    if-eqz v5, :cond_10
+
+    iput v2, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+
+    goto :goto_f
+
+    :cond_10
+    if-eqz v6, :cond_11
+
+    const/4 v5, 0x2
+
+    goto :goto_e
+
+    :cond_11
+    move v5, v1
+
+    :goto_e
+    iput v5, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
+
+    :goto_f
+    if-nez v4, :cond_12
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+
+    const p2, 0x7f1307ed
+
+    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p0
 
+    goto :goto_10
+
+    :cond_12
+    if-eqz v3, :cond_13
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+
+    const p2, 0x7f1305e6
+
+    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_10
+
+    :cond_13
+    if-eqz p2, :cond_14
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+
+    const p2, 0x7f1305e5
+
+    invoke-virtual {p0, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_10
+
+    :cond_14
+    if-lez v0, :cond_15
+
+    if-eqz v6, :cond_15
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p0
+
+    const p2, 0x7f11000b
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    invoke-virtual {p0, p2, v0, v1}, Landroid/content/res/Resources;->getQuantityString(II[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p0
+
+    goto :goto_10
+
+    :cond_15
+    const/4 p0, 0x0
+
+    :goto_10
     iput-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->secondaryLabel:Ljava/lang/CharSequence;
 
     iput-object p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->stateDescription:Ljava/lang/CharSequence;
@@ -533,17 +515,7 @@
     return-void
 .end method
 
-.method protected bridge synthetic handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$State;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/qs/tiles/HotspotTile;->handleUpdateState(Lcom/android/systemui/plugins/qs/QSTile$BooleanState;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public isAvailable()Z
+.method public final isAvailable()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/HotspotTile;->mHotspotController:Lcom/android/systemui/statusbar/policy/HotspotController;
@@ -555,22 +527,12 @@
     return p0
 .end method
 
-.method public newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
+.method public final newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
     invoke-direct {p0}, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;-><init>()V
-
-    return-object p0
-.end method
-
-.method public bridge synthetic newTileState()Lcom/android/systemui/plugins/qs/QSTile$State;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tiles/HotspotTile;->newTileState()Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
-
-    move-result-object p0
 
     return-object p0
 .end method

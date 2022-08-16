@@ -1,4 +1,4 @@
-.class final synthetic Lcom/android/systemui/media/SeekBarViewModel$checkIfPollingNeeded$1;
+.class public final synthetic Lcom/android/systemui/media/SeekBarViewModel$checkIfPollingNeeded$1;
 .super Ljava/lang/Object;
 .source "SeekBarViewModel.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
+    accessFlags = 0x1001
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $tmp0:Lcom/android/systemui/media/SeekBarViewModel;
+.field public final synthetic $tmp0:Lcom/android/systemui/media/SeekBarViewModel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
+.method public constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel$checkIfPollingNeeded$1;->$tmp0:Lcom/android/systemui/media/SeekBarViewModel;

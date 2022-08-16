@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/biometrics/UdfpsController$$ExternalSyntheticLambda3;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lkotlin/jvm/functions/Function0;
 
 
 # instance fields
@@ -22,12 +23,19 @@
 
 
 # virtual methods
-.method public final run()V
+.method public final invoke()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController$$ExternalSyntheticLambda3;->f$0:Lcom/android/systemui/biometrics/UdfpsController;
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsController;->onCancelUdfps()V
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsController;->mAuthControllerUpdateUdfpsLocation:Ljava/lang/Runnable;
 
-    return-void
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    :cond_0
+    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+
+    return-object p0
 .end method

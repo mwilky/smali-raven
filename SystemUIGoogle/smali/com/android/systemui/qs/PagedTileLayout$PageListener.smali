@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onPageChanged(Z)V
+.method public abstract onPageChanged(IZ)V
 .end method

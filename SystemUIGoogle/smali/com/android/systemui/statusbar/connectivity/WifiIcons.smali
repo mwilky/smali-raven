@@ -1,25 +1,17 @@
-.class public Lcom/android/systemui/statusbar/connectivity/WifiIcons;
+.class public final Lcom/android/systemui/statusbar/connectivity/WifiIcons;
 .super Ljava/lang/Object;
 .source "WifiIcons.java"
 
 
 # static fields
-.field public static final QS_WIFI_SIGNAL_STRENGTH:[[I
-
 .field public static final UNMERGED_WIFI:Lcom/android/settingslib/SignalIcon$IconGroup;
 
-.field static final WIFI_FULL_ICONS:[I
-
-.field static final WIFI_LEVEL_COUNT:I
-
-.field private static final WIFI_NO_INTERNET_ICONS:[I
-
-.field static final WIFI_SIGNAL_STRENGTH:[[I
+.field public static final WIFI_LEVEL_COUNT:I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 17
+.method public static constructor <clinit>()V
+    .locals 14
 
     const/4 v0, 0x5
 
@@ -27,90 +19,67 @@
 
     fill-array-data v1, :array_0
 
-    sput-object v1, Lcom/android/systemui/statusbar/connectivity/WifiIcons;->WIFI_FULL_ICONS:[I
+    new-array v2, v0, [I
 
-    new-array v0, v0, [I
+    fill-array-data v2, :array_1
 
-    sget v2, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_0:I
+    const/4 v3, 0x2
+
+    new-array v7, v3, [[I
 
     const/4 v3, 0x0
 
-    aput v2, v0, v3
+    aput-object v2, v7, v3
 
-    sget v2, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_1:I
+    const/4 v2, 0x1
 
-    const/4 v4, 0x1
-
-    aput v2, v0, v4
-
-    sget v2, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_2:I
-
-    const/4 v5, 0x2
-
-    aput v2, v0, v5
-
-    sget v2, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_3:I
-
-    const/4 v6, 0x3
-
-    aput v2, v0, v6
-
-    sget v2, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_4:I
-
-    const/4 v6, 0x4
-
-    aput v2, v0, v6
-
-    sput-object v0, Lcom/android/systemui/statusbar/connectivity/WifiIcons;->WIFI_NO_INTERNET_ICONS:[I
-
-    new-array v10, v5, [[I
-
-    aput-object v0, v10, v3
-
-    aput-object v1, v10, v4
-
-    sput-object v10, Lcom/android/systemui/statusbar/connectivity/WifiIcons;->QS_WIFI_SIGNAL_STRENGTH:[[I
-
-    sput-object v10, Lcom/android/systemui/statusbar/connectivity/WifiIcons;->WIFI_SIGNAL_STRENGTH:[[I
-
-    aget-object v0, v10, v3
-
-    array-length v0, v0
+    aput-object v1, v7, v2
 
     sput v0, Lcom/android/systemui/statusbar/connectivity/WifiIcons;->WIFI_LEVEL_COUNT:I
 
     new-instance v0, Lcom/android/settingslib/SignalIcon$IconGroup;
 
-    sget-object v11, Lcom/android/settingslib/AccessibilityContentDescriptions;->WIFI_CONNECTION_STRENGTH:[I
+    sget-object v8, Lkotlinx/coroutines/internal/LockFreeLinkedListKt;->WIFI_CONNECTION_STRENGTH:[I
 
-    sget v16, Lcom/android/settingslib/AccessibilityContentDescriptions;->WIFI_NO_CONNECTION:I
+    const-string v5, "Wi-Fi Icons"
 
-    const-string v8, "Wi-Fi Icons"
+    const v9, 0x1080571
 
-    const v12, 0x1080565
+    const v10, 0x1080571
 
-    const v13, 0x1080565
+    const v11, 0x1080571
 
-    const v14, 0x1080565
+    const v12, 0x1080571
 
-    const v15, 0x1080565
+    const v13, 0x7f130089
 
-    move-object v7, v0
+    move-object v4, v0
 
-    move-object v9, v10
+    move-object v6, v7
 
-    invoke-direct/range {v7 .. v16}, Lcom/android/settingslib/SignalIcon$IconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIII)V
+    invoke-direct/range {v4 .. v13}, Lcom/android/settingslib/SignalIcon$IconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIII)V
 
     sput-object v0, Lcom/android/systemui/statusbar/connectivity/WifiIcons;->UNMERGED_WIFI:Lcom/android/settingslib/SignalIcon$IconGroup;
 
     return-void
 
+    nop
+
     :array_0
     .array-data 4
-        0x1080565
-        0x1080566
-        0x1080567
-        0x1080568
-        0x1080569
+        0x1080571
+        0x1080572
+        0x1080573
+        0x1080574
+        0x1080575
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x7f080627
+        0x7f080628
+        0x7f080629
+        0x7f08062a
+        0x7f08062b
     .end array-data
 .end method

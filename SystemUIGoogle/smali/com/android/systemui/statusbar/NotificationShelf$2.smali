@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationShelf$2;
+.class public final Lcom/android/systemui/statusbar/NotificationShelf$2;
 .super Ljava/lang/Object;
 .source "NotificationShelf.java"
 
@@ -6,38 +6,23 @@
 .implements Landroid/view/View$OnAttachStateChangeListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/NotificationShelf;->updateContinuousClipping(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/NotificationShelf;
+.field public final synthetic val$icon:Lcom/android/systemui/statusbar/StatusBarIconView;
 
-.field final synthetic val$icon:Lcom/android/systemui/statusbar/StatusBarIconView;
+.field public final synthetic val$observer:Landroid/view/ViewTreeObserver;
 
-.field final synthetic val$observer:Landroid/view/ViewTreeObserver;
-
-.field final synthetic val$predrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
+.field public final synthetic val$predrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/NotificationShelf;Lcom/android/systemui/statusbar/StatusBarIconView;Landroid/view/ViewTreeObserver;Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/StatusBarIconView;Landroid/view/ViewTreeObserver;Lcom/android/systemui/statusbar/NotificationShelf$1;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->this$0:Lcom/android/systemui/statusbar/NotificationShelf;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$icon:Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$icon:Lcom/android/systemui/statusbar/StatusBarIconView;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$observer:Landroid/view/ViewTreeObserver;
 
-    iput-object p3, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$observer:Landroid/view/ViewTreeObserver;
-
-    iput-object p4, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$predrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$predrawListener:Landroid/view/ViewTreeObserver$OnPreDrawListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,13 +31,13 @@
 
 
 # virtual methods
-.method public onViewAttachedToWindow(Landroid/view/View;)V
+.method public final onViewAttachedToWindow(Landroid/view/View;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onViewDetachedFromWindow(Landroid/view/View;)V
+.method public final onViewDetachedFromWindow(Landroid/view/View;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$icon:Lcom/android/systemui/statusbar/StatusBarIconView;
@@ -76,9 +61,9 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/NotificationShelf$2;->val$icon:Lcom/android/systemui/statusbar/StatusBarIconView;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/NotificationShelf;->access$300()I
+    sget-object p1, Lcom/android/systemui/statusbar/NotificationShelf;->ICON_ALPHA_INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    move-result p1
+    const p1, 0x7f0b01b1
 
     const/4 v0, 0x0
 

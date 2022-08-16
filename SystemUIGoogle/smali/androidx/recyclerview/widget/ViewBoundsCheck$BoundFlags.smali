@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;
+.class public final Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;
 .super Ljava/lang/Object;
 .source "ViewBoundsCheck.java"
 
@@ -9,25 +9,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "BoundFlags"
 .end annotation
 
 
 # instance fields
-.field mBoundFlags:I
+.field public mBoundFlags:I
 
-.field mChildEnd:I
+.field public mChildEnd:I
 
-.field mChildStart:I
+.field public mChildStart:I
 
-.field mRvEnd:I
+.field public mRvEnd:I
 
-.field mRvStart:I
+.field public mRvStart:I
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -41,194 +41,152 @@
 
 
 # virtual methods
-.method addFlags(I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "flags"
-        }
-    .end annotation
-
-    iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
-
-    or-int/2addr p1, v0
-
-    iput p1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
-
-    return-void
-.end method
-
-.method boundsMatch()Z
-    .locals 4
+.method public final boundsMatch()Z
+    .locals 7
 
     iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
 
     and-int/lit8 v1, v0, 0x7
 
-    const/4 v2, 0x0
+    const/4 v2, 0x2
 
-    if-eqz v1, :cond_0
+    const/4 v3, 0x4
 
-    iget v1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildStart:I
+    const/4 v4, 0x1
 
-    iget v3, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
-
-    invoke-virtual {p0, v1, v3}, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->compare(II)I
-
-    move-result v1
-
-    shl-int/2addr v1, v2
-
-    and-int/2addr v0, v1
-
-    if-nez v0, :cond_0
-
-    return v2
-
-    :cond_0
-    iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
-
-    and-int/lit8 v1, v0, 0x70
-
-    if-eqz v1, :cond_1
-
-    iget v1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildStart:I
-
-    iget v3, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvEnd:I
-
-    invoke-virtual {p0, v1, v3}, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->compare(II)I
-
-    move-result v1
-
-    shl-int/lit8 v1, v1, 0x4
-
-    and-int/2addr v0, v1
-
-    if-nez v0, :cond_1
-
-    return v2
-
-    :cond_1
-    iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
-
-    and-int/lit16 v1, v0, 0x700
+    const/4 v5, 0x0
 
     if-eqz v1, :cond_2
 
-    iget v1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildEnd:I
+    iget v1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildStart:I
 
-    iget v3, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
+    iget v6, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
 
-    invoke-virtual {p0, v1, v3}, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->compare(II)I
+    if-le v1, v6, :cond_0
 
-    move-result v1
+    move v1, v4
 
-    shl-int/lit8 v1, v1, 0x8
+    goto :goto_0
 
-    and-int/2addr v0, v1
+    :cond_0
+    if-ne v1, v6, :cond_1
 
-    if-nez v0, :cond_2
+    move v1, v2
 
-    return v2
+    goto :goto_0
+
+    :cond_1
+    move v1, v3
+
+    :goto_0
+    shl-int/2addr v1, v5
+
+    and-int/2addr v1, v0
+
+    if-nez v1, :cond_2
+
+    return v5
 
     :cond_2
-    iget v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
+    and-int/lit8 v1, v0, 0x70
 
-    and-int/lit16 v1, v0, 0x7000
+    if-eqz v1, :cond_5
 
-    if-eqz v1, :cond_3
+    iget v1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildStart:I
+
+    iget v6, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvEnd:I
+
+    if-le v1, v6, :cond_3
+
+    move v1, v4
+
+    goto :goto_1
+
+    :cond_3
+    if-ne v1, v6, :cond_4
+
+    move v1, v2
+
+    goto :goto_1
+
+    :cond_4
+    move v1, v3
+
+    :goto_1
+    shl-int/2addr v1, v3
+
+    and-int/2addr v1, v0
+
+    if-nez v1, :cond_5
+
+    return v5
+
+    :cond_5
+    and-int/lit16 v1, v0, 0x700
+
+    if-eqz v1, :cond_8
 
     iget v1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildEnd:I
 
-    iget v3, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvEnd:I
+    iget v6, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
 
-    invoke-virtual {p0, v1, v3}, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->compare(II)I
+    if-le v1, v6, :cond_6
 
-    move-result p0
+    move v1, v4
 
-    shl-int/lit8 p0, p0, 0xc
+    goto :goto_2
+
+    :cond_6
+    if-ne v1, v6, :cond_7
+
+    move v1, v2
+
+    goto :goto_2
+
+    :cond_7
+    move v1, v3
+
+    :goto_2
+    shl-int/lit8 v1, v1, 0x8
+
+    and-int/2addr v1, v0
+
+    if-nez v1, :cond_8
+
+    return v5
+
+    :cond_8
+    and-int/lit16 v1, v0, 0x7000
+
+    if-eqz v1, :cond_b
+
+    iget v1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildEnd:I
+
+    iget p0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvEnd:I
+
+    if-le v1, p0, :cond_9
+
+    move v2, v4
+
+    goto :goto_3
+
+    :cond_9
+    if-ne v1, p0, :cond_a
+
+    goto :goto_3
+
+    :cond_a
+    move v2, v3
+
+    :goto_3
+    shl-int/lit8 p0, v2, 0xc
 
     and-int/2addr p0, v0
 
-    if-nez p0, :cond_3
+    if-nez p0, :cond_b
 
-    return v2
+    return v5
 
-    :cond_3
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method compare(II)I
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "x",
-            "y"
-        }
-    .end annotation
-
-    if-le p1, p2, :cond_0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    if-ne p1, p2, :cond_1
-
-    const/4 p0, 0x2
-
-    return p0
-
-    :cond_1
-    const/4 p0, 0x4
-
-    return p0
-.end method
-
-.method resetFlags()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mBoundFlags:I
-
-    return-void
-.end method
-
-.method setBounds(IIII)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "rvStart",
-            "rvEnd",
-            "childStart",
-            "childEnd"
-        }
-    .end annotation
-
-    iput p1, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvStart:I
-
-    iput p2, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mRvEnd:I
-
-    iput p3, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildStart:I
-
-    iput p4, p0, Landroidx/recyclerview/widget/ViewBoundsCheck$BoundFlags;->mChildEnd:I
-
-    return-void
+    :cond_b
+    return v4
 .end method

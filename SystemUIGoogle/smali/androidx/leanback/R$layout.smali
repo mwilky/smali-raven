@@ -1,39 +1,103 @@
-.class public final Landroidx/leanback/R$layout;
+.class public Landroidx/leanback/R$layout;
 .super Ljava/lang/Object;
 .source "R.java"
 
 
 # static fields
-.field public static final lb_image_card_view:I = 0x7f0e00fd
+.field public static final RestrictedPreference:[I
 
-.field public static final lb_image_card_view_themed_badge_left:I = 0x7f0e00fe
+.field public static final RestrictedSwitchPreference:[I
 
-.field public static final lb_image_card_view_themed_badge_right:I = 0x7f0e00ff
 
-.field public static final lb_image_card_view_themed_content:I = 0x7f0e0100
+# direct methods
+.method static synthetic constructor <clinit>()V
+    .locals 2
 
-.field public static final lb_image_card_view_themed_title:I = 0x7f0e0101
+    const/4 v0, 0x2
 
-.field public static final lb_list_row:I = 0x7f0e0102
+    new-array v1, v0, [I
 
-.field public static final lb_list_row_hovercard:I = 0x7f0e0103
+    fill-array-data v1, :array_0
 
-.field public static final lb_picker:I = 0x7f0e0107
+    sput-object v1, Landroidx/leanback/R$layout;->RestrictedPreference:[I
 
-.field public static final lb_picker_column:I = 0x7f0e0108
+    new-array v0, v0, [I
 
-.field public static final lb_picker_item:I = 0x7f0e0109
+    fill-array-data v0, :array_1
 
-.field public static final lb_picker_separator:I = 0x7f0e010a
+    sput-object v0, Landroidx/leanback/R$layout;->RestrictedSwitchPreference:[I
 
-.field public static final lb_playback_now_playing_bars:I = 0x7f0e010f
+    return-void
 
-.field public static final lb_row_container:I = 0x7f0e0112
+    :array_0
+    .array-data 4
+        0x7f0405f4
+        0x7f0405f9
+    .end array-data
 
-.field public static final lb_search_bar:I = 0x7f0e0117
+    :array_1
+    .array-data 4
+        0x7f040443
+        0x7f0405f3
+    .end array-data
+.end method
 
-.field public static final lb_search_orb:I = 0x7f0e0119
+.method public static final appendElement(Ljava/lang/StringBuilder;Ljava/lang/Object;Lkotlin/jvm/functions/Function1;)V
+    .locals 0
 
-.field public static final lb_speech_orb:I = 0x7f0e011c
+    if-eqz p2, :cond_0
 
-.field public static final lb_title_view:I = 0x7f0e011d
+    invoke-interface {p2, p1}, Lkotlin/jvm/functions/Function1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/CharSequence;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+
+    goto :goto_1
+
+    :cond_0
+    if-nez p1, :cond_1
+
+    const/4 p2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    instance-of p2, p1, Ljava/lang/CharSequence;
+
+    :goto_0
+    if-eqz p2, :cond_2
+
+    check-cast p1, Ljava/lang/CharSequence;
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+
+    goto :goto_1
+
+    :cond_2
+    instance-of p2, p1, Ljava/lang/Character;
+
+    if-eqz p2, :cond_3
+
+    check-cast p1, Ljava/lang/Character;
+
+    invoke-virtual {p1}, Ljava/lang/Character;->charValue()C
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/Appendable;
+
+    goto :goto_1
+
+    :cond_3
+    invoke-static {p1}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/Appendable;
+
+    :goto_1
+    return-void
+.end method

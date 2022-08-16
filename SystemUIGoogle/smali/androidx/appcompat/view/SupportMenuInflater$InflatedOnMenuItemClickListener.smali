@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/view/SupportMenuInflater$InflatedOnMenuItemClickListener;
+.class public final Landroidx/appcompat/view/SupportMenuInflater$InflatedOnMenuItemClickListener;
 .super Ljava/lang/Object;
 .source "SupportMenuInflater.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "InflatedOnMenuItemClickListener"
 .end annotation
 
 
 # static fields
-.field private static final PARAM_TYPES:[Ljava/lang/Class;
+.field public static final PARAM_TYPES:[Ljava/lang/Class;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "[",
@@ -30,13 +30,13 @@
 
 
 # instance fields
-.field private mMethod:Ljava/lang/reflect/Method;
+.field public mMethod:Ljava/lang/reflect/Method;
 
-.field private mRealOwner:Ljava/lang/Object;
+.field public mRealOwner:Ljava/lang/Object;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     const/4 v0, 0x1
@@ -83,27 +83,21 @@
 
     new-instance v0, Landroid/view/InflateException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "Couldn\'t resolve menu item onClick handler "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, " in class "
 
-    const-string v2, "Couldn\'t resolve menu item onClick handler "
+    invoke-static {v1, p2, v2}, Landroidx/activity/result/ActivityResultRegistry$3$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string p2, " in class "
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p2
 
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object p1
 
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p1
 
@@ -116,7 +110,7 @@
 
 
 # virtual methods
-.method public onMenuItemClick(Landroid/view/MenuItem;)Z
+.method public final onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 4
 
     :try_start_0

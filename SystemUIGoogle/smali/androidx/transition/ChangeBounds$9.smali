@@ -1,4 +1,4 @@
-.class Landroidx/transition/ChangeBounds$9;
+.class public final Landroidx/transition/ChangeBounds$9;
 .super Landroidx/transition/TransitionListenerAdapter;
 .source "ChangeBounds.java"
 
@@ -9,26 +9,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field mCanceled:Z
+.field public mCanceled:Z
 
-.field final synthetic this$0:Landroidx/transition/ChangeBounds;
-
-.field final synthetic val$parent:Landroid/view/ViewGroup;
+.field public final synthetic val$parent:Landroid/view/ViewGroup;
 
 
 # direct methods
-.method constructor <init>(Landroidx/transition/ChangeBounds;Landroid/view/ViewGroup;)V
+.method public constructor <init>(Landroid/view/ViewGroup;)V
     .locals 0
 
-    iput-object p1, p0, Landroidx/transition/ChangeBounds$9;->this$0:Landroidx/transition/ChangeBounds;
-
-    iput-object p2, p0, Landroidx/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
+    iput-object p1, p0, Landroidx/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
 
     invoke-direct {p0}, Landroidx/transition/TransitionListenerAdapter;-><init>()V
 
@@ -41,23 +37,23 @@
 
 
 # virtual methods
-.method public onTransitionCancel(Landroidx/transition/Transition;)V
-    .locals 1
+.method public final onTransitionCancel()V
+    .locals 2
 
-    iget-object p1, p0, Landroidx/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
+    iget-object v0, p0, Landroidx/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p1, v0}, Landroidx/transition/ViewGroupUtils;->suppressLayout(Landroid/view/ViewGroup;Z)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->suppressLayout(Z)V
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    iput-boolean p1, p0, Landroidx/transition/ChangeBounds$9;->mCanceled:Z
+    iput-boolean v0, p0, Landroidx/transition/ChangeBounds$9;->mCanceled:Z
 
     return-void
 .end method
 
-.method public onTransitionEnd(Landroidx/transition/Transition;)V
+.method public final onTransitionEnd(Landroidx/transition/Transition;)V
     .locals 2
 
     iget-boolean v0, p0, Landroidx/transition/ChangeBounds$9;->mCanceled:Z
@@ -68,34 +64,34 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Landroidx/transition/ViewGroupUtils;->suppressLayout(Landroid/view/ViewGroup;Z)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->suppressLayout(Z)V
 
     :cond_0
-    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)Landroidx/transition/Transition;
+    invoke-virtual {p1, p0}, Landroidx/transition/Transition;->removeListener(Landroidx/transition/Transition$TransitionListener;)V
 
     return-void
 .end method
 
-.method public onTransitionPause(Landroidx/transition/Transition;)V
-    .locals 0
+.method public final onTransitionPause()V
+    .locals 1
 
     iget-object p0, p0, Landroidx/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
 
-    const/4 p1, 0x0
+    const/4 v0, 0x0
 
-    invoke-static {p0, p1}, Landroidx/transition/ViewGroupUtils;->suppressLayout(Landroid/view/ViewGroup;Z)V
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->suppressLayout(Z)V
 
     return-void
 .end method
 
-.method public onTransitionResume(Landroidx/transition/Transition;)V
-    .locals 0
+.method public final onTransitionResume()V
+    .locals 1
 
     iget-object p0, p0, Landroidx/transition/ChangeBounds$9;->val$parent:Landroid/view/ViewGroup;
 
-    const/4 p1, 0x1
+    const/4 v0, 0x1
 
-    invoke-static {p0, p1}, Landroidx/transition/ViewGroupUtils;->suppressLayout(Landroid/view/ViewGroup;Z)V
+    invoke-virtual {p0, v0}, Landroid/view/ViewGroup;->suppressLayout(Z)V
 
     return-void
 .end method

@@ -30,7 +30,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
 
 .field public static final enum DOZING_UPDATE_AUTH_TRIGGERED:Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
 
@@ -62,7 +62,7 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 16
 
     new-instance v0, Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
@@ -262,7 +262,7 @@
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -277,7 +277,7 @@
     return-void
 .end method
 
-.method static fromReason(I)Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
+.method public static fromReason(I)Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
     .locals 0
 
     packed-switch p0, :pswitch_data_0
@@ -387,7 +387,7 @@
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;->mId:I

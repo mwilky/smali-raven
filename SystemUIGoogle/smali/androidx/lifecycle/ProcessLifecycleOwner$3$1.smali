@@ -1,4 +1,4 @@
-.class Landroidx/lifecycle/ProcessLifecycleOwner$3$1;
+.class public final Landroidx/lifecycle/ProcessLifecycleOwner$3$1;
 .super Landroidx/lifecycle/EmptyActivityLifecycleCallbacks;
 .source "ProcessLifecycleOwner.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
+.field public final synthetic this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
 
 # direct methods
-.method constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner$3;)V
+.method public constructor <init>(Landroidx/lifecycle/ProcessLifecycleOwner$3;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$1"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
@@ -41,14 +33,6 @@
 # virtual methods
 .method public onActivityPostResumed(Landroid/app/Activity;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "activity"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
@@ -60,21 +44,36 @@
 .end method
 
 .method public onActivityPostStarted(Landroid/app/Activity;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "activity"
-        }
-    .end annotation
+    .locals 1
 
     iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3$1;->this$1:Landroidx/lifecycle/ProcessLifecycleOwner$3;
 
     iget-object p0, p0, Landroidx/lifecycle/ProcessLifecycleOwner$3;->this$0:Landroidx/lifecycle/ProcessLifecycleOwner;
 
-    invoke-virtual {p0}, Landroidx/lifecycle/ProcessLifecycleOwner;->activityStarted()V
+    iget p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStartedCounter:I
 
+    const/4 v0, 0x1
+
+    add-int/2addr p1, v0
+
+    iput p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStartedCounter:I
+
+    if-ne p1, v0, :cond_0
+
+    iget-boolean p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStopSent:Z
+
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mRegistry:Landroidx/lifecycle/LifecycleRegistry;
+
+    sget-object v0, Landroidx/lifecycle/Lifecycle$Event;->ON_START:Landroidx/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {p1, v0}, Landroidx/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
+
+    const/4 p1, 0x0
+
+    iput-boolean p1, p0, Landroidx/lifecycle/ProcessLifecycleOwner;->mStopSent:Z
+
+    :cond_0
     return-void
 .end method

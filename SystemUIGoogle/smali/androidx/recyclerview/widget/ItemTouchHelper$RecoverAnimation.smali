@@ -12,64 +12,42 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "RecoverAnimation"
 .end annotation
 
 
 # instance fields
-.field final mActionState:I
+.field public final mActionState:I
 
-.field final mAnimationType:I
+.field public mEnded:Z
 
-.field mEnded:Z
+.field public mFraction:F
 
-.field private mFraction:F
+.field public mIsPendingCleanup:Z
 
-.field mIsPendingCleanup:Z
+.field public mOverridden:Z
 
-.field mOverridden:Z
+.field public final mStartDx:F
 
-.field final mStartDx:F
+.field public final mStartDy:F
 
-.field final mStartDy:F
+.field public final mTargetX:F
 
-.field final mTargetX:F
+.field public final mTargetY:F
 
-.field final mTargetY:F
+.field public final mValueAnimator:Landroid/animation/ValueAnimator;
 
-.field final mValueAnimator:Landroid/animation/ValueAnimator;
+.field public final mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-.field final mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+.field public mX:F
 
-.field mX:F
-
-.field mY:F
+.field public mY:F
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IIFFFF)V
+.method public constructor <init>(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;IFFFF)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "viewHolder",
-            "animationType",
-            "actionState",
-            "startDx",
-            "startDy",
-            "targetX",
-            "targetY"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -79,19 +57,17 @@
 
     iput-boolean v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mEnded:Z
 
-    iput p3, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mActionState:I
-
-    iput p2, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mAnimationType:I
+    iput p2, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mActionState:I
 
     iput-object p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    iput p4, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDx:F
+    iput p3, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDx:F
 
-    iput p5, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDy:F
+    iput p4, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDy:F
 
-    iput p6, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mTargetX:F
+    iput p5, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mTargetX:F
 
-    iput p7, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mTargetY:F
+    iput p6, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mTargetY:F
 
     const/4 p2, 0x2
 
@@ -119,11 +95,9 @@
 
     const/4 p1, 0x0
 
-    invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->setFraction(F)V
+    iput p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -134,44 +108,18 @@
 
 
 # virtual methods
-.method public cancel()V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
-
-    iget-object p0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->cancel()V
-
-    return-void
-.end method
-
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     const/high16 p1, 0x3f800000    # 1.0f
 
-    invoke-virtual {p0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->setFraction(F)V
+    iput p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
 
     return-void
 .end method
 
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     iget-boolean p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mEnded:Z
 
@@ -189,150 +137,14 @@
     return-void
 .end method
 
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
+.method public final onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animation"
-        }
-    .end annotation
 
-    return-void
-.end method
-
-.method public setDuration(J)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "duration"
-        }
-    .end annotation
-
-    iget-object p0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p0, p1, p2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    return-void
-.end method
-
-.method public setFraction(F)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "fraction"
-        }
-    .end annotation
-
-    iput p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
-
-    return-void
-.end method
-
-.method public start()V
-    .locals 2
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->setIsRecyclable(Z)V
-
-    iget-object p0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mValueAnimator:Landroid/animation/ValueAnimator;
-
-    invoke-virtual {p0}, Landroid/animation/ValueAnimator;->start()V
-
-    return-void
-.end method
-
-.method public update()V
-    .locals 3
-
-    iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDx:F
-
-    iget v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mTargetX:F
-
-    cmpl-float v2, v0, v1
-
-    if-nez v2, :cond_0
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-
-    iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationX()F
-
-    move-result v0
-
-    iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mX:F
-
-    goto :goto_0
-
-    :cond_0
-    iget v2, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
-
-    sub-float/2addr v1, v0
-
-    mul-float/2addr v2, v1
-
-    add-float/2addr v0, v2
-
-    iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mX:F
-
-    :goto_0
-    iget v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mStartDy:F
-
-    iget v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mTargetY:F
-
-    cmpl-float v2, v0, v1
-
-    if-nez v2, :cond_1
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mViewHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-
-    iget-object v0, v0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getTranslationY()F
-
-    move-result v0
-
-    iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mY:F
-
-    goto :goto_1
-
-    :cond_1
-    iget v2, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mFraction:F
-
-    sub-float/2addr v1, v0
-
-    mul-float/2addr v2, v1
-
-    add-float/2addr v0, v2
-
-    iput v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$RecoverAnimation;->mY:F
-
-    :goto_1
     return-void
 .end method

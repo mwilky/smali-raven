@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final authControllerProvider:Ljavax/inject/Provider;
+.field public final authControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final dozeLogProvider:Ljavax/inject/Provider;
+.field public final dozeLogProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final dozeScreenBrightnessProvider:Ljavax/inject/Provider;
+.field public final dozeScreenBrightnessProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final handlerProvider:Ljavax/inject/Provider;
+.field public final handlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final hostProvider:Ljavax/inject/Provider;
+.field public final hostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final parametersProvider:Ljavax/inject/Provider;
+.field public final parametersProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final serviceProvider:Ljavax/inject/Provider;
+.field public final serviceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final udfpsControllerProvider:Ljavax/inject/Provider;
+.field public final udfpsControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final wakeLockProvider:Ljavax/inject/Provider;
+.field public final wakeLockProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -231,58 +231,10 @@
     return-object v10
 .end method
 
-.method public static newInstance(Lcom/android/systemui/doze/DozeMachine$Service;Landroid/os/Handler;Lcom/android/systemui/doze/DozeHost;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/biometrics/AuthController;Ljavax/inject/Provider;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeScreenBrightness;)Lcom/android/systemui/doze/DozeScreenState;
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/android/systemui/doze/DozeMachine$Service;",
-            "Landroid/os/Handler;",
-            "Lcom/android/systemui/doze/DozeHost;",
-            "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            "Lcom/android/systemui/util/wakelock/WakeLock;",
-            "Lcom/android/systemui/biometrics/AuthController;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/biometrics/UdfpsController;",
-            ">;",
-            "Lcom/android/systemui/doze/DozeLog;",
-            "Lcom/android/systemui/doze/DozeScreenBrightness;",
-            ")",
-            "Lcom/android/systemui/doze/DozeScreenState;"
-        }
-    .end annotation
-
-    new-instance v10, Lcom/android/systemui/doze/DozeScreenState;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/doze/DozeScreenState;-><init>(Lcom/android/systemui/doze/DozeMachine$Service;Landroid/os/Handler;Lcom/android/systemui/doze/DozeHost;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/biometrics/AuthController;Ljavax/inject/Provider;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeScreenBrightness;)V
-
-    return-object v10
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/doze/DozeScreenState;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->serviceProvider:Ljavax/inject/Provider;
 
@@ -290,9 +242,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/doze/DozeMachine$Service;
+    check-cast v2, Lcom/android/systemui/doze/DozeMachine$Service;
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->handlerProvider:Ljavax/inject/Provider;
 
@@ -300,9 +252,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Landroid/os/Handler;
+    check-cast v3, Landroid/os/Handler;
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->hostProvider:Ljavax/inject/Provider;
 
@@ -310,9 +262,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/doze/DozeHost;
+    check-cast v4, Lcom/android/systemui/doze/DozeHost;
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->parametersProvider:Ljavax/inject/Provider;
 
@@ -320,9 +272,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/statusbar/phone/DozeParameters;
+    check-cast v5, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->wakeLockProvider:Ljavax/inject/Provider;
 
@@ -330,9 +282,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/util/wakelock/WakeLock;
+    check-cast v6, Lcom/android/systemui/util/wakelock/WakeLock;
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->authControllerProvider:Ljavax/inject/Provider;
 
@@ -340,11 +292,11 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/biometrics/AuthController;
+    check-cast v7, Lcom/android/systemui/biometrics/AuthController;
 
-    iget-object v7, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->udfpsControllerProvider:Ljavax/inject/Provider;
+    iget-object v8, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->udfpsControllerProvider:Ljavax/inject/Provider;
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->dozeLogProvider:Ljavax/inject/Provider;
 
@@ -352,9 +304,9 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Lcom/android/systemui/doze/DozeLog;
+    check-cast v9, Lcom/android/systemui/doze/DozeLog;
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeScreenState_Factory;->dozeScreenBrightnessProvider:Ljavax/inject/Provider;
 
@@ -362,23 +314,15 @@
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Lcom/android/systemui/doze/DozeScreenBrightness;
+    check-cast v10, Lcom/android/systemui/doze/DozeScreenBrightness;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/doze/DozeScreenState_Factory;->newInstance(Lcom/android/systemui/doze/DozeMachine$Service;Landroid/os/Handler;Lcom/android/systemui/doze/DozeHost;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/biometrics/AuthController;Ljavax/inject/Provider;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeScreenBrightness;)Lcom/android/systemui/doze/DozeScreenState;
+    new-instance p0, Lcom/android/systemui/doze/DozeScreenState;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/doze/DozeScreenState_Factory;->get()Lcom/android/systemui/doze/DozeScreenState;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/doze/DozeScreenState;-><init>(Lcom/android/systemui/doze/DozeMachine$Service;Landroid/os/Handler;Lcom/android/systemui/doze/DozeHost;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/util/wakelock/WakeLock;Lcom/android/systemui/biometrics/AuthController;Ljavax/inject/Provider;Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeScreenBrightness;)V
 
     return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/ViewTransformationHelper$1;
+.class public final Lcom/android/systemui/statusbar/ViewTransformationHelper$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ViewTransformationHelper.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -17,13 +17,13 @@
 # instance fields
 .field public mCancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
-.field final synthetic val$endRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$endRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/ViewTransformationHelper;Ljava/lang/Runnable;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/ViewTransformationHelper;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper$1;->this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
@@ -37,7 +37,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -47,7 +47,7 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-boolean p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper$1;->mCancelled:Z
@@ -71,14 +71,14 @@
 
     const/4 p1, 0x0
 
-    invoke-static {p0, p1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->access$002(Lcom/android/systemui/statusbar/ViewTransformationHelper;Landroid/animation/ValueAnimator;)Landroid/animation/ValueAnimator;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mViewTransformationAnimation:Landroid/animation/ValueAnimator;
 
     goto :goto_0
 
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper$1;->this$0:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->access$100(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
+    invoke-static {p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->-$$Nest$mabortTransformations(Lcom/android/systemui/statusbar/ViewTransformationHelper;)V
 
     :goto_0
     return-void

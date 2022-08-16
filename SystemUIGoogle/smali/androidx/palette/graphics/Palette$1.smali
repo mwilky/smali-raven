@@ -1,4 +1,4 @@
-.class Landroidx/palette/graphics/Palette$1;
+.class public final Landroidx/palette/graphics/Palette$1;
 .super Ljava/lang/Object;
 .source "Palette.java"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -26,155 +26,88 @@
     return-void
 .end method
 
-.method private isBlack([F)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hslColor"
-        }
-    .end annotation
+
+# virtual methods
+.method public final isAllowed([F)Z
+    .locals 3
 
     const/4 p0, 0x2
 
     aget p0, p1, p0
 
-    const p1, 0x3d4ccccd    # 0.05f
+    const v0, 0x3f733333    # 0.95f
 
-    cmpg-float p0, p0, p1
-
-    if-gtz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method private isNearRedILine([F)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hslColor"
-        }
-    .end annotation
-
-    const/4 p0, 0x0
-
-    aget v0, p1, p0
-
-    const/high16 v1, 0x41200000    # 10.0f
-
-    cmpl-float v0, v0, v1
+    cmpl-float v0, p0, v0
 
     const/4 v1, 0x1
 
+    const/4 v2, 0x0
+
     if-ltz v0, :cond_0
 
-    aget v0, p1, p0
+    move v0, v1
 
-    const/high16 v2, 0x42140000    # 37.0f
+    goto :goto_0
 
-    cmpg-float v0, v0, v2
+    :cond_0
+    move v0, v2
 
-    if-gtz v0, :cond_0
+    :goto_0
+    if-nez v0, :cond_3
 
-    aget p1, p1, v1
+    const v0, 0x3d4ccccd    # 0.05f
 
-    const v0, 0x3f51eb85    # 0.82f
+    cmpg-float p0, p0, v0
 
-    cmpg-float p1, p1, v0
-
-    if-gtz p1, :cond_0
+    if-gtz p0, :cond_1
 
     move p0, v1
 
-    :cond_0
-    return p0
-.end method
+    goto :goto_1
 
-.method private isWhite([F)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "hslColor"
-        }
-    .end annotation
+    :cond_1
+    move p0, v2
 
-    const/4 p0, 0x2
+    :goto_1
+    if-nez p0, :cond_3
 
-    aget p0, p1, p0
+    aget p0, p1, v2
 
-    const p1, 0x3f733333    # 0.95f
+    const/high16 v0, 0x41200000    # 10.0f
 
-    cmpl-float p0, p0, p1
+    cmpl-float v0, p0, v0
 
-    if-ltz p0, :cond_0
+    if-ltz v0, :cond_2
 
-    const/4 p0, 0x1
+    const/high16 v0, 0x42140000    # 37.0f
 
-    goto :goto_0
+    cmpg-float p0, p0, v0
 
-    :cond_0
-    const/4 p0, 0x0
+    if-gtz p0, :cond_2
 
-    :goto_0
-    return p0
-.end method
+    aget p0, p1, v1
 
+    const p1, 0x3f51eb85    # 0.82f
 
-# virtual methods
-.method public isAllowed(I[F)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "rgb",
-            "hsl"
-        }
-    .end annotation
+    cmpg-float p0, p0, p1
 
-    invoke-direct {p0, p2}, Landroidx/palette/graphics/Palette$1;->isWhite([F)Z
+    if-gtz p0, :cond_2
 
-    move-result p1
+    move p0, v1
 
-    if-nez p1, :cond_0
+    goto :goto_2
 
-    invoke-direct {p0, p2}, Landroidx/palette/graphics/Palette$1;->isBlack([F)Z
+    :cond_2
+    move p0, v2
 
-    move-result p1
+    :goto_2
+    if-nez p0, :cond_3
 
-    if-nez p1, :cond_0
+    goto :goto_3
 
-    invoke-direct {p0, p2}, Landroidx/palette/graphics/Palette$1;->isNearRedILine([F)Z
+    :cond_3
+    move v1, v2
 
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
+    :goto_3
+    return v1
 .end method

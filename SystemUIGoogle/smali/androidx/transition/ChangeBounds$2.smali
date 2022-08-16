@@ -1,4 +1,4 @@
-.class Landroidx/transition/ChangeBounds$2;
+.class public final Landroidx/transition/ChangeBounds$2;
 .super Landroid/util/Property;
 .source "ChangeBounds.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -24,52 +24,81 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/Class;)V
+    .locals 1
 
-    invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    const-string/jumbo v0, "topLeft"
+
+    invoke-direct {p0, p1, v0}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public get(Landroidx/transition/ChangeBounds$ViewBounds;)Landroid/graphics/PointF;
+.method public final bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
+
+    check-cast p1, Landroidx/transition/ChangeBounds$ViewBounds;
 
     const/4 p0, 0x0
 
     return-object p0
 .end method
 
-.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p1, Landroidx/transition/ChangeBounds$ViewBounds;
-
-    invoke-virtual {p0, p1}, Landroidx/transition/ChangeBounds$2;->get(Landroidx/transition/ChangeBounds$ViewBounds;)Landroid/graphics/PointF;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public set(Landroidx/transition/ChangeBounds$ViewBounds;Landroid/graphics/PointF;)V
-    .locals 0
-
-    invoke-virtual {p1, p2}, Landroidx/transition/ChangeBounds$ViewBounds;->setTopLeft(Landroid/graphics/PointF;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
+.method public final set(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 4
 
     check-cast p1, Landroidx/transition/ChangeBounds$ViewBounds;
 
     check-cast p2, Landroid/graphics/PointF;
 
-    invoke-virtual {p0, p1, p2}, Landroidx/transition/ChangeBounds$2;->set(Landroidx/transition/ChangeBounds$ViewBounds;Landroid/graphics/PointF;)V
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
+    iget p0, p2, Landroid/graphics/PointF;->x:F
+
+    invoke-static {p0}, Ljava/lang/Math;->round(F)I
+
+    move-result p0
+
+    iput p0, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mLeft:I
+
+    iget p0, p2, Landroid/graphics/PointF;->y:F
+
+    invoke-static {p0}, Ljava/lang/Math;->round(F)I
+
+    move-result p0
+
+    iput p0, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mTop:I
+
+    iget p2, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
+
+    add-int/lit8 p2, p2, 0x1
+
+    iput p2, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
+
+    iget v0, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
+
+    if-ne p2, v0, :cond_0
+
+    iget-object p2, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mView:Landroid/view/View;
+
+    iget v0, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mLeft:I
+
+    iget v1, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mRight:I
+
+    iget v2, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mBottom:I
+
+    sget-object v3, Landroidx/transition/ViewUtils;->IMPL:Landroidx/transition/ViewUtilsApi29;
+
+    invoke-virtual {p2, v0, p0, v1, v2}, Landroid/view/View;->setLeftTopRightBottom(IIII)V
+
+    const/4 p0, 0x0
+
+    iput p0, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mTopLeftCalls:I
+
+    iput p0, p1, Landroidx/transition/ChangeBounds$ViewBounds;->mBottomRightCalls:I
+
+    :cond_0
     return-void
 .end method

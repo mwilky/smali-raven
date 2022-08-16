@@ -17,6 +17,7 @@
         <item>વધુમાં વધુ 3 પ્રક્રિયાઓ</item>
         <item>વધુમાં વધુ 4 પ્રક્રિયાઓ</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>બંધ છે</item>
         <item>ચાલુ છે</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>અનુપલબ્ધ</item>
+        <item>બંધ છે</item>
+        <item>ચાલુ છે</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>ઉપલબ્ધ નથી</item>
         <item>બંધ છે</item>
@@ -307,6 +313,16 @@
     </string-array>
     <string-array name="tile_states_night">
         <item>ઉપલબ્ધ નથી</item>
+        <item>બંધ છે</item>
+        <item>ચાલુ છે</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>અનુપલબ્ધ</item>
+        <item>બંધ છે</item>
+        <item>ચાલુ છે</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>અનુપલબ્ધ</item>
         <item>બંધ છે</item>
         <item>ચાલુ છે</item>
     </string-array>
@@ -374,6 +390,12 @@
         <item>તીવ્ર</item>
         <item>ખૂબ જ તીવ્ર</item>
         <item>સૌથી ઝડપી</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>ડાબે ખસેડો</item>
+        <item>નીચે ખસેડો</item>
+        <item>જમણે ખસેડો</item>
+        <item>ઉપર ખસેડો</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>ચાર્જિંગ</item>

@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/animation/AppearAnimationUtils$AppearAnimationProperties;
+.class public final Lcom/android/settingslib/animation/AppearAnimationUtils$AppearAnimationProperties;
 .super Ljava/lang/Object;
 .source "AppearAnimationUtils.java"
 
@@ -21,14 +21,10 @@
 
 .field public maxDelayRowIndex:I
 
-.field final synthetic this$0:Lcom/android/settingslib/animation/AppearAnimationUtils;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/settingslib/animation/AppearAnimationUtils;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/settingslib/animation/AppearAnimationUtils$AppearAnimationProperties;->this$0:Lcom/android/settingslib/animation/AppearAnimationUtils;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 

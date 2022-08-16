@@ -1,27 +1,17 @@
-.class public Lcom/android/settingslib/applications/InterestingConfigChanges;
+.class public final Lcom/android/settingslib/applications/InterestingConfigChanges;
 .super Ljava/lang/Object;
 .source "InterestingConfigChanges.java"
 
 
 # instance fields
-.field private final mFlags:I
+.field public final mFlags:I
 
-.field private final mLastConfiguration:Landroid/content/res/Configuration;
+.field public final mLastConfiguration:Landroid/content/res/Configuration;
 
-.field private mLastDensity:I
+.field public mLastDensity:I
 
 
 # direct methods
-.method public constructor <init>()V
-    .locals 1
-
-    const v0, -0x7ffffcfc
-
-    invoke-direct {p0, v0}, Lcom/android/settingslib/applications/InterestingConfigChanges;-><init>(I)V
-
-    return-void
-.end method
-
 .method public constructor <init>(I)V
     .locals 1
 
@@ -40,8 +30,13 @@
 
 
 # virtual methods
-.method public applyNewConfig(Landroid/content/res/Resources;)Z
+.method public final applyNewConfig(Landroid/content/res/Resources;)Z
     .locals 5
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/settingslib/applications/InterestingConfigChanges;->mLastConfiguration:Landroid/content/res/Configuration;
 

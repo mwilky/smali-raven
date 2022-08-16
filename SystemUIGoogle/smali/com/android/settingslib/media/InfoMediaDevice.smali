@@ -1,10 +1,10 @@
-.class public Lcom/android/settingslib/media/InfoMediaDevice;
+.class public final Lcom/android/settingslib/media/InfoMediaDevice;
 .super Lcom/android/settingslib/media/MediaDevice;
 .source "InfoMediaDevice.java"
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settingslib/media/MediaDevice;-><init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
@@ -16,7 +16,7 @@
 
 
 # virtual methods
-.method getDrawableResId()I
+.method public getDrawableResId()I
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
@@ -33,23 +33,23 @@
 
     if-eq p0, v0, :cond_0
 
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_media_speaker_device:I
+    const p0, 0x7f080590
 
     goto :goto_0
 
     :cond_0
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_media_group_device:I
+    const p0, 0x7f080583
 
     goto :goto_0
 
     :cond_1
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_media_display_device:I
+    const p0, 0x7f080582
 
     :goto_0
     return p0
 .end method
 
-.method getDrawableResIdByFeature()I
+.method public getDrawableResIdByFeature()I
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
@@ -66,7 +66,7 @@
 
     if-eqz v0, :cond_0
 
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_media_group_device:I
+    const p0, 0x7f080583
 
     goto :goto_0
 
@@ -79,36 +79,28 @@
 
     if-eqz p0, :cond_1
 
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_media_display_device:I
+    const p0, 0x7f080582
 
     goto :goto_0
 
     :cond_1
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_media_speaker_device:I
+    const p0, 0x7f080590
 
     :goto_0
     return p0
 .end method
 
-.method public getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
+.method public final getIcon()Landroid/graphics/drawable/Drawable;
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/settingslib/media/InfoMediaDevice;->getIconWithoutBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/media/MediaDevice;->setColorFilter(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mContext:Landroid/content/Context;
-
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->buildAdvancedDrawable(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public getIconWithoutBackground()Landroid/graphics/drawable/Drawable;
+.method public final getIconWithoutBackground()Landroid/graphics/drawable/Drawable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/media/MediaDevice;->mContext:Landroid/content/Context;
@@ -124,19 +116,19 @@
     return-object p0
 .end method
 
-.method public getId()Ljava/lang/String;
+.method public final getId()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
 
-    invoke-static {p0}, Lcom/android/settingslib/media/MediaDeviceUtils;->getId(Landroid/media/MediaRoute2Info;)Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/media/MediaRoute2Info;->getId()Ljava/lang/String;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public getName()Ljava/lang/String;
+.method public final getName()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
@@ -152,7 +144,7 @@
     return-object p0
 .end method
 
-.method public isConnected()Z
+.method public final isConnected()Z
     .locals 0
 
     const/4 p0, 0x1

@@ -1,53 +1,33 @@
-.class public Lcom/android/settingslib/animation/DisappearAnimationUtils;
+.class public final Lcom/android/settingslib/animation/DisappearAnimationUtils;
 .super Lcom/android/settingslib/animation/AppearAnimationUtils;
 .source "DisappearAnimationUtils.java"
 
 
 # static fields
-.field private static final ROW_TRANSLATION_SCALER:Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;
+.field public static final ROW_TRANSLATION_SCALER:Lcom/android/settingslib/animation/DisappearAnimationUtils$1;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/settingslib/animation/DisappearAnimationUtils$1;
 
     invoke-direct {v0}, Lcom/android/settingslib/animation/DisappearAnimationUtils$1;-><init>()V
 
-    sput-object v0, Lcom/android/settingslib/animation/DisappearAnimationUtils;->ROW_TRANSLATION_SCALER:Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;
+    sput-object v0, Lcom/android/settingslib/animation/DisappearAnimationUtils;->ROW_TRANSLATION_SCALER:Lcom/android/settingslib/animation/DisappearAnimationUtils$1;
 
     return-void
 .end method
 
 .method public constructor <init>(Landroid/content/Context;JFFLandroid/view/animation/Interpolator;)V
-    .locals 8
+    .locals 1
 
-    sget-object v7, Lcom/android/settingslib/animation/DisappearAnimationUtils;->ROW_TRANSLATION_SCALER:Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-wide v2, p2
-
-    move v4, p4
-
-    move v5, p5
-
-    move-object v6, p6
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/settingslib/animation/DisappearAnimationUtils;-><init>(Landroid/content/Context;JFFLandroid/view/animation/Interpolator;Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;JFFLandroid/view/animation/Interpolator;Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;)V
-    .locals 0
+    sget-object v0, Lcom/android/settingslib/animation/DisappearAnimationUtils;->ROW_TRANSLATION_SCALER:Lcom/android/settingslib/animation/DisappearAnimationUtils$1;
 
     invoke-direct/range {p0 .. p6}, Lcom/android/settingslib/animation/AppearAnimationUtils;-><init>(Landroid/content/Context;JFFLandroid/view/animation/Interpolator;)V
 
-    iput-object p7, p0, Lcom/android/settingslib/animation/AppearAnimationUtils;->mRowTranslationScaler:Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;
+    iput-object v0, p0, Lcom/android/settingslib/animation/AppearAnimationUtils;->mRowTranslationScaler:Lcom/android/settingslib/animation/AppearAnimationUtils$RowTranslationScaler;
 
     const/4 p1, 0x0
 
@@ -58,7 +38,7 @@
 
 
 # virtual methods
-.method protected calculateDelay(II)J
+.method public final calculateDelay(II)J
     .locals 6
 
     mul-int/lit8 v0, p1, 0x3c
@@ -77,21 +57,21 @@
 
     add-double/2addr p1, v4
 
-    mul-double/2addr v2, p1
+    mul-double/2addr p1, v2
 
-    const-wide/high16 p1, 0x4024000000000000L    # 10.0
+    const-wide/high16 v2, 0x4024000000000000L    # 10.0
 
-    mul-double/2addr v2, p1
+    mul-double/2addr p1, v2
 
-    add-double/2addr v0, v2
+    add-double/2addr p1, v0
 
     iget p0, p0, Lcom/android/settingslib/animation/AppearAnimationUtils;->mDelayScale:F
 
-    float-to-double p0, p0
+    float-to-double v0, p0
 
-    mul-double/2addr v0, p0
+    mul-double/2addr p1, v0
 
-    double-to-long p0, v0
+    double-to-long p0, p1
 
     return-wide p0
 .end method

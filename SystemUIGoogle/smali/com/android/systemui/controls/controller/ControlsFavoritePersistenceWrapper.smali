@@ -4,54 +4,22 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper$Companion;
-    }
-.end annotation
-
 .annotation system Ldalvik/annotation/SourceDebugExtension;
     value = "SMAP\nControlsFavoritePersistenceWrapper.kt\nKotlin\n*S Kotlin\n*F\n+ 1 ControlsFavoritePersistenceWrapper.kt\ncom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n*L\n1#1,211:1\n1#2:212\n*E\n"
 .end annotation
 
 
-# static fields
-.field public static final Companion:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper$Companion;
-
-
 # instance fields
-.field private backupManager:Landroid/app/backup/BackupManager;
+.field public backupManager:Landroid/app/backup/BackupManager;
 
-.field private final executor:Ljava/util/concurrent/Executor;
+.field public final executor:Ljava/util/concurrent/Executor;
 
-.field private file:Ljava/io/File;
+.field public file:Ljava/io/File;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->Companion:Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper$Companion;
-
-    return-void
-.end method
-
 .method public constructor <init>(Ljava/io/File;Ljava/util/concurrent/Executor;Landroid/app/backup/BackupManager;)V
-    .locals 1
-
-    const-string v0, "file"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "executor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -64,265 +32,188 @@
     return-void
 .end method
 
-.method public synthetic constructor <init>(Ljava/io/File;Ljava/util/concurrent/Executor;Landroid/app/backup/BackupManager;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
-
-    and-int/lit8 p4, p4, 0x4
-
-    if-eqz p4, :cond_0
-
-    const/4 p3, 0x0
-
-    :cond_0
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;-><init>(Ljava/io/File;Ljava/util/concurrent/Executor;Landroid/app/backup/BackupManager;)V
-
-    return-void
-.end method
-
-.method public static final synthetic access$getBackupManager$p(Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;)Landroid/app/backup/BackupManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->backupManager:Landroid/app/backup/BackupManager;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getFile$p(Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;)Ljava/io/File;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
-
-    return-object p0
-.end method
-
-.method private final parseXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/util/List;
-    .locals 10
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lorg/xmlpull/v1/XmlPullParser;",
-            ")",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/StructureInfo;",
-            ">;"
-        }
-    .end annotation
-
-    new-instance p0, Ljava/util/ArrayList;
-
-    invoke-direct {p0}, Ljava/util/ArrayList;-><init>()V
+.method public static parseXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/util/ArrayList;
+    .locals 11
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v1, 0x0
+    new-instance v1, Ljava/util/ArrayList;
 
-    move-object v2, v1
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    const/4 v2, 0x0
 
     move-object v3, v2
 
+    move-object v4, v3
+
     :cond_0
     :goto_0
-    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v4
+    move-result v5
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    if-eq v4, v5, :cond_6
+    if-eq v5, v6, :cond_6
 
-    invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+    invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    const-string v6, ""
+    const-string v7, ""
 
-    if-nez v5, :cond_1
+    if-nez v6, :cond_1
 
-    move-object v5, v6
+    move-object v6, v7
 
     :cond_1
-    const/4 v7, 0x2
+    const/4 v8, 0x2
 
-    const-string v8, "structure"
+    const-string/jumbo v9, "structure"
 
-    if-ne v4, v7, :cond_2
+    if-ne v5, v8, :cond_2
 
-    invoke-static {v5, v8}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v6, v9}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v10
 
-    if-eqz v9, :cond_2
+    if-eqz v10, :cond_2
 
-    const-string v2, "component"
+    const-string v3, "component"
 
-    invoke-interface {p1, v1, v2}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v2
-
-    invoke-interface {p1, v1, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v2, v3}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v3
 
-    if-nez v3, :cond_0
+    invoke-static {v3}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
-    move-object v3, v6
+    move-result-object v3
+
+    invoke-interface {p0, v2, v9}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    if-nez v4, :cond_0
+
+    move-object v4, v7
 
     goto :goto_0
 
     :cond_2
-    if-ne v4, v7, :cond_5
+    if-ne v5, v8, :cond_5
 
-    const-string v7, "control"
+    const-string v8, "control"
 
-    invoke-static {v5, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v6, v8}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_5
+    if-eqz v8, :cond_5
 
-    const-string v4, "id"
+    const-string v5, "id"
 
-    invoke-interface {p1, v1, v4}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "title"
-
-    invoke-interface {p1, v1, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v2, v5}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v5
 
-    const-string v7, "subtitle"
+    const-string/jumbo v6, "title"
 
-    invoke-interface {p1, v1, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v2, v6}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    if-nez v7, :cond_3
+    const-string/jumbo v8, "subtitle"
+
+    invoke-interface {p0, v2, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    if-nez v8, :cond_3
 
     goto :goto_1
 
     :cond_3
-    move-object v6, v7
+    move-object v7, v8
 
     :goto_1
-    const-string v7, "type"
+    const-string/jumbo v8, "type"
 
-    invoke-interface {p1, v1, v7}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {p0, v2, v8}, Lorg/xmlpull/v1/XmlPullParser;->getAttributeValue(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    if-nez v7, :cond_4
+    if-nez v8, :cond_4
 
-    move-object v7, v1
+    move-object v8, v2
 
     goto :goto_2
 
     :cond_4
-    invoke-static {v7}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v8}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v7
+    move-result v8
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v8
 
     :goto_2
-    if-eqz v4, :cond_0
-
     if-eqz v5, :cond_0
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
-    new-instance v8, Lcom/android/systemui/controls/controller/ControlInfo;
+    if-eqz v8, :cond_0
 
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+    new-instance v9, Lcom/android/systemui/controls/controller/ControlInfo;
 
-    move-result v7
+    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
 
-    invoke-direct {v8, v4, v5, v6, v7}, Lcom/android/systemui/controls/controller/ControlInfo;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+    move-result v8
 
-    invoke-interface {v0, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-direct {v9, v5, v6, v7, v8}, Lcom/android/systemui/controls/controller/ControlInfo;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)V
+
+    invoke-virtual {v1, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
     :cond_5
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    if-ne v4, v6, :cond_0
+    if-ne v5, v7, :cond_0
 
-    invoke-static {v5, v8}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v6, v9}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_0
 
-    new-instance v4, Lcom/android/systemui/controls/controller/StructureInfo;
-
-    invoke-static {v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+    new-instance v5, Lcom/android/systemui/controls/controller/StructureInfo;
 
     invoke-static {v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    invoke-static {v0}, Lkotlin/collections/CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
+    invoke-static {v4}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
 
-    move-result-object v5
+    invoke-static {v1}, Lkotlin/collections/CollectionsKt___CollectionsKt;->toList(Ljava/lang/Iterable;)Ljava/util/List;
 
-    invoke-direct {v4, v2, v3, v5}, Lcom/android/systemui/controls/controller/StructureInfo;-><init>(Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/util/List;)V
+    move-result-object v6
 
-    invoke-interface {p0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-direct {v5, v3, v4, v6}, Lcom/android/systemui/controls/controller/StructureInfo;-><init>(Landroid/content/ComponentName;Ljava/lang/CharSequence;Ljava/util/List;)V
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
 
     goto/16 :goto_0
 
     :cond_6
-    return-object p0
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public final changeFileAndBackupManager(Ljava/io/File;Landroid/app/backup/BackupManager;)V
-    .locals 1
-
-    const-string v0, "fileName"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
-
-    iput-object p2, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->backupManager:Landroid/app/backup/BackupManager;
-
-    return-void
-.end method
-
-.method public final deleteFile()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
-
-    invoke-virtual {p0}, Ljava/io/File;->delete()Z
-
-    return-void
-.end method
-
-.method public final getFileExists()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
-
-    invoke-virtual {p0}, Ljava/io/File;->exists()Z
-
-    move-result p0
-
-    return p0
-.end method
-
 .method public final readFavorites()Ljava/util/List;
     .locals 4
     .annotation system Ldalvik/annotation/Signature;
@@ -348,9 +239,7 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object p0
+    sget-object p0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
     return-object p0
 
@@ -375,17 +264,13 @@
 
     iget-object v3, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
 
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    sget-object v1, Lcom/android/systemui/backup/BackupHelper;->Companion:Lcom/android/systemui/backup/BackupHelper$Companion;
-
-    invoke-virtual {v1}, Lcom/android/systemui/backup/BackupHelper$Companion;->getControlsDataLock()Ljava/lang/Object;
-
-    move-result-object v1
+    sget-object v1, Lcom/android/systemui/backup/BackupHelper;->controlsDataLock:Ljava/lang/Object;
 
     monitor-enter v1
     :try_end_1
@@ -402,11 +287,7 @@
 
     invoke-interface {v2, v0, v3}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/InputStream;Ljava/lang/String;)V
 
-    const-string v3, "parser"
-
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-direct {p0, v2}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->parseXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/util/List;
+    invoke-static {v2}, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->parseXml(Lorg/xmlpull/v1/XmlPullParser;)Ljava/util/ArrayList;
 
     move-result-object v2
     :try_end_2
@@ -450,7 +331,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
 
-    invoke-static {v3, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -467,7 +348,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/controller/ControlsFavoritePersistenceWrapper;->file:Ljava/io/File;
 
-    invoke-static {v3, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, v3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -489,9 +370,7 @@
 
     invoke-static {p0, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lkotlin/collections/CollectionsKt;->emptyList()Ljava/util/List;
-
-    move-result-object p0
+    sget-object p0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
 
     return-object p0
 .end method
@@ -506,10 +385,6 @@
             ">;)V"
         }
     .end annotation
-
-    const-string v0, "structures"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-interface {p1}, Ljava/util/List;->isEmpty()Z
 

@@ -33,12 +33,10 @@
 .method public abstract onPress()V
 .end method
 
-.method public shouldBeSeparated()Z
+.method public shouldBeSeparated()V
     .locals 0
 
-    const/4 p0, 0x0
-
-    return p0
+    return-void
 .end method
 
 .method public shouldShow()Z
@@ -52,5 +50,5 @@
 .method public abstract showBeforeProvisioning()Z
 .end method
 
-.method public abstract showDuringKeyguard()Z
+.method public abstract showDuringKeyguard()V
 .end method

@@ -8,11 +8,11 @@
 
 
 # instance fields
-.field protected mTextView:Landroid/widget/TextView;
+.field public mTextView:Landroid/widget/TextView;
 
-.field protected mTitleView:Landroid/widget/TextView;
+.field public mTitleView:Landroid/widget/TextView;
 
-.field protected final mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
+.field public final mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
 
 # direct methods
@@ -128,7 +128,7 @@
     return-void
 .end method
 
-.method public getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
+.method public final getCurrentState(I)Lcom/android/systemui/statusbar/notification/TransformState;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
@@ -140,28 +140,12 @@
     return-object p0
 .end method
 
-.method public getTextView()Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTextView:Landroid/widget/TextView;
-
-    return-object p0
-.end method
-
-.method public getTitleView()Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
-
-    return-object p0
-.end method
-
-.method protected onFinishInflate()V
+.method public onFinishInflate()V
     .locals 4
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/systemui/R$id;->notification_title:I
+    const v0, 0x7f0b04ab
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -171,7 +155,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTitleView:Landroid/widget/TextView;
 
-    sget v0, Lcom/android/systemui/R$id;->notification_text:I
+    const v0, 0x7f0b04aa
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -187,9 +171,15 @@
 
     invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView$1;-><init>(Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;)V
 
+    iget-object v0, v0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mCustomTransformations:Landroid/util/ArrayMap;
+
     const/4 v2, 0x2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->setCustomTransformation(Lcom/android/systemui/statusbar/ViewTransformationHelper$CustomTransformation;I)V
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
@@ -197,13 +187,13 @@
 
     const/4 v3, 0x1
 
-    invoke-virtual {v0, v3, v1}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
+    invoke-virtual {v0, v1, v3}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(Landroid/view/View;I)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v0, v2, p0}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(ILandroid/view/View;)V
+    invoke-virtual {v0, p0, v2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->addTransformedView(Landroid/view/View;I)V
 
     return-void
 .end method
@@ -214,7 +204,7 @@
     return-void
 .end method
 
-.method public setVisible(Z)V
+.method public final setVisible(Z)V
     .locals 1
 
     if-eqz p1, :cond_0
@@ -236,7 +226,17 @@
     return-void
 .end method
 
-.method public transformFrom(Lcom/android/systemui/statusbar/TransformableView;)V
+.method public final transformFrom(FLcom/android/systemui/statusbar/TransformableView;)V
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->transformFrom(FLcom/android/systemui/statusbar/TransformableView;)V
+
+    return-void
+.end method
+
+.method public final transformFrom(Lcom/android/systemui/statusbar/TransformableView;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
@@ -246,27 +246,17 @@
     return-void
 .end method
 
-.method public transformFrom(Lcom/android/systemui/statusbar/TransformableView;F)V
+.method public final transformTo(FLcom/android/systemui/statusbar/TransformableView;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->transformFrom(Lcom/android/systemui/statusbar/TransformableView;F)V
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->transformTo(FLcom/android/systemui/statusbar/TransformableView;)V
 
     return-void
 .end method
 
-.method public transformTo(Lcom/android/systemui/statusbar/TransformableView;F)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/ViewTransformationHelper;->transformTo(Lcom/android/systemui/statusbar/TransformableView;F)V
-
-    return-void
-.end method
-
-.method public transformTo(Lcom/android/systemui/statusbar/TransformableView;Ljava/lang/Runnable;)V
+.method public final transformTo(Lcom/android/systemui/statusbar/TransformableView;Ljava/lang/Runnable;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->mTransformationHelper:Lcom/android/systemui/statusbar/ViewTransformationHelper;

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/dump/LogBufferFreezer$onBugreportStarted$1;
+.class public final Lcom/android/systemui/dump/LogBufferFreezer$onBugreportStarted$1;
 .super Ljava/lang/Object;
 .source "LogBufferFreezer.kt"
 
@@ -6,23 +6,12 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/dump/LogBufferFreezer;->onBugreportStarted()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/dump/LogBufferFreezer;
+.field public final synthetic this$0:Lcom/android/systemui/dump/LogBufferFreezer;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/dump/LogBufferFreezer;)V
+.method public constructor <init>(Lcom/android/systemui/dump/LogBufferFreezer;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/dump/LogBufferFreezer$onBugreportStarted$1;->this$0:Lcom/android/systemui/dump/LogBufferFreezer;
@@ -43,19 +32,59 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/systemui/dump/LogBufferFreezer$onBugreportStarted$1;->this$0:Lcom/android/systemui/dump/LogBufferFreezer;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/systemui/dump/LogBufferFreezer;->access$setPendingToken$p(Lcom/android/systemui/dump/LogBufferFreezer;Ljava/lang/Runnable;)V
-
     iget-object p0, p0, Lcom/android/systemui/dump/LogBufferFreezer$onBugreportStarted$1;->this$0:Lcom/android/systemui/dump/LogBufferFreezer;
 
-    invoke-static {p0}, Lcom/android/systemui/dump/LogBufferFreezer;->access$getDumpManager$p(Lcom/android/systemui/dump/LogBufferFreezer;)Lcom/android/systemui/dump/DumpManager;
+    const/4 v0, 0x0
 
-    move-result-object p0
+    iput-object v0, p0, Lcom/android/systemui/dump/LogBufferFreezer;->pendingToken:Ljava/lang/Runnable;
 
-    invoke-virtual {p0}, Lcom/android/systemui/dump/DumpManager;->unfreezeBuffers()V
+    iget-object p0, p0, Lcom/android/systemui/dump/LogBufferFreezer;->dumpManager:Lcom/android/systemui/dump/DumpManager;
+
+    monitor-enter p0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/dump/DumpManager;->buffers:Landroid/util/ArrayMap;
+
+    invoke-virtual {v0}, Landroid/util/ArrayMap;->values()Ljava/util/Collection;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/dump/RegisteredDumpable;
+
+    iget-object v1, v1, Lcom/android/systemui/dump/RegisteredDumpable;->dumpable:Ljava/lang/Object;
+
+    check-cast v1, Lcom/android/systemui/log/LogBuffer;
+
+    invoke-virtual {v1}, Lcom/android/systemui/log/LogBuffer;->unfreeze()V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    goto :goto_0
+
+    :cond_0
+    monitor-exit p0
 
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
 .end method

@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mAnimationEnabled:Z
+.field public mAnimationEnabled:Z
 
-.field protected mSlash:Lcom/android/systemui/qs/SlashDrawable;
+.field public mSlash:Lcom/android/systemui/qs/SlashDrawable;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
@@ -25,83 +25,10 @@
     return-void
 .end method
 
-.method private setSlashState(Lcom/android/systemui/plugins/qs/QSTile$SlashState;)V
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/SlashImageView;->ensureSlashDrawable()V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
-
-    iget v1, p1, Lcom/android/systemui/plugins/qs/QSTile$SlashState;->rotation:F
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/SlashDrawable;->setRotation(F)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
-
-    iget-boolean p1, p1, Lcom/android/systemui/plugins/qs/QSTile$SlashState;->isSlashed:Z
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/SlashDrawable;->setSlashed(Z)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method protected ensureSlashDrawable()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/android/systemui/qs/SlashDrawable;
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v1
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/qs/SlashDrawable;-><init>(Landroid/graphics/drawable/Drawable;)V
-
-    iput-object v0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
-
-    iget-boolean v1, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mAnimationEnabled:Z
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/SlashDrawable;->setAnimationEnabled(Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
-
-    invoke-super {p0, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public getAnimationEnabled()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mAnimationEnabled:Z
-
-    return p0
-.end method
-
-.method protected getSlash()Lcom/android/systemui/qs/SlashDrawable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
-
-    return-object p0
-.end method
-
-.method public setAnimationEnabled(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mAnimationEnabled:Z
-
-    return-void
-.end method
-
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+.method public final setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 1
 
     if-nez p1, :cond_0
 
@@ -129,51 +56,41 @@
     goto :goto_0
 
     :cond_1
-    iget-boolean v1, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mAnimationEnabled:Z
+    iput-object p1, v0, Lcom/android/systemui/qs/SlashDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/qs/SlashDrawable;->setAnimationEnabled(Z)V
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getCallback()Landroid/graphics/drawable/Drawable$Callback;
 
-    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
+    move-result-object p0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/SlashDrawable;->setDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setCallback(Landroid/graphics/drawable/Drawable$Callback;)V
 
-    :goto_0
-    return-void
-.end method
+    iget-object p0, v0, Lcom/android/systemui/qs/SlashDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-.method protected setImageViewDrawable(Lcom/android/systemui/qs/SlashDrawable;)V
-    .locals 0
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
 
-    invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    move-result-object p1
 
-    return-void
-.end method
+    invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
-.method protected setSlash(Lcom/android/systemui/qs/SlashDrawable;)V
-    .locals 0
+    iget-object p0, v0, Lcom/android/systemui/qs/SlashDrawable;->mTintMode:Landroid/graphics/PorterDuff$Mode;
 
-    iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
+    if-eqz p0, :cond_2
 
-    return-void
-.end method
+    iget-object p1, v0, Lcom/android/systemui/qs/SlashDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-.method public setState(Lcom/android/systemui/plugins/qs/QSTile$SlashState;Landroid/graphics/drawable/Drawable;)V
-    .locals 0
+    invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    if-eqz p1, :cond_0
+    :cond_2
+    iget-object p0, v0, Lcom/android/systemui/qs/SlashDrawable;->mTintList:Landroid/content/res/ColorStateList;
 
-    invoke-virtual {p0, p2}, Lcom/android/systemui/qs/tileimpl/SlashImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    if-eqz p0, :cond_3
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/tileimpl/SlashImageView;->setSlashState(Lcom/android/systemui/plugins/qs/QSTile$SlashState;)V
+    iget-object p1, v0, Lcom/android/systemui/qs/SlashDrawable;->mDrawable:Landroid/graphics/drawable/Drawable;
 
-    goto :goto_0
+    invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setTintList(Landroid/content/res/ColorStateList;)V
 
-    :cond_0
-    const/4 p1, 0x0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/SlashImageView;->mSlash:Lcom/android/systemui/qs/SlashDrawable;
-
-    invoke-virtual {p0, p2}, Lcom/android/systemui/qs/tileimpl/SlashImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    :cond_3
+    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->invalidateSelf()V
 
     :goto_0
     return-void

@@ -18,21 +18,17 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/AuthRippleController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
 
 # direct methods
 .method public constructor <init>(Lcom/android/systemui/biometrics/AuthRippleController;)V
-    .locals 1
+    .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()V"
         }
     .end annotation
-
-    const-string v0, "this$0"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
@@ -43,8 +39,8 @@
 
 
 # virtual methods
-.method public execute(Ljava/io/PrintWriter;Ljava/util/List;)V
-    .locals 4
+.method public final execute(Ljava/io/PrintWriter;Ljava/util/List;)V
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -55,14 +51,6 @@
         }
     .end annotation
 
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "args"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     invoke-interface {p2}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
@@ -71,7 +59,7 @@
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->invalidCommand(Ljava/io/PrintWriter;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :cond_0
     const/4 v0, 0x0
@@ -88,7 +76,7 @@
 
     sparse-switch v1, :sswitch_data_0
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :sswitch_0
     const-string p2, "dwell"
@@ -99,7 +87,7 @@
 
     if-nez p2, :cond_1
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_1
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
@@ -116,9 +104,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthRippleController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/biometrics/AuthRippleController;->fingerprintSensorLocation:Landroid/graphics/PointF;
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -128,9 +114,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getUdfpsRadius$p(Lcom/android/systemui/biometrics/AuthRippleController;)F
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/biometrics/AuthRippleController;->udfpsRadius:F
 
     invoke-virtual {p2, p0}, Ljava/lang/StringBuilder;->append(F)Ljava/lang/StringBuilder;
 
@@ -140,7 +124,7 @@
 
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :sswitch_1
     const-string p2, "face"
@@ -151,7 +135,7 @@
 
     if-nez p2, :cond_2
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_2
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
@@ -160,13 +144,11 @@
 
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-static {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getFaceSensorLocation$p(Lcom/android/systemui/biometrics/AuthRippleController;)Landroid/graphics/PointF;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/biometrics/AuthRippleController;->faceSensorLocation:Landroid/graphics/PointF;
 
     const-string v0, "face ripple sensorLocation="
 
-    invoke-static {v0, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
@@ -176,9 +158,9 @@
 
     sget-object p1, Landroid/hardware/biometrics/BiometricSourceType;->FACE:Landroid/hardware/biometrics/BiometricSourceType;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController;->showRipple(Landroid/hardware/biometrics/BiometricSourceType;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController;->showUnlockRipple(Landroid/hardware/biometrics/BiometricSourceType;)V
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :sswitch_2
     const-string v1, "custom"
@@ -189,7 +171,7 @@
 
     if-nez v0, :cond_3
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :cond_3
     invoke-interface {p2}, Ljava/util/List;->size()I
@@ -198,7 +180,7 @@
 
     const/4 v1, 0x3
 
-    if-ne v0, v1, :cond_5
+    if-ne v0, v1, :cond_7
 
     const/4 v0, 0x1
 
@@ -208,36 +190,75 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-static {v1}, Lkotlin/text/StringsKt;->toFloatOrNull(Ljava/lang/String;)Ljava/lang/Float;
+    const/4 v2, 0x0
+
+    :try_start_0
+    sget-object v3, Lkotlin/text/ScreenFloatValueRegEx;->value:Lkotlin/text/Regex;
+
+    invoke-virtual {v3, v1}, Lkotlin/text/Regex;->matches(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_4
+
+    invoke-static {v1}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v1
+    :try_end_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    if-eqz v1, :cond_5
+    goto :goto_0
+
+    :catch_0
+    :cond_4
+    move-object v1, v2
+
+    :goto_0
+    if-eqz v1, :cond_7
 
     const/4 v1, 0x2
 
     invoke-interface {p2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    :try_start_1
+    sget-object v4, Lkotlin/text/ScreenFloatValueRegEx;->value:Lkotlin/text/Regex;
+
+    invoke-virtual {v4, v3}, Lkotlin/text/Regex;->matches(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    invoke-static {v3}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
     move-result-object v2
+    :try_end_1
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
 
-    check-cast v2, Ljava/lang/String;
+    :catch_1
+    :cond_5
+    if-nez v2, :cond_6
 
-    invoke-static {v2}, Lkotlin/text/StringsKt;->toFloatOrNull(Ljava/lang/String;)Ljava/lang/Float;
+    goto :goto_1
+
+    :cond_6
+    const-string v2, "custom ripple sensorLocation="
+
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
-
-    if-nez v2, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "custom ripple sensorLocation="
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-interface {p2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -275,9 +296,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-static {p1}, Lcom/android/systemui/biometrics/AuthRippleController;->access$getMView$p(Lcom/android/systemui/biometrics/AuthRippleController;)Landroid/view/View;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p1, Lcom/android/systemui/biometrics/AuthRippleView;
 
@@ -309,12 +328,12 @@
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-static {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->access$showUnlockedRipple(Lcom/android/systemui/biometrics/AuthRippleController;)V
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthRippleController;->showUnlockedRipple()V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_5
-    :goto_0
+    :cond_7
+    :goto_1
     invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->invalidCommand(Ljava/io/PrintWriter;)V
 
     return-void
@@ -326,24 +345,22 @@
 
     move-result p2
 
-    if-nez p2, :cond_6
+    if-nez p2, :cond_8
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_6
+    :cond_8
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
     invoke-virtual {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->updateSensorLocation()V
 
     iget-object p2, p0, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->this$0:Lcom/android/systemui/biometrics/AuthRippleController;
 
-    invoke-virtual {p2}, Lcom/android/systemui/biometrics/AuthRippleController;->getFingerprintSensorLocation()Landroid/graphics/PointF;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/biometrics/AuthRippleController;->fingerprintSensorLocation:Landroid/graphics/PointF;
 
     const-string v0, "fingerprint ripple sensorLocation="
 
-    invoke-static {v0, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p2
 
@@ -353,15 +370,17 @@
 
     sget-object p1, Landroid/hardware/biometrics/BiometricSourceType;->FINGERPRINT:Landroid/hardware/biometrics/BiometricSourceType;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController;->showRipple(Landroid/hardware/biometrics/BiometricSourceType;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController;->showUnlockRipple(Landroid/hardware/biometrics/BiometricSourceType;)V
 
-    goto :goto_2
-
-    :goto_1
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->invalidCommand(Ljava/io/PrintWriter;)V
+    goto :goto_3
 
     :goto_2
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->invalidCommand(Ljava/io/PrintWriter;)V
+
+    :goto_3
     return-void
+
+    nop
 
     :sswitch_data_0
     .sparse-switch
@@ -372,12 +391,12 @@
     .end sparse-switch
 .end method
 
-.method public help(Ljava/io/PrintWriter;)V
+.method public final invalidCommand(Ljava/io/PrintWriter;)V
     .locals 0
 
-    const-string p0, "pw"
+    const-string p0, "invalid command"
 
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 
     const-string p0, "Usage: adb shell cmd statusbar auth-ripple <command>"
 
@@ -402,22 +421,6 @@
     const-string p0, "  custom <x-location: int> <y-location: int>"
 
     invoke-virtual {p1, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public final invalidCommand(Ljava/io/PrintWriter;)V
-    .locals 1
-
-    const-string v0, "pw"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "invalid command"
-
-    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthRippleController$AuthRippleCommand;->help(Ljava/io/PrintWriter;)V
 
     return-void
 .end method

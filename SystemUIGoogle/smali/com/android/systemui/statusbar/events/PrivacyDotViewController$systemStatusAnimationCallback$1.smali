@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$systemStatusAnimationCallback$1;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
@@ -34,25 +34,19 @@
 
 
 # virtual methods
-.method public onHidePersistentDot()Landroid/animation/Animator;
-    .locals 19
+.method public final onHidePersistentDot()V
+    .locals 18
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$systemStatusAnimationCallback$1;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->access$getLock$p(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)Ljava/lang/Object;
-
-    move-result-object v1
-
     iget-object v0, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$systemStatusAnimationCallback$1;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->lock:Ljava/lang/Object;
 
     monitor-enter v1
 
     :try_start_0
-    invoke-static {v0}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->access$getNextViewState$p(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)Lcom/android/systemui/statusbar/events/ViewState;
-
-    move-result-object v2
+    iget-object v2, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->nextViewState:Lcom/android/systemui/statusbar/events/ViewState;
 
     const/4 v3, 0x0
 
@@ -84,23 +78,17 @@
 
     const/16 v17, 0x3ffd
 
-    const/16 v18, 0x0
-
-    invoke-static/range {v2 .. v18}, Lcom/android/systemui/statusbar/events/ViewState;->copy$default(Lcom/android/systemui/statusbar/events/ViewState;ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;ILjava/lang/Object;)Lcom/android/systemui/statusbar/events/ViewState;
+    invoke-static/range {v2 .. v17}, Lcom/android/systemui/statusbar/events/ViewState;->copy$default(Lcom/android/systemui/statusbar/events/ViewState;ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;I)Lcom/android/systemui/statusbar/events/ViewState;
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->access$setNextViewState(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/events/ViewState;)V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->setNextViewState(Lcom/android/systemui/statusbar/events/ViewState;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
-    const/4 v0, 0x0
-
-    return-object v0
+    return-void
 
     :catchall_0
     move-exception v0
@@ -110,25 +98,35 @@
     throw v0
 .end method
 
-.method public onSystemStatusAnimationTransitionToPersistentDot(Ljava/lang/String;)Landroid/animation/Animator;
-    .locals 19
+.method public final onSystemEventAnimationBegin()Landroid/animation/Animator;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public final onSystemEventAnimationFinish(Z)Landroid/animation/Animator;
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return-object p0
+.end method
+
+.method public final onSystemStatusAnimationTransitionToPersistentDot(Ljava/lang/String;)V
+    .locals 18
 
     move-object/from16 v0, p0
 
-    iget-object v1, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$systemStatusAnimationCallback$1;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
-
-    invoke-static {v1}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->access$getLock$p(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)Ljava/lang/Object;
-
-    move-result-object v1
-
     iget-object v0, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController$systemStatusAnimationCallback$1;->this$0:Lcom/android/systemui/statusbar/events/PrivacyDotViewController;
+
+    iget-object v1, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->lock:Ljava/lang/Object;
 
     monitor-enter v1
 
     :try_start_0
-    invoke-static {v0}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->access$getNextViewState$p(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;)Lcom/android/systemui/statusbar/events/ViewState;
-
-    move-result-object v2
+    iget-object v2, v0, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->nextViewState:Lcom/android/systemui/statusbar/events/ViewState;
 
     const/4 v3, 0x0
 
@@ -158,25 +156,19 @@
 
     const/16 v17, 0x1ffd
 
-    const/16 v18, 0x0
-
     move-object/from16 v16, p1
 
-    invoke-static/range {v2 .. v18}, Lcom/android/systemui/statusbar/events/ViewState;->copy$default(Lcom/android/systemui/statusbar/events/ViewState;ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;ILjava/lang/Object;)Lcom/android/systemui/statusbar/events/ViewState;
+    invoke-static/range {v2 .. v17}, Lcom/android/systemui/statusbar/events/ViewState;->copy$default(Lcom/android/systemui/statusbar/events/ViewState;ZZZZLandroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;Landroid/graphics/Rect;ZIIILandroid/view/View;Ljava/lang/String;I)Lcom/android/systemui/statusbar/events/ViewState;
 
     move-result-object v2
 
-    invoke-static {v0, v2}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->access$setNextViewState(Lcom/android/systemui/statusbar/events/PrivacyDotViewController;Lcom/android/systemui/statusbar/events/ViewState;)V
-
-    sget-object v0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
+    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/events/PrivacyDotViewController;->setNextViewState(Lcom/android/systemui/statusbar/events/ViewState;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     monitor-exit v1
 
-    const/4 v0, 0x0
-
-    return-object v0
+    return-void
 
     :catchall_0
     move-exception v0

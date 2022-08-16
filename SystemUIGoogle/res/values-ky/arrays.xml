@@ -17,6 +17,7 @@
         <item>Эң көп дегенде 3 процесс</item>
         <item>Эң көп дегенде 4 процесс</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Өчүк</item>
         <item>Күйүк</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Жеткиликсиз</item>
+        <item>Өчүк</item>
+        <item>Күйүк</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Жеткиликсиз</item>
         <item>Өчүк</item>
@@ -306,6 +312,16 @@
         <item>Күйүк</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Жеткиликсиз</item>
+        <item>Өчүк</item>
+        <item>Күйүк</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Жеткиликсиз</item>
+        <item>Өчүк</item>
+        <item>Күйүк</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Жеткиликсиз</item>
         <item>Өчүк</item>
         <item>Күйүк</item>
@@ -374,6 +390,12 @@
         <item>Тез</item>
         <item>Өтө тез</item>
         <item>Эң ылдам</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Солго жылдыруу</item>
+        <item>Төмөн жылдыруу</item>
+        <item>Оңго жылдыруу</item>
+        <item>Жогору жылдыруу</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Кубатталууда</item>

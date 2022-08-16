@@ -15,19 +15,10 @@
 
 
 # virtual methods
-.method public abstract canChildBeExpanded(Landroid/view/View;)Z
-.end method
-
-.method public abstract expansionStateChanged(Z)V
-.end method
-
 .method public abstract getChildAtPosition(FF)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 .end method
 
 .method public abstract getChildAtRawPosition(FF)Lcom/android/systemui/statusbar/notification/row/ExpandableView;
-.end method
-
-.method public abstract getMaxExpandHeight(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)I
 .end method
 
 .method public abstract setExpansionCancelled(Landroid/view/View;)V

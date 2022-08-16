@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/FalsingManagerProxy$1;
+.class public final Lcom/android/systemui/classifier/FalsingManagerProxy$1;
 .super Ljava/lang/Object;
 .source "FalsingManagerProxy.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -27,11 +27,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/classifier/FalsingManagerProxy;
+.field public final synthetic this$0:Lcom/android/systemui/classifier/FalsingManagerProxy;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/FalsingManagerProxy;)V
+.method public constructor <init>(Lcom/android/systemui/classifier/FalsingManagerProxy;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/classifier/FalsingManagerProxy$1;->this$0:Lcom/android/systemui/classifier/FalsingManagerProxy;
@@ -43,8 +43,10 @@
 
 
 # virtual methods
-.method public onPluginConnected(Lcom/android/systemui/plugins/FalsingPlugin;Landroid/content/Context;)V
+.method public final onPluginConnected(Lcom/android/systemui/plugins/Plugin;Landroid/content/Context;)V
     .locals 0
+
+    check-cast p1, Lcom/android/systemui/plugins/FalsingPlugin;
 
     invoke-interface {p1, p2}, Lcom/android/systemui/plugins/FalsingPlugin;->getFalsingManager(Landroid/content/Context;)Lcom/android/systemui/plugins/FalsingManager;
 
@@ -54,46 +56,26 @@
 
     iget-object p2, p0, Lcom/android/systemui/classifier/FalsingManagerProxy$1;->this$0:Lcom/android/systemui/classifier/FalsingManagerProxy;
 
-    invoke-static {p2}, Lcom/android/systemui/classifier/FalsingManagerProxy;->access$000(Lcom/android/systemui/classifier/FalsingManagerProxy;)Lcom/android/systemui/plugins/FalsingManager;
-
-    move-result-object p2
+    iget-object p2, p2, Lcom/android/systemui/classifier/FalsingManagerProxy;->mInternalFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     invoke-interface {p2}, Lcom/android/systemui/plugins/FalsingManager;->cleanupInternal()V
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingManagerProxy$1;->this$0:Lcom/android/systemui/classifier/FalsingManagerProxy;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/classifier/FalsingManagerProxy;->access$002(Lcom/android/systemui/classifier/FalsingManagerProxy;Lcom/android/systemui/plugins/FalsingManager;)Lcom/android/systemui/plugins/FalsingManager;
+    iput-object p1, p0, Lcom/android/systemui/classifier/FalsingManagerProxy;->mInternalFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     :cond_0
     return-void
 .end method
 
-.method public bridge synthetic onPluginConnected(Lcom/android/systemui/plugins/Plugin;Landroid/content/Context;)V
+.method public final onPluginDisconnected(Lcom/android/systemui/plugins/Plugin;)V
     .locals 0
 
     check-cast p1, Lcom/android/systemui/plugins/FalsingPlugin;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/classifier/FalsingManagerProxy$1;->onPluginConnected(Lcom/android/systemui/plugins/FalsingPlugin;Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method public onPluginDisconnected(Lcom/android/systemui/plugins/FalsingPlugin;)V
-    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/FalsingManagerProxy$1;->this$0:Lcom/android/systemui/classifier/FalsingManagerProxy;
 
-    invoke-static {p0}, Lcom/android/systemui/classifier/FalsingManagerProxy;->access$100(Lcom/android/systemui/classifier/FalsingManagerProxy;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic onPluginDisconnected(Lcom/android/systemui/plugins/Plugin;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/plugins/FalsingPlugin;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/classifier/FalsingManagerProxy$1;->onPluginDisconnected(Lcom/android/systemui/plugins/FalsingPlugin;)V
+    invoke-virtual {p0}, Lcom/android/systemui/classifier/FalsingManagerProxy;->setupFalsingManager()V
 
     return-void
 .end method

@@ -22,22 +22,21 @@
         "Ljava/lang/Object;",
         ">",
         "Ljava/lang/Object;",
-        "Ljava/util/Comparator<",
-        "TT;>;"
+        "Ljava/util/Comparator;"
     }
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$3\n+ 2 ControlsUiControllerImpl.kt\ncom/android/systemui/controls/ui/ControlsUiControllerImpl\n*L\n1#1,319:1\n117#2:320\n*E\n"
+    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareBy$3\n+ 2 ControlsUiControllerImpl.kt\ncom/android/systemui/controls/ui/ControlsUiControllerImpl\n*L\n1#1,320:1\n116#2:321\n*E\n"
 .end annotation
 
 
 # instance fields
-.field final synthetic $comparator:Ljava/util/Comparator;
+.field public final synthetic $comparator:Ljava/util/Comparator;
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/Comparator;)V
+.method public constructor <init>(Ljava/text/Collator;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$special$$inlined$compareBy$1;->$comparator:Ljava/util/Comparator;

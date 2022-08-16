@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final configurationControllerProvider:Ljavax/inject/Provider;
+.field public final configurationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final lightBarControllerProvider:Ljavax/inject/Provider;
+.field public final lightBarControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final qsTileHostProvider:Ljavax/inject/Provider;
+.field public final qsTileHostProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final screenLifecycleProvider:Ljavax/inject/Provider;
+.field public final screenLifecycleProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final tileAdapterProvider:Ljavax/inject/Provider;
+.field public final tileAdapterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final tileQueryHelperProvider:Ljavax/inject/Provider;
+.field public final tileQueryHelperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final uiEventLoggerProvider:Ljavax/inject/Provider;
+.field public final uiEventLoggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final viewProvider:Ljavax/inject/Provider;
+.field public final viewProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -231,40 +231,10 @@
     return-object v10
 .end method
 
-.method public static newInstance(Lcom/android/systemui/qs/customize/QSCustomizer;Lcom/android/systemui/qs/customize/TileQueryHelper;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/qs/customize/QSCustomizerController;
-    .locals 11
-
-    new-instance v10, Lcom/android/systemui/qs/customize/QSCustomizerController;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/customize/QSCustomizerController;-><init>(Lcom/android/systemui/qs/customize/QSCustomizer;Lcom/android/systemui/qs/customize/TileQueryHelper;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/logging/UiEventLogger;)V
-
-    return-object v10
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/qs/customize/QSCustomizerController;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -272,9 +242,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Lcom/android/systemui/qs/customize/QSCustomizer;
+    check-cast v2, Lcom/android/systemui/qs/customize/QSCustomizer;
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->tileQueryHelperProvider:Ljavax/inject/Provider;
 
@@ -282,9 +252,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/qs/customize/TileQueryHelper;
+    check-cast v3, Lcom/android/systemui/qs/customize/TileQueryHelper;
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->qsTileHostProvider:Ljavax/inject/Provider;
 
@@ -292,9 +262,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/qs/QSTileHost;
+    check-cast v4, Lcom/android/systemui/qs/QSTileHost;
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->tileAdapterProvider:Ljavax/inject/Provider;
 
@@ -302,9 +272,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/qs/customize/TileAdapter;
+    check-cast v5, Lcom/android/systemui/qs/customize/TileAdapter;
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->screenLifecycleProvider:Ljavax/inject/Provider;
 
@@ -312,9 +282,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/keyguard/ScreenLifecycle;
+    check-cast v6, Lcom/android/systemui/keyguard/ScreenLifecycle;
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
@@ -322,9 +292,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v7, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->lightBarControllerProvider:Ljavax/inject/Provider;
 
@@ -332,9 +302,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Lcom/android/systemui/statusbar/phone/LightBarController;
+    check-cast v8, Lcom/android/systemui/statusbar/phone/LightBarController;
 
     iget-object v0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->configurationControllerProvider:Ljavax/inject/Provider;
 
@@ -342,9 +312,9 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Lcom/android/systemui/statusbar/policy/ConfigurationController;
+    check-cast v9, Lcom/android/systemui/statusbar/policy/ConfigurationController;
 
     iget-object p0, p0, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->uiEventLoggerProvider:Ljavax/inject/Provider;
 
@@ -352,23 +322,15 @@
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Lcom/android/internal/logging/UiEventLogger;
+    check-cast v10, Lcom/android/internal/logging/UiEventLogger;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->newInstance(Lcom/android/systemui/qs/customize/QSCustomizer;Lcom/android/systemui/qs/customize/TileQueryHelper;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/logging/UiEventLogger;)Lcom/android/systemui/qs/customize/QSCustomizerController;
+    new-instance p0, Lcom/android/systemui/qs/customize/QSCustomizerController;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/qs/customize/QSCustomizerController_Factory;->get()Lcom/android/systemui/qs/customize/QSCustomizerController;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/qs/customize/QSCustomizerController;-><init>(Lcom/android/systemui/qs/customize/QSCustomizer;Lcom/android/systemui/qs/customize/TileQueryHelper;Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/phone/LightBarController;Lcom/android/systemui/statusbar/policy/ConfigurationController;Lcom/android/internal/logging/UiEventLogger;)V
 
     return-object p0
 .end method

@@ -1,4 +1,4 @@
-.class interface abstract Lcom/airbnb/lottie/animation/content/PathContent;
+.class public interface abstract Lcom/airbnb/lottie/animation/content/PathContent;
 .super Ljava/lang/Object;
 .source "PathContent.java"
 

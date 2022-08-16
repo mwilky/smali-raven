@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/recents/OverviewProxyService;
+.class public final Lcom/android/systemui/recents/OverviewProxyService;
 .super Lcom/android/systemui/settings/CurrentUserTracker;
 .source "OverviewProxyService.java"
 
@@ -28,57 +28,60 @@
 
 
 # instance fields
-.field private mActiveNavBarRegion:Landroid/graphics/Region;
+.field public mActiveNavBarRegion:Landroid/graphics/Region;
 
-.field private mBound:Z
-
-.field private final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
-
-.field private mConnectionBackoffAttempts:I
-
-.field private final mConnectionCallbacks:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mConnectionRunnable:Ljava/lang/Runnable;
-
-.field private final mContext:Landroid/content/Context;
-
-.field private mCurrentBoundedUserId:I
-
-.field private final mDeferredConnectionCallback:Ljava/lang/Runnable;
-
-.field private final mHandler:Landroid/os/Handler;
-
-.field private mInputFocusTransferStartMillis:J
-
-.field private mInputFocusTransferStartY:F
-
-.field private mInputFocusTransferStarted:Z
-
-.field private mIsEnabled:Z
-
-.field private final mLauncherStateChangedReceiver:Landroid/content/BroadcastReceiver;
-
-.field private final mLegacySplitScreenOptional:Ljava/util/Optional;
+.field public final mBackAnimation:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Lcom/android/wm/shell/back/BackAnimation;",
             ">;"
         }
     .end annotation
 .end field
 
-.field private mNavBarButtonAlpha:F
+.field public mBound:Z
 
-.field private final mNavBarControllerLazy:Ldagger/Lazy;
+.field public final mCentralSurfacesOptionalLazy:Ldagger/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ldagger/Lazy<",
+            "Ljava/util/Optional<",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+.field public final mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
+
+.field public mConnectionBackoffAttempts:I
+
+.field public final mConnectionCallbacks:Ljava/util/ArrayList;
+
+.field public final mConnectionRunnable:Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;
+
+.field public final mContext:Landroid/content/Context;
+
+.field public mCurrentBoundedUserId:I
+
+.field public final mDeferredConnectionCallback:Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;
+
+.field public final mHandler:Landroid/os/Handler;
+
+.field public mInputFocusTransferStartMillis:J
+
+.field public mInputFocusTransferStartY:F
+
+.field public mInputFocusTransferStarted:Z
+
+.field public mIsEnabled:Z
+
+.field public final mLauncherStateChangedReceiver:Lcom/android/systemui/recents/OverviewProxyService$2;
+
+.field public mNavBarButtonAlpha:F
+
+.field public final mNavBarControllerLazy:Ldagger/Lazy;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ldagger/Lazy<",
@@ -88,9 +91,9 @@
     .end annotation
 .end field
 
-.field private mNavBarMode:I
+.field public mNavBarMode:I
 
-.field private final mOneHandedOptional:Ljava/util/Optional;
+.field public final mOneHandedOptional:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -100,13 +103,13 @@
     .end annotation
 .end field
 
-.field private mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
+.field public mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
 
-.field private final mOverviewServiceConnection:Landroid/content/ServiceConnection;
+.field public final mOverviewServiceConnection:Lcom/android/systemui/recents/OverviewProxyService$3;
 
-.field private final mOverviewServiceDeathRcpt:Landroid/os/IBinder$DeathRecipient;
+.field public final mOverviewServiceDeathRcpt:Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda1;
 
-.field private final mPipOptional:Ljava/util/Optional;
+.field public final mPipOptional:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -116,9 +119,9 @@
     .end annotation
 .end field
 
-.field private final mQuickStepIntent:Landroid/content/Intent;
+.field public final mQuickStepIntent:Landroid/content/Intent;
 
-.field private final mRecentTasks:Ljava/util/Optional;
+.field public final mRecentTasks:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -128,26 +131,13 @@
     .end annotation
 .end field
 
-.field private final mRecentsComponentName:Landroid/content/ComponentName;
+.field public final mRecentsComponentName:Landroid/content/ComponentName;
 
-.field private final mScreenshotHelper:Lcom/android/internal/util/ScreenshotHelper;
+.field public final mScreenshotHelper:Lcom/android/internal/util/ScreenshotHelper;
 
-.field private final mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
+.field public final mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-.field private final mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
-
-.field private final mSplitScreenBoundsChangeListener:Ljava/util/function/BiConsumer;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/function/BiConsumer<",
-            "Landroid/graphics/Rect;",
-            "Landroid/graphics/Rect;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final mSplitScreenOptional:Ljava/util/Optional;
+.field public final mSplitScreenOptional:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -157,7 +147,7 @@
     .end annotation
 .end field
 
-.field private final mStartingSurface:Ljava/util/Optional;
+.field public final mStartingSurface:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -167,102 +157,31 @@
     .end annotation
 .end field
 
-.field private final mStatusBarOptionalLazy:Ldagger/Lazy;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ldagger/Lazy<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
-            ">;>;"
-        }
-    .end annotation
-.end field
+.field public final mStatusBarWinController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-.field private final mStatusBarWinController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
+.field public final mStatusBarWindowCallback:Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda0;
 
-.field private final mStatusBarWindowCallback:Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;
-
-.field private mSupportsRoundedCornersOnWindows:Z
+.field public mSupportsRoundedCornersOnWindows:Z
 
 .field public mSysUiProxy:Lcom/android/systemui/shared/recents/ISystemUiProxy;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mSysUiState:Lcom/android/systemui/model/SysUiState;
+.field public mSysUiState:Lcom/android/systemui/model/SysUiState;
 
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final mSysuiUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
 
-.field private mWindowCornerRadius:F
+.field public final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+.field public final mVoiceInteractionSessionListener:Lcom/android/systemui/recents/OverviewProxyService$4;
+
+.field public mWindowCornerRadius:F
 
 
 # direct methods
-.method public static synthetic $r8$lambda$5woo0ZUfUI59FZVuoOikLBgk2hQ(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->internalConnectToCurrentUser()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$BaF-uB_VKFOEOVnRby-e2hfBUy8(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->lambda$new$0()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$E2kpKu45zlhkn_A2qdV6zeoFrl0(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->lambda$new$1(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$jEKvhfopqPCrvf9mQHK8tJntAnQ(Lcom/android/systemui/recents/OverviewProxyService;ZZZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/recents/OverviewProxyService;->onStatusBarStateChanged(ZZZZ)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$jzVdSKvIoISe-Rco2ootorQN2Jw(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->lambda$cleanupAfterDeath$3()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$nFuxkeCBkvXeeEH7O0riyTzf9eE(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->lambda$cleanupAfterDeath$2(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$tqExWmIHLOupi7KtfDqmGsaEm7A(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->lambda$cleanupAfterDeath$4(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$zhQ-o-xDJ5Q9exIJnaLTc1_-AzM(Lcom/android/systemui/recents/OverviewProxyService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->notifySystemUiStateFlags(I)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)V
-    .locals 12
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;Lcom/android/internal/app/AssistUtils;Lcom/android/systemui/dump/DumpManager;)V
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -273,16 +192,13 @@
             ">;",
             "Ldagger/Lazy<",
             "Ljava/util/Optional<",
-            "Lcom/android/systemui/statusbar/phone/StatusBar;",
+            "Lcom/android/systemui/statusbar/phone/CentralSurfaces;",
             ">;>;",
             "Lcom/android/systemui/navigationbar/NavigationModeController;",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
             "Lcom/android/systemui/model/SysUiState;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/pip/Pip;",
-            ">;",
-            "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
             ">;",
             "Ljava/util/Optional<",
             "Lcom/android/wm/shell/splitscreen/SplitScreen;",
@@ -294,13 +210,17 @@
             "Lcom/android/wm/shell/recents/RecentTasks;",
             ">;",
             "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimation;",
+            ">;",
+            "Ljava/util/Optional<",
             "Lcom/android/wm/shell/startingsurface/StartingSurface;",
             ">;",
             "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
             "Lcom/android/wm/shell/transition/ShellTransitions;",
             "Lcom/android/systemui/keyguard/ScreenLifecycle;",
-            "Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;",
             "Lcom/android/internal/logging/UiEventLogger;",
+            "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;",
+            "Lcom/android/internal/app/AssistUtils;",
             "Lcom/android/systemui/dump/DumpManager;",
             ")V"
         }
@@ -316,73 +236,75 @@
 
     move-object/from16 v4, p7
 
-    move-object/from16 v5, p9
+    move-object/from16 v5, p14
 
-    move-object/from16 v6, p14
+    invoke-direct {p0, v5}, Lcom/android/systemui/settings/CurrentUserTracker;-><init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
 
-    invoke-direct {p0, v6}, Lcom/android/systemui/settings/CurrentUserTracker;-><init>(Lcom/android/systemui/broadcast/BroadcastDispatcher;)V
+    new-instance v5, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;
 
-    new-instance v6, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda3;
+    const/4 v6, 0x4
 
-    invoke-direct {v6, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-direct {v5, v6, p0}, Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;-><init>(ILjava/lang/Object;)V
 
-    iput-object v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Ljava/lang/Runnable;
+    iput-object v5, v0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;
 
-    new-instance v6, Ljava/util/ArrayList;
+    new-instance v5, Ljava/util/ArrayList;
 
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
+    iput-object v5, v0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
 
-    const/4 v6, -0x1
+    const/4 v5, -0x1
 
-    iput v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mCurrentBoundedUserId:I
+    iput v5, v0, Lcom/android/systemui/recents/OverviewProxyService;->mCurrentBoundedUserId:I
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    iput v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarMode:I
+    iput v5, v0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarMode:I
 
-    new-instance v7, Lcom/android/systemui/recents/OverviewProxyService$1;
+    new-instance v6, Lcom/android/systemui/recents/OverviewProxyService$1;
 
-    invoke-direct {v7, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-direct {v6, p0}, Lcom/android/systemui/recents/OverviewProxyService$1;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    iput-object v7, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSysUiProxy:Lcom/android/systemui/shared/recents/ISystemUiProxy;
+    iput-object v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSysUiProxy:Lcom/android/systemui/shared/recents/ISystemUiProxy;
 
-    new-instance v7, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda4;
+    new-instance v6, Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;
 
-    invoke-direct {v7, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    const/4 v7, 0x3
 
-    iput-object v7, v0, Lcom/android/systemui/recents/OverviewProxyService;->mDeferredConnectionCallback:Ljava/lang/Runnable;
+    invoke-direct {v6, v7, p0}, Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
-    new-instance v7, Lcom/android/systemui/recents/OverviewProxyService$2;
+    iput-object v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mDeferredConnectionCallback:Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;
 
-    invoke-direct {v7, p0}, Lcom/android/systemui/recents/OverviewProxyService$2;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    new-instance v6, Lcom/android/systemui/recents/OverviewProxyService$2;
 
-    iput-object v7, v0, Lcom/android/systemui/recents/OverviewProxyService;->mLauncherStateChangedReceiver:Landroid/content/BroadcastReceiver;
+    invoke-direct {v6, p0}, Lcom/android/systemui/recents/OverviewProxyService$2;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    new-instance v8, Lcom/android/systemui/recents/OverviewProxyService$3;
+    iput-object v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mLauncherStateChangedReceiver:Lcom/android/systemui/recents/OverviewProxyService$2;
 
-    invoke-direct {v8, p0}, Lcom/android/systemui/recents/OverviewProxyService$3;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    new-instance v7, Lcom/android/systemui/recents/OverviewProxyService$3;
 
-    iput-object v8, v0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceConnection:Landroid/content/ServiceConnection;
+    invoke-direct {v7, p0}, Lcom/android/systemui/recents/OverviewProxyService$3;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    new-instance v8, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda2;
+    iput-object v7, v0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceConnection:Lcom/android/systemui/recents/OverviewProxyService$3;
 
-    invoke-direct {v8, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    new-instance v7, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda0;
 
-    iput-object v8, v0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarWindowCallback:Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;
+    invoke-direct {v7, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    new-instance v9, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda6;
+    iput-object v7, v0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarWindowCallback:Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda0;
 
-    invoke-direct {v9, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    new-instance v8, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda1;
 
-    iput-object v9, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSplitScreenBoundsChangeListener:Ljava/util/function/BiConsumer;
+    invoke-direct {v8, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    new-instance v9, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda0;
+    iput-object v8, v0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceDeathRcpt:Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda1;
 
-    invoke-direct {v9, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    new-instance v8, Lcom/android/systemui/recents/OverviewProxyService$4;
 
-    iput-object v9, v0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceDeathRcpt:Landroid/os/IBinder$DeathRecipient;
+    invoke-direct {v8, p0}, Lcom/android/systemui/recents/OverviewProxyService$4;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+
+    iput-object v8, v0, Lcom/android/systemui/recents/OverviewProxyService;->mVoiceInteractionSessionListener:Lcom/android/systemui/recents/OverviewProxyService$4;
 
     iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
 
@@ -392,7 +314,7 @@
 
     move-object/from16 v9, p4
 
-    iput-object v9, v0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarOptionalLazy:Ldagger/Lazy;
+    iput-object v9, v0, Lcom/android/systemui/recents/OverviewProxyService;->mCentralSurfacesOptionalLazy:Ldagger/Lazy;
 
     new-instance v9, Landroid/os/Handler;
 
@@ -400,15 +322,15 @@
 
     iput-object v9, v0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
 
-    move-object v9, p3
+    move-object/from16 v9, p3
 
     iput-object v9, v0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarControllerLazy:Ldagger/Lazy;
 
     iput-object v3, v0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarWinController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
 
-    iput v6, v0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
+    iput v5, v0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
 
-    const v9, 0x1040272
+    const v9, 0x1040299
 
     invoke-virtual {p1, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -438,29 +360,35 @@
 
     invoke-static {p1}, Lcom/android/internal/policy/ScreenDecorationsUtils;->getWindowCornerRadius(Landroid/content/Context;)F
 
-    move-result v10
+    move-result v11
 
-    iput v10, v0, Lcom/android/systemui/recents/OverviewProxyService;->mWindowCornerRadius:F
+    iput v11, v0, Lcom/android/systemui/recents/OverviewProxyService;->mWindowCornerRadius:F
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-static {v10}, Lcom/android/internal/policy/ScreenDecorationsUtils;->supportsRoundedCornersOnWindows(Landroid/content/res/Resources;)Z
+    invoke-static {v11}, Lcom/android/internal/policy/ScreenDecorationsUtils;->supportsRoundedCornersOnWindows(Landroid/content/res/Resources;)Z
 
-    move-result v10
+    move-result v11
 
-    iput-boolean v10, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSupportsRoundedCornersOnWindows:Z
+    iput-boolean v11, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSupportsRoundedCornersOnWindows:Z
 
     iput-object v4, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSysUiState:Lcom/android/systemui/model/SysUiState;
 
-    new-instance v10, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda1;
+    new-instance v11, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda2;
 
-    invoke-direct {v10, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-direct {v11, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    invoke-virtual {v4, v10}, Lcom/android/systemui/model/SysUiState;->addCallback(Lcom/android/systemui/model/SysUiState$SysUiStateCallback;)V
+    iget-object v12, v4, Lcom/android/systemui/model/SysUiState;->mCallbacks:Ljava/util/ArrayList;
 
-    move-object/from16 v4, p11
+    invoke-virtual {v12, v11}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget v4, v4, Lcom/android/systemui/model/SysUiState;->mFlags:I
+
+    invoke-virtual {v11, v4}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda2;->onSystemUiStateChanged(I)V
+
+    move-object/from16 v4, p10
 
     iput-object v4, v0, Lcom/android/systemui/recents/OverviewProxyService;->mOneHandedOptional:Ljava/util/Optional;
 
@@ -468,11 +396,15 @@
 
     iput-object v4, v0, Lcom/android/systemui/recents/OverviewProxyService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
 
-    move-object/from16 v4, p12
+    move-object/from16 v4, p11
 
     iput-object v4, v0, Lcom/android/systemui/recents/OverviewProxyService;->mRecentTasks:Ljava/util/Optional;
 
-    move-object/from16 v4, p18
+    move-object/from16 v4, p12
+
+    iput-object v4, v0, Lcom/android/systemui/recents/OverviewProxyService;->mBackAnimation:Ljava/util/Optional;
+
+    move-object/from16 v4, p17
 
     iput-object v4, v0, Lcom/android/systemui/recents/OverviewProxyService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -480,15 +412,11 @@
 
     iput v4, v0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarButtonAlpha:F
 
-    const-class v4, Lcom/android/systemui/recents/OverviewProxyService;
+    const-string v4, "OverviewProxyService"
 
-    invoke-virtual {v4}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+    move-object/from16 v11, p20
 
-    move-result-object v4
-
-    move-object/from16 v10, p19
-
-    invoke-virtual {v10, v4, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
+    invoke-virtual {v11, v4, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
     move-object/from16 v4, p5
 
@@ -500,27 +428,27 @@
 
     new-instance v4, Landroid/content/IntentFilter;
 
-    const-string v10, "android.intent.action.PACKAGE_ADDED"
+    const-string v11, "android.intent.action.PACKAGE_ADDED"
 
-    invoke-direct {v4, v10}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v11}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    const-string v10, "package"
+    const-string/jumbo v11, "package"
 
-    invoke-virtual {v4, v10}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
+    invoke-virtual {v4, v11}, Landroid/content/IntentFilter;->addDataScheme(Ljava/lang/String;)V
 
     invoke-virtual {v9}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v9
 
-    invoke-virtual {v4, v9, v6}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/String;I)V
+    invoke-virtual {v4, v9, v5}, Landroid/content/IntentFilter;->addDataSchemeSpecificPart(Ljava/lang/String;I)V
 
-    const-string v6, "android.intent.action.PACKAGE_CHANGED"
+    const-string v9, "android.intent.action.PACKAGE_CHANGED"
 
-    invoke-virtual {v4, v6}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v4, v9}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    invoke-virtual {p1, v7, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+    invoke-virtual {p1, v6, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
-    invoke-interface {v3, v8}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->registerCallback(Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;)V
+    invoke-interface {v3, v7}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->registerCallback(Lcom/android/systemui/statusbar/phone/StatusBarWindowCallback;)V
 
     new-instance v3, Lcom/android/internal/util/ScreenshotHelper;
 
@@ -528,37 +456,54 @@
 
     iput-object v3, v0, Lcom/android/systemui/recents/OverviewProxyService;->mScreenshotHelper:Lcom/android/internal/util/ScreenshotHelper;
 
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$4;
+    new-instance v3, Lcom/android/systemui/recents/OverviewProxyService$5;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/OverviewProxyService$4;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-direct {v3, p0}, Lcom/android/systemui/recents/OverviewProxyService$5;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    invoke-virtual {p2, v1}, Lcom/android/systemui/statusbar/CommandQueue;->addCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
+    invoke-virtual {p2, v3}, Lcom/android/systemui/statusbar/CommandQueue;->addCallback(Lcom/android/systemui/statusbar/CommandQueue$Callbacks;)V
 
     iput-object v2, v0, Lcom/android/systemui/recents/OverviewProxyService;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
 
-    move-object/from16 v1, p10
+    move-object/from16 v2, p9
 
-    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSplitScreenOptional:Ljava/util/Optional;
-
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda8;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
-
-    invoke-virtual {v5, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
-    iput-object v5, v0, Lcom/android/systemui/recents/OverviewProxyService;->mLegacySplitScreenOptional:Ljava/util/Optional;
+    iput-object v2, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSplitScreenOptional:Ljava/util/Optional;
 
     invoke-virtual {p0}, Lcom/android/systemui/settings/CurrentUserTracker;->startTracking()V
 
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$5;
+    new-instance v2, Lcom/android/systemui/recents/OverviewProxyService$6;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/OverviewProxyService$5;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+    invoke-direct {v2, p0}, Lcom/android/systemui/recents/OverviewProxyService$6;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
 
-    move-object/from16 v2, p16
+    move-object/from16 v3, p16
 
-    invoke-virtual {v2, v1}, Lcom/android/systemui/keyguard/Lifecycle;->addObserver(Ljava/lang/Object;)V
+    iget-object v3, v3, Lcom/android/systemui/keyguard/Lifecycle;->mObservers:Ljava/util/ArrayList;
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->updateEnabledState()V
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    sget-object v2, Lcom/android/systemui/shared/system/ActivityManagerWrapper;->sInstance:Lcom/android/systemui/shared/system/ActivityManagerWrapper;
+
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {}, Lcom/android/systemui/shared/system/ActivityManagerWrapper;->getCurrentUserId()I
+
+    move-result v2
+
+    invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const/high16 v3, 0x100000
+
+    invoke-virtual {v1, v10, v3, v2}, Landroid/content/pm/PackageManager;->resolveServiceAsUser(Landroid/content/Intent;II)Landroid/content/pm/ResolveInfo;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v5, 0x1
+
+    :cond_0
+    iput-boolean v5, v0, Lcom/android/systemui/recents/OverviewProxyService;->mIsEnabled:Z
 
     invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->startConnectionToCurrentUser()V
 
@@ -566,391 +511,70 @@
 
     iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService;->mStartingSurface:Ljava/util/Optional;
 
-    move-object/from16 v1, p17
+    move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
+    iput-object v1, v0, Lcom/android/systemui/recents/OverviewProxyService;->mSysuiUnlockAnimationController:Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;
 
-    return-void
-.end method
+    move-object/from16 v0, p19
 
-.method static synthetic access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/internal/logging/UiEventLogger;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1000(Lcom/android/systemui/recents/OverviewProxyService;Landroid/os/Bundle;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyStartAssistant(Landroid/os/Bundle;)V
+    invoke-virtual {v0, v8}, Lcom/android/internal/app/AssistUtils;->registerVoiceInteractionSessionListener(Lcom/android/internal/app/IVoiceInteractionSessionListener;)V
 
     return-void
 .end method
 
-.method static synthetic access$1100(Lcom/android/systemui/recents/OverviewProxyService;F)V
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyAssistantGestureCompletion(F)V
-
-    return-void
-.end method
-
-.method static synthetic access$1200(Lcom/android/systemui/recents/OverviewProxyService;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyAssistantProgress(F)V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/android/systemui/recents/OverviewProxyService;FZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService;->notifyNavBarButtonAlphaChanged(FZ)V
-
-    return-void
-.end method
-
-.method static synthetic access$1400(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/List;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1500(Lcom/android/systemui/recents/OverviewProxyService;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->onTaskbarAutohideSuspend(Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$1600(Lcom/android/systemui/recents/OverviewProxyService;ZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService;->onTaskbarStatusUpdated(ZZ)V
-
-    return-void
-.end method
-
-.method static synthetic access$1700(Lcom/android/systemui/recents/OverviewProxyService;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyHomeRotationEnabled(Z)V
-
-    return-void
-.end method
-
-.method static synthetic access$1800(Lcom/android/systemui/recents/OverviewProxyService;)Ldagger/Lazy;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    return-object p0
-.end method
-
-.method static synthetic access$1900(Lcom/android/systemui/recents/OverviewProxyService;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStarted:Z
-
-    return p0
-.end method
-
-.method static synthetic access$1902(Lcom/android/systemui/recents/OverviewProxyService;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStarted:Z
-
-    return p1
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mLegacySplitScreenOptional:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2000(Lcom/android/systemui/recents/OverviewProxyService;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartY:F
-
-    return p0
-.end method
-
-.method static synthetic access$2002(Lcom/android/systemui/recents/OverviewProxyService;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartY:F
-
-    return p1
-.end method
-
-.method static synthetic access$2100(Lcom/android/systemui/recents/OverviewProxyService;)J
+# virtual methods
+.method public final addCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
     .locals 2
 
-    iget-wide v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartMillis:J
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
 
-    return-wide v0
-.end method
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-.method static synthetic access$2102(Lcom/android/systemui/recents/OverviewProxyService;J)J
-    .locals 0
+    move-result v0
 
-    iput-wide p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartMillis:J
+    if-nez v0, :cond_0
 
-    return-wide p1
-.end method
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
 
-.method static synthetic access$2200(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->updateEnabledState()V
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
 
-    return-void
-.end method
+    const/4 v1, 0x0
 
-.method static synthetic access$2302(Lcom/android/systemui/recents/OverviewProxyService;I)I
-    .locals 0
+    if-eqz v0, :cond_1
 
-    iput p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
+    const/4 v0, 0x1
 
-    return p1
-.end method
+    goto :goto_0
 
-.method static synthetic access$2400(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/lang/Runnable;
-    .locals 0
+    :cond_1
+    move v0, v1
 
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mDeferredConnectionCallback:Ljava/lang/Runnable;
+    :goto_0
+    invoke-interface {p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onConnectionChanged(Z)V
 
-    return-object p0
-.end method
+    iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarButtonAlpha:F
 
-.method static synthetic access$2500(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/IBinder$DeathRecipient;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceDeathRcpt:Landroid/os/IBinder$DeathRecipient;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2600(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->disconnectFromLauncherService()V
+    invoke-interface {p1, p0, v1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onNavBarButtonAlphaChanged(FZ)V
 
     return-void
 .end method
 
-.method static synthetic access$2700(Lcom/android/systemui/recents/OverviewProxyService;)V
+.method public final bridge synthetic addCallback(Ljava/lang/Object;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->retryConnectionWithBackoff()V
+    check-cast p1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->addCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
 
     return-void
 .end method
 
-.method static synthetic access$2800(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/shared/recents/IOverviewProxy;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    return-object p0
-.end method
-
-.method static synthetic access$2802(Lcom/android/systemui/recents/OverviewProxyService;Lcom/android/systemui/shared/recents/IOverviewProxy;)Lcom/android/systemui/shared/recents/IOverviewProxy;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    return-object p1
-.end method
-
-.method static synthetic access$2900(Lcom/android/systemui/recents/OverviewProxyService;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mWindowCornerRadius:F
-
-    return p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
-
-    return-object p0
-.end method
-
-.method static synthetic access$3000(Lcom/android/systemui/recents/OverviewProxyService;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSupportsRoundedCornersOnWindows:Z
-
-    return p0
-.end method
-
-.method static synthetic access$3100(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSplitScreenOptional:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method static synthetic access$3200(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOneHandedOptional:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method static synthetic access$3300(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/wm/shell/transition/ShellTransitions;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mShellTransitions:Lcom/android/wm/shell/transition/ShellTransitions;
-
-    return-object p0
-.end method
-
-.method static synthetic access$3400(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mStartingSurface:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method static synthetic access$3500(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSmartspaceTransitionController:Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;
-
-    return-object p0
-.end method
-
-.method static synthetic access$3600(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mRecentTasks:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method static synthetic access$3700(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->dispatchNavButtonBounds()V
-
-    return-void
-.end method
-
-.method static synthetic access$3800(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->updateSystemUiStateFlags()V
-
-    return-void
-.end method
-
-.method static synthetic access$3900(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/model/SysUiState;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSysUiState:Lcom/android/systemui/model/SysUiState;
-
-    return-object p0
-.end method
-
-.method static synthetic access$400(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/internal/util/ScreenshotHelper;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mScreenshotHelper:Lcom/android/internal/util/ScreenshotHelper;
-
-    return-object p0
-.end method
-
-.method static synthetic access$4000(Lcom/android/systemui/recents/OverviewProxyService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->notifySystemUiStateFlags(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$4100(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->notifyConnectionChanged()V
-
-    return-void
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/recents/OverviewProxyService;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mCurrentBoundedUserId:I
-
-    return p0
-.end method
-
-.method static synthetic access$502(Lcom/android/systemui/recents/OverviewProxyService;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mCurrentBoundedUserId:I
-
-    return p1
-.end method
-
-.method static synthetic access$600(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/statusbar/CommandQueue;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mCommandQueue:Lcom/android/systemui/statusbar/CommandQueue;
-
-    return-object p0
-.end method
-
-.method static synthetic access$700(Lcom/android/systemui/recents/OverviewProxyService;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyPrioritizedRotationInternal(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$800(Lcom/android/systemui/recents/OverviewProxyService;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->notifySwipeUpGestureStartedInternal()V
-
-    return-void
-.end method
-
-.method static synthetic access$900(Lcom/android/systemui/recents/OverviewProxyService;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mPipOptional:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method private disconnectFromLauncherService()V
-    .locals 3
+.method public final disconnectFromLauncherService()V
+    .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mBound:Z
 
@@ -960,7 +584,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
 
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceConnection:Landroid/content/ServiceConnection;
+    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceConnection:Lcom/android/systemui/recents/OverviewProxyService$3;
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->unbindService(Landroid/content/ServiceConnection;)V
 
@@ -969,13 +593,13 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-interface {v0}, Landroid/os/IInterface;->asBinder()Landroid/os/IBinder;
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceDeathRcpt:Landroid/os/IBinder$DeathRecipient;
+    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceDeathRcpt:Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda1;
 
     invoke-interface {v0, v2, v1}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
@@ -985,70 +609,198 @@
 
     const/high16 v0, 0x3f800000    # 1.0f
 
-    invoke-direct {p0, v0, v1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyNavBarButtonAlphaChanged(FZ)V
+    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->notifyConnectionChanged()V
+    invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    :goto_0
+    add-int/lit8 v2, v2, -0x1
+
+    if-ltz v2, :cond_1
+
+    iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
+
+    invoke-interface {v3, v0, v1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onNavBarButtonAlphaChanged(FZ)V
+
+    goto :goto_0
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->notifyConnectionChanged()V
+
+    :cond_2
     return-void
 .end method
 
-.method private dispatchNavButtonBounds()V
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 2
+
+    const-string v0, "OverviewProxyService state:"
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    const-string v0, "  isConnected="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
 
     if-eqz v0, :cond_0
 
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mActiveNavBarRegion:Landroid/graphics/Region;
-
-    if-eqz p0, :cond_0
-
-    :try_start_0
-    invoke-interface {v0, p0}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onActiveNavBarRegionChanges(Landroid/graphics/Region;)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    const/4 v0, 0x1
 
     goto :goto_0
 
-    :catch_0
-    move-exception p0
-
-    const-string v0, "OverviewProxyService"
-
-    const-string v1, "Failed to call onActiveNavBarRegionChanges()"
-
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
     :cond_0
+    const/4 v0, 0x0
+
     :goto_0
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+
+    const-string v0, "  mIsEnabled="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mIsEnabled:Z
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+
+    const-string v0, "  mRecentsComponentName="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mRecentsComponentName:Landroid/content/ComponentName;
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    const-string v0, "  mQuickStepIntent="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mQuickStepIntent:Landroid/content/Intent;
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    const-string v0, "  mBound="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mBound:Z
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+
+    const-string v0, "  mCurrentBoundedUserId="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mCurrentBoundedUserId:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+
+    const-string v0, "  mConnectionBackoffAttempts="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+
+    const-string v0, "  mInputFocusTransferStarted="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStarted:Z
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+
+    const-string v0, "  mInputFocusTransferStartY="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartY:F
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(F)V
+
+    const-string v0, "  mInputFocusTransferStartMillis="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-wide v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartMillis:J
+
+    invoke-virtual {p1, v0, v1}, Ljava/io/PrintWriter;->println(J)V
+
+    const-string v0, "  mWindowCornerRadius="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mWindowCornerRadius:F
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(F)V
+
+    const-string v0, "  mSupportsRoundedCornersOnWindows="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSupportsRoundedCornersOnWindows:Z
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Z)V
+
+    const-string v0, "  mNavBarButtonAlpha="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarButtonAlpha:F
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(F)V
+
+    const-string v0, "  mActiveNavBarRegion="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mActiveNavBarRegion:Landroid/graphics/Region;
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
+
+    const-string v0, "  mNavBarMode="
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
+
+    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarMode:I
+
+    invoke-virtual {p1, v0}, Ljava/io/PrintWriter;->println(I)V
+
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSysUiState:Lcom/android/systemui/model/SysUiState;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/model/SysUiState;->dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
+
     return-void
 .end method
 
-.method private internalConnectToCurrentUser()V
+.method public final internalConnectToCurrentUser()V
     .locals 6
 
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->disconnectFromLauncherService()V
+    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->disconnectFromLauncherService()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->isEnabled()Z
-
-    move-result v0
+    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mIsEnabled:Z
 
     const-string v1, "OverviewProxyService"
 
     if-nez v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Cannot attempt connection, is enabled "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "Cannot attempt connection, is enabled "
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->isEnabled()Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mIsEnabled:Z
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -1063,7 +815,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
 
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Ljava/lang/Runnable;
+    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;
 
     invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -1086,7 +838,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
 
-    iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceConnection:Landroid/content/ServiceConnection;
+    iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewServiceConnection:Lcom/android/systemui/recents/OverviewProxyService$3;
 
     const v4, 0x2000001
 
@@ -1122,7 +874,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
 
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mDeferredConnectionCallback:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mDeferredConnectionCallback:Lcom/android/systemui/wmshell/WMShell$6$$ExternalSyntheticLambda0;
 
     const-wide/16 v1, 0x1388
 
@@ -1131,152 +883,56 @@
     goto :goto_1
 
     :cond_1
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->retryConnectionWithBackoff()V
+    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->retryConnectionWithBackoff()V
 
     :goto_1
     return-void
 .end method
 
-.method private synthetic lambda$cleanupAfterDeath$2(Lcom/android/systemui/statusbar/phone/StatusBar;)V
-    .locals 2
+.method public final notifyBackAction(IIZZZ)V
+    .locals 6
 
-    const/4 v0, 0x0
+    :try_start_0
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
 
-    iput-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStarted:Z
+    if-eqz v0, :cond_0
 
-    const/4 p0, 0x1
+    move v1, p1
 
-    const/4 v1, 0x0
+    move v2, p2
 
-    invoke-virtual {p1, v0, p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->onInputFocusTransfer(ZZF)V
+    move v3, p3
 
-    return-void
-.end method
+    move v4, p4
 
-.method private synthetic lambda$cleanupAfterDeath$3()V
-    .locals 2
+    move v5, p5
 
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/Optional;
-
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda7;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
-
-    invoke-virtual {v0, v1}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$cleanupAfterDeath$4(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-interface {p0, v0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;->setMinimized(Z)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$new$0()V
-    .locals 2
-
-    const-string v0, "OverviewProxyService"
-
-    const-string v1, "Binder supposed established connection but actual connection to service timed out, trying again"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->retryConnectionWithBackoff()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$new$1(Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSplitScreenBoundsChangeListener:Ljava/util/function/BiConsumer;
-
-    invoke-interface {p1, p0}, Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;->registerBoundsChangeListener(Ljava/util/function/BiConsumer;)V
-
-    return-void
-.end method
-
-.method private notifyAssistantGestureCompletion(F)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onAssistantGestureCompletion(F)V
-
-    add-int/lit8 v0, v0, -0x1
+    invoke-interface/range {v0 .. v5}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onBackAction(IIZZZ)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
+    :catch_0
+    move-exception p0
+
+    const-string p1, "OverviewProxyService"
+
+    const-string p2, "Failed to notify back action"
+
+    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
     :cond_0
-    return-void
-.end method
-
-.method private notifyAssistantProgress(F)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
     :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onAssistantProgress(F)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method
 
-.method private notifyConnectionChanged()V
+.method public final notifyConnectionChanged()V
     .locals 4
 
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -1287,9 +943,9 @@
     :goto_0
     if-ltz v0, :cond_1
 
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
+    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
 
-    invoke-interface {v2, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
@@ -1317,330 +973,52 @@
     return-void
 .end method
 
-.method private notifyHomeRotationEnabled(Z)V
-    .locals 2
+.method public final onNavigationModeChanged(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onHomeRotationEnabled(Z)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private notifyNavBarButtonAlphaChanged(FZ)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onNavBarButtonAlphaChanged(FZ)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private notifyPrioritizedRotationInternal(I)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onPrioritizedRotation(I)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private notifyStartAssistant(Landroid/os/Bundle;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->startAssistant(Landroid/os/Bundle;)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private notifySwipeUpGestureStartedInternal()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onSwipeUpGestureStarted()V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private notifySystemUiStateFlags(I)V
-    .locals 1
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onSystemUiStateChanged(I)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "OverviewProxyService"
-
-    const-string v0, "Failed to notify sysui state change"
-
-    invoke-static {p1, v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method private onStatusBarStateChanged(ZZZZ)V
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSysUiState:Lcom/android/systemui/model/SysUiState;
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-eqz p1, :cond_0
-
-    if-nez p2, :cond_0
-
-    move v3, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v3, v2
-
-    :goto_0
-    const/16 v4, 0x40
-
-    invoke-virtual {v0, v4, v3}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
-
-    move-result-object v0
-
-    const/16 v3, 0x200
-
-    if-eqz p1, :cond_1
-
-    if-eqz p2, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v1, v2
-
-    :goto_1
-    invoke-virtual {v0, v3, v1}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
-
-    move-result-object p1
-
-    const/16 p2, 0x8
-
-    invoke-virtual {p1, p2, p3}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
-
-    move-result-object p1
-
-    const/high16 p2, 0x200000
-
-    invoke-virtual {p1, p2, p4}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
-
-    move-result-object p1
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p0}, Landroid/content/Context;->getDisplayId()I
-
-    move-result p0
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/model/SysUiState;->commitUpdate(I)V
+    iput p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarMode:I
 
     return-void
 .end method
 
-.method private onTaskbarAutohideSuspend(Z)V
-    .locals 2
+.method public final onUserSwitched(I)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
+    const/4 p1, 0x0
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    iput p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
 
-    move-result v0
+    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->internalConnectToCurrentUser()V
 
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onTaskbarAutohideSuspend(Z)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method
 
-.method private onTaskbarStatusUpdated(ZZ)V
-    .locals 2
+.method public final removeCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1, p1, p2}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onTaskbarStatusUpdated(ZZ)V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
     return-void
 .end method
 
-.method private retryConnectionWithBackoff()V
+.method public final bridge synthetic removeCallback(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->removeCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
+
+    return-void
+.end method
+
+.method public final retryConnectionWithBackoff()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
 
@@ -1669,7 +1047,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
 
-    iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Ljava/lang/Runnable;
+    iget-object v3, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;
 
     invoke-virtual {v2, v3, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
@@ -1679,13 +1057,11 @@
 
     iput v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, "Failed to connect on attempt "
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v2}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, "Failed to connect on attempt "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v2
 
     iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
 
@@ -1712,751 +1088,41 @@
     return-void
 .end method
 
-.method private updateEnabledState()V
-    .locals 4
+.method public final shouldShowSwipeUpUI()Z
+    .locals 3
 
-    invoke-static {}, Lcom/android/systemui/shared/system/ActivityManagerWrapper;->getInstance()Lcom/android/systemui/shared/system/ActivityManagerWrapper;
+    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mIsEnabled:Z
 
-    move-result-object v0
+    const/4 v1, 0x1
 
-    invoke-virtual {v0}, Lcom/android/systemui/shared/system/ActivityManagerWrapper;->getCurrentUserId()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mQuickStepIntent:Landroid/content/Intent;
-
-    const/high16 v3, 0x100000
-
-    invoke-virtual {v1, v2, v3, v0}, Landroid/content/pm/PackageManager;->resolveServiceAsUser(Landroid/content/Intent;II)Landroid/content/pm/ResolveInfo;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    iput-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mIsEnabled:Z
-
-    return-void
-.end method
-
-.method private updateSystemUiStateFlags()V
-    .locals 4
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarControllerLazy:Ldagger/Lazy;
-
-    invoke-interface {v0}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/navigationbar/NavigationBarController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/NavigationBarController;->getDefaultNavigationBar()Lcom/android/systemui/navigationbar/NavigationBar;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarControllerLazy:Ldagger/Lazy;
-
-    invoke-interface {v1}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/navigationbar/NavigationBarController;
-
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2}, Landroid/content/Context;->getDisplayId()I
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/navigationbar/NavigationBarController;->getNavigationBarView(I)Lcom/android/systemui/navigationbar/NavigationBarView;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarOptionalLazy:Ldagger/Lazy;
-
-    invoke-interface {v2}, Ldagger/Lazy;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Ljava/util/Optional;
-
-    invoke-virtual {v2}, Ljava/util/Optional;->get()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/systemui/statusbar/phone/StatusBar;
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->getPanelController()Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;
-
-    move-result-object v2
-
-    if-eqz v0, :cond_0
-
-    const/4 v3, -0x1
-
-    invoke-virtual {v0, v3}, Lcom/android/systemui/navigationbar/NavigationBar;->updateSystemUiStateFlags(I)V
-
-    :cond_0
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Lcom/android/systemui/navigationbar/NavigationBarView;->updateDisabledSystemUiStateFlags()V
-
-    :cond_1
-    if-eqz v2, :cond_2
-
-    invoke-virtual {v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelViewController;->updateSystemUiStateFlags()V
-
-    :cond_2
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mStatusBarWinController:Lcom/android/systemui/statusbar/NotificationShadeWindowController;
-
-    if-eqz p0, :cond_3
-
-    invoke-interface {p0}, Lcom/android/systemui/statusbar/NotificationShadeWindowController;->notifyStateChangedCallbacks()V
-
-    :cond_3
-    return-void
-.end method
-
-
-# virtual methods
-.method public addCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    move v0, v1
-
-    :goto_0
-    invoke-interface {p1, v0}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onConnectionChanged(Z)V
-
-    iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarButtonAlpha:F
-
-    invoke-interface {p1, p0, v1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onNavBarButtonAlphaChanged(FZ)V
-
-    return-void
-.end method
-
-.method public bridge synthetic addCallback(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->addCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
-
-    return-void
-.end method
-
-.method public cleanupAfterDeath()V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStarted:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
-
-    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda5;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/recents/OverviewProxyService;)V
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->startConnectionToCurrentUser()V
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mLegacySplitScreenOptional:Ljava/util/Optional;
-
-    sget-object v0, Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda9;->INSTANCE:Lcom/android/systemui/recents/OverviewProxyService$$ExternalSyntheticLambda9;
-
-    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method public disable(IIIZ)V
-    .locals 1
-
-    const-string v0, "OverviewProxyService"
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1, p2, p3, p4}, Lcom/android/systemui/shared/recents/IOverviewProxy;->disable(IIIZ)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "Failed to get overview proxy for disable flags."
-
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "Failed to call disable()"
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 2
-
-    const-string v0, "OverviewProxyService state:"
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
-
-    const-string v0, "  isConnected="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string v0, "  mIsEnabled="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->isEnabled()Z
-
-    move-result v0
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string v0, "  mRecentsComponentName="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mRecentsComponentName:Landroid/content/ComponentName;
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
-
-    const-string v0, "  mQuickStepIntent="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mQuickStepIntent:Landroid/content/Intent;
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
-
-    const-string v0, "  mBound="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mBound:Z
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string v0, "  mCurrentBoundedUserId="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mCurrentBoundedUserId:I
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string v0, "  mConnectionBackoffAttempts="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    const-string v0, "  mInputFocusTransferStarted="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStarted:Z
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string v0, "  mInputFocusTransferStartY="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartY:F
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(F)V
-
-    const-string v0, "  mInputFocusTransferStartMillis="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-wide v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mInputFocusTransferStartMillis:J
-
-    invoke-virtual {p2, v0, v1}, Ljava/io/PrintWriter;->println(J)V
-
-    const-string v0, "  mWindowCornerRadius="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mWindowCornerRadius:F
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(F)V
-
-    const-string v0, "  mSupportsRoundedCornersOnWindows="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-boolean v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSupportsRoundedCornersOnWindows:Z
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Z)V
-
-    const-string v0, "  mNavBarButtonAlpha="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarButtonAlpha:F
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(F)V
-
-    const-string v0, "  mActiveNavBarRegion="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mActiveNavBarRegion:Landroid/graphics/Region;
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/Object;)V
-
-    const-string v0, "  mNavBarMode="
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarMode:I
-
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mSysUiState:Lcom/android/systemui/model/SysUiState;
-
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/model/SysUiState;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public getProxy()Lcom/android/systemui/shared/recents/IOverviewProxy;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    return-object p0
-.end method
-
-.method public isEnabled()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mIsEnabled:Z
-
-    return p0
-.end method
-
-.method public notifyAssistantVisibilityChanged(F)V
-    .locals 1
-
-    const-string v0, "OverviewProxyService"
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onAssistantVisibilityChanged(F)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "Failed to get overview proxy for assistant visibility."
-
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "Failed to call notifyAssistantVisibilityChanged()"
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public notifyBackAction(ZIIZZ)V
-    .locals 6
-
-    :try_start_0
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz v0, :cond_0
-
-    move v1, p1
-
-    move v2, p2
-
-    move v3, p3
-
-    move v4, p4
-
-    move v5, p5
-
-    invoke-interface/range {v0 .. v5}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onBackAction(ZIIZZ)V
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "OverviewProxyService"
-
-    const-string p2, "Failed to notify back action"
-
-    invoke-static {p1, p2, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :cond_0
-    :goto_0
-    return-void
-.end method
-
-.method public notifyScreenTurnedOn()V
-    .locals 2
-
-    const-string v0, "OverviewProxyService"
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onScreenTurnedOn()V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "Failed to get overview proxy for screen turned on event."
-
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string v1, "Failed to call notifyScreenTurnedOn()"
-
-    invoke-static {v0, v1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public notifySplitScreenBoundsChanged(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-    .locals 1
-
-    const-string v0, "OverviewProxyService"
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onSplitScreenSecondaryBoundsChanged(Landroid/graphics/Rect;Landroid/graphics/Rect;)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "Failed to get overview proxy for split screen bounds."
-
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "Failed to call onSplitScreenSecondaryBoundsChanged()"
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method notifyToggleRecentApps()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    add-int/lit8 v0, v0, -0x1
-
-    :goto_0
-    if-ltz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {v1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-interface {v1}, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;->onToggleRecentApps()V
-
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public onActiveNavBarRegionChanges(Landroid/graphics/Region;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mActiveNavBarRegion:Landroid/graphics/Region;
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->dispatchNavButtonBounds()V
-
-    return-void
-.end method
-
-.method public onNavButtonsDarkIntensityChanged(F)V
-    .locals 1
-
-    const-string v0, "OverviewProxyService"
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onNavButtonsDarkIntensityChanged(F)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "Failed to get overview proxy to update nav buttons dark intensity"
-
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "Failed to call onNavButtonsDarkIntensityChanged()"
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public onNavigationModeChanged(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarMode:I
-
-    return-void
-.end method
-
-.method public onRotationProposal(IZ)V
-    .locals 1
-
-    const-string v0, "OverviewProxyService"
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onRotationProposal(IZ)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "Failed to get overview proxy for proposing rotation."
-
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "Failed to call onRotationProposal()"
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public onSystemBarAttributesChanged(II)V
-    .locals 1
-
-    const-string v0, "OverviewProxyService"
-
-    :try_start_0
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0, p1, p2}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onSystemBarAttributesChanged(II)V
-
-    goto :goto_0
-
-    :cond_0
-    const-string p0, "Failed to get overview proxy for system bar attr change."
-
-    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception p0
-
-    const-string p1, "Failed to call onSystemBarAttributesChanged()"
-
-    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :goto_0
-    return-void
-.end method
-
-.method public onUserSwitched(I)V
-    .locals 0
-
-    const/4 p1, 0x0
-
-    iput p1, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionBackoffAttempts:I
-
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->internalConnectToCurrentUser()V
-
-    return-void
-.end method
-
-.method public removeCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionCallbacks:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public bridge synthetic removeCallback(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->removeCallback(Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;)V
-
-    return-void
-.end method
-
-.method public shouldShowSwipeUpUI()Z
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->isEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
     iget p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mNavBarMode:I
-
-    invoke-static {p0}, Lcom/android/systemui/shared/system/QuickStepContract;->isLegacyMode(I)Z
-
-    move-result p0
 
     if-nez p0, :cond_0
 
-    const/4 p0, 0x1
+    move p0, v1
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
+    move p0, v2
 
     :goto_0
-    return p0
+    if-nez p0, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v1, v2
+
+    :goto_1
+    return v1
 .end method
 
-.method public startConnectionToCurrentUser()V
+.method public final startConnectionToCurrentUser()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
@@ -2473,14 +1139,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mHandler:Landroid/os/Handler;
 
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Ljava/lang/Runnable;
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mConnectionRunnable:Lcom/android/wifitrackerlib/WifiPickerTracker$$ExternalSyntheticLambda13;
 
     invoke-virtual {v0, p0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     goto :goto_0
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/recents/OverviewProxyService;->internalConnectToCurrentUser()V
+    invoke-virtual {p0}, Lcom/android/systemui/recents/OverviewProxyService;->internalConnectToCurrentUser()V
 
     :goto_0
     return-void

@@ -2,9 +2,6 @@
 .super Ljava/lang/Object;
 .source "Pools.java"
 
-# interfaces
-.implements Landroidx/core/util/Pools$Pool;
-
 
 # annotations
 .annotation system Ldalvik/annotation/Signature;
@@ -12,30 +9,20 @@
         "<T:",
         "Ljava/lang/Object;",
         ">",
-        "Ljava/lang/Object;",
-        "Landroidx/core/util/Pools$Pool<",
-        "TT;>;"
+        "Ljava/lang/Object;"
     }
 .end annotation
 
 
 # instance fields
-.field private final mPool:[Ljava/lang/Object;
+.field public final mPool:[Ljava/lang/Object;
 
-.field private mPoolSize:I
+.field public mPoolSize:I
 
 
 # direct methods
 .method public constructor <init>(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "maxPoolSize"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,51 +42,6 @@
     invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw p0
-.end method
-
-.method private isInPool(Ljava/lang/Object;)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "instance"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(TT;)Z"
-        }
-    .end annotation
-
-    const/4 v0, 0x0
-
-    move v1, v0
-
-    :goto_0
-    iget v2, p0, Landroidx/core/util/Pools$SimplePool;->mPoolSize:I
-
-    if-ge v1, v2, :cond_1
-
-    iget-object v2, p0, Landroidx/core/util/Pools$SimplePool;->mPool:[Ljava/lang/Object;
-
-    aget-object v2, v2, v1
-
-    if-ne v2, p1, :cond_0
-
-    const/4 p0, 0x1
-
-    return p0
-
-    :cond_0
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return v0
 .end method
 
 
@@ -137,52 +79,63 @@
 .end method
 
 .method public release(Ljava/lang/Object;)Z
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "instance"
-        }
-    .end annotation
-
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TT;)Z"
         }
     .end annotation
 
-    invoke-direct {p0, p1}, Landroidx/core/util/Pools$SimplePool;->isInPool(Ljava/lang/Object;)Z
+    const/4 v0, 0x0
 
-    move-result v0
+    move v1, v0
 
-    if-nez v0, :cond_1
+    :goto_0
+    iget v2, p0, Landroidx/core/util/Pools$SimplePool;->mPoolSize:I
 
-    iget v0, p0, Landroidx/core/util/Pools$SimplePool;->mPoolSize:I
+    const/4 v3, 0x1
+
+    if-ge v1, v2, :cond_1
+
+    iget-object v4, p0, Landroidx/core/util/Pools$SimplePool;->mPool:[Ljava/lang/Object;
+
+    aget-object v4, v4, v1
+
+    if-ne v4, p1, :cond_0
+
+    move v1, v3
+
+    goto :goto_1
+
+    :cond_0
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    move v1, v0
+
+    :goto_1
+    if-nez v1, :cond_3
 
     iget-object v1, p0, Landroidx/core/util/Pools$SimplePool;->mPool:[Ljava/lang/Object;
 
-    array-length v2, v1
+    array-length v4, v1
 
-    if-ge v0, v2, :cond_0
+    if-ge v2, v4, :cond_2
 
-    aput-object p1, v1, v0
+    aput-object p1, v1, v2
 
-    const/4 p1, 0x1
+    add-int/2addr v2, v3
 
-    add-int/2addr v0, p1
+    iput v2, p0, Landroidx/core/util/Pools$SimplePool;->mPoolSize:I
 
-    iput v0, p0, Landroidx/core/util/Pools$SimplePool;->mPoolSize:I
+    return v3
 
-    return p1
+    :cond_2
+    return v0
 
-    :cond_0
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_1
+    :cond_3
     new-instance p0, Ljava/lang/IllegalStateException;
 
     const-string p1, "Already in the pool!"

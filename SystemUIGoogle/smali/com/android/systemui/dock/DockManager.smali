@@ -13,7 +13,7 @@
 
 
 # virtual methods
-.method public abstract addAlignmentStateListener(Lcom/android/systemui/dock/DockManager$AlignmentStateListener;)V
+.method public abstract addAlignmentStateListener(Lcom/android/systemui/statusbar/KeyguardIndicationController$$ExternalSyntheticLambda2;)V
 .end method
 
 .method public abstract addListener(Lcom/android/systemui/dock/DockManager$DockEventListener;)V

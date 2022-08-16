@@ -18,17 +18,5 @@
 
 
 # virtual methods
-.method public abstract getTotalTranslationLength(Landroid/view/View;)F
-.end method
-
-.method public abstract handleChildViewDismissed(Landroid/view/View;)V
-.end method
-
-.method public abstract onDismiss()V
-.end method
-
 .method public abstract onSnooze(Landroid/service/notification/StatusBarNotification;Lcom/android/systemui/plugins/statusbar/NotificationSwipeActionHelper$SnoozeOption;)V
-.end method
-
-.method public abstract shouldDismissQuickly()Z
 .end method

@@ -1,42 +1,19 @@
-.class Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$4;
+.class public final Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$4;
 .super Landroid/view/animation/Animation;
 .source "SwipeRefreshLayout.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;->startAlphaAnimation(II)Landroid/view/animation/Animation;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
+.field public final synthetic this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
-.field final synthetic val$endingAlpha:I
+.field public final synthetic val$endingAlpha:I
 
-.field final synthetic val$startingAlpha:I
+.field public final synthetic val$startingAlpha:I
 
 
 # direct methods
-.method constructor <init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;II)V
+.method public constructor <init>(Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;II)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$startingAlpha",
-            "val$endingAlpha"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$4;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
@@ -51,18 +28,8 @@
 
 
 # virtual methods
-.method public applyTransformation(FLandroid/view/animation/Transformation;)V
+.method public final applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "interpolatedTime",
-            "t"
-        }
-    .end annotation
 
     iget-object p2, p0, Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout$4;->this$0:Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;
 
@@ -80,9 +47,9 @@
 
     mul-float/2addr p0, p1
 
-    add-float/2addr v1, p0
+    add-float/2addr p0, v1
 
-    float-to-int p0, v1
+    float-to-int p0, p0
 
     invoke-virtual {p2, p0}, Landroidx/swiperefreshlayout/widget/CircularProgressDrawable;->setAlpha(I)V
 

@@ -4,11 +4,11 @@
 
 
 # instance fields
-.field private mDownY:F
+.field public mDownY:F
 
-.field private mScrollEnabled:Z
+.field public mScrollEnabled:Z
 
-.field private final mTouchSlop:I
+.field public final mTouchSlop:I
 
 
 # direct methods
@@ -36,7 +36,7 @@
 
 
 # virtual methods
-.method public canScrollHorizontally(I)Z
+.method public final canScrollHorizontally(I)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/NonInterceptingScrollView;->mScrollEnabled:Z
@@ -60,7 +60,7 @@
     return p0
 .end method
 
-.method public canScrollVertically(I)Z
+.method public final canScrollVertically(I)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/NonInterceptingScrollView;->mScrollEnabled:Z
@@ -84,7 +84,7 @@
     return p0
 .end method
 
-.method public getScrollRange()I
+.method public final getScrollRange()I
     .locals 4
 
     invoke-virtual {p0}, Landroid/widget/ScrollView;->getChildCount()I
@@ -125,7 +125,7 @@
     return v1
 .end method
 
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 3
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -206,7 +206,7 @@
     return p0
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -256,12 +256,4 @@
     move-result p0
 
     return p0
-.end method
-
-.method public setScrollingEnabled(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/qs/NonInterceptingScrollView;->mScrollEnabled:Z
-
-    return-void
 .end method

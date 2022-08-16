@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardPatternViewController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Lcom/android/systemui/statusbar/policy/DevicePostureController$Callback;
@@ -27,7 +28,11 @@
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$$ExternalSyntheticLambda2;->f$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
-    invoke-static {p0, p1}, Lcom/android/keyguard/KeyguardPatternViewController;->$r8$lambda$rCrHmdCFDbPgH6FHvjvU7vz668U(Lcom/android/keyguard/KeyguardPatternViewController;I)V
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast p0, Lcom/android/keyguard/KeyguardPatternView;
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardPatternView;->onDevicePostureChanged(I)V
 
     return-void
 .end method

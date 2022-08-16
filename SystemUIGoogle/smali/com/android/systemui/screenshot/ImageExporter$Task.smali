@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/ImageExporter$Task;
+.class public final Lcom/android/systemui/screenshot/ImageExporter$Task;
 .super Ljava/lang/Object;
 .source "ImageExporter.java"
 
@@ -9,31 +9,31 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Task"
 .end annotation
 
 
 # instance fields
-.field private final mBitmap:Landroid/graphics/Bitmap;
+.field public final mBitmap:Landroid/graphics/Bitmap;
 
-.field private final mCaptureTime:Ljava/time/ZonedDateTime;
+.field public final mCaptureTime:Ljava/time/ZonedDateTime;
 
-.field private final mFileName:Ljava/lang/String;
+.field public final mFileName:Ljava/lang/String;
 
-.field private final mFormat:Landroid/graphics/Bitmap$CompressFormat;
+.field public final mFormat:Landroid/graphics/Bitmap$CompressFormat;
 
-.field private final mPublish:Z
+.field public final mPublish:Z
 
-.field private final mQuality:I
+.field public final mQuality:I
 
-.field private final mRequestId:Ljava/util/UUID;
+.field public final mRequestId:Ljava/util/UUID;
 
-.field private final mResolver:Landroid/content/ContentResolver;
+.field public final mResolver:Landroid/content/ContentResolver;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/ContentResolver;Ljava/util/UUID;Landroid/graphics/Bitmap;Ljava/time/ZonedDateTime;Landroid/graphics/Bitmap$CompressFormat;IZ)V
+.method public constructor <init>(Landroid/content/ContentResolver;Ljava/util/UUID;Landroid/graphics/Bitmap;Ljava/time/ZonedDateTime;Landroid/graphics/Bitmap$CompressFormat;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -56,14 +56,16 @@
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mFileName:Ljava/lang/String;
 
-    iput-boolean p7, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mPublish:Z
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mPublish:Z
 
     return-void
 .end method
 
 
 # virtual methods
-.method public execute()Lcom/android/systemui/screenshot/ImageExporter$Result;
+.method public final execute()Lcom/android/systemui/screenshot/ImageExporter$Result;
     .locals 12
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -91,7 +93,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mFileName:Ljava/lang/String;
 
-    invoke-static {v2, v3, v4, v5}, Lcom/android/systemui/screenshot/ImageExporter;->access$000(Landroid/content/ContentResolver;Landroid/graphics/Bitmap$CompressFormat;Ljava/time/ZonedDateTime;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v2, v3, v4, v5}, Lcom/android/systemui/screenshot/ImageExporter;->-$$Nest$smcreateEntry(Landroid/content/ContentResolver;Landroid/graphics/Bitmap$CompressFormat;Ljava/time/ZonedDateTime;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v2
     :try_end_0
@@ -99,7 +101,7 @@
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :try_start_1
-    invoke-static {}, Lcom/android/systemui/screenshot/ImageExporter;->access$100()V
+    invoke-static {}, Lcom/android/systemui/screenshot/ImageExporter;->-$$Nest$smthrowIfInterrupted()V
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mResolver:Landroid/content/ContentResolver;
 
@@ -109,9 +111,9 @@
 
     iget v6, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mQuality:I
 
-    invoke-static {v3, v4, v5, v6, v2}, Lcom/android/systemui/screenshot/ImageExporter;->access$200(Landroid/content/ContentResolver;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap$CompressFormat;ILandroid/net/Uri;)V
+    invoke-static {v3, v4, v5, v6, v2}, Lcom/android/systemui/screenshot/ImageExporter;->-$$Nest$smwriteImage(Landroid/content/ContentResolver;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap$CompressFormat;ILandroid/net/Uri;)V
 
-    invoke-static {}, Lcom/android/systemui/screenshot/ImageExporter;->access$100()V
+    invoke-static {}, Lcom/android/systemui/screenshot/ImageExporter;->-$$Nest$smthrowIfInterrupted()V
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mBitmap:Landroid/graphics/Bitmap;
 
@@ -133,9 +135,9 @@
 
     move-object v7, v2
 
-    invoke-static/range {v6 .. v11}, Lcom/android/systemui/screenshot/ImageExporter;->access$300(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/util/UUID;IILjava/time/ZonedDateTime;)V
+    invoke-static/range {v6 .. v11}, Lcom/android/systemui/screenshot/ImageExporter;->-$$Nest$smwriteExif(Landroid/content/ContentResolver;Landroid/net/Uri;Ljava/util/UUID;IILjava/time/ZonedDateTime;)V
 
-    invoke-static {}, Lcom/android/systemui/screenshot/ImageExporter;->access$100()V
+    invoke-static {}, Lcom/android/systemui/screenshot/ImageExporter;->-$$Nest$smthrowIfInterrupted()V
 
     iget-boolean v3, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mPublish:Z
 
@@ -143,7 +145,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mResolver:Landroid/content/ContentResolver;
 
-    invoke-static {v3, v2}, Lcom/android/systemui/screenshot/ImageExporter;->access$400(Landroid/content/ContentResolver;Landroid/net/Uri;)V
+    invoke-static {v3, v2}, Lcom/android/systemui/screenshot/ImageExporter;->-$$Nest$smpublishEntry(Landroid/content/ContentResolver;Landroid/net/Uri;)V
 
     const/4 v3, 0x1
 
@@ -217,16 +219,14 @@
     throw p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "export ["
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "export ["
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Lcom/android/systemui/screenshot/ImageExporter$Task;->mBitmap:Landroid/graphics/Bitmap;
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/CrossFadeHelper$1;
+.class public final Lcom/android/systemui/statusbar/CrossFadeHelper$1;
 .super Ljava/lang/Object;
 .source "CrossFadeHelper.java"
 
@@ -6,30 +6,19 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeOut(Landroid/view/View;JILjava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic val$endRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$endRunnable:Ljava/lang/Runnable;
 
-.field final synthetic val$view:Landroid/view/View;
+.field public final synthetic val$view:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Runnable;Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/View;Ljava/lang/Runnable;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/CrossFadeHelper$1;->val$endRunnable:Ljava/lang/Runnable;
+    iput-object p2, p0, Lcom/android/systemui/statusbar/CrossFadeHelper$1;->val$endRunnable:Ljava/lang/Runnable;
 
-    iput-object p2, p0, Lcom/android/systemui/statusbar/CrossFadeHelper$1;->val$view:Landroid/view/View;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/CrossFadeHelper$1;->val$view:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,7 +27,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/CrossFadeHelper$1;->val$endRunnable:Ljava/lang/Runnable;

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/customize/TileAdapter$1;
+.class public final Lcom/android/systemui/qs/customize/TileAdapter$1;
 .super Ljava/lang/Object;
 .source "TileAdapter.java"
 
@@ -6,25 +6,14 @@
 .implements Landroid/view/View$OnClickListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/qs/customize/TileAdapter;->onBindViewHolder(Lcom/android/systemui/qs/customize/TileAdapter$Holder;I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/customize/TileAdapter;
+.field public final synthetic this$0:Lcom/android/systemui/qs/customize/TileAdapter;
 
-.field final synthetic val$holder:Lcom/android/systemui/qs/customize/TileAdapter$Holder;
+.field public final synthetic val$holder:Lcom/android/systemui/qs/customize/TileAdapter$Holder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/qs/customize/TileAdapter$Holder;)V
+.method public constructor <init>(Lcom/android/systemui/qs/customize/TileAdapter;Lcom/android/systemui/qs/customize/TileAdapter$Holder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$1;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
@@ -38,7 +27,7 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/qs/customize/TileAdapter$1;->this$0:Lcom/android/systemui/qs/customize/TileAdapter;
@@ -49,7 +38,7 @@
 
     move-result p0
 
-    invoke-static {p1, p0}, Lcom/android/systemui/qs/customize/TileAdapter;->access$300(Lcom/android/systemui/qs/customize/TileAdapter;I)V
+    invoke-static {p1, p0}, Lcom/android/systemui/qs/customize/TileAdapter;->-$$Nest$mselectPosition(Lcom/android/systemui/qs/customize/TileAdapter;I)V
 
     return-void
 .end method

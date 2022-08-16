@@ -6,100 +6,76 @@
 .implements Ldagger/internal/Factory;
 
 
-# annotations
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ldagger/internal/Factory<",
-        "Lcom/android/systemui/media/ResumeMediaBrowserFactory;",
-        ">;"
-    }
-.end annotation
-
-
 # instance fields
-.field private final browserFactoryProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/MediaBrowserFactory;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final synthetic $r8$classId:I
 
-.field private final contextProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final browserFactoryProvider:Ljavax/inject/Provider;
+
+.field public final contextProvider:Ljavax/inject/Provider;
+
+.field public final loggerProvider:Ljavax/inject/Provider;
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/MediaBrowserFactory;",
-            ">;)V"
-        }
-    .end annotation
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    iput p4, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->$r8$classId:I
 
     iput-object p1, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->contextProvider:Ljavax/inject/Provider;
 
     iput-object p2, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->browserFactoryProvider:Ljavax/inject/Provider;
 
+    iput-object p3, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
     return-void
-.end method
-
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Landroid/content/Context;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/media/MediaBrowserFactory;",
-            ">;)",
-            "Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Landroid/content/Context;Lcom/android/systemui/media/MediaBrowserFactory;)Lcom/android/systemui/media/ResumeMediaBrowserFactory;
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/media/ResumeMediaBrowserFactory;
-
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/media/ResumeMediaBrowserFactory;-><init>(Landroid/content/Context;Lcom/android/systemui/media/MediaBrowserFactory;)V
-
-    return-object v0
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/media/ResumeMediaBrowserFactory;
-    .locals 1
+.method public final get()Ljava/lang/Object;
+    .locals 3
 
+    iget v0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->$r8$classId:I
+
+    packed-switch v0, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/util/concurrency/DelayableExecutor;
+
+    iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->browserFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/util/time/SystemClock;
+
+    iget-object p0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescerLogger;
+
+    new-instance v2, Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;
+
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescer;-><init>(Lcom/android/systemui/util/concurrency/DelayableExecutor;Lcom/android/systemui/util/time/SystemClock;Lcom/android/systemui/statusbar/notification/collection/coalescer/GroupCoalescerLogger;)V
+
+    return-object v2
+
+    :pswitch_1
     iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->contextProvider:Ljavax/inject/Provider;
 
     invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -108,27 +84,62 @@
 
     check-cast v0, Landroid/content/Context;
 
-    iget-object p0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->browserFactoryProvider:Ljavax/inject/Provider;
+    iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->browserFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/media/MediaBrowserFactory;
+
+    iget-object p0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->loggerProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    check-cast p0, Lcom/android/systemui/media/MediaBrowserFactory;
+    check-cast p0, Lcom/android/systemui/media/ResumeMediaBrowserLogger;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->newInstance(Landroid/content/Context;Lcom/android/systemui/media/MediaBrowserFactory;)Lcom/android/systemui/media/ResumeMediaBrowserFactory;
+    new-instance v2, Lcom/android/systemui/media/ResumeMediaBrowserFactory;
+
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/systemui/media/ResumeMediaBrowserFactory;-><init>(Landroid/content/Context;Lcom/android/systemui/media/MediaBrowserFactory;Lcom/android/systemui/media/ResumeMediaBrowserLogger;)V
+
+    return-object v2
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->contextProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/Context;
+
+    iget-object v1, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->browserFactoryProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/wm/shell/pip/PipBoundsState;
+
+    iget-object p0, p0, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->loggerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    check-cast p0, Lcom/android/wm/shell/pip/PipSnapAlgorithm;
 
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
+    new-instance v2, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/ResumeMediaBrowserFactory_Factory;->get()Lcom/android/systemui/media/ResumeMediaBrowserFactory;
+    invoke-direct {v2, v0, v1, p0}, Lcom/android/wm/shell/pip/PipBoundsAlgorithm;-><init>(Landroid/content/Context;Lcom/android/wm/shell/pip/PipBoundsState;Lcom/android/wm/shell/pip/PipSnapAlgorithm;)V
 
-    move-result-object p0
+    return-object v2
 
-    return-object p0
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

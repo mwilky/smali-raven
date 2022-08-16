@@ -1,65 +1,70 @@
-.class Lcom/android/systemui/recents/OverviewProxyService$4;
-.super Ljava/lang/Object;
+.class public final Lcom/android/systemui/recents/OverviewProxyService$4;
+.super Lcom/android/internal/app/IVoiceInteractionSessionListener$Stub;
 .source "OverviewProxyService.java"
-
-# interfaces
-.implements Lcom/android/systemui/statusbar/CommandQueue$Callbacks;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/recents/OverviewProxyService;-><init>(Landroid/content/Context;Lcom/android/systemui/statusbar/CommandQueue;Ldagger/Lazy;Ldagger/Lazy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/NotificationShadeWindowController;Lcom/android/systemui/model/SysUiState;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Ljava/util/Optional;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/wm/shell/transition/ShellTransitions;Lcom/android/systemui/keyguard/ScreenLifecycle;Lcom/android/systemui/shared/system/smartspace/SmartspaceTransitionController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/dump/DumpManager;)V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/recents/OverviewProxyService;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/recents/OverviewProxyService;
+.field public final synthetic this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/recents/OverviewProxyService;)V
+.method public constructor <init>(Lcom/android/systemui/recents/OverviewProxyService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/recents/OverviewProxyService$4;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Lcom/android/internal/app/IVoiceInteractionSessionListener$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onTracingStateChanged(Z)V
+.method public final onSetUiHints(Landroid/os/Bundle;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final onVoiceSessionHidden()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final onVoiceSessionShown()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public final onVoiceSessionWindowVisibilityChanged(Z)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/recents/OverviewProxyService$4;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
 
-    invoke-static {v0}, Lcom/android/systemui/recents/OverviewProxyService;->access$3900(Lcom/android/systemui/recents/OverviewProxyService;)Lcom/android/systemui/model/SysUiState;
+    iget-object v0, v0, Lcom/android/systemui/recents/OverviewProxyService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getMainExecutor()Ljava/util/concurrent/Executor;
 
     move-result-object v0
 
-    const/16 v1, 0x1000
+    new-instance v1, Lcom/android/systemui/recents/OverviewProxyService$4$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/model/SysUiState;->setFlag(IZ)Lcom/android/systemui/model/SysUiState;
+    invoke-direct {v1, p0, p1}, Lcom/android/systemui/recents/OverviewProxyService$4$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/recents/OverviewProxyService$4;Z)V
 
-    move-result-object p1
-
-    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService$4;->this$0:Lcom/android/systemui/recents/OverviewProxyService;
-
-    invoke-static {p0}, Lcom/android/systemui/recents/OverviewProxyService;->access$000(Lcom/android/systemui/recents/OverviewProxyService;)Landroid/content/Context;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/content/Context;->getDisplayId()I
-
-    move-result p0
-
-    invoke-virtual {p1, p0}, Lcom/android/systemui/model/SysUiState;->commitUpdate(I)V
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method

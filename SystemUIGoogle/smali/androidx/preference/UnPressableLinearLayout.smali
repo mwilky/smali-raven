@@ -24,7 +24,7 @@
 
 
 # virtual methods
-.method protected dispatchSetPressed(Z)V
+.method public final dispatchSetPressed(Z)V
     .locals 0
 
     return-void

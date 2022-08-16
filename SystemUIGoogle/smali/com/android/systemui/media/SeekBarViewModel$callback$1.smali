@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
+.field public final synthetic this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
+.method public constructor <init>(Lcom/android/systemui/media/SeekBarViewModel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel$callback$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
@@ -31,18 +31,12 @@
 
 
 # virtual methods
-.method public onPlaybackStateChanged(Landroid/media/session/PlaybackState;)V
+.method public final onPlaybackStateChanged(Landroid/media/session/PlaybackState;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$callback$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/media/SeekBarViewModel;->access$setPlaybackState$p(Lcom/android/systemui/media/SeekBarViewModel;Landroid/media/session/PlaybackState;)V
-
-    iget-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel$callback$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
-
-    invoke-static {p1}, Lcom/android/systemui/media/SeekBarViewModel;->access$getPlaybackState$p(Lcom/android/systemui/media/SeekBarViewModel;)Landroid/media/session/PlaybackState;
-
-    move-result-object p1
+    iput-object p1, v0, Lcom/android/systemui/media/SeekBarViewModel;->playbackState:Landroid/media/session/PlaybackState;
 
     if-eqz p1, :cond_1
 
@@ -54,9 +48,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel$callback$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-static {v0}, Lcom/android/systemui/media/SeekBarViewModel;->access$getPlaybackState$p(Lcom/android/systemui/media/SeekBarViewModel;)Landroid/media/session/PlaybackState;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/media/SeekBarViewModel;->playbackState:Landroid/media/session/PlaybackState;
 
     invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
@@ -69,7 +61,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/media/SeekBarViewModel$callback$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-static {p0}, Lcom/android/systemui/media/SeekBarViewModel;->access$checkIfPollingNeeded(Lcom/android/systemui/media/SeekBarViewModel;)V
+    invoke-virtual {p0}, Lcom/android/systemui/media/SeekBarViewModel;->checkIfPollingNeeded()V
 
     goto :goto_1
 
@@ -77,18 +69,30 @@
     :goto_0
     iget-object p0, p0, Lcom/android/systemui/media/SeekBarViewModel$callback$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/SeekBarViewModel;->clearController()V
+    iget-object p1, p0, Lcom/android/systemui/media/SeekBarViewModel;->bgExecutor:Lcom/android/systemui/util/concurrency/RepeatableExecutor;
+
+    new-instance v0, Lcom/android/systemui/media/SeekBarViewModel$clearController$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/media/SeekBarViewModel$clearController$1;-><init>(Lcom/android/systemui/media/SeekBarViewModel;)V
+
+    invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     :goto_1
     return-void
 .end method
 
-.method public onSessionDestroyed()V
-    .locals 0
+.method public final onSessionDestroyed()V
+    .locals 2
 
     iget-object p0, p0, Lcom/android/systemui/media/SeekBarViewModel$callback$1;->this$0:Lcom/android/systemui/media/SeekBarViewModel;
 
-    invoke-virtual {p0}, Lcom/android/systemui/media/SeekBarViewModel;->clearController()V
+    iget-object v0, p0, Lcom/android/systemui/media/SeekBarViewModel;->bgExecutor:Lcom/android/systemui/util/concurrency/RepeatableExecutor;
+
+    new-instance v1, Lcom/android/systemui/media/SeekBarViewModel$clearController$1;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/media/SeekBarViewModel$clearController$1;-><init>(Lcom/android/systemui/media/SeekBarViewModel;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
     return-void
 .end method

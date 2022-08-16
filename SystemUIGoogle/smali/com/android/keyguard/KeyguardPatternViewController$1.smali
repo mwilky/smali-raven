@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardPatternViewController$1;
+.class public final Lcom/android/keyguard/KeyguardPatternViewController$1;
 .super Ljava/lang/Object;
 .source "KeyguardPatternViewController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardPatternViewController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardPatternViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardPatternViewController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardPatternViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardPatternViewController$1;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onEmergencyButtonClickedWhenInCall()V
+.method public final onEmergencyButtonClickedWhenInCall()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardPatternViewController$1;->this$0:Lcom/android/keyguard/KeyguardPatternViewController;

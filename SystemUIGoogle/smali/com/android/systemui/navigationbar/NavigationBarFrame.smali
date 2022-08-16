@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private mDeadZone:Lcom/android/systemui/navigationbar/buttons/DeadZone;
+.field public mDeadZone:Lcom/android/systemui/navigationbar/buttons/DeadZone;
 
 
 # direct methods
@@ -46,7 +46,7 @@
 
 
 # virtual methods
-.method public dispatchTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final dispatchTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 2
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
@@ -73,12 +73,4 @@
     move-result p0
 
     return p0
-.end method
-
-.method public setDeadZone(Lcom/android/systemui/navigationbar/buttons/DeadZone;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/navigationbar/NavigationBarFrame;->mDeadZone:Lcom/android/systemui/navigationbar/buttons/DeadZone;
-
-    return-void
 .end method

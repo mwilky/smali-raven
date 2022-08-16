@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/battery/BatteryMeterViewController$SettingObserver;
+.class public final Lcom/android/systemui/battery/BatteryMeterViewController$SettingObserver;
 .super Landroid/database/ContentObserver;
 .source "BatteryMeterViewController.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "SettingObserver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
+.field public final synthetic this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
 
 # direct methods
@@ -31,16 +31,14 @@
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;)V
+.method public final onChange(ZLandroid/net/Uri;)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
     iget-object p1, p0, Lcom/android/systemui/battery/BatteryMeterViewController$SettingObserver;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    invoke-static {p1}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$1000(Lcom/android/systemui/battery/BatteryMeterViewController;)Landroid/view/View;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p1, Lcom/android/systemui/battery/BatteryMeterView;
 
@@ -60,9 +58,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$SettingObserver;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$1100(Lcom/android/systemui/battery/BatteryMeterViewController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/battery/BatteryMeterView;
 

@@ -7,9 +7,9 @@
 
 
 # instance fields
-.field mRevision:I
+.field public mRevision:I
 
-.field mType:Ljava/lang/String;
+.field public mType:Ljava/lang/String;
 
 
 # direct methods
@@ -25,82 +25,22 @@
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;I)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "type",
-            "revision"
-        }
-    .end annotation
+.method public constructor <init>(ILjava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    const/4 v0, 0x1
+    iput-object p2, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
 
-    iput v0, p0, Landroidx/slice/SliceSpec;->mRevision:I
-
-    iput-object p1, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
-
-    iput p2, p0, Landroidx/slice/SliceSpec;->mRevision:I
+    iput p1, p0, Landroidx/slice/SliceSpec;->mRevision:I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public canRender(Landroidx/slice/SliceSpec;)Z
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "candidate"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
-
-    iget-object v1, p1, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-nez v0, :cond_0
-
-    return v1
-
-    :cond_0
-    iget p0, p0, Landroidx/slice/SliceSpec;->mRevision:I
-
-    iget p1, p1, Landroidx/slice/SliceSpec;->mRevision:I
-
-    if-lt p0, p1, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_1
-    return v1
-.end method
-
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "obj"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/slice/SliceSpec;
 
@@ -135,23 +75,7 @@
     return v1
 .end method
 
-.method public getRevision()I
-    .locals 0
-
-    iget p0, p0, Landroidx/slice/SliceSpec;->mRevision:I
-
-    return p0
-.end method
-
-.method public getType()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
-
-    return-object p0
-.end method
-
-.method public hashCode()I
+.method public final hashCode()I
     .locals 1
 
     iget-object v0, p0, Landroidx/slice/SliceSpec;->mType:Ljava/lang/String;
@@ -167,7 +91,7 @@
     return v0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     const/4 v0, 0x2

@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/SearchBar$3;
+.class public final Landroidx/leanback/widget/SearchBar$3;
 .super Ljava/lang/Object;
 .source "SearchBar.java"
 
@@ -12,30 +12,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/SearchBar;
+.field public final synthetic this$0:Landroidx/leanback/widget/SearchBar;
 
-.field final synthetic val$mOnTextChangedRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$mOnTextChangedRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/SearchBar;Ljava/lang/Runnable;)V
+.method public constructor <init>(Landroidx/leanback/widget/SearchBar;Landroidx/leanback/widget/SearchBar$2;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$mOnTextChangedRunnable"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/SearchBar$3;->this$0:Landroidx/leanback/widget/SearchBar;
 
@@ -48,66 +38,25 @@
 
 
 # virtual methods
-.method public afterTextChanged(Landroid/text/Editable;)V
+.method public final afterTextChanged(Landroid/text/Editable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "editable"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public beforeTextChanged(Ljava/lang/CharSequence;III)V
+.method public final beforeTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "charSequence",
-            "i",
-            "i2",
-            "i3"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public onTextChanged(Ljava/lang/CharSequence;III)V
+.method public final onTextChanged(Ljava/lang/CharSequence;III)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "charSequence",
-            "i",
-            "i2",
-            "i3"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/widget/SearchBar$3;->this$0:Landroidx/leanback/widget/SearchBar;
 
-    iget-boolean p2, p1, Landroidx/leanback/widget/SearchBar;->mRecognizing:Z
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    if-eqz p2, :cond_0
-
-    return-void
-
-    :cond_0
     iget-object p1, p1, Landroidx/leanback/widget/SearchBar;->mHandler:Landroid/os/Handler;
 
     iget-object p2, p0, Landroidx/leanback/widget/SearchBar$3;->val$mOnTextChangedRunnable:Ljava/lang/Runnable;

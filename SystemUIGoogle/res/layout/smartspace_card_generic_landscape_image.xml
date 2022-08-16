@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.systemui.smartspace.BcSmartspaceCardGenericImage android:clipChildren="false" android:clipToPadding="false" android:layout_width="fill_parent" android:layout_height="fill_parent"
+<com.google.android.systemui.smartspace.BcSmartspaceCardGenericImage android:clipChildren="false" android:clipToPadding="false" android:layout_width="wrap_content" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.cardview.widget.CardView android:layout_width="fill_parent" android:layout_height="0.0dip" app:cardBackgroundColor="@android:color/transparent" app:cardCornerRadius="28.0dip" app:cardElevation="0.0dip" app:layout_constraintDimensionRatio="7:4" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
+    <FrameLayout android:background="@drawable/outline_rounded_secondary_card" android:layout_width="0.0dip" android:layout_height="fill_parent" android:clipToOutline="true" app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintDimensionRatio="7:4" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent">
         <ImageView android:id="@id/image_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:scaleType="centerCrop" />
-    </androidx.cardview.widget.CardView>
+    </FrameLayout>
 </com.google.android.systemui.smartspace.BcSmartspaceCardGenericImage>

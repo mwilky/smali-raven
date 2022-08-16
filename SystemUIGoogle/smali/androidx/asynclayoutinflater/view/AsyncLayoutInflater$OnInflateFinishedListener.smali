@@ -15,17 +15,5 @@
 
 
 # virtual methods
-.method public abstract onInflateFinished(Landroid/view/View;ILandroid/view/ViewGroup;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "resid",
-            "parent"
-        }
-    .end annotation
+.method public abstract onInflateFinished(Landroid/view/View;Landroid/view/ViewGroup;)V
 .end method

@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/TextAnimator;->setTextStyle(IFLjava/lang/Integer;ZJLandroid/animation/TimeInterpolator;JLjava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Lkotlin/jvm/internal/Lambda;",
@@ -27,13 +18,13 @@
 
 
 # instance fields
-.field final synthetic $weight:I
+.field public final synthetic $weight:I
 
-.field final synthetic this$0:Lcom/android/keyguard/TextAnimator;
+.field public final synthetic this$0:Lcom/android/keyguard/TextAnimator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/TextAnimator;I)V
+.method public constructor <init>(Lcom/android/keyguard/TextAnimator;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$1;->this$0:Lcom/android/keyguard/TextAnimator;
@@ -49,18 +40,14 @@
 
 
 # virtual methods
-.method public final invoke()Landroid/graphics/Typeface;
+.method public final invoke()Ljava/lang/Object;
     .locals 3
 
     iget-object v0, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$1;->this$0:Lcom/android/keyguard/TextAnimator;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/TextAnimator;->getTextInterpolator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Lcom/android/keyguard/TextInterpolator;
+    iget-object v0, v0, Lcom/android/keyguard/TextAnimator;->textInterpolator:Lcom/android/keyguard/TextInterpolator;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/keyguard/TextInterpolator;->getTargetPaint()Landroid/text/TextPaint;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/keyguard/TextInterpolator;->targetPaint:Landroid/text/TextPaint;
 
     iget v1, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$1;->$weight:I
 
@@ -70,7 +57,7 @@
 
     const-string v2, "\'wght\' "
 
-    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -78,25 +65,11 @@
 
     iget-object p0, p0, Lcom/android/keyguard/TextAnimator$setTextStyle$1;->this$0:Lcom/android/keyguard/TextAnimator;
 
-    invoke-virtual {p0}, Lcom/android/keyguard/TextAnimator;->getTextInterpolator$frameworks__base__packages__SystemUI__android_common__SystemUI_core()Lcom/android/keyguard/TextInterpolator;
+    iget-object p0, p0, Lcom/android/keyguard/TextAnimator;->textInterpolator:Lcom/android/keyguard/TextInterpolator;
 
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/TextInterpolator;->getTargetPaint()Landroid/text/TextPaint;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/keyguard/TextInterpolator;->targetPaint:Landroid/text/TextPaint;
 
     invoke-virtual {p0}, Landroid/text/TextPaint;->getTypeface()Landroid/graphics/Typeface;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic invoke()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/TextAnimator$setTextStyle$1;->invoke()Landroid/graphics/Typeface;
 
     move-result-object p0
 

@@ -1,4 +1,4 @@
-.class Landroidx/drawerlayout/widget/DrawerLayout$1;
+.class public final Landroidx/drawerlayout/widget/DrawerLayout$1;
 .super Ljava/lang/Object;
 .source "DrawerLayout.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/drawerlayout/widget/DrawerLayout;
+.field public final synthetic this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
 
 # direct methods
-.method constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout;)V
+.method public constructor <init>(Landroidx/drawerlayout/widget/DrawerLayout;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
@@ -42,36 +34,28 @@
 
 
 # virtual methods
-.method public perform(Landroid/view/View;Landroidx/core/view/accessibility/AccessibilityViewCommand$CommandArguments;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "arguments"
-        }
-    .end annotation
+.method public final perform(Landroid/view/View;)Z
+    .locals 2
 
-    iget-object p2, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
+    iget-object v0, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
-    invoke-virtual {p2, p1}, Landroidx/drawerlayout/widget/DrawerLayout;->isDrawerOpen(Landroid/view/View;)Z
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-result p2
+    invoke-static {p1}, Landroidx/drawerlayout/widget/DrawerLayout;->isDrawerOpen(Landroid/view/View;)Z
 
-    if-eqz p2, :cond_0
+    move-result v0
 
-    iget-object p2, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p2, p1}, Landroidx/drawerlayout/widget/DrawerLayout;->getDrawerLockMode(Landroid/view/View;)I
+    iget-object v0, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 
-    move-result p2
+    invoke-virtual {v0, p1}, Landroidx/drawerlayout/widget/DrawerLayout;->getDrawerLockMode(Landroid/view/View;)I
 
-    const/4 v0, 0x2
+    move-result v0
 
-    if-eq p2, v0, :cond_0
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_0
 
     iget-object p0, p0, Landroidx/drawerlayout/widget/DrawerLayout$1;->this$0:Landroidx/drawerlayout/widget/DrawerLayout;
 

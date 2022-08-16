@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final audioManagerProvider:Ljavax/inject/Provider;
+.field public final audioManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final bgLooperProvider:Ljavax/inject/Provider;
+.field public final bgLooperProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final clockProvider:Ljavax/inject/Provider;
+.field public final clockProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final dispatcherProvider:Ljavax/inject/Provider;
+.field public final dispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final sensorPrivacyControllerProvider:Ljavax/inject/Provider;
+.field public final sensorPrivacyControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -191,36 +191,10 @@
     return-object v8
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/dump/DumpManager;Landroid/media/AudioManager;Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/time/SystemClock;)Lcom/android/systemui/appops/AppOpsControllerImpl;
-    .locals 9
-
-    new-instance v8, Lcom/android/systemui/appops/AppOpsControllerImpl;
-
-    move-object v0, v8
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object v6, p5
-
-    move-object v7, p6
-
-    invoke-direct/range {v0 .. v7}, Lcom/android/systemui/appops/AppOpsControllerImpl;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/dump/DumpManager;Landroid/media/AudioManager;Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/time/SystemClock;)V
-
-    return-object v8
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/appops/AppOpsControllerImpl;
-    .locals 8
+.method public final get()Ljava/lang/Object;
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -228,9 +202,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->bgLooperProvider:Ljavax/inject/Provider;
 
@@ -238,9 +212,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Landroid/os/Looper;
+    check-cast v3, Landroid/os/Looper;
 
     iget-object v0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -248,9 +222,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/dump/DumpManager;
+    check-cast v4, Lcom/android/systemui/dump/DumpManager;
 
     iget-object v0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->audioManagerProvider:Ljavax/inject/Provider;
 
@@ -258,9 +232,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Landroid/media/AudioManager;
+    check-cast v5, Landroid/media/AudioManager;
 
     iget-object v0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->sensorPrivacyControllerProvider:Ljavax/inject/Provider;
 
@@ -268,9 +242,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
+    check-cast v6, Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;
 
     iget-object v0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->dispatcherProvider:Ljavax/inject/Provider;
 
@@ -278,9 +252,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v7, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object p0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->clockProvider:Ljavax/inject/Provider;
 
@@ -288,23 +262,15 @@
 
     move-result-object p0
 
-    move-object v7, p0
+    move-object v8, p0
 
-    check-cast v7, Lcom/android/systemui/util/time/SystemClock;
+    check-cast v8, Lcom/android/systemui/util/time/SystemClock;
 
-    invoke-static/range {v1 .. v7}, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->newInstance(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/dump/DumpManager;Landroid/media/AudioManager;Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/time/SystemClock;)Lcom/android/systemui/appops/AppOpsControllerImpl;
+    new-instance p0, Lcom/android/systemui/appops/AppOpsControllerImpl;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/appops/AppOpsControllerImpl_Factory;->get()Lcom/android/systemui/appops/AppOpsControllerImpl;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v8}, Lcom/android/systemui/appops/AppOpsControllerImpl;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/dump/DumpManager;Landroid/media/AudioManager;Lcom/android/systemui/statusbar/policy/IndividualSensorPrivacyController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/util/time/SystemClock;)V
 
     return-object p0
 .end method

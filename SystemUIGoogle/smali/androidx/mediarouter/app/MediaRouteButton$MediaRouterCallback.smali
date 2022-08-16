@@ -1,4 +1,4 @@
-.class final Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;
+.class public final Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;
 .super Landroidx/mediarouter/media/MediaRouter$Callback;
 .source "MediaRouteButton.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "MediaRouterCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteButton;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteButton;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteButton;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -39,18 +31,8 @@
 
 
 # virtual methods
-.method public onProviderAdded(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$ProviderInfo;)V
+.method public final onProviderAdded()V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "provider"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -59,18 +41,8 @@
     return-void
 .end method
 
-.method public onProviderChanged(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$ProviderInfo;)V
+.method public final onProviderChanged()V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "provider"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -79,18 +51,8 @@
     return-void
 .end method
 
-.method public onProviderRemoved(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$ProviderInfo;)V
+.method public final onProviderRemoved()V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "provider"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -99,18 +61,8 @@
     return-void
 .end method
 
-.method public onRouteAdded(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+.method public final onRouteAdded()V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "info"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -119,18 +71,8 @@
     return-void
 .end method
 
-.method public onRouteChanged(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+.method public final onRouteChanged(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "info"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -139,18 +81,8 @@
     return-void
 .end method
 
-.method public onRouteRemoved(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+.method public final onRouteRemoved()V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "info"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -159,18 +91,8 @@
     return-void
 .end method
 
-.method public onRouteSelected(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+.method public final onRouteSelected(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "info"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
@@ -179,22 +101,29 @@
     return-void
 .end method
 
-.method public onRouteUnselected(Landroidx/mediarouter/media/MediaRouter;Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+.method public final onRouteUnselected()V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "router",
-            "info"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
 
     invoke-virtual {p0}, Landroidx/mediarouter/app/MediaRouteButton;->refreshRoute()V
 
     return-void
+.end method
+
+.method public final onRouterParamsChanged(Landroidx/mediarouter/media/MediaRouterParams;)V
+    .locals 0
+
+    if-nez p1, :cond_0
+
+    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteButton$MediaRouterCallback;->this$0:Landroidx/mediarouter/app/MediaRouteButton;
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    return-void
+
+    :cond_0
+    const/4 p0, 0x0
+
+    throw p0
 .end method

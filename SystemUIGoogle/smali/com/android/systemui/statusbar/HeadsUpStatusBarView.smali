@@ -4,32 +4,24 @@
 
 
 # instance fields
-.field private final mIconDrawingRect:Landroid/graphics/Rect;
+.field public final mIconDrawingRect:Landroid/graphics/Rect;
 
-.field private mIconPlaceholder:Landroid/view/View;
+.field public mIconPlaceholder:Landroid/view/View;
 
-.field private final mLayoutedIconRect:Landroid/graphics/Rect;
+.field public final mLayoutedIconRect:Landroid/graphics/Rect;
 
-.field private mOnDrawingRectChangedListener:Ljava/lang/Runnable;
+.field public mOnDrawingRectChangedListener:Ljava/lang/Runnable;
 
-.field private final mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;
+.field public final mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/HeadsUpStatusBarView$$ExternalSyntheticLambda0;
 
-.field private mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+.field public mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-.field private mTextView:Landroid/widget/TextView;
+.field public mTextView:Landroid/widget/TextView;
 
-.field private final mTmpPosition:[I
+.field public final mTmpPosition:[I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$ch1Vs8Q9CYO38K6vYzEWHQweYPY(Lcom/android/systemui/statusbar/HeadsUpStatusBarView;Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->lambda$new$0(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -87,7 +79,7 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/HeadsUpStatusBarView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/HeadsUpStatusBarView;)V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/HeadsUpStatusBarView$$ExternalSyntheticLambda0;
 
     return-void
 .end method
@@ -106,118 +98,14 @@
     return-void
 .end method
 
-.method private synthetic lambda$new$0(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    if-ne p1, v0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    return-void
-
-    :cond_0
-    new-instance v0, Ljava/lang/IllegalStateException;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Got a sensitivity change for "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    const-string p1, " but mShowingEntry is "
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-direct {v0, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-.end method
-
-.method private updateDrawingRect()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mIconDrawingRect:Landroid/graphics/Rect;
-
-    iget v1, v0, Landroid/graphics/Rect;->left:I
-
-    int-to-float v1, v1
-
-    iget-object v2, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mLayoutedIconRect:Landroid/graphics/Rect;
-
-    invoke-virtual {v0, v2}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mIconDrawingRect:Landroid/graphics/Rect;
-
-    iget v0, v0, Landroid/graphics/Rect;->left:I
-
-    int-to-float v0, v0
-
-    cmpl-float v0, v1, v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnDrawingRectChangedListener:Ljava/lang/Runnable;
-
-    if-eqz p0, :cond_0
-
-    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method public getIconDrawingRect()Landroid/graphics/Rect;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mIconDrawingRect:Landroid/graphics/Rect;
-
-    return-object p0
-.end method
-
-.method public getShowingEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    return-object p0
-.end method
-
-.method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 0
-
-    iget-object p2, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mTextView:Landroid/widget/TextView;
-
-    invoke-static {p1, p0, p3}, Lcom/android/systemui/plugins/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
-
-    move-result p0
-
-    invoke-virtual {p2, p0}, Landroid/widget/TextView;->setTextColor(I)V
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 1
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/systemui/R$id;->icon_placeholder:I
+    const v0, 0x7f0b0305
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -225,7 +113,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mIconPlaceholder:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->text:I
+    const v0, 0x7f0b06a3
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -238,7 +126,7 @@
     return-void
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
@@ -279,12 +167,37 @@
 
     invoke-virtual {p5, p2, p1, p3, p4}, Landroid/graphics/Rect;->set(IIII)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->updateDrawingRect()V
+    iget-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mIconDrawingRect:Landroid/graphics/Rect;
 
+    iget p2, p1, Landroid/graphics/Rect;->left:I
+
+    int-to-float p2, p2
+
+    iget-object p3, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mLayoutedIconRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p1, p3}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mIconDrawingRect:Landroid/graphics/Rect;
+
+    iget p1, p1, Landroid/graphics/Rect;->left:I
+
+    int-to-float p1, p1
+
+    cmpl-float p1, p2, p1
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnDrawingRectChangedListener:Ljava/lang/Runnable;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0}, Ljava/lang/Runnable;->run()V
+
+    :cond_0
     return-void
 .end method
 
-.method public onRestoreInstanceState(Landroid/os/Parcelable;)V
+.method public final onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 2
 
     instance-of v0, p1, Landroid/os/Bundle;
@@ -339,7 +252,7 @@
     return-void
 .end method
 
-.method public onSaveInstanceState()Landroid/os/Bundle;
+.method public final onSaveInstanceState()Landroid/os/Parcelable;
     .locals 3
 
     new-instance v0, Landroid/os/Bundle;
@@ -373,26 +286,18 @@
     return-object v0
 .end method
 
-.method public bridge synthetic onSaveInstanceState()Landroid/os/Parcelable;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->onSaveInstanceState()Landroid/os/Bundle;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public final setEntry(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/HeadsUpStatusBarView$$ExternalSyntheticLambda0;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->removeOnSensitivityChangedListener(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
 
     :cond_0
     iput-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
@@ -401,9 +306,7 @@
 
     iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->headsUpStatusBarText:Ljava/lang/CharSequence;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isSensitive()Z
-
-    move-result v1
+    iget-boolean v1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSensitive:Z
 
     if-eqz v1, :cond_1
 
@@ -416,18 +319,12 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mShowingEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnSensitivityChangedListener:Lcom/android/systemui/statusbar/HeadsUpStatusBarView$$ExternalSyntheticLambda0;
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->addOnSensitivityChangedListener(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;)V
+    iget-object p1, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/ArrayList;
+
+    invoke-virtual {p1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    return-void
-.end method
-
-.method public setOnDrawingRectChangedListener(Ljava/lang/Runnable;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mOnDrawingRectChangedListener:Ljava/lang/Runnable;
-
     return-void
 .end method

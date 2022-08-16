@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/KeyguardAffordanceView$7;
+.class public final Lcom/android/systemui/statusbar/KeyguardAffordanceView$7;
 .super Ljava/lang/Object;
 .source "KeyguardAffordanceView.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$7;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onAnimationUpdate(Landroid/animation/ValueAnimator;)V
+.method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$7;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
@@ -49,11 +49,11 @@
 
     move-result p1
 
-    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->access$502(Lcom/android/systemui/statusbar/KeyguardAffordanceView;F)F
+    iput p1, v0, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->mCircleRadius:F
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$7;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-    invoke-static {p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->access$700(Lcom/android/systemui/statusbar/KeyguardAffordanceView;)V
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->updateIconColor()V
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$7;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 

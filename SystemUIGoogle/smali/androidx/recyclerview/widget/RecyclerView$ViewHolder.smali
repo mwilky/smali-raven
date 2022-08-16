@@ -15,7 +15,7 @@
 
 
 # static fields
-.field private static final FULLUPDATE_PAYLOADS:Ljava/util/List;
+.field public static final FULLUPDATE_PAYLOADS:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -29,7 +29,7 @@
 # instance fields
 .field public final itemView:Landroid/view/View;
 
-.field mBindingAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
+.field public mBindingAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/recyclerview/widget/RecyclerView$Adapter<",
@@ -40,17 +40,17 @@
     .end annotation
 .end field
 
-.field mFlags:I
+.field public mFlags:I
 
-.field mInChangeScrap:Z
+.field public mInChangeScrap:Z
 
-.field private mIsRecyclableCount:I
+.field public mIsRecyclableCount:I
 
-.field mItemId:J
+.field public mItemId:J
 
-.field mItemViewType:I
+.field public mItemViewType:I
 
-.field mNestedRecyclerView:Ljava/lang/ref/WeakReference;
+.field public mNestedRecyclerView:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -60,11 +60,25 @@
     .end annotation
 .end field
 
-.field mOldPosition:I
+.field public mOldPosition:I
 
-.field mOwnerRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+.field public mOwnerRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-.field mPayloads:Ljava/util/List;
+.field public mPayloads:Ljava/util/ArrayList;
+
+.field public mPendingAccessibilityState:I
+
+.field public mPosition:I
+
+.field public mPreLayoutPosition:I
+
+.field public mScrapContainer:Landroidx/recyclerview/widget/RecyclerView$Recycler;
+
+.field public mShadowedHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+
+.field public mShadowingHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
+
+.field public mUnmodifiedPayloads:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -74,29 +88,7 @@
     .end annotation
 .end field
 
-.field mPendingAccessibilityState:I
-
-.field mPosition:I
-
-.field mPreLayoutPosition:I
-
-.field mScrapContainer:Landroidx/recyclerview/widget/RecyclerView$Recycler;
-
-.field mShadowedHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-
-.field mShadowingHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
-
-.field mUnmodifiedPayloads:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/Object;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private mWasImportantForAccessibilityBeforeHidden:I
+.field public mWasImportantForAccessibilityBeforeHidden:I
 
 
 # direct methods
@@ -114,14 +106,6 @@
 
 .method public constructor <init>(Landroid/view/View;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "itemView"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -145,7 +129,7 @@
 
     iput-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mShadowingHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    iput-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/List;
+    iput-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/ArrayList;
 
     iput-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mUnmodifiedPayloads:Ljava/util/List;
 
@@ -177,41 +161,10 @@
     throw p0
 .end method
 
-.method private createPayloadsIfNeeded()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/List;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/List;
-
-    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
-
-    move-result-object v0
-
-    iput-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mUnmodifiedPayloads:Ljava/util/List;
-
-    :cond_0
-    return-void
-.end method
-
 
 # virtual methods
-.method addChangePayload(Ljava/lang/Object;)V
+.method public final addChangePayload(Ljava/lang/Object;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "payload"
-        }
-    .end annotation
 
     const/16 v0, 0x400
 
@@ -226,144 +179,42 @@
 
     and-int/2addr v0, v1
 
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/ArrayList;
+
     if-nez v0, :cond_1
 
-    invoke-direct {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->createPayloadsIfNeeded()V
+    new-instance v0, Ljava/util/ArrayList;
 
-    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/List;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    iput-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/ArrayList;
+
+    invoke-static {v0}, Ljava/util/Collections;->unmodifiableList(Ljava/util/List;)Ljava/util/List;
+
+    move-result-object v0
+
+    iput-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mUnmodifiedPayloads:Ljava/util/List;
 
     :cond_1
+    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_2
     :goto_0
     return-void
 .end method
 
-.method addFlags(I)V
+.method public final addFlags(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "flags"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
 
     or-int/2addr p1, v0
 
     iput p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    return-void
-.end method
-
-.method clearOldPosition()V
-    .locals 1
-
-    const/4 v0, -0x1
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPreLayoutPosition:I
-
-    return-void
-.end method
-
-.method clearPayload()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/List;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0}, Ljava/util/List;->clear()V
-
-    :cond_0
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit16 v0, v0, -0x401
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    return-void
-.end method
-
-.method clearReturnedFromScrapFlag()V
-    .locals 1
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit8 v0, v0, -0x21
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    return-void
-.end method
-
-.method clearTmpDetachFlag()V
-    .locals 1
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit16 v0, v0, -0x101
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    return-void
-.end method
-
-.method doesTransientStatePreventRecycling()Z
-    .locals 1
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit8 v0, v0, 0x10
-
-    if-nez v0, :cond_0
-
-    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->hasTransientState(Landroid/view/View;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method flagRemovedAndOffsetPosition(IIZ)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "mNewPosition",
-            "offset",
-            "applyToPreLayout"
-        }
-    .end annotation
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p0, v0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->addFlags(I)V
-
-    invoke-virtual {p0, p2, p3}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->offsetPosition(IZ)V
-
-    iput p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPosition:I
 
     return-void
 .end method
@@ -381,18 +232,6 @@
 
     :cond_0
     invoke-virtual {v0, p0}, Landroidx/recyclerview/widget/RecyclerView;->getAdapterPositionInRecyclerView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public final getAdapterPosition()I
-    .locals 0
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->getBindingAdapterPosition()I
 
     move-result p0
 
@@ -418,49 +257,30 @@
     return v1
 
     :cond_1
-    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;
+    iget-object v2, v0, Landroidx/recyclerview/widget/RecyclerView;->mAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
-    move-result-object v0
-
-    if-nez v0, :cond_2
+    if-nez v2, :cond_2
 
     return v1
 
     :cond_2
-    iget-object v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOwnerRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
+    invoke-virtual {v0, p0}, Landroidx/recyclerview/widget/RecyclerView;->getAdapterPositionInRecyclerView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
 
-    invoke-virtual {v2, p0}, Landroidx/recyclerview/widget/RecyclerView;->getAdapterPositionInRecyclerView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
+    move-result v0
 
-    move-result v2
-
-    if-ne v2, v1, :cond_3
+    if-ne v0, v1, :cond_3
 
     return v1
 
     :cond_3
-    iget-object v1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mBindingAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
+    iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mBindingAdapter:Landroidx/recyclerview/widget/RecyclerView$Adapter;
 
-    invoke-virtual {v0, v1, p0, v2}, Landroidx/recyclerview/widget/RecyclerView$Adapter;->findRelativeAdapterPositionIn(Landroidx/recyclerview/widget/RecyclerView$Adapter;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)I
+    if-ne p0, v2, :cond_4
 
-    move-result p0
+    move v1, v0
 
-    return p0
-.end method
-
-.method public final getItemId()J
-    .locals 2
-
-    iget-wide v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mItemId:J
-
-    return-wide v0
-.end method
-
-.method public final getItemViewType()I
-    .locals 0
-
-    iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mItemViewType:I
-
-    return p0
+    :cond_4
+    return v1
 .end method
 
 .method public final getLayoutPosition()I
@@ -478,15 +298,7 @@
     return v0
 .end method
 
-.method public final getOldPosition()I
-    .locals 0
-
-    iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
-
-    return p0
-.end method
-
-.method getUnmodifiedPayloads()Ljava/util/List;
+.method public final getUnmodifiedPayloads()Ljava/util/List;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -503,11 +315,11 @@
 
     if-nez v0, :cond_2
 
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/List;
+    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_1
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -532,65 +344,7 @@
     return-object p0
 .end method
 
-.method hasAnyOfTheFlags(I)Z
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "flags"
-        }
-    .end annotation
-
-    iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/2addr p0, p1
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method isAdapterPositionUnknown()Z
-    .locals 1
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit16 v0, v0, 0x200
-
-    if-nez v0, :cond_1
-
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isInvalid()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method isAttachedToTransitionOverlay()Z
+.method public final isAttachedToTransitionOverlay()Z
     .locals 1
 
     iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
@@ -622,7 +376,7 @@
     return p0
 .end method
 
-.method isBound()Z
+.method final isBound()Z
     .locals 1
 
     iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
@@ -642,7 +396,7 @@
     return v0
 .end method
 
-.method isInvalid()Z
+.method public final isInvalid()Z
     .locals 0
 
     iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
@@ -673,7 +427,9 @@
 
     iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
-    invoke-static {p0}, Landroidx/core/view/ViewCompat;->hasTransientState(Landroid/view/View;)Z
+    sget-object v0, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {p0}, Landroidx/core/view/ViewCompat$Api16Impl;->hasTransientState(Landroid/view/View;)Z
 
     move-result p0
 
@@ -690,7 +446,7 @@
     return p0
 .end method
 
-.method isRemoved()Z
+.method final isRemoved()Z
     .locals 0
 
     iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
@@ -710,7 +466,7 @@
     return p0
 .end method
 
-.method isScrap()Z
+.method public final isScrap()Z
     .locals 0
 
     iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mScrapContainer:Landroidx/recyclerview/widget/RecyclerView$Recycler;
@@ -728,7 +484,7 @@
     return p0
 .end method
 
-.method isTmpDetached()Z
+.method public final isTmpDetached()Z
     .locals 0
 
     iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
@@ -748,58 +504,8 @@
     return p0
 .end method
 
-.method isUpdated()Z
-    .locals 0
-
-    iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit8 p0, p0, 0x2
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method needsUpdate()Z
-    .locals 0
-
-    iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit8 p0, p0, 0x2
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method offsetPosition(IZ)V
+.method public final offsetPosition(IZ)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "offset",
-            "applyToPreLayout"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
 
@@ -860,67 +566,7 @@
     return-void
 .end method
 
-.method onEnteredHiddenState(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parent"
-        }
-    .end annotation
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPendingAccessibilityState:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    invoke-static {v0}, Landroidx/core/view/ViewCompat;->getImportantForAccessibility(Landroid/view/View;)I
-
-    move-result v0
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
-
-    :goto_0
-    const/4 v0, 0x4
-
-    invoke-virtual {p1, p0, v0}, Landroidx/recyclerview/widget/RecyclerView;->setChildImportantForAccessibilityInternal(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)Z
-
-    return-void
-.end method
-
-.method onLeftHiddenState(Landroidx/recyclerview/widget/RecyclerView;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "parent"
-        }
-    .end annotation
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
-
-    invoke-virtual {p1, p0, v0}, Landroidx/recyclerview/widget/RecyclerView;->setChildImportantForAccessibilityInternal(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)Z
-
-    const/4 p1, 0x0
-
-    iput p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
-
-    return-void
-.end method
-
-.method resetInternal()V
+.method public final resetInternal()V
     .locals 4
 
     const/4 v0, 0x0
@@ -947,7 +593,18 @@
 
     iput-object v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mShadowingHolder:Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->clearPayload()V
+    iget-object v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPayloads:Ljava/util/ArrayList;
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->clear()V
+
+    :cond_0
+    iget v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
+
+    and-int/lit16 v2, v2, -0x401
+
+    iput v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
 
     iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mWasImportantForAccessibilityBeforeHidden:I
 
@@ -958,61 +615,8 @@
     return-void
 .end method
 
-.method saveOldPosition()V
-    .locals 2
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
-
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPosition:I
-
-    iput v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
-
-    :cond_0
-    return-void
-.end method
-
-.method setFlags(II)V
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "flags",
-            "mask"
-        }
-    .end annotation
-
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    not-int v1, p2
-
-    and-int/2addr v0, v1
-
-    and-int/2addr p1, p2
-
-    or-int/2addr p1, v0
-
-    iput p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    return-void
-.end method
-
 .method public final setIsRecyclable(Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "recyclable"
-        }
-    .end annotation
 
     const/4 v0, 0x1
 
@@ -1085,47 +689,7 @@
     return-void
 .end method
 
-.method setScrapContainer(Landroidx/recyclerview/widget/RecyclerView$Recycler;Z)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "recycler",
-            "isChangeScrap"
-        }
-    .end annotation
-
-    iput-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mScrapContainer:Landroidx/recyclerview/widget/RecyclerView$Recycler;
-
-    iput-boolean p2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mInChangeScrap:Z
-
-    return-void
-.end method
-
-.method shouldBeKeptAsChild()Z
-    .locals 0
-
-    iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
-
-    and-int/lit8 p0, p0, 0x10
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method shouldIgnore()Z
+.method public final shouldIgnore()Z
     .locals 0
 
     iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
@@ -1145,7 +709,7 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 5
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
@@ -1174,59 +738,55 @@
     :goto_0
     new-instance v1, Ljava/lang/StringBuilder;
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "{"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string/jumbo v0, "{"
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
-
-    move-result v0
-
-    invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+    invoke-static {v0, v2}, Landroid/hidl/base/V1_0/DebugInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
 
-    const-string v0, " position="
+    move-result v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPosition:I
+    move-result-object v2
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, " id="
+    const-string v2, " position="
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-wide v3, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mItemId:J
+    iget v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPosition:I
 
-    invoke-virtual {v2, v3, v4}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v0, ", oldPos="
+    const-string v2, " id="
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
+    iget-wide v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mItemId:J
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    const-string v0, ", pLpos:"
+    const-string v2, ", oldPos="
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPreLayoutPosition:I
+    iget v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mOldPosition:I
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, ", pLpos:"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mPreLayoutPosition:I
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v0
 
@@ -1279,71 +839,83 @@
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_4
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->needsUpdate()Z
+    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
 
-    move-result v0
+    and-int/lit8 v0, v0, 0x2
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
 
     if-eqz v0, :cond_5
+
+    move v0, v2
+
+    goto :goto_2
+
+    :cond_5
+    move v0, v3
+
+    :goto_2
+    if-eqz v0, :cond_6
 
     const-string v0, " update"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_5
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isRemoved()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_6
-
-    const-string v0, " removed"
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     :cond_6
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->shouldIgnore()Z
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isRemoved()Z
 
     move-result v0
 
     if-eqz v0, :cond_7
 
-    const-string v0, " ignored"
+    const-string v0, " removed"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_7
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isTmpDetached()Z
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->shouldIgnore()Z
 
     move-result v0
 
     if-eqz v0, :cond_8
 
-    const-string v0, " tmpDetached"
+    const-string v0, " ignored"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_8
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isTmpDetached()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    const-string v0, " tmpDetached"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_9
     invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isRecyclable()Z
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_a
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, " not recyclable("
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, " not recyclable("
+    move-result-object v0
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget v4, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mIsRecyclableCount:I
 
-    iget v2, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mIsRecyclableCount:I
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v4, ")"
 
-    const-string v2, ")"
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -1351,31 +923,46 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_9
-    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isAdapterPositionUnknown()Z
+    :cond_a
+    iget v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I
+
+    and-int/lit16 v0, v0, 0x200
+
+    if-nez v0, :cond_c
+
+    invoke-virtual {p0}, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->isInvalid()Z
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b
+
+    goto :goto_3
+
+    :cond_b
+    move v2, v3
+
+    :cond_c
+    :goto_3
+    if-eqz v2, :cond_d
 
     const-string v0, " undefined adapter position"
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_a
+    :cond_d
     iget-object p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
 
     invoke-virtual {p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
     move-result-object p0
 
-    if-nez p0, :cond_b
+    if-nez p0, :cond_e
 
     const-string p0, " no parent"
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_b
+    :cond_e
     const-string/jumbo p0, "}"
 
     invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1387,17 +974,7 @@
     return-object p0
 .end method
 
-.method unScrap()V
-    .locals 1
-
-    iget-object v0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mScrapContainer:Landroidx/recyclerview/widget/RecyclerView$Recycler;
-
-    invoke-virtual {v0, p0}, Landroidx/recyclerview/widget/RecyclerView$Recycler;->unscrapView(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)V
-
-    return-void
-.end method
-
-.method wasReturnedFromScrap()Z
+.method public final wasReturnedFromScrap()Z
     .locals 0
 
     iget p0, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->mFlags:I

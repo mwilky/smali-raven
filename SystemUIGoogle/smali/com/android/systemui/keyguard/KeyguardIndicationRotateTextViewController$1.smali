@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;
+.class public final Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;
 .super Ljava/lang/Object;
 .source "KeyguardIndicationRotateTextViewController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+.field public final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)V
+.method public constructor <init>(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onDozeAmountChanged(FF)V
+.method public final onDozeAmountChanged(FF)V
     .locals 1
 
-    iget-object p2, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
-    invoke-static {p2}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$100(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)Landroid/view/View;
-
-    move-result-object p2
+    iget-object p2, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p2, Lcom/android/systemui/statusbar/phone/KeyguardIndicationTextView;
 
@@ -49,11 +47,7 @@
 
     sub-float/2addr v0, p1
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
-
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$000(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)F
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->mMaxAlpha:F
 
     mul-float/2addr v0, p0
 
@@ -62,48 +56,32 @@
     return-void
 .end method
 
-.method public onDozingChanged(Z)V
-    .locals 1
+.method public final onDozingChanged(Z)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
-    invoke-static {v0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$200(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)Z
+    iget-boolean v1, v0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->mIsDozing:Z
 
-    move-result v0
-
-    if-ne p1, v0, :cond_0
+    if-ne p1, v1, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$202(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;Z)Z
-
-    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
-
-    invoke-static {p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$200(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)Z
-
-    move-result p1
+    iput-boolean p1, v0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->mIsDozing:Z
 
     if-eqz p1, :cond_1
 
-    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+    const/4 p0, -0x1
 
-    const/4 p1, -0x1
-
-    invoke-static {p0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$300(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;I)V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->showIndication(I)V
 
     goto :goto_0
 
     :cond_1
-    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
+    iget-object p1, v0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->mIndicationQueue:Ljava/util/LinkedList;
 
-    invoke-static {p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$400(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)Ljava/util/List;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/List;->size()I
+    invoke-virtual {p1}, Ljava/util/LinkedList;->size()I
 
     move-result p1
 
@@ -111,13 +89,11 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController$1;->this$0:Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$400(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;)Ljava/util/List;
-
-    move-result-object p1
+    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->mIndicationQueue:Ljava/util/LinkedList;
 
     const/4 v0, 0x0
 
-    invoke-interface {p1, v0}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+    invoke-virtual {p1, v0}, Ljava/util/LinkedList;->get(I)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -127,7 +103,7 @@
 
     move-result p1
 
-    invoke-static {p0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->access$300(Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;I)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/keyguard/KeyguardIndicationRotateTextViewController;->showIndication(I)V
 
     :cond_2
     :goto_0

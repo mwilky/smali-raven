@@ -14,7 +14,7 @@
 
 
 # virtual methods
-.method public onStart()V
+.method public final onStart()V
     .locals 4
 
     invoke-super {p0}, Landroid/app/Activity;->onStart()V
@@ -49,7 +49,7 @@
 
     invoke-direct {v1}, Landroid/content/Intent;-><init>()V
 
-    sget v2, Lcom/android/systemui/R$mipmap;->ic_launcher_dreams:I
+    const/high16 v2, 0x7f100000
 
     invoke-static {p0, v2}, Landroid/content/Intent$ShortcutIconResource;->fromContext(Landroid/content/Context;I)Landroid/content/Intent$ShortcutIconResource;
 
@@ -63,7 +63,7 @@
 
     invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
-    sget v0, Lcom/android/systemui/R$string;->start_dreams:I
+    const v0, 0x7f1306ba
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

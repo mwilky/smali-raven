@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/FragmentManager$FragmentIntentSenderContract;
+.class public final Landroidx/fragment/app/FragmentManager$FragmentIntentSenderContract;
 .super Landroidx/activity/result/contract/ActivityResultContract;
 .source "FragmentManager.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "FragmentIntentSenderContract"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/activity/result/contract/ActivityResultContract;-><init>()V
@@ -34,22 +34,12 @@
 
 
 # virtual methods
-.method public parseResult(ILandroid/content/Intent;)Landroidx/activity/result/ActivityResult;
+.method public final parseResult(Landroid/content/Intent;I)Ljava/lang/Object;
     .locals 0
 
     new-instance p0, Landroidx/activity/result/ActivityResult;
 
-    invoke-direct {p0, p1, p2}, Landroidx/activity/result/ActivityResult;-><init>(ILandroid/content/Intent;)V
-
-    return-object p0
-.end method
-
-.method public bridge synthetic parseResult(ILandroid/content/Intent;)Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1, p2}, Landroidx/fragment/app/FragmentManager$FragmentIntentSenderContract;->parseResult(ILandroid/content/Intent;)Landroidx/activity/result/ActivityResult;
-
-    move-result-object p0
+    invoke-direct {p0, p1, p2}, Landroidx/activity/result/ActivityResult;-><init>(Landroid/content/Intent;I)V
 
     return-object p0
 .end method

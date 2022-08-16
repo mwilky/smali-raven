@@ -1,4 +1,4 @@
-.class Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$1;
+.class public final Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$1;
 .super Ljava/lang/Object;
 .source "KeyCycleOscillator.java"
 
@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;->setup(F)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -26,15 +17,9 @@
 .end annotation
 
 
-# instance fields
-.field final synthetic this$0:Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;
-
-
 # direct methods
-.method constructor <init>(Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$1;->this$0:Landroidx/constraintlayout/motion/widget/KeyCycleOscillator;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,28 +28,18 @@
 
 
 # virtual methods
-.method public compare(Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;)I
-    .locals 0
-
-    iget p0, p1, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;->mPosition:I
-
-    iget p1, p2, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;->mPosition:I
-
-    invoke-static {p0, p1}, Ljava/lang/Integer;->compare(II)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 0
 
     check-cast p1, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;
 
     check-cast p2, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;
 
-    invoke-virtual {p0, p1, p2}, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$1;->compare(Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;)I
+    iget p0, p1, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;->mPosition:I
+
+    iget p1, p2, Landroidx/constraintlayout/motion/widget/KeyCycleOscillator$WavePoint;->mPosition:I
+
+    invoke-static {p0, p1}, Ljava/lang/Integer;->compare(II)I
 
     move-result p0
 

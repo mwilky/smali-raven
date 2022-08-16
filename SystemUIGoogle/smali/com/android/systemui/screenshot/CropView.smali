@@ -14,32 +14,36 @@
 .end annotation
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mActivePointerId:I
+.field public mActivePointerId:I
 
-.field private final mContainerBackgroundPaint:Landroid/graphics/Paint;
+.field public final mContainerBackgroundPaint:Landroid/graphics/Paint;
 
-.field private mCrop:Landroid/graphics/RectF;
+.field public mCrop:Landroid/graphics/RectF;
 
-.field private mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
+.field public mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
 
-.field private final mCropTouchMargin:F
+.field public final mCropTouchMargin:F
 
-.field private mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+.field public mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-.field private mEntranceInterpolation:F
+.field public mEntranceInterpolation:F
 
-.field private final mExploreByTouchHelper:Landroidx/customview/widget/ExploreByTouchHelper;
+.field public final mExploreByTouchHelper:Lcom/android/systemui/screenshot/CropView$AccessibilityHelper;
 
-.field private mExtraBottomPadding:I
+.field public mExtraBottomPadding:I
 
-.field private mExtraTopPadding:I
+.field public mExtraTopPadding:I
 
-.field private final mHandlePaint:Landroid/graphics/Paint;
+.field public final mHandlePaint:Landroid/graphics/Paint;
 
-.field private mImageWidth:I
+.field public mImageWidth:I
 
-.field private mMotionRange:Landroid/util/Range;
+.field public mMotionRange:Landroid/util/Range;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Range<",
@@ -49,24 +53,16 @@
     .end annotation
 .end field
 
-.field private mMovementStartValue:F
+.field public mMovementStartValue:F
 
-.field private final mShadePaint:Landroid/graphics/Paint;
+.field public final mShadePaint:Landroid/graphics/Paint;
 
-.field private mStartingX:F
+.field public mStartingX:F
 
-.field private mStartingY:F
+.field public mStartingY:F
 
 
 # direct methods
-.method public static synthetic $r8$lambda$Eu3lnVV9CoXVrdC1xPAUci9nHYI(Lcom/android/systemui/screenshot/CropView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/CropView;->lambda$animateEntrance$1(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
 
@@ -116,7 +112,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/screenshot/CropView;->mShadePaint:Landroid/graphics/Paint;
 
-    sget p3, Lcom/android/systemui/R$styleable;->CropView_scrimAlpha:I
+    const/4 p3, 0x3
 
     const/16 v1, 0xff
 
@@ -124,7 +120,7 @@
 
     move-result p3
 
-    sget v1, Lcom/android/systemui/R$styleable;->CropView_scrimColor:I
+    const/4 v1, 0x4
 
     invoke-virtual {p1, v1, v0}, Landroid/content/res/TypedArray;->getColor(II)I
 
@@ -142,9 +138,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/screenshot/CropView;->mContainerBackgroundPaint:Landroid/graphics/Paint;
 
-    sget p3, Lcom/android/systemui/R$styleable;->CropView_containerBackgroundColor:I
-
-    invoke-virtual {p1, p3, v0}, Landroid/content/res/TypedArray;->getColor(II)I
+    invoke-virtual {p1, v0, v0}, Landroid/content/res/TypedArray;->getColor(II)I
 
     move-result p3
 
@@ -156,7 +150,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/screenshot/CropView;->mHandlePaint:Landroid/graphics/Paint;
 
-    sget p3, Lcom/android/systemui/R$styleable;->CropView_handleColor:I
+    const/4 p3, 0x1
 
     const/high16 v0, -0x1000000
 
@@ -170,7 +164,7 @@
 
     invoke-virtual {p2, p3}, Landroid/graphics/Paint;->setStrokeCap(Landroid/graphics/Paint$Cap;)V
 
-    sget p3, Lcom/android/systemui/R$styleable;->CropView_handleThickness:I
+    const/4 p3, 0x2
 
     const/16 v0, 0x14
 
@@ -204,119 +198,257 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/screenshot/CropView$AccessibilityHelper;-><init>(Lcom/android/systemui/screenshot/CropView;)V
 
-    iput-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Landroidx/customview/widget/ExploreByTouchHelper;
+    iput-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Lcom/android/systemui/screenshot/CropView$AccessibilityHelper;
 
     invoke-static {p0, p1}, Landroidx/core/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroidx/core/view/AccessibilityDelegateCompat;)V
 
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/screenshot/CropView;)Landroid/graphics/RectF;
-    .locals 0
+.method public static isVertical(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    sget-object v0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->TOP:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    return-object p0
+    if-eq p0, v0, :cond_1
+
+    sget-object v0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->BOTTOM:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+
+    if-ne p0, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
+    return p0
 .end method
 
-.method static synthetic access$100(Lcom/android/systemui/screenshot/CropView;F)I
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+# virtual methods
+.method public final dispatchHoverEvent(Landroid/view/MotionEvent;)Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Lcom/android/systemui/screenshot/CropView$AccessibilityHelper;
+
+    invoke-virtual {v0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-super {p0, p1}, Landroid/view/View;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
 
     move-result p0
 
+    if-eqz p0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 p0, 0x1
+
+    :goto_1
     return p0
 .end method
 
-.method static synthetic access$200(Lcom/android/systemui/screenshot/CropView;)F
-    .locals 0
+.method public final dispatchKeyEvent(Landroid/view/KeyEvent;)Z
+    .locals 9
 
-    iget p0, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Lcom/android/systemui/screenshot/CropView$AccessibilityHelper;
 
-    return p0
-.end method
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-.method static synthetic access$300(Lcom/android/systemui/screenshot/CropView;F)I
-    .locals 0
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    move-result v1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-eq v1, v3, :cond_7
+
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
+
+    move-result v1
+
+    const/16 v4, 0x3d
+
+    const/4 v5, 0x0
+
+    if-eq v1, v4, :cond_5
+
+    const/16 v4, 0x42
+
+    if-eq v1, v4, :cond_3
+
+    packed-switch v1, :pswitch_data_0
+
+    goto :goto_2
+
+    :pswitch_0
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->hasNoModifiers()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_7
+
+    const/16 v6, 0x13
+
+    if-eq v1, v6, :cond_1
+
+    const/16 v6, 0x15
+
+    if-eq v1, v6, :cond_0
+
+    const/16 v6, 0x16
+
+    if-eq v1, v6, :cond_2
+
+    const/16 v4, 0x82
+
+    goto :goto_0
+
+    :cond_0
+    const/16 v4, 0x11
+
+    goto :goto_0
+
+    :cond_1
+    const/16 v4, 0x21
+
+    :cond_2
+    :goto_0
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
+
+    move-result v1
+
+    add-int/2addr v1, v3
+
+    move v6, v2
+
+    move v7, v6
+
+    :goto_1
+    if-ge v6, v1, :cond_8
+
+    invoke-virtual {v0, v4, v5}, Landroidx/customview/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_8
+
+    add-int/lit8 v6, v6, 0x1
+
+    move v7, v3
+
+    goto :goto_1
+
+    :cond_3
+    :pswitch_1
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->hasNoModifiers()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getRepeatCount()I
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    iget v1, v0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
+
+    const/high16 v4, -0x80000000
+
+    if-eq v1, v4, :cond_4
+
+    const/16 v4, 0x10
+
+    invoke-virtual {v0, v1, v4, v5}, Lcom/android/systemui/screenshot/CropView$AccessibilityHelper;->onPerformActionForVirtualView(IILandroid/os/Bundle;)Z
+
+    :cond_4
+    move v7, v3
+
+    goto :goto_3
+
+    :cond_5
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->hasNoModifiers()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1, v5}, Landroidx/customview/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
+
+    move-result v7
+
+    goto :goto_3
+
+    :cond_6
+    invoke-virtual {p1, v3}, Landroid/view/KeyEvent;->hasModifiers(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    invoke-virtual {v0, v3, v5}, Landroidx/customview/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
+
+    move-result v7
+
+    goto :goto_3
+
+    :cond_7
+    :goto_2
+    move v7, v2
+
+    :cond_8
+    :goto_3
+    if-nez v7, :cond_9
+
+    invoke-super {p0, p1}, Landroid/view/View;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
 
     move-result p0
 
-    return p0
+    if-eqz p0, :cond_a
+
+    :cond_9
+    move v2, v3
+
+    :cond_a
+    return v2
+
+    :pswitch_data_0
+    .packed-switch 0x13
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
-.method static synthetic access$400(Lcom/android/systemui/screenshot/CropView;FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/screenshot/CropView;Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$600(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
-    .locals 0
-
-    invoke-static {p0}, Lcom/android/systemui/screenshot/CropView;->isVertical(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private drawContainerBackground(Landroid/graphics/Canvas;FFFF)V
-    .locals 6
-
-    invoke-direct {p0, p2}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
-
-    move-result p2
-
-    int-to-float v1, p2
-
-    invoke-direct {p0, p3}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
-
-    move-result p2
-
-    int-to-float v2, p2
-
-    invoke-direct {p0, p4}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
-
-    move-result p2
-
-    int-to-float v3, p2
-
-    invoke-direct {p0, p5}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
-
-    move-result p2
-
-    int-to-float v4, p2
-
-    iget-object v5, p0, Lcom/android/systemui/screenshot/CropView;->mContainerBackgroundPaint:Landroid/graphics/Paint;
-
-    move-object v0, p1
-
-    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
-
-    return-void
-.end method
-
-.method private drawHorizontalHandle(Landroid/graphics/Canvas;FZ)V
+.method public final drawHorizontalHandle(Landroid/graphics/Canvas;FZ)V
     .locals 11
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    invoke-virtual {p0, p2}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
     move-result p2
 
@@ -324,7 +456,7 @@
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result v0
 
@@ -336,7 +468,7 @@
 
     iget v0, v0, Landroid/graphics/RectF;->right:F
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result v0
 
@@ -370,7 +502,7 @@
 
     iget v1, v1, Landroid/graphics/RectF;->left:F
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, v1}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result v1
 
@@ -378,15 +510,15 @@
 
     iget v2, v2, Landroid/graphics/RectF;->right:F
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, v2}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result v2
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
-    div-int/lit8 v1, v1, 0x2
+    div-int/lit8 v2, v2, 0x2
 
-    int-to-float v1, v1
+    int-to-float v1, v2
 
     sub-float v3, v1, v0
 
@@ -421,28 +553,28 @@
     return-void
 .end method
 
-.method private drawShade(Landroid/graphics/Canvas;FFFF)V
+.method public final drawShade(Landroid/graphics/Canvas;FFFF)V
     .locals 6
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, p2}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result p2
 
     int-to-float v1, p2
 
-    invoke-direct {p0, p3}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    invoke-virtual {p0, p3}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
     move-result p2
 
     int-to-float v2, p2
 
-    invoke-direct {p0, p4}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, p4}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result p2
 
     int-to-float v3, p2
 
-    invoke-direct {p0, p5}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    invoke-virtual {p0, p5}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
     move-result p2
 
@@ -457,10 +589,10 @@
     return-void
 .end method
 
-.method private drawVerticalHandle(Landroid/graphics/Canvas;FZ)V
-    .locals 11
+.method public final drawVerticalHandle(Landroid/graphics/Canvas;FZ)V
+    .locals 12
 
-    invoke-direct {p0, p2}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, p2}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result p2
 
@@ -470,7 +602,7 @@
 
     iget v0, v0, Landroid/graphics/RectF;->top:F
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    invoke-virtual {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
     move-result v0
 
@@ -480,7 +612,7 @@
 
     iget v0, v0, Landroid/graphics/RectF;->bottom:F
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    invoke-virtual {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
     move-result v0
 
@@ -512,37 +644,37 @@
 
     sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->TOP:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v1}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result v1
 
-    invoke-direct {p0, v1}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    invoke-virtual {p0, v1}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
     move-result v1
 
     sget-object v2, Lcom/android/systemui/screenshot/CropView$CropBoundary;->BOTTOM:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v2}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result v2
 
-    invoke-direct {p0, v2}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    invoke-virtual {p0, v2}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
     move-result v2
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
-    div-int/lit8 v1, v1, 0x2
+    div-int/lit8 v2, v2, 0x2
 
-    sub-float v3, p2, v0
+    sub-float v4, p2, v0
 
-    int-to-float v1, v1
+    int-to-float v1, v2
 
-    sub-float v4, v1, v0
+    sub-float v5, v1, v0
 
-    add-float v5, p2, v0
+    add-float v6, p2, v0
 
-    add-float v6, v1, v0
+    add-float v7, v1, v0
 
     if-eqz p3, :cond_0
 
@@ -554,22 +686,22 @@
     const/high16 p2, 0x43870000    # 270.0f
 
     :goto_0
-    move v7, p2
+    move v8, p2
 
-    const/high16 v8, 0x43340000    # 180.0f
+    const/high16 v9, 0x43340000    # 180.0f
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
-    iget-object v10, p0, Lcom/android/systemui/screenshot/CropView;->mHandlePaint:Landroid/graphics/Paint;
+    iget-object v11, p0, Lcom/android/systemui/screenshot/CropView;->mHandlePaint:Landroid/graphics/Paint;
 
-    move-object v2, p1
+    move-object v3, p1
 
-    invoke-virtual/range {v2 .. v10}, Landroid/graphics/Canvas;->drawArc(FFFFFFZLandroid/graphics/Paint;)V
+    invoke-virtual/range {v3 .. v11}, Landroid/graphics/Canvas;->drawArc(FFFFFFZLandroid/graphics/Paint;)V
 
     return-void
 .end method
 
-.method private fractionToHorizontalPixels(F)I
+.method public final fractionToHorizontalPixels(F)I
     .locals 1
 
     invoke-virtual {p0}, Landroid/view/View;->getWidth()I
@@ -588,45 +720,49 @@
 
     mul-float/2addr p1, p0
 
-    add-float/2addr v0, p1
+    add-float/2addr p1, v0
 
-    float-to-int p0, v0
+    float-to-int p0, p1
 
     return p0
 .end method
 
-.method private fractionToVerticalPixels(F)I
-    .locals 1
+.method public final fractionToVerticalPixels(F)I
+    .locals 3
 
     iget v0, p0, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
 
     int-to-float v0, v0
 
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/CropView;->getImageHeight()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
-    move-result p0
+    move-result v1
 
-    int-to-float p0, p0
+    iget v2, p0, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
+
+    sub-int/2addr v1, v2
+
+    iget p0, p0, Lcom/android/systemui/screenshot/CropView;->mExtraBottomPadding:I
+
+    sub-int/2addr v1, p0
+
+    int-to-float p0, v1
 
     mul-float/2addr p1, p0
 
-    add-float/2addr v0, p1
+    add-float/2addr p1, v0
 
-    float-to-int p0, v0
+    float-to-int p0, p1
 
     return p0
 .end method
 
-.method private getAllowedValues(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Landroid/util/Range;
+.method public final getAllowedValues(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Landroid/util/Range;
     .locals 4
-
-    sget-object v0, Lcom/android/systemui/screenshot/CropView$1;->$SwitchMap$com$android$systemui$screenshot$CropView$CropBoundary:[I
 
     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result p1
-
-    aget p1, v0, p1
 
     const/4 v0, 0x1
 
@@ -663,13 +799,13 @@
 
     sget-object v3, Lcom/android/systemui/screenshot/CropView$CropBoundary;->LEFT:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v1, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v1, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result p0
 
-    add-float/2addr v0, p0
+    add-float/2addr p0, v0
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p0
 
@@ -696,7 +832,7 @@
 
     sget-object v3, Lcom/android/systemui/screenshot/CropView$CropBoundary;->RIGHT:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v2, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v2, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result p0
 
@@ -721,13 +857,13 @@
 
     sget-object v3, Lcom/android/systemui/screenshot/CropView$CropBoundary;->TOP:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v1, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v1, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result p0
 
-    add-float/2addr v0, p0
+    add-float/2addr p0, v0
 
-    invoke-static {v0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p0
 
@@ -754,7 +890,7 @@
 
     sget-object v3, Lcom/android/systemui/screenshot/CropView$CropBoundary;->BOTTOM:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v2, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v2, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result p0
 
@@ -769,16 +905,12 @@
     return-object p1
 .end method
 
-.method private getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
+.method public final getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
     .locals 1
-
-    sget-object v0, Lcom/android/systemui/screenshot/CropView$1;->$SwitchMap$com$android$systemui$screenshot$CropView$CropBoundary:[I
 
     invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
 
     move-result p1
-
-    aget p1, v0, p1
 
     const/4 v0, 0x1
 
@@ -829,455 +961,7 @@
     return p0
 .end method
 
-.method private getImageHeight()I
-    .locals 2
-
-    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
-
-    sub-int/2addr v0, v1
-
-    iget p0, p0, Lcom/android/systemui/screenshot/CropView;->mExtraBottomPadding:I
-
-    sub-int/2addr v0, p0
-
-    return v0
-.end method
-
-.method private static isVertical(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->TOP:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    if-eq p0, v0, :cond_1
-
-    sget-object v0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->BOTTOM:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    if-ne p0, v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method private synthetic lambda$animateEntrance$1(Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedFraction()F
-
-    move-result p1
-
-    iput p1, p0, Lcom/android/systemui/screenshot/CropView;->mEntranceInterpolation:F
-
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
-
-    return-void
-.end method
-
-.method private nearestBoundary(Landroid/view/MotionEvent;IIII)Lcom/android/systemui/screenshot/CropView$CropBoundary;
-    .locals 2
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v0
-
-    int-to-float p2, p2
-
-    sub-float/2addr v0, p2
-
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
-
-    cmpg-float v0, v0, v1
-
-    if-gez v0, :cond_0
-
-    sget-object p0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->TOP:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    return-object p0
-
-    :cond_0
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v0
-
-    int-to-float p3, p3
-
-    sub-float/2addr v0, p3
-
-    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
-
-    move-result v0
-
-    iget v1, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
-
-    cmpg-float v0, v0, v1
-
-    if-gez v0, :cond_1
-
-    sget-object p0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->BOTTOM:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    return-object p0
-
-    :cond_1
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result v0
-
-    cmpl-float p2, v0, p2
-
-    if-gtz p2, :cond_2
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
-
-    move-result p2
-
-    cmpg-float p2, p2, p3
-
-    if-gez p2, :cond_4
-
-    :cond_2
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result p2
-
-    int-to-float p3, p4
-
-    sub-float/2addr p2, p3
-
-    invoke-static {p2}, Ljava/lang/Math;->abs(F)F
-
-    move-result p2
-
-    iget p3, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
-
-    cmpg-float p2, p2, p3
-
-    if-gez p2, :cond_3
-
-    sget-object p0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->LEFT:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    return-object p0
-
-    :cond_3
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
-
-    move-result p1
-
-    int-to-float p2, p5
-
-    sub-float/2addr p1, p2
-
-    invoke-static {p1}, Ljava/lang/Math;->abs(F)F
-
-    move-result p1
-
-    iget p0, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
-
-    cmpg-float p0, p1, p0
-
-    if-gez p0, :cond_4
-
-    sget-object p0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->RIGHT:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    return-object p0
-
-    :cond_4
-    sget-object p0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->NONE:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    return-object p0
-.end method
-
-.method private pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
-    .locals 0
-
-    invoke-static {p2}, Lcom/android/systemui/screenshot/CropView;->isVertical(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
-
-    move-result p2
-
-    if-eqz p2, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/screenshot/CropView;->getImageHeight()I
-
-    move-result p0
-
-    :goto_0
-    int-to-float p0, p0
-
-    div-float/2addr p1, p0
-
-    return p1
-
-    :cond_0
-    iget p0, p0, Lcom/android/systemui/screenshot/CropView;->mImageWidth:I
-
-    goto :goto_0
-.end method
-
-.method private updateListener(IF)V
-    .locals 7
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    invoke-static {v0}, Lcom/android/systemui/screenshot/CropView;->isVertical(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
-
-    move-result v3
-
-    const/high16 v0, 0x40000000    # 2.0f
-
-    if-eqz p1, :cond_2
-
-    const/4 v1, 0x1
-
-    if-eq p1, v1, :cond_1
-
-    const/4 v1, 0x2
-
-    if-eq p1, v1, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    invoke-direct {p0, v3}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
-
-    move-result v4
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iget p1, p0, Landroid/graphics/RectF;->left:F
-
-    iget p0, p0, Landroid/graphics/RectF;->right:F
-
-    add-float/2addr p1, p0
-
-    div-float v5, p1, v0
-
-    move v6, p2
-
-    invoke-interface/range {v1 .. v6}, Lcom/android/systemui/screenshot/CropView$CropInteractionListener;->onCropDragMoved(Lcom/android/systemui/screenshot/CropView$CropBoundary;FIFF)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
-
-    invoke-interface {p0}, Lcom/android/systemui/screenshot/CropView$CropInteractionListener;->onCropDragComplete()V
-
-    goto :goto_0
-
-    :cond_2
-    iget-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    invoke-direct {p0, v3}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
-
-    move-result v4
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iget p1, p0, Landroid/graphics/RectF;->left:F
-
-    iget p0, p0, Landroid/graphics/RectF;->right:F
-
-    add-float/2addr p1, p0
-
-    div-float v5, p1, v0
-
-    move v6, p2
-
-    invoke-interface/range {v1 .. v6}, Lcom/android/systemui/screenshot/CropView$CropInteractionListener;->onCropDragStarted(Lcom/android/systemui/screenshot/CropView$CropBoundary;FIFF)V
-
-    :cond_3
-    :goto_0
-    return-void
-.end method
-
-
-# virtual methods
-.method public animateEntrance()V
-    .locals 3
-
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/android/systemui/screenshot/CropView;->mEntranceInterpolation:F
-
-    new-instance v0, Landroid/animation/ValueAnimator;
-
-    invoke-direct {v0}, Landroid/animation/ValueAnimator;-><init>()V
-
-    new-instance v1, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/screenshot/CropView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/screenshot/CropView;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    const/4 p0, 0x2
-
-    new-array p0, p0, [F
-
-    fill-array-data p0, :array_0
-
-    invoke-virtual {v0, p0}, Landroid/animation/ValueAnimator;->setFloatValues([F)V
-
-    const-wide/16 v1, 0x2ee
-
-    invoke-virtual {v0, v1, v2}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    new-instance p0, Landroidx/interpolator/view/animation/FastOutSlowInInterpolator;
-
-    invoke-direct {p0}, Landroidx/interpolator/view/animation/FastOutSlowInInterpolator;-><init>()V
-
-    invoke-virtual {v0, p0}, Landroid/animation/ValueAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
-
-    return-void
-
-    :array_0
-    .array-data 4
-        0x0
-        0x3f800000    # 1.0f
-    .end array-data
-.end method
-
-.method public dispatchHoverEvent(Landroid/view/MotionEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Landroidx/customview/widget/ExploreByTouchHelper;
-
-    invoke-virtual {v0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-super {p0, p1}, Landroid/view/View;->dispatchHoverEvent(Landroid/view/MotionEvent;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Landroidx/customview/widget/ExploreByTouchHelper;
-
-    invoke-virtual {v0, p1}, Landroidx/customview/widget/ExploreByTouchHelper;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-super {p0, p1}, Landroid/view/View;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method public getCropBoundaries(II)Landroid/graphics/Rect;
-    .locals 4
-
-    new-instance v0, Landroid/graphics/Rect;
-
-    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iget v1, p0, Landroid/graphics/RectF;->left:F
-
-    int-to-float p1, p1
-
-    mul-float/2addr v1, p1
-
-    float-to-int v1, v1
-
-    iget v2, p0, Landroid/graphics/RectF;->top:F
-
-    int-to-float p2, p2
-
-    mul-float/2addr v2, p2
-
-    float-to-int v2, v2
-
-    iget v3, p0, Landroid/graphics/RectF;->right:F
-
-    mul-float/2addr v3, p1
-
-    float-to-int p1, v3
-
-    iget p0, p0, Landroid/graphics/RectF;->bottom:F
-
-    mul-float/2addr p0, p2
-
-    float-to-int p0, p0
-
-    invoke-direct {v0, v1, v2, p1, p0}, Landroid/graphics/Rect;-><init>(IIII)V
-
-    return-object v0
-.end method
-
-.method public onDraw(Landroid/graphics/Canvas;)V
+.method public final onDraw(Landroid/graphics/Canvas;)V
     .locals 10
 
     invoke-super {p0, p1}, Landroid/view/View;->onDraw(Landroid/graphics/Canvas;)V
@@ -1288,101 +972,135 @@
 
     iget v1, p0, Lcom/android/systemui/screenshot/CropView;->mEntranceInterpolation:F
 
+    const/4 v6, 0x0
+
+    invoke-static {v0, v6, v1}, Landroid/util/MathUtils;->lerp(FFF)F
+
+    move-result v7
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget v0, v0, Landroid/graphics/RectF;->bottom:F
+
+    iget v1, p0, Lcom/android/systemui/screenshot/CropView;->mEntranceInterpolation:F
+
+    const/high16 v8, 0x3f800000    # 1.0f
+
+    invoke-static {v0, v8, v1}, Landroid/util/MathUtils;->lerp(FFF)F
+
+    move-result v9
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget v5, v0, Landroid/graphics/RectF;->top:F
+
     const/4 v2, 0x0
 
-    invoke-static {v0, v2, v1}, Landroid/util/MathUtils;->lerp(FFF)F
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move v3, v7
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget v3, v0, Landroid/graphics/RectF;->bottom:F
+
+    move-object v0, p0
+
+    move v5, v9
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget v3, v0, Landroid/graphics/RectF;->top:F
+
+    iget v4, v0, Landroid/graphics/RectF;->left:F
+
+    iget v5, v0, Landroid/graphics/RectF;->bottom:F
+
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
+
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget v2, v0, Landroid/graphics/RectF;->right:F
+
+    iget v3, v0, Landroid/graphics/RectF;->top:F
+
+    iget v5, v0, Landroid/graphics/RectF;->bottom:F
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
+
+    invoke-virtual {p0, v6}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    int-to-float v1, v0
 
-    iget v1, v1, Landroid/graphics/RectF;->bottom:F
+    invoke-virtual {p0, v6}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
-    iget v2, p0, Lcom/android/systemui/screenshot/CropView;->mEntranceInterpolation:F
+    move-result v0
 
-    const/high16 v3, 0x3f800000    # 1.0f
+    int-to-float v2, v0
 
-    invoke-static {v1, v3, v2}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-virtual {p0, v8}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
-    move-result v1
+    move-result v0
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    int-to-float v3, v0
 
-    iget v8, v2, Landroid/graphics/RectF;->top:F
+    invoke-virtual {p0, v7}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
-    const/4 v5, 0x0
+    move-result v0
 
-    const/high16 v7, 0x3f800000    # 1.0f
+    int-to-float v4, v0
 
-    move-object v3, p0
+    iget-object v5, p0, Lcom/android/systemui/screenshot/CropView;->mContainerBackgroundPaint:Landroid/graphics/Paint;
 
-    move-object v4, p1
+    move-object v0, p1
 
-    move v6, v0
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
-    invoke-direct/range {v3 .. v8}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
+    invoke-virtual {p0, v6}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    move-result v0
 
-    iget v7, v2, Landroid/graphics/RectF;->bottom:F
+    int-to-float v1, v0
 
-    const/4 v6, 0x0
+    invoke-virtual {p0, v9}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
-    const/high16 v8, 0x3f800000    # 1.0f
+    move-result v0
 
-    move-object v4, p0
+    int-to-float v2, v0
 
-    move-object v5, p1
+    invoke-virtual {p0, v8}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
-    move v9, v1
+    move-result v0
 
-    invoke-direct/range {v4 .. v9}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
+    int-to-float v3, v0
 
-    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    invoke-virtual {p0, v8}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
-    iget v6, v2, Landroid/graphics/RectF;->top:F
+    move-result v0
 
-    iget v7, v2, Landroid/graphics/RectF;->left:F
+    int-to-float v4, v0
 
-    iget v8, v2, Landroid/graphics/RectF;->bottom:F
+    iget-object v5, p0, Lcom/android/systemui/screenshot/CropView;->mContainerBackgroundPaint:Landroid/graphics/Paint;
 
-    const/4 v5, 0x0
+    move-object v0, p1
 
-    move-object v4, p1
-
-    invoke-direct/range {v3 .. v8}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
-
-    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iget v5, v2, Landroid/graphics/RectF;->right:F
-
-    iget v6, v2, Landroid/graphics/RectF;->top:F
-
-    iget v8, v2, Landroid/graphics/RectF;->bottom:F
-
-    const/high16 v7, 0x3f800000    # 1.0f
-
-    invoke-direct/range {v3 .. v8}, Lcom/android/systemui/screenshot/CropView;->drawShade(Landroid/graphics/Canvas;FFFF)V
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    move v8, v0
-
-    invoke-direct/range {v3 .. v8}, Lcom/android/systemui/screenshot/CropView;->drawContainerBackground(Landroid/graphics/Canvas;FFFF)V
-
-    const/high16 v8, 0x3f800000    # 1.0f
-
-    const/high16 v9, 0x3f800000    # 1.0f
-
-    move-object v4, p0
-
-    move-object v5, p1
-
-    move v7, v1
-
-    invoke-direct/range {v4 .. v9}, Lcom/android/systemui/screenshot/CropView;->drawContainerBackground(Landroid/graphics/Canvas;FFFF)V
+    invoke-virtual/range {v0 .. v5}, Landroid/graphics/Canvas;->drawRect(FFFFLandroid/graphics/Paint;)V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mHandlePaint:Landroid/graphics/Paint;
 
@@ -1402,7 +1120,7 @@
 
     const/4 v1, 0x1
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/screenshot/CropView;->drawHorizontalHandle(Landroid/graphics/Canvas;FZ)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/systemui/screenshot/CropView;->drawHorizontalHandle(Landroid/graphics/Canvas;FZ)V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
@@ -1410,36 +1128,48 @@
 
     const/4 v2, 0x0
 
-    invoke-direct {p0, p1, v0, v2}, Lcom/android/systemui/screenshot/CropView;->drawHorizontalHandle(Landroid/graphics/Canvas;FZ)V
+    invoke-virtual {p0, p1, v0, v2}, Lcom/android/systemui/screenshot/CropView;->drawHorizontalHandle(Landroid/graphics/Canvas;FZ)V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->left:F
 
-    invoke-direct {p0, p1, v0, v1}, Lcom/android/systemui/screenshot/CropView;->drawVerticalHandle(Landroid/graphics/Canvas;FZ)V
+    invoke-virtual {p0, p1, v0, v1}, Lcom/android/systemui/screenshot/CropView;->drawVerticalHandle(Landroid/graphics/Canvas;FZ)V
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
     iget v0, v0, Landroid/graphics/RectF;->right:F
 
-    invoke-direct {p0, p1, v0, v2}, Lcom/android/systemui/screenshot/CropView;->drawVerticalHandle(Landroid/graphics/Canvas;FZ)V
+    invoke-virtual {p0, p1, v0, v2}, Lcom/android/systemui/screenshot/CropView;->drawVerticalHandle(Landroid/graphics/Canvas;FZ)V
 
     return-void
 .end method
 
-.method public onFocusChanged(ZILandroid/graphics/Rect;)V
-    .locals 0
+.method public final onFocusChanged(ZILandroid/graphics/Rect;)V
+    .locals 2
 
     invoke-super {p0, p1, p2, p3}, Landroid/view/View;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
-    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Landroidx/customview/widget/ExploreByTouchHelper;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mExploreByTouchHelper:Lcom/android/systemui/screenshot/CropView$AccessibilityHelper;
 
-    invoke-virtual {p0, p1, p2, p3}, Landroidx/customview/widget/ExploreByTouchHelper;->onFocusChanged(ZILandroid/graphics/Rect;)V
+    iget v0, p0, Landroidx/customview/widget/ExploreByTouchHelper;->mKeyboardFocusedVirtualViewId:I
 
+    const/high16 v1, -0x80000000
+
+    if-eq v0, v1, :cond_0
+
+    invoke-virtual {p0, v0}, Landroidx/customview/widget/ExploreByTouchHelper;->clearKeyboardFocusForVirtualView(I)Z
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0, p2, p3}, Landroidx/customview/widget/ExploreByTouchHelper;->moveFocus(ILandroid/graphics/Rect;)Z
+
+    :cond_1
     return-void
 .end method
 
-.method protected onRestoreInstanceState(Landroid/os/Parcelable;)V
+.method public final onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 1
 
     check-cast p1, Lcom/android/systemui/screenshot/CropView$SavedState;
@@ -1457,7 +1187,7 @@
     return-void
 .end method
 
-.method protected onSaveInstanceState()Landroid/os/Parcelable;
+.method public final onSaveInstanceState()Landroid/os/Parcelable;
     .locals 2
 
     invoke-super {p0}, Landroid/view/View;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -1475,73 +1205,73 @@
     return-object v1
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 9
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    sget-object v0, Lcom/android/systemui/screenshot/CropView$CropBoundary;->NONE:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    iget v0, v0, Landroid/graphics/RectF;->top:F
+    iget-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    iget v1, v1, Landroid/graphics/RectF;->top:F
 
-    move-result v3
+    invoke-virtual {p0, v1}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    move-result v1
 
-    iget v0, v0, Landroid/graphics/RectF;->bottom:F
+    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+    iget v2, v2, Landroid/graphics/RectF;->bottom:F
 
-    move-result v4
+    invoke-virtual {p0, v2}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+
+    move-result v2
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
-    move-result v0
+    move-result v3
 
-    const/4 v7, 0x0
+    const/4 v4, 0x0
 
-    const/4 v8, 0x1
+    const/4 v5, 0x1
 
-    if-eqz v0, :cond_7
+    if-eqz v3, :cond_7
 
-    if-eq v0, v8, :cond_5
+    if-eq v3, v5, :cond_5
 
     const/4 v1, 0x2
 
-    if-eq v0, v1, :cond_2
+    if-eq v3, v1, :cond_2
 
     const/4 v1, 0x3
 
-    if-eq v0, v1, :cond_5
+    if-eq v3, v1, :cond_5
 
     const/4 v1, 0x5
 
-    if-eq v0, v1, :cond_1
+    if-eq v3, v1, :cond_1
 
     const/4 v1, 0x6
 
-    if-eq v0, v1, :cond_0
+    if-eq v3, v1, :cond_0
 
     goto/16 :goto_1
 
     :cond_0
-    iget v0, p0, Lcom/android/systemui/screenshot/CropView;->mActivePointerId:I
+    iget v1, p0, Lcom/android/systemui/screenshot/CropView;->mActivePointerId:I
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
+    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_6
+    if-ne v1, v2, :cond_6
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+    iget-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->NONE:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    if-eq v0, v1, :cond_6
+    if-eq v1, v0, :cond_6
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
@@ -1551,28 +1281,26 @@
 
     move-result p1
 
-    invoke-direct {p0, v8, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
+    invoke-virtual {p0, v5, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
 
-    return v8
+    return v5
 
     :cond_1
-    iget v0, p0, Lcom/android/systemui/screenshot/CropView;->mActivePointerId:I
+    iget v1, p0, Lcom/android/systemui/screenshot/CropView;->mActivePointerId:I
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
-    move-result v1
+    move-result v2
 
-    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
+    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
 
-    move-result v1
+    move-result v2
 
-    if-ne v0, v1, :cond_6
+    if-ne v1, v2, :cond_6
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+    iget-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->NONE:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    if-eq v0, v1, :cond_6
+    if-eq v1, v0, :cond_6
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
 
@@ -1582,16 +1310,14 @@
 
     move-result p1
 
-    invoke-direct {p0, v7, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
+    invoke-virtual {p0, v4, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
 
-    return v8
+    return v5
 
     :cond_2
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    sget-object v2, Lcom/android/systemui/screenshot/CropView$CropBoundary;->NONE:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    if-eq v0, v2, :cond_6
+    if-eq v2, v0, :cond_6
 
     iget v0, p0, Lcom/android/systemui/screenshot/CropView;->mActivePointerId:I
 
@@ -1633,7 +1359,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v2, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v2, v3}, Lcom/android/systemui/screenshot/CropView;->pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result v2
 
@@ -1641,11 +1367,11 @@
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/CropView;->mMotionRange:Landroid/util/Range;
 
-    iget v5, p0, Lcom/android/systemui/screenshot/CropView;->mMovementStartValue:F
+    iget v6, p0, Lcom/android/systemui/screenshot/CropView;->mMovementStartValue:F
 
-    add-float/2addr v5, v2
+    add-float/2addr v6, v2
 
-    invoke-static {v5}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {v6}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object v2
 
@@ -1659,25 +1385,23 @@
 
     move-result v2
 
-    invoke-virtual {p0, v3, v2}, Lcom/android/systemui/screenshot/CropView;->setBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;F)V
+    invoke-virtual {p0, v2, v3}, Lcom/android/systemui/screenshot/CropView;->setBoundaryPosition(FLcom/android/systemui/screenshot/CropView$CropBoundary;)V
 
     invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result p1
 
-    invoke-direct {p0, v1, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
+    invoke-virtual {p0, v1, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
 
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
 
     :cond_4
-    return v8
+    return v5
 
     :cond_5
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+    iget-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->NONE:Lcom/android/systemui/screenshot/CropView$CropBoundary;
-
-    if-eq v0, v1, :cond_6
+    if-eq v1, v0, :cond_6
 
     iget v0, p0, Lcom/android/systemui/screenshot/CropView;->mActivePointerId:I
 
@@ -1687,13 +1411,13 @@
 
     if-ne v0, v1, :cond_6
 
-    invoke-virtual {p1, v7}, Landroid/view/MotionEvent;->getX(I)F
+    invoke-virtual {p1, v4}, Landroid/view/MotionEvent;->getX(I)F
 
     move-result p1
 
-    invoke-direct {p0, v8, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
+    invoke-virtual {p0, v5, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
 
-    return v8
+    return v5
 
     :cond_6
     :goto_1
@@ -1704,37 +1428,139 @@
     return p0
 
     :cond_7
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    iget-object v3, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
-    iget v0, v0, Landroid/graphics/RectF;->left:F
+    iget v3, v3, Landroid/graphics/RectF;->left:F
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, v3}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
-    move-result v5
+    move-result v3
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+    iget-object v6, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
 
-    iget v0, v0, Landroid/graphics/RectF;->right:F
+    iget v6, v6, Landroid/graphics/RectF;->right:F
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
+    invoke-virtual {p0, v6}, Lcom/android/systemui/screenshot/CropView;->fractionToHorizontalPixels(F)I
 
     move-result v6
 
-    move-object v1, p0
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-object v2, p1
+    move-result v7
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/systemui/screenshot/CropView;->nearestBoundary(Landroid/view/MotionEvent;IIII)Lcom/android/systemui/screenshot/CropView$CropBoundary;
+    int-to-float v1, v1
 
-    move-result-object v0
+    sub-float/2addr v7, v1
 
-    iput-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
 
-    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->NONE:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+    move-result v7
 
-    if-eq v0, v1, :cond_8
+    iget v8, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
 
-    invoke-virtual {p1, v7}, Landroid/view/MotionEvent;->getPointerId(I)I
+    cmpg-float v7, v7, v8
+
+    if-gez v7, :cond_8
+
+    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->TOP:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+
+    goto :goto_2
+
+    :cond_8
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v7
+
+    int-to-float v2, v2
+
+    sub-float/2addr v7, v2
+
+    invoke-static {v7}, Ljava/lang/Math;->abs(F)F
+
+    move-result v7
+
+    iget v8, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
+
+    cmpg-float v7, v7, v8
+
+    if-gez v7, :cond_9
+
+    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->BOTTOM:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+
+    goto :goto_2
+
+    :cond_9
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v7
+
+    cmpl-float v1, v7, v1
+
+    if-gtz v1, :cond_a
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v1
+
+    cmpg-float v1, v1, v2
+
+    if-gez v1, :cond_c
+
+    :cond_a
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v1
+
+    int-to-float v2, v3
+
+    sub-float/2addr v1, v2
+
+    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+
+    move-result v1
+
+    iget v2, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
+
+    cmpg-float v1, v1, v2
+
+    if-gez v1, :cond_b
+
+    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->LEFT:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+
+    goto :goto_2
+
+    :cond_b
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v1
+
+    int-to-float v2, v6
+
+    sub-float/2addr v1, v2
+
+    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+
+    move-result v1
+
+    iget v2, p0, Lcom/android/systemui/screenshot/CropView;->mCropTouchMargin:F
+
+    cmpg-float v1, v1, v2
+
+    if-gez v1, :cond_c
+
+    sget-object v1, Lcom/android/systemui/screenshot/CropView$CropBoundary;->RIGHT:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+
+    goto :goto_2
+
+    :cond_c
+    move-object v1, v0
+
+    :goto_2
+    iput-object v1, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+
+    if-eq v1, v0, :cond_d
+
+    invoke-virtual {p1, v4}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v0
 
@@ -1754,7 +1580,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
+    invoke-virtual {p0, v0}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
     move-result v0
 
@@ -1764,105 +1590,133 @@
 
     move-result p1
 
-    invoke-direct {p0, v7, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
+    invoke-virtual {p0, v4, p1}, Lcom/android/systemui/screenshot/CropView;->updateListener(IF)V
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/CropView;->getAllowedValues(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Landroid/util/Range;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/CropView;->getAllowedValues(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Landroid/util/Range;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mMotionRange:Landroid/util/Range;
 
-    :cond_8
-    return v8
+    :cond_d
+    return v5
 .end method
 
-.method public setBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;F)V
+.method public final pixelDistanceToFraction(FLcom/android/systemui/screenshot/CropView$CropBoundary;)F
     .locals 1
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/screenshot/CropView;->getAllowedValues(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Landroid/util/Range;
-
-    move-result-object v0
-
-    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p2
-
-    invoke-virtual {v0, p2}, Landroid/util/Range;->clamp(Ljava/lang/Comparable;)Ljava/lang/Comparable;
-
-    move-result-object p2
-
-    check-cast p2, Ljava/lang/Float;
-
-    invoke-virtual {p2}, Ljava/lang/Float;->floatValue()F
+    invoke-static {p2}, Lcom/android/systemui/screenshot/CropView;->isVertical(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
 
     move-result p2
 
-    sget-object v0, Lcom/android/systemui/screenshot/CropView$1;->$SwitchMap$com$android$systemui$screenshot$CropView$CropBoundary:[I
+    if-eqz p2, :cond_0
 
-    invoke-virtual {p1}, Ljava/lang/Enum;->ordinal()I
+    invoke-virtual {p0}, Landroid/view/View;->getHeight()I
 
-    move-result p1
+    move-result p2
 
-    aget p1, v0, p1
+    iget v0, p0, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
 
-    const/4 v0, 0x1
+    sub-int/2addr p2, v0
 
-    if-eq p1, v0, :cond_4
+    iget p0, p0, Lcom/android/systemui/screenshot/CropView;->mExtraBottomPadding:I
 
-    const/4 v0, 0x2
-
-    if-eq p1, v0, :cond_3
-
-    const/4 v0, 0x3
-
-    if-eq p1, v0, :cond_2
-
-    const/4 v0, 0x4
-
-    if-eq p1, v0, :cond_1
-
-    const/4 p2, 0x5
-
-    if-eq p1, p2, :cond_0
+    sub-int/2addr p2, p0
 
     goto :goto_0
 
     :cond_0
+    iget p2, p0, Lcom/android/systemui/screenshot/CropView;->mImageWidth:I
+
+    :goto_0
+    int-to-float p0, p2
+
+    div-float/2addr p1, p0
+
+    return p1
+.end method
+
+.method public final setBoundaryPosition(FLcom/android/systemui/screenshot/CropView$CropBoundary;)V
+    .locals 1
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/screenshot/CropView;->getAllowedValues(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Landroid/util/Range;
+
+    move-result-object v0
+
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Landroid/util/Range;->clamp(Ljava/lang/Comparable;)Ljava/lang/Comparable;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    invoke-virtual {p2}, Ljava/lang/Enum;->ordinal()I
+
+    move-result p2
+
+    if-eqz p2, :cond_4
+
+    const/4 v0, 0x1
+
+    if-eq p2, v0, :cond_3
+
+    const/4 v0, 0x2
+
+    if-eq p2, v0, :cond_2
+
+    const/4 v0, 0x3
+
+    if-eq p2, v0, :cond_1
+
+    const/4 v0, 0x4
+
+    if-eq p2, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iput p1, p2, Landroid/graphics/RectF;->right:F
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iput p1, p2, Landroid/graphics/RectF;->left:F
+
+    goto :goto_0
+
+    :cond_2
+    iget-object p2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iput p1, p2, Landroid/graphics/RectF;->bottom:F
+
+    goto :goto_0
+
+    :cond_3
+    iget-object p2, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iput p1, p2, Landroid/graphics/RectF;->top:F
+
+    goto :goto_0
+
+    :cond_4
     const-string p1, "CropView"
 
     const-string p2, "No boundary selected"
 
     invoke-static {p1, p2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iput p2, p1, Landroid/graphics/RectF;->right:F
-
-    goto :goto_0
-
-    :cond_2
-    iget-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iput p2, p1, Landroid/graphics/RectF;->left:F
-
-    goto :goto_0
-
-    :cond_3
-    iget-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iput p2, p1, Landroid/graphics/RectF;->bottom:F
-
-    goto :goto_0
-
-    :cond_4
-    iget-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
-
-    iput p2, p1, Landroid/graphics/RectF;->top:F
 
     :goto_0
     invoke-virtual {p0}, Landroid/view/View;->invalidate()V
@@ -1870,32 +1724,95 @@
     return-void
 .end method
 
-.method public setCropInteractionListener(Lcom/android/systemui/screenshot/CropView$CropInteractionListener;)V
-    .locals 0
+.method public final updateListener(IF)V
+    .locals 7
 
-    iput-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
 
-    return-void
-.end method
+    if-eqz v0, :cond_3
 
-.method public setExtraPadding(II)V
-    .locals 0
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-    iput p1, p0, Lcom/android/systemui/screenshot/CropView;->mExtraTopPadding:I
+    invoke-static {v0}, Lcom/android/systemui/screenshot/CropView;->isVertical(Lcom/android/systemui/screenshot/CropView$CropBoundary;)Z
 
-    iput p2, p0, Lcom/android/systemui/screenshot/CropView;->mExtraBottomPadding:I
+    move-result v0
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    if-eqz v0, :cond_3
 
-    return-void
-.end method
+    iget-object v0, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
 
-.method public setImageWidth(I)V
-    .locals 0
+    invoke-virtual {p0, v0}, Lcom/android/systemui/screenshot/CropView;->getBoundaryPosition(Lcom/android/systemui/screenshot/CropView$CropBoundary;)F
 
-    iput p1, p0, Lcom/android/systemui/screenshot/CropView;->mImageWidth:I
+    move-result v3
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    const/high16 v0, 0x40000000    # 2.0f
 
+    if-eqz p1, :cond_2
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_1
+
+    const/4 v0, 0x2
+
+    if-eq p1, v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+
+    move-result v0
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget p0, p0, Landroid/graphics/RectF;->left:F
+
+    check-cast p1, Lcom/android/systemui/screenshot/MagnifierView;
+
+    invoke-virtual {p1, v3, v0, p2}, Lcom/android/systemui/screenshot/MagnifierView;->onCropDragMoved(FIF)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
+
+    check-cast p0, Lcom/android/systemui/screenshot/MagnifierView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/MagnifierView;->onCropDragComplete()V
+
+    goto :goto_0
+
+    :cond_2
+    iget-object p1, p0, Lcom/android/systemui/screenshot/CropView;->mCropInteractionListener:Lcom/android/systemui/screenshot/CropView$CropInteractionListener;
+
+    iget-object v2, p0, Lcom/android/systemui/screenshot/CropView;->mCurrentDraggingBoundary:Lcom/android/systemui/screenshot/CropView$CropBoundary;
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/screenshot/CropView;->fractionToVerticalPixels(F)I
+
+    move-result v4
+
+    iget-object p0, p0, Lcom/android/systemui/screenshot/CropView;->mCrop:Landroid/graphics/RectF;
+
+    iget v1, p0, Landroid/graphics/RectF;->left:F
+
+    iget p0, p0, Landroid/graphics/RectF;->right:F
+
+    add-float/2addr v1, p0
+
+    div-float v5, v1, v0
+
+    move-object v1, p1
+
+    check-cast v1, Lcom/android/systemui/screenshot/MagnifierView;
+
+    move v6, p2
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/screenshot/MagnifierView;->onCropDragStarted(Lcom/android/systemui/screenshot/CropView$CropBoundary;FIFF)V
+
+    :cond_3
+    :goto_0
     return-void
 .end method

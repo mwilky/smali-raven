@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/media/dialog/MediaOutputBaseDialog$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnClickListener;
+.implements Landroid/content/DialogInterface$OnClickListener;
 
 
 # instance fields
@@ -22,12 +23,33 @@
 
 
 # virtual methods
-.method public final onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->$r8$lambda$r1AKjMGRlcvcmEdjOQMD0oYbOf0(Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;Landroid/view/View;)V
+    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mStopButton:Landroid/widget/Button;
 
+    const p2, 0x7f13045e
+
+    invoke-virtual {p1, p2}, Landroid/widget/Button;->setText(I)V
+
+    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mStopButton:Landroid/widget/Button;
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p1, p2}, Landroid/widget/Button;->setEnabled(Z)V
+
+    iget-object p1, p0, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->mMediaOutputController:Lcom/android/systemui/media/dialog/MediaOutputController;
+
+    invoke-virtual {p1}, Lcom/android/systemui/media/dialog/MediaOutputController;->startBluetoothLeBroadcast()Z
+
+    move-result p1
+
+    if-nez p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/media/dialog/MediaOutputBaseDialog;->handleLeBroadcastStartFailed()V
+
+    :cond_0
     return-void
 .end method

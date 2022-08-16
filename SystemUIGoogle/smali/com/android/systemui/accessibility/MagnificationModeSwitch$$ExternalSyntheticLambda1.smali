@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/View$OnApplyWindowInsetsListener;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # instance fields
@@ -22,14 +23,26 @@
 
 
 # virtual methods
-.method public final onApplyWindowInsets(Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch$$ExternalSyntheticLambda1;->f$0:Lcom/android/systemui/accessibility/MagnificationModeSwitch;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->$r8$lambda$RmmRYLZ5-_TGOsL3BiGHr9fwq5M(Lcom/android/systemui/accessibility/MagnificationModeSwitch;Landroid/view/View;Landroid/view/WindowInsets;)Landroid/view/WindowInsets;
+    iget-boolean p1, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->mIsVisible:Z
 
-    move-result-object p0
+    if-nez p1, :cond_0
 
-    return-object p0
+    const/4 p0, 0x0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/accessibility/MagnificationModeSwitch;->mGestureDetector:Lcom/android/systemui/accessibility/MagnificationGestureDetector;
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/accessibility/MagnificationGestureDetector;->onTouch(Landroid/view/MotionEvent;)Z
+
+    move-result p0
+
+    :goto_0
+    return p0
 .end method

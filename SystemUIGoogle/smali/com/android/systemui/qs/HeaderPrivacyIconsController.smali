@@ -4,392 +4,209 @@
 
 
 # instance fields
-.field private final cameraSlot:Ljava/lang/String;
+.field public final activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-.field private chipVisibilityListener:Lcom/android/systemui/qs/ChipVisibilityListener;
+.field public final appOpsController:Lcom/android/systemui/appops/AppOpsController;
 
-.field private final iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+.field public final attachStateChangeListener:Lcom/android/systemui/qs/HeaderPrivacyIconsController$attachStateChangeListener$1;
 
-.field private listening:Z
+.field public final backgroundExecutor:Ljava/util/concurrent/Executor;
 
-.field private locationIndicatorsEnabled:Z
+.field public final broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
-.field private final locationSlot:Ljava/lang/String;
+.field public final cameraSlot:Ljava/lang/String;
 
-.field private micCameraIndicatorsEnabled:Z
+.field public chipVisibilityListener:Lcom/android/systemui/qs/ChipVisibilityListener;
 
-.field private final micSlot:Ljava/lang/String;
+.field public final iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
 
-.field private final picCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
+.field public listening:Z
 
-.field private final privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
+.field public locationIndicatorsEnabled:Z
 
-.field private privacyChipLogged:Z
+.field public final locationSlot:Ljava/lang/String;
 
-.field private final privacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
+.field public micCameraIndicatorsEnabled:Z
 
-.field private final privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
+.field public final micSlot:Ljava/lang/String;
 
-.field private final privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
+.field public final permissionManager:Landroid/permission/PermissionManager;
 
-.field private final uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final picCallback:Lcom/android/systemui/qs/HeaderPrivacyIconsController$picCallback$1;
+
+.field public final privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
+
+.field public privacyChipLogged:Z
+
+.field public final privacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
+
+.field public final privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
+
+.field public final privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
+
+.field public safetyCenterEnabled:Z
+
+.field public final safetyCenterManager:Landroid/safetycenter/SafetyCenterManager;
+
+.field public final safetyCenterReceiver:Lcom/android/systemui/qs/HeaderPrivacyIconsController$safetyCenterReceiver$1;
+
+.field public final uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+.field public final uiExecutor:Ljava/util/concurrent/Executor;
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/privacy/OngoingPrivacyChip;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/phone/StatusIconContainer;)V
-    .locals 1
+.method public constructor <init>(Lcom/android/systemui/privacy/PrivacyItemController;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/privacy/OngoingPrivacyChip;Lcom/android/systemui/privacy/PrivacyDialogController;Lcom/android/systemui/privacy/logging/PrivacyLogger;Lcom/android/systemui/statusbar/phone/StatusIconContainer;Landroid/permission/PermissionManager;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/systemui/appops/AppOpsController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/safetycenter/SafetyCenterManager;)V
+    .locals 10
 
-    const-string v0, "privacyItemController"
+    move-object v0, p0
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object v1, p3
 
-    const-string v0, "uiEventLogger"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "privacyChip"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "privacyDialogController"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "privacyLogger"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "iconContainer"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    move-object/from16 v5, p8
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
+    move-object v2, p1
 
-    iput-object p2, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
 
-    iput-object p3, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
+    move-object v2, p2
 
-    iput-object p4, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    iput-object p5, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
+    iput-object v1, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
 
-    iput-object p6, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+    move-object v2, p4
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
+
+    move-object v2, p5
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
+
+    move-object/from16 v2, p6
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    move-object/from16 v2, p7
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->permissionManager:Landroid/permission/PermissionManager;
+
+    iput-object v5, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->backgroundExecutor:Ljava/util/concurrent/Executor;
+
+    move-object/from16 v2, p9
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->uiExecutor:Ljava/util/concurrent/Executor;
+
+    move-object/from16 v2, p10
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->activityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+
+    move-object/from16 v2, p11
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->appOpsController:Lcom/android/systemui/appops/AppOpsController;
+
+    move-object/from16 v2, p12
+
+    iput-object v2, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->broadcastDispatcher:Lcom/android/systemui/broadcast/BroadcastDispatcher;
+
+    move-object/from16 v3, p13
+
+    iput-object v3, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->safetyCenterManager:Landroid/safetycenter/SafetyCenterManager;
 
     invoke-virtual {p3}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v3
 
-    const p2, 0x104081e
+    const v4, 0x1040894
 
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v3
 
-    iput-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
-
-    invoke-virtual {p3}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p1
-
-    const p2, 0x104082a
-
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
+    iput-object v3, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
 
     invoke-virtual {p3}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
-    move-result-object p1
+    move-result-object v3
 
-    const p2, 0x1040828
+    const v4, 0x10408a0
 
-    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object v3
 
-    iput-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
+    iput-object v3, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
 
-    new-instance p1, Lcom/android/systemui/qs/HeaderPrivacyIconsController$picCallback$1;
+    invoke-virtual {p3}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController$picCallback$1;-><init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
+    move-result-object v3
 
-    iput-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->picCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
+    const v4, 0x104089e
 
-    return-void
-.end method
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-.method public static final synthetic access$getLocationIndicatorsEnabled$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Z
-    .locals 0
+    move-result-object v3
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
+    iput-object v3, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
 
-    return p0
-.end method
+    new-instance v3, Lcom/android/systemui/qs/HeaderPrivacyIconsController$safetyCenterReceiver$1;
 
-.method public static final synthetic access$getMicCameraIndicatorsEnabled$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Z
-    .locals 0
+    invoke-direct {v3, p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController$safetyCenterReceiver$1;-><init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
 
-    iget-boolean p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
+    iput-object v3, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->safetyCenterReceiver:Lcom/android/systemui/qs/HeaderPrivacyIconsController$safetyCenterReceiver$1;
 
-    return p0
-.end method
+    new-instance v9, Lcom/android/systemui/qs/HeaderPrivacyIconsController$attachStateChangeListener$1;
 
-.method public static final synthetic access$getPrivacyChip$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Lcom/android/systemui/privacy/OngoingPrivacyChip;
-    .locals 0
+    invoke-direct {v9, p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController$attachStateChangeListener$1;-><init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
+    iput-object v9, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->attachStateChangeListener:Lcom/android/systemui/qs/HeaderPrivacyIconsController$attachStateChangeListener$1;
 
-    return-object p0
-.end method
+    new-instance v4, Lcom/android/systemui/qs/HeaderPrivacyIconsController$1;
 
-.method public static final synthetic access$getPrivacyDialogController$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Lcom/android/systemui/privacy/PrivacyDialogController;
-    .locals 0
+    invoke-direct {v4, p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController$1;-><init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
 
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
+    invoke-interface {v5, v4}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
 
-    return-object p0
-.end method
+    invoke-virtual {p3}, Landroid/widget/FrameLayout;->isAttachedToWindow()Z
 
-.method public static final synthetic access$getUiEventLogger$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Lcom/android/internal/logging/UiEventLogger;
-    .locals 0
+    move-result v4
 
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+    if-eqz v4, :cond_0
 
-    return-object p0
-.end method
+    new-instance v4, Landroid/content/IntentFilter;
 
-.method public static final synthetic access$setChipVisibility(Lcom/android/systemui/qs/HeaderPrivacyIconsController;Z)V
-    .locals 0
+    const-string v6, "android.safetycenter.action.SAFETY_CENTER_ENABLED_CHANGED"
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->setChipVisibility(Z)V
+    invoke-direct {v4, v6}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
-    return-void
-.end method
+    const/4 v6, 0x0
 
-.method public static final synthetic access$setLocationIndicatorsEnabled$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;Z)V
-    .locals 0
+    const/4 v7, 0x0
 
-    iput-boolean p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
+    const/16 v8, 0x38
 
-    return-void
-.end method
+    move-object/from16 v2, p12
 
-.method public static final synthetic access$setMicCameraIndicatorsEnabled$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;Z)V
-    .locals 0
+    move-object/from16 v5, p8
 
-    iput-boolean p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
-
-    return-void
-.end method
-
-.method public static final synthetic access$updatePrivacyIconSlots(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->updatePrivacyIconSlots()V
-
-    return-void
-.end method
-
-.method private final getChipEnabled()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
-
-    if-nez v0, :cond_1
-
-    iget-boolean p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
+    invoke-static/range {v2 .. v8}, Lcom/android/systemui/broadcast/BroadcastDispatcher;->registerReceiver$default(Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/util/concurrent/Executor;Landroid/os/UserHandle;II)V
 
     :cond_0
-    const/4 p0, 0x0
+    invoke-virtual {p3, v9}, Landroid/widget/FrameLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
 
-    goto :goto_1
+    new-instance v1, Lcom/android/systemui/qs/HeaderPrivacyIconsController$picCallback$1;
 
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController$picCallback$1;-><init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
 
-    :goto_1
-    return p0
-.end method
+    iput-object v1, v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->picCallback:Lcom/android/systemui/qs/HeaderPrivacyIconsController$picCallback$1;
 
-.method private final setChipVisibility(Z)V
-    .locals 3
-
-    const/4 v0, 0x0
-
-    if-eqz p1, :cond_0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->getChipEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Lcom/android/systemui/privacy/logging/PrivacyLogger;->logChipVisible(Z)V
-
-    iget-boolean v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChipLogged:Z
-
-    if-nez v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->listening:Z
-
-    if-eqz v1, :cond_1
-
-    iput-boolean v2, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChipLogged:Z
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    sget-object v2, Lcom/android/systemui/privacy/PrivacyChipEvent;->ONGOING_INDICATORS_CHIP_VIEW:Lcom/android/systemui/privacy/PrivacyChipEvent;
-
-    invoke-interface {v1, v2}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
-
-    invoke-virtual {v1, v0}, Lcom/android/systemui/privacy/logging/PrivacyLogger;->logChipVisible(Z)V
-
-    :cond_1
-    :goto_0
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
-
-    if-eqz p1, :cond_2
-
-    goto :goto_1
-
-    :cond_2
-    const/16 v0, 0x8
-
-    :goto_1
-    invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->chipVisibilityListener:Lcom/android/systemui/qs/ChipVisibilityListener;
-
-    if-nez p0, :cond_3
-
-    goto :goto_2
-
-    :cond_3
-    invoke-interface {p0, p1}, Lcom/android/systemui/qs/ChipVisibilityListener;->onChipVisibilityRefreshed(Z)V
-
-    :goto_2
-    return-void
-.end method
-
-.method private final updatePrivacyIconSlots()V
-    .locals 2
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->getChipEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    iget-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlot(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    :goto_0
-    iget-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->addIgnoredSlot(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
-
-    :goto_1
     return-void
 .end method
 
 
 # virtual methods
-.method public final onParentInvisible()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->chipVisibilityListener:Lcom/android/systemui/qs/ChipVisibilityListener;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
-
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    return-void
-.end method
-
 .method public final onParentVisible()V
     .locals 2
 
@@ -417,83 +234,276 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-direct {p0, v0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->setChipVisibility(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->setChipVisibility(Z)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
 
-    invoke-virtual {v0}, Lcom/android/systemui/privacy/PrivacyItemController;->getMicCameraAvailable()Z
+    iget-object v0, v0, Lcom/android/systemui/privacy/PrivacyItemController;->privacyConfig:Lcom/android/systemui/privacy/PrivacyConfig;
 
-    move-result v0
+    iget-boolean v1, v0, Lcom/android/systemui/privacy/PrivacyConfig;->micCameraAvailable:Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
+    iput-boolean v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
 
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/privacy/PrivacyItemController;->getLocationAvailable()Z
-
-    move-result v0
+    iget-boolean v0, v0, Lcom/android/systemui/privacy/PrivacyConfig;->locationAvailable:Z
 
     iput-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->updatePrivacyIconSlots()V
+    invoke-virtual {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->updatePrivacyIconSlots()V
 
     return-void
 .end method
 
-.method public final setChipVisibilityListener(Lcom/android/systemui/qs/ChipVisibilityListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->chipVisibilityListener:Lcom/android/systemui/qs/ChipVisibilityListener;
-
-    return-void
-.end method
-
-.method public final startListening()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->listening:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/privacy/PrivacyItemController;->getMicCameraAvailable()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    invoke-virtual {v0}, Lcom/android/systemui/privacy/PrivacyItemController;->getLocationAvailable()Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
-
-    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
-
-    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->picCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/privacy/PrivacyItemController;->addCallback(Lcom/android/systemui/privacy/PrivacyItemController$Callback;)V
-
-    return-void
-.end method
-
-.method public final stopListening()V
+.method public final setChipVisibility(Z)V
     .locals 3
 
     const/4 v0, 0x0
 
-    iput-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->listening:Z
+    if-eqz p1, :cond_2
 
-    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyItemController:Lcom/android/systemui/privacy/PrivacyItemController;
+    iget-boolean v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
 
-    iget-object v2, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->picCallback:Lcom/android/systemui/privacy/PrivacyItemController$Callback;
+    const/4 v2, 0x1
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/privacy/PrivacyItemController;->removeCallback(Lcom/android/systemui/privacy/PrivacyItemController$Callback;)V
+    if-nez v1, :cond_1
 
-    iput-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChipLogged:Z
+    iget-boolean v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
 
+    if-eqz v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v1, v0
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v1, v2
+
+    :goto_1
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
+
+    invoke-virtual {v1, v2}, Lcom/android/systemui/privacy/logging/PrivacyLogger;->logChipVisible(Z)V
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChipLogged:Z
+
+    if-nez v1, :cond_3
+
+    iget-boolean v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->listening:Z
+
+    if-eqz v1, :cond_3
+
+    iput-boolean v2, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChipLogged:Z
+
+    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    sget-object v2, Lcom/android/systemui/privacy/PrivacyChipEvent;->ONGOING_INDICATORS_CHIP_VIEW:Lcom/android/systemui/privacy/PrivacyChipEvent;
+
+    invoke-interface {v1, v2}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
+    goto :goto_2
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyLogger:Lcom/android/systemui/privacy/logging/PrivacyLogger;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/privacy/logging/PrivacyLogger;->logChipVisible(Z)V
+
+    :cond_3
+    :goto_2
+    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
+
+    if-eqz p1, :cond_4
+
+    goto :goto_3
+
+    :cond_4
+    const/16 v0, 0x8
+
+    :goto_3
+    invoke-virtual {v1, v0}, Landroid/widget/FrameLayout;->setVisibility(I)V
+
+    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->chipVisibilityListener:Lcom/android/systemui/qs/ChipVisibilityListener;
+
+    if-nez p0, :cond_5
+
+    goto :goto_4
+
+    :cond_5
+    invoke-interface {p0, p1}, Lcom/android/systemui/qs/ChipVisibilityListener;->onChipVisibilityRefreshed(Z)V
+
+    :goto_4
+    return-void
+.end method
+
+.method public final updatePrivacyIconSlots()V
+    .locals 5
+
+    iget-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micCameraIndicatorsEnabled:Z
+
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    if-nez v0, :cond_1
+
+    iget-boolean v3, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
+
+    if-eqz v3, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v3, v1
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v3, v2
+
+    :goto_1
+    if-eqz v3, :cond_9
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
+
+    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->mIgnoredSlots:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    move v3, v1
+
+    goto :goto_2
+
+    :cond_2
+    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->mIgnoredSlots:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move v3, v2
+
+    :goto_2
+    if-eqz v3, :cond_3
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->requestLayout()V
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
+
+    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->mIgnoredSlots:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4
+
+    move v3, v1
+
+    goto :goto_3
+
+    :cond_4
+    iget-object v4, v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->mIgnoredSlots:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move v3, v2
+
+    :goto_3
+    if-eqz v3, :cond_6
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->requestLayout()V
+
+    goto :goto_4
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object v3, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
+
+    :cond_6
+    :goto_4
+    iget-boolean v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationIndicatorsEnabled:Z
+
+    if-eqz v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->mIgnoredSlots:Ljava/util/ArrayList;
+
+    invoke-virtual {v3, p0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_7
+
+    goto :goto_5
+
+    :cond_7
+    iget-object v1, v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->mIgnoredSlots:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    move v1, v2
+
+    :goto_5
+    if-eqz v1, :cond_a
+
+    invoke-virtual {v0}, Landroid/widget/LinearLayout;->requestLayout()V
+
+    goto :goto_6
+
+    :cond_8
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
+
+    goto :goto_6
+
+    :cond_9
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->cameraSlot:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->micSlot:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->iconContainer:Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->locationSlot:Ljava/lang/String;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusIconContainer;->removeIgnoredSlot(Ljava/lang/String;)V
+
+    :cond_a
+    :goto_6
     return-void
 .end method

@@ -1,8 +1,9 @@
 .class public final synthetic Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Landroid/view/ViewRootImpl$ActivityConfigCallback;
+.implements Landroid/view/View$OnKeyListener;
 
 
 # instance fields
@@ -22,12 +23,26 @@
 
 
 # virtual methods
-.method public final onConfigurationChanged(Landroid/content/res/Configuration;I)V
+.method public final onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotController$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/screenshot/ScreenshotController;->$r8$lambda$3FVnHuUUQsIpq0sh3HPzUbuqoeI(Lcom/android/systemui/screenshot/ScreenshotController;Landroid/content/res/Configuration;I)V
+    const/4 p1, 0x4
 
-    return-void
+    if-ne p2, p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->dismissScreenshot()V
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method

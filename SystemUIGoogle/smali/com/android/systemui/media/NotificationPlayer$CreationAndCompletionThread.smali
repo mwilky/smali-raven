@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;
+.class public final Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;
 .super Ljava/lang/Thread;
 .source "NotificationPlayer.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "CreationAndCompletionThread"
 .end annotation
 
@@ -17,7 +17,7 @@
 # instance fields
 .field public mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
-.field final synthetic this$0:Lcom/android/systemui/media/NotificationPlayer;
+.field public final synthetic this$0:Lcom/android/systemui/media/NotificationPlayer;
 
 
 # direct methods
@@ -35,8 +35,8 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 7
+.method public final run()V
+    .locals 8
 
     invoke-static {}, Landroid/os/Looper;->prepare()V
 
@@ -46,7 +46,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/systemui/media/NotificationPlayer;->access$002(Lcom/android/systemui/media/NotificationPlayer;Landroid/os/Looper;)Landroid/os/Looper;
+    iput-object v1, v0, Lcom/android/systemui/media/NotificationPlayer;->mLooper:Landroid/os/Looper;
 
     monitor-enter p0
 
@@ -63,7 +63,7 @@
 
     check-cast v0, Landroid/media/AudioManager;
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_2
+    .catchall {:try_start_0 .. :try_end_0} :catchall_3
 
     const/4 v1, 0x0
 
@@ -73,7 +73,7 @@
     invoke-direct {v2}, Landroid/media/MediaPlayer;-><init>()V
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_2
-    .catchall {:try_start_1 .. :try_end_1} :catchall_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_3
 
     :try_start_2
     iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
@@ -169,56 +169,50 @@
 
     iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v3}, Lcom/android/systemui/media/NotificationPlayer;->access$100(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/media/NotificationPlayer;->mQueueAudioFocusLock:Ljava/lang/Object;
 
     monitor-enter v3
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
-    .catchall {:try_start_2 .. :try_end_2} :catchall_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
     :try_start_3
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v4}, Lcom/android/systemui/media/NotificationPlayer;->access$200(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/AudioManager;
+    iget-object v5, v4, Lcom/android/systemui/media/NotificationPlayer;->mAudioManagerWithAudioFocus:Landroid/media/AudioManager;
 
-    move-result-object v4
+    if-nez v5, :cond_2
 
-    if-nez v4, :cond_2
+    const/4 v5, 0x3
 
-    const/4 v4, 0x3
+    iget-object v6, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
-    iget-object v5, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
+    iget-boolean v7, v6, Lcom/android/systemui/media/NotificationPlayer$Command;->looping:Z
 
-    iget-boolean v6, v5, Lcom/android/systemui/media/NotificationPlayer$Command;->looping:Z
+    if-eqz v7, :cond_1
 
-    if-eqz v6, :cond_1
-
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
     :cond_1
-    iget-object v6, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
+    iget-object v6, v6, Lcom/android/systemui/media/NotificationPlayer$Command;->attributes:Landroid/media/AudioAttributes;
 
-    iget-object v5, v5, Lcom/android/systemui/media/NotificationPlayer$Command;->attributes:Landroid/media/AudioAttributes;
+    invoke-virtual {v0, v5, v6}, Landroid/media/AudioManager;->getFocusRampTimeMs(ILandroid/media/AudioAttributes;)I
 
-    invoke-virtual {v0, v4, v5}, Landroid/media/AudioManager;->getFocusRampTimeMs(ILandroid/media/AudioAttributes;)I
+    move-result v6
 
-    move-result v5
+    iput v6, v4, Lcom/android/systemui/media/NotificationPlayer;->mNotificationRampTimeMs:I
 
-    invoke-static {v6, v5}, Lcom/android/systemui/media/NotificationPlayer;->access$302(Lcom/android/systemui/media/NotificationPlayer;I)I
+    iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
-    iget-object v5, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
-
-    iget-object v5, v5, Lcom/android/systemui/media/NotificationPlayer$Command;->attributes:Landroid/media/AudioAttributes;
+    iget-object v4, v4, Lcom/android/systemui/media/NotificationPlayer$Command;->attributes:Landroid/media/AudioAttributes;
 
     const/4 v6, 0x0
 
-    invoke-virtual {v0, v1, v5, v4, v6}, Landroid/media/AudioManager;->requestAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;Landroid/media/AudioAttributes;II)I
+    invoke-virtual {v0, v1, v4, v5, v6}, Landroid/media/AudioManager;->requestAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;Landroid/media/AudioAttributes;II)I
 
     iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v4, v0}, Lcom/android/systemui/media/NotificationPlayer;->access$202(Lcom/android/systemui/media/NotificationPlayer;Landroid/media/AudioManager;)Landroid/media/AudioManager;
+    iput-object v0, v4, Lcom/android/systemui/media/NotificationPlayer;->mAudioManagerWithAudioFocus:Landroid/media/AudioManager;
 
     :cond_2
     monitor-exit v3
@@ -236,16 +230,14 @@
     throw v0
     :try_end_4
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
-    .catchall {:try_start_4 .. :try_end_4} :catchall_2
+    .catchall {:try_start_4 .. :try_end_4} :catchall_3
 
     :cond_3
     :goto_0
     :try_start_5
     iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v0}, Lcom/android/systemui/media/NotificationPlayer;->access$300(Lcom/android/systemui/media/NotificationPlayer;)I
-
-    move-result v0
+    iget v0, v0, Lcom/android/systemui/media/NotificationPlayer;->mNotificationRampTimeMs:I
 
     int-to-long v3, v0
 
@@ -253,7 +245,7 @@
     :try_end_5
     .catch Ljava/lang/InterruptedException; {:try_start_5 .. :try_end_5} :catch_0
     .catch Ljava/lang/Exception; {:try_start_5 .. :try_end_5} :catch_1
-    .catchall {:try_start_5 .. :try_end_5} :catchall_2
+    .catchall {:try_start_5 .. :try_end_5} :catchall_3
 
     goto :goto_1
 
@@ -263,9 +255,7 @@
     :try_start_6
     iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v3}, Lcom/android/systemui/media/NotificationPlayer;->access$400(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
-
-    move-result-object v3
+    iget-object v3, v3, Lcom/android/systemui/media/NotificationPlayer;->mTag:Ljava/lang/String;
 
     const-string v4, "Exception while sleeping to sync notification playback with ducking"
 
@@ -275,9 +265,9 @@
     invoke-virtual {v2}, Landroid/media/MediaPlayer;->start()V
     :try_end_6
     .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
-    .catchall {:try_start_6 .. :try_end_6} :catchall_2
+    .catchall {:try_start_6 .. :try_end_6} :catchall_3
 
-    goto :goto_4
+    goto :goto_3
 
     :catch_1
     move-exception v0
@@ -295,95 +285,101 @@
     :try_start_7
     invoke-virtual {v2}, Landroid/media/MediaPlayer;->release()V
 
-    goto :goto_3
-
-    :cond_4
-    move-object v1, v2
-
-    :goto_3
-    iget-object v2, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
-
-    invoke-static {v2}, Lcom/android/systemui/media/NotificationPlayer;->access$400(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/String;
-
-    move-result-object v2
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "error loading sound for "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v4, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
-
-    iget-object v4, v4, Lcom/android/systemui/media/NotificationPlayer$Command;->uri:Landroid/net/Uri;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
-
-    invoke-static {v0}, Lcom/android/systemui/media/NotificationPlayer;->access$500(Lcom/android/systemui/media/NotificationPlayer;)V
-
     move-object v2, v1
 
-    :goto_4
-    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
-
-    invoke-static {v0}, Lcom/android/systemui/media/NotificationPlayer;->access$600(Lcom/android/systemui/media/NotificationPlayer;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    monitor-enter v0
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_2
-
-    :try_start_8
-    iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
-
-    invoke-static {v1}, Lcom/android/systemui/media/NotificationPlayer;->access$700(Lcom/android/systemui/media/NotificationPlayer;)Landroid/media/MediaPlayer;
-
-    move-result-object v1
-
+    :cond_4
     iget-object v3, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
 
-    invoke-static {v3, v2}, Lcom/android/systemui/media/NotificationPlayer;->access$702(Lcom/android/systemui/media/NotificationPlayer;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
+    iget-object v3, v3, Lcom/android/systemui/media/NotificationPlayer;->mTag:Ljava/lang/String;
 
-    monitor-exit v0
-    :try_end_8
-    .catchall {:try_start_8 .. :try_end_8} :catchall_1
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    if-eqz v1, :cond_5
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    :try_start_9
-    invoke-virtual {v1}, Landroid/media/MediaPlayer;->pause()V
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_2
+    const-string v5, "error loading sound for "
 
-    const-wide/16 v2, 0x64
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :try_start_a
-    invoke-static {v2, v3}, Ljava/lang/Thread;->sleep(J)V
-    :try_end_a
-    .catch Ljava/lang/InterruptedException; {:try_start_a .. :try_end_a} :catch_3
-    .catchall {:try_start_a .. :try_end_a} :catchall_2
+    iget-object v5, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->mCmd:Lcom/android/systemui/media/NotificationPlayer$Command;
 
-    :catch_3
-    :try_start_b
-    invoke-virtual {v1}, Landroid/media/MediaPlayer;->release()V
+    iget-object v5, v5, Lcom/android/systemui/media/NotificationPlayer$Command;->uri:Landroid/net/Uri;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
+
+    iget-object v3, v0, Lcom/android/systemui/media/NotificationPlayer;->mQueueAudioFocusLock:Ljava/lang/Object;
+
+    monitor-enter v3
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_3
+
+    :try_start_8
+    iget-object v4, v0, Lcom/android/systemui/media/NotificationPlayer;->mAudioManagerWithAudioFocus:Landroid/media/AudioManager;
+
+    if-eqz v4, :cond_5
+
+    invoke-virtual {v4, v1}, Landroid/media/AudioManager;->abandonAudioFocus(Landroid/media/AudioManager$OnAudioFocusChangeListener;)I
+
+    iput-object v1, v0, Lcom/android/systemui/media/NotificationPlayer;->mAudioManagerWithAudioFocus:Landroid/media/AudioManager;
 
     :cond_5
+    monitor-exit v3
+    :try_end_8
+    .catchall {:try_start_8 .. :try_end_8} :catchall_2
+
+    :goto_3
+    :try_start_9
+    iget-object v0, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
+
+    iget-object v0, v0, Lcom/android/systemui/media/NotificationPlayer;->mPlayerLock:Ljava/lang/Object;
+
+    monitor-enter v0
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+
+    :try_start_a
+    iget-object v1, p0, Lcom/android/systemui/media/NotificationPlayer$CreationAndCompletionThread;->this$0:Lcom/android/systemui/media/NotificationPlayer;
+
+    iget-object v3, v1, Lcom/android/systemui/media/NotificationPlayer;->mPlayer:Landroid/media/MediaPlayer;
+
+    iput-object v2, v1, Lcom/android/systemui/media/NotificationPlayer;->mPlayer:Landroid/media/MediaPlayer;
+
+    monitor-exit v0
+    :try_end_a
+    .catchall {:try_start_a .. :try_end_a} :catchall_1
+
+    if-eqz v3, :cond_6
+
+    :try_start_b
+    invoke-virtual {v3}, Landroid/media/MediaPlayer;->pause()V
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_3
+
+    const-wide/16 v0, 0x64
+
+    :try_start_c
+    invoke-static {v0, v1}, Ljava/lang/Thread;->sleep(J)V
+    :try_end_c
+    .catch Ljava/lang/InterruptedException; {:try_start_c .. :try_end_c} :catch_3
+    .catchall {:try_start_c .. :try_end_c} :catchall_3
+
+    :catch_3
+    :try_start_d
+    invoke-virtual {v3}, Landroid/media/MediaPlayer;->release()V
+
+    :cond_6
     invoke-virtual {p0}, Ljava/lang/Object;->notify()V
 
     monitor-exit p0
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_2
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_3
 
     invoke-static {}, Landroid/os/Looper;->loop()V
 
@@ -392,20 +388,33 @@
     :catchall_1
     move-exception v1
 
-    :try_start_c
+    :try_start_e
     monitor-exit v0
-    :try_end_c
-    .catchall {:try_start_c .. :try_end_c} :catchall_1
+    :try_end_e
+    .catchall {:try_start_e .. :try_end_e} :catchall_1
 
-    :try_start_d
+    :try_start_f
     throw v1
+    :try_end_f
+    .catchall {:try_start_f .. :try_end_f} :catchall_3
 
     :catchall_2
     move-exception v0
 
+    :try_start_10
+    monitor-exit v3
+    :try_end_10
+    .catchall {:try_start_10 .. :try_end_10} :catchall_2
+
+    :try_start_11
+    throw v0
+
+    :catchall_3
+    move-exception v0
+
     monitor-exit p0
-    :try_end_d
-    .catchall {:try_start_d .. :try_end_d} :catchall_2
+    :try_end_11
+    .catchall {:try_start_11 .. :try_end_11} :catchall_3
 
     throw v0
 .end method

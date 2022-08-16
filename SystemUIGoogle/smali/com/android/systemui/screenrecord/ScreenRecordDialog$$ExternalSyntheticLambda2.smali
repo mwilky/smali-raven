@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/screenrecord/ScreenRecordDialog$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/widget/AdapterView$OnItemClickListener;
@@ -23,19 +24,15 @@
 
 # virtual methods
 .method public final onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
-    .locals 6
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/screenrecord/ScreenRecordDialog;
+    iget-object p0, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/screenrecord/ScreenRecordDialog;
 
-    move-object v1, p1
+    iget-object p0, p0, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->mAudioSwitch:Landroid/widget/Switch;
 
-    move-object v2, p2
+    const/4 p1, 0x1
 
-    move v3, p3
-
-    move-wide v4, p4
-
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/screenrecord/ScreenRecordDialog;->$r8$lambda$9QoTM_568L8-Hngr12i2GQ57mfw(Lcom/android/systemui/screenrecord/ScreenRecordDialog;Landroid/widget/AdapterView;Landroid/view/View;IJ)V
+    invoke-virtual {p0, p1}, Landroid/widget/Switch;->setChecked(Z)V
 
     return-void
 .end method

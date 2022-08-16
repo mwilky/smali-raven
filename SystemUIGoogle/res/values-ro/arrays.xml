@@ -17,6 +17,7 @@
         <item>Cel mult 3 procese</item>
         <item>Cel mult 4 procese</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -173,7 +174,7 @@
         <item>Înclinat spre dreapta</item>
     </string-array>
     <string-array name="overlay_display_devices_entries">
-        <item>Niciuna</item>
+        <item>Fără</item>
         <item>480p</item>
         <item>480p (securizat)</item>
         <item>720p</item>
@@ -260,6 +261,11 @@
         <item>Dezactivată</item>
         <item>Activată</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Indisponibilă</item>
+        <item>Dezactivată</item>
+        <item>Activată</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Indisponibilă</item>
         <item>Dezactivată</item>
@@ -309,6 +315,16 @@
         <item>Indisponibilă</item>
         <item>Dezactivată</item>
         <item>Activată</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Indisponibil</item>
+        <item>Dezactivat</item>
+        <item>Activat</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>Indisponibil</item>
+        <item>Dezactivat</item>
+        <item>Activat</item>
     </string-array>
     <string-array name="tile_states_reduce_brightness">
         <item>Indisponibil</item>
@@ -374,6 +390,12 @@
         <item>Rapid</item>
         <item>Foarte rapid</item>
         <item>Cel mai repede</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Deplasați spre stânga</item>
+        <item>Deplasați în jos</item>
+        <item>Deplasați spre dreapta</item>
+        <item>Deplasați în sus</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Încărcare</item>

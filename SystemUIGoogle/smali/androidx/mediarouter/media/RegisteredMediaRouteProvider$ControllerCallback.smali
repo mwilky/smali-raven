@@ -1,4 +1,4 @@
-.class interface abstract Landroidx/mediarouter/media/RegisteredMediaRouteProvider$ControllerCallback;
+.class public interface abstract Landroidx/mediarouter/media/RegisteredMediaRouteProvider$ControllerCallback;
 .super Ljava/lang/Object;
 .source "RegisteredMediaRouteProvider.java"
 
@@ -9,19 +9,6 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "ControllerCallback"
 .end annotation
-
-
-# virtual methods
-.method public abstract onControllerReleasedByProvider(Landroidx/mediarouter/media/MediaRouteProvider$RouteController;)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "controller"
-        }
-    .end annotation
-.end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/settings/brightness/BrightnessSliderController$1;
+.class public final Lcom/android/systemui/settings/brightness/BrightnessSliderController$1;
 .super Ljava/lang/Object;
 .source "BrightnessSliderController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
+.field public final synthetic this$0:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessSliderController;)V
+.method public constructor <init>(Lcom/android/systemui/settings/brightness/BrightnessSliderController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onInterceptTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
@@ -52,9 +52,7 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderController$1;->this$0:Lcom/android/systemui/settings/brightness/BrightnessSliderController;
 
-    invoke-static {p0}, Lcom/android/systemui/settings/brightness/BrightnessSliderController;->access$000(Lcom/android/systemui/settings/brightness/BrightnessSliderController;)Lcom/android/systemui/plugins/FalsingManager;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/settings/brightness/BrightnessSliderController;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     const/16 p1, 0xa
 
@@ -66,7 +64,7 @@
     return p0
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 0
 
     const/4 p0, 0x0

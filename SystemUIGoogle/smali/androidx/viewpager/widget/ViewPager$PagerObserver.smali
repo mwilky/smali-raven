@@ -1,4 +1,4 @@
-.class Landroidx/viewpager/widget/ViewPager$PagerObserver;
+.class public final Landroidx/viewpager/widget/ViewPager$PagerObserver;
 .super Landroid/database/DataSetObserver;
 .source "ViewPager.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "PagerObserver"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/viewpager/widget/ViewPager;
+.field public final synthetic this$0:Landroidx/viewpager/widget/ViewPager;
 
 
 # direct methods
-.method constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
+.method public constructor <init>(Landroidx/viewpager/widget/ViewPager;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/viewpager/widget/ViewPager$PagerObserver;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onChanged()V
+.method public final onChanged()V
     .locals 0
 
     iget-object p0, p0, Landroidx/viewpager/widget/ViewPager$PagerObserver;->this$0:Landroidx/viewpager/widget/ViewPager;
@@ -41,7 +41,7 @@
     return-void
 .end method
 
-.method public onInvalidated()V
+.method public final onInvalidated()V
     .locals 0
 
     iget-object p0, p0, Landroidx/viewpager/widget/ViewPager$PagerObserver;->this$0:Landroidx/viewpager/widget/ViewPager;

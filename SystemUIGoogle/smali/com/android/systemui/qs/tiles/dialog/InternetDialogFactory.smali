@@ -3,75 +3,29 @@
 .source "InternetDialogFactory.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;
-    }
-.end annotation
-
-
 # static fields
-.field public static final Companion:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;
-
-.field private static internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
+.field public static internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
 
 # instance fields
-.field private final context:Landroid/content/Context;
+.field public final context:Landroid/content/Context;
 
-.field private final dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+.field public final dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-.field private final executor:Ljava/util/concurrent/Executor;
+.field public final executor:Ljava/util/concurrent/Executor;
 
-.field private final handler:Landroid/os/Handler;
+.field public final handler:Landroid/os/Handler;
 
-.field private final internetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public final internetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-.field private final uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+.field public final uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->Companion:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;)V
-    .locals 1
-
-    const-string v0, "handler"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "executor"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "internetDialogController"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "context"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "uiEventLogger"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dialogLaunchAnimator"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;Landroid/content/Context;Lcom/android/internal/logging/UiEventLogger;Lcom/android/systemui/animation/DialogLaunchAnimator;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -87,137 +41,73 @@
 
     iput-object p6, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
 
-    return-void
-.end method
-
-.method public static final synthetic access$getInternetDialog$cp()Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
-
-    return-object v0
-.end method
-
-.method public static final synthetic access$setInternetDialog$cp(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-    .locals 0
-
-    sput-object p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
+    iput-object p7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final create(ZZZLandroid/view/View;)V
-    .locals 14
+.method public final create(ZZLandroid/view/View;)V
+    .locals 11
 
-    move-object v10, p0
-
-    move-object/from16 v11, p4
-
-    sget-object v12, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->Companion:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;
-
-    invoke-virtual {v12}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;->getInternetDialog()Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
-
-    move-result-object v0
+    sget-object v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactoryKt;->access$getDEBUG$p()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "InternetDialogFactory"
-
-    const-string v1, "InternetDialog is showing, do not create it twice."
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    return-void
-
-    :cond_1
-    new-instance v13, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
-
-    iget-object v1, v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->context:Landroid/content/Context;
-
-    iget-object v3, v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
-
-    iget-object v7, v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    iget-object v8, v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->handler:Landroid/os/Handler;
-
-    iget-object v9, v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->executor:Ljava/util/concurrent/Executor;
-
-    move-object v0, v13
-
-    move-object v2, p0
-
-    move/from16 v4, p2
-
-    move/from16 v5, p3
-
-    move v6, p1
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;-><init>(Landroid/content/Context;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;ZZZLcom/android/internal/logging/UiEventLogger;Landroid/os/Handler;Ljava/util/concurrent/Executor;)V
-
-    invoke-virtual {v12, v13}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;->setInternetDialog(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
-
-    if-eqz v11, :cond_2
-
-    iget-object v0, v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
-
-    invoke-virtual {v12}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;->getInternetDialog()Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v11, v2}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;Z)V
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {v12}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;->getInternetDialog()Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
-
-    move-result-object v0
-
-    if-nez v0, :cond_3
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
-
-    :goto_0
-    return-void
-.end method
-
-.method public final destroyDialog()V
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactoryKt;->access$getDEBUG$p()Z
-
-    move-result p0
+    sget-boolean p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactoryKt;->DEBUG:Z
 
     if-eqz p0, :cond_0
 
     const-string p0, "InternetDialogFactory"
 
-    const-string v0, "destroyDialog"
+    const-string p1, "InternetDialog is showing, do not create it twice."
 
-    invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    sget-object p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->Companion:Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;
+    return-void
 
-    const/4 v0, 0x0
+    :cond_1
+    new-instance v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory$Companion;->setInternetDialog(Lcom/android/systemui/qs/tiles/dialog/InternetDialog;)V
+    iget-object v1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->context:Landroid/content/Context;
 
+    iget-object v3, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+
+    iget-object v6, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    iget-object v7, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->handler:Landroid/os/Handler;
+
+    iget-object v8, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->executor:Ljava/util/concurrent/Executor;
+
+    iget-object v9, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->keyguardStateController:Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+
+    move-object v0, v10
+
+    move-object v2, p0
+
+    move v4, p1
+
+    move v5, p2
+
+    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/qs/tiles/dialog/InternetDialog;-><init>(Landroid/content/Context;Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;ZZLcom/android/internal/logging/UiEventLogger;Landroid/os/Handler;Ljava/util/concurrent/Executor;Lcom/android/systemui/statusbar/policy/KeyguardStateController;)V
+
+    sput-object v10, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->internetDialog:Lcom/android/systemui/qs/tiles/dialog/InternetDialog;
+
+    if-eqz p3, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogFactory;->dialogLaunchAnimator:Lcom/android/systemui/animation/DialogLaunchAnimator;
+
+    const/4 p1, 0x1
+
+    invoke-virtual {p0, v10, p3, p1}, Lcom/android/systemui/animation/DialogLaunchAnimator;->showFromView(Landroid/app/Dialog;Landroid/view/View;Z)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v10}, Landroid/app/AlertDialog;->show()V
+
+    :goto_0
     return-void
 .end method

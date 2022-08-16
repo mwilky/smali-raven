@@ -4,102 +4,104 @@
 
 
 # static fields
-.field private static final BOTTOM_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+.field public static final BOTTOM_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
 
-.field private static final EMPTY_PATH:Landroid/graphics/Path;
+.field public static final EMPTY_PATH:Landroid/graphics/Path;
 
-.field private static final ROUNDNESS_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
+.field public static final ROUNDNESS_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
-.field private static final TOP_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+.field public static final TOP_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
 
 
 # instance fields
-.field private mAlwaysRoundBothCorners:Z
+.field public mAlwaysRoundBothCorners:Z
 
-.field private mBackgroundTop:I
+.field public mBottomRoundness:F
 
-.field private mBottomRoundness:F
+.field public mCurrentBottomRoundness:F
 
-.field private final mClipPath:Landroid/graphics/Path;
+.field public mCurrentTopRoundness:F
 
-.field private mCurrentBottomRoundness:F
+.field public mCustomOutline:Z
 
-.field private mCurrentTopRoundness:F
+.field public mDismissUsingRowTranslationX:Z
 
-.field private mCustomOutline:Z
+.field public mOutlineAlpha:F
 
-.field protected mDismissUsingRowTranslationX:Z
+.field public mOutlineRadius:F
 
-.field private mOutlineAlpha:F
+.field public final mOutlineRect:Landroid/graphics/Rect;
 
-.field protected mOutlineRadius:F
+.field public final mProvider:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$1;
 
-.field private final mOutlineRect:Landroid/graphics/Rect;
+.field public mTmpCornerRadii:[F
 
-.field private final mProvider:Landroid/view/ViewOutlineProvider;
+.field public mTmpPath:Landroid/graphics/Path;
 
-.field private mTmpCornerRadii:[F
-
-.field private mTmpPath:Landroid/graphics/Path;
-
-.field private mTopRoundness:F
+.field public mTopRoundness:F
 
 
 # direct methods
-.method public static synthetic $r8$lambda$EU_7kHu_Hzq8EYPlIkK4BTsohwo(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->setTopRoundnessInternal(F)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Ztx-gsJCuF4ScTJaKfxCE6T7RFE(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;F)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->setBottomRoundnessInternal(F)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 7
 
-    sget-object v1, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda0;
 
-    sget-object v2, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda3;->INSTANCE:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda3;
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda0;-><init>()V
 
-    sget v3, Lcom/android/systemui/R$id;->top_roundess_animator_tag:I
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda6;
 
-    sget v4, Lcom/android/systemui/R$id;->top_roundess_animator_end_tag:I
+    const/4 v2, 0x3
 
-    sget v5, Lcom/android/systemui/R$id;->top_roundess_animator_start_tag:I
+    invoke-direct {v1, v2}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda6;-><init>(I)V
 
-    const-string v0, "topRoundness"
+    sget-object v2, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->Y:Lcom/android/systemui/statusbar/notification/AnimatableProperty$7;
 
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->from(Ljava/lang/String;Ljava/util/function/BiConsumer;Ljava/util/function/Function;III)Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    new-instance v2, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;
 
-    move-result-object v0
+    const-string/jumbo v3, "topRoundness"
 
-    sput-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->TOP_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    invoke-direct {v2, v3, v1, v0}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;-><init>(Ljava/lang/String;Ljava/util/function/Function;Ljava/util/function/BiConsumer;)V
 
-    sget-object v2, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
 
-    sget-object v3, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda2;->INSTANCE:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda2;
+    const v1, 0x7f0b06d7
 
-    sget v4, Lcom/android/systemui/R$id;->bottom_roundess_animator_tag:I
+    const v3, 0x7f0b06d8
 
-    sget v5, Lcom/android/systemui/R$id;->bottom_roundess_animator_end_tag:I
+    const v4, 0x7f0b06d9
 
-    sget v6, Lcom/android/systemui/R$id;->bottom_roundess_animator_start_tag:I
+    invoke-direct {v0, v1, v3, v4, v2}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;-><init>(IIILcom/android/systemui/statusbar/notification/AnimatableProperty$5;)V
 
-    const-string v1, "bottomRoundness"
+    sput-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->TOP_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
 
-    invoke-static/range {v1 .. v6}, Lcom/android/systemui/statusbar/notification/AnimatableProperty;->from(Ljava/lang/String;Ljava/util/function/BiConsumer;Ljava/util/function/Function;III)Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;
 
-    move-result-object v0
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$$ExternalSyntheticLambda1;-><init>()V
 
-    sput-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->BOTTOM_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    new-instance v1, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda8;
+
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2}, Lcom/android/wifitrackerlib/WifiEntry$$ExternalSyntheticLambda8;-><init>(I)V
+
+    const v2, 0x7f0b0108
+
+    const v3, 0x7f0b0106
+
+    const v4, 0x7f0b0107
+
+    new-instance v5, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;
+
+    const-string v6, "bottomRoundness"
+
+    invoke-direct {v5, v6, v1, v0}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$5;-><init>(Ljava/lang/String;Ljava/util/function/Function;Ljava/util/function/BiConsumer;)V
+
+    new-instance v0, Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
+
+    invoke-direct {v0, v3, v4, v2, v5}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;-><init>(IIILcom/android/systemui/statusbar/notification/AnimatableProperty$5;)V
+
+    sput-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->BOTTOM_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
@@ -107,9 +109,7 @@
 
     const-wide/16 v1, 0xc8
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->setDuration(J)Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
-
-    move-result-object v0
+    iput-wide v1, v0, Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;->duration:J
 
     sput-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->ROUNDNESS_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
@@ -137,8 +137,6 @@
 
     invoke-direct {p1}, Landroid/graphics/Path;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mClipPath:Landroid/graphics/Path;
-
     const/high16 p1, -0x40800000    # -1.0f
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineAlpha:F
@@ -163,45 +161,13 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$1;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;)V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mProvider:Landroid/view/ViewOutlineProvider;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mProvider:Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView$1;
 
     invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->initDimens()V
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCustomOutline:Z
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;)Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mAlwaysRoundBothCorners:Z
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mBackgroundTop:I
-
-    return p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineAlpha:F
-
-    return p0
 .end method
 
 .method private initDimens()V
@@ -211,7 +177,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->notification_shadow_radius:I
+    const v1, 0x7f0705ea
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -219,7 +185,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineRadius:F
 
-    sget v1, Lcom/android/systemui/R$bool;->config_clipNotificationsToOutline:I
+    const v1, 0x7f050008
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -229,7 +195,7 @@
 
     if-nez v1, :cond_0
 
-    sget v1, Lcom/android/systemui/R$dimen;->notification_corner_radius:I
+    const v1, 0x7f0705b7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -247,29 +213,9 @@
     return-void
 .end method
 
-.method private setBottomRoundnessInternal(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCurrentBottomRoundness:F
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->applyRoundness()V
-
-    return-void
-.end method
-
-.method private setTopRoundnessInternal(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCurrentTopRoundness:F
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->applyRoundness()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method protected applyRoundness()V
+.method public applyRoundness()V
     .locals 0
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidateOutline()V
@@ -279,7 +225,7 @@
     return-void
 .end method
 
-.method protected childNeedsClipping(Landroid/view/View;)Z
+.method public childNeedsClipping(Landroid/view/View;)Z
     .locals 0
 
     const/4 p0, 0x0
@@ -287,7 +233,7 @@
     return p0
 .end method
 
-.method protected drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
+.method public final drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
     .locals 1
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -325,194 +271,228 @@
     return p0
 .end method
 
-.method protected getClipPath(Z)Landroid/graphics/Path;
-    .locals 14
+.method public final getClipPath(Z)Landroid/graphics/Path;
+    .locals 17
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mAlwaysRoundBothCorners:Z
+    move-object/from16 v0, p0
 
-    if-eqz v0, :cond_0
+    iget-boolean v1, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mAlwaysRoundBothCorners:Z
 
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineRadius:F
+    if-eqz v1, :cond_0
+
+    iget v1, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineRadius:F
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentBackgroundRadiusTop()F
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentBackgroundRadiusTop()F
 
-    move-result v0
+    move-result v1
 
     :goto_0
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCustomOutline:Z
+    iget-boolean v2, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCustomOutline:Z
 
-    if-nez v1, :cond_2
+    const/4 v3, 0x0
 
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mDismissUsingRowTranslationX:Z
+    if-nez v2, :cond_2
 
-    const/4 v2, 0x0
+    iget-boolean v2, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mDismissUsingRowTranslationX:Z
 
-    if-nez v1, :cond_1
+    if-nez v2, :cond_1
 
     if-nez p1, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getTranslation()F
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getTranslation()F
 
-    move-result p1
+    move-result v2
 
-    float-to-int p1, p1
+    float-to-int v2, v2
 
     goto :goto_1
 
     :cond_1
-    move p1, v2
+    move v2, v3
 
     :goto_1
-    iget v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mExtraWidthForClipping:F
+    iget v4, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mExtraWidthForClipping:F
 
-    const/high16 v3, 0x40000000    # 2.0f
+    const/high16 v5, 0x40000000    # 2.0f
 
-    div-float/2addr v1, v3
+    div-float/2addr v4, v5
 
-    float-to-int v1, v1
+    float-to-int v4, v4
 
-    invoke-static {p1, v2}, Ljava/lang/Math;->max(II)I
-
-    move-result v3
-
-    sub-int/2addr v3, v1
-
-    iget v4, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipTopAmount:I
-
-    iget v5, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mBackgroundTop:I
-
-    add-int/2addr v4, v5
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getWidth()I
+    invoke-static {v2, v3}, Ljava/lang/Math;->max(II)I
 
     move-result v5
 
-    add-int/2addr v5, v1
+    sub-int/2addr v5, v4
 
-    invoke-static {p1, v2}, Ljava/lang/Math;->min(II)I
+    iget v6, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipTopAmount:I
 
-    move-result p1
+    add-int/2addr v6, v3
 
-    add-int/2addr v5, p1
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/FrameLayout;->getWidth()I
 
-    iget p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMinimumHeightForClipping:I
+    move-result v7
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
+    add-int/2addr v7, v4
 
-    move-result v1
+    invoke-static {v2, v3}, Ljava/lang/Math;->min(II)I
 
-    iget v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipBottomAmount:I
+    move-result v2
 
-    sub-int/2addr v1, v2
+    add-int/2addr v2, v7
 
-    int-to-float v2, v4
+    iget v4, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMinimumHeightForClipping:I
 
-    add-float/2addr v2, v0
+    iget v7, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
-    float-to-int v2, v2
+    iget v8, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipBottomAmount:I
 
-    invoke-static {v1, v2}, Ljava/lang/Math;->max(II)I
+    sub-int/2addr v7, v8
 
-    move-result v1
+    int-to-float v8, v6
 
-    invoke-static {p1, v1}, Ljava/lang/Math;->max(II)I
+    add-float/2addr v8, v1
 
-    move-result p1
+    float-to-int v8, v8
+
+    invoke-static {v7, v8}, Ljava/lang/Math;->max(II)I
+
+    move-result v7
+
+    invoke-static {v4, v7}, Ljava/lang/Math;->max(II)I
+
+    move-result v4
 
     goto :goto_2
 
     :cond_2
-    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
+    iget-object v2, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineRect:Landroid/graphics/Rect;
 
-    iget v3, p1, Landroid/graphics/Rect;->left:I
+    iget v5, v2, Landroid/graphics/Rect;->left:I
 
-    iget v4, p1, Landroid/graphics/Rect;->top:I
+    iget v6, v2, Landroid/graphics/Rect;->top:I
 
-    iget v5, p1, Landroid/graphics/Rect;->right:I
+    iget v4, v2, Landroid/graphics/Rect;->right:I
 
-    iget p1, p1, Landroid/graphics/Rect;->bottom:I
+    iget v2, v2, Landroid/graphics/Rect;->bottom:I
+
+    move/from16 v16, v4
+
+    move v4, v2
+
+    move/from16 v2, v16
 
     :goto_2
-    move v10, p1
+    sub-int v7, v4, v6
 
-    move v7, v3
+    if-nez v7, :cond_3
 
-    move v8, v4
+    sget-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->EMPTY_PATH:Landroid/graphics/Path;
 
-    move v9, v5
-
-    sub-int p1, v10, v8
-
-    if-nez p1, :cond_3
-
-    sget-object p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->EMPTY_PATH:Landroid/graphics/Path;
-
-    return-object p0
+    return-object v0
 
     :cond_3
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mAlwaysRoundBothCorners:Z
+    iget-boolean v8, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mAlwaysRoundBothCorners:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v8, :cond_4
 
-    iget v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineRadius:F
+    iget v8, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineRadius:F
 
     goto :goto_3
 
     :cond_4
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentBackgroundRadiusBottom()F
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentBackgroundRadiusBottom()F
 
-    move-result v1
+    move-result v8
 
     :goto_3
-    add-float v2, v0, v1
+    add-float v9, v1, v8
 
-    int-to-float p1, p1
+    int-to-float v7, v7
 
-    cmpl-float v3, v2, p1
+    cmpl-float v10, v9, v7
 
-    if-lez v3, :cond_5
+    if-lez v10, :cond_5
 
-    sub-float/2addr v2, p1
+    sub-float/2addr v9, v7
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentTopRoundness()F
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentTopRoundness()F
 
-    move-result p1
+    move-result v7
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentBottomRoundness()F
+    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getCurrentBottomRoundness()F
 
-    move-result v3
+    move-result v10
 
-    mul-float v4, v2, p1
+    mul-float v11, v9, v7
 
-    add-float/2addr p1, v3
+    add-float/2addr v7, v10
 
-    div-float/2addr v4, p1
+    div-float/2addr v11, v7
 
-    sub-float/2addr v0, v4
+    sub-float/2addr v1, v11
 
-    mul-float/2addr v2, v3
+    mul-float/2addr v9, v10
 
-    div-float/2addr v2, p1
+    div-float/2addr v9, v7
 
-    sub-float/2addr v1, v2
+    sub-float/2addr v8, v9
 
     :cond_5
-    move v11, v0
+    iget-object v9, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTmpPath:Landroid/graphics/Path;
 
-    move v12, v1
+    invoke-virtual {v9}, Landroid/graphics/Path;->reset()V
 
-    iget-object v13, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTmpPath:Landroid/graphics/Path;
+    iget-object v14, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTmpCornerRadii:[F
 
-    move-object v6, p0
+    aput v1, v14, v3
 
-    invoke-virtual/range {v6 .. v13}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->getRoundedRectPath(IIIIFFLandroid/graphics/Path;)V
+    const/4 v3, 0x1
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTmpPath:Landroid/graphics/Path;
+    aput v1, v14, v3
 
-    return-object p0
+    const/4 v3, 0x2
+
+    aput v1, v14, v3
+
+    const/4 v3, 0x3
+
+    aput v1, v14, v3
+
+    const/4 v1, 0x4
+
+    aput v8, v14, v1
+
+    const/4 v1, 0x5
+
+    aput v8, v14, v1
+
+    const/4 v1, 0x6
+
+    aput v8, v14, v1
+
+    const/4 v1, 0x7
+
+    aput v8, v14, v1
+
+    int-to-float v10, v5
+
+    int-to-float v11, v6
+
+    int-to-float v12, v2
+
+    int-to-float v13, v4
+
+    sget-object v15, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
+
+    invoke-virtual/range {v9 .. v15}, Landroid/graphics/Path;->addRoundRect(FFFF[FLandroid/graphics/Path$Direction;)V
+
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTmpPath:Landroid/graphics/Path;
+
+    return-object v0
 .end method
 
 .method public getCurrentBackgroundRadiusBottom()F
@@ -567,7 +547,7 @@
     return-object p0
 .end method
 
-.method public getOutlineAlpha()F
+.method public final getOutlineAlpha()F
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineAlpha:F
@@ -575,7 +555,7 @@
     return p0
 .end method
 
-.method public getOutlineTranslation()I
+.method public final getOutlineTranslation()I
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCustomOutline:Z
@@ -607,65 +587,7 @@
     return p0
 .end method
 
-.method public getRoundedRectPath(IIIIFFLandroid/graphics/Path;)V
-    .locals 1
-
-    invoke-virtual {p7}, Landroid/graphics/Path;->reset()V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTmpCornerRadii:[F
-
-    const/4 p0, 0x0
-
-    aput p5, v0, p0
-
-    const/4 p0, 0x1
-
-    aput p5, v0, p0
-
-    const/4 p0, 0x2
-
-    aput p5, v0, p0
-
-    const/4 p0, 0x3
-
-    aput p5, v0, p0
-
-    const/4 p0, 0x4
-
-    aput p6, v0, p0
-
-    const/4 p0, 0x5
-
-    aput p6, v0, p0
-
-    const/4 p0, 0x6
-
-    aput p6, v0, p0
-
-    const/4 p0, 0x7
-
-    aput p6, v0, p0
-
-    int-to-float p1, p1
-
-    int-to-float p2, p2
-
-    int-to-float p3, p3
-
-    int-to-float p4, p4
-
-    sget-object p6, Landroid/graphics/Path$Direction;->CW:Landroid/graphics/Path$Direction;
-
-    move-object p0, p7
-
-    move-object p5, v0
-
-    invoke-virtual/range {p0 .. p6}, Landroid/graphics/Path;->addRoundRect(FFFF[FLandroid/graphics/Path$Direction;)V
-
-    return-void
-.end method
-
-.method protected isClippingNeeded()Z
+.method public final isClippingNeeded()Z
     .locals 4
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getTranslation()F
@@ -714,7 +636,7 @@
     return v1
 .end method
 
-.method protected needsOutline()Z
+.method public needsOutline()Z
     .locals 3
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->isChildInGroup()Z
@@ -786,9 +708,7 @@
 .method public setActualHeight(IZ)V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
-
-    move-result v0
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setActualHeight(IZ)V
 
@@ -800,14 +720,16 @@
     return-void
 .end method
 
-.method public setBottomRoundness(FZ)Z
-    .locals 4
+.method public final setBottomRoundness(FZ)Z
+    .locals 5
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mBottomRoundness:F
 
     cmpl-float v1, v0, p1
 
-    if-eqz v1, :cond_1
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_2
 
     sub-float v0, p1, v0
 
@@ -817,43 +739,46 @@
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mBottomRoundness:F
 
-    sget-object v1, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->BOTTOM_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    sget-object v1, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->BOTTOM_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
 
-    invoke-static {p0, v1}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->isAnimating(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;)Z
+    iget v3, v1, Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;->val$animatorTag:I
 
-    move-result v2
+    invoke-virtual {p0, v3}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    const/4 v4, 0x1
+
+    if-eqz v3, :cond_0
+
+    move v2, v4
+
+    :cond_0
+    if-eqz v2, :cond_1
 
     const/high16 v2, 0x3f000000    # 0.5f
 
     cmpl-float v0, v0, v2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1
 
-    move p2, v3
+    move p2, v4
 
-    :cond_0
+    :cond_1
     sget-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->ROUNDNESS_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
     invoke-static {p0, v1, p1, v0, p2}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
 
-    return v3
+    return v4
 
-    :cond_1
-    const/4 p0, 0x0
-
-    return p0
+    :cond_2
+    return v2
 .end method
 
 .method public setClipBottomAmount(I)V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getClipBottomAmount()I
-
-    move-result v0
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipBottomAmount:I
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setClipBottomAmount(I)V
 
@@ -868,9 +793,7 @@
 .method public setClipTopAmount(I)V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getClipTopAmount()I
-
-    move-result v0
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipTopAmount:I
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setClipTopAmount(I)V
 
@@ -882,52 +805,7 @@
     return-void
 .end method
 
-.method public setDismissUsingRowTranslationX(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mDismissUsingRowTranslationX:Z
-
-    return-void
-.end method
-
-.method public setExtraWidthForClipping(F)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setExtraWidthForClipping(F)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
-
-    return-void
-.end method
-
-.method public setMinimumHeightForClipping(I)V
-    .locals 0
-
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setMinimumHeightForClipping(I)V
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->invalidate()V
-
-    return-void
-.end method
-
-.method protected setOutlineAlpha(F)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineAlpha:F
-
-    cmpl-float v0, p1, v0
-
-    if-eqz v0, :cond_0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mOutlineAlpha:F
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->applyRoundness()V
-
-    :cond_0
-    return-void
-.end method
-
-.method protected setOutlineRect(FFFF)V
+.method public final setOutlineRect(FFFF)V
     .locals 3
 
     const/4 v0, 0x1
@@ -979,42 +857,16 @@
     return-void
 .end method
 
-.method protected setOutlineRect(Landroid/graphics/RectF;)V
-    .locals 3
-
-    if-eqz p1, :cond_0
-
-    iget v0, p1, Landroid/graphics/RectF;->left:F
-
-    iget v1, p1, Landroid/graphics/RectF;->top:F
-
-    iget v2, p1, Landroid/graphics/RectF;->right:F
-
-    iget p1, p1, Landroid/graphics/RectF;->bottom:F
-
-    invoke-virtual {p0, v0, v1, v2, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->setOutlineRect(FFFF)V
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p1, 0x0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCustomOutline:Z
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->applyRoundness()V
-
-    :goto_0
-    return-void
-.end method
-
-.method public setTopRoundness(FZ)Z
-    .locals 4
+.method public final setTopRoundness(FZ)Z
+    .locals 5
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTopRoundness:F
 
     cmpl-float v1, v0, p1
 
-    if-eqz v1, :cond_1
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_2
 
     sub-float v0, p1, v0
 
@@ -1024,62 +876,38 @@
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mTopRoundness:F
 
-    sget-object v1, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->TOP_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
+    sget-object v1, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->TOP_ROUNDNESS:Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;
 
-    invoke-static {p0, v1}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->isAnimating(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;)Z
+    iget v3, v1, Lcom/android/systemui/statusbar/notification/AnimatableProperty$6;->val$animatorTag:I
 
-    move-result v2
+    invoke-virtual {p0, v3}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
-    const/4 v3, 0x1
+    move-result-object v3
 
-    if-eqz v2, :cond_0
+    const/4 v4, 0x1
+
+    if-eqz v3, :cond_0
+
+    move v2, v4
+
+    :cond_0
+    if-eqz v2, :cond_1
 
     const/high16 v2, 0x3f000000    # 0.5f
 
     cmpl-float v0, v0, v2
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_1
 
-    move p2, v3
+    move p2, v4
 
-    :cond_0
+    :cond_1
     sget-object v0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->ROUNDNESS_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
 
     invoke-static {p0, v1, p1, v0, p2}, Lcom/android/systemui/statusbar/notification/PropertyAnimator;->setProperty(Landroid/view/View;Lcom/android/systemui/statusbar/notification/AnimatableProperty;FLcom/android/systemui/statusbar/notification/stack/AnimationProperties;Z)V
 
-    return v3
+    return v4
 
-    :cond_1
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public updateOutline()V
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mCustomOutline:Z
-
-    if-eqz v0, :cond_0
-
-    return-void
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->needsOutline()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableOutlineView;->mProvider:Landroid/view/ViewOutlineProvider;
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    :goto_0
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setOutlineProvider(Landroid/view/ViewOutlineProvider;)V
-
-    return-void
+    :cond_2
+    return v2
 .end method

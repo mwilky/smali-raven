@@ -1,18 +1,10 @@
-.class Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView;
+.class public final Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView;
 .super Lcom/android/systemui/accessibility/floatingmenu/BaseTooltipView;
 .source "MigrationTooltipView.java"
 
 
 # direct methods
-.method public static synthetic $r8$lambda$XoqH39sHIoB_O9G9S4RFly-FSs4(Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView;Landroid/content/Intent;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView;->lambda$new$0(Landroid/content/Intent;Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)V
     .locals 2
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/accessibility/floatingmenu/BaseTooltipView;-><init>(Landroid/content/Context;Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;)V
@@ -41,19 +33,19 @@
 
     new-instance v0, Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView;Landroid/content/Intent;)V
+    const/4 v1, 0x0
 
-    const-string p1, "link"
+    invoke-direct {v0, v1, p0, p1}, Lcom/android/systemui/accessibility/floatingmenu/MigrationTooltipView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
-    invoke-direct {p2, p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;-><init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
-
-    sget p1, Lcom/android/systemui/R$string;->accessibility_floating_button_migration_tooltip:I
+    invoke-direct {p2, v0}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;-><init>(Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object p1
 
-    invoke-virtual {v0, p1}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
+    const v0, 0x7f130079
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p1
 
@@ -61,35 +53,23 @@
 
     new-array v0, v0, [Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
 
-    const/4 v1, 0x0
-
     aput-object p2, v0, v1
 
-    invoke-static {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan;->linkify(Ljava/lang/CharSequence;[Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Ljava/lang/CharSequence;
+    invoke-static {p1, v0}, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan;->linkify(Ljava/lang/CharSequence;[Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Landroid/text/SpannableStringBuilder;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/floatingmenu/BaseTooltipView;->setDescription(Ljava/lang/CharSequence;)V
+    iget-object p2, p0, Lcom/android/systemui/accessibility/floatingmenu/BaseTooltipView;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {p2, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-static {}, Landroid/text/method/LinkMovementMethod;->getInstance()Landroid/text/method/MovementMethod;
 
     move-result-object p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/accessibility/floatingmenu/BaseTooltipView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
+    iget-object p0, p0, Lcom/android/systemui/accessibility/floatingmenu/BaseTooltipView;->mTextView:Landroid/widget/TextView;
 
-    return-void
-.end method
-
-.method private synthetic lambda$new$0(Landroid/content/Intent;Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
-
-    move-result-object p2
-
-    invoke-virtual {p2, p1}, Landroid/content/Context;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/accessibility/floatingmenu/BaseTooltipView;->hide()V
+    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
     return-void
 .end method

@@ -24,6 +24,12 @@
         <item quantity="few">Pridėti %s valdikliai.</item>
         <item quantity="many">Pridėta %s valdiklio.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s programų yra aktyvios</item>
+        <item quantity="one">%s programa yra aktyvi</item>
+        <item quantity="few">%s programos yra aktyvios</item>
+        <item quantity="many">%s programos yra aktyvi</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Įveskite SIM kortelės PIN kodą. Jums liko %d bandymų.</item>
         <item quantity="one">Įveskite SIM kortelės PIN kodą. Jums liko %d bandymas.</item>
@@ -47,12 +53,6 @@
         <item quantity="one">Netinkamas SIM kortelės PUK kodas. Liko %d bandymas. Paskui visiškai nebegalėsite naudoti SIM kortelės.</item>
         <item quantity="few">Netinkamas SIM kortelės PUK kodas. Liko %d bandymai. Paskui visiškai nebegalėsite naudoti SIM kortelės.</item>
         <item quantity="many">Netinkamas SIM kortelės PUK kodas. Liko %d bandymo. Paskui visiškai nebegalėsite naudoti SIM kortelės.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Bandykite dar kartą po %d sekundžių.</item>
-        <item quantity="one">Bandykite dar kartą po %d sekundės.</item>
-        <item quantity="few">Bandykite dar kartą po %d sekundžių.</item>
-        <item quantity="many">Bandykite dar kartą po %d sekundės.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d naujų pranešimų</item>
@@ -101,11 +101,5 @@
         <item quantity="one">Galite pridėti iki %d naudotojo.</item>
         <item quantity="few">Galite pridėti iki %d naudotojų.</item>
         <item quantity="many">Galite pridėti iki %d naudotojo.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">Prijungta %1$d įrenginių</item>
-        <item quantity="one">Prijungtas %1$d įrenginys</item>
-        <item quantity="few">Prijungti %1$d įrenginiai</item>
-        <item quantity="many">Prijungta %1$d įrenginio</item>
     </plurals>
 </resources>

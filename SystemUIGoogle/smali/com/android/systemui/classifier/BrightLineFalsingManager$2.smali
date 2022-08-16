@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/BrightLineFalsingManager$2;
+.class public final Lcom/android/systemui/classifier/BrightLineFalsingManager$2;
 .super Ljava/lang/Object;
 .source "BrightLineFalsingManager.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/classifier/BrightLineFalsingManager;
+.field public final synthetic this$0:Lcom/android/systemui/classifier/BrightLineFalsingManager;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/BrightLineFalsingManager;)V
+.method public constructor <init>(Lcom/android/systemui/classifier/BrightLineFalsingManager;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager$2;->this$0:Lcom/android/systemui/classifier/BrightLineFalsingManager;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onBeliefChanged(D)V
+.method public final onBeliefChanged(D)V
     .locals 3
 
     const/4 v0, 0x2
@@ -43,9 +43,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager$2;->this$0:Lcom/android/systemui/classifier/BrightLineFalsingManager;
 
-    invoke-static {v1}, Lcom/android/systemui/classifier/BrightLineFalsingManager;->access$100(Lcom/android/systemui/classifier/BrightLineFalsingManager;)Lcom/android/systemui/classifier/HistoryTracker;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/classifier/BrightLineFalsingManager;->mHistoryTracker:Lcom/android/systemui/classifier/HistoryTracker;
 
     invoke-virtual {v1}, Lcom/android/systemui/classifier/HistoryTracker;->falseBelief()D
 
@@ -61,9 +59,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager$2;->this$0:Lcom/android/systemui/classifier/BrightLineFalsingManager;
 
-    invoke-static {v1}, Lcom/android/systemui/classifier/BrightLineFalsingManager;->access$100(Lcom/android/systemui/classifier/BrightLineFalsingManager;)Lcom/android/systemui/classifier/HistoryTracker;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/classifier/BrightLineFalsingManager;->mHistoryTracker:Lcom/android/systemui/classifier/HistoryTracker;
 
     invoke-virtual {v1}, Lcom/android/systemui/classifier/HistoryTracker;->falseConfidence()D
 
@@ -93,13 +89,13 @@
 
     iget-object p0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager$2;->this$0:Lcom/android/systemui/classifier/BrightLineFalsingManager;
 
-    invoke-static {p0}, Lcom/android/systemui/classifier/BrightLineFalsingManager;->access$200(Lcom/android/systemui/classifier/BrightLineFalsingManager;)Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/classifier/BrightLineFalsingManager;->mFalsingBeliefListeners:Ljava/util/ArrayList;
 
-    move-result-object p0
+    new-instance p1, Lcom/android/systemui/dagger/SysUIComponent$$ExternalSyntheticLambda3;
 
-    sget-object p1, Lcom/android/systemui/classifier/BrightLineFalsingManager$2$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/classifier/BrightLineFalsingManager$2$$ExternalSyntheticLambda0;
+    invoke-direct {p1, v2}, Lcom/android/systemui/dagger/SysUIComponent$$ExternalSyntheticLambda3;-><init>(I)V
 
-    invoke-interface {p0, p1}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+    invoke-virtual {p0, p1}, Ljava/util/ArrayList;->forEach(Ljava/util/function/Consumer;)V
 
     const-string p0, "Triggering False Event (Threshold: 0.9)"
 

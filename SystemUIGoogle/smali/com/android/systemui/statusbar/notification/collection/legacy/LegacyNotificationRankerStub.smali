@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub;
+.class public final Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub;
 .super Ljava/lang/Object;
 .source "LegacyNotificationRankerStub.java"
 
@@ -7,7 +7,7 @@
 
 
 # instance fields
-.field private final mEntryComparator:Ljava/util/Comparator;
+.field public final mEntryComparator:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Comparator<",
@@ -17,20 +17,10 @@
     .end annotation
 .end field
 
-.field private mRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
+.field public mRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$0yICjo6Y8bmFpRmflos7WNAWHOI(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)J
-    .locals 2
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub;->lambda$new$0(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
 .method public constructor <init>()V
     .locals 2
 
@@ -46,7 +36,9 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub;->mRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
 
-    sget-object v0, Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub$$ExternalSyntheticLambda0;
+
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub$$ExternalSyntheticLambda0;-><init>()V
 
     invoke-static {v0}, Ljava/util/Comparator;->comparingLong(Ljava/util/function/ToLongFunction;)Ljava/util/Comparator;
 
@@ -57,25 +49,9 @@
     return-void
 .end method
 
-.method private static synthetic lambda$new$0(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)J
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSbn()Landroid/service/notification/StatusBarNotification;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object p0
-
-    iget-wide v0, p0, Landroid/app/Notification;->when:J
-
-    return-wide v0
-.end method
-
 
 # virtual methods
-.method public getRankingMap()Landroid/service/notification/NotificationListenerService$RankingMap;
+.method public final getRankingMap()Landroid/service/notification/NotificationListenerService$RankingMap;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub;->mRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
@@ -83,7 +59,7 @@
     return-object p0
 .end method
 
-.method public isNotificationForCurrentProfiles(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+.method public final isNotificationForCurrentProfiles(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
     .locals 0
 
     const/4 p0, 0x1
@@ -91,7 +67,7 @@
     return p0
 .end method
 
-.method public updateRanking(Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/Collection;Ljava/lang/String;)Ljava/util/List;
+.method public final updateRanking(Landroid/service/notification/NotificationListenerService$RankingMap;Ljava/util/Collection;Ljava/lang/String;)Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -119,7 +95,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/legacy/LegacyNotificationRankerStub;->mEntryComparator:Ljava/util/Comparator;
 
-    invoke-interface {p1, p0}, Ljava/util/List;->sort(Ljava/util/Comparator;)V
+    invoke-virtual {p1, p0}, Ljava/util/ArrayList;->sort(Ljava/util/Comparator;)V
 
     return-object p1
 .end method

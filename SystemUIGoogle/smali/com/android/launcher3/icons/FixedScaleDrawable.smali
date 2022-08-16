@@ -4,9 +4,9 @@
 
 
 # instance fields
-.field private mScaleX:F
+.field public mScaleX:F
 
-.field private mScaleY:F
+.field public mScaleY:F
 
 
 # direct methods
@@ -30,7 +30,7 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 5
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
@@ -66,75 +66,14 @@
     return-void
 .end method
 
-.method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
+.method public final inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;)V
     .locals 0
 
     return-void
 .end method
 
-.method public inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
+.method public final inflate(Landroid/content/res/Resources;Lorg/xmlpull/v1/XmlPullParser;Landroid/util/AttributeSet;Landroid/content/res/Resources$Theme;)V
     .locals 0
 
-    return-void
-.end method
-
-.method public setScale(F)V
-    .locals 4
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/DrawableWrapper;->getIntrinsicHeight()I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    invoke-virtual {p0}, Landroid/graphics/drawable/DrawableWrapper;->getIntrinsicWidth()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    const v2, 0x3eeef1fe    # 0.46669f
-
-    mul-float/2addr p1, v2
-
-    iput p1, p0, Lcom/android/launcher3/icons/FixedScaleDrawable;->mScaleX:F
-
-    iput p1, p0, Lcom/android/launcher3/icons/FixedScaleDrawable;->mScaleY:F
-
-    cmpl-float v2, v0, v1
-
-    const/4 v3, 0x0
-
-    if-lez v2, :cond_0
-
-    cmpl-float v2, v1, v3
-
-    if-lez v2, :cond_0
-
-    div-float/2addr v1, v0
-
-    mul-float/2addr p1, v1
-
-    iput p1, p0, Lcom/android/launcher3/icons/FixedScaleDrawable;->mScaleX:F
-
-    goto :goto_0
-
-    :cond_0
-    cmpl-float v2, v1, v0
-
-    if-lez v2, :cond_1
-
-    cmpl-float v2, v0, v3
-
-    if-lez v2, :cond_1
-
-    div-float/2addr v0, v1
-
-    mul-float/2addr p1, v0
-
-    iput p1, p0, Lcom/android/launcher3/icons/FixedScaleDrawable;->mScaleY:F
-
-    :cond_1
-    :goto_0
     return-void
 .end method

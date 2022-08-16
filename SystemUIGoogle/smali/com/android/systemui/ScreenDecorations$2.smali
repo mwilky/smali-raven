@@ -1,28 +1,28 @@
-.class Lcom/android/systemui/ScreenDecorations$2;
+.class public final Lcom/android/systemui/ScreenDecorations$2;
 .super Ljava/lang/Object;
 .source "ScreenDecorations.java"
 
 # interfaces
-.implements Landroid/hardware/display/DisplayManager$DisplayListener;
+.implements Lcom/android/systemui/statusbar/events/PrivacyDotViewController$ShowingListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/ScreenDecorations;->startOnScreenDecorationsThread()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/ScreenDecorations;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
+.field public final synthetic this$0:Lcom/android/systemui/ScreenDecorations;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/ScreenDecorations;)V
+.method public constructor <init>(Lcom/android/systemui/ScreenDecorations;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
@@ -34,174 +34,26 @@
 
 
 # virtual methods
-.method public onDisplayAdded(I)V
-    .locals 0
+.method public final onPrivacyDotHidden(Landroid/view/View;)V
+    .locals 1
+
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
+
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/ScreenDecorations;->setOverlayWindowVisibilityIfViewExist(Landroid/view/View;I)V
 
     return-void
 .end method
 
-.method public onDisplayChanged(I)V
-    .locals 9
+.method public final onPrivacyDotShown(Landroid/view/View;)V
+    .locals 1
 
-    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    iget-object p1, p1, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/view/Display;->getRotation()I
-
-    move-result p1
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    iget-object v1, v0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
-
-    if-eqz v1, :cond_1
-
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$100(Lcom/android/systemui/ScreenDecorations;)I
-
-    move-result v0
-
-    if-eq v0, p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    const/4 v1, 0x1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->access$202(Lcom/android/systemui/ScreenDecorations;Z)Z
+    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
 
     const/4 v0, 0x0
 
-    move v6, v0
-
-    :goto_0
-    const/4 v0, 0x4
-
-    if-ge v6, v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    iget-object v0, v0, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
-
-    aget-object v1, v0, v6
-
-    if-eqz v1, :cond_0
-
-    aget-object v0, v0, v6
-
-    invoke-virtual {v0}, Landroid/view/View;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
-
-    move-result-object v7
-
-    new-instance v8, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;
-
-    iget-object v1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    iget-object v0, v1, Lcom/android/systemui/ScreenDecorations;->mOverlays:[Landroid/view/View;
-
-    aget-object v2, v0, v6
-
-    const/4 v5, 0x0
-
-    move-object v0, v8
-
-    move v3, v6
-
-    move v4, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/ScreenDecorations$RestartingPreDrawListener;-><init>(Lcom/android/systemui/ScreenDecorations;Landroid/view/View;IILcom/android/systemui/ScreenDecorations$1;)V
-
-    invoke-virtual {v7, v8}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
-
-    :cond_0
-    add-int/lit8 v6, v6, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    iget-object p1, p1, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {p1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
-
-    move-result-object p1
-
-    if-eqz p1, :cond_2
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {v0}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/ScreenDecorations;->access$402(Lcom/android/systemui/ScreenDecorations;Ljava/lang/String;)Ljava/lang/String;
-
-    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    iget-object v0, p1, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
-
-    invoke-static {p1}, Lcom/android/systemui/ScreenDecorations;->access$400(Lcom/android/systemui/ScreenDecorations;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/systemui/ScreenDecorations;->access$600(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v0
-
-    invoke-static {p1, v0}, Lcom/android/systemui/ScreenDecorations;->access$502(Lcom/android/systemui/ScreenDecorations;Z)Z
-
-    iget-object p1, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {p1}, Lcom/android/systemui/ScreenDecorations;->access$700(Lcom/android/systemui/ScreenDecorations;)V
-
-    :cond_4
-    iget-object p0, p0, Lcom/android/systemui/ScreenDecorations$2;->this$0:Lcom/android/systemui/ScreenDecorations;
-
-    invoke-static {p0}, Lcom/android/systemui/ScreenDecorations;->access$800(Lcom/android/systemui/ScreenDecorations;)V
-
-    return-void
-.end method
-
-.method public onDisplayRemoved(I)V
-    .locals 0
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/ScreenDecorations;->setOverlayWindowVisibilityIfViewExist(Landroid/view/View;I)V
 
     return-void
 .end method

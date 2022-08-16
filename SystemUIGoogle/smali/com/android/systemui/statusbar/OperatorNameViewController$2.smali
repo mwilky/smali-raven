@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/OperatorNameViewController$2;
+.class public final Lcom/android/systemui/statusbar/OperatorNameViewController$2;
 .super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "OperatorNameViewController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/OperatorNameViewController;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/OperatorNameViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/OperatorNameViewController;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/OperatorNameViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/OperatorNameViewController$2;->this$0:Lcom/android/systemui/statusbar/OperatorNameViewController;
@@ -31,24 +31,20 @@
 
 
 # virtual methods
-.method public onRefreshCarrierInfo()V
+.method public final onRefreshCarrierInfo()V
     .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/OperatorNameViewController$2;->this$0:Lcom/android/systemui/statusbar/OperatorNameViewController;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/OperatorNameViewController;->access$400(Lcom/android/systemui/statusbar/OperatorNameViewController;)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/statusbar/OperatorNameView;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/OperatorNameViewController$2;->this$0:Lcom/android/systemui/statusbar/OperatorNameViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/OperatorNameViewController;->access$300(Lcom/android/systemui/statusbar/OperatorNameViewController;)Ljava/util/List;
+    iget-object v0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
+
+    check-cast v0, Lcom/android/systemui/statusbar/OperatorNameView;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/OperatorNameViewController;->getDefaultSubInfo()Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;
 
     move-result-object p0
 
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/OperatorNameView;->updateText(Ljava/util/List;)V
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/OperatorNameView;->updateText(Lcom/android/systemui/statusbar/OperatorNameViewController$SubInfo;)V
 
     return-void
 .end method

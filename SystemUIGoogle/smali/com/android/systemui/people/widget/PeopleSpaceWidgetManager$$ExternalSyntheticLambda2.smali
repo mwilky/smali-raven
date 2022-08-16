@@ -1,39 +1,50 @@
 .class public final synthetic Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda2;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
-
-
-# instance fields
-.field public final synthetic f$0:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-
-.field public final synthetic f$1:[I
+.implements Ljava/util/function/Predicate;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;[I)V
+.method public synthetic constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
-
-    iput-object p2, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda2;->f$1:[I
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 1
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda2;->f$0:Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;
+    check-cast p1, Landroid/service/notification/ConversationChannelWrapper;
 
-    iget-object p0, p0, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager$$ExternalSyntheticLambda2;->f$1:[I
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
 
-    invoke-static {v0, p0}, Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;->$r8$lambda$te9P2qE6QY0XinhGpF7KhQs6dho(Lcom/android/systemui/people/widget/PeopleSpaceWidgetManager;[I)V
+    move-result-object p0
 
-    return-void
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p1}, Landroid/service/notification/ConversationChannelWrapper;->getNotificationChannel()Landroid/app/NotificationChannel;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/NotificationChannel;->isImportantConversation()Z
+
+    move-result p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
 .end method

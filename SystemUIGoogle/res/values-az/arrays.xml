@@ -17,6 +17,7 @@
         <item>Ən çox 3 proses</item>
         <item>Ən çox 4 proses</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>Deaktiv</item>
         <item>Aktiv</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Əlçatmazdır</item>
+        <item>Deaktiv</item>
+        <item>Aktiv</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Əlçatan deyil</item>
         <item>Deaktiv</item>
@@ -306,6 +312,16 @@
         <item>Aktiv</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Əlçatan deyil</item>
+        <item>Deaktiv</item>
+        <item>Aktiv</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Əlçatmazdır</item>
+        <item>Deaktiv</item>
+        <item>Aktiv</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Əlçatan deyil</item>
         <item>Deaktiv</item>
         <item>Aktiv</item>
@@ -374,6 +390,12 @@
         <item>Tez</item>
         <item>Çox tez</item>
         <item>Ən sürətli</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Sola köçürün</item>
+        <item>Aşağı köçürün</item>
+        <item>Sağa köçürün</item>
+        <item>Yuxarı köçürün</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Qidalanır</item>

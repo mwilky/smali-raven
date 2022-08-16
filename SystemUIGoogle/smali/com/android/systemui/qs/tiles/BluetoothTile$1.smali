@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/BluetoothTile$1;
+.class public final Lcom/android/systemui/qs/tiles/BluetoothTile$1;
 .super Ljava/lang/Object;
 .source "BluetoothTile.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/BluetoothTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/BluetoothTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
@@ -34,72 +34,26 @@
 
 
 # virtual methods
-.method public onBluetoothDevicesChanged()V
+.method public final onBluetoothDevicesChanged()V
     .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
-
-    invoke-static {v0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->access$300(Lcom/android/systemui/qs/tiles/BluetoothTile;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->access$100(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+    const/4 v0, 0x0
 
-    move-result-object p0
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;->access$200(Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;)V
-
-    :cond_0
     return-void
 .end method
 
-.method public onBluetoothStateChange(Z)V
-    .locals 0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
-
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->access$000(Lcom/android/systemui/qs/tiles/BluetoothTile;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_0
-
-    iget-object p1, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/BluetoothTile;->access$100(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
-
-    move-result-object p1
-
-    invoke-static {p1}, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;->access$200(Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;)V
+.method public final onBluetoothStateChange()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/BluetoothTile$1;->this$0:Lcom/android/systemui/qs/tiles/BluetoothTile;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/BluetoothTile;->access$100(Lcom/android/systemui/qs/tiles/BluetoothTile;)Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;
+    const/4 v0, 0x0
 
-    move-result-object p1
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/qs/tiles/BluetoothTile$BluetoothDetailAdapter;->getToggleState()Ljava/lang/Boolean;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->fireToggleStateChanged(Z)V
-
-    :cond_0
     return-void
 .end method

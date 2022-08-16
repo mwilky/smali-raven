@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/AlarmTile$callback$1;
+.class public final Lcom/android/systemui/qs/tiles/AlarmTile$callback$1;
 .super Ljava/lang/Object;
 .source "AlarmTile.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/AlarmTile;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/AlarmTile;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/AlarmTile;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/AlarmTile;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/AlarmTile$callback$1;->this$0:Lcom/android/systemui/qs/tiles/AlarmTile;
@@ -35,15 +35,15 @@
 
 # virtual methods
 .method public final onNextAlarmChanged(Landroid/app/AlarmManager$AlarmClockInfo;)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/AlarmTile$callback$1;->this$0:Lcom/android/systemui/qs/tiles/AlarmTile;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/qs/tiles/AlarmTile;->access$setLastAlarmInfo$p(Lcom/android/systemui/qs/tiles/AlarmTile;Landroid/app/AlarmManager$AlarmClockInfo;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/AlarmTile$callback$1;->this$0:Lcom/android/systemui/qs/tiles/AlarmTile;
 
-    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState()V
+    iput-object p1, p0, Lcom/android/systemui/qs/tiles/AlarmTile;->lastAlarmInfo:Landroid/app/AlarmManager$AlarmClockInfo;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->refreshState(Ljava/lang/Object;)V
 
     return-void
 .end method

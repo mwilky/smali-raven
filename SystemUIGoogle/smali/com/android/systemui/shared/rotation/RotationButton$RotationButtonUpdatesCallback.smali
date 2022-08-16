@@ -12,17 +12,3 @@
     accessFlags = 0x609
     name = "RotationButtonUpdatesCallback"
 .end annotation
-
-
-# virtual methods
-.method public onPositionChanged()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onVisibilityChanged(Z)V
-    .locals 0
-
-    return-void
-.end method

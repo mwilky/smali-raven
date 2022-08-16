@@ -17,6 +17,7 @@
         <item>En çok 3 işlem</item>
         <item>En çok 4 işlem</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>%0</item>
         <item>%50</item>
@@ -260,6 +261,11 @@
         <item>Kapalı</item>
         <item>Açık</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>Bilinmiyor</item>
+        <item>Kapalı</item>
+        <item>Açık</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>Kullanılamıyor</item>
         <item>Kapalı</item>
@@ -306,6 +312,16 @@
         <item>Açık</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>Kullanılamıyor</item>
+        <item>Kapalı</item>
+        <item>Açık</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>Bilinmiyor</item>
+        <item>Kapalı</item>
+        <item>Açık</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>Kullanılamıyor</item>
         <item>Kapalı</item>
         <item>Açık</item>
@@ -374,6 +390,12 @@
         <item>Seri</item>
         <item>Çok seri</item>
         <item>En hızlı</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>Sola taşı</item>
+        <item>Aşağı taşı</item>
+        <item>Sağa taşı</item>
+        <item>Yukarı taşı</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>Şarj oluyor</item>

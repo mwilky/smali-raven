@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/doze/DozeLog$SummaryStats;
+.class public final Lcom/android/systemui/doze/DozeLog$SummaryStats;
 .super Ljava/lang/Object;
 .source "DozeLog.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "SummaryStats"
 .end annotation
 
 
 # instance fields
-.field private mCount:I
+.field public mCount:I
 
-.field final synthetic this$0:Lcom/android/systemui/doze/DozeLog;
+.field public final synthetic this$0:Lcom/android/systemui/doze/DozeLog;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/doze/DozeLog;)V
+.method public constructor <init>(Lcom/android/systemui/doze/DozeLog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeLog$SummaryStats;->this$0:Lcom/android/systemui/doze/DozeLog;
@@ -31,29 +31,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/doze/DozeLog;Lcom/android/systemui/doze/DozeLog$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/doze/DozeLog$SummaryStats;-><init>(Lcom/android/systemui/doze/DozeLog;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public append()V
-    .locals 1
-
-    iget v0, p0, Lcom/android/systemui/doze/DozeLog$SummaryStats;->mCount:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/systemui/doze/DozeLog$SummaryStats;->mCount:I
-
-    return-void
-.end method
-
-.method public dump(Ljava/io/PrintWriter;Ljava/lang/String;)V
+.method public final dump$1(Ljava/io/PrintWriter;Ljava/lang/String;)V
     .locals 6
 
     iget v0, p0, Lcom/android/systemui/doze/DozeLog$SummaryStats;->mCount:I
@@ -91,9 +71,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeLog$SummaryStats;->this$0:Lcom/android/systemui/doze/DozeLog;
 
-    invoke-static {p0}, Lcom/android/systemui/doze/DozeLog;->access$100(Lcom/android/systemui/doze/DozeLog;)J
-
-    move-result-wide v4
+    iget-wide v4, p0, Lcom/android/systemui/doze/DozeLog;->mSince:J
 
     sub-long/2addr v2, v4
 

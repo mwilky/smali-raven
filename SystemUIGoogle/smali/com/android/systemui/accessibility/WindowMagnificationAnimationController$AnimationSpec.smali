@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
+.class public final Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;
 .super Ljava/lang/Object;
 .source "WindowMagnificationAnimationController.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "AnimationSpec"
 .end annotation
 
 
 # instance fields
-.field private mCenterX:F
+.field public mCenterX:F
 
-.field private mCenterY:F
+.field public mCenterY:F
 
-.field private mScale:F
+.field public mScale:F
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,41 +39,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;-><init>()V
-
-    return-void
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mScale:F
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterX:F
-
-    return p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;)F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mCenterY:F
-
-    return p0
-.end method
-
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 4
 
     const/4 v0, 0x1
@@ -137,7 +105,7 @@
     return v1
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 5
 
     iget v0, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mScale:F
@@ -198,7 +166,7 @@
     return v0
 .end method
 
-.method set(FFF)V
+.method public final set(FFF)V
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mScale:F
@@ -210,16 +178,14 @@
     return-void
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "AnimationSpec{mScale="
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "AnimationSpec{mScale="
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/accessibility/WindowMagnificationAnimationController$AnimationSpec;->mScale:F
 

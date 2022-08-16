@@ -31,7 +31,7 @@
     return-void
 .end method
 
-.method public onPageScrolled(IFI)V
+.method public onPageScrolled(FII)V
     .locals 0
 
     return-void

@@ -17,6 +17,7 @@
         <item>ଅତିବେଶୀରେ 3ଟି ପ୍ରକ୍ରିୟା</item>
         <item>ସର୍ବାଧିକ 4 ଟି ପ୍ରକ୍ରିୟା</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>ବନ୍ଦ ଅଛି</item>
         <item>ଚାଲୁ ଅଛି</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>ଉପଲବ୍ଧ ନାହିଁ</item>
+        <item>ବନ୍ଦ ଅଛି</item>
+        <item>ଚାଲୁ ଅଛି</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>ଉପଲବ୍ଧ ନାହିଁ</item>
         <item>ବନ୍ଦ ଅଛି</item>
@@ -306,6 +312,16 @@
         <item>ଚାଲୁ ଅଛି</item>
     </string-array>
     <string-array name="tile_states_night">
+        <item>ଉପଲବ୍ଧ ନାହିଁ</item>
+        <item>ବନ୍ଦ ଅଛି</item>
+        <item>ଚାଲୁ ଅଛି</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>ଉପଲବ୍ଧ ନାହିଁ</item>
+        <item>ବନ୍ଦ ଅଛି</item>
+        <item>ଚାଲୁ ଅଛି</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
         <item>ଉପଲବ୍ଧ ନାହିଁ</item>
         <item>ବନ୍ଦ ଅଛି</item>
         <item>ଚାଲୁ ଅଛି</item>
@@ -374,6 +390,12 @@
         <item>ଦ୍ରୁତ</item>
         <item>ଅତି ତୀବ୍ର</item>
         <item>ଦ୍ରୁତତ୍ତମ</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>ବାମକୁ ମୁଭ କରନ୍ତୁ</item>
+        <item>ତଳକୁ ମୁଭ କରନ୍ତୁ</item>
+        <item>ଡାହାଣକୁ ମୁଭ କରନ୍ତୁ</item>
+        <item>ଉପରକୁ ମୁଭ କରନ୍ତୁ</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>ଚାର୍ଜ ହେଉଛି</item>

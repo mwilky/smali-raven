@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;
+.class public final Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;
 .super Ljava/lang/Object;
 .source "TvOngoingPrivacyChip.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
+.field public final synthetic this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;)V
+.method public constructor <init>(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;->this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
@@ -34,31 +34,23 @@
 
 
 # virtual methods
-.method public onGlobalLayout()V
-    .locals 2
+.method public final onGlobalLayout()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;->this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
 
-    invoke-static {v0}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->access$000(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;)I
+    iget v1, v0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->mState:I
 
-    move-result v0
+    const/4 v2, 0x1
 
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_0
+    if-eq v1, v2, :cond_0
 
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;->this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
+    iput-boolean v2, v0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->mViewAndWindowAdded:Z
 
-    invoke-static {v0, v1}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->access$102(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;Z)Z
-
-    iget-object v0, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;->this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
-
-    invoke-static {v0}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->access$200(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;)Landroid/view/ViewGroup;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->mIndicatorView:Landroid/view/ViewGroup;
 
     invoke-virtual {v0}, Landroid/view/ViewGroup;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
@@ -68,19 +60,21 @@
 
     iget-object v0, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;->this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
 
-    invoke-static {v0}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->access$300(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;)V
+    invoke-virtual {v0}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->postAccessibilityAnnouncement()V
 
     iget-object v0, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;->this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
 
-    invoke-static {v0}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->access$400(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;)V
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->animateIconAlphaTo(F)V
 
     iget-object p0, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip$1;->this$0:Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;
 
-    invoke-static {p0}, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->access$500(Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;)Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
+    iget-object p0, p0, Lcom/android/systemui/privacy/television/TvOngoingPrivacyChip;->mChipDrawable:Lcom/android/systemui/privacy/television/PrivacyChipDrawable;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->mFadeIn:Landroid/animation/AnimatorSet;
 
-    invoke-virtual {p0}, Lcom/android/systemui/privacy/television/PrivacyChipDrawable;->startInitialFadeIn()V
+    invoke-virtual {p0}, Landroid/animation/AnimatorSet;->start()V
 
     return-void
 .end method

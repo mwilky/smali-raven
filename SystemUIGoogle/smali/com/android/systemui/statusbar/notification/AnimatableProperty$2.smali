@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/AnimatableProperty$2;
+.class public final Lcom/android/systemui/statusbar/notification/AnimatableProperty$2;
 .super Landroid/util/FloatProperty;
 .source "AnimatableProperty.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -23,20 +23,24 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/String;)V
-    .locals 0
+.method public constructor <init>()V
+    .locals 1
 
-    invoke-direct {p0, p1}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
+    const-string v0, "ViewAbsoluteY"
+
+    invoke-direct {p0, v0}, Landroid/util/FloatProperty;-><init>(Ljava/lang/String;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public get(Landroid/view/View;)Ljava/lang/Float;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    sget p0, Lcom/android/systemui/R$id;->absolute_y_current_value:I
+    check-cast p1, Landroid/view/View;
+
+    const p0, 0x7f0b001b
 
     invoke-virtual {p1, p0}, Landroid/view/View;->getTag(I)Ljava/lang/Object;
 
@@ -48,7 +52,7 @@
 
     check-cast p0, Ljava/lang/Float;
 
-    return-object p0
+    goto :goto_0
 
     :cond_0
     sget-object p0, Landroid/view/View;->Y:Landroid/util/Property;
@@ -59,31 +63,22 @@
 
     check-cast p0, Ljava/lang/Float;
 
+    :goto_0
     return-object p0
 .end method
 
-.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final setValue(Ljava/lang/Object;F)V
+    .locals 1
 
     check-cast p1, Landroid/view/View;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$2;->get(Landroid/view/View;)Ljava/lang/Float;
+    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p0
 
-    return-object p0
-.end method
+    const v0, 0x7f0b001b
 
-.method public setValue(Landroid/view/View;F)V
-    .locals 1
-
-    sget p0, Lcom/android/systemui/R$id;->absolute_y_current_value:I
-
-    invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object v0
-
-    invoke-virtual {p1, p0, v0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
+    invoke-virtual {p1, v0, p0}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
     sget-object p0, Landroid/view/View;->Y:Landroid/util/Property;
 
@@ -92,16 +87,6 @@
     move-result-object p2
 
     invoke-virtual {p0, p1, p2}, Landroid/util/Property;->set(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic setValue(Ljava/lang/Object;F)V
-    .locals 0
-
-    check-cast p1, Landroid/view/View;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/AnimatableProperty$2;->setValue(Landroid/view/View;F)V
 
     return-void
 .end method

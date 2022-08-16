@@ -3,23 +3,12 @@
 .source "SmartspaceState.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/shared/system/smartspace/SmartspaceState;-><init>(Landroid/os/Parcel;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1000
-    name = null
-.end annotation
-
-
 # static fields
 .field public static final INSTANCE:Lcom/android/systemui/shared/system/smartspace/SmartspaceState$1;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Lcom/android/systemui/shared/system/smartspace/SmartspaceState$1;
@@ -31,7 +20,7 @@
     return-void
 .end method
 
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 4
 
     const-class v0, Lkotlin/jvm/JvmClassMappingKt;
@@ -49,7 +38,7 @@
 
 
 # virtual methods
-.method public get(Ljava/lang/Object;)Ljava/lang/Object;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 0
 
     invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;

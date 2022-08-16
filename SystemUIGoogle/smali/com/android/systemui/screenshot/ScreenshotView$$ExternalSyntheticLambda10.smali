@@ -1,37 +1,26 @@
 .class public final synthetic Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/animation/ValueAnimator$AnimatorUpdateListener;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/screenshot/ScreenshotView;
+.field public final synthetic $r8$classId:I
 
-.field public final synthetic f$1:F
-
-.field public final synthetic f$2:F
-
-.field public final synthetic f$3:Landroid/graphics/Rect;
-
-.field public final synthetic f$4:F
+.field public final synthetic f$0:Ljava/lang/Object;
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;FFLandroid/graphics/Rect;F)V
+.method public synthetic constructor <init>(ILjava/lang/Object;)V
     .locals 0
 
+    iput p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->$r8$classId:I
+
+    iput-object p2, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$0:Ljava/lang/Object;
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/screenshot/ScreenshotView;
-
-    iput p2, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$1:F
-
-    iput p3, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$2:F
-
-    iput-object p4, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$3:Landroid/graphics/Rect;
-
-    iput p5, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$4:F
 
     return-void
 .end method
@@ -39,21 +28,62 @@
 
 # virtual methods
 .method public final onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-    .locals 6
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$0:Lcom/android/systemui/screenshot/ScreenshotView;
+    iget v0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->$r8$classId:I
 
-    iget v1, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$1:F
+    packed-switch v0, :pswitch_data_0
 
-    iget v2, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$2:F
+    goto :goto_0
 
-    iget-object v3, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$3:Landroid/graphics/Rect;
+    :pswitch_0
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$0:Ljava/lang/Object;
 
-    iget v4, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$4:F
+    check-cast p0, Lcom/android/systemui/screenshot/ScreenshotView;
 
-    move-object v5, p1
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mScreenshotFlash:Landroid/widget/ImageView;
 
-    invoke-static/range {v0 .. v5}, Lcom/android/systemui/screenshot/ScreenshotView;->$r8$lambda$_n57EnKT6IcNLhHGEhLdD86HZMo(Lcom/android/systemui/screenshot/ScreenshotView;FFLandroid/graphics/Rect;FLandroid/animation/ValueAnimator;)V
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    invoke-virtual {p0, p1}, Landroid/widget/ImageView;->setAlpha(F)V
 
     return-void
+
+    :goto_0
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$$ExternalSyntheticLambda10;->f$0:Ljava/lang/Object;
+
+    check-cast p0, Lcom/android/systemui/statusbar/phone/PanelViewController;
+
+    sget v0, Lcom/android/systemui/statusbar/phone/PanelViewController;->$r8$clinit:I
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Float;
+
+    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
+
+    move-result p1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/phone/PanelViewController;->setOverExpansionInternal(FZ)V
+
+    return-void
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+    .end packed-switch
 .end method

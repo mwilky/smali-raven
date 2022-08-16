@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ForwardingListener$DisallowIntercept;
+.class public final Landroidx/appcompat/widget/ForwardingListener$DisallowIntercept;
 .super Ljava/lang/Object;
 .source "ForwardingListener.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "DisallowIntercept"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ForwardingListener;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ForwardingListener;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ForwardingListener;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ForwardingListener;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ForwardingListener$DisallowIntercept;->this$0:Landroidx/appcompat/widget/ForwardingListener;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object p0, p0, Landroidx/appcompat/widget/ForwardingListener$DisallowIntercept;->this$0:Landroidx/appcompat/widget/ForwardingListener;

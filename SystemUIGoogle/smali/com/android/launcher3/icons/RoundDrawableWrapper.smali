@@ -4,15 +4,15 @@
 
 
 # instance fields
-.field private final mClipPath:Landroid/graphics/Path;
+.field public final mClipPath:Landroid/graphics/Path;
 
-.field private final mRoundedCornersRadius:F
+.field public final mRoundedCornersRadius:F
 
-.field private final mTempRect:Landroid/graphics/RectF;
+.field public final mTempRect:Landroid/graphics/RectF;
 
 
 # direct methods
-.method public constructor <init>(Landroid/graphics/drawable/Drawable;F)V
+.method public constructor <init>(Landroid/graphics/drawable/ColorDrawable;F)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/graphics/drawable/DrawableWrapper;-><init>(Landroid/graphics/drawable/Drawable;)V
@@ -54,7 +54,7 @@
     return-void
 .end method
 
-.method protected onBoundsChange(Landroid/graphics/Rect;)V
+.method public final onBoundsChange(Landroid/graphics/Rect;)V
     .locals 4
 
     iget-object v0, p0, Lcom/android/launcher3/icons/RoundDrawableWrapper;->mTempRect:Landroid/graphics/RectF;

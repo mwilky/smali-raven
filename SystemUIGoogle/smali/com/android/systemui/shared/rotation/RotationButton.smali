@@ -48,12 +48,10 @@
     return-object p0
 .end method
 
-.method public hide()Z
+.method public hide()V
     .locals 0
 
-    const/4 p0, 0x0
-
-    return p0
+    return-void
 .end method
 
 .method public isVisible()Z
@@ -82,7 +80,7 @@
     return-void
 .end method
 
-.method public setOnHoverListener(Landroid/view/View$OnHoverListener;)V
+.method public setOnHoverListener(Lcom/android/systemui/shared/rotation/RotationButtonController$$ExternalSyntheticLambda0;)V
     .locals 0
 
     return-void
@@ -100,12 +98,10 @@
     return-void
 .end method
 
-.method public show()Z
+.method public show()V
     .locals 0
 
-    const/4 p0, 0x0
-
-    return p0
+    return-void
 .end method
 
 .method public updateIcon(II)V

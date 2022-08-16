@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/external/TileServices$1;
+.class public final Lcom/android/systemui/qs/external/TileServices$1;
 .super Ljava/lang/Object;
 .source "TileServices.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/external/TileServices;
+.field public final synthetic this$0:Lcom/android/systemui/qs/external/TileServices;
 
-.field final synthetic val$componentName:Landroid/content/ComponentName;
+.field public final synthetic val$componentName:Landroid/content/ComponentName;
 
-.field final synthetic val$statusIcon:Lcom/android/internal/statusbar/StatusBarIcon;
+.field public final synthetic val$statusIcon:Lcom/android/internal/statusbar/StatusBarIcon;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;Lcom/android/internal/statusbar/StatusBarIcon;)V
+.method public constructor <init>(Lcom/android/systemui/qs/external/TileServices;Landroid/content/ComponentName;Lcom/android/internal/statusbar/StatusBarIcon;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/external/TileServices$1;->this$0:Lcom/android/systemui/qs/external/TileServices;
@@ -42,18 +42,14 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Lcom/android/systemui/qs/external/TileServices$1;->this$0:Lcom/android/systemui/qs/external/TileServices;
 
-    invoke-static {v0}, Lcom/android/systemui/qs/external/TileServices;->access$000(Lcom/android/systemui/qs/external/TileServices;)Lcom/android/systemui/qs/QSTileHost;
+    iget-object v0, v0, Lcom/android/systemui/qs/external/TileServices;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/systemui/qs/QSTileHost;->getIconController()Lcom/android/systemui/statusbar/phone/StatusBarIconController;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/qs/QSTileHost;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
     iget-object v1, p0, Lcom/android/systemui/qs/external/TileServices$1;->val$componentName:Landroid/content/ComponentName;
 

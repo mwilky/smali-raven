@@ -14,43 +14,27 @@
 .end annotation
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mBackgroundActivatedColor:I
+.field public mBackgroundDisabled:Landroid/graphics/drawable/Drawable;
 
-.field private mBackgroundColor:I
+.field public mBackgroundOff:Landroid/graphics/drawable/Drawable;
 
-.field private mBackgroundDisabled:Landroid/graphics/drawable/Drawable;
+.field public mBackgroundOn:Landroid/graphics/drawable/Drawable;
 
-.field private mBackgroundOff:Landroid/graphics/drawable/Drawable;
+.field public mFrameView:Landroid/view/View;
 
-.field private mBackgroundOn:Landroid/graphics/drawable/Drawable;
+.field public mSwitch:Landroid/widget/Switch;
 
-.field private mFrameView:Landroid/view/View;
+.field public final mSwitchChangeListeners:Ljava/util/ArrayList;
 
-.field protected mSwitch:Landroid/widget/Switch;
-
-.field private final mSwitchChangeListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/settingslib/widget/OnMainSwitchChangeListener;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field protected mTextView:Landroid/widget/TextView;
+.field public mTextView:Landroid/widget/TextView;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$rN8bSl54RQDz28q33LXHW78-FT8(Lcom/android/settingslib/widget/MainSwitchBar;Landroid/widget/Switch;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/settingslib/widget/MainSwitchBar;->lambda$new$0(Landroid/widget/Switch;Z)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -82,7 +66,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
-    .locals 2
+    .locals 1
 
     invoke-direct {p0, p1, p2, p3, p4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;II)V
 
@@ -90,314 +74,201 @@
 
     invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/List;
+    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/ArrayList;
 
     invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    move-result-object p3
+    move-result-object p4
 
-    sget p4, Lcom/android/settingslib/widget/R$layout;->settingslib_main_switch_bar:I
+    const v0, 0x7f0e021a
 
-    invoke-virtual {p3, p4, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    invoke-static {}, Lcom/android/settingslib/utils/BuildCompatUtils;->isAtLeastS()Z
-
-    move-result p3
+    invoke-virtual {p4, v0, p0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     const/4 p4, 0x1
 
-    const/4 v0, 0x0
-
-    if-nez p3, :cond_0
-
-    new-array p3, p4, [I
-
-    const v1, 0x1010435
-
-    aput v1, p3, v0
-
-    invoke-virtual {p1, p3}, Landroid/content/Context;->obtainStyledAttributes([I)Landroid/content/res/TypedArray;
-
-    move-result-object p3
-
-    invoke-virtual {p3, v0, v0}, Landroid/content/res/TypedArray;->getColor(II)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundActivatedColor:I
-
-    sget v1, Lcom/android/settingslib/widget/R$color;->material_grey_600:I
-
-    invoke-virtual {p1, v1}, Landroid/content/Context;->getColor(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundColor:I
-
-    invoke-virtual {p3}, Landroid/content/res/TypedArray;->recycle()V
-
-    :cond_0
     invoke-virtual {p0, p4}, Landroid/widget/LinearLayout;->setFocusable(Z)V
 
     invoke-virtual {p0, p4}, Landroid/widget/LinearLayout;->setClickable(Z)V
 
-    sget p3, Lcom/android/settingslib/widget/R$id;->frame:I
+    const p4, 0x7f0b02ab
 
-    invoke-virtual {p0, p3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object p3
+    move-result-object p4
 
-    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mFrameView:Landroid/view/View;
+    iput-object p4, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mFrameView:Landroid/view/View;
 
-    sget p3, Lcom/android/settingslib/widget/R$id;->switch_text:I
+    const p4, 0x7f0b0683
 
-    invoke-virtual {p0, p3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object p3
+    move-result-object p4
 
-    check-cast p3, Landroid/widget/TextView;
+    check-cast p4, Landroid/widget/TextView;
 
-    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mTextView:Landroid/widget/TextView;
+    iput-object p4, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mTextView:Landroid/widget/TextView;
 
-    const p3, 0x1020040
+    const p4, 0x1020040
 
-    invoke-virtual {p0, p3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, p4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
-    move-result-object p3
+    move-result-object p4
 
-    check-cast p3, Landroid/widget/Switch;
+    check-cast p4, Landroid/widget/Switch;
 
-    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+    iput-object p4, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
-    invoke-static {}, Lcom/android/settingslib/utils/BuildCompatUtils;->isAtLeastS()Z
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+
+    move-result-object p4
+
+    const v0, 0x7f0807f3
+
+    invoke-virtual {p4, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p4
+
+    iput-object p4, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+
+    move-result-object p4
+
+    const v0, 0x7f0807f2
+
+    invoke-virtual {p4, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p4
+
+    iput-object p4, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+
+    move-result-object p4
+
+    const v0, 0x7f0807f1
+
+    invoke-virtual {p4, v0}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object p4
+
+    iput-object p4, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundDisabled:Landroid/graphics/drawable/Drawable;
+
+    new-instance p4, Lcom/android/settingslib/widget/MainSwitchBar$$ExternalSyntheticLambda0;
+
+    invoke-direct {p4, p0}, Lcom/android/settingslib/widget/MainSwitchBar$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/widget/MainSwitchBar;)V
+
+    invoke-virtual {p3, p4}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p3, p4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    iget-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {p3}, Landroid/widget/Switch;->getVisibility()I
 
     move-result p3
 
-    if-eqz p3, :cond_1
+    if-nez p3, :cond_1
 
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+    iget-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
-    move-result-object p3
-
-    sget v1, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_on:I
-
-    invoke-virtual {p3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p3
-
-    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
-
-    move-result-object p3
-
-    sget v1, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_off:I
-
-    invoke-virtual {p3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p3
-
-    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
-
-    move-result-object p3
-
-    sget v1, Lcom/android/settingslib/widget/R$drawable;->settingslib_switch_bar_bg_disabled:I
-
-    invoke-virtual {p3, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object p3
-
-    iput-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundDisabled:Landroid/graphics/drawable/Drawable;
+    invoke-virtual {p3, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     :cond_1
-    new-instance p3, Lcom/android/settingslib/widget/MainSwitchBar$$ExternalSyntheticLambda0;
-
-    invoke-direct {p3, p0}, Lcom/android/settingslib/widget/MainSwitchBar$$ExternalSyntheticLambda0;-><init>(Lcom/android/settingslib/widget/MainSwitchBar;)V
-
-    invoke-virtual {p0, p3}, Lcom/android/settingslib/widget/MainSwitchBar;->addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
-
     iget-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
     invoke-virtual {p3}, Landroid/widget/Switch;->isChecked()Z
 
     move-result p3
 
-    invoke-virtual {p0, p3}, Lcom/android/settingslib/widget/MainSwitchBar;->setChecked(Z)V
+    iget-object p4, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
-    if-eqz p2, :cond_2
+    if-eqz p4, :cond_2
 
-    sget-object p3, Landroidx/preference/R$styleable;->Preference:[I
+    invoke-virtual {p4, p3}, Landroid/widget/Switch;->setChecked(Z)V
 
-    invoke-virtual {p1, p2, p3, v0, v0}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    :cond_2
+    invoke-virtual {p0, p3}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
+
+    if-eqz p2, :cond_4
+
+    sget-object p3, Landroidx/cardview/R$attr;->Preference:[I
+
+    const/4 p4, 0x0
+
+    invoke-virtual {p1, p2, p3, p4, p4}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object p1
 
-    sget p2, Landroidx/preference/R$styleable;->Preference_android_title:I
+    const/4 p2, 0x4
 
     invoke-virtual {p1, p2}, Landroid/content/res/TypedArray;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object p2
 
-    invoke-virtual {p0, p2}, Lcom/android/settingslib/widget/MainSwitchBar;->setTitle(Ljava/lang/CharSequence;)V
+    iget-object p3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mTextView:Landroid/widget/TextView;
 
+    if-eqz p3, :cond_3
+
+    invoke-virtual {p3, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_3
     invoke-virtual {p1}, Landroid/content/res/TypedArray;->recycle()V
 
-    :cond_2
-    invoke-direct {p0, p4}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
+    :cond_4
+    iget-object p1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
-    return-void
-.end method
+    invoke-virtual {p1}, Landroid/widget/Switch;->isChecked()Z
 
-.method private synthetic lambda$new$0(Landroid/widget/Switch;Z)V
-    .locals 0
+    move-result p1
 
-    invoke-virtual {p0, p2}, Lcom/android/settingslib/widget/MainSwitchBar;->setChecked(Z)V
+    invoke-virtual {p0, p1}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
 
-    return-void
-.end method
-
-.method private propagateChecked(Z)V
-    .locals 4
-
-    invoke-direct {p0, p1}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
-
-    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    if-ge v1, v0, :cond_0
-
-    iget-object v2, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/List;
-
-    invoke-interface {v2, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/settingslib/widget/OnMainSwitchChangeListener;
-
-    iget-object v3, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
-
-    invoke-interface {v2, v3, p1}, Lcom/android/settingslib/widget/OnMainSwitchChangeListener;->onSwitchChanged(Landroid/widget/Switch;Z)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method private setBackground(Z)V
-    .locals 1
-
-    invoke-static {}, Lcom/android/settingslib/utils/BuildCompatUtils;->isAtLeastS()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    if-eqz p1, :cond_0
-
-    iget p1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundActivatedColor:I
-
-    goto :goto_0
-
-    :cond_0
-    iget p1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundColor:I
-
-    :goto_0
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setBackgroundColor(I)V
-
-    goto :goto_2
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mFrameView:Landroid/view/View;
-
-    if-eqz p1, :cond_2
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
-
-    goto :goto_1
-
-    :cond_2
-    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
-
-    :goto_1
-    invoke-virtual {v0, p0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    :goto_2
     return-void
 .end method
 
 
 # virtual methods
-.method public addOnSwitchChangeListener(Lcom/android/settingslib/widget/OnMainSwitchChangeListener;)V
-    .locals 1
+.method public final onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/List;
+    invoke-virtual {p0, p2}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
 
-    invoke-interface {v0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+    iget-object p1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/ArrayList;
 
-    move-result v0
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
 
-    if-nez v0, :cond_0
+    move-result p1
 
-    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/List;
+    const/4 v0, 0x0
 
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :goto_0
+    if-ge v0, p1, :cond_0
 
-    :cond_0
-    return-void
-.end method
+    iget-object v1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitchChangeListeners:Ljava/util/ArrayList;
 
-.method public isChecked()Z
-    .locals 0
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+    move-result-object v1
 
-    invoke-virtual {p0}, Landroid/widget/Switch;->isChecked()Z
+    check-cast v1, Lcom/android/settingslib/widget/OnMainSwitchChangeListener;
 
-    move-result p0
+    invoke-interface {v1, p2}, Lcom/android/settingslib/widget/OnMainSwitchChangeListener;->onSwitchChanged(Z)V
 
-    return p0
-.end method
-
-.method public isShowing()Z
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getVisibility()I
-
-    move-result p0
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x1
+    add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
-    .locals 0
-
-    invoke-direct {p0, p2}, Lcom/android/settingslib/widget/MainSwitchBar;->propagateChecked(Z)V
-
     return-void
 .end method
 
-.method public onRestoreInstanceState(Landroid/os/Parcelable;)V
+.method public final onRestoreInstanceState(Landroid/os/Parcelable;)V
     .locals 2
 
     check-cast p1, Lcom/android/settingslib/widget/MainSwitchBar$SavedState;
@@ -416,21 +287,28 @@
 
     iget-boolean v0, p1, Lcom/android/settingslib/widget/MainSwitchBar$SavedState;->mChecked:Z
 
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/widget/MainSwitchBar;->setChecked(Z)V
+    iget-object v1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1, v0}, Landroid/widget/Switch;->setChecked(Z)V
+
+    :cond_0
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
 
     iget-boolean v0, p1, Lcom/android/settingslib/widget/MainSwitchBar$SavedState;->mChecked:Z
 
-    invoke-direct {p0, v0}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
 
     iget-boolean v0, p1, Lcom/android/settingslib/widget/MainSwitchBar$SavedState;->mVisible:Z
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const/4 v0, 0x0
 
     goto :goto_0
 
-    :cond_0
+    :cond_1
     const/16 v0, 0x8
 
     :goto_0
@@ -440,13 +318,13 @@
 
     iget-boolean p1, p1, Lcom/android/settingslib/widget/MainSwitchBar$SavedState;->mVisible:Z
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     move-object p1, p0
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     const/4 p1, 0x0
 
     :goto_1
@@ -457,7 +335,7 @@
     return-void
 .end method
 
-.method public onSaveInstanceState()Landroid/os/Parcelable;
+.method public final onSaveInstanceState()Landroid/os/Parcelable;
     .locals 2
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onSaveInstanceState()Landroid/os/Parcelable;
@@ -476,43 +354,60 @@
 
     iput-boolean v0, v1, Lcom/android/settingslib/widget/MainSwitchBar$SavedState;->mChecked:Z
 
-    invoke-virtual {p0}, Lcom/android/settingslib/widget/MainSwitchBar;->isShowing()Z
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getVisibility()I
 
     move-result p0
 
+    if-nez p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
     iput-boolean p0, v1, Lcom/android/settingslib/widget/MainSwitchBar$SavedState;->mVisible:Z
 
     return-object v1
 .end method
 
-.method public performClick()Z
-    .locals 0
+.method public final performClick()Z
+    .locals 1
 
-    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {p0}, Landroid/widget/Switch;->performClick()Z
+    invoke-virtual {v0}, Landroid/widget/Switch;->performClick()Z
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->performClick()Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public setChecked(Z)V
+.method public final setBackground(Z)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mFrameView:Landroid/view/View;
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    invoke-virtual {v0, p1}, Landroid/widget/Switch;->setChecked(Z)V
+    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOn:Landroid/graphics/drawable/Drawable;
+
+    goto :goto_0
 
     :cond_0
-    invoke-direct {p0, p1}, Lcom/android/settingslib/widget/MainSwitchBar;->setBackground(Z)V
+    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mBackgroundOff:Landroid/graphics/drawable/Drawable;
+
+    :goto_0
+    invoke-virtual {v0, p0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     return-void
 .end method
 
-.method public setEnabled(Z)V
+.method public final setEnabled(Z)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/widget/LinearLayout;->setEnabled(Z)V
@@ -525,17 +420,13 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/Switch;->setEnabled(Z)V
 
-    invoke-static {}, Lcom/android/settingslib/utils/BuildCompatUtils;->isAtLeastS()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_2
-
     if-eqz p1, :cond_1
 
     iget-object p1, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mFrameView:Landroid/view/View;
 
-    invoke-virtual {p0}, Lcom/android/settingslib/widget/MainSwitchBar;->isChecked()Z
+    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0}, Landroid/widget/Switch;->isChecked()Z
 
     move-result v0
 
@@ -560,34 +451,6 @@
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    :cond_2
     :goto_1
-    return-void
-.end method
-
-.method public setTitle(Ljava/lang/CharSequence;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mTextView:Landroid/widget/TextView;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public show()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/settingslib/widget/MainSwitchBar;->mSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v0, p0}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
     return-void
 .end method

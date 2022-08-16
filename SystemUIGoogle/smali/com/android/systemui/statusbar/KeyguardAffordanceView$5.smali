@@ -1,29 +1,18 @@
-.class Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;
+.class public final Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "KeyguardAffordanceView.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/KeyguardAffordanceView;->finishAnimation(FLjava/lang/Runnable;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
 
-.field final synthetic val$mAnimationEndRunnable:Ljava/lang/Runnable;
+.field public final synthetic val$mAnimationEndRunnable:Ljava/lang/Runnable;
 
-.field final synthetic val$maxCircleSize:F
+.field public final synthetic val$maxCircleSize:F
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/KeyguardAffordanceView;Ljava/lang/Runnable;F)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/KeyguardAffordanceView;Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper$2;F)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
@@ -39,7 +28,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;->val$mAnimationEndRunnable:Ljava/lang/Runnable;
@@ -50,17 +39,13 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->access$402(Lcom/android/systemui/statusbar/KeyguardAffordanceView;Z)Z
+    iput-boolean v0, p1, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->mFinishing:Z
 
-    iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
+    iget p0, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;->val$maxCircleSize:F
 
-    iget v0, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;->val$maxCircleSize:F
+    iput p0, p1, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->mCircleRadius:F
 
-    invoke-static {p1, v0}, Lcom/android/systemui/statusbar/KeyguardAffordanceView;->access$502(Lcom/android/systemui/statusbar/KeyguardAffordanceView;F)F
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardAffordanceView$5;->this$0:Lcom/android/systemui/statusbar/KeyguardAffordanceView;
-
-    invoke-virtual {p0}, Landroid/widget/ImageView;->invalidate()V
+    invoke-virtual {p1}, Landroid/widget/ImageView;->invalidate()V
 
     return-void
 .end method

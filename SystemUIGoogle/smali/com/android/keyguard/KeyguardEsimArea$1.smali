@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardEsimArea$1;
+.class public final Lcom/android/keyguard/KeyguardEsimArea$1;
 .super Landroid/content/BroadcastReceiver;
 .source "KeyguardEsimArea.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardEsimArea;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardEsimArea;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardEsimArea;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardEsimArea;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardEsimArea$1;->this$0:Lcom/android/keyguard/KeyguardEsimArea;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -80,13 +80,13 @@
 
     invoke-direct {p1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    sget p0, Lcom/android/systemui/R$string;->error_disable_esim_msg:I
+    const p0, 0x7f1302e6
 
     invoke-virtual {p1, p0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object p0
 
-    sget p1, Lcom/android/systemui/R$string;->error_disable_esim_title:I
+    const p1, 0x7f1302e7
 
     invoke-virtual {p0, p1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -98,7 +98,7 @@
 
     move-result-object p0
 
-    sget p1, Lcom/android/systemui/R$string;->ok:I
+    const p1, 0x7f13052f
 
     const/4 p2, 0x0
 

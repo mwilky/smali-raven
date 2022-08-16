@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/TaskbarDelegate$3;
+.class public final Lcom/android/systemui/navigationbar/TaskbarDelegate$3;
 .super Ljava/lang/Object;
 .source "TaskbarDelegate.java"
 
@@ -6,23 +6,12 @@
 .implements Lcom/android/systemui/statusbar/phone/LightBarTransitionsController$DarkIntensityApplier;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/navigationbar/TaskbarDelegate;->createLightBarTransitionsController()Lcom/android/systemui/statusbar/phone/LightBarTransitionsController;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/TaskbarDelegate;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$3;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
@@ -34,21 +23,47 @@
 
 
 # virtual methods
-.method public applyDarkIntensity(F)V
-    .locals 0
+.method public final applyDarkIntensity(F)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate$3;->this$0:Lcom/android/systemui/navigationbar/TaskbarDelegate;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/TaskbarDelegate;->access$300(Lcom/android/systemui/navigationbar/TaskbarDelegate;)Lcom/android/systemui/recents/OverviewProxyService;
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/TaskbarDelegate;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-    move-result-object p0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/OverviewProxyService;->onNavButtonsDarkIntensityChanged(F)V
+    const-string v0, "OverviewProxyService"
 
+    :try_start_0
+    iget-object p0, p0, Lcom/android/systemui/recents/OverviewProxyService;->mOverviewProxy:Lcom/android/systemui/shared/recents/IOverviewProxy;
+
+    if-eqz p0, :cond_0
+
+    invoke-interface {p0, p1}, Lcom/android/systemui/shared/recents/IOverviewProxy;->onNavButtonsDarkIntensityChanged(F)V
+
+    goto :goto_0
+
+    :cond_0
+    const-string p0, "Failed to get overview proxy to update nav buttons dark intensity"
+
+    invoke-static {v0, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception p0
+
+    const-string p1, "Failed to call onNavButtonsDarkIntensityChanged()"
+
+    invoke-static {v0, p1, p0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :goto_0
     return-void
 .end method
 
-.method public getTintAnimationDuration()I
+.method public final getTintAnimationDuration()I
     .locals 0
 
     const/16 p0, 0x78

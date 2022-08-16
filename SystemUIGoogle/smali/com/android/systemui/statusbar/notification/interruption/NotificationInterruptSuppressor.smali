@@ -26,7 +26,7 @@
     return p0
 .end method
 
-.method public suppressAwakeInterruptions(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+.method public suppressAwakeInterruptions()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -34,7 +34,7 @@
     return p0
 .end method
 
-.method public suppressInterruptions(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+.method public suppressInterruptions()Z
     .locals 0
 
     const/4 p0, 0x0

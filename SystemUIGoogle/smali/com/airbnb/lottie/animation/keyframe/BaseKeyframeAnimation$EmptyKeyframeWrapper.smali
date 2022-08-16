@@ -1,4 +1,4 @@
-.class final Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$EmptyKeyframeWrapper;
+.class public final Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$EmptyKeyframeWrapper;
 .super Ljava/lang/Object;
 .source "BaseKeyframeAnimation.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "EmptyKeyframeWrapper"
 .end annotation
 
@@ -29,7 +29,7 @@
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,17 +37,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation$EmptyKeyframeWrapper;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public getCurrentKeyframe()Lcom/airbnb/lottie/value/Keyframe;
+.method public final getCurrentKeyframe()Lcom/airbnb/lottie/value/Keyframe;
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -66,7 +58,7 @@
     throw p0
 .end method
 
-.method public getEndProgress()F
+.method public final getEndProgress()F
     .locals 0
 
     const/high16 p0, 0x3f800000    # 1.0f
@@ -74,7 +66,7 @@
     return p0
 .end method
 
-.method public getStartDelayProgress()F
+.method public final getStartDelayProgress()F
     .locals 0
 
     const/4 p0, 0x0
@@ -82,7 +74,7 @@
     return p0
 .end method
 
-.method public isCachedValueEnabled(F)Z
+.method public final isCachedValueEnabled(F)Z
     .locals 0
 
     new-instance p0, Ljava/lang/IllegalStateException;
@@ -94,7 +86,7 @@
     throw p0
 .end method
 
-.method public isEmpty()Z
+.method public final isEmpty()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -102,7 +94,7 @@
     return p0
 .end method
 
-.method public isValueChanged(F)Z
+.method public final isValueChanged(F)Z
     .locals 0
 
     const/4 p0, 0x0

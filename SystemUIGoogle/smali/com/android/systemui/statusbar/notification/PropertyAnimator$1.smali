@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/PropertyAnimator$1;
+.class public final Lcom/android/systemui/statusbar/notification/PropertyAnimator$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "PropertyAnimator.java"
 
@@ -9,23 +9,23 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic val$animationEndTag:I
+.field public final synthetic val$animationEndTag:I
 
-.field final synthetic val$animationStartTag:I
+.field public final synthetic val$animationStartTag:I
 
-.field final synthetic val$animatorTag:I
+.field public final synthetic val$animatorTag:I
 
-.field final synthetic val$view:Landroid/view/View;
+.field public final synthetic val$view:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Landroid/view/View;III)V
+.method public constructor <init>(Landroid/view/View;III)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/PropertyAnimator$1;->val$view:Landroid/view/View;
@@ -43,7 +43,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/PropertyAnimator$1;->val$view:Landroid/view/View;

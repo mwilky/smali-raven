@@ -8,16 +8,12 @@
 .implements Lcom/android/settingslib/core/lifecycle/events/OnStop;
 
 
-# instance fields
-.field private final mConnectivityReceiver:Landroid/content/BroadcastReceiver;
-
-
 # virtual methods
-.method protected abstract getConnectivityIntents()[Ljava/lang/String;
+.method public abstract getConnectivityIntents()[Ljava/lang/String;
 .end method
 
-.method public onStart()V
-    .locals 5
+.method public final onStart()V
+    .locals 4
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -25,45 +21,33 @@
 
     invoke-virtual {p0}, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->getConnectivityIntents()[Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object p0
 
-    array-length v2, v1
+    array-length v1, p0
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_0
+    if-ge v2, v1, :cond_0
 
-    aget-object v4, v1, v3
+    aget-object v3, p0, v2
 
-    invoke-virtual {v0, v4}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {v0, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    add-int/lit8 v3, v3, 0x1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    const/4 p0, 0x0
 
-    iget-object p0, p0, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->mConnectivityReceiver:Landroid/content/BroadcastReceiver;
-
-    const/4 v2, 0x0
-
-    const-string v3, "android.permission.CHANGE_NETWORK_STATE"
-
-    invoke-virtual {v1, p0, v0, v3, v2}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
-
-    return-void
+    throw p0
 .end method
 
-.method public onStop()V
-    .locals 1
+.method public final onStop()V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/settingslib/core/AbstractPreferenceController;->mContext:Landroid/content/Context;
+    const/4 p0, 0x0
 
-    iget-object p0, p0, Lcom/android/settingslib/deviceinfo/AbstractConnectivityPreferenceController;->mConnectivityReceiver:Landroid/content/BroadcastReceiver;
-
-    invoke-virtual {v0, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
-
-    return-void
+    throw p0
 .end method

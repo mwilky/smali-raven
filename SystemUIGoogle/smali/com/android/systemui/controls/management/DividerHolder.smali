@@ -1,51 +1,33 @@
-.class final Lcom/android/systemui/controls/management/DividerHolder;
+.class public final Lcom/android/systemui/controls/management/DividerHolder;
 .super Lcom/android/systemui/controls/management/Holder;
 .source "ControlAdapter.kt"
 
 
 # instance fields
-.field private final divider:Landroid/view/View;
+.field public final divider:Landroid/view/View;
 
-.field private final frame:Landroid/view/View;
+.field public final frame:Landroid/view/View;
 
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;)V
     .locals 1
 
-    const-string/jumbo v0, "view"
+    invoke-direct {p0, p1}, Lcom/android/systemui/controls/management/Holder;-><init>(Landroid/view/View;)V
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const v0, 0x7f0b02ab
 
-    const/4 v0, 0x0
+    invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/controls/management/Holder;-><init>(Landroid/view/View;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    move-result-object v0
 
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
+    iput-object v0, p0, Lcom/android/systemui/controls/management/DividerHolder;->frame:Landroid/view/View;
 
-    sget v0, Lcom/android/systemui/R$id;->frame:I
+    const v0, 0x7f0b021e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
 
     move-result-object p1
-
-    const-string v0, "itemView.requireViewById(R.id.frame)"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iput-object p1, p0, Lcom/android/systemui/controls/management/DividerHolder;->frame:Landroid/view/View;
-
-    iget-object p1, p0, Landroidx/recyclerview/widget/RecyclerView$ViewHolder;->itemView:Landroid/view/View;
-
-    sget v0, Lcom/android/systemui/R$id;->divider:I
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->requireViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    const-string v0, "itemView.requireViewById(R.id.divider)"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     iput-object p1, p0, Lcom/android/systemui/controls/management/DividerHolder;->divider:Landroid/view/View;
 
@@ -54,20 +36,14 @@
 
 
 # virtual methods
-.method public bindData(Lcom/android/systemui/controls/management/ElementWrapper;)V
+.method public final bindData(Lcom/android/systemui/controls/management/ElementWrapper;)V
     .locals 4
-
-    const-string/jumbo v0, "wrapper"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     check-cast p1, Lcom/android/systemui/controls/management/DividerWrapper;
 
     iget-object v0, p0, Lcom/android/systemui/controls/management/DividerHolder;->frame:Landroid/view/View;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/management/DividerWrapper;->getShowNone()Z
-
-    move-result v1
+    iget-boolean v1, p1, Lcom/android/systemui/controls/management/DividerWrapper;->showNone:Z
 
     const/4 v2, 0x0
 
@@ -87,9 +63,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/controls/management/DividerHolder;->divider:Landroid/view/View;
 
-    invoke-virtual {p1}, Lcom/android/systemui/controls/management/DividerWrapper;->getShowDivider()Z
-
-    move-result p1
+    iget-boolean p1, p1, Lcom/android/systemui/controls/management/DividerWrapper;->showDivider:Z
 
     if-eqz p1, :cond_1
 

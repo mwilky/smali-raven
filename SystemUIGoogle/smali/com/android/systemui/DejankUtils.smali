@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/DejankUtils;
+.class public final Lcom/android/systemui/DejankUtils;
 .super Ljava/lang/Object;
 .source "DejankUtils.java"
 
@@ -6,9 +6,9 @@
 # static fields
 .field public static final STRICT_MODE_ENABLED:Z
 
-.field private static final sAnimationCallbackRunnable:Ljava/lang/Runnable;
+.field public static final sAnimationCallbackRunnable:Lcom/android/systemui/DejankUtils$$ExternalSyntheticLambda0;
 
-.field private static sBlockingIpcs:Ljava/util/Stack;
+.field public static sBlockingIpcs:Ljava/util/Stack;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Stack<",
@@ -18,15 +18,15 @@
     .end annotation
 .end field
 
-.field private static final sChoreographer:Landroid/view/Choreographer;
+.field public static final sChoreographer:Landroid/view/Choreographer;
 
-.field private static final sHandler:Landroid/os/Handler;
+.field public static final sHandler:Landroid/os/Handler;
 
-.field private static sImmediate:Z
+.field public static sImmediate:Z
 
-.field private static final sLock:Ljava/lang/Object;
+.field public static final sLock:Ljava/lang/Object;
 
-.field private static final sPendingRunnables:Ljava/util/ArrayList;
+.field public static final sPendingRunnables:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -36,11 +36,11 @@
     .end annotation
 .end field
 
-.field private static final sProxy:Landroid/os/Binder$ProxyTransactListener;
+.field public static final sProxy:Lcom/android/systemui/DejankUtils$1;
 
-.field private static sTemporarilyIgnoreStrictMode:Z
+.field public static sTemporarilyIgnoreStrictMode:Z
 
-.field private static final sWhitelistedFrameworkClasses:Ljava/util/HashSet;
+.field public static final sWhitelistedFrameworkClasses:Ljava/util/HashSet;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/HashSet<",
@@ -52,15 +52,7 @@
 
 
 # direct methods
-.method public static synthetic $r8$lambda$dD18Ut4xm123khbpYgqgVQ9kPK4()V
-    .locals 0
-
-    invoke-static {}, Lcom/android/systemui/DejankUtils;->lambda$static$0()V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 3
 
     sget-boolean v0, Landroid/os/Build;->IS_ENG:Z
@@ -69,7 +61,7 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "persist.sysui.strictmode"
+    const-string/jumbo v0, "persist.sysui.strictmode"
 
     invoke-static {v0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -123,7 +115,7 @@
 
     invoke-direct {v2}, Lcom/android/systemui/DejankUtils$1;-><init>()V
 
-    sput-object v2, Lcom/android/systemui/DejankUtils;->sProxy:Landroid/os/Binder$ProxyTransactListener;
+    sput-object v2, Lcom/android/systemui/DejankUtils;->sProxy:Lcom/android/systemui/DejankUtils$1;
 
     if-eqz v1, :cond_2
 
@@ -168,81 +160,17 @@
     invoke-static {v0}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
 
     :cond_2
-    sget-object v0, Lcom/android/systemui/DejankUtils$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/DejankUtils$$ExternalSyntheticLambda0;
+    new-instance v0, Lcom/android/systemui/DejankUtils$$ExternalSyntheticLambda0;
 
-    sput-object v0, Lcom/android/systemui/DejankUtils;->sAnimationCallbackRunnable:Ljava/lang/Runnable;
+    invoke-direct {v0}, Lcom/android/systemui/DejankUtils$$ExternalSyntheticLambda0;-><init>()V
 
-    return-void
-.end method
-
-.method static synthetic access$000()Ljava/lang/Object;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/DejankUtils;->sLock:Ljava/lang/Object;
-
-    return-object v0
-.end method
-
-.method static synthetic access$100()Ljava/util/Stack;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/DejankUtils;->sBlockingIpcs:Ljava/util/Stack;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/systemui/DejankUtils;->sTemporarilyIgnoreStrictMode:Z
-
-    return v0
-.end method
-
-.method static synthetic access$300()Ljava/util/HashSet;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/DejankUtils;->sWhitelistedFrameworkClasses:Ljava/util/HashSet;
-
-    return-object v0
-.end method
-
-.method private static synthetic lambda$static$0()V
-    .locals 3
-
-    const/4 v0, 0x0
-
-    :goto_0
-    sget-object v1, Lcom/android/systemui/DejankUtils;->sPendingRunnables:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
-
-    move-result v2
-
-    if-ge v0, v2, :cond_0
-
-    sget-object v2, Lcom/android/systemui/DejankUtils;->sHandler:Landroid/os/Handler;
-
-    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/lang/Runnable;
-
-    invoke-virtual {v2, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+    sput-object v0, Lcom/android/systemui/DejankUtils;->sAnimationCallbackRunnable:Lcom/android/systemui/DejankUtils$$ExternalSyntheticLambda0;
 
     return-void
 .end method
 
 .method public static postAfterTraversal(Ljava/lang/Runnable;)V
-    .locals 1
+    .locals 3
 
     sget-boolean v0, Lcom/android/systemui/DejankUtils;->sImmediate:Z
 
@@ -259,39 +187,15 @@
 
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-static {}, Lcom/android/systemui/DejankUtils;->postAnimationCallback()V
+    sget-object p0, Lcom/android/systemui/DejankUtils;->sChoreographer:Landroid/view/Choreographer;
 
-    return-void
-.end method
+    sget-object v0, Lcom/android/systemui/DejankUtils;->sAnimationCallbackRunnable:Lcom/android/systemui/DejankUtils$$ExternalSyntheticLambda0;
 
-.method private static postAnimationCallback()V
-    .locals 4
+    const/4 v1, 0x1
 
-    sget-object v0, Lcom/android/systemui/DejankUtils;->sChoreographer:Landroid/view/Choreographer;
+    const/4 v2, 0x0
 
-    sget-object v1, Lcom/android/systemui/DejankUtils;->sAnimationCallbackRunnable:Ljava/lang/Runnable;
-
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v2, v1, v3}, Landroid/view/Choreographer;->postCallback(ILjava/lang/Runnable;Ljava/lang/Object;)V
-
-    return-void
-.end method
-
-.method public static removeCallbacks(Ljava/lang/Runnable;)V
-    .locals 1
-
-    invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
-
-    sget-object v0, Lcom/android/systemui/DejankUtils;->sPendingRunnables:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, p0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
-
-    sget-object v0, Lcom/android/systemui/DejankUtils;->sHandler:Landroid/os/Handler;
-
-    invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+    invoke-virtual {p0, v1, v0, v2}, Landroid/view/Choreographer;->postCallback(ILjava/lang/Runnable;Ljava/lang/Object;)V
 
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/BrightLineFalsingManager$XYDt;
+.class public final Lcom/android/systemui/classifier/BrightLineFalsingManager$XYDt;
 .super Ljava/lang/Object;
 .source "BrightLineFalsingManager.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "XYDt"
 .end annotation
 
 
 # instance fields
-.field private final mDT:I
+.field public final mDT:I
 
-.field private final mX:I
+.field public final mX:I
 
-.field private final mY:I
+.field public final mY:I
 
 
 # direct methods
-.method constructor <init>(III)V
+.method public constructor <init>(III)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 3
 
     new-instance v0, Ljava/lang/StringBuilder;

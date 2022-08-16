@@ -1,4 +1,4 @@
-.class abstract Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;
+.class public abstract Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;
 .super Landroidx/recyclerview/widget/RecyclerView$ViewHolder;
 .source "MediaRouteDynamicControllerDialog.java"
 
@@ -9,38 +9,24 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x402
+    accessFlags = 0x401
     name = "MediaRouteVolumeSliderHolder"
 .end annotation
 
 
 # instance fields
-.field final mMuteButton:Landroid/widget/ImageButton;
+.field public final mMuteButton:Landroid/widget/ImageButton;
 
-.field mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
+.field public mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-.field final mVolumeSlider:Landroidx/mediarouter/app/MediaRouteVolumeSlider;
+.field public final mVolumeSlider:Landroidx/mediarouter/app/MediaRouteVolumeSlider;
 
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;Landroid/view/View;Landroid/widget/ImageButton;Landroidx/mediarouter/app/MediaRouteVolumeSlider;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "itemView",
-            "muteButton",
-            "volumeSlider"
-        }
-    .end annotation
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;Landroid/view/View;Landroid/widget/ImageButton;Landroidx/mediarouter/app/MediaRouteVolumeSlider;)V
+    .locals 2
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
@@ -52,37 +38,84 @@
 
     iget-object p0, p1, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mContext:Landroid/content/Context;
 
-    invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->getMuteButtonDrawableIcon(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+    const p2, 0x7f080746
 
-    move-result-object p0
+    invoke-static {p0, p2}, Landroidx/appcompat/content/res/AppCompatResources;->getDrawable(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p3, p0}, Landroid/widget/ImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    move-result-object p2
+
+    invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->isLightTheme(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const v0, 0x7f0602fa
+
+    sget-object v1, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getColor(I)I
+
+    move-result p0
+
+    invoke-virtual {p2, p0}, Landroid/graphics/drawable/Drawable;->setTint(I)V
+
+    :cond_0
+    invoke-virtual {p3, p2}, Landroid/widget/ImageButton;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     iget-object p0, p1, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mContext:Landroid/content/Context;
 
-    invoke-static {p0, p4}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->setVolumeSliderColor(Landroid/content/Context;Landroidx/mediarouter/app/MediaRouteVolumeSlider;)V
+    invoke-static {p0}, Landroidx/mediarouter/app/MediaRouterThemeHelper;->isLightTheme(Landroid/content/Context;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_1
+
+    const p1, 0x7f0602f2
+
+    sget-object p2, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getColor(I)I
+
+    move-result p1
+
+    const p2, 0x7f0602f0
+
+    invoke-virtual {p0, p2}, Landroid/content/Context;->getColor(I)I
+
+    move-result p0
+
+    goto :goto_0
+
+    :cond_1
+    const p1, 0x7f0602f1
+
+    sget-object p2, Landroidx/core/content/ContextCompat;->sLock:Ljava/lang/Object;
+
+    invoke-virtual {p0, p1}, Landroid/content/Context;->getColor(I)I
+
+    move-result p1
+
+    const p2, 0x7f0602ef
+
+    invoke-virtual {p0, p2}, Landroid/content/Context;->getColor(I)I
+
+    move-result p0
+
+    :goto_0
+    invoke-virtual {p4, p1, p0}, Landroidx/mediarouter/app/MediaRouteVolumeSlider;->setColor(II)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method bindRouteVolumeSliderHolder(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
+.method public final bindRouteVolumeSliderHolder(Landroidx/mediarouter/media/MediaRouter$RouteInfo;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "route"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getVolume()I
-
-    move-result v0
+    iget v0, p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->mVolume:I
 
     if-nez v0, :cond_0
 
@@ -114,9 +147,7 @@
 
     iget-object v1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mVolumeSlider:Landroidx/mediarouter/app/MediaRouteVolumeSlider;
 
-    invoke-virtual {p1}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getVolumeMax()I
-
-    move-result p1
+    iget p1, p1, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->mVolumeMax:I
 
     invoke-virtual {v1, p1}, Landroid/widget/SeekBar;->setMax(I)V
 
@@ -135,54 +166,8 @@
     return-void
 .end method
 
-.method getUnmutedVolume()I
+.method public final setMute(Z)V
     .locals 1
-
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
-
-    iget-object v0, v0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mUnmutedVolumeMap:Ljava/util/Map;
-
-    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getId()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-interface {v0, p0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p0
-
-    check-cast p0, Ljava/lang/Integer;
-
-    const/4 v0, 0x1
-
-    if-nez p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Ljava/lang/Integer;->intValue()I
-
-    move-result p0
-
-    invoke-static {v0, p0}, Ljava/lang/Math;->max(II)I
-
-    move-result v0
-
-    :goto_0
-    return v0
-.end method
-
-.method setMute(Z)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "mute"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mMuteButton:Landroid/widget/ImageButton;
 
@@ -203,13 +188,11 @@
 
     iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
-    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mUnmutedVolumeMap:Ljava/util/Map;
+    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mUnmutedVolumeMap:Ljava/util/HashMap;
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getId()Ljava/lang/String;
-
-    move-result-object v0
+    iget-object v0, v0, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->mUniqueId:Ljava/lang/String;
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mVolumeSlider:Landroidx/mediarouter/app/MediaRouteVolumeSlider;
 
@@ -221,51 +204,21 @@
 
     move-result-object p0
 
-    invoke-interface {p1, v0, p0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, v0, p0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_0
 
     :cond_1
     iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->this$0:Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;
 
-    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mUnmutedVolumeMap:Ljava/util/Map;
+    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog;->mUnmutedVolumeMap:Ljava/util/HashMap;
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
 
-    invoke-virtual {p0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getId()Ljava/lang/String;
+    iget-object p0, p0, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->mUniqueId:Ljava/lang/String;
 
-    move-result-object p0
-
-    invoke-interface {p1, p0}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p0}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     :goto_0
-    return-void
-.end method
-
-.method updateVolume()V
-    .locals 2
-
-    iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
-
-    invoke-virtual {v0}, Landroidx/mediarouter/media/MediaRouter$RouteInfo;->getVolume()I
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    invoke-virtual {p0, v1}, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->setMute(Z)V
-
-    iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteDynamicControllerDialog$MediaRouteVolumeSliderHolder;->mVolumeSlider:Landroidx/mediarouter/app/MediaRouteVolumeSlider;
-
-    invoke-virtual {p0, v0}, Landroid/widget/SeekBar;->setProgress(I)V
-
     return-void
 .end method

@@ -15,13 +15,13 @@
 
 
 # instance fields
-.field final synthetic $parent:Landroid/view/ViewGroup;
+.field public final synthetic $parent:Landroid/view/ViewGroup;
 
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Landroid/view/ViewGroup;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;Landroid/view/ViewGroup;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
@@ -35,50 +35,45 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 4
 
-    const-string v0, "animation"
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->controlViewsById:Ljava/util/LinkedHashMap;
+
+    invoke-virtual {p1}, Ljava/util/LinkedHashMap;->clear()V
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
-    invoke-static {p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getControlViewsById$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)Ljava/util/Map;
+    iget-object p1, p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->controlsById:Ljava/util/LinkedHashMap;
 
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/Map;->clear()V
-
-    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
-
-    invoke-static {p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getControlsById$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)Ljava/util/Map;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Ljava/util/Map;->clear()V
+    invoke-virtual {p1}, Ljava/util/LinkedHashMap;->clear()V
 
     iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
 
     iget-object v0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->$parent:Landroid/view/ViewGroup;
 
-    invoke-static {p1}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getOnDismiss$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)Ljava/lang/Runnable;
-
-    move-result-object v1
+    iget-object v1, p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->onDismiss:Ljava/lang/Runnable;
 
     const/4 v2, 0x0
 
-    if-eqz v1, :cond_1
+    if-nez v1, :cond_0
 
-    iget-object v3, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->this$0:Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;
+    move-object v1, v2
 
-    invoke-static {v3}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->access$getActivityContext$p(Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;)Landroid/content/Context;
+    :cond_0
+    iget-object v3, p1, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->activityContext:Landroid/content/Context;
 
-    move-result-object v3
+    if-nez v3, :cond_1
 
-    if-eqz v3, :cond_0
+    goto :goto_0
 
-    invoke-virtual {p1, v0, v1, v3}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->show(Landroid/view/ViewGroup;Ljava/lang/Runnable;Landroid/content/Context;)V
+    :cond_1
+    move-object v2, v3
+
+    :goto_0
+    invoke-virtual {p1, v0, v1, v2}, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl;->show(Landroid/view/ViewGroup;Ljava/lang/Runnable;Landroid/content/Context;)V
 
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlsUiControllerImpl$reload$1;->$parent:Landroid/view/ViewGroup;
 
@@ -109,20 +104,6 @@
     invoke-virtual {p0}, Landroid/animation/ObjectAnimator;->start()V
 
     return-void
-
-    :cond_0
-    const-string p0, "activityContext"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
-
-    :cond_1
-    const-string p0, "onDismiss"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    throw v2
 
     :array_0
     .array-data 4

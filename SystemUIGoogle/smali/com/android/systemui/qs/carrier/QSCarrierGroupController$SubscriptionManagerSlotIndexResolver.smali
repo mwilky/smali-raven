@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SubscriptionManagerSlotIndexResolver;
+.class public final Lcom/android/systemui/qs/carrier/QSCarrierGroupController$SubscriptionManagerSlotIndexResolver;
 .super Ljava/lang/Object;
 .source "QSCarrierGroupController.java"
 
@@ -28,7 +28,7 @@
 
 
 # virtual methods
-.method public getSlotIndex(I)I
+.method public final getSlotIndex(I)I
     .locals 0
 
     invoke-static {p1}, Landroid/telephony/SubscriptionManager;->getSlotIndex(I)I

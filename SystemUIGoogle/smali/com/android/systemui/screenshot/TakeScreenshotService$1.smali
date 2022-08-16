@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/TakeScreenshotService$1;
+.class public final Lcom/android/systemui/screenshot/TakeScreenshotService$1;
 .super Landroid/content/BroadcastReceiver;
 .source "TakeScreenshotService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/screenshot/TakeScreenshotService;
+.field public final synthetic this$0:Lcom/android/systemui/screenshot/TakeScreenshotService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/screenshot/TakeScreenshotService;)V
+.method public constructor <init>(Lcom/android/systemui/screenshot/TakeScreenshotService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/TakeScreenshotService$1;->this$0:Lcom/android/systemui/screenshot/TakeScreenshotService;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 0
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -48,33 +48,27 @@
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/TakeScreenshotService$1;->this$0:Lcom/android/systemui/screenshot/TakeScreenshotService;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/TakeScreenshotService;->access$000(Lcom/android/systemui/screenshot/TakeScreenshotService;)Lcom/android/systemui/screenshot/ScreenshotController;
+    iget-object p2, p1, Lcom/android/systemui/screenshot/TakeScreenshotService;->mScreenshot:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    move-result-object p1
+    if-eqz p2, :cond_0
 
-    if-eqz p1, :cond_0
+    iget-object p2, p2, Lcom/android/systemui/screenshot/ScreenshotController;->mScreenshotView:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    iget-object p1, p0, Lcom/android/systemui/screenshot/TakeScreenshotService$1;->this$0:Lcom/android/systemui/screenshot/TakeScreenshotService;
+    iget-boolean p2, p2, Lcom/android/systemui/screenshot/ScreenshotView;->mPendingSharedTransition:Z
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/TakeScreenshotService;->access$000(Lcom/android/systemui/screenshot/TakeScreenshotService;)Lcom/android/systemui/screenshot/ScreenshotController;
+    if-nez p2, :cond_0
 
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/screenshot/TakeScreenshotService;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
-    invoke-virtual {p1}, Lcom/android/systemui/screenshot/ScreenshotController;->isPendingSharedTransition()Z
+    sget-object p2, Lcom/android/systemui/screenshot/ScreenshotEvent;->SCREENSHOT_DISMISSED_OTHER:Lcom/android/systemui/screenshot/ScreenshotEvent;
 
-    move-result p1
-
-    if-nez p1, :cond_0
+    invoke-interface {p1, p2}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService$1;->this$0:Lcom/android/systemui/screenshot/TakeScreenshotService;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/TakeScreenshotService;->access$000(Lcom/android/systemui/screenshot/TakeScreenshotService;)Lcom/android/systemui/screenshot/ScreenshotController;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/TakeScreenshotService;->mScreenshot:Lcom/android/systemui/screenshot/ScreenshotController;
 
-    move-result-object p0
-
-    const/4 p1, 0x0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/screenshot/ScreenshotController;->dismissScreenshot(Z)V
+    invoke-virtual {p0}, Lcom/android/systemui/screenshot/ScreenshotController;->dismissScreenshot()V
 
     :cond_0
     return-void

@@ -4,11 +4,11 @@
 
 
 # instance fields
-.field private final mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
+.field public final mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/screenshot/ScreenshotSmartActions;)V
+.method public constructor <init>(Lcom/android/systemui/screenshot/ScreenshotSmartActions;)V
     .locals 0
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
@@ -20,7 +20,7 @@
 
 
 # virtual methods
-.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+.method public final onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 10
 
     const-string v0, "android:screenshot_action_intent"
@@ -41,6 +41,11 @@
 
     move-result-object v1
 
+    :try_start_0
+    invoke-virtual {v1}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
+
+    move-result-object v8
+
     const/4 v3, 0x0
 
     const/4 v4, 0x0
@@ -50,11 +55,6 @@
     const/4 v6, 0x0
 
     const/4 v7, 0x0
-
-    :try_start_0
-    invoke-virtual {v1}, Landroid/app/ActivityOptions;->toBundle()Landroid/os/Bundle;
-
-    move-result-object v8
 
     move-object v1, v0
 
@@ -76,25 +76,23 @@
     invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     :goto_0
-    iget-object v2, p0, Lcom/android/systemui/screenshot/SmartActionsReceiver;->mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
+    iget-object p0, p0, Lcom/android/systemui/screenshot/SmartActionsReceiver;->mScreenshotSmartActions:Lcom/android/systemui/screenshot/ScreenshotSmartActions;
 
-    const-string p0, "android:screenshot_id"
+    const-string v1, "android:screenshot_id"
 
-    invoke-virtual {p2, p0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p2, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object p2
 
-    const/4 v6, 0x1
+    const/4 v1, 0x1
 
     invoke-virtual {v0}, Landroid/app/PendingIntent;->getIntent()Landroid/content/Intent;
 
-    move-result-object v7
+    move-result-object v0
 
-    move-object v3, p1
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    move-object v5, v9
-
-    invoke-virtual/range {v2 .. v7}, Lcom/android/systemui/screenshot/ScreenshotSmartActions;->notifyScreenshotAction(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ZLandroid/content/Intent;)V
+    invoke-static {p1, p2, v9, v1, v0}, Lcom/android/systemui/screenshot/ScreenshotSmartActions;->notifyScreenshotAction(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;ZLandroid/content/Intent;)V
 
     return-void
 .end method

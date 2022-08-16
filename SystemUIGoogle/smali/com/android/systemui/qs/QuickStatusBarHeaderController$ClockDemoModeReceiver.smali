@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/QuickStatusBarHeaderController$ClockDemoModeReceiver;
+.class public final Lcom/android/systemui/qs/QuickStatusBarHeaderController$ClockDemoModeReceiver;
 .super Ljava/lang/Object;
 .source "QuickStatusBarHeaderController.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "ClockDemoModeReceiver"
 .end annotation
 
 
 # instance fields
-.field private mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+.field public mClockView:Lcom/android/systemui/statusbar/policy/Clock;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/policy/Clock;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/policy/Clock;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public demoCommands()Ljava/util/List;
+.method public final demoCommands()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -54,7 +54,7 @@
     return-object p0
 .end method
 
-.method public dispatchDemoCommand(Ljava/lang/String;Landroid/os/Bundle;)V
+.method public final dispatchDemoCommand(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController$ClockDemoModeReceiver;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
@@ -64,7 +64,7 @@
     return-void
 .end method
 
-.method public onDemoModeFinished()V
+.method public final onDemoModeFinished()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController$ClockDemoModeReceiver;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
@@ -74,12 +74,14 @@
     return-void
 .end method
 
-.method public onDemoModeStarted()V
-    .locals 0
+.method public final onDemoModeStarted()V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeaderController$ClockDemoModeReceiver;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->onDemoModeStarted()V
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDemoMode:Z
 
     return-void
 .end method

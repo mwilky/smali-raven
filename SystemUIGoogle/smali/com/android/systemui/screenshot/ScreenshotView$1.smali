@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/screenshot/ScreenshotView$1;
+.class public final Lcom/android/systemui/screenshot/ScreenshotView$1;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "ScreenshotView.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final mActionsRect:Landroid/graphics/Rect;
+.field public final mActionsRect:Landroid/graphics/Rect;
 
-.field final synthetic this$0:Lcom/android/systemui/screenshot/ScreenshotView;
+.field public final synthetic this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;)V
+.method public constructor <init>(Lcom/android/systemui/screenshot/ScreenshotView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$1;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
@@ -39,14 +39,12 @@
 
 
 # virtual methods
-.method public onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
+.method public final onScroll(Landroid/view/MotionEvent;Landroid/view/MotionEvent;FF)Z
     .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/screenshot/ScreenshotView$1;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p1}, Lcom/android/systemui/screenshot/ScreenshotView;->access$000(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/HorizontalScrollView;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/screenshot/ScreenshotView;->mActionsContainer:Landroid/widget/HorizontalScrollView;
 
     iget-object p4, p0, Lcom/android/systemui/screenshot/ScreenshotView$1;->mActionsRect:Landroid/graphics/Rect;
 
@@ -74,9 +72,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView$1;->this$0:Lcom/android/systemui/screenshot/ScreenshotView;
 
-    invoke-static {p0}, Lcom/android/systemui/screenshot/ScreenshotView;->access$000(Lcom/android/systemui/screenshot/ScreenshotView;)Landroid/widget/HorizontalScrollView;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/screenshot/ScreenshotView;->mActionsContainer:Landroid/widget/HorizontalScrollView;
 
     float-to-int p1, p3
 

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/AdminSecondaryLockScreenController$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/os/IBinder$DeathRecipient;
@@ -23,11 +24,17 @@
 
 # virtual methods
 .method public final binderDied()V
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/keyguard/AdminSecondaryLockScreenController$$ExternalSyntheticLambda0;->f$0:Lcom/android/keyguard/AdminSecondaryLockScreenController;
 
-    invoke-static {p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->$r8$lambda$qAfrlb0g71NK6qpAwXaDSRz-5zk(Lcom/android/keyguard/AdminSecondaryLockScreenController;)V
+    invoke-virtual {p0}, Lcom/android/keyguard/AdminSecondaryLockScreenController;->hide()V
+
+    const-string p0, "AdminSecondaryLockScreenController"
+
+    const-string v0, "KeyguardClient service died"
+
+    invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method

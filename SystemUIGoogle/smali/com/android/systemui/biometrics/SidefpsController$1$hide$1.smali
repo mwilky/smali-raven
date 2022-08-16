@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/biometrics/SidefpsController$1$hide$1;
+.class public final Lcom/android/systemui/biometrics/SidefpsController$1$hide$1;
 .super Ljava/lang/Object;
 .source "SidefpsController.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/SidefpsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/biometrics/SidefpsController;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/SidefpsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController$1$hide$1;->this$0:Lcom/android/systemui/biometrics/SidefpsController;
@@ -41,7 +41,7 @@
 
     const/4 v0, 0x0
 
-    invoke-static {p0, v0}, Lcom/android/systemui/biometrics/SidefpsController;->access$setOverlayView(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/SidefpsController;->setOverlayView(Landroid/view/View;)V
 
     return-void
 .end method

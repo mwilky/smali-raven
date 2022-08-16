@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/accessibility/WindowMagnifierCallback;
+.class public interface abstract Lcom/android/systemui/accessibility/WindowMagnifierCallback;
 .super Ljava/lang/Object;
 .source "WindowMagnifierCallback.java"
 
@@ -8,10 +8,4 @@
 .end method
 
 .method public abstract onPerformScaleAction(IF)V
-.end method
-
-.method public abstract onSourceBoundsChanged(ILandroid/graphics/Rect;)V
-.end method
-
-.method public abstract onWindowMagnifierBoundsChanged(ILandroid/graphics/Rect;)V
 .end method

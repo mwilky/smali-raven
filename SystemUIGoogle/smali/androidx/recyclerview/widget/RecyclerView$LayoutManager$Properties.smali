@@ -1,4 +1,4 @@
-.class public Landroidx/recyclerview/widget/RecyclerView$LayoutManager$Properties;
+.class public final Landroidx/recyclerview/widget/RecyclerView$LayoutManager$Properties;
 .super Ljava/lang/Object;
 .source "RecyclerView.java"
 

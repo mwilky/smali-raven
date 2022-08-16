@@ -1,4 +1,4 @@
-.class Landroidx/leanback/widget/BaseCardView$1;
+.class public final Landroidx/leanback/widget/BaseCardView$1;
 .super Ljava/lang/Object;
 .source "BaseCardView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
+.field public final synthetic this$0:Landroidx/leanback/widget/BaseCardView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/leanback/widget/BaseCardView;)V
+.method public constructor <init>(Landroidx/leanback/widget/BaseCardView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/leanback/widget/BaseCardView$1;->this$0:Landroidx/leanback/widget/BaseCardView;
 
@@ -42,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 1
 
     iget-object p0, p0, Landroidx/leanback/widget/BaseCardView$1;->this$0:Landroidx/leanback/widget/BaseCardView;

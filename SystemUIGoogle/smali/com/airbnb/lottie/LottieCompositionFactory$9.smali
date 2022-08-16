@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieCompositionFactory$9;
+.class public final Lcom/airbnb/lottie/LottieCompositionFactory$9;
 .super Ljava/lang/Object;
 .source "LottieCompositionFactory.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -28,11 +28,11 @@
 
 
 # instance fields
-.field final synthetic val$cachedComposition:Lcom/airbnb/lottie/LottieComposition;
+.field public final synthetic val$cachedComposition:Lcom/airbnb/lottie/LottieComposition;
 
 
 # direct methods
-.method constructor <init>(Lcom/airbnb/lottie/LottieComposition;)V
+.method public constructor <init>(Lcom/airbnb/lottie/LottieComposition;)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieCompositionFactory$9;->val$cachedComposition:Lcom/airbnb/lottie/LottieComposition;
@@ -44,14 +44,11 @@
 
 
 # virtual methods
-.method public call()Lcom/airbnb/lottie/LottieResult;
+.method public final call()Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Lcom/airbnb/lottie/LottieResult<",
-            "Lcom/airbnb/lottie/LottieComposition;",
-            ">;"
+            Ljava/lang/Exception;
         }
     .end annotation
 
@@ -59,22 +56,7 @@
 
     iget-object p0, p0, Lcom/airbnb/lottie/LottieCompositionFactory$9;->val$cachedComposition:Lcom/airbnb/lottie/LottieComposition;
 
-    invoke-direct {v0, p0}, Lcom/airbnb/lottie/LottieResult;-><init>(Ljava/lang/Object;)V
+    invoke-direct {v0, p0}, Lcom/airbnb/lottie/LottieResult;-><init>(Lcom/airbnb/lottie/LottieComposition;)V
 
     return-object v0
-.end method
-
-.method public bridge synthetic call()Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieCompositionFactory$9;->call()Lcom/airbnb/lottie/LottieResult;
-
-    move-result-object p0
-
-    return-object p0
 .end method

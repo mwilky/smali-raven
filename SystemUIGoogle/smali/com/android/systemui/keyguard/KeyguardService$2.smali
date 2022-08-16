@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/keyguard/KeyguardService$2;
+.class public final Lcom/android/systemui/keyguard/KeyguardService$2;
 .super Landroid/view/IRemoteAnimationRunner$Stub;
 .source "KeyguardService.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardService;
+.field public final synthetic this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/keyguard/KeyguardService;)V
+.method public constructor <init>(Lcom/android/systemui/keyguard/KeyguardService;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/keyguard/KeyguardService$2;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
@@ -31,22 +31,38 @@
 
 
 # virtual methods
-.method public onAnimationCancelled()V
-    .locals 0
+.method public final onAnimationCancelled(Z)V
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$2;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    move-result-object p0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->cancelKeyguardExitAnimation()V
+    const-string p1, "KeyguardViewMediator#cancelKeyguardExitAnimation"
+
+    invoke-static {p1}, Landroid/os/Trace;->beginSection(Ljava/lang/String;)V
+
+    iget-object p1, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHandler:Lcom/android/systemui/keyguard/KeyguardViewMediator$10;
+
+    const/16 v0, 0x13
+
+    invoke-virtual {p1, v0}, Landroid/os/Handler;->obtainMessage(I)Landroid/os/Message;
+
+    move-result-object p1
+
+    iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardViewMediator;->mHandler:Lcom/android/systemui/keyguard/KeyguardViewMediator$10;
+
+    invoke-virtual {p0, p1}, Landroid/os/Handler;->sendMessage(Landroid/os/Message;)Z
+
+    invoke-static {}, Landroid/os/Trace;->endSection()V
 
     return-void
 .end method
 
-.method public onAnimationStart(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
-    .locals 6
+.method public final onAnimationStart(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+    .locals 10
 
     const-string v0, "mExitAnimationRunner.onAnimationStart#startKeyguardExitAnimation"
 
@@ -58,21 +74,23 @@
 
     iget-object p0, p0, Lcom/android/systemui/keyguard/KeyguardService$2;->this$0:Lcom/android/systemui/keyguard/KeyguardService;
 
-    invoke-static {p0}, Lcom/android/systemui/keyguard/KeyguardService;->access$200(Lcom/android/systemui/keyguard/KeyguardService;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    iget-object v0, p0, Lcom/android/systemui/keyguard/KeyguardService;->mKeyguardViewMediator:Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    move-result-object v0
+    const-wide/16 v2, 0x0
+
+    const-wide/16 v4, 0x0
 
     move v1, p1
 
-    move-object v2, p2
+    move-object v6, p2
 
-    move-object v3, p3
+    move-object v7, p3
 
-    move-object v4, p4
+    move-object v8, p4
 
-    move-object v5, p5
+    move-object v9, p5
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->startKeyguardExitAnimation(I[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
+    invoke-virtual/range {v0 .. v9}, Lcom/android/systemui/keyguard/KeyguardViewMediator;->startKeyguardExitAnimation(IJJ[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;[Landroid/view/RemoteAnimationTarget;Landroid/view/IRemoteAnimationFinishedCallback;)V
 
     invoke-static {}, Landroid/os/Trace;->endSection()V
 

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final emergencyButtonControllerFactoryProvider:Ljavax/inject/Provider;
+.field public final emergencyButtonControllerFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final keyguardSecurityViewControllerFactoryProvider:Ljavax/inject/Provider;
+.field public final keyguardSecurityViewControllerFactoryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final layoutInflaterProvider:Ljavax/inject/Provider;
+.field public final layoutInflaterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final viewProvider:Ljavax/inject/Provider;
+.field public final viewProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -60,25 +60,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Lcom/android/keyguard/KeyguardInputViewController_Factory_Factory;Ljavax/inject/Provider;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/keyguard/KeyguardSecurityViewFlipper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/view/LayoutInflater;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/keyguard/KeyguardInputViewController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/keyguard/EmergencyButtonController$Factory;",
-            ">;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -93,48 +76,10 @@
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController_Factory;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/keyguard/KeyguardSecurityViewFlipper;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Landroid/view/LayoutInflater;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/keyguard/KeyguardInputViewController$Factory;",
-            ">;",
-            "Ljavax/inject/Provider<",
-            "Lcom/android/keyguard/EmergencyButtonController$Factory;",
-            ">;)",
-            "Lcom/android/keyguard/KeyguardSecurityViewFlipperController_Factory;"
-        }
-    .end annotation
-
-    new-instance v0, Lcom/android/keyguard/KeyguardSecurityViewFlipperController_Factory;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController_Factory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
-
-    return-object v0
-.end method
-
-.method public static newInstance(Lcom/android/keyguard/KeyguardSecurityViewFlipper;Landroid/view/LayoutInflater;Lcom/android/keyguard/KeyguardInputViewController$Factory;Lcom/android/keyguard/EmergencyButtonController$Factory;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
-    .locals 1
-
-    new-instance v0, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
-
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;-><init>(Lcom/android/keyguard/KeyguardSecurityViewFlipper;Landroid/view/LayoutInflater;Lcom/android/keyguard/KeyguardInputViewController$Factory;Lcom/android/keyguard/EmergencyButtonController$Factory;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
-    .locals 3
+.method public final get()Ljava/lang/Object;
+    .locals 4
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardSecurityViewFlipperController_Factory;->viewProvider:Ljavax/inject/Provider;
 
@@ -168,19 +113,9 @@
 
     check-cast p0, Lcom/android/keyguard/EmergencyButtonController$Factory;
 
-    invoke-static {v0, v1, v2, p0}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController_Factory;->newInstance(Lcom/android/keyguard/KeyguardSecurityViewFlipper;Landroid/view/LayoutInflater;Lcom/android/keyguard/KeyguardInputViewController$Factory;Lcom/android/keyguard/EmergencyButtonController$Factory;)Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
+    new-instance v3, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
 
-    move-result-object p0
+    invoke-direct {v3, v0, v1, v2, p0}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController;-><init>(Lcom/android/keyguard/KeyguardSecurityViewFlipper;Landroid/view/LayoutInflater;Lcom/android/keyguard/KeyguardInputViewController$Factory;Lcom/android/keyguard/EmergencyButtonController$Factory;)V
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardSecurityViewFlipperController_Factory;->get()Lcom/android/keyguard/KeyguardSecurityViewFlipperController;
-
-    move-result-object p0
-
-    return-object p0
+    return-object v3
 .end method

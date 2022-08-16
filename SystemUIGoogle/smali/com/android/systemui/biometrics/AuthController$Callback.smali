@@ -15,8 +15,32 @@
 
 
 # virtual methods
-.method public abstract onAllAuthenticatorsRegistered()V
+.method public onAllAuthenticatorsRegistered()V
+    .locals 0
+
+    return-void
 .end method
 
-.method public abstract onEnrollmentsChanged()V
+.method public onBiometricPromptDismissed()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onBiometricPromptShown()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onEnrollmentsChanged()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onUdfpsLocationChanged()V
+    .locals 0
+
+    return-void
 .end method

@@ -6,39 +6,13 @@
 .implements Lcom/android/systemui/statusbar/LightRevealEffect;
 
 
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/statusbar/LinearLightRevealEffect$Companion;
-    }
-.end annotation
-
-
-# static fields
-.field private static final Companion:Lcom/android/systemui/statusbar/LinearLightRevealEffect$Companion;
-
-
 # instance fields
-.field private final INTERPOLATOR:Landroid/view/animation/Interpolator;
+.field public final INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-.field private final isVertical:Z
+.field public final isVertical:Z
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/statusbar/LinearLightRevealEffect$Companion;
-
-    const/4 v1, 0x0
-
-    invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/LinearLightRevealEffect$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    sput-object v0, Lcom/android/systemui/statusbar/LinearLightRevealEffect;->Companion:Lcom/android/systemui/statusbar/LinearLightRevealEffect$Companion;
-
-    return-void
-.end method
-
 .method public constructor <init>(Z)V
     .locals 0
 
@@ -46,67 +20,98 @@
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/LinearLightRevealEffect;->isVertical:Z
 
-    sget-object p1, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN_REVERSE:Landroid/view/animation/Interpolator;
+    sget-object p1, Lcom/android/systemui/animation/Interpolators;->FAST_OUT_SLOW_IN_REVERSE:Landroid/view/animation/PathInterpolator;
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/LinearLightRevealEffect;->INTERPOLATOR:Landroid/view/animation/Interpolator;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/LinearLightRevealEffect;->INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public setRevealAmountOnScrim(FLcom/android/systemui/statusbar/LightRevealScrim;)V
-    .locals 4
+.method public final setRevealAmountOnScrim(FLcom/android/systemui/statusbar/LightRevealScrim;)V
+    .locals 5
 
-    const-string v0, "scrim"
+    iget-object v0, p0, Lcom/android/systemui/statusbar/LinearLightRevealEffect;->INTERPOLATOR:Landroid/view/animation/PathInterpolator;
 
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/LinearLightRevealEffect;->INTERPOLATOR:Landroid/view/animation/Interpolator;
-
-    invoke-interface {v0, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
+    invoke-virtual {v0, p1}, Landroid/view/animation/PathInterpolator;->getInterpolation(F)F
 
     move-result p1
 
-    sget-object v0, Lcom/android/systemui/statusbar/LightRevealEffect;->Companion:Lcom/android/systemui/statusbar/LightRevealEffect$Companion;
+    iput p1, p2, Lcom/android/systemui/statusbar/LightRevealScrim;->interpolatedRevealAmount:F
 
-    const/4 v1, 0x1
+    const/4 v0, 0x1
 
-    int-to-float v1, v1
+    int-to-float v1, v0
 
     sub-float/2addr v1, p1
 
     const v2, 0x3f333333    # 0.7f
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/statusbar/LightRevealEffect$Companion;->getPercentPastThreshold(FF)F
+    sub-float/2addr v1, v2
 
-    move-result v1
+    const/4 v2, 0x0
 
-    invoke-virtual {p2, v1}, Lcom/android/systemui/statusbar/LightRevealScrim;->setStartColorAlpha(F)V
+    cmpg-float v3, v1, v2
 
-    const v1, 0x3f19999a    # 0.6f
+    if-gez v3, :cond_0
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/systemui/statusbar/LightRevealEffect$Companion;->getPercentPastThreshold(FF)F
+    move v1, v2
 
-    move-result v0
+    :cond_0
+    const/high16 v3, 0x3f800000    # 1.0f
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const v4, 0x40555555
 
-    sub-float v0, v1, v0
+    mul-float/2addr v4, v1
+
+    iget v1, p2, Lcom/android/systemui/statusbar/LightRevealScrim;->startColorAlpha:F
+
+    cmpg-float v1, v1, v4
+
+    if-nez v1, :cond_1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_0
+    if-nez v0, :cond_2
+
+    iput v4, p2, Lcom/android/systemui/statusbar/LightRevealScrim;->startColorAlpha:F
+
+    invoke-virtual {p2}, Landroid/view/View;->invalidate()V
+
+    :cond_2
+    const v0, 0x3f19999a    # 0.6f
+
+    sub-float v0, p1, v0
+
+    cmpg-float v1, v0, v2
+
+    if-gez v1, :cond_3
+
+    move v0, v2
+
+    :cond_3
+    const v1, 0x40200001    # 2.5000002f
+
+    mul-float/2addr v1, v0
+
+    sub-float v0, v3, v1
 
     invoke-virtual {p2, v0}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealGradientEndColorAlpha(F)V
 
     const v0, 0x3e99999a    # 0.3f
 
-    invoke-static {v0, v1, p1}, Landroid/util/MathUtils;->lerp(FFF)F
+    invoke-static {v0, v3, p1}, Landroid/util/MathUtils;->lerp(FFF)F
 
     move-result p1
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/LinearLightRevealEffect;->isVertical:Z
 
-    const/4 v0, 0x0
-
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_4
 
     invoke-virtual {p2}, Landroid/view/View;->getWidth()I
 
@@ -118,6 +123,26 @@
 
     invoke-virtual {p2}, Landroid/view/View;->getWidth()I
 
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, p1
+
+    sub-float/2addr p0, v0
+
+    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
+
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    int-to-float v0, v0
+
+    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
+
     move-result v1
 
     div-int/lit8 v1, v1, 0x2
@@ -126,27 +151,7 @@
 
     mul-float/2addr v1, p1
 
-    sub-float/2addr p0, v1
-
-    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
-
-    move-result v1
-
-    div-int/lit8 v1, v1, 0x2
-
-    int-to-float v1, v1
-
-    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
-
-    move-result v2
-
-    div-int/lit8 v2, v2, 0x2
-
-    int-to-float v2, v2
-
-    mul-float/2addr v2, p1
-
-    add-float/2addr v1, v2
+    add-float/2addr v1, v0
 
     invoke-virtual {p2}, Landroid/view/View;->getHeight()I
 
@@ -154,11 +159,11 @@
 
     int-to-float p1, p1
 
-    invoke-virtual {p2, p0, v0, v1, p1}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealGradientBounds(FFFF)V
+    invoke-virtual {p2, p0, v2, v1, p1}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealGradientBounds(FFFF)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_0
+    :cond_4
     invoke-virtual {p2}, Landroid/view/View;->getHeight()I
 
     move-result p0
@@ -169,29 +174,29 @@
 
     invoke-virtual {p2}, Landroid/view/View;->getHeight()I
 
+    move-result v0
+
+    div-int/lit8 v0, v0, 0x2
+
+    int-to-float v0, v0
+
+    mul-float/2addr v0, p1
+
+    sub-float/2addr p0, v0
+
+    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    invoke-virtual {p2}, Landroid/view/View;->getHeight()I
+
     move-result v1
 
     div-int/lit8 v1, v1, 0x2
 
     int-to-float v1, v1
-
-    mul-float/2addr v1, p1
-
-    sub-float/2addr p0, v1
-
-    invoke-virtual {p2}, Landroid/view/View;->getWidth()I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    invoke-virtual {p2}, Landroid/view/View;->getHeight()I
-
-    move-result v2
-
-    div-int/lit8 v2, v2, 0x2
-
-    int-to-float v2, v2
 
     invoke-virtual {p2}, Landroid/view/View;->getHeight()I
 
@@ -203,10 +208,10 @@
 
     mul-float/2addr v3, p1
 
-    add-float/2addr v2, v3
+    add-float/2addr v3, v1
 
-    invoke-virtual {p2, v0, p0, v1, v2}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealGradientBounds(FFFF)V
+    invoke-virtual {p2, v2, p0, v0, v3}, Lcom/android/systemui/statusbar/LightRevealScrim;->setRevealGradientBounds(FFFF)V
 
-    :goto_0
+    :goto_1
     return-void
 .end method

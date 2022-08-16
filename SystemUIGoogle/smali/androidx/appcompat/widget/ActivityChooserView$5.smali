@@ -1,25 +1,14 @@
-.class Landroidx/appcompat/widget/ActivityChooserView$5;
+.class public final Landroidx/appcompat/widget/ActivityChooserView$5;
 .super Landroid/database/DataSetObserver;
 .source "ActivityChooserView.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/widget/ActivityChooserView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActivityChooserView$5;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -31,14 +20,18 @@
 
 
 # virtual methods
-.method public onChanged()V
+.method public final onChanged()V
     .locals 0
 
     invoke-super {p0}, Landroid/database/DataSetObserver;->onChanged()V
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView$5;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
-    invoke-virtual {p0}, Landroidx/appcompat/widget/ActivityChooserView;->updateAppearance()V
+    iget-object p0, p0, Landroidx/appcompat/widget/ActivityChooserView;->mAdapter:Landroidx/appcompat/widget/ActivityChooserView$ActivityChooserViewAdapter;
 
-    return-void
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    const/4 p0, 0x0
+
+    throw p0
 .end method

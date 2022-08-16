@@ -1,25 +1,14 @@
-.class Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$2;
+.class public final Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$2;
 .super Landroidx/recyclerview/widget/RecyclerViewAccessibilityDelegate;
 .source "AccessibilityFloatingMenuView.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;->initListView()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
+.field public final synthetic this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;Landroidx/recyclerview/widget/RecyclerView;)V
+.method public constructor <init>(Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;Landroidx/recyclerview/widget/RecyclerView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView$2;->this$0:Lcom/android/systemui/accessibility/floatingmenu/AccessibilityFloatingMenuView;
@@ -31,7 +20,7 @@
 
 
 # virtual methods
-.method public getItemDelegate()Landroidx/core/view/AccessibilityDelegateCompat;
+.method public final getItemDelegate()Landroidx/core/view/AccessibilityDelegateCompat;
     .locals 2
 
     new-instance v0, Lcom/android/systemui/accessibility/floatingmenu/ItemDelegateCompat;

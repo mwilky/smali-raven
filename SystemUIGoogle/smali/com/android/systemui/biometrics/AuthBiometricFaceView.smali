@@ -1,67 +1,65 @@
-.class public Lcom/android/systemui/biometrics/AuthBiometricFaceView;
+.class public final Lcom/android/systemui/biometrics/AuthBiometricFaceView;
 .super Lcom/android/systemui/biometrics/AuthBiometricView;
-.source "AuthBiometricFaceView.java"
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;
-    }
-.end annotation
-
-
-# instance fields
-.field mFaceIconController:Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-.end field
-
-.field private final mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
+.source "AuthBiometricFaceView.kt"
 
 
 # direct methods
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/systemui/biometrics/AuthBiometricView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    new-instance p1, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;
-
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;-><init>(Lcom/android/systemui/biometrics/AuthBiometricFaceView;)V
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
-
     return-void
 .end method
 
-.method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/systemui/biometrics/AuthBiometricView$Injector;)V
+.method public synthetic constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
     .locals 0
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthBiometricView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/systemui/biometrics/AuthBiometricView$Injector;)V
+    and-int/lit8 p3, p3, 0x2
 
-    new-instance p1, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;
+    if-eqz p3, :cond_0
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView$1;-><init>(Lcom/android/systemui/biometrics/AuthBiometricFaceView;)V
+    const/4 p2, 0x0
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
+    :cond_0
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/biometrics/AuthBiometricFaceView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
     return-void
 .end method
 
-.method private resetErrorView()V
+
+# virtual methods
+.method public final createIconController()Lcom/android/systemui/biometrics/AuthIconController;
+    .locals 2
+
+    new-instance v0, Lcom/android/systemui/biometrics/AuthBiometricFaceIconController;
+
+    iget-object v1, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconView:Landroid/widget/ImageView;
+
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceIconController;-><init>(Landroid/content/Context;Landroid/widget/ImageView;)V
+
+    return-object v0
+.end method
+
+.method public final getDelayAfterAuthenticatedDurationMs()I
+    .locals 0
+
+    const/16 p0, 0x1f4
+
+    return p0
+.end method
+
+.method public final getStateForAfterError()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public final handleResetAfterError()V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
@@ -79,56 +77,32 @@
     return-void
 .end method
 
-
-# virtual methods
-.method protected getDelayAfterAuthenticatedDurationMs()I
-    .locals 0
-
-    const/16 p0, 0x1f4
-
-    return p0
-.end method
-
-.method protected getStateForAfterError()I
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method protected handleResetAfterError()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->resetErrorView()V
-
-    return-void
-.end method
-
-.method protected handleResetAfterHelp()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->resetErrorView()V
-
-    return-void
-.end method
-
-.method public onAuthenticationFailed(ILjava/lang/String;)V
+.method public final handleResetAfterHelp()V
     .locals 2
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->getSize()I
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
 
-    move-result v0
+    iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTextColorHint:I
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    return-void
+.end method
+
+.method public final onAuthenticationFailed(ILjava/lang/String;)V
+    .locals 2
+
+    iget v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->supportsManualRetry()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTryAgainButton:Landroid/widget/Button;
 
@@ -148,54 +122,8 @@
     return-void
 .end method
 
-.method protected onFinishInflate()V
-    .locals 4
-
-    invoke-super {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->onFinishInflate()V
-
-    new-instance v0, Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;
-
-    iget-object v1, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconView:Landroid/widget/ImageView;
-
-    iget-object v3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;-><init>(Landroid/content/Context;Landroid/widget/ImageView;Landroid/widget/TextView;)V
-
-    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mFaceIconController:Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mOnAttachStateChangeListener:Landroid/view/View$OnAttachStateChangeListener;
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->addOnAttachStateChangeListener(Landroid/view/View$OnAttachStateChangeListener;)V
-
-    return-void
-.end method
-
-.method protected supportsManualRetry()Z
-    .locals 0
-
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method protected supportsSmallDialog()Z
-    .locals 0
-
-    const/4 p0, 0x1
-
-    return p0
-.end method
-
-.method public updateState(I)V
+.method public final updateState(I)V
     .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->mFaceIconController:Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;
-
-    iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mState:I
-
-    invoke-virtual {v0, v1, p1}, Lcom/android/systemui/biometrics/AuthBiometricFaceView$IconController;->updateState(II)V
 
     const/4 v0, 0x1
 
@@ -205,14 +133,22 @@
 
     if-ne p1, v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->getSize()I
-
-    move-result v1
+    iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
     if-ne v1, v0, :cond_1
 
     :cond_0
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricFaceView;->resetErrorView()V
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTextColorHint:I
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_1
     invoke-super {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V

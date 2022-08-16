@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
+.class public final Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;
 .super Ljava/lang/Object;
 .source "AnnotationLinkSpan.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field private final mAnnotation:Ljava/util/Optional;
+.field public final mAnnotation:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -25,7 +25,7 @@
     .end annotation
 .end field
 
-.field private final mListener:Ljava/util/Optional;
+.field public final mListener:Ljava/util/Optional;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Optional<",
@@ -37,38 +37,24 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Landroid/view/View$OnClickListener;)V
-    .locals 0
+.method public constructor <init>(Landroid/view/View$OnClickListener;)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
+    const-string v0, "link"
 
-    move-result-object p1
+    invoke-static {v0}, Ljava/util/Optional;->of(Ljava/lang/Object;)Ljava/util/Optional;
 
-    iput-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;->mAnnotation:Ljava/util/Optional;
+    move-result-object v0
 
-    invoke-static {p2}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+    iput-object v0, p0, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;->mAnnotation:Ljava/util/Optional;
+
+    invoke-static {p1}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
 
     move-result-object p1
 
     iput-object p1, p0, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;->mListener:Ljava/util/Optional;
 
     return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;->mListener:Ljava/util/Optional;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;)Ljava/util/Optional;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/accessibility/floatingmenu/AnnotationLinkSpan$LinkInfo;->mAnnotation:Ljava/util/Optional;
-
-    return-object p0
 .end method

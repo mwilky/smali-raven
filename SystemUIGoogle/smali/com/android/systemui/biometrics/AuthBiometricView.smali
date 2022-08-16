@@ -1,4 +1,4 @@
-.class public abstract Lcom/android/systemui/biometrics/AuthBiometricView;
+.class public Lcom/android/systemui/biometrics/AuthBiometricView;
 .super Landroid/widget/LinearLayout;
 .source "AuthBiometricView.java"
 
@@ -6,207 +6,116 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/systemui/biometrics/AuthBiometricView$Injector;,
         Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
     }
 .end annotation
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private final mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+.field public final mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-.field private final mBackgroundClickListener:Landroid/view/View$OnClickListener;
-
-.field protected mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-.field mCancelButton:Landroid/widget/Button;
+.field public mAnimationDurationHideDialog:I
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field mConfirmButton:Landroid/widget/Button;
+.field public mAnimationDurationLong:I
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mDescriptionView:Landroid/widget/TextView;
-
-.field protected mDialogSizeAnimating:Z
-
-.field private mEffectiveUserId:I
-
-.field protected final mHandler:Landroid/os/Handler;
-
-.field private mIconHolderView:Landroid/view/View;
-
-.field private mIconOriginalY:F
-
-.field protected mIconView:Landroid/widget/ImageView;
-
-.field protected mIndicatorView:Landroid/widget/TextView;
-
-.field private final mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
-
-.field mLayoutParams:Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;
+.field public mAnimationDurationShort:I
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field mNegativeButton:Landroid/widget/Button;
+.field public final mBackgroundClickListener:Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda5;
+
+.field public mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
+
+.field public mCancelButton:Landroid/widget/Button;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
-
-.field private mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
-
-.field private mRequireConfirmation:Z
-
-.field private final mResetErrorRunnable:Ljava/lang/Runnable;
-
-.field private final mResetHelpRunnable:Ljava/lang/Runnable;
-
-.field protected mSavedState:Landroid/os/Bundle;
-
-.field private mSize:I
-
-.field protected mState:I
-
-.field private mSubtitleView:Landroid/widget/TextView;
-
-.field protected final mTextColorError:I
-
-.field protected final mTextColorHint:I
-
-.field private mTitleView:Landroid/widget/TextView;
-
-.field mTryAgainButton:Landroid/widget/Button;
+.field public mConfirmButton:Landroid/widget/Button;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field mUseCredentialButton:Landroid/widget/Button;
+.field public mDescriptionView:Landroid/widget/TextView;
+
+.field public mDialogSizeAnimating:Z
+
+.field public mEffectiveUserId:I
+
+.field public final mHandler:Landroid/os/Handler;
+
+.field public mIconController:Lcom/android/systemui/biometrics/AuthIconController;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private mUserId:I
+.field public mIconHolderView:Landroid/view/View;
+
+.field public mIconOriginalY:F
+
+.field public mIconView:Landroid/widget/ImageView;
+
+.field public mIndicatorView:Landroid/widget/TextView;
+
+.field public mLayoutParams:Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
+.field public final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+.field public mNegativeButton:Landroid/widget/Button;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
+.field public mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
+
+.field public mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+
+.field public mRequireConfirmation:Z
+
+.field public final mResetErrorRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
+
+.field public final mResetHelpRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;
+
+.field public mSavedState:Landroid/os/Bundle;
+
+.field public mSize:I
+
+.field public mState:I
+
+.field public mSubtitleView:Landroid/widget/TextView;
+
+.field public final mTextColorError:I
+
+.field public final mTextColorHint:I
+
+.field public mTitleView:Landroid/widget/TextView;
+
+.field public mTryAgainButton:Landroid/widget/Button;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
+
+.field public mUseCredentialButton:Landroid/widget/Button;
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+.end field
 
 
 # direct methods
-.method public static synthetic $r8$lambda$-2-rwDSgFbOdOVjO-mncQYw0Cq8(Lcom/android/systemui/biometrics/AuthBiometricView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$updateState$7()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$321443sPT2-_vmgCOTtrDZ3nF1M(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$onFinishInflateInternal$13(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$9S1B2Y9IVW2mranlB-UNgM_v6wI(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$onFinishInflateInternal$11(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Bta1H82G51hrtufqd1L0WRZ9Vrg(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$new$0(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$CzHOwMAcXqKgrQ8OJXliGuRc8og(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$onFinishInflateInternal$12(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$E5gB7wJwa-qpjDpEc2uv6cwIdh4(Lcom/android/systemui/biometrics/AuthBiometricView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$new$2()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$Il6-jnadxa7kL3WO0RiSzfpz6ck(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$updateSize$6(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$QmdSW9m_Tvs55Xkd6PzDh2LRyNc(Lcom/android/systemui/biometrics/AuthBiometricView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$new$1()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$VAsfUtJD-alPk1MGi8YaQ87a6H4(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$updateSize$3(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$VegE5yOsiHWU0vJWzcmzXwUISuc(Lcom/android/systemui/biometrics/AuthBiometricView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$onError$8()V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$WF3RgVIOlK7RYqAvt14uiLwyRTM(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$onFinishInflateInternal$9(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$jiecBSjCDZpGmvYHdFvTDqEMksQ(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$onFinishInflateInternal$10(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$m1SJ5XmbFfb9fxoQMu08fq3Wv8M(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$updateSize$5(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
-.method public static synthetic $r8$lambda$nX3sKkn-rg9G3GI_erF3EymQkRc(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->lambda$updateSize$4(Landroid/animation/ValueAnimator;)V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
 
@@ -218,21 +127,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 1
-
-    new-instance v0, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
-
-    invoke-direct {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;-><init>()V
-
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/systemui/biometrics/AuthBiometricView$Injector;)V
-
-    return-void
-.end method
-
-.method constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/systemui/biometrics/AuthBiometricView$Injector;)V
     .locals 2
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -240,11 +135,23 @@
 
     iput p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
-    new-instance p2, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda6;
+    const/16 p2, 0x96
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda6;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    iput p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationShort:I
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mBackgroundClickListener:Landroid/view/View$OnClickListener;
+    const/16 p2, 0x1c2
+
+    iput p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationLong:I
+
+    const/16 p2, 0x7d0
+
+    iput p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationHideDialog:I
+
+    new-instance p2, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda5;
+
+    invoke-direct {p2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+
+    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mBackgroundClickListener:Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda5;
 
     new-instance p2, Landroid/os/Handler;
 
@@ -260,13 +167,13 @@
 
     move-result-object p2
 
-    sget v0, Lcom/android/systemui/R$color;->biometric_dialog_error:I
-
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    const v1, 0x7f06004a
+
+    invoke-virtual {p2, v1, v0}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result p2
 
@@ -276,570 +183,125 @@
 
     move-result-object p2
 
-    sget v0, Lcom/android/systemui/R$color;->biometric_dialog_gray:I
-
     invoke-virtual {p1}, Landroid/content/Context;->getTheme()Landroid/content/res/Resources$Theme;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
+    const v1, 0x7f06004b
+
+    invoke-virtual {p2, v1, v0}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
     move-result p2
 
     iput p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTextColorHint:I
 
-    iput-object p3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
-
-    iput-object p0, p3, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->mBiometricView:Lcom/android/systemui/biometrics/AuthBiometricView;
-
     const-class p2, Landroid/view/accessibility/AccessibilityManager;
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p2
 
-    check-cast p1, Landroid/view/accessibility/AccessibilityManager;
+    check-cast p2, Landroid/view/accessibility/AccessibilityManager;
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    new-instance p1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda12;
+    new-instance p2, Lcom/android/internal/widget/LockPatternUtils;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda12;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    invoke-direct {p2, p1}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Ljava/lang/Runnable;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
-    new-instance p1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda11;
+    new-instance p1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda11;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    const/4 p2, 0x3
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetHelpRunnable:Ljava/lang/Runnable;
+    invoke-direct {p1, p2, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
-    return-void
-.end method
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
 
-.method static synthetic access$000(Lcom/android/systemui/biometrics/AuthBiometricView;)Landroid/widget/TextView;
-    .locals 0
+    new-instance p1, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTitleView:Landroid/widget/TextView;
+    const/4 p2, 0x1
 
-    return-object p0
-.end method
+    invoke-direct {p1, p2, p0}, Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;-><init>(ILjava/lang/Object;)V
 
-.method static synthetic access$100(Lcom/android/systemui/biometrics/AuthBiometricView;)Z
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->isDeviceCredentialAllowed()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static synthetic access$200(Lcom/android/systemui/biometrics/AuthBiometricView;)Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSubtitleView:Landroid/widget/TextView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$300(Lcom/android/systemui/biometrics/AuthBiometricView;)Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDescriptionView:Landroid/widget/TextView;
-
-    return-object p0
-.end method
-
-.method static synthetic access$402(Lcom/android/systemui/biometrics/AuthBiometricView;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/android/systemui/biometrics/AuthBiometricView;)Landroid/view/accessibility/AccessibilityManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    return-object p0
-.end method
-
-.method private isDeviceCredentialAllowed()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
-
-    invoke-static {p0}, Lcom/android/systemui/biometrics/Utils;->isDeviceCredentialAllowed(Landroid/hardware/biometrics/PromptInfo;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private isLargeDisplay()Z
-    .locals 0
-
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object p0
-
-    invoke-static {p0}, Lcom/android/systemui/util/Utils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private synthetic lambda$new$0(Landroid/view/View;)V
-    .locals 2
-
-    iget p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mState:I
-
-    const-string v0, "BiometricPrompt/AuthBiometricView"
-
-    const/4 v1, 0x6
-
-    if-ne p1, v1, :cond_0
-
-    const-string p0, "Ignoring background click after authenticated"
-
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    iget p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
-
-    const/4 v1, 0x1
-
-    if-ne p1, v1, :cond_1
-
-    const-string p0, "Ignoring background click during small dialog"
-
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_1
-    const/4 v1, 0x3
-
-    if-ne p1, v1, :cond_2
-
-    const-string p0, "Ignoring background click during large dialog"
-
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_2
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    const/4 p1, 0x2
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView$Callback;->onAction(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$new$1()V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->getStateForAfterError()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->handleResetAfterError()V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-static {v0, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$new$2()V
-    .locals 1
-
-    const/4 v0, 0x2
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->handleResetAfterHelp()V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-static {v0, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onError$8()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    const/4 v0, 0x5
-
-    invoke-interface {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Callback;->onAction(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onFinishInflateInternal$10(Landroid/view/View;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    const/4 p1, 0x2
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView$Callback;->onAction(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onFinishInflateInternal$11(Landroid/view/View;)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->startTransitionToCredentialUI()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onFinishInflateInternal$12(Landroid/view/View;)V
-    .locals 0
-
-    const/4 p1, 0x6
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onFinishInflateInternal$13(Landroid/view/View;)V
-    .locals 1
-
-    const/4 p1, 0x2
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    const/4 v0, 0x4
-
-    invoke-interface {p1, v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Callback;->onAction(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTryAgainButton:Landroid/widget/Button;
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-static {p1, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onFinishInflateInternal$9(Landroid/view/View;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    const/4 p1, 0x3
-
-    invoke-interface {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView$Callback;->onAction(I)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$updateSize$3(Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/view/View;->setY(F)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$updateSize$4(Landroid/animation/ValueAnimator;)V
-    .locals 1
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
-
-    move-result p1
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTitleView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, p1}, Landroid/widget/Button;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCancelButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, p1}, Landroid/widget/Button;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTryAgainButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, p1}, Landroid/widget/Button;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSubtitleView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSubtitleView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setAlpha(F)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDescriptionView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDescriptionView:Landroid/widget/TextView;
-
-    invoke-virtual {p0, p1}, Landroid/widget/TextView;->setAlpha(F)V
-
-    :cond_1
-    return-void
-.end method
-
-.method private static synthetic lambda$updateSize$5(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setTranslationY(F)V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$updateSize$6(Lcom/android/systemui/biometrics/AuthBiometricView;Landroid/animation/ValueAnimator;)V
-    .locals 0
-
-    invoke-virtual {p1}, Landroid/animation/ValueAnimator;->getAnimatedValue()Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Ljava/lang/Float;
-
-    invoke-virtual {p1}, Ljava/lang/Float;->floatValue()F
-
-    move-result p1
-
-    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->setAlpha(F)V
-
-    return-void
-.end method
-
-.method private synthetic lambda$updateState$7()V
-    .locals 1
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    const/4 v0, 0x1
-
-    invoke-interface {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Callback;->onAction(I)V
-
-    return-void
-.end method
-
-.method private removePendingAnimations()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetHelpRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    return-void
-.end method
-
-.method private setTextOrHide(Landroid/widget/TextView;Ljava/lang/CharSequence;)V
-    .locals 1
-
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const/16 p2, 0x8
-
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setVisibility(I)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p1, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    :goto_0
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-static {p1, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
-
-    return-void
-.end method
-
-.method private showTemporaryMessage(Ljava/lang/String;Ljava/lang/Runnable;)V
-    .locals 2
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->removePendingAnimations()V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    iget v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTextColorError:I
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setVisibility(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :cond_1
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setSelected(Z)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getDelayAfterError()I
-
-    move-result v0
-
-    int-to-long v0, v0
-
-    invoke-virtual {p1, p2, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
-
-    invoke-static {p1, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
+    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetHelpRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;
 
     return-void
 .end method
 
 
 # virtual methods
-.method protected abstract getDelayAfterAuthenticatedDurationMs()I
+.method public createIconController()Lcom/android/systemui/biometrics/AuthIconController;
+    .locals 2
+
+    new-instance v0, Lcom/android/systemui/biometrics/AuthBiometricView$1;
+
+    iget-object v1, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconView:Landroid/widget/ImageView;
+
+    invoke-direct {v0, v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$1;-><init>(Landroid/content/Context;Landroid/widget/ImageView;)V
+
+    return-object v0
 .end method
 
-.method getSize()I
+.method public forceRequireConfirmation(I)Z
     .locals 0
 
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
+    const/4 p0, 0x0
 
     return p0
 .end method
 
-.method protected abstract getStateForAfterError()I
-.end method
-
-.method protected abstract handleResetAfterError()V
-.end method
-
-.method protected abstract handleResetAfterHelp()V
-.end method
-
-.method protected onAttachedToWindow()V
+.method public getConfirmationPrompt()I
     .locals 0
 
-    invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
+    const p0, 0x7f130146
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->onAttachedToWindowInternal()V
+    return p0
+.end method
+
+.method public getDelayAfterAuthenticatedDurationMs()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public getStateForAfterError()I
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public handleResetAfterError()V
+    .locals 0
 
     return-void
 .end method
 
-.method onAttachedToWindowInternal()V
-    .locals 5
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
+.method public handleResetAfterHelp()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public ignoreUnsuccessfulEventsFrom(I)Z
+    .locals 0
+
+    const/4 p0, 0x0
+
+    return p0
+.end method
+
+.method public onAttachedToWindow()V
+    .locals 6
+
+    invoke-super {p0}, Landroid/widget/LinearLayout;->onAttachedToWindow()V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTitleView:Landroid/widget/TextView;
 
@@ -851,89 +313,104 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->isDeviceCredentialAllowed()Z
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTitleView:Landroid/widget/TextView;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSelected(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSubtitleView:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setSelected(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDescriptionView:Landroid/widget/TextView;
+
+    new-instance v2, Landroid/text/method/ScrollingMovementMethod;
+
+    invoke-direct {v2}, Landroid/text/method/ScrollingMovementMethod;-><init>()V
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
+
+    invoke-virtual {v0}, Landroid/hardware/biometrics/PromptInfo;->getAuthenticators()I
 
     move-result v0
 
-    const/4 v1, 0x0
+    const v2, 0x8000
 
-    const/16 v2, 0x8
+    and-int/2addr v0, v2
 
-    const/4 v3, 0x1
+    const/4 v2, 0x0
+
+    if-eqz v0, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    :goto_0
+    const/16 v3, 0x8
 
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
     iget v4, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mEffectiveUserId:I
 
-    invoke-static {v0, v4}, Lcom/android/systemui/biometrics/Utils;->getCredentialType(Landroid/content/Context;I)I
+    invoke-static {v0, v4}, Lcom/android/systemui/biometrics/Utils;->getCredentialType(Lcom/android/internal/widget/LockPatternUtils;I)I
 
     move-result v0
 
-    if-eq v0, v3, :cond_2
+    if-eq v0, v1, :cond_2
 
     const/4 v4, 0x2
 
     if-eq v0, v4, :cond_1
 
-    const/4 v4, 0x3
-
-    if-eq v0, v4, :cond_0
-
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v4, Lcom/android/systemui/R$string;->biometric_dialog_use_password:I
+    const v4, 0x7f130149
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v4, Lcom/android/systemui/R$string;->biometric_dialog_use_password:I
-
-    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_1
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v4, Lcom/android/systemui/R$string;->biometric_dialog_use_pattern:I
+    const v4, 0x7f13014a
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_2
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    sget v4, Lcom/android/systemui/R$string;->biometric_dialog_use_pin:I
+    const v4, 0x7f13014b
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
+    :goto_1
     iget-object v4, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
 
-    invoke-virtual {v4, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v4, v3}, Landroid/widget/Button;->setVisibility(I)V
 
     iget-object v4, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
 
@@ -941,9 +418,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
@@ -956,7 +433,7 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
 
-    :goto_1
+    :goto_2
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSubtitleView:Landroid/widget/TextView;
 
     iget-object v4, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
@@ -965,7 +442,23 @@
 
     move-result-object v4
 
-    invoke-direct {p0, v0, v4}, Lcom/android/systemui/biometrics/AuthBiometricView;->setTextOrHide(Landroid/widget/TextView;Ljava/lang/CharSequence;)V
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_3
+
+    :cond_4
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_3
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-static {v0, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDescriptionView:Landroid/widget/TextView;
 
@@ -975,20 +468,36 @@
 
     move-result-object v4
 
-    invoke-direct {p0, v0, v4}, Lcom/android/systemui/biometrics/AuthBiometricView;->setTextOrHide(Landroid/widget/TextView;Ljava/lang/CharSequence;)V
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_4
+
+    :cond_5
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_4
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-static {v0, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_6
 
-    invoke-virtual {p0, v3}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
+    invoke-virtual {p0, v1}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
 
-    goto :goto_2
+    goto :goto_5
 
-    :cond_4
-    const-string v3, "state"
+    :cond_6
+    const-string/jumbo v1, "state"
 
-    invoke-virtual {v0, v3}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
     move-result v0
 
@@ -996,15 +505,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
 
-    iget-object v3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
 
     const-string v4, "confirm_visibility"
 
-    invoke-virtual {v3, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {v1, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v1
 
-    invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
 
@@ -1012,16 +521,16 @@
 
     move-result v0
 
-    if-ne v0, v2, :cond_5
+    if-ne v0, v3, :cond_7
 
-    invoke-virtual {p0, v1}, Lcom/android/systemui/biometrics/AuthBiometricView;->setRequireConfirmation(Z)V
+    iput-boolean v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
 
-    :cond_5
+    :cond_7
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTryAgainButton:Landroid/widget/Button;
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
 
-    const-string v1, "try_agian_visibility"
+    const-string/jumbo v1, "try_agian_visibility"
 
     invoke-virtual {p0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
@@ -1029,16 +538,25 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setVisibility(I)V
 
-    :goto_2
+    :goto_5
     return-void
 .end method
 
 .method public onAuthenticationFailed(ILjava/lang/String;)V
     .locals 0
 
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Ljava/lang/Runnable;
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->ignoreUnsuccessfulEventsFrom(I)Z
 
-    invoke-direct {p0, p2, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->showTemporaryMessage(Ljava/lang/String;Ljava/lang/Runnable;)V
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    return-void
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/biometrics/AuthBiometricView;->showTemporaryMessage(Ljava/lang/Runnable;Ljava/lang/String;)V
 
     const/4 p1, 0x4
 
@@ -1047,34 +565,16 @@
     return-void
 .end method
 
-.method public onAuthenticationSucceeded()V
-    .locals 1
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->removePendingAnimations()V
-
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x5
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x6
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    :goto_0
-    return-void
-.end method
-
-.method protected onDetachedFromWindow()V
-    .locals 1
+.method public final onDetachedFromWindow()V
+    .locals 2
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onDetachedFromWindow()V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconController:Lcom/android/systemui/biometrics/AuthIconController;
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, v0, Lcom/android/systemui/biometrics/AuthIconController;->deactivated:Z
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
 
@@ -1085,178 +585,152 @@
     return-void
 .end method
 
-.method public onDialogAnimatedIn()V
-    .locals 1
-
-    const/4 v0, 0x2
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    return-void
-.end method
-
-.method public onError(ILjava/lang/String;)V
-    .locals 2
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Ljava/lang/Runnable;
-
-    invoke-direct {p0, p2, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->showTemporaryMessage(Ljava/lang/String;Ljava/lang/Runnable;)V
-
-    const/4 p1, 0x4
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateState(I)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
-
-    new-instance p2, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda13;
-
-    invoke-direct {p2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda13;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getDelayAfterError()I
-
-    move-result p0
-
-    int-to-long v0, p0
-
-    invoke-virtual {p1, p2, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    return-void
-.end method
-
-.method protected onFinishInflate()V
-    .locals 0
+.method public final onFinishInflate()V
+    .locals 4
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->onFinishInflateInternal()V
+    const v0, 0x7f0b06c4
 
-    return-void
-.end method
-
-.method onFinishInflateInternal()V
-    .locals 2
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
-
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getTitleView()Landroid/widget/TextView;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTitleView:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b064d
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getSubtitleView()Landroid/widget/TextView;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSubtitleView:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b01f4
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getDescriptionView()Landroid/widget/TextView;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDescriptionView:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b00f7
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getIconView()Landroid/widget/ImageView;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
+    check-cast v0, Landroid/widget/ImageView;
+
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconView:Landroid/widget/ImageView;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b00f8
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getIconHolderView()Landroid/view/View;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b0312
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getIndicatorView()Landroid/widget/TextView;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b014d
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getNegativeButton()Landroid/widget/Button;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b014a
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getCancelButton()Landroid/widget/Button;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCancelButton:Landroid/widget/Button;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b0150
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getUseCredentialButton()Landroid/widget/Button;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b014b
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getConfirmButton()Landroid/widget/Button;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    const v0, 0x7f0b014f
 
-    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getTryAgainButton()Landroid/widget/Button;
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
+
+    check-cast v0, Landroid/widget/Button;
 
     iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTryAgainButton:Landroid/widget/Button;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda8;
+    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda8;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    const/4 v2, 0x0
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCancelButton:Landroid/widget/Button;
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda9;
+    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda2;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda9;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda2;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda5;
+    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda3;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda5;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda7;
+    new-instance v1, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda7;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    const/4 v3, 0x1
+
+    invoke-direct {v1, v3, p0}, Lcom/android/systemui/qs/QSFooterViewController$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -1264,31 +738,59 @@
 
     new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda4;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda4;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda4;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->createIconController()Lcom/android/systemui/biometrics/AuthIconController;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconController:Lcom/android/systemui/biometrics/AuthIconController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/biometrics/AuthIconController;->getActsAsConfirmButton()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconView:Landroid/widget/ImageView;
+
+    new-instance v1, Lcom/android/systemui/wallet/ui/WalletView$$ExternalSyntheticLambda0;
+
+    invoke-direct {v1, v3, p0}, Lcom/android/systemui/wallet/ui/WalletView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_0
     return-void
 .end method
 
-.method public onHelp(ILjava/lang/String;)V
+.method public final onHelp(ILjava/lang/String;)V
     .locals 2
 
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->ignoreUnsuccessfulEventsFrom(I)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_0
+
+    return-void
+
+    :cond_0
     iget p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
-    const-string v0, "BiometricPrompt/AuthBiometricView"
+    const/4 v0, 0x2
 
-    const/4 v1, 0x2
+    const-string v1, "AuthBiometricView"
 
-    if-eq p1, v1, :cond_0
+    if-eq p1, v0, :cond_1
 
-    new-instance p1, Ljava/lang/StringBuilder;
+    const-string p1, "Help received in size: "
 
-    invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {p1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "Help received in size: "
-
-    invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object p1
 
     iget p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
@@ -1298,27 +800,27 @@
 
     move-result-object p0
 
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_1
-
-    const-string p0, "Ignoring blank help message"
-
-    invoke-static {v0, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 
     :cond_1
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetHelpRunnable:Ljava/lang/Runnable;
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    invoke-direct {p0, p2, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->showTemporaryMessage(Ljava/lang/String;Ljava/lang/Runnable;)V
+    move-result p1
+
+    if-eqz p1, :cond_2
+
+    const-string p0, "Ignoring blank help message"
+
+    invoke-static {v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetHelpRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/biometrics/AuthBiometricView;->showTemporaryMessage(Ljava/lang/Runnable;Ljava/lang/String;)V
 
     const/4 p1, 0x3
 
@@ -1332,110 +834,100 @@
 
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->onLayoutInternal()V
+    iget p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconOriginalY:F
 
-    return-void
-.end method
+    const/4 p2, 0x0
 
-.method onLayoutInternal()V
-    .locals 4
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
+    cmpl-float p1, p1, p2
 
-    iget v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconOriginalY:F
+    if-nez p1, :cond_3
 
-    const/4 v1, 0x0
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
 
-    cmpl-float v0, v0, v1
+    invoke-virtual {p1}, Landroid/view/View;->getY()F
 
-    if-nez v0, :cond_3
+    move-result p1
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
+    iput p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconOriginalY:F
 
-    invoke-virtual {v0}, Landroid/view/View;->getY()F
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
 
-    move-result v0
+    if-nez p1, :cond_1
 
-    iput v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconOriginalY:F
+    iget-boolean p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
-
-    if-nez v0, :cond_1
-
-    iget-boolean v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
-
-    if-nez v0, :cond_0
+    if-nez p1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->supportsSmallDialog()Z
 
-    move-result v0
+    move-result p1
 
-    if-eqz v0, :cond_0
+    if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 p1, 0x1
 
     goto :goto_0
 
     :cond_0
-    const/4 v0, 0x2
+    const/4 p1, 0x2
 
     :goto_0
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateSize(I)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateSize(I)V
 
     goto :goto_1
 
     :cond_1
-    const-string v1, "size"
+    const-string/jumbo p2, "size"
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
+    invoke-virtual {p1, p2}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v0
+    move-result p1
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateSize(I)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateSize(I)V
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
 
-    const-string v1, "indicator_string"
+    const-string p2, "indicator_string"
 
-    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, p2}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object p1
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
 
-    const-string v2, "hint_is_temporary"
+    const-string p3, "hint_is_temporary"
 
-    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p2, p3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result p2
 
-    const/4 v2, 0x0
+    const/4 p3, 0x0
 
-    if-eqz v1, :cond_2
+    if-eqz p2, :cond_2
 
-    invoke-virtual {p0, v2, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->onHelp(ILjava/lang/String;)V
+    invoke-virtual {p0, p3, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->onHelp(ILjava/lang/String;)V
 
     goto :goto_1
 
     :cond_2
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
 
-    const-string v3, "error_is_temporary"
+    const-string p4, "error_is_temporary"
 
-    invoke-virtual {v1, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {p2, p4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result p2
 
-    if-eqz v1, :cond_3
+    if-eqz p2, :cond_3
 
-    invoke-virtual {p0, v2, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->onAuthenticationFailed(ILjava/lang/String;)V
+    invoke-virtual {p0, p3, p1}, Lcom/android/systemui/biometrics/AuthBiometricView;->onAuthenticationFailed(ILjava/lang/String;)V
 
     :cond_3
     :goto_1
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 1
 
     invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -1446,7 +938,11 @@
 
     move-result p2
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->isLargeDisplay()Z
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/systemui/util/LargeScreenUtils;->shouldUseSplitNotificationShade(Landroid/content/res/Resources;)Z
 
     move-result v0
 
@@ -1483,7 +979,7 @@
     return-void
 .end method
 
-.method onMeasureInternal(II)Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;
+.method public onMeasureInternal(II)Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;
     .locals 8
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getChildCount()I
@@ -1505,7 +1001,7 @@
 
     move-result v4
 
-    sget v5, Lcom/android/systemui/R$id;->space_above_icon:I
+    const v5, 0x7f0b0619
 
     const/high16 v6, 0x40000000    # 2.0f
 
@@ -1515,7 +1011,7 @@
 
     move-result v4
 
-    sget v5, Lcom/android/systemui/R$id;->space_below_icon:I
+    const v5, 0x7f0b061a
 
     if-eq v4, v5, :cond_3
 
@@ -1523,7 +1019,7 @@
 
     move-result v4
 
-    sget v5, Lcom/android/systemui/R$id;->button_bar:I
+    const v5, 0x7f0b0149
 
     if-ne v4, v5, :cond_0
 
@@ -1534,13 +1030,13 @@
 
     move-result v4
 
-    sget v5, Lcom/android/systemui/R$id;->biometric_icon_frame:I
+    const v5, 0x7f0b00f8
+
+    const v7, 0x7f0b00f7
 
     if-ne v4, v5, :cond_1
 
-    sget v4, Lcom/android/systemui/R$id;->biometric_icon:I
-
-    invoke-virtual {p0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+    invoke-virtual {p0, v7}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
@@ -1573,17 +1069,15 @@
 
     move-result v4
 
-    sget v5, Lcom/android/systemui/R$id;->biometric_icon:I
+    const/high16 v5, -0x80000000
 
-    const/high16 v7, -0x80000000
+    if-ne v4, v7, :cond_2
 
-    if-ne v4, v5, :cond_2
-
-    invoke-static {p1, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {p1, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v4
 
-    invoke-static {p2, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {p2, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v5
 
@@ -1596,7 +1090,7 @@
 
     move-result v4
 
-    invoke-static {p2, v7}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {p2, v5}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v5
 
@@ -1635,7 +1129,9 @@
 
     move-result v3
 
-    add-int/2addr v2, v3
+    add-int/2addr v3, v2
+
+    move v2, v3
 
     :cond_4
     add-int/lit8 v1, v1, 0x1
@@ -1650,179 +1146,7 @@
     return-object p0
 .end method
 
-.method public onSaveState(Landroid/os/Bundle;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
-
-    invoke-virtual {v0}, Landroid/widget/Button;->getVisibility()I
-
-    move-result v0
-
-    const-string v1, "confirm_visibility"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTryAgainButton:Landroid/widget/Button;
-
-    invoke-virtual {v0}, Landroid/widget/Button;->getVisibility()I
-
-    move-result v0
-
-    const-string v1, "try_agian_visibility"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    iget v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mState:I
-
-    const-string v1, "state"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_0
-    const-string v0, ""
-
-    :goto_0
-    const-string v1, "indicator_string"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
-
-    move-result v0
-
-    const-string v1, "error_is_temporary"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetHelpRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->hasCallbacks(Ljava/lang/Runnable;)Z
-
-    move-result v0
-
-    const-string v1, "hint_is_temporary"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    iget p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
-
-    const-string v0, "size"
-
-    invoke-virtual {p1, v0, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-
-    return-void
-.end method
-
-.method public restoreState(Landroid/os/Bundle;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSavedState:Landroid/os/Bundle;
-
-    return-void
-.end method
-
-.method public setBackgroundView(Landroid/view/View;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mBackgroundClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {p1, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    return-void
-.end method
-
-.method public setCallback(Lcom/android/systemui/biometrics/AuthBiometricView$Callback;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    return-void
-.end method
-
-.method public setEffectiveUserId(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mEffectiveUserId:I
-
-    return-void
-.end method
-
-.method public setPanelController(Lcom/android/systemui/biometrics/AuthPanelController;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
-
-    return-void
-.end method
-
-.method public setPromptInfo(Landroid/hardware/biometrics/PromptInfo;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPromptInfo:Landroid/hardware/biometrics/PromptInfo;
-
-    return-void
-.end method
-
-.method public setRequireConfirmation(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
-
-    return-void
-.end method
-
-.method public setUserId(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUserId:I
-
-    return-void
-.end method
-
-.method startTransitionToCredentialUI()V
-    .locals 1
-
-    const/4 v0, 0x3
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateSize(I)V
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCallback:Lcom/android/systemui/biometrics/AuthBiometricView$Callback;
-
-    const/4 v0, 0x6
-
-    invoke-interface {p0, v0}, Lcom/android/systemui/biometrics/AuthBiometricView$Callback;->onAction(I)V
-
-    return-void
-.end method
-
-.method protected supportsManualRetry()Z
+.method public onPointerDown(Ljava/util/HashSet;)Z
     .locals 0
 
     const/4 p0, 0x0
@@ -1830,21 +1154,102 @@
     return p0
 .end method
 
-.method protected abstract supportsSmallDialog()Z
+.method public final removePendingAnimations()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetHelpRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda2;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mResetErrorRunnable:Lcom/android/wm/shell/TaskView$$ExternalSyntheticLambda1;
+
+    invoke-virtual {v0, p0}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    return-void
 .end method
 
-.method updateSize(I)V
+.method public final showTemporaryMessage(Ljava/lang/Runnable;Ljava/lang/String;)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->removePendingAnimations()V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    invoke-virtual {v0, p2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    iget v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTextColorError:I
+
+    invoke-virtual {p2, v0}, Landroid/widget/TextView;->setTextColor(I)V
+
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p2, v0}, Landroid/widget/TextView;->setVisibility(I)V
+
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-virtual {v1}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :cond_1
+    invoke-virtual {p2, v0}, Landroid/widget/TextView;->setSelected(Z)V
+
+    iget-object p2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
+
+    iget v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationHideDialog:I
+
+    int-to-long v0, v0
+
+    invoke-virtual {p2, p1, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
+
+    invoke-static {p1, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V
+
+    return-void
+.end method
+
+.method public supportsSmallDialog()Z
+    .locals 0
+
+    instance-of p0, p0, Lcom/android/systemui/biometrics/AuthBiometricFaceView;
+
+    return p0
+.end method
+
+.method public final updateSize(I)V
     .locals 7
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Current size: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Current size: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
@@ -1860,55 +1265,55 @@
 
     move-result-object v0
 
-    const-string v1, "BiometricPrompt/AuthBiometricView"
+    const-string v1, "AuthBiometricView"
 
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x0
 
-    const/4 v2, 0x1
+    const/4 v2, 0x2
 
-    const/4 v3, 0x2
+    const/4 v3, 0x1
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v3, :cond_0
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mTitleView:Landroid/widget/TextView;
 
-    const/16 v2, 0x8
+    const/16 v3, 0x8
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSubtitleView:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDescriptionView:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
 
-    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/TextView;->setVisibility(I)V
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/Button;->setVisibility(I)V
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v1, v3}, Landroid/widget/Button;->setVisibility(I)V
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    sget v2, Lcom/android/systemui/R$dimen;->biometric_dialog_icon_padding:I
+    const v3, 0x7f0700c0
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
+    invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
-    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
+    iget-object v3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getHeight()I
 
@@ -1926,43 +1331,43 @@
 
     sub-float/2addr v4, v1
 
-    invoke-virtual {v2, v4}, Landroid/view/View;->setY(F)V
+    invoke-virtual {v3, v4}, Landroid/view/View;->setY(F)V
 
-    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
+    iget-object v3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
 
-    invoke-virtual {v2}, Landroid/view/View;->getHeight()I
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
 
-    move-result v2
+    move-result v3
 
     float-to-int v1, v1
 
-    mul-int/2addr v1, v3
+    mul-int/2addr v1, v2
 
-    add-int/2addr v2, v1
+    add-int/2addr v1, v3
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
 
-    invoke-virtual {v1}, Landroid/view/View;->getPaddingTop()I
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingTop()I
 
-    move-result v1
+    move-result v2
 
-    sub-int/2addr v2, v1
+    sub-int/2addr v1, v2
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
 
-    invoke-virtual {v1}, Landroid/view/View;->getPaddingBottom()I
+    invoke-virtual {v2}, Landroid/view/View;->getPaddingBottom()I
 
-    move-result v1
+    move-result v2
 
-    sub-int/2addr v2, v1
+    sub-int/2addr v1, v2
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
+    iget-object v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
 
     iget-object v3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mLayoutParams:Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;
 
     iget v3, v3, Lcom/android/systemui/biometrics/AuthDialog$LayoutParams;->mMediumWidth:I
 
-    invoke-virtual {v1, v3, v2, v0}, Lcom/android/systemui/biometrics/AuthPanelController;->updateForContentDimensions(III)V
+    invoke-virtual {v2, v3, v1, v0}, Lcom/android/systemui/biometrics/AuthPanelController;->updateForContentDimensions(III)V
 
     iput p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
@@ -1971,9 +1376,9 @@
     :cond_0
     iget v4, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
-    if-ne v4, v2, :cond_2
+    if-ne v4, v3, :cond_2
 
-    if-ne p1, v3, :cond_2
+    if-ne p1, v2, :cond_2
 
     iget-boolean v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDialogSizeAnimating:Z
 
@@ -1982,9 +1387,9 @@
     return-void
 
     :cond_1
-    iput-boolean v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDialogSizeAnimating:Z
+    iput-boolean v3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mDialogSizeAnimating:Z
 
-    new-array v1, v3, [F
+    new-array v1, v2, [F
 
     iget-object v4, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconHolderView:Landroid/view/View;
 
@@ -1996,19 +1401,19 @@
 
     iget v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconOriginalY:F
 
-    aput v0, v1, v2
+    aput v0, v1, v3
 
     invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda1;
+    new-instance v1, Landroidx/leanback/widget/SearchOrbView$$ExternalSyntheticLambda1;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda1;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    invoke-direct {v1, v3, p0}, Landroidx/leanback/widget/SearchOrbView$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    new-array v1, v3, [F
+    new-array v1, v2, [F
 
     fill-array-data v1, :array_0
 
@@ -2016,9 +1421,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda3;
+    new-instance v2, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda5;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda3;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    invoke-direct {v2, v3, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda5;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
@@ -2026,13 +1431,15 @@
 
     invoke-direct {v2}, Landroid/animation/AnimatorSet;-><init>()V
 
-    const-wide/16 v3, 0x96
+    iget v3, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationShort:I
+
+    int-to-long v3, v3
 
     invoke-virtual {v2, v3, v4}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    new-instance v3, Lcom/android/systemui/biometrics/AuthBiometricView$1;
+    new-instance v3, Lcom/android/systemui/biometrics/AuthBiometricView$2;
 
-    invoke-direct {v3, p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView$1;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;I)V
+    invoke-direct {v3, p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView$2;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;I)V
 
     invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -2059,7 +1466,7 @@
     goto/16 :goto_0
 
     :cond_2
-    if-ne p1, v3, :cond_3
+    if-ne p1, v2, :cond_3
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
 
@@ -2084,13 +1491,13 @@
 
     move-result-object v1
 
-    sget v5, Lcom/android/systemui/R$dimen;->biometric_dialog_medium_to_large_translation_offset:I
+    const v5, 0x7f0700c1
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
-    new-array v5, v3, [F
+    new-array v5, v2, [F
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getY()F
 
@@ -2100,39 +1507,35 @@
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getY()F
 
-    move-result v0
+    move-result v6
 
-    sub-float/2addr v0, v1
+    sub-float/2addr v6, v1
 
-    aput v0, v5, v2
+    aput v6, v5, v3
 
     invoke-static {v5}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    iget v5, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationLong:I
 
-    invoke-virtual {v1}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getMediumToLargeAnimationDurationMs()I
+    int-to-long v5, v5
 
-    move-result v1
+    invoke-virtual {v1, v5, v6}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    int-to-long v5, v1
+    new-instance v5, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda6;
 
-    invoke-virtual {v0, v5, v6}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-direct {v5, v3, p0}, Lcom/android/wm/shell/bubbles/BubbleStackView$$ExternalSyntheticLambda6;-><init>(ILjava/lang/Object;)V
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda2;
+    invoke-virtual {v1, v5}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    new-instance v5, Lcom/android/systemui/biometrics/AuthBiometricView$3;
 
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-direct {v5, p0, p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView$3;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;Lcom/android/systemui/biometrics/AuthBiometricView;I)V
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$2;
+    invoke-virtual {v1, v5}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    invoke-direct {v1, p0, p0, p1}, Lcom/android/systemui/biometrics/AuthBiometricView$2;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;Lcom/android/systemui/biometrics/AuthBiometricView;I)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    new-array p1, v3, [F
+    new-array p1, v2, [F
 
     fill-array-data p1, :array_1
 
@@ -2140,88 +1543,66 @@
 
     move-result-object p1
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    iget v5, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationLong:I
 
-    invoke-virtual {v1}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getMediumToLargeAnimationDurationMs()I
+    div-int/2addr v5, v2
 
-    move-result v1
-
-    div-int/2addr v1, v3
-
-    int-to-long v5, v1
+    int-to-long v5, v5
 
     invoke-virtual {p1, v5, v6}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda0;
+    new-instance v5, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
+    invoke-direct {v5, v0, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda0;-><init>(ILjava/lang/Object;)V
 
-    invoke-virtual {p1, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {p1, v5}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
 
-    invoke-virtual {v1, v2}, Lcom/android/systemui/biometrics/AuthPanelController;->setUseFullScreen(Z)V
+    iput-boolean v3, v0, Lcom/android/systemui/biometrics/AuthPanelController;->mUseFullScreen:Z
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
+    iget v3, v0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerWidth:I
 
-    invoke-virtual {v1}, Lcom/android/systemui/biometrics/AuthPanelController;->getContainerWidth()I
+    iget v5, v0, Lcom/android/systemui/biometrics/AuthPanelController;->mContainerHeight:I
 
-    move-result v2
+    iget v6, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationLong:I
 
-    iget-object v5, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mPanelController:Lcom/android/systemui/biometrics/AuthPanelController;
+    invoke-virtual {v0, v3, v5, v6}, Lcom/android/systemui/biometrics/AuthPanelController;->updateForContentDimensions(III)V
 
-    invoke-virtual {v5}, Lcom/android/systemui/biometrics/AuthPanelController;->getContainerHeight()I
+    new-instance v0, Landroid/animation/AnimatorSet;
 
-    move-result v5
+    invoke-direct {v0}, Landroid/animation/AnimatorSet;-><init>()V
 
-    iget-object v6, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getMediumToLargeAnimationDurationMs()I
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    move-result v6
+    invoke-virtual {v3, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1, v2, v5, v6}, Lcom/android/systemui/biometrics/AuthPanelController;->updateForContentDimensions(III)V
+    invoke-virtual {v3, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    new-instance v1, Landroid/animation/AnimatorSet;
+    invoke-virtual {v0, v3}, Landroid/animation/AnimatorSet;->playTogether(Ljava/util/Collection;)V
 
-    invoke-direct {v1}, Landroid/animation/AnimatorSet;-><init>()V
+    iget p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAnimationDurationLong:I
 
-    new-instance v2, Ljava/util/ArrayList;
-
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-interface {v2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    invoke-virtual {v1, v2}, Landroid/animation/AnimatorSet;->playTogether(Ljava/util/Collection;)V
-
-    iget-object p1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mInjector:Lcom/android/systemui/biometrics/AuthBiometricView$Injector;
-
-    invoke-virtual {p1}, Lcom/android/systemui/biometrics/AuthBiometricView$Injector;->getMediumToLargeAnimationDurationMs()I
-
-    move-result p1
-
-    mul-int/2addr p1, v3
+    mul-int/2addr p1, v2
 
     div-int/2addr p1, v4
 
-    int-to-long v2, p1
+    int-to-long v1, p1
 
-    invoke-virtual {v1, v2, v3}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
+    invoke-virtual {v0, v1, v2}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
 
-    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
+    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
 
     goto :goto_0
 
     :cond_4
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Unknown transition from: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "Unknown transition from: "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
@@ -2276,128 +1657,153 @@
 
     move-result-object v0
 
-    const-string v1, "BiometricPrompt/AuthBiometricView"
+    const-string v1, "AuthBiometricView"
 
     invoke-static {v1, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIconController:Lcom/android/systemui/biometrics/AuthIconController;
+
+    iget v2, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mState:I
+
+    iget-boolean v3, v0, Lcom/android/systemui/biometrics/AuthIconController;->deactivated:Z
+
+    if-eqz v3, :cond_0
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    const-string v2, "Ignoring updateState when deactivated: "
+
+    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "AuthIconController"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {v0, v2, p1}, Lcom/android/systemui/biometrics/AuthIconController;->updateIcon(II)V
+
+    :goto_0
     const/4 v0, 0x1
 
     const/4 v2, 0x0
 
-    if-eq p1, v0, :cond_4
+    if-eq p1, v0, :cond_6
 
     const/4 v3, 0x2
 
-    if-eq p1, v3, :cond_4
+    if-eq p1, v3, :cond_6
 
     const/4 v4, 0x4
 
-    if-eq p1, v4, :cond_3
+    if-eq p1, v4, :cond_5
 
     const/4 v3, 0x5
 
     const/16 v5, 0x8
 
-    if-eq p1, v3, :cond_2
+    if-eq p1, v3, :cond_3
 
     const/4 v2, 0x6
 
-    if-eq p1, v2, :cond_0
+    if-eq p1, v2, :cond_1
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Unhandled state: "
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0, p1, v1}, Landroidx/recyclerview/widget/GridLayoutManager$$ExternalSyntheticOutline0;->m(Ljava/lang/String;ILjava/lang/String;)V
 
-    const-string v2, "Unhandled state: "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :cond_0
-    iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
-
-    if-eq v1, v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCancelButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
+    goto/16 :goto_1
 
     :cond_1
-    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+    iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
-    move-result-object v0
+    if-eq v1, v0, :cond_2
 
-    sget v1, Lcom/android/systemui/R$string;->biometric_dialog_authenticated:I
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->announceForAccessibility(Ljava/lang/CharSequence;)V
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
-
-    new-instance v1, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda10;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/biometrics/AuthBiometricView$$ExternalSyntheticLambda10;-><init>(Lcom/android/systemui/biometrics/AuthBiometricView;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->getDelayAfterAuthenticatedDurationMs()I
-
-    move-result v2
-
-    int-to-long v2, v2
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto :goto_0
-
-    :cond_2
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->removePendingAnimations()V
+    invoke-virtual {v1, v5}, Landroid/widget/Button;->setVisibility(I)V
 
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v5}, Landroid/widget/Button;->setVisibility(I)V
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCancelButton:Landroid/widget/Button;
-
-    invoke-virtual {v1, v2}, Landroid/widget/Button;->setVisibility(I)V
-
     iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
 
     invoke-virtual {v1, v5}, Landroid/widget/Button;->setVisibility(I)V
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCancelButton:Landroid/widget/Button;
 
-    invoke-virtual {v1, v0}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {v1, v5}, Landroid/widget/Button;->setVisibility(I)V
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v4}, Landroid/widget/TextView;->setVisibility(I)V
+
+    :cond_2
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f130133
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->announceForAccessibility(Ljava/lang/CharSequence;)V
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mHandler:Landroid/os/Handler;
+
+    new-instance v2, Lcom/android/systemui/qs/QSFragment$$ExternalSyntheticLambda3;
+
+    invoke-direct {v2, v0, p0}, Lcom/android/systemui/qs/QSFragment$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->getDelayAfterAuthenticatedDurationMs()I
+
+    move-result v0
+
+    int-to-long v3, v0
+
+    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_1
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->removePendingAnimations()V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mNegativeButton:Landroid/widget/Button;
+
+    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mCancelButton:Landroid/widget/Button;
+
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mUseCredentialButton:Landroid/widget/Button;
+
+    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
+    iget-boolean v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
+
+    invoke-virtual {v0, v1}, Landroid/widget/Button;->setEnabled(Z)V
+
+    iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
+
+    iget-boolean v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
+
+    if-eqz v1, :cond_4
+
+    move v5, v2
+
+    :cond_4
+    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
 
@@ -2407,7 +1813,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mIndicatorView:Landroid/widget/TextView;
 
-    sget v1, Lcom/android/systemui/R$string;->biometric_dialog_tap_confirm:I
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->getConfirmationPrompt()I
+
+    move-result v1
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2415,23 +1823,23 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_3
+    :cond_5
     iget v1, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mSize:I
 
-    if-ne v1, v0, :cond_5
+    if-ne v1, v0, :cond_7
 
     invoke-virtual {p0, v3}, Lcom/android/systemui/biometrics/AuthBiometricView;->updateSize(I)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_4
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->removePendingAnimations()V
+    :cond_6
+    invoke-virtual {p0}, Lcom/android/systemui/biometrics/AuthBiometricView;->removePendingAnimations()V
 
     iget-boolean v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mRequireConfirmation:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mConfirmButton:Landroid/widget/Button;
 
@@ -2441,8 +1849,8 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
 
-    :cond_5
-    :goto_0
+    :cond_7
+    :goto_1
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthBiometricView;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     invoke-static {v0, p0}, Lcom/android/systemui/biometrics/Utils;->notifyAccessibilityContentChanged(Landroid/view/accessibility/AccessibilityManager;Landroid/view/ViewGroup;)V

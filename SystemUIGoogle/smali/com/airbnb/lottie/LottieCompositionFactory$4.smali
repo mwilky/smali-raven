@@ -1,4 +1,4 @@
-.class Lcom/airbnb/lottie/LottieCompositionFactory$4;
+.class public final Lcom/airbnb/lottie/LottieCompositionFactory$4;
 .super Ljava/lang/Object;
 .source "LottieCompositionFactory.java"
 
@@ -7,15 +7,6 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/airbnb/lottie/LottieCompositionFactory;->fromJsonInputStream(Ljava/io/InputStream;Ljava/lang/String;)Lcom/airbnb/lottie/LottieTask;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
         "Ljava/lang/Object;",
@@ -28,13 +19,13 @@
 
 
 # instance fields
-.field final synthetic val$cacheKey:Ljava/lang/String;
+.field public final synthetic val$cacheKey:Ljava/lang/String;
 
-.field final synthetic val$stream:Ljava/io/InputStream;
+.field public final synthetic val$stream:Ljava/io/InputStream;
 
 
 # direct methods
-.method constructor <init>(Ljava/io/InputStream;Ljava/lang/String;)V
+.method public constructor <init>(Ljava/io/InputStream;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/airbnb/lottie/LottieCompositionFactory$4;->val$stream:Ljava/io/InputStream;
@@ -48,14 +39,11 @@
 
 
 # virtual methods
-.method public call()Lcom/airbnb/lottie/LottieResult;
+.method public final call()Ljava/lang/Object;
     .locals 1
-    .annotation system Ldalvik/annotation/Signature;
+    .annotation system Ldalvik/annotation/Throws;
         value = {
-            "()",
-            "Lcom/airbnb/lottie/LottieResult<",
-            "Lcom/airbnb/lottie/LottieComposition;",
-            ">;"
+            Ljava/lang/Exception;
         }
     .end annotation
 
@@ -64,21 +52,6 @@
     iget-object p0, p0, Lcom/airbnb/lottie/LottieCompositionFactory$4;->val$cacheKey:Ljava/lang/String;
 
     invoke-static {v0, p0}, Lcom/airbnb/lottie/LottieCompositionFactory;->fromJsonInputStreamSync(Ljava/io/InputStream;Ljava/lang/String;)Lcom/airbnb/lottie/LottieResult;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public bridge synthetic call()Ljava/lang/Object;
-    .locals 0
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/Exception;
-        }
-    .end annotation
-
-    invoke-virtual {p0}, Lcom/airbnb/lottie/LottieCompositionFactory$4;->call()Lcom/airbnb/lottie/LottieResult;
 
     move-result-object p0
 

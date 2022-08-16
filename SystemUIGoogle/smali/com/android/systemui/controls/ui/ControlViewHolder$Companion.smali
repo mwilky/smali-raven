@@ -15,160 +15,96 @@
 
 
 # direct methods
-.method private constructor <init>()V
-    .locals 0
+.method public static findBehaviorClass(ILandroid/service/controls/templates/ControlTemplate;I)Ljava/util/function/Supplier;
+    .locals 1
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 v0, 0x1
 
-    return-void
-.end method
+    if-eq p0, v0, :cond_0
 
-.method public synthetic constructor <init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-    .locals 0
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$1;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$1;
 
-    invoke-direct {p0}, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion;-><init>()V
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public final findBehaviorClass(ILandroid/service/controls/templates/ControlTemplate;I)Lkotlin/reflect/KClass;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(I",
-            "Landroid/service/controls/templates/ControlTemplate;",
-            "I)",
-            "Lkotlin/reflect/KClass<",
-            "+",
-            "Lcom/android/systemui/controls/ui/Behavior;",
-            ">;"
-        }
-    .end annotation
-
-    const-class p0, Lcom/android/systemui/controls/ui/ToggleRangeBehavior;
-
-    const-class v0, Lcom/android/systemui/controls/ui/TouchBehavior;
-
-    const-string v1, "template"
-
-    invoke-static {p2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const/4 v1, 0x1
-
-    if-eq p1, v1, :cond_0
-
-    const-class p0, Lcom/android/systemui/controls/ui/StatusBehavior;
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_0
-    sget-object p1, Landroid/service/controls/templates/ControlTemplate;->NO_TEMPLATE:Landroid/service/controls/templates/ControlTemplate;
+    sget-object p0, Landroid/service/controls/templates/ControlTemplate;->NO_TEMPLATE:Landroid/service/controls/templates/ControlTemplate;
 
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
 
-    move-result p1
+    move-result p0
 
-    if-eqz p1, :cond_1
+    if-eqz p0, :cond_1
 
-    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$2;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$2;
 
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_1
-    instance-of p1, p2, Landroid/service/controls/templates/ThumbnailTemplate;
+    instance-of p0, p1, Landroid/service/controls/templates/ThumbnailTemplate;
 
-    if-eqz p1, :cond_2
+    if-eqz p0, :cond_2
 
-    const-class p0, Lcom/android/systemui/controls/ui/ThumbnailBehavior;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$3;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$3;
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_2
-    const/16 p1, 0x32
+    const/16 p0, 0x32
 
-    if-ne p3, p1, :cond_3
+    if-ne p2, p0, :cond_3
 
-    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$4;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$4;
 
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_3
-    instance-of p1, p2, Landroid/service/controls/templates/ToggleTemplate;
+    instance-of p0, p1, Landroid/service/controls/templates/ToggleTemplate;
 
-    if-eqz p1, :cond_4
+    if-eqz p0, :cond_4
 
-    const-class p0, Lcom/android/systemui/controls/ui/ToggleBehavior;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$5;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$5;
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_4
-    instance-of p1, p2, Landroid/service/controls/templates/StatelessTemplate;
+    instance-of p0, p1, Landroid/service/controls/templates/StatelessTemplate;
 
-    if-eqz p1, :cond_5
+    if-eqz p0, :cond_5
 
-    invoke-static {v0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$6;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$6;
 
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_5
-    instance-of p1, p2, Landroid/service/controls/templates/ToggleRangeTemplate;
+    instance-of p0, p1, Landroid/service/controls/templates/ToggleRangeTemplate;
 
-    if-eqz p1, :cond_6
+    if-eqz p0, :cond_6
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$7;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$7;
 
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_6
-    instance-of p1, p2, Landroid/service/controls/templates/RangeTemplate;
+    instance-of p0, p1, Landroid/service/controls/templates/RangeTemplate;
 
-    if-eqz p1, :cond_7
+    if-eqz p0, :cond_7
 
-    invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$8;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$8;
 
-    move-result-object p0
-
-    goto :goto_1
+    goto :goto_0
 
     :cond_7
-    instance-of p0, p2, Landroid/service/controls/templates/TemperatureControlTemplate;
+    instance-of p0, p1, Landroid/service/controls/templates/TemperatureControlTemplate;
 
     if-eqz p0, :cond_8
 
-    const-class p0, Lcom/android/systemui/controls/ui/TemperatureControlBehavior;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$9;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$9;
 
     goto :goto_0
 
     :cond_8
-    const-class p0, Lcom/android/systemui/controls/ui/DefaultBehavior;
+    sget-object p0, Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$10;->INSTANCE:Lcom/android/systemui/controls/ui/ControlViewHolder$Companion$findBehaviorClass$10;
 
     :goto_0
-    invoke-static {p0}, Lkotlin/jvm/internal/Reflection;->getOrCreateKotlinClass(Ljava/lang/Class;)Lkotlin/reflect/KClass;
-
-    move-result-object p0
-
-    :goto_1
     return-object p0
 .end method

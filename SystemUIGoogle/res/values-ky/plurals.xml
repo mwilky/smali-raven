@@ -16,6 +16,10 @@
         <item quantity="other">%s башкаруу элементи кошулду.</item>
         <item quantity="one">%s башкаруу элементи кошулду.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s колдонмо иштеп жатат</item>
+        <item quantity="one">%s колдонмо иштеп жатат</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">SIM-картанын PIN кодун киргизиңиз. Сизде %d аракет калды.</item>
         <item quantity="one">SIM-картанын PIN кодун киргизиңиз. Сизде %d аракет калды, андан кийин түзмөктү бөгөттөн чыгаруу үчүн байланыш операторуна кайрылышыңыз керек болот.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">SIM-картанын PUK-коду туура эмес, SIM-картанын биротоло жарактан чыгаарына %d аракет калды.</item>
         <item quantity="one">SIM-картанын PUK-коду туура эмес, SIM-картанын биротоло жарактан чыгаарына %d аракет калды.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d секунддан кийин кайталаңыз.</item>
-        <item quantity="one">1 секунддан кийин кайталаңыз.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d жаңы билдирме</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">%d колдонуучуга чейин кошууга болот.</item>
         <item quantity="one">Бир колдонуучуну гана кошууга болот.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d түзмөк туташып турат</item>
-        <item quantity="one">%1$d түзмөк туташып турат</item>
     </plurals>
 </resources>

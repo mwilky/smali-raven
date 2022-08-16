@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ActionBarOverlayLayout$1;
+.class public final Landroidx/appcompat/widget/ActionBarOverlayLayout$1;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ActionBarOverlayLayout.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActionBarOverlayLayout;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActionBarOverlayLayout;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout$1;->this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout$1;->this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;
@@ -47,7 +47,7 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/appcompat/widget/ActionBarOverlayLayout$1;->this$0:Landroidx/appcompat/widget/ActionBarOverlayLayout;

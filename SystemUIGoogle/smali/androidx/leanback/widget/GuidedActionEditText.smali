@@ -18,26 +18,14 @@
 
 
 # instance fields
-.field private mAutofillListener:Landroidx/leanback/widget/GuidedActionAutofillSupport$OnAutofillListener;
+.field public final mNoPaddingDrawable:Landroidx/leanback/widget/GuidedActionEditText$NoPaddingDrawable;
 
-.field private mKeyListener:Landroidx/leanback/widget/ImeKeyMonitor$ImeKeyListener;
-
-.field private final mNoPaddingDrawable:Landroid/graphics/drawable/Drawable;
-
-.field private final mSavedBackground:Landroid/graphics/drawable/Drawable;
+.field public final mSavedBackground:Landroid/graphics/drawable/Drawable;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "ctx"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -48,16 +36,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "ctx",
-            "attrs"
-        }
-    .end annotation
 
     const v0, 0x101006e
 
@@ -68,18 +46,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "ctx",
-            "attrs",
-            "defStyleAttr"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/EditText;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -93,7 +59,7 @@
 
     invoke-direct {p1}, Landroidx/leanback/widget/GuidedActionEditText$NoPaddingDrawable;-><init>()V
 
-    iput-object p1, p0, Landroidx/leanback/widget/GuidedActionEditText;->mNoPaddingDrawable:Landroid/graphics/drawable/Drawable;
+    iput-object p1, p0, Landroidx/leanback/widget/GuidedActionEditText;->mNoPaddingDrawable:Landroidx/leanback/widget/GuidedActionEditText$NoPaddingDrawable;
 
     invoke-virtual {p0, p1}, Landroid/widget/EditText;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
@@ -102,30 +68,15 @@
 
 
 # virtual methods
-.method public autofill(Landroid/view/autofill/AutofillValue;)V
+.method public final autofill(Landroid/view/autofill/AutofillValue;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "values"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/EditText;->autofill(Landroid/view/autofill/AutofillValue;)V
 
-    iget-object p1, p0, Landroidx/leanback/widget/GuidedActionEditText;->mAutofillListener:Landroidx/leanback/widget/GuidedActionAutofillSupport$OnAutofillListener;
-
-    if-eqz p1, :cond_0
-
-    invoke-interface {p1, p0}, Landroidx/leanback/widget/GuidedActionAutofillSupport$OnAutofillListener;->onAutofill(Landroid/view/View;)V
-
-    :cond_0
     return-void
 .end method
 
-.method public getAutofillType()I
+.method public final getAutofillType()I
     .locals 0
 
     const/4 p0, 0x1
@@ -133,20 +84,8 @@
     return p0
 .end method
 
-.method protected onFocusChanged(ZILandroid/graphics/Rect;)V
+.method public final onFocusChanged(ZILandroid/graphics/Rect;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "focused",
-            "direction",
-            "previouslyFocusedRect"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3}, Landroid/widget/EditText;->onFocusChanged(ZILandroid/graphics/Rect;)V
 
@@ -159,7 +98,7 @@
     goto :goto_0
 
     :cond_0
-    iget-object p2, p0, Landroidx/leanback/widget/GuidedActionEditText;->mNoPaddingDrawable:Landroid/graphics/drawable/Drawable;
+    iget-object p2, p0, Landroidx/leanback/widget/GuidedActionEditText;->mNoPaddingDrawable:Landroidx/leanback/widget/GuidedActionEditText$NoPaddingDrawable;
 
     invoke-virtual {p0, p2}, Landroid/widget/EditText;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
@@ -174,16 +113,8 @@
     return-void
 .end method
 
-.method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
+.method public final onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "info"
-        }
-    .end annotation
 
     invoke-super {p0, p1}, Landroid/widget/EditText;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
 
@@ -210,53 +141,18 @@
     return-void
 .end method
 
-.method public onKeyPreIme(ILandroid/view/KeyEvent;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "keyCode",
-            "event"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/leanback/widget/GuidedActionEditText;->mKeyListener:Landroidx/leanback/widget/ImeKeyMonitor$ImeKeyListener;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p0, p1, p2}, Landroidx/leanback/widget/ImeKeyMonitor$ImeKeyListener;->onKeyPreIme(Landroid/widget/EditText;ILandroid/view/KeyEvent;)Z
-
-    move-result v0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    if-nez v0, :cond_1
+.method public final onKeyPreIme(ILandroid/view/KeyEvent;)Z
+    .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/widget/EditText;->onKeyPreIme(ILandroid/view/KeyEvent;)Z
 
-    move-result v0
+    move-result p0
 
-    :cond_1
-    return v0
+    return p0
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "event"
-        }
-    .end annotation
 
     invoke-virtual {p0}, Landroid/widget/EditText;->isInTouchMode()Z
 
@@ -288,20 +184,8 @@
     return p0
 .end method
 
-.method public setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
+.method public final setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "actionModeCallback"
-        }
-    .end annotation
-
-    invoke-static {p0, p1}, Landroidx/core/widget/TextViewCompat;->wrapCustomSelectionActionModeCallback(Landroid/widget/TextView;Landroid/view/ActionMode$Callback;)Landroid/view/ActionMode$Callback;
-
-    move-result-object p1
 
     invoke-super {p0, p1}, Landroid/widget/EditText;->setCustomSelectionActionModeCallback(Landroid/view/ActionMode$Callback;)V
 

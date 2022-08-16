@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/DessertCaseView$4;
+.class public final Lcom/android/systemui/DessertCaseView$4;
 .super Ljava/lang/Object;
 .source "DessertCaseView.java"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/DessertCaseView;
+.field public final synthetic this$0:Lcom/android/systemui/DessertCaseView;
 
-.field final synthetic val$squatter:Landroid/view/View;
+.field public final synthetic val$squatter:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/DessertCaseView;Landroid/view/View;)V
+.method public constructor <init>(Lcom/android/systemui/DessertCaseView;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/DessertCaseView$4;->this$0:Lcom/android/systemui/DessertCaseView;
@@ -38,13 +38,13 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
     iget-object p1, p0, Lcom/android/systemui/DessertCaseView$4;->this$0:Lcom/android/systemui/DessertCaseView;
@@ -56,13 +56,13 @@
     return-void
 .end method
 
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
+.method public final onAnimationRepeat(Landroid/animation/Animator;)V
     .locals 0
 
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
 
     return-void

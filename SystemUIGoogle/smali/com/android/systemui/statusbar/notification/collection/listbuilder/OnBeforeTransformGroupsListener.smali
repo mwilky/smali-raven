@@ -4,13 +4,5 @@
 
 
 # virtual methods
-.method public abstract onBeforeTransformGroups(Ljava/util/List;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/collection/ListEntry;",
-            ">;)V"
-        }
-    .end annotation
+.method public abstract onBeforeTransformGroups()V
 .end method

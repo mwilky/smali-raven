@@ -1,18 +1,18 @@
-.class public Lcom/android/systemui/statusbar/notification/NotificationListController;
+.class public final Lcom/android/systemui/statusbar/notification/NotificationListController;
 .super Ljava/lang/Object;
 .source "NotificationListController.java"
 
 
 # instance fields
-.field private final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
+.field public final mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
 
-.field private final mDeviceProvisionedListener:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController$DeviceProvisionedListener;
+.field public final mDeviceProvisionedListener:Lcom/android/systemui/statusbar/notification/NotificationListController$2;
 
-.field private final mEntryListener:Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
+.field public final mEntryListener:Lcom/android/systemui/statusbar/notification/NotificationListController$1;
 
-.field private final mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
+.field public final mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
-.field private final mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
+.field public final mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
 
 # direct methods
@@ -25,67 +25,25 @@
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/NotificationListController$1;-><init>(Lcom/android/systemui/statusbar/notification/NotificationListController;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mEntryListener:Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mEntryListener:Lcom/android/systemui/statusbar/notification/NotificationListController$1;
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/NotificationListController$2;
 
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/notification/NotificationListController$2;-><init>(Lcom/android/systemui/statusbar/notification/NotificationListController;)V
 
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mDeviceProvisionedListener:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController$DeviceProvisionedListener;
+    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mDeviceProvisionedListener:Lcom/android/systemui/statusbar/notification/NotificationListController$2;
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
 
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast p2, Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
 
     invoke-static {p3}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast p3, Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
     iput-object p3, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    return-void
-.end method
-
-.method static synthetic access$000(Lcom/android/systemui/statusbar/notification/NotificationListController;)Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mListContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationListContainer;
-
-    return-object p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/statusbar/notification/NotificationListController;)Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    return-object p0
-.end method
-
-
-# virtual methods
-.method public bind()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mEntryManager:Lcom/android/systemui/statusbar/notification/NotificationEntryManager;
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mEntryListener:Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->addNotificationEntryListener(Lcom/android/systemui/statusbar/notification/NotificationEntryListener;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mDeviceProvisionedController:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationListController;->mDeviceProvisionedListener:Lcom/android/systemui/statusbar/policy/DeviceProvisionedController$DeviceProvisionedListener;
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
     return-void
 .end method

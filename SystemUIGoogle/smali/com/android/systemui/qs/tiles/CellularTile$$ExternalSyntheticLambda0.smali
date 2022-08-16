@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/qs/tiles/CellularTile$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/content/DialogInterface$OnClickListener;
@@ -27,7 +28,17 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/CellularTile$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/tiles/CellularTile;
 
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/qs/tiles/CellularTile;->$r8$lambda$nDAciXoOl8-xp69YXZpbet2kmF0(Lcom/android/systemui/qs/tiles/CellularTile;Landroid/content/DialogInterface;I)V
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/CellularTile;->mDataController:Lcom/android/settingslib/net/DataUsageController;
+
+    const/4 p2, 0x0
+
+    invoke-virtual {p1, p2}, Lcom/android/settingslib/net/DataUsageController;->setMobileDataEnabled(Z)V
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mContext:Landroid/content/Context;
+
+    const-string p1, "QsHasTurnedOffMobileData"
+
+    invoke-static {p0, p1}, Lcom/android/systemui/Prefs;->putBoolean(Landroid/content/Context;Ljava/lang/String;)V
 
     return-void
 .end method

@@ -60,39 +60,3 @@
 
 .method public abstract getTimestamp()J
 .end method
-
-.method public abstract setBool1(Z)V
-.end method
-
-.method public abstract setBool2(Z)V
-.end method
-
-.method public abstract setBool3(Z)V
-.end method
-
-.method public abstract setBool4(Z)V
-.end method
-
-.method public abstract setDouble1(D)V
-.end method
-
-.method public abstract setInt1(I)V
-.end method
-
-.method public abstract setInt2(I)V
-.end method
-
-.method public abstract setLong1(J)V
-.end method
-
-.method public abstract setLong2(J)V
-.end method
-
-.method public abstract setStr1(Ljava/lang/String;)V
-.end method
-
-.method public abstract setStr2(Ljava/lang/String;)V
-.end method
-
-.method public abstract setStr3(Ljava/lang/String;)V
-.end method

@@ -1,4 +1,4 @@
-.class final Landroidx/leanback/widget/GuidedActionEditText$NoPaddingDrawable;
+.class public final Landroidx/leanback/widget/GuidedActionEditText$NoPaddingDrawable;
 .super Landroid/graphics/drawable/Drawable;
 .source "GuidedActionEditText.java"
 
@@ -9,13 +9,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "NoPaddingDrawable"
 .end annotation
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroid/graphics/drawable/Drawable;-><init>()V
@@ -25,21 +25,13 @@
 
 
 # virtual methods
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "canvas"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public getOpacity()I
+.method public final getOpacity()I
     .locals 0
 
     const/4 p0, -0x2
@@ -47,16 +39,8 @@
     return p0
 .end method
 
-.method public getPadding(Landroid/graphics/Rect;)Z
+.method public final getPadding(Landroid/graphics/Rect;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "padding"
-        }
-    .end annotation
 
     const/4 p0, 0x0
 
@@ -67,30 +51,14 @@
     return p0
 .end method
 
-.method public setAlpha(I)V
+.method public final setAlpha(I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "alpha"
-        }
-    .end annotation
 
     return-void
 .end method
 
-.method public setColorFilter(Landroid/graphics/ColorFilter;)V
+.method public final setColorFilter(Landroid/graphics/ColorFilter;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "colorFilter"
-        }
-    .end annotation
 
     return-void
 .end method

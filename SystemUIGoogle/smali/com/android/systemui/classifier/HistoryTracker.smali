@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/classifier/HistoryTracker;
+.class public final Lcom/android/systemui/classifier/HistoryTracker;
 .super Ljava/lang/Object;
 .source "HistoryTracker.java"
 
@@ -13,21 +13,13 @@
 
 
 # static fields
-.field private static final HISTORY_DECAY:D
+.field public static final HISTORY_DECAY:D
 
 
 # instance fields
-.field private final mBeliefListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mBeliefListeners:Ljava/util/ArrayList;
 
-.field mResults:Ljava/util/concurrent/DelayQueue;
+.field public mResults:Ljava/util/concurrent/DelayQueue;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/concurrent/DelayQueue<",
@@ -37,49 +29,11 @@
     .end annotation
 .end field
 
-.field private final mSystemClock:Lcom/android/systemui/util/time/SystemClock;
+.field public final mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$NsXRZjeRU1zndXn4-WHgJ341TE8(DLcom/android/systemui/classifier/HistoryTracker$CombinedResult;)Ljava/lang/Double;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/classifier/HistoryTracker;->lambda$falseConfidence$2(DLcom/android/systemui/classifier/HistoryTracker$CombinedResult;)Ljava/lang/Double;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static synthetic $r8$lambda$OUsyX-Yv9TYNpjVP09yI7fxzQdk(JLcom/android/systemui/classifier/HistoryTracker$CombinedResult;)Ljava/lang/Double;
-    .locals 0
-
-    invoke-static {p0, p1, p2}, Lcom/android/systemui/classifier/HistoryTracker;->lambda$falseBelief$0(JLcom/android/systemui/classifier/HistoryTracker$CombinedResult;)Ljava/lang/Double;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static synthetic $r8$lambda$Y_8E7bDXltKYg6GAjLTe9FzG5o4(Ljava/lang/Double;Ljava/lang/Double;)Ljava/lang/Double;
-    .locals 0
-
-    invoke-static {p0, p1}, Lcom/android/systemui/classifier/HistoryTracker;->lambda$falseBelief$1(Ljava/lang/Double;Ljava/lang/Double;)Ljava/lang/Double;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static synthetic $r8$lambda$l3cB1RVFd0kFdpTMwikC3APtt2I(Lcom/android/systemui/classifier/HistoryTracker;Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/classifier/HistoryTracker;->lambda$addResults$3(Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;)V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 4
 
     const-wide v0, 0x3fb999999999999aL    # 0.1
@@ -107,7 +61,7 @@
     return-void
 .end method
 
-.method constructor <init>(Lcom/android/systemui/util/time/SystemClock;)V
+.method public constructor <init>(Lcom/android/systemui/util/time/SystemClock;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -122,140 +76,16 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Lcom/android/systemui/classifier/HistoryTracker;->mBeliefListeners:Ljava/util/List;
+    iput-object v0, p0, Lcom/android/systemui/classifier/HistoryTracker;->mBeliefListeners:Ljava/util/ArrayList;
 
     iput-object p1, p0, Lcom/android/systemui/classifier/HistoryTracker;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
 
     return-void
 .end method
 
-.method static synthetic access$000()D
-    .locals 2
-
-    sget-wide v0, Lcom/android/systemui/classifier/HistoryTracker;->HISTORY_DECAY:D
-
-    return-wide v0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/classifier/HistoryTracker;)Lcom/android/systemui/util/time/SystemClock;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker;->mSystemClock:Lcom/android/systemui/util/time/SystemClock;
-
-    return-object p0
-.end method
-
-.method private synthetic lambda$addResults$3(Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;)V
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/HistoryTracker;->falseBelief()D
-
-    move-result-wide v0
-
-    invoke-interface {p1, v0, v1}, Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;->onBeliefChanged(D)V
-
-    return-void
-.end method
-
-.method private static synthetic lambda$falseBelief$0(JLcom/android/systemui/classifier/HistoryTracker$CombinedResult;)Ljava/lang/Double;
-    .locals 0
-
-    invoke-virtual {p2, p0, p1}, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->getDecayedScore(J)D
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static synthetic lambda$falseBelief$1(Ljava/lang/Double;Ljava/lang/Double;)Ljava/lang/Double;
-    .locals 8
-
-    invoke-virtual {p0}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v0
-
-    invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v2
-
-    mul-double/2addr v0, v2
-
-    invoke-virtual {p0}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v2
-
-    invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v4
-
-    mul-double/2addr v2, v4
-
-    invoke-virtual {p0}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide v4
-
-    const-wide/high16 v6, 0x3ff0000000000000L    # 1.0
-
-    sub-double v4, v6, v4
-
-    invoke-virtual {p1}, Ljava/lang/Double;->doubleValue()D
-
-    move-result-wide p0
-
-    sub-double/2addr v6, p0
-
-    mul-double/2addr v4, v6
-
-    add-double/2addr v2, v4
-
-    div-double/2addr v0, v2
-
-    invoke-static {v0, v1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method private static synthetic lambda$falseConfidence$2(DLcom/android/systemui/classifier/HistoryTracker$CombinedResult;)Ljava/lang/Double;
-    .locals 2
-
-    invoke-virtual {p2}, Lcom/android/systemui/classifier/HistoryTracker$CombinedResult;->getScore()D
-
-    move-result-wide v0
-
-    sub-double/2addr v0, p0
-
-    const-wide/high16 p0, 0x4000000000000000L    # 2.0
-
-    invoke-static {v0, v1, p0, p1}, Ljava/lang/Math;->pow(DD)D
-
-    move-result-wide p0
-
-    invoke-static {p0, p1}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method addBeliefListener(Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker;->mBeliefListeners:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method addResults(Ljava/util/Collection;J)V
+.method public final addResults(Ljava/util/Collection;J)V
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -287,9 +117,7 @@
 
     check-cast v5, Lcom/android/systemui/classifier/FalsingClassifier$Result;
 
-    invoke-virtual {v5}, Lcom/android/systemui/classifier/FalsingClassifier$Result;->isFalse()Z
-
-    move-result v6
+    iget-boolean v6, v5, Lcom/android/systemui/classifier/FalsingClassifier$Result;->mFalsed:Z
 
     const-wide/high16 v7, 0x3fe0000000000000L    # 0.5
 
@@ -303,9 +131,7 @@
     const-wide/high16 v9, -0x4020000000000000L    # -0.5
 
     :goto_1
-    invoke-virtual {v5}, Lcom/android/systemui/classifier/FalsingClassifier$Result;->getConfidence()D
-
-    move-result-wide v5
+    iget-wide v5, v5, Lcom/android/systemui/classifier/FalsingClassifier$Result;->mConfidence:D
 
     mul-double/2addr v9, v5
 
@@ -371,18 +197,20 @@
 
     invoke-virtual {p1, v0}, Ljava/util/concurrent/DelayQueue;->add(Ljava/util/concurrent/Delayed;)Z
 
-    iget-object p1, p0, Lcom/android/systemui/classifier/HistoryTracker;->mBeliefListeners:Ljava/util/List;
+    iget-object p1, p0, Lcom/android/systemui/classifier/HistoryTracker;->mBeliefListeners:Ljava/util/ArrayList;
 
-    new-instance p2, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda2;
+    new-instance p2, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;
 
-    invoke-direct {p2, p0}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda2;-><init>(Lcom/android/systemui/classifier/HistoryTracker;)V
+    const/4 p3, 0x0
 
-    invoke-interface {p1, p2}, Ljava/util/List;->forEach(Ljava/util/function/Consumer;)V
+    invoke-direct {p2, p3, p0}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p1, p2}, Ljava/util/ArrayList;->forEach(Ljava/util/function/Consumer;)V
 
     return-void
 .end method
 
-.method falseBelief()D
+.method public final falseBelief()D
     .locals 5
 
     :goto_0
@@ -422,9 +250,9 @@
 
     move-result-object p0
 
-    new-instance v0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda4;
+    new-instance v0, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, v3, v4}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda4;-><init>(J)V
+    invoke-direct {v0, v3, v4}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda0;-><init>(J)V
 
     invoke-interface {p0, v0}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -434,7 +262,9 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda0;->INSTANCE:Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda0;
+    new-instance v1, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda1;
+
+    invoke-direct {v1}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda1;-><init>()V
 
     invoke-interface {p0, v0, v1}, Ljava/util/stream/Stream;->reduce(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;
 
@@ -449,7 +279,7 @@
     return-wide v0
 .end method
 
-.method falseConfidence()D
+.method public final falseConfidence()D
     .locals 7
 
     :goto_0
@@ -483,7 +313,9 @@
 
     move-result-object v0
 
-    sget-object v3, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;->INSTANCE:Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda5;
+    new-instance v3, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda2;
+
+    invoke-direct {v3}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda2;-><init>()V
 
     invoke-interface {v0, v3}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -493,7 +325,9 @@
 
     move-result-object v3
 
-    sget-object v4, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda1;
+    new-instance v4, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;
+
+    invoke-direct {v4}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-interface {v0, v3, v4}, Ljava/util/stream/Stream;->reduce(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;
 
@@ -521,9 +355,9 @@
 
     move-result-object v0
 
-    new-instance v5, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;
+    new-instance v5, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda4;
 
-    invoke-direct {v5, v3, v4}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;-><init>(D)V
+    invoke-direct {v5, v3, v4}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda4;-><init>(D)V
 
     invoke-interface {v0, v5}, Ljava/util/stream/Stream;->map(Ljava/util/function/Function;)Ljava/util/stream/Stream;
 
@@ -533,7 +367,9 @@
 
     move-result-object v1
 
-    sget-object v2, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda1;->INSTANCE:Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda1;
+    new-instance v2, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;
+
+    invoke-direct {v2}, Lcom/android/systemui/classifier/HistoryTracker$$ExternalSyntheticLambda3;-><init>()V
 
     invoke-interface {v0, v1, v2}, Ljava/util/stream/Stream;->reduce(Ljava/lang/Object;Ljava/util/function/BinaryOperator;)Ljava/lang/Object;
 
@@ -564,14 +400,4 @@
     sub-double/2addr v2, v0
 
     return-wide v2
-.end method
-
-.method removeBeliefListener(Lcom/android/systemui/classifier/HistoryTracker$BeliefListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/classifier/HistoryTracker;->mBeliefListeners:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    return-void
 .end method

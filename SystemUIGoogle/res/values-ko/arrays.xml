@@ -17,6 +17,7 @@
         <item>최대 3개 프로세스</item>
         <item>최대 4개 프로세스</item>
     </string-array>
+    <array name="avatar_image_descriptions" />
     <string-array name="battery_labels">
         <item>0%</item>
         <item>50%</item>
@@ -260,6 +261,11 @@
         <item>꺼짐</item>
         <item>켜짐</item>
     </string-array>
+    <string-array name="tile_states_color_correction">
+        <item>사용할 수 없음</item>
+        <item>꺼짐</item>
+        <item>켜짐</item>
+    </string-array>
     <string-array name="tile_states_controls">
         <item>이용 불가</item>
         <item>꺼짐</item>
@@ -307,6 +313,16 @@
     </string-array>
     <string-array name="tile_states_night">
         <item>이용 불가</item>
+        <item>꺼짐</item>
+        <item>켜짐</item>
+    </string-array>
+    <string-array name="tile_states_onehanded">
+        <item>사용 불가</item>
+        <item>꺼짐</item>
+        <item>켜짐</item>
+    </string-array>
+    <string-array name="tile_states_qr_code_scanner">
+        <item>사용 불가</item>
         <item>꺼짐</item>
         <item>켜짐</item>
     </string-array>
@@ -374,6 +390,12 @@
         <item>상당히 빠르게</item>
         <item>굉장히 빠르게</item>
         <item>가장 빠르게</item>
+    </string-array>
+    <string-array name="udfps_accessibility_touch_hints">
+        <item>왼쪽으로 이동</item>
+        <item>아래로 이동</item>
+        <item>오른쪽으로 이동</item>
+        <item>위로 이동</item>
     </string-array>
     <string-array name="usb_configuration_titles">
         <item>충전</item>

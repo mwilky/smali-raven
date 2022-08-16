@@ -15,12 +15,5 @@
 
 
 # virtual methods
-.method public abstract getValue(Lcom/airbnb/lottie/value/LottieFrameInfo;)Ljava/lang/Object;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Lcom/airbnb/lottie/value/LottieFrameInfo<",
-            "TT;>;)TT;"
-        }
-    .end annotation
+.method public abstract getValue()Landroid/graphics/PorterDuffColorFilter;
 .end method

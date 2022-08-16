@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/media/MediaRoute2Provider$ControllerCallback;
+.class public final Landroidx/mediarouter/media/MediaRoute2Provider$ControllerCallback;
 .super Landroid/media/MediaRouter2$ControllerCallback;
 .source "MediaRoute2Provider.java"
 
@@ -9,26 +9,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ControllerCallback"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
+.field public final synthetic this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/media/MediaRoute2Provider;)V
+.method public constructor <init>(Landroidx/mediarouter/media/MediaRoute2Provider;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/media/MediaRoute2Provider$ControllerCallback;->this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 
@@ -39,16 +31,8 @@
 
 
 # virtual methods
-.method public onControllerUpdated(Landroid/media/MediaRouter2$RoutingController;)V
+.method public final onControllerUpdated(Landroid/media/MediaRouter2$RoutingController;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "routingController"
-        }
-    .end annotation
 
     iget-object p0, p0, Landroidx/mediarouter/media/MediaRoute2Provider$ControllerCallback;->this$0:Landroidx/mediarouter/media/MediaRoute2Provider;
 

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;
 .super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "InternetDialogController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
@@ -31,28 +31,24 @@
 
 
 # virtual methods
-.method public onRefreshCarrierInfo()V
+.method public final onRefreshCarrierInfo()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
     invoke-interface {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onRefreshCarrierInfo()V
 
     return-void
 .end method
 
-.method public onSimStateChanged(III)V
+.method public final onSimStateChanged(III)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$1;->this$0:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$000(Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->mCallback:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;
 
     invoke-interface {p0}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$InternetDialogCallback;->onSimStateChanged()V
 

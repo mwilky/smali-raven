@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateCloseListener;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateCloseListener;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "NotificationGuts.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "AnimateCloseListener"
 .end annotation
 
 
 # instance fields
-.field private final mGutsContent:Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;
+.field public final mGutsContent:Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;
 
-.field final mView:Landroid/view/View;
+.field public final mView:Landroid/view/View;
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationGuts;Landroid/view/View;Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationGuts;Landroid/view/View;Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateCloseListener;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
@@ -37,26 +37,16 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationGuts;Landroid/view/View;Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;Lcom/android/systemui/statusbar/notification/row/NotificationGuts$1;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateCloseListener;-><init>(Lcom/android/systemui/statusbar/notification/row/NotificationGuts;Landroid/view/View;Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/animation/AnimatorListenerAdapter;->onAnimationEnd(Landroid/animation/Animator;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationGuts$AnimateCloseListener;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/NotificationGuts;->isExposed()Z
-
-    move-result p1
+    iget-boolean p1, p1, Lcom/android/systemui/statusbar/notification/row/NotificationGuts;->mExposed:Z
 
     if-nez p1, :cond_0
 

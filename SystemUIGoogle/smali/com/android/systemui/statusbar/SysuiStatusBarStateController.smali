@@ -38,7 +38,7 @@
 .method public abstract leaveOpenOnKeyguardHide()Z
 .end method
 
-.method public abstract setAndInstrumentDozeAmount(Landroid/view/View;FZ)V
+.method public abstract setAndInstrumentDozeAmount(Lcom/android/systemui/statusbar/phone/NotificationPanelView;FZ)V
 .end method
 
 .method public abstract setIsDozing(Z)Z
@@ -56,16 +56,14 @@
 .method public abstract setPulsing(Z)V
 .end method
 
-.method public setState(I)Z
+.method public setState(I)V
     .locals 1
 
     const/4 v0, 0x0
 
     invoke-interface {p0, p1, v0}, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;->setState(IZ)Z
 
-    move-result p0
-
-    return p0
+    return-void
 .end method
 
 .method public abstract setState(IZ)Z
@@ -74,5 +72,5 @@
 .method public abstract setSystemBarAttributes(IILandroid/view/InsetsVisibilities;Ljava/lang/String;)V
 .end method
 
-.method public abstract setUpcomingState(I)V
+.method public abstract setUpcomingState()V
 .end method

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/keyguard/KeyguardSecurityModel$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Supplier;
@@ -33,7 +34,13 @@
 
     iget p0, p0, Lcom/android/keyguard/KeyguardSecurityModel$$ExternalSyntheticLambda0;->f$1:I
 
-    invoke-static {v0, p0}, Lcom/android/keyguard/KeyguardSecurityModel;->$r8$lambda$Csy6W7Fs3TE8ZZ37FOoU7VLTN7Y(Lcom/android/keyguard/KeyguardSecurityModel;I)Ljava/lang/Integer;
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardSecurityModel;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    invoke-virtual {v0, p0}, Lcom/android/internal/widget/LockPatternUtils;->getActivePasswordQuality(I)I
+
+    move-result p0
+
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object p0
 

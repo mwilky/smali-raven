@@ -12,99 +12,189 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = "KeyguardPresentation"
 .end annotation
 
 
 # instance fields
-.field private mClock:Landroid/view/View;
+.field public mClock:Landroid/view/View;
 
-.field private final mContext:Landroid/content/Context;
+.field public final mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
 
-.field private mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
+.field public mMarginLeft:I
 
-.field private final mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
+.field public mMarginTop:I
 
-.field private mMarginLeft:I
+.field public mMoveTextRunnable:Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;
 
-.field private mMarginTop:I
+.field public mUsableHeight:I
 
-.field mMoveTextRunnable:Ljava/lang/Runnable;
-
-.field private mUsableHeight:I
-
-.field private mUsableWidth:I
+.field public mUsableWidth:I
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/view/Display;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/view/Display;Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;)V
     .locals 2
 
-    sget v0, Lcom/android/systemui/R$style;->Theme_SystemUI_KeyguardPresentation:I
+    const v0, 0x7f140452
 
     const/16 v1, 0x7d9
 
     invoke-direct {p0, p1, p2, v0, v1}, Landroid/app/Presentation;-><init>(Landroid/content/Context;Landroid/view/Display;II)V
 
-    new-instance p2, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;
+    new-instance p1, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;
 
-    invoke-direct {p2, p0}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;-><init>(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)V
+    invoke-direct {p1, p0}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;-><init>(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)V
 
-    iput-object p2, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Ljava/lang/Runnable;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;
 
     iput-object p3, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
 
-    const/4 p2, 0x0
+    const/4 p1, 0x0
 
-    invoke-virtual {p0, p2}, Landroid/app/Presentation;->setCancelable(Z)V
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mContext:Landroid/content/Context;
+    invoke-virtual {p0, p1}, Landroid/app/Presentation;->setCancelable(Z)V
 
     return-void
 .end method
 
-.method static synthetic access$1000(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
+
+# virtual methods
+.method public final cancel()V
     .locals 0
 
-    iget p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mUsableHeight:I
-
-    return p0
+    return-void
 .end method
 
-.method static synthetic access$600(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
+.method public final onCreate(Landroid/os/Bundle;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/app/Presentation;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->updateBounds()V
+
+    invoke-virtual {p0}, Landroid/app/Presentation;->getContext()Landroid/content/Context;
+
+    move-result-object p1
+
+    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object p1
+
+    const v0, 0x7f0e00da
+
+    const/4 v1, 0x0
+
+    invoke-virtual {p1, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Landroid/app/Presentation;->setContentView(Landroid/view/View;)V
+
+    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object p1
+
+    const/16 v0, 0x700
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
+
+    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
+
+    move-result-object p1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v0}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsTypes(I)V
+
+    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Landroid/view/Window;->setNavigationBarContrastEnforced(Z)V
+
+    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
+
+    move-result-object p1
+
+    invoke-virtual {p1, v0}, Landroid/view/Window;->setNavigationBarColor(I)V
+
+    const p1, 0x7f0b0194
+
+    invoke-virtual {p0, p1}, Landroid/app/Presentation;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
+
+    invoke-virtual {p0, p1}, Landroid/app/Presentation;->findViewById(I)Landroid/view/View;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/keyguard/KeyguardStatusView;
+
+    invoke-interface {v0, p0}, Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;->build(Lcom/android/keyguard/KeyguardStatusView;)Lcom/android/keyguard/dagger/KeyguardStatusViewComponent;
+
+    move-result-object p0
+
+    invoke-interface {p0}, Lcom/android/keyguard/dagger/KeyguardStatusViewComponent;->getKeyguardClockSwitchController()Lcom/android/keyguard/KeyguardClockSwitchController;
+
+    move-result-object p0
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardClockSwitchController;->mOnlyClock:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->init()V
+
+    return-void
+.end method
+
+.method public final onDetachedFromWindow()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
+
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation$1;
+
+    invoke-virtual {v0, p0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
+
+    return-void
+.end method
+
+.method public final onDisplayChanged()V
     .locals 0
 
-    iget p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMarginLeft:I
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->updateBounds()V
 
-    return p0
+    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
+
+    return-void
 .end method
 
-.method static synthetic access$700(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mUsableWidth:I
-
-    return p0
-.end method
-
-.method static synthetic access$800(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method static synthetic access$900(Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMarginTop:I
-
-    return p0
-.end method
-
-.method private updateBounds()V
+.method public final updateBounds()V
     .locals 2
 
     invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
@@ -162,144 +252,6 @@
     div-int/lit16 v0, v0, 0xc8
 
     iput v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMarginTop:I
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public cancel()V
-    .locals 0
-
-    return-void
-.end method
-
-.method protected onCreate(Landroid/os/Bundle;)V
-    .locals 2
-
-    invoke-super {p0, p1}, Landroid/app/Presentation;->onCreate(Landroid/os/Bundle;)V
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->updateBounds()V
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mContext:Landroid/content/Context;
-
-    invoke-static {p1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object p1
-
-    sget v0, Lcom/android/systemui/R$layout;->keyguard_presentation:I
-
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object p1
-
-    invoke-virtual {p0, p1}, Landroid/app/Presentation;->setContentView(Landroid/view/View;)V
-
-    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object p1
-
-    const/16 v0, 0x700
-
-    invoke-virtual {p1, v0}, Landroid/view/View;->setSystemUiVisibility(I)V
-
-    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object p1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p1, v0}, Landroid/view/WindowManager$LayoutParams;->setFitInsetsTypes(I)V
-
-    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
-
-    move-result-object p1
-
-    invoke-virtual {p1, v0}, Landroid/view/Window;->setNavigationBarContrastEnforced(Z)V
-
-    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
-
-    move-result-object p1
-
-    invoke-virtual {p1, v0}, Landroid/view/Window;->setNavigationBarColor(I)V
-
-    sget p1, Lcom/android/systemui/R$id;->clock:I
-
-    invoke-virtual {p0, p1}, Landroid/app/Presentation;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mKeyguardStatusViewComponentFactory:Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;
-
-    invoke-virtual {p0, p1}, Landroid/app/Presentation;->findViewById(I)Landroid/view/View;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/keyguard/KeyguardStatusView;
-
-    invoke-interface {v0, p1}, Lcom/android/keyguard/dagger/KeyguardStatusViewComponent$Factory;->build(Lcom/android/keyguard/KeyguardStatusView;)Lcom/android/keyguard/dagger/KeyguardStatusViewComponent;
-
-    move-result-object p1
-
-    invoke-interface {p1}, Lcom/android/keyguard/dagger/KeyguardStatusViewComponent;->getKeyguardClockSwitchController()Lcom/android/keyguard/KeyguardClockSwitchController;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p1, v0}, Lcom/android/keyguard/KeyguardClockSwitchController;->setOnlyClock(Z)V
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mKeyguardClockSwitchController:Lcom/android/keyguard/KeyguardClockSwitchController;
-
-    invoke-virtual {p0}, Lcom/android/systemui/util/ViewController;->init()V
-
-    return-void
-.end method
-
-.method public onDetachedFromWindow()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mClock:Landroid/view/View;
-
-    iget-object p0, p0, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->mMoveTextRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, p0}, Landroid/view/View;->removeCallbacks(Ljava/lang/Runnable;)Z
-
-    return-void
-.end method
-
-.method public onDisplayChanged()V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardDisplayManager$KeyguardPresentation;->updateBounds()V
-
-    invoke-virtual {p0}, Landroid/app/Presentation;->getWindow()Landroid/view/Window;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/View;->requestLayout()V
 
     return-void
 .end method

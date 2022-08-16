@@ -18,7 +18,17 @@
 
 
 # instance fields
-.field private final broadcastDispatcherProvider:Ljavax/inject/Provider;
+.field public final activityLaunchAnimatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/ActivityLaunchAnimator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final broadcastDispatcherProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final deviceConfigProvider:Ljavax/inject/Provider;
+.field public final deviceConfigProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final dismissCallbackRegistryProvider:Ljavax/inject/Provider;
+.field public final dismissCallbackRegistryProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final dozeParametersProvider:Ljavax/inject/Provider;
+.field public final dozeParametersProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +78,17 @@
     .end annotation
 .end field
 
-.field private final dumpManagerProvider:Ljavax/inject/Provider;
+.field public final dreamOverlayStateControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dreams/DreamOverlayStateController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final dumpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final falsingCollectorProvider:Ljavax/inject/Provider;
+.field public final falsingCollectorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +108,17 @@
     .end annotation
 .end field
 
-.field private final keyguardDisplayManagerProvider:Ljavax/inject/Provider;
+.field public final interactionJankMonitorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final keyguardDisplayManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +128,7 @@
     .end annotation
 .end field
 
-.field private final keyguardStateControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -108,7 +138,7 @@
     .end annotation
 .end field
 
-.field private final keyguardUnlockAnimationControllerProvider:Ljavax/inject/Provider;
+.field public final keyguardUnlockAnimationControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -118,7 +148,7 @@
     .end annotation
 .end field
 
-.field private final lockPatternUtilsProvider:Ljavax/inject/Provider;
+.field public final lockPatternUtilsProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -128,7 +158,7 @@
     .end annotation
 .end field
 
-.field private final navigationModeControllerProvider:Ljavax/inject/Provider;
+.field public final navigationModeControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -138,7 +168,7 @@
     .end annotation
 .end field
 
-.field private final notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
+.field public final notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -148,7 +178,7 @@
     .end annotation
 .end field
 
-.field private final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+.field public final notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -158,7 +188,7 @@
     .end annotation
 .end field
 
-.field private final powerManagerProvider:Ljavax/inject/Provider;
+.field public final powerManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -168,7 +198,27 @@
     .end annotation
 .end field
 
-.field private final statusBarKeyguardViewManagerLazyProvider:Ljavax/inject/Provider;
+.field public final screenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final screenOnCoordinatorProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/keyguard/mediator/ScreenOnCoordinator;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field public final statusBarKeyguardViewManagerLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -178,7 +228,7 @@
     .end annotation
 .end field
 
-.field private final statusBarStateControllerProvider:Ljavax/inject/Provider;
+.field public final statusBarStateControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -188,7 +238,7 @@
     .end annotation
 .end field
 
-.field private final trustManagerProvider:Ljavax/inject/Provider;
+.field public final trustManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -198,7 +248,7 @@
     .end annotation
 .end field
 
-.field private final uiBgExecutorProvider:Ljavax/inject/Provider;
+.field public final uiBgExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -208,28 +258,7 @@
     .end annotation
 .end field
 
-.field private final unfoldComponentProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/unfold/SysUIUnfoldComponent;",
-            ">;>;"
-        }
-    .end annotation
-.end field
-
-.field private final unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final updateMonitorProvider:Ljavax/inject/Provider;
+.field public final updateMonitorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -239,7 +268,7 @@
     .end annotation
 .end field
 
-.field private final userSwitcherControllerProvider:Ljavax/inject/Provider;
+.field public final userSwitcherControllerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -251,7 +280,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -305,10 +334,6 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/unfold/SysUIUnfoldComponent;",
-            ">;>;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -318,13 +343,25 @@
             "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            "Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/keyguard/mediator/ScreenOnCoordinator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dreams/DreamOverlayStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/ActivityLaunchAnimator;",
             ">;)V"
         }
     .end annotation
@@ -399,37 +436,49 @@
 
     move-object/from16 v1, p17
 
-    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->unfoldComponentProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p18
 
-    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p19
 
-    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->keyguardUnlockAnimationControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p20
 
-    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->keyguardUnlockAnimationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->screenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p21
 
-    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p22
 
-    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->screenOnCoordinatorProvider:Ljavax/inject/Provider;
 
     move-object/from16 v1, p23
 
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->interactionJankMonitorProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p24
+
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->dreamOverlayStateControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p25
+
     iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+
+    move-object/from16 v1, p26
+
+    iput-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->activityLaunchAnimatorProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
 
-.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;
-    .locals 25
+.method public static create(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;
+    .locals 28
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -482,10 +531,6 @@
             "Lcom/android/systemui/statusbar/phone/DozeParameters;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/unfold/SysUIUnfoldComponent;",
-            ">;>;",
-            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
             ">;",
             "Ljavax/inject/Provider<",
@@ -495,13 +540,25 @@
             "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;",
             ">;",
             "Ljavax/inject/Provider<",
-            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
+            "Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;",
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
             ">;",
             "Ljavax/inject/Provider<",
+            "Lcom/android/keyguard/mediator/ScreenOnCoordinator;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/internal/jank/InteractionJankMonitor;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/dreams/DreamOverlayStateController;",
+            ">;",
+            "Ljavax/inject/Provider<",
             "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
+            ">;",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/animation/ActivityLaunchAnimator;",
             ">;)",
             "Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;"
         }
@@ -553,74 +610,25 @@
 
     move-object/from16 v23, p22
 
-    new-instance v24, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;
+    move-object/from16 v24, p23
 
-    move-object/from16 v0, v24
+    move-object/from16 v25, p24
 
-    invoke-direct/range {v0 .. v23}, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+    move-object/from16 v26, p25
 
-    return-object v24
-.end method
+    new-instance v27, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;
 
-.method public static newKeyguardViewMediator(Landroid/content/Context;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dump/DumpManager;Landroid/os/PowerManager;Landroid/app/trust/TrustManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/keyguard/KeyguardDisplayManager;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljava/util/Optional;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ldagger/Lazy;Ldagger/Lazy;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "Lcom/android/systemui/classifier/FalsingCollector;",
-            "Lcom/android/internal/widget/LockPatternUtils;",
-            "Lcom/android/systemui/broadcast/BroadcastDispatcher;",
-            "Ldagger/Lazy<",
-            "Lcom/android/keyguard/KeyguardViewController;",
-            ">;",
-            "Lcom/android/systemui/keyguard/DismissCallbackRegistry;",
-            "Lcom/android/keyguard/KeyguardUpdateMonitor;",
-            "Lcom/android/systemui/dump/DumpManager;",
-            "Landroid/os/PowerManager;",
-            "Landroid/app/trust/TrustManager;",
-            "Lcom/android/systemui/statusbar/policy/UserSwitcherController;",
-            "Ljava/util/concurrent/Executor;",
-            "Lcom/android/systemui/util/DeviceConfigProxy;",
-            "Lcom/android/systemui/navigationbar/NavigationModeController;",
-            "Lcom/android/keyguard/KeyguardDisplayManager;",
-            "Lcom/android/systemui/statusbar/phone/DozeParameters;",
-            "Ljava/util/Optional<",
-            "Lcom/android/systemui/unfold/SysUIUnfoldComponent;",
-            ">;",
-            "Lcom/android/systemui/statusbar/SysuiStatusBarStateController;",
-            "Lcom/android/systemui/statusbar/policy/KeyguardStateController;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/keyguard/KeyguardUnlockAnimationController;",
-            ">;",
-            "Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/NotificationShadeDepthController;",
-            ">;",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/NotificationShadeWindowController;",
-            ">;)",
-            "Lcom/android/systemui/keyguard/KeyguardViewMediator;"
-        }
-    .end annotation
+    move-object/from16 v0, v27
 
-    invoke-static/range {p0 .. p22}, Lcom/android/systemui/keyguard/dagger/KeyguardModule;->newKeyguardViewMediator(Landroid/content/Context;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dump/DumpManager;Landroid/os/PowerManager;Landroid/app/trust/TrustManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/keyguard/KeyguardDisplayManager;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljava/util/Optional;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ldagger/Lazy;Ldagger/Lazy;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    invoke-direct/range {v0 .. v26}, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;-><init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
 
-    move-result-object v0
-
-    invoke-static {v0}, Ldagger/internal/Preconditions;->checkNotNullFromProvides(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    return-object v0
+    return-object v27
 .end method
 
 
 # virtual methods
-.method public get()Lcom/android/systemui/keyguard/KeyguardViewMediator;
-    .locals 25
+.method public final get()Ljava/lang/Object;
+    .locals 28
 
     move-object/from16 v0, p0
 
@@ -630,9 +638,9 @@
 
     move-result-object v1
 
-    move-object v2, v1
+    move-object v4, v1
 
-    check-cast v2, Landroid/content/Context;
+    check-cast v4, Landroid/content/Context;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->falsingCollectorProvider:Ljavax/inject/Provider;
 
@@ -640,9 +648,9 @@
 
     move-result-object v1
 
-    move-object v3, v1
+    move-object v11, v1
 
-    check-cast v3, Lcom/android/systemui/classifier/FalsingCollector;
+    check-cast v11, Lcom/android/systemui/classifier/FalsingCollector;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->lockPatternUtilsProvider:Ljavax/inject/Provider;
 
@@ -650,9 +658,9 @@
 
     move-result-object v1
 
-    move-object v4, v1
+    move-object v7, v1
 
-    check-cast v4, Lcom/android/internal/widget/LockPatternUtils;
+    check-cast v7, Lcom/android/internal/widget/LockPatternUtils;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->broadcastDispatcherProvider:Ljavax/inject/Provider;
 
@@ -660,15 +668,15 @@
 
     move-result-object v1
 
-    move-object v5, v1
+    move-object v10, v1
 
-    check-cast v5, Lcom/android/systemui/broadcast/BroadcastDispatcher;
+    check-cast v10, Lcom/android/systemui/broadcast/BroadcastDispatcher;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->statusBarKeyguardViewManagerLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v6
+    move-result-object v22
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->dismissCallbackRegistryProvider:Ljavax/inject/Provider;
 
@@ -676,9 +684,9 @@
 
     move-result-object v1
 
-    move-object v7, v1
+    move-object v14, v1
 
-    check-cast v7, Lcom/android/systemui/keyguard/DismissCallbackRegistry;
+    check-cast v14, Lcom/android/systemui/keyguard/DismissCallbackRegistry;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->updateMonitorProvider:Ljavax/inject/Provider;
 
@@ -686,9 +694,9 @@
 
     move-result-object v1
 
-    move-object v8, v1
+    move-object v9, v1
 
-    check-cast v8, Lcom/android/keyguard/KeyguardUpdateMonitor;
+    check-cast v9, Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->dumpManagerProvider:Ljavax/inject/Provider;
 
@@ -696,9 +704,9 @@
 
     move-result-object v1
 
-    move-object v9, v1
+    move-object v13, v1
 
-    check-cast v9, Lcom/android/systemui/dump/DumpManager;
+    check-cast v13, Lcom/android/systemui/dump/DumpManager;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->powerManagerProvider:Ljavax/inject/Provider;
 
@@ -706,9 +714,9 @@
 
     move-result-object v1
 
-    move-object v10, v1
+    move-object v5, v1
 
-    check-cast v10, Landroid/os/PowerManager;
+    check-cast v5, Landroid/os/PowerManager;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->trustManagerProvider:Ljavax/inject/Provider;
 
@@ -716,9 +724,9 @@
 
     move-result-object v1
 
-    move-object v11, v1
+    move-object v3, v1
 
-    check-cast v11, Landroid/app/trust/TrustManager;
+    check-cast v3, Landroid/app/trust/TrustManager;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->userSwitcherControllerProvider:Ljavax/inject/Provider;
 
@@ -726,9 +734,9 @@
 
     move-result-object v1
 
-    move-object v12, v1
+    move-object/from16 v20, v1
 
-    check-cast v12, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+    check-cast v20, Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->uiBgExecutorProvider:Ljavax/inject/Provider;
 
@@ -736,9 +744,9 @@
 
     move-result-object v1
 
-    move-object v13, v1
+    move-object/from16 v27, v1
 
-    check-cast v13, Ljava/util/concurrent/Executor;
+    check-cast v27, Ljava/util/concurrent/Executor;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->deviceConfigProvider:Ljavax/inject/Provider;
 
@@ -746,9 +754,9 @@
 
     move-result-object v1
 
-    move-object v14, v1
+    move-object/from16 v21, v1
 
-    check-cast v14, Lcom/android/systemui/util/DeviceConfigProxy;
+    check-cast v21, Lcom/android/systemui/util/DeviceConfigProxy;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->navigationModeControllerProvider:Ljavax/inject/Provider;
 
@@ -766,9 +774,9 @@
 
     move-result-object v1
 
-    move-object/from16 v16, v1
+    move-object v8, v1
 
-    check-cast v16, Lcom/android/keyguard/KeyguardDisplayManager;
+    check-cast v8, Lcom/android/keyguard/KeyguardDisplayManager;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->dozeParametersProvider:Ljavax/inject/Provider;
 
@@ -780,25 +788,15 @@
 
     check-cast v17, Lcom/android/systemui/statusbar/phone/DozeParameters;
 
-    iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->unfoldComponentProvider:Ljavax/inject/Provider;
-
-    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
-
-    move-result-object v1
-
-    move-object/from16 v18, v1
-
-    check-cast v18, Ljava/util/Optional;
-
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->statusBarStateControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    move-object/from16 v19, v1
+    move-object/from16 v16, v1
 
-    check-cast v19, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
+    check-cast v16, Lcom/android/systemui/statusbar/SysuiStatusBarStateController;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->keyguardStateControllerProvider:Ljavax/inject/Provider;
 
@@ -806,51 +804,77 @@
 
     move-result-object v1
 
-    move-object/from16 v20, v1
+    move-object/from16 v19, v1
 
-    check-cast v20, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
+    check-cast v19, Lcom/android/systemui/statusbar/policy/KeyguardStateController;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->keyguardUnlockAnimationControllerProvider:Ljavax/inject/Provider;
 
     invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v21
+    move-result-object v23
 
-    iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->unlockedScreenOffAnimationControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->screenOffAnimationControllerProvider:Ljavax/inject/Provider;
 
     invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
 
     move-result-object v1
 
-    move-object/from16 v22, v1
+    move-object/from16 v18, v1
 
-    check-cast v22, Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;
+    check-cast v18, Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;
 
     iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->notificationShadeDepthControllerProvider:Ljavax/inject/Provider;
 
     invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v23
+    move-result-object v24
 
-    iget-object v0, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+    iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->screenOnCoordinatorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/keyguard/mediator/ScreenOnCoordinator;
+
+    iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->interactionJankMonitorProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v6, v1
+
+    check-cast v6, Lcom/android/internal/jank/InteractionJankMonitor;
+
+    iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->dreamOverlayStateControllerProvider:Ljavax/inject/Provider;
+
+    invoke-interface {v1}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object v1
+
+    move-object v12, v1
+
+    check-cast v12, Lcom/android/systemui/dreams/DreamOverlayStateController;
+
+    iget-object v1, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->notificationShadeWindowControllerProvider:Ljavax/inject/Provider;
+
+    invoke-static {v1}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
+
+    move-result-object v25
+
+    iget-object v0, v0, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->activityLaunchAnimatorProvider:Ljavax/inject/Provider;
 
     invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v24
+    move-result-object v26
 
-    invoke-static/range {v2 .. v24}, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->newKeyguardViewMediator(Landroid/content/Context;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/systemui/broadcast/BroadcastDispatcher;Ldagger/Lazy;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/dump/DumpManager;Landroid/os/PowerManager;Landroid/app/trust/TrustManager;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Ljava/util/concurrent/Executor;Lcom/android/systemui/util/DeviceConfigProxy;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/keyguard/KeyguardDisplayManager;Lcom/android/systemui/statusbar/phone/DozeParameters;Ljava/util/Optional;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Ldagger/Lazy;Lcom/android/systemui/statusbar/phone/UnlockedScreenOffAnimationController;Ldagger/Lazy;Ldagger/Lazy;)Lcom/android/systemui/keyguard/KeyguardViewMediator;
+    new-instance v0, Lcom/android/systemui/keyguard/KeyguardViewMediator;
 
-    move-result-object v0
+    move-object v2, v0
+
+    invoke-direct/range {v2 .. v27}, Lcom/android/systemui/keyguard/KeyguardViewMediator;-><init>(Landroid/app/trust/TrustManager;Landroid/content/Context;Landroid/os/PowerManager;Lcom/android/internal/jank/InteractionJankMonitor;Lcom/android/internal/widget/LockPatternUtils;Lcom/android/keyguard/KeyguardDisplayManager;Lcom/android/keyguard/KeyguardUpdateMonitor;Lcom/android/systemui/broadcast/BroadcastDispatcher;Lcom/android/systemui/classifier/FalsingCollector;Lcom/android/systemui/dreams/DreamOverlayStateController;Lcom/android/systemui/dump/DumpManager;Lcom/android/systemui/keyguard/DismissCallbackRegistry;Lcom/android/systemui/navigationbar/NavigationModeController;Lcom/android/systemui/statusbar/SysuiStatusBarStateController;Lcom/android/systemui/statusbar/phone/DozeParameters;Lcom/android/systemui/statusbar/phone/ScreenOffAnimationController;Lcom/android/systemui/statusbar/policy/KeyguardStateController;Lcom/android/systemui/statusbar/policy/UserSwitcherController;Lcom/android/systemui/util/DeviceConfigProxy;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Ldagger/Lazy;Ljava/util/concurrent/Executor;)V
 
     return-object v0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/keyguard/dagger/KeyguardModule_NewKeyguardViewMediatorFactory;->get()Lcom/android/systemui/keyguard/KeyguardViewMediator;
-
-    move-result-object p0
-
-    return-object p0
 .end method

@@ -4,11 +4,11 @@
 
 
 # virtual methods
-.method public abstract onSupportActionModeFinished(Landroidx/appcompat/view/ActionMode;)V
+.method public abstract onSupportActionModeFinished()V
 .end method
 
-.method public abstract onSupportActionModeStarted(Landroidx/appcompat/view/ActionMode;)V
+.method public abstract onSupportActionModeStarted()V
 .end method
 
-.method public abstract onWindowStartingSupportActionMode(Landroidx/appcompat/view/ActionMode$Callback;)Landroidx/appcompat/view/ActionMode;
+.method public abstract onWindowStartingSupportActionMode()V
 .end method

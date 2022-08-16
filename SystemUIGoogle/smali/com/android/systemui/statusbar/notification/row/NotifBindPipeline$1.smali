@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;
 .super Ljava/lang/Object;
 .source "NotifBindPipeline.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
@@ -34,16 +34,14 @@
 
 
 # virtual methods
-.method public onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 2
+.method public final onEntryCleanUp(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->access$100(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)Ljava/util/Map;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->mBindEntries:Landroid/util/ArrayMap;
 
-    move-result-object v0
-
-    invoke-interface {v0, p1}, Ljava/util/Map;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -53,28 +51,28 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->access$200(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)Lcom/android/systemui/statusbar/notification/row/BindStage;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->mStage:Lcom/android/systemui/statusbar/notification/row/BindStage;
 
-    move-result-object v1
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;
 
-    invoke-virtual {v1, p1, v0}, Lcom/android/systemui/statusbar/notification/row/BindStage;->abortStage(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/RowContentBindStage;->mBinder:Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder;
+
+    invoke-interface {v0, p1}, Lcom/android/systemui/statusbar/notification/row/NotificationRowContentBinder;->cancelBind(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->access$200(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)Lcom/android/systemui/statusbar/notification/row/BindStage;
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->mStage:Lcom/android/systemui/statusbar/notification/row/BindStage;
 
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/BindStage;->mContentParams:Landroid/util/ArrayMap;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/statusbar/notification/row/BindStage;->deleteStageParams(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    invoke-virtual {v0, p1}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->access$300(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)Landroid/os/Handler;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->mMainHandler:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$NotifBindPipelineHandler;
 
     const/4 v0, 0x1
 
@@ -83,32 +81,30 @@
     return-void
 .end method
 
-.method public onEntryInit(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-    .locals 4
+.method public final onEntryInit(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->access$100(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)Ljava/util/Map;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->mBindEntries:Landroid/util/ArrayMap;
 
     new-instance v1, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
+    invoke-direct {v1}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;-><init>()V
 
-    const/4 v3, 0x0
-
-    invoke-direct {v1, v2, v3}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$BindEntry;-><init>(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;)V
-
-    invoke-interface {v0, p1, v1}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, p1, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline$1;->this$0:Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->access$200(Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;)Lcom/android/systemui/statusbar/notification/row/BindStage;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotifBindPipeline;->mStage:Lcom/android/systemui/statusbar/notification/row/BindStage;
 
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/BindStage;->mContentParams:Landroid/util/ArrayMap;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/BindStage;->createStageParams(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+    new-instance v0, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;
+
+    invoke-direct {v0}, Lcom/android/systemui/statusbar/notification/row/RowContentBindParams;-><init>()V
+
+    invoke-virtual {p0, p1, v0}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method

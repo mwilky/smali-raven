@@ -1,4 +1,4 @@
-.class public Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
+.class public final Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;
 .super Ljava/lang/Object;
 .source "AnimatablePathValue.java"
 
@@ -19,7 +19,7 @@
 
 
 # instance fields
-.field private final keyframes:Ljava/util/List;
+.field public final keyframes:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -32,17 +32,8 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/util/List;)V
+.method public constructor <init>(Ljava/util/ArrayList;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/List<",
-            "Lcom/airbnb/lottie/value/Keyframe<",
-            "Landroid/graphics/PointF;",
-            ">;>;)V"
-        }
-    .end annotation
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,7 +44,7 @@
 
 
 # virtual methods
-.method public createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
+.method public final createAnimation()Lcom/airbnb/lottie/animation/keyframe/BaseKeyframeAnimation;
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -99,7 +90,7 @@
     return-object v0
 .end method
 
-.method public getKeyframes()Ljava/util/List;
+.method public final getKeyframes()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -116,7 +107,7 @@
     return-object p0
 .end method
 
-.method public isStatic()Z
+.method public final isStatic()Z
     .locals 3
 
     iget-object v0, p0, Lcom/airbnb/lottie/model/animatable/AnimatablePathValue;->keyframes:Ljava/util/List;

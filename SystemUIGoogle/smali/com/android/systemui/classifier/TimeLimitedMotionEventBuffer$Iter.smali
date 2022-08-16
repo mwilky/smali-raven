@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;
+.class public final Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;
 .super Ljava/lang/Object;
 .source "TimeLimitedMotionEventBuffer.java"
 
@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "Iter"
 .end annotation
 
@@ -27,7 +27,7 @@
 
 
 # instance fields
-.field private final mIterator:Ljava/util/ListIterator;
+.field public final mIterator:Ljava/util/ListIterator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ListIterator<",
@@ -37,20 +37,14 @@
     .end annotation
 .end field
 
-.field final synthetic this$0:Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;I)V
+.method public constructor <init>(Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;I)V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->this$0:Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    invoke-static {p1}, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;->access$000(Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;)Ljava/util/LinkedList;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer;->mMotionEvents:Ljava/util/LinkedList;
 
     invoke-virtual {p1, p2}, Ljava/util/LinkedList;->listIterator(I)Ljava/util/ListIterator;
 
@@ -63,8 +57,10 @@
 
 
 # virtual methods
-.method public add(Landroid/view/MotionEvent;)V
+.method public final add(Ljava/lang/Object;)V
     .locals 0
+
+    check-cast p1, Landroid/view/MotionEvent;
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
@@ -73,17 +69,7 @@
     throw p0
 .end method
 
-.method public bridge synthetic add(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Landroid/view/MotionEvent;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->add(Landroid/view/MotionEvent;)V
-
-    return-void
-.end method
-
-.method public hasNext()Z
+.method public final hasNext()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->mIterator:Ljava/util/ListIterator;
@@ -95,7 +81,7 @@
     return p0
 .end method
 
-.method public hasPrevious()Z
+.method public final hasPrevious()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->mIterator:Ljava/util/ListIterator;
@@ -107,7 +93,7 @@
     return p0
 .end method
 
-.method public next()Landroid/view/MotionEvent;
+.method public final next()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->mIterator:Ljava/util/ListIterator;
@@ -121,17 +107,7 @@
     return-object p0
 .end method
 
-.method public bridge synthetic next()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->next()Landroid/view/MotionEvent;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public nextIndex()I
+.method public final nextIndex()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->mIterator:Ljava/util/ListIterator;
@@ -143,7 +119,7 @@
     return p0
 .end method
 
-.method public previous()Landroid/view/MotionEvent;
+.method public final previous()Ljava/lang/Object;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->mIterator:Ljava/util/ListIterator;
@@ -157,17 +133,7 @@
     return-object p0
 .end method
 
-.method public bridge synthetic previous()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->previous()Landroid/view/MotionEvent;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public previousIndex()I
+.method public final previousIndex()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->mIterator:Ljava/util/ListIterator;
@@ -179,7 +145,7 @@
     return p0
 .end method
 
-.method public remove()V
+.method public final remove()V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->mIterator:Ljava/util/ListIterator;
@@ -189,22 +155,14 @@
     return-void
 .end method
 
-.method public set(Landroid/view/MotionEvent;)V
+.method public final set(Ljava/lang/Object;)V
     .locals 0
+
+    check-cast p1, Landroid/view/MotionEvent;
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 
     invoke-direct {p0}, Ljava/lang/UnsupportedOperationException;-><init>()V
 
     throw p0
-.end method
-
-.method public bridge synthetic set(Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Landroid/view/MotionEvent;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/classifier/TimeLimitedMotionEventBuffer$Iter;->set(Landroid/view/MotionEvent;)V
-
-    return-void
 .end method

@@ -1,5 +1,5 @@
 .class public final Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;
-.super Lcom/android/systemui/qs/QSPanel$Record;
+.super Ljava/lang/Object;
 .source "QSPanelControllerBase.java"
 
 
@@ -15,9 +15,7 @@
 
 
 # instance fields
-.field public callback:Lcom/android/systemui/plugins/qs/QSTile$Callback;
-
-.field public scanState:Z
+.field public callback:Lcom/android/systemui/qs/QSPanel$1;
 
 .field public tile:Lcom/android/systemui/plugins/qs/QSTile;
 
@@ -25,10 +23,14 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method public constructor <init>(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/systemui/qs/QSPanel$Record;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
+
+    iput-object p2, p0, Lcom/android/systemui/qs/QSPanelControllerBase$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
 
     return-void
 .end method

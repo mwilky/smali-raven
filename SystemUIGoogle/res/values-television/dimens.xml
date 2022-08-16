@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item type="dimen" name="config_pictureInPictureDefaultSizePercent">0.2</item>
     <item type="dimen" name="shutdown_scrim_behind_alpha">1.0</item>
     <dimen name="bottom_sheet_actions_spacing">12.0dip</dimen>
     <dimen name="bottom_sheet_actions_width">296.0dip</dimen>
@@ -18,6 +19,7 @@
     <dimen name="bottom_sheet_padding_horizontal">32.0dip</dimen>
     <dimen name="bottom_sheet_padding_vertical">24.0dip</dimen>
     <dimen name="bottom_sheet_title_margin_bottom">18.0dip</dimen>
+    <dimen name="pip_keep_clear_area_padding">16.0dip</dimen>
     <dimen name="privacy_chip_dot_bg_height">18.0dip</dimen>
     <dimen name="privacy_chip_dot_bg_radius">9.0dip</dimen>
     <dimen name="privacy_chip_dot_bg_width">24.0dip</dimen>
@@ -28,7 +30,10 @@
     <dimen name="privacy_chip_icon_margin_in_between">9.0dip</dimen>
     <dimen name="privacy_chip_icon_size">12.0dip</dimen>
     <dimen name="privacy_chip_margin">12.0dip</dimen>
+    <dimen name="privacy_chip_max_width">51.0dip</dimen>
     <dimen name="privacy_chip_min_width">30.0dip</dimen>
     <dimen name="privacy_chip_padding_horizontal">9.0dip</dimen>
     <dimen name="privacy_chip_radius">12.0dip</dimen>
+    <item type="dimen" name="unblock_hw_sensor_icon_height">@dimen/bottom_sheet_icon_size</item>
+    <item type="dimen" name="unblock_hw_sensor_icon_width">@dimen/bottom_sheet_icon_size</item>
 </resources>

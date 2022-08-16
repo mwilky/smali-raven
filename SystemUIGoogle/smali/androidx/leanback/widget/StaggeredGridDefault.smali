@@ -1,10 +1,10 @@
-.class final Landroidx/leanback/widget/StaggeredGridDefault;
+.class public final Landroidx/leanback/widget/StaggeredGridDefault;
 .super Landroidx/leanback/widget/StaggeredGrid;
 .source "StaggeredGridDefault.java"
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Landroidx/leanback/widget/StaggeredGrid;-><init>()V
@@ -12,116 +12,10 @@
     return-void
 .end method
 
-.method private findRowEdgeLimitSearchIndex(Z)I
-    .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "append"
-        }
-    .end annotation
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x0
-
-    if-eqz p1, :cond_2
-
-    iget p1, p0, Landroidx/leanback/widget/Grid;->mLastVisibleIndex:I
-
-    :goto_0
-    iget v2, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
-
-    if-lt p1, v2, :cond_5
-
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
-
-    move-result-object v2
-
-    iget v2, v2, Landroidx/leanback/widget/Grid$Location;->row:I
-
-    if-nez v2, :cond_0
-
-    move v1, v0
-
-    goto :goto_1
-
-    :cond_0
-    if-eqz v1, :cond_1
-
-    iget v3, p0, Landroidx/leanback/widget/Grid;->mNumRows:I
-
-    sub-int/2addr v3, v0
-
-    if-ne v2, v3, :cond_1
-
-    return p1
-
-    :cond_1
-    :goto_1
-    add-int/lit8 p1, p1, -0x1
-
-    goto :goto_0
-
-    :cond_2
-    iget p1, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
-
-    :goto_2
-    iget v2, p0, Landroidx/leanback/widget/Grid;->mLastVisibleIndex:I
-
-    if-gt p1, v2, :cond_5
-
-    invoke-virtual {p0, p1}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
-
-    move-result-object v2
-
-    iget v2, v2, Landroidx/leanback/widget/Grid$Location;->row:I
-
-    iget v3, p0, Landroidx/leanback/widget/Grid;->mNumRows:I
-
-    sub-int/2addr v3, v0
-
-    if-ne v2, v3, :cond_3
-
-    move v1, v0
-
-    goto :goto_3
-
-    :cond_3
-    if-eqz v1, :cond_4
-
-    if-nez v2, :cond_4
-
-    return p1
-
-    :cond_4
-    :goto_3
-    add-int/lit8 p1, p1, 0x1
-
-    goto :goto_2
-
-    :cond_5
-    const/4 p0, -0x1
-
-    return p0
-.end method
-
 
 # virtual methods
-.method protected appendVisibleItemsWithoutCache(IZ)Z
+.method public final appendVisibleItemsWithoutCache(IZ)Z
     .locals 13
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "toLimit",
-            "oneColumnMode"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/leanback/widget/Grid;->mProvider:Landroidx/leanback/widget/Grid$Provider;
 
@@ -160,7 +54,7 @@
 
     iget v1, v1, Landroidx/leanback/widget/Grid$Location;->row:I
 
-    invoke-direct {p0, v5}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowEdgeLimitSearchIndex(Z)I
+    invoke-virtual {p0, v5}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowEdgeLimitSearchIndex(Z)I
 
     move-result v7
 
@@ -205,14 +99,14 @@
 
     if-eqz v8, :cond_4
 
-    invoke-virtual {p0, v4, v7, v3}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMin(ZI[I)I
+    invoke-virtual {p0, v7, v3, v4}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMin(I[IZ)I
 
     move-result v7
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual {p0, v5, v7, v3}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMax(ZI[I)I
+    invoke-virtual {p0, v7, v3, v5}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMax(I[IZ)I
 
     move-result v7
 
@@ -598,28 +492,104 @@
     goto/16 :goto_9
 .end method
 
-.method public findRowMax(ZI[I)I
+.method public final findRowEdgeLimitSearchIndex(Z)I
+    .locals 4
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_2
+
+    iget p1, p0, Landroidx/leanback/widget/Grid;->mLastVisibleIndex:I
+
+    :goto_0
+    iget v2, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
+
+    if-lt p1, v2, :cond_5
+
+    invoke-virtual {p0, p1}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
+
+    move-result-object v2
+
+    iget v2, v2, Landroidx/leanback/widget/Grid$Location;->row:I
+
+    if-nez v2, :cond_0
+
+    move v1, v0
+
+    goto :goto_1
+
+    :cond_0
+    if-eqz v1, :cond_1
+
+    iget v3, p0, Landroidx/leanback/widget/Grid;->mNumRows:I
+
+    sub-int/2addr v3, v0
+
+    if-ne v2, v3, :cond_1
+
+    return p1
+
+    :cond_1
+    :goto_1
+    add-int/lit8 p1, p1, -0x1
+
+    goto :goto_0
+
+    :cond_2
+    iget p1, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
+
+    :goto_2
+    iget v2, p0, Landroidx/leanback/widget/Grid;->mLastVisibleIndex:I
+
+    if-gt p1, v2, :cond_5
+
+    invoke-virtual {p0, p1}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
+
+    move-result-object v2
+
+    iget v2, v2, Landroidx/leanback/widget/Grid$Location;->row:I
+
+    iget v3, p0, Landroidx/leanback/widget/Grid;->mNumRows:I
+
+    sub-int/2addr v3, v0
+
+    if-ne v2, v3, :cond_3
+
+    move v1, v0
+
+    goto :goto_3
+
+    :cond_3
+    if-eqz v1, :cond_4
+
+    if-nez v2, :cond_4
+
+    return p1
+
+    :cond_4
+    :goto_3
+    add-int/lit8 p1, p1, 0x1
+
+    goto :goto_2
+
+    :cond_5
+    const/4 p0, -0x1
+
+    return p0
+.end method
+
+.method public final findRowMax(I[IZ)I
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "findLarge",
-            "indexLimit",
-            "indices"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/leanback/widget/Grid;->mProvider:Landroidx/leanback/widget/Grid$Provider;
 
-    invoke-interface {v0, p2}, Landroidx/leanback/widget/Grid$Provider;->getEdge(I)I
+    invoke-interface {v0, p1}, Landroidx/leanback/widget/Grid$Provider;->getEdge(I)I
 
     move-result v0
 
-    invoke-virtual {p0, p2}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
+    invoke-virtual {p0, p1}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
 
     move-result-object v1
 
@@ -631,7 +601,7 @@
 
     if-eqz v3, :cond_3
 
-    add-int/lit8 v1, p2, 0x1
+    add-int/lit8 v1, p1, 0x1
 
     move v3, v2
 
@@ -666,7 +636,7 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    if-eqz p1, :cond_0
+    if-eqz p3, :cond_0
 
     if-le v1, v0, :cond_1
 
@@ -678,7 +648,7 @@
     :goto_1
     move v0, v1
 
-    move p2, v2
+    move p1, v2
 
     move v3, v7
 
@@ -698,13 +668,13 @@
     :cond_3
     iget-object v3, p0, Landroidx/leanback/widget/Grid;->mProvider:Landroidx/leanback/widget/Grid$Provider;
 
-    invoke-interface {v3, p2}, Landroidx/leanback/widget/Grid$Provider;->getSize(I)I
+    invoke-interface {v3, p1}, Landroidx/leanback/widget/Grid$Provider;->getSize(I)I
 
     move-result v3
 
     add-int/2addr v3, v0
 
-    add-int/lit8 v5, p2, -0x1
+    add-int/lit8 v5, p1, -0x1
 
     move v7, v4
 
@@ -751,7 +721,7 @@
 
     add-int/2addr v5, v1
 
-    if-eqz p1, :cond_4
+    if-eqz p3, :cond_4
 
     if-le v5, v0, :cond_5
 
@@ -763,7 +733,7 @@
     :goto_4
     move v0, v5
 
-    move p2, v6
+    move p1, v6
 
     move v3, v8
 
@@ -781,40 +751,28 @@
     goto :goto_3
 
     :cond_7
-    if-eqz p3, :cond_8
+    if-eqz p2, :cond_8
 
     const/4 p0, 0x0
 
-    aput v3, p3, p0
+    aput v3, p2, p0
 
-    aput p2, p3, v4
+    aput p1, p2, v4
 
     :cond_8
     return v0
 .end method
 
-.method public findRowMin(ZI[I)I
+.method public final findRowMin(I[IZ)I
     .locals 9
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "findLarge",
-            "indexLimit",
-            "indices"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/leanback/widget/Grid;->mProvider:Landroidx/leanback/widget/Grid$Provider;
 
-    invoke-interface {v0, p2}, Landroidx/leanback/widget/Grid$Provider;->getEdge(I)I
+    invoke-interface {v0, p1}, Landroidx/leanback/widget/Grid$Provider;->getEdge(I)I
 
     move-result v0
 
-    invoke-virtual {p0, p2}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
+    invoke-virtual {p0, p1}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
 
     move-result-object v1
 
@@ -828,13 +786,13 @@
 
     iget-object v3, p0, Landroidx/leanback/widget/Grid;->mProvider:Landroidx/leanback/widget/Grid$Provider;
 
-    invoke-interface {v3, p2}, Landroidx/leanback/widget/Grid$Provider;->getSize(I)I
+    invoke-interface {v3, p1}, Landroidx/leanback/widget/Grid$Provider;->getSize(I)I
 
     move-result v3
 
     sub-int v3, v0, v3
 
-    add-int/lit8 v5, p2, -0x1
+    add-int/lit8 v5, p1, -0x1
 
     move v7, v4
 
@@ -875,7 +833,7 @@
 
     sub-int v3, v0, v3
 
-    if-eqz p1, :cond_0
+    if-eqz p3, :cond_0
 
     if-le v3, v5, :cond_1
 
@@ -887,7 +845,7 @@
     :goto_1
     move v5, v3
 
-    move p2, v6
+    move p1, v6
 
     move v2, v8
 
@@ -905,7 +863,7 @@
     goto :goto_0
 
     :cond_3
-    add-int/lit8 v1, p2, 0x1
+    add-int/lit8 v1, p1, 0x1
 
     move v3, v2
 
@@ -940,7 +898,7 @@
 
     add-int/lit8 v6, v6, 0x1
 
-    if-eqz p1, :cond_4
+    if-eqz p3, :cond_4
 
     if-le v1, v0, :cond_5
 
@@ -952,7 +910,7 @@
     :goto_4
     move v0, v1
 
-    move p2, v2
+    move p1, v2
 
     move v3, v7
 
@@ -975,28 +933,20 @@
     move v2, v3
 
     :cond_8
-    if-eqz p3, :cond_9
+    if-eqz p2, :cond_9
 
     const/4 p0, 0x0
 
-    aput v2, p3, p0
+    aput v2, p2, p0
 
-    aput p2, p3, v4
+    aput p1, p2, v4
 
     :cond_9
     return v5
 .end method
 
-.method getRowMax(I)I
+.method public final getRowMax(I)I
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowIndex"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
 
@@ -1090,9 +1040,7 @@
     add-int/lit8 v3, v3, -0x1
 
     :goto_2
-    invoke-virtual {p0}, Landroidx/leanback/widget/StaggeredGrid;->getFirstIndex()I
-
-    move-result v4
+    iget v4, p0, Landroidx/leanback/widget/StaggeredGrid;->mFirstIndex:I
 
     if-lt v3, v4, :cond_6
 
@@ -1121,16 +1069,8 @@
     return v1
 .end method
 
-.method getRowMin(I)I
+.method public final getRowMin(I)I
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "rowIndex"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
 
@@ -1176,9 +1116,7 @@
     add-int/lit8 v3, v3, -0x1
 
     :goto_1
-    invoke-virtual {p0}, Landroidx/leanback/widget/StaggeredGrid;->getFirstIndex()I
-
-    move-result v4
+    iget v4, p0, Landroidx/leanback/widget/StaggeredGrid;->mFirstIndex:I
 
     if-lt v3, v4, :cond_6
 
@@ -1255,18 +1193,8 @@
     return v1
 .end method
 
-.method protected prependVisibleItemsWithoutCache(IZ)Z
+.method public final prependVisibleItemsWithoutCache(IZ)Z
     .locals 12
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "toLimit",
-            "oneColumnMode"
-        }
-    .end annotation
 
     iget v0, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
 
@@ -1280,17 +1208,13 @@
 
     if-ltz v0, :cond_9
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/StaggeredGrid;->getFirstIndex()I
-
-    move-result v5
+    iget v5, p0, Landroidx/leanback/widget/StaggeredGrid;->mFirstIndex:I
 
     if-le v0, v5, :cond_0
 
     return v3
 
     :cond_0
-    iget v0, p0, Landroidx/leanback/widget/Grid;->mFirstVisibleIndex:I
-
     add-int/lit8 v5, v0, -0x1
 
     invoke-virtual {p0, v0}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
@@ -1299,7 +1223,7 @@
 
     iget v0, v0, Landroidx/leanback/widget/Grid$Location;->row:I
 
-    invoke-direct {p0, v3}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowEdgeLimitSearchIndex(Z)I
+    invoke-virtual {p0, v3}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowEdgeLimitSearchIndex(Z)I
 
     move-result v6
 
@@ -1346,14 +1270,14 @@
 
     if-eqz v7, :cond_4
 
-    invoke-virtual {p0, v4, v6, v2}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMax(ZI[I)I
+    invoke-virtual {p0, v6, v2, v4}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMax(I[IZ)I
 
     move-result v6
 
     goto :goto_2
 
     :cond_4
-    invoke-virtual {p0, v3, v6, v2}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMin(ZI[I)I
+    invoke-virtual {p0, v6, v2, v3}, Landroidx/leanback/widget/StaggeredGridDefault;->findRowMin(I[IZ)I
 
     move-result v6
 
@@ -1436,9 +1360,7 @@
 
     if-lez v0, :cond_b
 
-    invoke-virtual {p0}, Landroidx/leanback/widget/StaggeredGrid;->getFirstIndex()I
-
-    move-result v0
+    iget v0, p0, Landroidx/leanback/widget/StaggeredGrid;->mFirstIndex:I
 
     invoke-virtual {p0, v0}, Landroidx/leanback/widget/StaggeredGrid;->getLocation(I)Landroidx/leanback/widget/StaggeredGrid$Location;
 

@@ -6,19 +6,8 @@
 .implements Lcom/android/systemui/controls/controller/ControlsController$LoadData;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/controls/controller/ControlsControllerKt;->createLoadDataObject(Ljava/util/List;Ljava/util/List;Z)Lcom/android/systemui/controls/controller/ControlsController$LoadData;
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $allControls:Ljava/util/List;
+.field public final allControls:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -28,31 +17,9 @@
     .end annotation
 .end field
 
-.field final synthetic $error:Z
+.field public final errorOnLoad:Z
 
-.field final synthetic $favorites:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final allControls:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/ControlStatus;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private final errorOnLoad:Z
-
-.field private final favoritesIds:Ljava/util/List;
+.field public final favoritesIds:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/List<",
@@ -64,7 +31,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/util/List;Ljava/util/List;Z)V
+.method public constructor <init>(Ljava/util/List;Ljava/util/List;Z)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -77,12 +44,6 @@
             ">;Z)V"
         }
     .end annotation
-
-    iput-object p1, p0, Lcom/android/systemui/controls/controller/ControlsControllerKt$createLoadDataObject$1;->$allControls:Ljava/util/List;
-
-    iput-object p2, p0, Lcom/android/systemui/controls/controller/ControlsControllerKt$createLoadDataObject$1;->$favorites:Ljava/util/List;
-
-    iput-boolean p3, p0, Lcom/android/systemui/controls/controller/ControlsControllerKt$createLoadDataObject$1;->$error:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -97,7 +58,7 @@
 
 
 # virtual methods
-.method public getAllControls()Ljava/util/List;
+.method public final getAllControls()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -113,7 +74,7 @@
     return-object p0
 .end method
 
-.method public getErrorOnLoad()Z
+.method public final getErrorOnLoad()Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/controls/controller/ControlsControllerKt$createLoadDataObject$1;->errorOnLoad:Z
@@ -121,7 +82,7 @@
     return p0
 .end method
 
-.method public getFavoritesIds()Ljava/util/List;
+.method public final getFavoritesIds()Ljava/util/List;
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

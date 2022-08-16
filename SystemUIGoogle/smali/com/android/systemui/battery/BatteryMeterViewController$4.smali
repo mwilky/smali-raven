@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/battery/BatteryMeterViewController$4;
+.class public final Lcom/android/systemui/battery/BatteryMeterViewController$4;
 .super Lcom/android/systemui/settings/CurrentUserTracker;
 .source "BatteryMeterViewController.java"
 
@@ -9,19 +9,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
+.field public final synthetic this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-.field final synthetic val$contentResolver:Landroid/content/ContentResolver;
+.field public final synthetic val$contentResolver:Landroid/content/ContentResolver;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/battery/BatteryMeterViewController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/content/ContentResolver;)V
+.method public constructor <init>(Lcom/android/systemui/battery/BatteryMeterViewController;Lcom/android/systemui/broadcast/BroadcastDispatcher;Landroid/content/ContentResolver;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/battery/BatteryMeterViewController$4;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
@@ -35,28 +35,36 @@
 
 
 # virtual methods
-.method public onUserSwitched(I)V
-    .locals 2
+.method public final onUserSwitched(I)V
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$4;->val$contentResolver:Landroid/content/ContentResolver;
 
     iget-object v1, p0, Lcom/android/systemui/battery/BatteryMeterViewController$4;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    invoke-static {v1}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$700(Lcom/android/systemui/battery/BatteryMeterViewController;)Lcom/android/systemui/battery/BatteryMeterViewController$SettingObserver;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/battery/BatteryMeterViewController;->mSettingObserver:Lcom/android/systemui/battery/BatteryMeterViewController$SettingObserver;
 
     invoke-virtual {v0, v1}, Landroid/content/ContentResolver;->unregisterContentObserver(Landroid/database/ContentObserver;)V
 
     iget-object v0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$4;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    invoke-static {v0, p1}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$800(Lcom/android/systemui/battery/BatteryMeterViewController;I)V
+    iget-object v1, v0, Lcom/android/systemui/battery/BatteryMeterViewController;->mContentResolver:Landroid/content/ContentResolver;
+
+    const-string/jumbo v2, "status_bar_show_battery_percent"
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v2
+
+    iget-object v0, v0, Lcom/android/systemui/battery/BatteryMeterViewController;->mSettingObserver:Lcom/android/systemui/battery/BatteryMeterViewController$SettingObserver;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3, v0, p1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     iget-object p0, p0, Lcom/android/systemui/battery/BatteryMeterViewController$4;->this$0:Lcom/android/systemui/battery/BatteryMeterViewController;
 
-    invoke-static {p0}, Lcom/android/systemui/battery/BatteryMeterViewController;->access$900(Lcom/android/systemui/battery/BatteryMeterViewController;)Landroid/view/View;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/util/ViewController;->mView:Landroid/view/View;
 
     check-cast p0, Lcom/android/systemui/battery/BatteryMeterView;
 

@@ -3,47 +3,25 @@
 .source "KeyguardStatusView.java"
 
 
-# static fields
-.field private static final DEBUG:Z
-
-
 # instance fields
-.field private mChildrenAlphaExcludingSmartSpace:F
+.field public mClockView:Lcom/android/keyguard/KeyguardClockSwitch;
 
-.field private mClockView:Lcom/android/keyguard/KeyguardClockSwitch;
+.field public mDarkAmount:F
 
-.field private mDarkAmount:F
+.field public mKeyguardSlice:Lcom/android/keyguard/KeyguardSliceView;
 
-.field private final mIActivityManager:Landroid/app/IActivityManager;
+.field public mMediaHostContainer:Landroid/view/View;
 
-.field private mKeyguardSlice:Lcom/android/keyguard/KeyguardSliceView;
+.field public mStatusViewContainer:Landroid/view/ViewGroup;
 
-.field private final mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-.field private mMediaHostContainer:Landroid/view/View;
-
-.field private mShowingHeader:Z
-
-.field private mStatusViewContainer:Landroid/view/ViewGroup;
-
-.field private mTextColor:I
+.field public mTextColor:I
 
 
 # direct methods
-.method public static synthetic $r8$lambda$APcApo7nBT8znOhWRa1yx2qze5Q(Lcom/android/keyguard/KeyguardStatusView;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardStatusView;->onSliceContentChanged()V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardConstants;->DEBUG:Z
-
-    sput-boolean v0, Lcom/android/keyguard/KeyguardStatusView;->DEBUG:Z
 
     return-void
 .end method
@@ -79,66 +57,17 @@
 
     iput p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDarkAmount:F
 
-    const/high16 p1, 0x3f800000    # 1.0f
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mChildrenAlphaExcludingSmartSpace:F
-
-    invoke-static {}, Landroid/app/ActivityManager;->getService()Landroid/app/IActivityManager;
-
-    move-result-object p1
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mIActivityManager:Landroid/app/IActivityManager;
-
-    new-instance p1, Lcom/android/internal/widget/LockPatternUtils;
-
-    invoke-virtual {p0}, Landroid/widget/GridLayout;->getContext()Landroid/content/Context;
-
-    move-result-object p2
-
-    invoke-direct {p1, p2}, Lcom/android/internal/widget/LockPatternUtils;-><init>(Landroid/content/Context;)V
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
-
-    return-void
-.end method
-
-.method private onSliceContentChanged()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mKeyguardSlice:Lcom/android/keyguard/KeyguardSliceView;
-
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardSliceView;->hasHeader()Z
-
-    move-result v0
-
-    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mShowingHeader:Z
-
-    if-ne v1, v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mShowingHeader:Z
-
     return-void
 .end method
 
 
 # virtual methods
-.method public getChildrenAlphaExcludingSmartSpace()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/keyguard/KeyguardStatusView;->mChildrenAlphaExcludingSmartSpace:F
-
-    return p0
-.end method
-
-.method protected onFinishInflate()V
+.method public final onFinishInflate()V
     .locals 3
 
     invoke-super {p0}, Landroid/widget/GridLayout;->onFinishInflate()V
 
-    sget v0, Lcom/android/systemui/R$id;->status_view_container:I
+    const v0, 0x7f0b0640
 
     invoke-virtual {p0, v0}, Landroid/widget/GridLayout;->findViewById(I)Landroid/view/View;
 
@@ -148,7 +77,7 @@
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mStatusViewContainer:Landroid/view/ViewGroup;
 
-    sget v0, Lcom/android/systemui/R$id;->keyguard_clock_container:I
+    const v0, 0x7f0b0340
 
     invoke-virtual {p0, v0}, Landroid/widget/GridLayout;->findViewById(I)Landroid/view/View;
 
@@ -160,9 +89,19 @@
 
     iget-object v0, p0, Landroid/widget/GridLayout;->mContext:Landroid/content/Context;
 
-    invoke-static {v0}, Lcom/android/keyguard/KeyguardClockAccessibilityDelegate;->isNeeded(Landroid/content/Context;)Z
+    sget v1, Lcom/android/keyguard/KeyguardClockAccessibilityDelegate;->$r8$clinit:I
+
+    const v1, 0x7f13039a
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
+
+    xor-int/lit8 v0, v0, 0x1
 
     if-eqz v0, :cond_0
 
@@ -177,7 +116,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
     :cond_0
-    sget v0, Lcom/android/systemui/R$id;->keyguard_slice_view:I
+    const v0, 0x7f0b0357
 
     invoke-virtual {p0, v0}, Landroid/widget/GridLayout;->findViewById(I)Landroid/view/View;
 
@@ -189,23 +128,15 @@
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Lcom/android/keyguard/KeyguardClockSwitch;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardClockSwitch;->getCurrentTextColor()I
+    iget-object v0, v0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockView:Lcom/android/keyguard/AnimatableClockView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getCurrentTextColor()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mTextColor:I
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mKeyguardSlice:Lcom/android/keyguard/KeyguardSliceView;
-
-    new-instance v1, Lcom/android/keyguard/KeyguardStatusView$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/KeyguardStatusView$$ExternalSyntheticLambda0;-><init>(Lcom/android/keyguard/KeyguardStatusView;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardSliceView;->setContentChangeListener(Ljava/lang/Runnable;)V
-
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardStatusView;->onSliceContentChanged()V
-
-    sget v0, Lcom/android/systemui/R$id;->status_view_media_container:I
+    const v0, 0x7f0b0641
 
     invoke-virtual {p0, v0}, Landroid/widget/GridLayout;->findViewById(I)Landroid/view/View;
 
@@ -218,96 +149,8 @@
     return-void
 .end method
 
-.method public setChildrenAlphaExcluding(FLjava/util/Set;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(F",
-            "Ljava/util/Set<",
-            "Landroid/view/View;",
-            ">;)V"
-        }
-    .end annotation
-
-    iput p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mChildrenAlphaExcludingSmartSpace:F
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mStatusViewContainer:Landroid/view/ViewGroup;
-
-    invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
-
-    move-result v1
-
-    if-ge v0, v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/keyguard/KeyguardStatusView;->mStatusViewContainer:Landroid/view/ViewGroup;
-
-    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v1
-
-    invoke-interface {p2, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-virtual {v1, p1}, Landroid/view/View;->setAlpha(F)V
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method public setChildrenAlphaExcludingClockView(F)V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Lcom/android/keyguard/KeyguardClockSwitch;
-
-    invoke-static {v0}, Ljava/util/Set;->of(Ljava/lang/Object;)Ljava/util/Set;
-
-    move-result-object v0
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/keyguard/KeyguardStatusView;->setChildrenAlphaExcluding(FLjava/util/Set;)V
-
-    return-void
-.end method
-
-.method setDarkAmount(F)V
-    .locals 1
-
-    iget v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mDarkAmount:F
-
-    cmpl-float v0, v0, p1
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
-    iput p1, p0, Lcom/android/keyguard/KeyguardStatusView;->mDarkAmount:F
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Lcom/android/keyguard/KeyguardClockSwitch;
-
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/KeyguardClockSwitch;->setDarkAmount(F)V
-
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mMediaHostContainer:Landroid/view/View;
-
-    invoke-static {v0, p1}, Lcom/android/systemui/statusbar/CrossFadeHelper;->fadeOut(Landroid/view/View;F)V
-
-    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardStatusView;->updateDark()V
-
-    return-void
-.end method
-
-.method updateDark()V
-    .locals 3
+.method public final updateDark()V
+    .locals 9
 
     iget v0, p0, Lcom/android/keyguard/KeyguardStatusView;->mTextColor:I
 
@@ -315,7 +158,7 @@
 
     const/4 v2, -0x1
 
-    invoke-static {v0, v2, v1}, Landroidx/core/graphics/ColorUtils;->blendARGB(IIF)I
+    invoke-static {v1, v0, v2}, Landroidx/core/graphics/ColorUtils;->blendARGB(FII)I
 
     move-result v0
 
@@ -323,11 +166,70 @@
 
     iget v2, p0, Lcom/android/keyguard/KeyguardStatusView;->mDarkAmount:F
 
-    invoke-virtual {v1, v2}, Lcom/android/keyguard/KeyguardSliceView;->setDarkAmount(F)V
+    iput v2, v1, Lcom/android/keyguard/KeyguardSliceView;->mDarkAmount:F
+
+    iget-object v3, v1, Lcom/android/keyguard/KeyguardSliceView;->mRow:Lcom/android/keyguard/KeyguardSliceView$Row;
+
+    const/4 v4, 0x0
+
+    cmpl-float v5, v2, v4
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    if-eqz v5, :cond_0
+
+    move v5, v6
+
+    goto :goto_0
+
+    :cond_0
+    move v5, v7
+
+    :goto_0
+    iget v8, v3, Lcom/android/keyguard/KeyguardSliceView$Row;->mDarkAmount:F
+
+    cmpl-float v4, v8, v4
+
+    if-eqz v4, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    move v6, v7
+
+    :goto_1
+    if-ne v5, v6, :cond_2
+
+    goto :goto_3
+
+    :cond_2
+    iput v2, v3, Lcom/android/keyguard/KeyguardSliceView$Row;->mDarkAmount:F
+
+    if-eqz v5, :cond_3
+
+    const/4 v2, 0x0
+
+    goto :goto_2
+
+    :cond_3
+    iget-object v2, v3, Lcom/android/keyguard/KeyguardSliceView$Row;->mKeepAwakeListener:Lcom/android/systemui/util/wakelock/KeepAwakeAnimationListener;
+
+    :goto_2
+    invoke-virtual {v3, v2}, Landroid/widget/LinearLayout;->setLayoutAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
+
+    :goto_3
+    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardSliceView;->updateTextColors()V
 
     iget-object p0, p0, Lcom/android/keyguard/KeyguardStatusView;->mClockView:Lcom/android/keyguard/KeyguardClockSwitch;
 
-    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardClockSwitch;->setTextColor(I)V
+    iget-object p0, p0, Lcom/android/keyguard/KeyguardClockSwitch;->mClockPlugin:Lcom/android/systemui/plugins/ClockPlugin;
 
+    if-eqz p0, :cond_4
+
+    invoke-interface {p0, v0}, Lcom/android/systemui/plugins/ClockPlugin;->setTextColor(I)V
+
+    :cond_4
     return-void
 .end method

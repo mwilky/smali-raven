@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "TransformInfo"
 .end annotation
-
-
-# virtual methods
-.method public abstract isAnimating()Z
-.end method

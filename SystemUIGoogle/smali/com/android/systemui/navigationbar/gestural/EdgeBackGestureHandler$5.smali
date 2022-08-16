@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;
+.class public final Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;
 .super Ljava/lang/Object;
 .source "EdgeBackGestureHandler.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
@@ -34,66 +34,56 @@
 
 
 # virtual methods
-.method public cancelBack()V
-    .locals 7
+.method public final cancelBack()V
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
     const/4 v1, 0x4
 
-    invoke-static {v0, v1}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1800(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;I)V
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
-
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1600(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Lcom/android/systemui/recents/OverviewProxyService;
-
-    move-result-object v1
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
-
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1400(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Landroid/graphics/PointF;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/PointF;->x:F
-
-    float-to-int v3, v0
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
-
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1400(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Landroid/graphics/PointF;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/PointF;->y:F
-
-    float-to-int v4, v0
+    invoke-virtual {v0, v1}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->logGesture(I)V
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1500(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Z
+    iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-    move-result p0
+    const/4 v3, 0x0
 
-    xor-int/lit8 v6, p0, 0x1
+    iget-object v1, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mDownPoint:Landroid/graphics/PointF;
 
-    const/4 v2, 0x0
+    iget v2, v1, Landroid/graphics/PointF;->x:F
+
+    float-to-int v2, v2
+
+    iget v1, v1, Landroid/graphics/PointF;->y:F
+
+    float-to-int v4, v1
 
     const/4 v5, 0x0
 
-    invoke-virtual/range {v1 .. v6}, Lcom/android/systemui/recents/OverviewProxyService;->notifyBackAction(ZIIZZ)V
+    iget-boolean p0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mIsOnLeftEdge:Z
+
+    xor-int/lit8 p0, p0, 0x1
+
+    move v1, v2
+
+    move v2, v4
+
+    move v4, v5
+
+    move v5, p0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/recents/OverviewProxyService;->notifyBackAction(IIZZZ)V
 
     return-void
 .end method
 
-.method public triggerBack()V
-    .locals 8
+.method public final triggerBack()V
+    .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1200(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Lcom/android/systemui/plugins/FalsingManager;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     const/16 v1, 0x10
 
@@ -101,70 +91,55 @@
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
+    iget-object v1, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mBackAnimation:Lcom/android/wm/shell/back/BackAnimation;
+
+    const/4 v2, 0x1
+
+    if-nez v1, :cond_0
+
     const/4 v1, 0x0
 
-    const/4 v2, 0x4
-
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1300(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;II)Z
+    invoke-static {v0, v1}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->-$$Nest$msendEvent(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;I)V
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    const/4 v1, 0x1
+    invoke-static {v0, v2}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->-$$Nest$msendEvent(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;I)V
 
-    invoke-static {v0, v1, v2}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1300(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;II)Z
-
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1600(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Lcom/android/systemui/recents/OverviewProxyService;
+    iget-object v3, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-    move-result-object v2
+    const/4 v6, 0x1
 
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+    iget-object v1, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mDownPoint:Landroid/graphics/PointF;
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1400(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Landroid/graphics/PointF;
+    iget v4, v1, Landroid/graphics/PointF;->x:F
 
-    move-result-object v0
+    float-to-int v4, v4
 
-    iget v0, v0, Landroid/graphics/PointF;->x:F
+    iget v1, v1, Landroid/graphics/PointF;->y:F
 
-    float-to-int v4, v0
+    float-to-int v5, v1
 
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+    const/4 v7, 0x0
 
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1400(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Landroid/graphics/PointF;
+    iget-boolean v0, v0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mIsOnLeftEdge:Z
 
-    move-result-object v0
+    xor-int/lit8 v8, v0, 0x1
 
-    iget v0, v0, Landroid/graphics/PointF;->y:F
-
-    float-to-int v5, v0
-
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
-
-    invoke-static {v0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1500(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Z
-
-    move-result v0
-
-    xor-int/lit8 v7, v0, 0x1
-
-    const/4 v3, 0x1
-
-    const/4 v6, 0x0
-
-    invoke-virtual/range {v2 .. v7}, Lcom/android/systemui/recents/OverviewProxyService;->notifyBackAction(ZIIZZ)V
+    invoke-virtual/range {v3 .. v8}, Lcom/android/systemui/recents/OverviewProxyService;->notifyBackAction(IIZZZ)V
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$5;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    invoke-static {p0}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1700(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)Z
+    iget-boolean v0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mInRejectedExclusion:Z
 
-    move-result v0
+    if-eqz v0, :cond_1
 
-    if-eqz v0, :cond_0
+    const/4 v2, 0x2
 
-    const/4 v1, 0x2
-
-    :cond_0
-    invoke-static {p0, v1}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1800(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;I)V
+    :cond_1
+    invoke-virtual {p0, v2}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->logGesture(I)V
 
     return-void
 .end method

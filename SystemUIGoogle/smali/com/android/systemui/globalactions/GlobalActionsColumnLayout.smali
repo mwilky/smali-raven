@@ -3,19 +3,15 @@
 .source "GlobalActionsColumnLayout.java"
 
 
+# static fields
+.field public static final synthetic $r8$clinit:I
+
+
 # instance fields
-.field private mLastSnap:Z
+.field public mLastSnap:Z
 
 
 # direct methods
-.method public static synthetic $r8$lambda$p3Lb-zb_F4A6w4l4zT0kWyeHhFc(Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;->lambda$onLayout$0()V
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 0
 
@@ -24,45 +20,9 @@
     return-void
 .end method
 
-.method private synthetic lambda$onLayout$0()V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;->updateSnap()V
-
-    return-void
-.end method
-
-.method private updateChildOrdering()V
-    .locals 1
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;->shouldReverseListItems()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getListView()Landroid/view/ViewGroup;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->bringToFront()V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getSeparatedView()Landroid/view/ViewGroup;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/view/ViewGroup;->bringToFront()V
-
-    :goto_0
-    return-void
-.end method
-
 
 # virtual methods
-.method protected centerAlongEdge()V
+.method public centerAlongEdge()V
     .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -109,7 +69,7 @@
     return-void
 .end method
 
-.method protected getAnimationDistance()F
+.method public getAnimationDistance()F
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -125,7 +85,7 @@
     return p0
 .end method
 
-.method protected getGridItemSize()F
+.method public getGridItemSize()F
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -138,7 +98,7 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$dimen;->global_actions_grid_item_height:I
+    const v0, 0x7f070257
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -147,7 +107,7 @@
     return p0
 .end method
 
-.method protected getPowerButtonOffsetDistance()I
+.method public getPowerButtonOffsetDistance()I
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -160,7 +120,7 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$dimen;->global_actions_top_padding:I
+    const v0, 0x7f070262
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -173,21 +133,23 @@
     return p0
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
 
-    new-instance p1, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout$$ExternalSyntheticLambda0;
+    new-instance p1, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda8;
 
-    invoke-direct {p1, p0}, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;)V
+    const/4 p2, 0x3
+
+    invoke-direct {p1, p2, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda8;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public final onMeasure(II)V
     .locals 0
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->onMeasure(II)V
@@ -195,17 +157,37 @@
     return-void
 .end method
 
-.method public onUpdateList()V
-    .locals 0
+.method public final onUpdateList()V
+    .locals 1
 
     invoke-super {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->onUpdateList()V
 
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;->updateChildOrdering()V
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsColumnLayout;->shouldReverseListItems()Z
 
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getListView()Landroid/view/ViewGroup;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->bringToFront()V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getSeparatedView()Landroid/view/ViewGroup;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/ViewGroup;->bringToFront()V
+
+    :goto_0
     return-void
 .end method
 
-.method protected shouldReverseListItems()Z
+.method public shouldReverseListItems()Z
     .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -247,8 +229,8 @@
     return v1
 .end method
 
-.method protected shouldSnapToPowerButton()Z
-    .locals 3
+.method public shouldSnapToPowerButton()Z
+    .locals 4
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 
@@ -256,19 +238,21 @@
 
     move-result v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getWrapper()Landroid/view/View;
+    const/4 v1, 0x0
 
-    move-result-object v1
+    invoke-virtual {p0, v1}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
 
     invoke-virtual {p0}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->getCurrentRotation()I
 
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    invoke-virtual {v2}, Landroid/view/View;->getMeasuredHeight()I
+
     move-result v2
-
-    if-nez v2, :cond_0
-
-    invoke-virtual {v1}, Landroid/view/View;->getMeasuredHeight()I
-
-    move-result v1
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getMeasuredHeight()I
 
@@ -277,31 +261,26 @@
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v1}, Landroid/view/View;->getMeasuredWidth()I
+    invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
 
-    move-result v1
+    move-result v2
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->getMeasuredWidth()I
 
     move-result p0
 
     :goto_0
-    add-int/2addr v1, v0
+    add-int/2addr v2, v0
 
-    if-ge v1, p0, :cond_1
+    if-ge v2, p0, :cond_1
 
-    const/4 p0, 0x1
-
-    goto :goto_1
+    const/4 v1, 0x1
 
     :cond_1
-    const/4 p0, 0x0
-
-    :goto_1
-    return p0
+    return v1
 .end method
 
-.method protected snapToPowerButton()V
+.method public snapToPowerButton()V
     .locals 4
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -352,7 +331,7 @@
     return-void
 .end method
 
-.method protected updateSnap()V
+.method public updateSnap()V
     .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/ForegroundServicesDialog$1;
+.class public final Lcom/android/systemui/ForegroundServicesDialog$1;
 .super Ljava/lang/Object;
 .source "ForegroundServicesDialog.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/ForegroundServicesDialog;
+.field public final synthetic this$0:Lcom/android/systemui/ForegroundServicesDialog;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/ForegroundServicesDialog;)V
+.method public constructor <init>(Lcom/android/systemui/ForegroundServicesDialog;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/ForegroundServicesDialog$1;->this$0:Lcom/android/systemui/ForegroundServicesDialog;
@@ -34,14 +34,12 @@
 
 
 # virtual methods
-.method public onClick(Landroid/content/DialogInterface;I)V
+.method public final onClick(Landroid/content/DialogInterface;I)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/ForegroundServicesDialog$1;->this$0:Lcom/android/systemui/ForegroundServicesDialog;
 
-    invoke-static {p1}, Lcom/android/systemui/ForegroundServicesDialog;->access$000(Lcom/android/systemui/ForegroundServicesDialog;)Lcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/ForegroundServicesDialog;->mAdapter:Lcom/android/systemui/ForegroundServicesDialog$PackageItemAdapter;
 
     invoke-virtual {p1, p2}, Landroid/widget/ArrayAdapter;->getItem(I)Ljava/lang/Object;
 
@@ -57,11 +55,11 @@
 
     invoke-direct {p2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string v0, "package"
+    const/4 v0, 0x0
 
-    const/4 v1, 0x0
+    const-string/jumbo v1, "package"
 
-    invoke-static {v0, p1, v1}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v1, p1, v0}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object p1
 

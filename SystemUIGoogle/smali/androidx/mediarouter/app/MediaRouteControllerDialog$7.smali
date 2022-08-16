@@ -1,54 +1,25 @@
-.class Landroidx/mediarouter/app/MediaRouteControllerDialog$7;
+.class public final Landroidx/mediarouter/app/MediaRouteControllerDialog$7;
 .super Landroid/view/animation/Animation;
 .source "MediaRouteControllerDialog.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/mediarouter/app/MediaRouteControllerDialog;->animateLayoutHeight(Landroid/view/View;I)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+.field public final synthetic val$endValue:I
 
-.field final synthetic val$endValue:I
+.field public final synthetic val$startValue:I
 
-.field final synthetic val$startValue:I
-
-.field final synthetic val$view:Landroid/view/View;
+.field public final synthetic val$view:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;IILandroid/view/View;)V
+.method public constructor <init>(IILandroid/view/ViewGroup;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010,
-            0x1010,
-            0x1010,
-            0x1010
-        }
-        names = {
-            "this$0",
-            "val$startValue",
-            "val$endValue",
-            "val$view"
-        }
-    .end annotation
 
-    iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iput p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$startValue:I
 
-    iput p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$startValue:I
+    iput p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$endValue:I
 
-    iput p3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$endValue:I
-
-    iput-object p4, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$view:Landroid/view/View;
+    iput-object p3, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$view:Landroid/view/View;
 
     invoke-direct {p0}, Landroid/view/animation/Animation;-><init>()V
 
@@ -57,18 +28,8 @@
 
 
 # virtual methods
-.method protected applyTransformation(FLandroid/view/animation/Transformation;)V
+.method public final applyTransformation(FLandroid/view/animation/Transformation;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "interpolatedTime",
-            "t"
-        }
-    .end annotation
 
     iget p2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$7;->val$startValue:I
 

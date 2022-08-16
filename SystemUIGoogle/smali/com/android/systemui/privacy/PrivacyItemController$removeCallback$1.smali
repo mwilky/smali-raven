@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/privacy/PrivacyItemController$removeCallback$1;
+.class public final Lcom/android/systemui/privacy/PrivacyItemController$removeCallback$1;
 .super Ljava/lang/Object;
 .source "PrivacyItemController.kt"
 
@@ -7,28 +7,19 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/privacy/PrivacyItemController;->removeCallback(Ljava/lang/ref/WeakReference;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
 .annotation system Ldalvik/annotation/Signature;
     value = {
+        "<T:",
         "Ljava/lang/Object;",
-        "Ljava/util/function/Predicate<",
-        "Ljava/lang/ref/WeakReference<",
-        "Lcom/android/systemui/privacy/PrivacyItemController$Callback;",
-        ">;>;"
+        ">",
+        "Ljava/lang/Object;",
+        "Ljava/util/function/Predicate;"
     }
 .end annotation
 
 
 # instance fields
-.field final synthetic $callback:Ljava/lang/ref/WeakReference;
+.field public final synthetic $callback:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/lang/ref/WeakReference<",
@@ -40,7 +31,7 @@
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/ref/WeakReference;)V
+.method public constructor <init>(Ljava/lang/ref/WeakReference;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,32 +51,10 @@
 
 
 # virtual methods
-.method public bridge synthetic test(Ljava/lang/Object;)Z
+.method public final test(Ljava/lang/Object;)Z
     .locals 0
 
     check-cast p1, Ljava/lang/ref/WeakReference;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/privacy/PrivacyItemController$removeCallback$1;->test(Ljava/lang/ref/WeakReference;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public final test(Ljava/lang/ref/WeakReference;)Z
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/lang/ref/WeakReference<",
-            "Lcom/android/systemui/privacy/PrivacyItemController$Callback;",
-            ">;)Z"
-        }
-    .end annotation
-
-    const-string v0, "it"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 

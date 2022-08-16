@@ -1,21 +1,23 @@
-.class public Lcom/android/settingslib/media/PhoneMediaDevice;
+.class public final Lcom/android/settingslib/media/PhoneMediaDevice;
 .super Lcom/android/settingslib/media/MediaDevice;
 .source "PhoneMediaDevice.java"
 
 
 # instance fields
-.field private mSummary:Ljava/lang/String;
+.field public final mDeviceIconUtil:Lcom/android/settingslib/media/DeviceIconUtil;
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
+.method public constructor <init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/settingslib/media/MediaDevice;-><init>(Landroid/content/Context;Landroid/media/MediaRouter2Manager;Landroid/media/MediaRoute2Info;Ljava/lang/String;)V
 
-    const-string p1, ""
+    new-instance p1, Lcom/android/settingslib/media/DeviceIconUtil;
 
-    iput-object p1, p0, Lcom/android/settingslib/media/PhoneMediaDevice;->mSummary:Ljava/lang/String;
+    invoke-direct {p1}, Lcom/android/settingslib/media/DeviceIconUtil;-><init>()V
+
+    iput-object p1, p0, Lcom/android/settingslib/media/PhoneMediaDevice;->mDeviceIconUtil:Lcom/android/settingslib/media/DeviceIconUtil;
 
     invoke-virtual {p0}, Lcom/android/settingslib/media/MediaDevice;->initDeviceRecord()V
 
@@ -24,8 +26,10 @@
 
 
 # virtual methods
-.method getDrawableResId()I
-    .locals 1
+.method public getDrawableResId()I
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/settingslib/media/PhoneMediaDevice;->mDeviceIconUtil:Lcom/android/settingslib/media/DeviceIconUtil;
 
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
 
@@ -33,64 +37,52 @@
 
     move-result p0
 
-    const/4 v0, 0x3
+    iget-object v1, v0, Lcom/android/settingslib/media/DeviceIconUtil;->mMediaRouteTypeToIconMap:Ljava/util/HashMap;
 
-    if-eq p0, v0, :cond_0
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/4 v0, 0x4
+    move-result-object v2
 
-    if-eq p0, v0, :cond_0
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    const/16 v0, 0x9
+    move-result v1
 
-    if-eq p0, v0, :cond_0
+    if-eqz v1, :cond_0
 
-    const/16 v0, 0x16
+    iget-object v0, v0, Lcom/android/settingslib/media/DeviceIconUtil;->mMediaRouteTypeToIconMap:Ljava/util/HashMap;
 
-    if-eq p0, v0, :cond_0
+    invoke-static {p0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    packed-switch p0, :pswitch_data_0
+    move-result-object p0
 
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_smartphone:I
+    invoke-virtual {v0, p0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/settingslib/media/DeviceIconUtil$Device;
+
+    iget p0, p0, Lcom/android/settingslib/media/DeviceIconUtil$Device;->mIconDrawableRes:I
 
     goto :goto_0
 
     :cond_0
-    :pswitch_0
-    sget p0, Lcom/android/settingslib/R$drawable;->ic_headphone:I
+    const p0, 0x7f080670
 
     :goto_0
     return p0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0xb
-        :pswitch_0
-        :pswitch_0
-        :pswitch_0
-    .end packed-switch
 .end method
 
-.method public getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
+.method public final getIcon()Landroid/graphics/drawable/Drawable;
+    .locals 0
 
     invoke-virtual {p0}, Lcom/android/settingslib/media/PhoneMediaDevice;->getIconWithoutBackground()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v0
-
-    invoke-virtual {p0, v0}, Lcom/android/settingslib/media/MediaDevice;->setColorFilter(Landroid/graphics/drawable/Drawable;)V
-
-    iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mContext:Landroid/content/Context;
-
-    invoke-static {p0, v0}, Lcom/android/settingslib/bluetooth/BluetoothUtils;->buildAdvancedDrawable(Landroid/content/Context;Landroid/graphics/drawable/Drawable;)Landroid/graphics/drawable/Drawable;
 
     move-result-object p0
 
     return-object p0
 .end method
 
-.method public getIconWithoutBackground()Landroid/graphics/drawable/Drawable;
+.method public final getIconWithoutBackground()Landroid/graphics/drawable/Drawable;
     .locals 1
 
     iget-object v0, p0, Lcom/android/settingslib/media/MediaDevice;->mContext:Landroid/content/Context;
@@ -106,7 +98,7 @@
     return-object p0
 .end method
 
-.method public getId()Ljava/lang/String;
+.method public final getId()Ljava/lang/String;
     .locals 1
 
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
@@ -133,7 +125,7 @@
 
     packed-switch p0, :pswitch_data_0
 
-    const-string p0, "phone_media_device_id"
+    const-string/jumbo p0, "phone_media_device_id"
 
     goto :goto_0
 
@@ -149,6 +141,8 @@
     :goto_0
     return-object p0
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0xb
         :pswitch_0
@@ -157,7 +151,7 @@
     .end packed-switch
 .end method
 
-.method public getName()Ljava/lang/String;
+.method public final getName()Ljava/lang/String;
     .locals 2
 
     iget-object v0, p0, Lcom/android/settingslib/media/MediaDevice;->mRouteInfo:Landroid/media/MediaRoute2Info;
@@ -186,7 +180,7 @@
 
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/settingslib/R$string;->media_transfer_this_device_name:I
+    const v0, 0x7f130478
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -208,7 +202,7 @@
     :pswitch_1
     iget-object p0, p0, Lcom/android/settingslib/media/MediaDevice;->mContext:Landroid/content/Context;
 
-    sget v0, Lcom/android/settingslib/R$string;->media_transfer_wired_usb_device_name:I
+    const v0, 0x7f13047c
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -229,7 +223,7 @@
     .end packed-switch
 .end method
 
-.method public isConnected()Z
+.method public final isConnected()Z
     .locals 0
 
     const/4 p0, 0x1

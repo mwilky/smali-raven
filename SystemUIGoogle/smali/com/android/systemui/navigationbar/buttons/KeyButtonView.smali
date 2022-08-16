@@ -14,66 +14,54 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String;
-
-
 # instance fields
-.field private mAudioManager:Landroid/media/AudioManager;
+.field public mAudioManager:Landroid/media/AudioManager;
 
-.field private final mCheckLongPress:Ljava/lang/Runnable;
+.field public final mCheckLongPress:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 
-.field private mCode:I
+.field public mCode:I
 
-.field private mContentDescriptionRes:I
+.field public mContentDescriptionRes:I
 
-.field private mDarkIntensity:F
+.field public mDarkIntensity:F
 
-.field private mDownTime:J
+.field public mDownTime:J
 
-.field private mGestureAborted:Z
+.field public mGestureAborted:Z
 
-.field private mHasOvalBg:Z
+.field public mHasOvalBg:Z
 
-.field private final mInputManager:Landroid/hardware/input/InputManager;
+.field public final mInputManager:Landroid/hardware/input/InputManager;
 
-.field private mIsVertical:Z
-
-.field mLongClicked:Z
+.field public mLongClicked:Z
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
 .end field
 
-.field private final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+.field public final mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
 
-.field private mOnClickListener:Landroid/view/View$OnClickListener;
+.field public mOnClickListener:Landroid/view/View$OnClickListener;
 
-.field private final mOvalBgPaint:Landroid/graphics/Paint;
+.field public final mOvalBgPaint:Landroid/graphics/Paint;
 
-.field private final mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
+.field public final mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
 
-.field private final mPlaySounds:Z
+.field public final mPlaySounds:Z
 
-.field private final mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
+.field public final mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-.field private mTouchDownX:I
+.field public mTouchDownX:I
 
-.field private mTouchDownY:I
+.field public mTouchDownY:I
 
-.field private final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+.field public final mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     const-class v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->TAG:Ljava/lang/String;
 
     return-void
 .end method
@@ -145,7 +133,7 @@
 
     invoke-direct {v1, p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;-><init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)V
 
-    iput-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iput-object v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 
     iput-object p5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
@@ -155,44 +143,40 @@
 
     move-result-object p2
 
-    sget p3, Lcom/android/systemui/R$styleable;->KeyButtonView_keyCode:I
+    const/4 p3, 0x1
 
     invoke-virtual {p2, p3, v0}, Landroid/content/res/TypedArray;->getInteger(II)I
 
-    move-result p3
+    move-result p5
 
-    iput p3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
+    iput p5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
 
-    sget p3, Lcom/android/systemui/R$styleable;->KeyButtonView_playSound:I
+    const/4 p5, 0x2
 
-    const/4 p5, 0x1
+    invoke-virtual {p2, p5, p3}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
 
-    invoke-virtual {p2, p3, p5}, Landroid/content/res/TypedArray;->getBoolean(IZ)Z
+    move-result p5
 
-    move-result p3
+    iput-boolean p5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mPlaySounds:Z
 
-    iput-boolean p3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mPlaySounds:Z
+    new-instance p5, Landroid/util/TypedValue;
 
-    new-instance p3, Landroid/util/TypedValue;
+    invoke-direct {p5}, Landroid/util/TypedValue;-><init>()V
 
-    invoke-direct {p3}, Landroid/util/TypedValue;-><init>()V
-
-    sget v1, Lcom/android/systemui/R$styleable;->KeyButtonView_android_contentDescription:I
-
-    invoke-virtual {p2, v1, p3}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
+    invoke-virtual {p2, v0, p5}, Landroid/content/res/TypedArray;->getValue(ILandroid/util/TypedValue;)Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    iget p3, p3, Landroid/util/TypedValue;->resourceId:I
+    iget p5, p5, Landroid/util/TypedValue;->resourceId:I
 
-    iput p3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mContentDescriptionRes:I
+    iput p5, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mContentDescriptionRes:I
 
     :cond_0
     invoke-virtual {p2}, Landroid/content/res/TypedArray;->recycle()V
 
-    invoke-virtual {p0, p5}, Landroid/widget/ImageView;->setClickable(Z)V
+    invoke-virtual {p0, p3}, Landroid/widget/ImageView;->setClickable(Z)V
 
     const-string p2, "audio"
 
@@ -206,9 +190,7 @@
 
     new-instance p2, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-    sget p3, Lcom/android/systemui/R$dimen;->key_button_ripple_max_width:I
-
-    invoke-direct {p2, p1, p0, p3}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;-><init>(Landroid/content/Context;Landroid/view/View;I)V
+    invoke-direct {p2, p1, p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
     iput-object p2, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
@@ -233,15 +215,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
-
-    return p0
-.end method
-
-.method static synthetic access$100(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)Landroid/content/Context;
+.method public static synthetic access$000(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)Landroid/content/Context;
     .locals 0
 
     iget-object p0, p0, Landroid/widget/ImageView;->mContext:Landroid/content/Context;
@@ -249,312 +223,10 @@
     return-object p0
 .end method
 
-.method private logSomePresses(II)V
-    .locals 3
-
-    and-int/lit16 v0, p2, 0x80
-
-    const/4 v1, 0x1
-
-    if-eqz v0, :cond_0
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    :goto_0
-    sget-object v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NONE:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
-
-    if-ne p1, v1, :cond_1
-
-    iget-boolean v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mLongClicked:Z
-
-    if-eqz v1, :cond_1
-
-    return-void
-
-    :cond_1
-    if-nez p1, :cond_2
-
-    if-nez v0, :cond_2
-
-    return-void
-
-    :cond_2
-    and-int/lit8 p1, p2, 0x20
-
-    if-nez p1, :cond_a
-
-    and-int/lit16 p1, p2, 0x100
-
-    if-eqz p1, :cond_3
-
-    goto :goto_2
-
-    :cond_3
-    iget p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
-
-    const/4 p2, 0x3
-
-    if-eq p1, p2, :cond_8
-
-    const/4 p2, 0x4
-
-    if-eq p1, p2, :cond_6
-
-    const/16 p2, 0xbb
-
-    if-eq p1, p2, :cond_4
-
-    move-object p1, v2
-
-    goto :goto_1
-
-    :cond_4
-    if-eqz v0, :cond_5
-
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_OVERVIEW_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
-
-    goto :goto_1
-
-    :cond_5
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_OVERVIEW_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
-
-    goto :goto_1
-
-    :cond_6
-    if-eqz v0, :cond_7
-
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_BACK_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
-
-    goto :goto_1
-
-    :cond_7
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_BACK_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
-
-    goto :goto_1
-
-    :cond_8
-    if-eqz v0, :cond_9
-
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_HOME_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
-
-    goto :goto_1
-
-    :cond_9
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_HOME_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
-
-    :goto_1
-    if-eq p1, v2, :cond_a
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
-
-    invoke-interface {p0, p1}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
-
-    :cond_a
-    :goto_2
-    return-void
-.end method
-
-.method private sendEvent(IIJ)V
-    .locals 19
-
-    move-object/from16 v0, p0
-
-    move/from16 v1, p2
-
-    iget-object v2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
-
-    new-instance v3, Landroid/metrics/LogMaker;
-
-    const/16 v4, 0x3a3
-
-    invoke-direct {v3, v4}, Landroid/metrics/LogMaker;-><init>(I)V
-
-    const/4 v4, 0x4
-
-    invoke-virtual {v3, v4}, Landroid/metrics/LogMaker;->setType(I)Landroid/metrics/LogMaker;
-
-    move-result-object v3
-
-    iget v5, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
-
-    invoke-virtual {v3, v5}, Landroid/metrics/LogMaker;->setSubtype(I)Landroid/metrics/LogMaker;
-
-    move-result-object v3
-
-    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    const/16 v6, 0x3a5
-
-    invoke-virtual {v3, v6, v5}, Landroid/metrics/LogMaker;->addTaggedData(ILjava/lang/Object;)Landroid/metrics/LogMaker;
-
-    move-result-object v3
-
-    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    const/16 v6, 0x3a4
-
-    invoke-virtual {v3, v6, v5}, Landroid/metrics/LogMaker;->addTaggedData(ILjava/lang/Object;)Landroid/metrics/LogMaker;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Lcom/android/internal/logging/MetricsLogger;->write(Landroid/metrics/LogMaker;)V
-
-    invoke-direct/range {p0 .. p2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->logSomePresses(II)V
-
-    iget v2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
-
-    const/4 v3, 0x1
-
-    const/4 v5, 0x0
-
-    if-ne v2, v4, :cond_1
-
-    const/16 v2, 0x80
-
-    if-eq v1, v2, :cond_1
-
-    sget-object v2, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->TAG:Ljava/lang/String;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Back button event: "
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static/range {p1 .. p1}, Landroid/view/KeyEvent;->actionToString(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v2, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    move/from16 v2, p1
-
-    if-ne v2, v3, :cond_2
-
-    iget-object v6, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
-
-    and-int/lit8 v4, v1, 0x20
-
-    if-nez v4, :cond_0
-
-    move v7, v3
-
-    goto :goto_0
-
-    :cond_0
-    move v7, v5
-
-    :goto_0
-    const/4 v8, -0x1
-
-    const/4 v9, -0x1
-
-    const/4 v10, 0x1
-
-    const/4 v11, 0x0
-
-    invoke-virtual/range {v6 .. v11}, Lcom/android/systemui/recents/OverviewProxyService;->notifyBackAction(ZIIZZ)V
-
-    goto :goto_1
-
-    :cond_1
-    move/from16 v2, p1
-
-    :cond_2
-    :goto_1
-    and-int/lit16 v4, v1, 0x80
-
-    if-eqz v4, :cond_3
-
-    move v13, v3
-
-    goto :goto_2
-
-    :cond_3
-    move v13, v5
-
-    :goto_2
-    new-instance v3, Landroid/view/KeyEvent;
-
-    iget-wide v7, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mDownTime:J
-
-    iget v12, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
-
-    const/4 v14, 0x0
-
-    const/4 v15, -0x1
-
-    const/16 v16, 0x0
-
-    or-int/lit8 v1, v1, 0x8
-
-    or-int/lit8 v17, v1, 0x40
-
-    const/16 v18, 0x101
-
-    move-object v6, v3
-
-    move-wide/from16 v9, p3
-
-    move/from16 v11, p1
-
-    invoke-direct/range {v6 .. v18}, Landroid/view/KeyEvent;-><init>(JJIIIIIIII)V
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/ImageView;->getDisplay()Landroid/view/Display;
-
-    move-result-object v1
-
-    const/4 v2, -0x1
-
-    if-eqz v1, :cond_4
-
-    invoke-virtual/range {p0 .. p0}, Landroid/widget/ImageView;->getDisplay()Landroid/view/Display;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/view/Display;->getDisplayId()I
-
-    move-result v1
-
-    goto :goto_3
-
-    :cond_4
-    move v1, v2
-
-    :goto_3
-    if-eq v1, v2, :cond_5
-
-    invoke-virtual {v3, v1}, Landroid/view/KeyEvent;->setDisplayId(I)V
-
-    :cond_5
-    iget-object v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mInputManager:Landroid/hardware/input/InputManager;
-
-    invoke-virtual {v0, v3, v5}, Landroid/hardware/input/InputManager;->injectInputEvent(Landroid/view/InputEvent;I)Z
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public abortCurrentGesture()V
-    .locals 2
+.method public final abortCurrentGesture()V
+    .locals 3
 
     const-string v0, "b/63783866"
 
@@ -579,14 +251,18 @@
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-    invoke-virtual {v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->abortDelayedRipple()V
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mHandler:Landroid/os/Handler;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacksAndMessages(Ljava/lang/Object;)V
 
     iput-boolean v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mGestureAborted:Z
 
     return-void
 .end method
 
-.method public draw(Landroid/graphics/Canvas;)V
+.method public final draw(Landroid/graphics/Canvas;)V
     .locals 7
 
     iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mHasOvalBg:Z
@@ -625,7 +301,7 @@
     return-void
 .end method
 
-.method public isClickable()Z
+.method public final isClickable()Z
     .locals 1
 
     iget v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
@@ -653,27 +329,7 @@
     return p0
 .end method
 
-.method public loadAsync(Landroid/graphics/drawable/Icon;)V
-    .locals 2
-
-    new-instance v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$2;
-
-    invoke-direct {v0, p0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$2;-><init>(Lcom/android/systemui/navigationbar/buttons/KeyButtonView;)V
-
-    const/4 p0, 0x1
-
-    new-array p0, p0, [Landroid/graphics/drawable/Icon;
-
-    const/4 v1, 0x0
-
-    aput-object p1, p0, v1
-
-    invoke-virtual {v0, p0}, Landroid/os/AsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
-
-    return-void
-.end method
-
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
+.method public final onConfigurationChanged(Landroid/content/res/Configuration;)V
     .locals 1
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onConfigurationChanged(Landroid/content/res/Configuration;)V
@@ -694,7 +350,7 @@
     return-void
 .end method
 
-.method public onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
+.method public final onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
     .locals 3
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onInitializeAccessibilityNodeInfo(Landroid/view/accessibility/AccessibilityNodeInfo;)V
@@ -731,7 +387,7 @@
     return-void
 .end method
 
-.method public onTouchEvent(Landroid/view/MotionEvent;)Z
+.method public final onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 9
 
     iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
@@ -788,20 +444,20 @@
     invoke-virtual {p0, v3, v4}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(II)V
 
     :cond_3
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
     goto/16 :goto_5
 
     :cond_4
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v0
 
     float-to-int v0, v0
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
 
@@ -811,9 +467,19 @@
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/systemui/shared/system/QuickStepContract;->getQuickStepTouchSlopPx(Landroid/content/Context;)F
+    invoke-static {v1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
     move-result v1
+
+    int-to-float v1, v1
+
+    const/high16 v4, 0x40400000    # 3.0f
+
+    mul-float/2addr v1, v4
 
     iget v4, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mTouchDownX:I
 
@@ -846,7 +512,7 @@
     :cond_5
     invoke-virtual {p0, v2}, Landroid/widget/ImageView;->setPressed(Z)V
 
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
@@ -948,7 +614,7 @@
 
     :cond_d
     :goto_3
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
@@ -965,7 +631,7 @@
 
     invoke-virtual {p0, v3}, Landroid/widget/ImageView;->setPressed(Z)V
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawX()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
     move-result v1
 
@@ -973,7 +639,7 @@
 
     iput v1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mTouchDownX:I
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getRawY()F
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
     move-result p1
 
@@ -987,7 +653,7 @@
 
     iget-wide v4, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mDownTime:J
 
-    invoke-direct {p0, v2, v2, v4, v5}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(IIJ)V
+    invoke-virtual {p0, v2, v2, v4, v5}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(IIJ)V
 
     goto :goto_4
 
@@ -1000,11 +666,11 @@
     invoke-virtual {p0, v2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->playSoundEffect(I)V
 
     :cond_10
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 
     invoke-virtual {p0, p1}, Landroid/widget/ImageView;->removeCallbacks(Ljava/lang/Runnable;)Z
 
-    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Ljava/lang/Runnable;
+    iget-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCheckLongPress:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$1;
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getLongPressTimeout()I
 
@@ -1019,7 +685,7 @@
     return v3
 .end method
 
-.method protected onWindowVisibilityChanged(I)V
+.method public final onWindowVisibilityChanged(I)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->onWindowVisibilityChanged(I)V
@@ -1032,7 +698,7 @@
     return-void
 .end method
 
-.method public performAccessibilityActionInternal(ILandroid/os/Bundle;)Z
+.method public final performAccessibilityActionInternal(ILandroid/os/Bundle;)Z
     .locals 3
 
     const/4 v0, 0x1
@@ -1051,7 +717,7 @@
 
     move-result-wide p1
 
-    invoke-direct {p0, v1, v1, p1, p2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(IIJ)V
+    invoke-virtual {p0, v1, v1, p1, p2}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(IIJ)V
 
     invoke-virtual {p0, v0, v1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(II)V
 
@@ -1090,7 +756,7 @@
     return p0
 .end method
 
-.method public playSoundEffect(I)V
+.method public final playSoundEffect(I)V
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mPlaySounds:Z
@@ -1111,27 +777,299 @@
     return-void
 .end method
 
-.method public sendEvent(II)V
+.method public final sendEvent(II)V
     .locals 2
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
     move-result-wide v0
 
-    invoke-direct {p0, p1, p2, v0, v1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(IIJ)V
+    invoke-virtual {p0, p1, p2, v0, v1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->sendEvent(IIJ)V
 
     return-void
 .end method
 
-.method public setCode(I)V
-    .locals 0
+.method public final sendEvent(IIJ)V
+    .locals 16
 
-    iput p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
+    move-object/from16 v0, p0
+
+    move/from16 v6, p1
+
+    move/from16 v1, p2
+
+    iget-object v2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mMetricsLogger:Lcom/android/internal/logging/MetricsLogger;
+
+    new-instance v3, Landroid/metrics/LogMaker;
+
+    const/16 v4, 0x3a3
+
+    invoke-direct {v3, v4}, Landroid/metrics/LogMaker;-><init>(I)V
+
+    const/4 v4, 0x4
+
+    invoke-virtual {v3, v4}, Landroid/metrics/LogMaker;->setType(I)Landroid/metrics/LogMaker;
+
+    move-result-object v3
+
+    iget v5, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
+
+    invoke-virtual {v3, v5}, Landroid/metrics/LogMaker;->setSubtype(I)Landroid/metrics/LogMaker;
+
+    move-result-object v3
+
+    invoke-static/range {p1 .. p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/16 v7, 0x3a5
+
+    invoke-virtual {v3, v7, v5}, Landroid/metrics/LogMaker;->addTaggedData(ILjava/lang/Object;)Landroid/metrics/LogMaker;
+
+    move-result-object v3
+
+    invoke-static/range {p2 .. p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    const/16 v7, 0x3a4
+
+    invoke-virtual {v3, v7, v5}, Landroid/metrics/LogMaker;->addTaggedData(ILjava/lang/Object;)Landroid/metrics/LogMaker;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/internal/logging/MetricsLogger;->write(Landroid/metrics/LogMaker;)V
+
+    and-int/lit16 v2, v1, 0x80
+
+    const/4 v14, 0x0
+
+    const/4 v3, 0x1
+
+    if-eqz v2, :cond_0
+
+    move v5, v3
+
+    goto :goto_0
+
+    :cond_0
+    move v5, v14
+
+    :goto_0
+    sget-object v7, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NONE:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    if-ne v6, v3, :cond_1
+
+    iget-boolean v8, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mLongClicked:Z
+
+    if-eqz v8, :cond_1
+
+    goto :goto_2
+
+    :cond_1
+    if-nez v6, :cond_2
+
+    if-nez v5, :cond_2
+
+    goto :goto_2
+
+    :cond_2
+    and-int/lit8 v8, v1, 0x20
+
+    if-nez v8, :cond_a
+
+    and-int/lit16 v8, v1, 0x100
+
+    if-eqz v8, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    iget v8, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
+
+    const/4 v9, 0x3
+
+    if-eq v8, v9, :cond_8
+
+    if-eq v8, v4, :cond_6
+
+    const/16 v9, 0xbb
+
+    if-eq v8, v9, :cond_4
+
+    move-object v5, v7
+
+    goto :goto_1
+
+    :cond_4
+    if-eqz v5, :cond_5
+
+    sget-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_OVERVIEW_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    goto :goto_1
+
+    :cond_5
+    sget-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_OVERVIEW_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    goto :goto_1
+
+    :cond_6
+    if-eqz v5, :cond_7
+
+    sget-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_BACK_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    goto :goto_1
+
+    :cond_7
+    sget-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_BACK_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    goto :goto_1
+
+    :cond_8
+    if-eqz v5, :cond_9
+
+    sget-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_HOME_BUTTON_LONGPRESS:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    goto :goto_1
+
+    :cond_9
+    sget-object v5, Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;->NAVBAR_HOME_BUTTON_TAP:Lcom/android/systemui/navigationbar/buttons/KeyButtonView$NavBarButtonEvent;
+
+    :goto_1
+    if-eq v5, v7, :cond_a
+
+    iget-object v7, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    invoke-interface {v7, v5}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
+
+    :cond_a
+    :goto_2
+    iget v5, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
+
+    if-ne v5, v4, :cond_c
+
+    const/16 v4, 0x80
+
+    if-eq v1, v4, :cond_c
+
+    const-string v4, "Back button event: "
+
+    invoke-static {v4}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-static/range {p1 .. p1}, Landroid/view/KeyEvent;->actionToString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "KeyButtonView"
+
+    invoke-static {v5, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-ne v6, v3, :cond_c
+
+    iget-object v7, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
+
+    and-int/lit8 v4, v1, 0x20
+
+    if-nez v4, :cond_b
+
+    move v10, v3
+
+    goto :goto_3
+
+    :cond_b
+    move v10, v14
+
+    :goto_3
+    const/4 v8, -0x1
+
+    const/4 v9, -0x1
+
+    const/4 v11, 0x1
+
+    const/4 v12, 0x0
+
+    invoke-virtual/range {v7 .. v12}, Lcom/android/systemui/recents/OverviewProxyService;->notifyBackAction(IIZZZ)V
+
+    :cond_c
+    if-eqz v2, :cond_d
+
+    move v8, v3
+
+    goto :goto_4
+
+    :cond_d
+    move v8, v14
+
+    :goto_4
+    new-instance v15, Landroid/view/KeyEvent;
+
+    iget-wide v2, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mDownTime:J
+
+    iget v7, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mCode:I
+
+    const/4 v9, 0x0
+
+    const/4 v10, -0x1
+
+    const/4 v11, 0x0
+
+    or-int/lit8 v1, v1, 0x8
+
+    or-int/lit8 v12, v1, 0x40
+
+    const/16 v13, 0x101
+
+    move-object v1, v15
+
+    move-wide/from16 v4, p3
+
+    move/from16 v6, p1
+
+    invoke-direct/range {v1 .. v13}, Landroid/view/KeyEvent;-><init>(JJIIIIIIII)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/ImageView;->getDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    const/4 v2, -0x1
+
+    if-eqz v1, :cond_e
+
+    invoke-virtual/range {p0 .. p0}, Landroid/widget/ImageView;->getDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/Display;->getDisplayId()I
+
+    move-result v1
+
+    goto :goto_5
+
+    :cond_e
+    move v1, v2
+
+    :goto_5
+    if-eq v1, v2, :cond_f
+
+    invoke-virtual {v15, v1}, Landroid/view/KeyEvent;->setDisplayId(I)V
+
+    :cond_f
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mInputManager:Landroid/hardware/input/InputManager;
+
+    invoke-virtual {v0, v15, v14}, Landroid/hardware/input/InputManager;->injectInputEvent(Landroid/view/InputEvent;I)Z
 
     return-void
 .end method
 
-.method public setDarkIntensity(F)V
+.method public final setDarkIntensity(F)V
     .locals 1
 
     iput p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mDarkIntensity:F
@@ -1151,23 +1089,27 @@
     :cond_0
     iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->setDarkIntensity(F)V
+    const/high16 v0, 0x3f000000    # 0.5f
+
+    cmpl-float p1, p1, v0
+
+    if-ltz p1, :cond_1
+
+    const/4 p1, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 p1, 0x0
+
+    :goto_0
+    iput-boolean p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mDark:Z
 
     return-void
 .end method
 
-.method public setDelayTouchFeedback(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->setDelayTouchFeedback(Z)V
-
-    return-void
-.end method
-
-.method public setImageDrawable(Landroid/graphics/drawable/Drawable;)V
-    .locals 2
+.method public final setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    .locals 4
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
@@ -1182,45 +1124,67 @@
 
     invoke-virtual {p1, v0}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->setDarkIntensity(F)V
 
-    invoke-virtual {p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->hasOvalBg()Z
+    iget-object v0, p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
 
-    move-result v0
+    iget-object v0, v0, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mOvalBackgroundColor:Landroid/graphics/Color;
 
-    iput-boolean v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mHasOvalBg:Z
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mOvalBgPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->getDrawableBackgroundColor()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Paint;->setColor(I)V
-
-    :cond_1
-    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
-
-    invoke-virtual {p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->hasOvalBg()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
-
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;->OVAL:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;
+    move v3, v1
 
     goto :goto_0
 
-    :cond_2
-    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;->ROUNDED_RECT:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;
+    :cond_1
+    move v3, v2
 
     :goto_0
-    invoke-virtual {p0, p1}, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->setType(Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;)V
+    iput-boolean v3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mHasOvalBg:Z
+
+    if-eqz v3, :cond_2
+
+    iget-object v3, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mOvalBgPaint:Landroid/graphics/Paint;
+
+    invoke-virtual {v0}, Landroid/graphics/Color;->toArgb()I
+
+    move-result v0
+
+    invoke-virtual {v3, v0}, Landroid/graphics/Paint;->setColor(I)V
+
+    :cond_2
+    iget-object p0, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mRipple:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;
+
+    iget-object p1, p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable;->mState:Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;
+
+    iget-object p1, p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonDrawable$ShadowDrawableState;->mOvalBackgroundColor:Landroid/graphics/Color;
+
+    if-eqz p1, :cond_3
+
+    goto :goto_1
+
+    :cond_3
+    move v1, v2
+
+    :goto_1
+    if-eqz v1, :cond_4
+
+    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;->OVAL:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;
+
+    goto :goto_2
+
+    :cond_4
+    sget-object p1, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;->ROUNDED_RECT:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;
+
+    :goto_2
+    iput-object p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple;->mType:Lcom/android/systemui/navigationbar/buttons/KeyButtonRipple$Type;
 
     return-void
 .end method
 
-.method public setOnClickListener(Landroid/view/View$OnClickListener;)V
+.method public final setOnClickListener(Landroid/view/View$OnClickListener;)V
     .locals 0
 
     invoke-super {p0, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
@@ -1230,10 +1194,8 @@
     return-void
 .end method
 
-.method public setVertical(Z)V
+.method public final setVertical(Z)V
     .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/navigationbar/buttons/KeyButtonView;->mIsVertical:Z
 
     return-void
 .end method

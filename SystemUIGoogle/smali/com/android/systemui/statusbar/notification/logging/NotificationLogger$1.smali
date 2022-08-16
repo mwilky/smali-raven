@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;
+.class public final Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;
 .super Ljava/lang/Object;
 .source "NotificationLogger.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public onChildLocationsChanged()V
+.method public final onChildLocationsChanged()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
@@ -52,17 +52,13 @@
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->access$000(Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;)J
-
-    move-result-wide v0
+    iget-wide v0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mLastVisibilityReportUptimeMs:J
 
     const-wide/16 v2, 0x1f4
 
     add-long/2addr v0, v2
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger$1;->this$0:Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/logging/NotificationLogger;->mHandler:Landroid/os/Handler;
 

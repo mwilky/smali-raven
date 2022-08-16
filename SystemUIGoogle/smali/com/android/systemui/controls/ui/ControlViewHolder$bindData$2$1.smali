@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/ui/ControlViewHolder$bindData$2$1;
+.class public final Lcom/android/systemui/controls/ui/ControlViewHolder$bindData$2$1;
 .super Ljava/lang/Object;
 .source "ControlViewHolder.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
+.field public final synthetic this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
+.method public constructor <init>(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$bindData$2$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
@@ -37,13 +37,9 @@
 .method public final onLongClick(Landroid/view/View;)Z
     .locals 0
 
-    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$bindData$2$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
-
-    invoke-virtual {p1}, Lcom/android/systemui/controls/ui/ControlViewHolder;->getControlActionCoordinator()Lcom/android/systemui/controls/ui/ControlActionCoordinator;
-
-    move-result-object p1
-
     iget-object p0, p0, Lcom/android/systemui/controls/ui/ControlViewHolder$bindData$2$1;->this$0:Lcom/android/systemui/controls/ui/ControlViewHolder;
+
+    iget-object p1, p0, Lcom/android/systemui/controls/ui/ControlViewHolder;->controlActionCoordinator:Lcom/android/systemui/controls/ui/ControlActionCoordinator;
 
     invoke-interface {p1, p0}, Lcom/android/systemui/controls/ui/ControlActionCoordinator;->longPress(Lcom/android/systemui/controls/ui/ControlViewHolder;)V
 

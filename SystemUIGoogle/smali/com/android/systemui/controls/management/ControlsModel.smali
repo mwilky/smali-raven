@@ -27,15 +27,7 @@
     .end annotation
 .end method
 
-.method public abstract getFavorites()Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/controls/controller/ControlInfo;",
-            ">;"
-        }
-    .end annotation
+.method public abstract getFavorites()Ljava/util/ArrayList;
 .end method
 
 .method public abstract getMoveHelper()Lcom/android/systemui/controls/management/ControlsModel$MoveHelper;

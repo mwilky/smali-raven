@@ -1,4 +1,4 @@
-.class public Landroidx/core/util/Pair;
+.class public final Landroidx/core/util/Pair;
 .super Ljava/lang/Object;
 .source "Pair.java"
 
@@ -37,17 +37,6 @@
 # direct methods
 .method public constructor <init>(Ljava/lang/Object;Ljava/lang/Object;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "first",
-            "second"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(TF;TS;)V"
@@ -63,50 +52,10 @@
     return-void
 .end method
 
-.method public static create(Ljava/lang/Object;Ljava/lang/Object;)Landroidx/core/util/Pair;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "a",
-            "b"
-        }
-    .end annotation
-
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<A:",
-            "Ljava/lang/Object;",
-            "B:",
-            "Ljava/lang/Object;",
-            ">(TA;TB;)",
-            "Landroidx/core/util/Pair<",
-            "TA;TB;>;"
-        }
-    .end annotation
-
-    new-instance v0, Landroidx/core/util/Pair;
-
-    invoke-direct {v0, p0, p1}, Landroidx/core/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    return-object v0
-.end method
-
 
 # virtual methods
-.method public equals(Ljava/lang/Object;)Z
+.method public final equals(Ljava/lang/Object;)Z
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "o"
-        }
-    .end annotation
 
     instance-of v0, p1, Landroidx/core/util/Pair;
 
@@ -123,7 +72,7 @@
 
     iget-object v2, p0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 
-    invoke-static {v0, v2}, Landroidx/core/util/ObjectsCompat;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {v0, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -133,7 +82,7 @@
 
     iget-object p0, p0, Landroidx/core/util/Pair;->second:Ljava/lang/Object;
 
-    invoke-static {p1, p0}, Landroidx/core/util/ObjectsCompat;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p1, p0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p0
 
@@ -145,7 +94,7 @@
     return v1
 .end method
 
-.method public hashCode()I
+.method public final hashCode()I
     .locals 2
 
     iget-object v0, p0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
@@ -181,16 +130,14 @@
     return p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
-    new-instance v0, Ljava/lang/StringBuilder;
+    const-string v0, "Pair{"
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v1, "Pair{"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p0, Landroidx/core/util/Pair;->first:Ljava/lang/Object;
 

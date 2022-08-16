@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
+.class public final Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
 .super Ljava/lang/Object;
 .source "ImageWallpaperRenderer.java"
 
@@ -9,27 +9,27 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "WallpaperTexture"
 .end annotation
 
 
 # instance fields
-.field private mBitmap:Landroid/graphics/Bitmap;
+.field public mBitmap:Landroid/graphics/Bitmap;
 
-.field private final mDimensions:Landroid/graphics/Rect;
+.field public final mDimensions:Landroid/graphics/Rect;
 
-.field private final mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
+.field public final mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
-.field private mTextureUsed:Z
+.field public mTextureUsed:Z
 
-.field private final mWallpaperManager:Landroid/app/WallpaperManager;
+.field public final mWallpaperManager:Landroid/app/WallpaperManager;
 
-.field private mWcgContent:Z
+.field public mWcgContent:Z
 
 
 # direct methods
-.method private constructor <init>(Landroid/app/WallpaperManager;)V
+.method public constructor <init>(Landroid/app/WallpaperManager;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,106 +51,35 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Landroid/app/WallpaperManager;Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$1;)V
-    .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;-><init>(Landroid/app/WallpaperManager;)V
+# virtual methods
+.method public final toString()Ljava/lang/String;
+    .locals 2
 
-    return-void
-.end method
+    const-string/jumbo v0, "{"
 
-.method static synthetic access$100(Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;)Z
-    .locals 0
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {p0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->isWcgContent()Z
+    move-result-object v0
 
-    move-result p0
+    iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mBitmap:Landroid/graphics/Bitmap;
 
-    return p0
-.end method
+    if-eqz v1, :cond_0
 
-.method static synthetic access$200(Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;)Landroid/graphics/Rect;
-    .locals 0
+    invoke-virtual {v1}, Ljava/lang/Object;->hashCode()I
 
-    invoke-direct {p0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->getTextureDimensions()Landroid/graphics/Rect;
+    move-result v1
 
-    move-result-object p0
+    invoke-static {v1}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
 
-    return-object p0
-.end method
-
-.method private getHash()Ljava/lang/String;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mBitmap:Landroid/graphics/Bitmap;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Ljava/lang/Object;->hashCode()I
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
-
-    move-result-object p0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_0
-    const-string p0, "null"
+    const-string v1, "null"
 
     :goto_0
-    return-object p0
-.end method
-
-.method private getTextureDimensions()Landroid/graphics/Rect;
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mTextureUsed:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mDimensions:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mWallpaperManager:Landroid/app/WallpaperManager;
-
-    invoke-virtual {v1}, Landroid/app/WallpaperManager;->peekBitmapDimensions()Landroid/graphics/Rect;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
-    :cond_0
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mDimensions:Landroid/graphics/Rect;
-
-    return-object p0
-.end method
-
-.method private isWcgContent()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mWcgContent:Z
-
-    return p0
-.end method
-
-
-# virtual methods
-.method public toString()Ljava/lang/String;
-    .locals 2
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v1, "{"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-direct {p0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->getHash()Ljava/lang/String;
-
-    move-result-object v1
-
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const-string v1, ", "
@@ -176,7 +105,7 @@
     return-object p0
 .end method
 
-.method public use(Ljava/util/function/Consumer;)V
+.method public final use(Ljava/util/function/Consumer;)V
     .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -202,9 +131,11 @@
 
     iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mWallpaperManager:Landroid/app/WallpaperManager;
 
-    const/4 v2, 0x0
+    const/4 v2, -0x2
 
-    invoke-virtual {v1, v2}, Landroid/app/WallpaperManager;->getBitmap(Z)Landroid/graphics/Bitmap;
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/app/WallpaperManager;->getBitmapAsUser(IZ)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
@@ -212,9 +143,9 @@
 
     iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mWallpaperManager:Landroid/app/WallpaperManager;
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v1, v3}, Landroid/app/WallpaperManager;->wallpaperSupportsWcg(I)Z
+    invoke-virtual {v1, v2}, Landroid/app/WallpaperManager;->wallpaperSupportsWcg(I)Z
 
     move-result v1
 
@@ -240,16 +171,14 @@
 
     move-result v5
 
-    invoke-virtual {v4, v2, v2, v1, v5}, Landroid/graphics/Rect;->set(IIII)V
+    invoke-virtual {v4, v3, v3, v1, v5}, Landroid/graphics/Rect;->set(IIII)V
 
-    iput-boolean v3, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mTextureUsed:Z
+    iput-boolean v2, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mTextureUsed:Z
 
     goto :goto_0
 
     :cond_0
-    invoke-static {}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->access$300()Ljava/lang/String;
-
-    move-result-object v1
+    const-string v1, "ImageWallpaperRenderer"
 
     const-string v2, "Can\'t get bitmap"
 
@@ -261,13 +190,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_1
 
-    if-eqz p1, :cond_2
-
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mBitmap:Landroid/graphics/Bitmap;
 
     invoke-interface {p1, v0}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
 
-    :cond_2
     iget-object p1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mRefCount:Ljava/util/concurrent/atomic/AtomicInteger;
 
     monitor-enter p1
@@ -279,11 +205,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mBitmap:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
@@ -291,7 +217,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->mBitmap:Landroid/graphics/Bitmap;
 
-    :cond_3
+    :cond_2
     monitor-exit p1
 
     return-void

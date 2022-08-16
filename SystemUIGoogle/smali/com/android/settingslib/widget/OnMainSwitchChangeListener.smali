@@ -4,5 +4,5 @@
 
 
 # virtual methods
-.method public abstract onSwitchChanged(Landroid/widget/Switch;Z)V
+.method public abstract onSwitchChanged(Z)V
 .end method

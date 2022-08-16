@@ -12,8 +12,3 @@
     accessFlags = 0x609
     name = "ClickHandler"
 .end annotation
-
-
-# virtual methods
-.method public abstract handleClick()Z
-.end method

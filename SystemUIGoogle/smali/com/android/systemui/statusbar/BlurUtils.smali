@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/BlurUtils;
+.class public final Lcom/android/systemui/statusbar/BlurUtils;
 .super Ljava/lang/Object;
 .source "BlurUtils.kt"
 
@@ -7,40 +7,24 @@
 
 
 # instance fields
-.field private final crossWindowBlurListeners:Landroid/view/CrossWindowBlurListeners;
+.field public final crossWindowBlurListeners:Landroid/view/CrossWindowBlurListeners;
 
-.field private lastAppliedBlur:I
+.field public lastAppliedBlur:I
 
-.field private final maxBlurRadius:I
+.field public final maxBlurRadius:I
 
-.field private final minBlurRadius:I
-
-.field private final resources:Landroid/content/res/Resources;
+.field public final minBlurRadius:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/res/Resources;Landroid/view/CrossWindowBlurListeners;Lcom/android/systemui/dump/DumpManager;)V
-    .locals 1
-
-    const-string v0, "resources"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "crossWindowBlurListeners"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "dumpManager"
-
-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/BlurUtils;->resources:Landroid/content/res/Resources;
-
     iput-object p2, p0, Lcom/android/systemui/statusbar/BlurUtils;->crossWindowBlurListeners:Landroid/view/CrossWindowBlurListeners;
 
-    sget p2, Lcom/android/systemui/R$dimen;->min_window_blur_radius:I
+    const p2, 0x7f0704ba
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -48,7 +32,7 @@
 
     iput p2, p0, Lcom/android/systemui/statusbar/BlurUtils;->minBlurRadius:I
 
-    sget p2, Lcom/android/systemui/R$dimen;->max_window_blur_radius:I
+    const p2, 0x7f070490
 
     invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -61,10 +45,6 @@
     invoke-virtual {p1}, Ljava/lang/Class;->getName()Ljava/lang/String;
 
     move-result-object p1
-
-    const-string p2, "javaClass.name"
-
-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p3, p1, p0}, Lcom/android/systemui/dump/DumpManager;->registerDumpable(Ljava/lang/String;Lcom/android/systemui/Dumpable;)V
 
@@ -138,12 +118,10 @@
     invoke-virtual {v0, p0, p3}, Landroid/view/SurfaceControl$Transaction;->setOpaque(Landroid/view/SurfaceControl;Z)Landroid/view/SurfaceControl$Transaction;
 
     invoke-virtual {v0}, Landroid/view/SurfaceControl$Transaction;->apply()V
-
-    sget-object p0, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-static {v0, v1}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+    invoke-static {v0, v1}, Lokio/Okio;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     return-void
 
@@ -158,7 +136,7 @@
     :catchall_1
     move-exception p1
 
-    invoke-static {v0, p0}, Lkotlin/io/CloseableKt;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
+    invoke-static {v0, p0}, Lokio/Okio;->closeFinally(Ljava/io/Closeable;Ljava/lang/Throwable;)V
 
     throw p1
 
@@ -214,64 +192,48 @@
     return-object p0
 .end method
 
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+.method public final dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
 
-    const-string v0, "fd"
+    new-instance p2, Landroid/util/IndentingPrintWriter;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string v0, "  "
 
-    const-string p1, "pw"
+    invoke-direct {p2, p1, v0}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
 
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    const-string p1, "BlurUtils:"
 
-    const-string p1, "args"
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    invoke-static {p3, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    invoke-virtual {p2}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
 
-    new-instance p1, Landroid/util/IndentingPrintWriter;
+    iget p1, p0, Lcom/android/systemui/statusbar/BlurUtils;->minBlurRadius:I
 
-    const-string p3, "  "
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    invoke-direct {p1, p2, p3}, Landroid/util/IndentingPrintWriter;-><init>(Ljava/io/Writer;Ljava/lang/String;)V
+    move-result-object p1
 
-    const-string p2, "BlurUtils:"
+    const-string v0, "minBlurRadius: "
 
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {p1}, Landroid/util/IndentingPrintWriter;->increaseIndent()Landroid/util/IndentingPrintWriter;
+    move-result-object p1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BlurUtils;->getMinBlurRadius()I
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
-    move-result p2
+    iget p1, p0, Lcom/android/systemui/statusbar/BlurUtils;->maxBlurRadius:I
 
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object p2
+    move-result-object p1
 
-    const-string p3, "minBlurRadius: "
+    const-string v0, "maxBlurRadius: "
 
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object p2
+    move-result-object p1
 
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BlurUtils;->getMaxBlurRadius()I
-
-    move-result p2
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    const-string p3, "maxBlurRadius: "
-
-    invoke-static {p3, p2}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object p2
-
-    invoke-virtual {p1, p2}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p1}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/BlurUtils;->supportsBlursOnWindows()Z
 
@@ -281,13 +243,13 @@
 
     move-result-object p0
 
-    const-string p2, "supportsBlursOnWindows: "
+    const-string/jumbo p1, "supportsBlursOnWindows: "
 
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     sget-boolean p0, Landroid/view/CrossWindowBlurListeners;->CROSS_WINDOW_BLUR_SUPPORTED:Z
 
@@ -295,13 +257,13 @@
 
     move-result-object p0
 
-    const-string p2, "CROSS_WINDOW_BLUR_SUPPORTED: "
+    const-string p1, "CROSS_WINDOW_BLUR_SUPPORTED: "
 
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     invoke-static {}, Landroid/app/ActivityManager;->isHighEndGfx()Z
 
@@ -311,73 +273,18 @@
 
     move-result-object p0
 
-    const-string p2, "isHighEndGfx: "
+    const-string p1, "isHighEndGfx: "
 
-    invoke-static {p2, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
-    invoke-virtual {p1, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p2, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public final getMaxBlurRadius()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/BlurUtils;->maxBlurRadius:I
-
-    return p0
-.end method
-
-.method public final getMinBlurRadius()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/BlurUtils;->minBlurRadius:I
-
-    return p0
-.end method
-
-.method public final ratioOfBlurRadius(F)F
-    .locals 3
-
-    const/4 v0, 0x0
-
-    cmpg-float v1, p1, v0
-
-    if-nez v1, :cond_0
-
-    const/4 v1, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 v1, 0x0
-
-    :goto_0
-    if-eqz v1, :cond_1
-
-    return v0
-
-    :cond_1
-    iget v1, p0, Lcom/android/systemui/statusbar/BlurUtils;->minBlurRadius:I
-
-    int-to-float v1, v1
-
-    iget p0, p0, Lcom/android/systemui/statusbar/BlurUtils;->maxBlurRadius:I
-
-    int-to-float p0, p0
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    invoke-static {v1, p0, v0, v2, p1}, Landroid/util/MathUtils;->map(FFFFF)F
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public supportsBlursOnWindows()Z
+.method public final supportsBlursOnWindows()Z
     .locals 2
 
     sget-boolean v0, Landroid/view/CrossWindowBlurListeners;->CROSS_WINDOW_BLUR_SUPPORTED:Z
@@ -400,7 +307,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "persist.sysui.disableBlur"
+    const-string/jumbo p0, "persist.sysui.disableBlur"
 
     invoke-static {p0, v1}, Landroid/os/SystemProperties;->getBoolean(Ljava/lang/String;Z)Z
 

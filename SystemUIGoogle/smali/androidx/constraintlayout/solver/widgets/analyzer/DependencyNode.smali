@@ -17,41 +17,25 @@
 # instance fields
 .field public delegateToWidgetRun:Z
 
-.field dependencies:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public dependencies:Ljava/util/ArrayList;
 
-.field margin:I
+.field public margin:I
 
-.field marginDependency:Landroidx/constraintlayout/solver/widgets/analyzer/DimensionDependency;
+.field public marginDependency:Landroidx/constraintlayout/solver/widgets/analyzer/DimensionDependency;
 
-.field marginFactor:I
+.field public marginFactor:I
 
 .field public readyToSolve:Z
 
 .field public resolved:Z
 
-.field run:Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;
+.field public run:Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;
 
-.field targets:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public targets:Ljava/util/ArrayList;
 
-.field type:Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode$Type;
+.field public type:Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode$Type;
 
-.field public updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;
+.field public updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;
 
 .field public value:I
 
@@ -64,7 +48,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;
+    iput-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;
 
     const/4 v1, 0x0
 
@@ -88,13 +72,13 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/List;
+    iput-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/ArrayList;
 
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/List;
+    iput-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/ArrayList;
 
     iput-object p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->run:Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;
 
@@ -103,12 +87,12 @@
 
 
 # virtual methods
-.method public addDependency(Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;)V
+.method public final addDependency(Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;)V
     .locals 1
 
-    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/List;
+    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/ArrayList;
 
-    invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v0, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     iget-boolean p0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->resolved:Z
 
@@ -120,16 +104,16 @@
     return-void
 .end method
 
-.method public clear()V
+.method public final clear()V
     .locals 1
 
-    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/List;
+    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/List;
+    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/ArrayList;
 
-    invoke-interface {v0}, Ljava/util/List;->clear()V
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
     const/4 v0, 0x0
 
@@ -160,9 +144,9 @@
 
     iput p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->value:I
 
-    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/List;
+    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p0
 
@@ -187,7 +171,7 @@
     return-void
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -198,9 +182,7 @@
 
     iget-object v1, v1, Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;->widget:Landroidx/constraintlayout/solver/widgets/ConstraintWidget;
 
-    invoke-virtual {v1}, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->getDebugName()Ljava/lang/String;
-
-    move-result-object v1
+    iget-object v1, v1, Landroidx/constraintlayout/solver/widgets/ConstraintWidget;->mDebugName:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -229,7 +211,7 @@
     goto :goto_0
 
     :cond_0
-    const-string v1, "unresolved"
+    const-string/jumbo v1, "unresolved"
 
     :goto_0
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
@@ -238,9 +220,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/List;
+    iget-object v1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/ArrayList;
 
-    invoke-interface {v1}, Ljava/util/List;->size()I
+    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
 
     move-result v1
 
@@ -250,9 +232,9 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/List;
+    iget-object p0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->dependencies:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/util/List;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result p0
 
@@ -269,12 +251,12 @@
     return-object p0
 .end method
 
-.method public update(Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;)V
+.method public final update(Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;)V
     .locals 5
 
-    iget-object p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/List;
+    iget-object p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/ArrayList;
 
-    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object p1
 
@@ -302,7 +284,7 @@
 
     iput-boolean p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->readyToSolve:Z
 
-    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;
+    iget-object v0, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;
 
     if-eqz v0, :cond_2
 
@@ -324,9 +306,9 @@
 
     const/4 v1, 0x0
 
-    iget-object v2, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/List;
+    iget-object v2, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->targets:Ljava/util/ArrayList;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v2
 
@@ -397,7 +379,7 @@
     invoke-virtual {p0, p1}, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->resolve(I)V
 
     :cond_8
-    iget-object p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/Dependency;
+    iget-object p1, p0, Landroidx/constraintlayout/solver/widgets/analyzer/DependencyNode;->updateDelegate:Landroidx/constraintlayout/solver/widgets/analyzer/WidgetRun;
 
     if-eqz p1, :cond_9
 

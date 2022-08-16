@@ -1,6 +1,6 @@
 .class public interface abstract Lcom/android/systemui/statusbar/notification/collection/inflation/NotifInflater$InflationCallback;
 .super Ljava/lang/Object;
-.source "NotifInflater.java"
+.source "NotifInflater.kt"
 
 
 # annotations
@@ -15,5 +15,5 @@
 
 
 # virtual methods
-.method public abstract onInflationFinished(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
+.method public abstract onInflationFinished(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;)V
 .end method

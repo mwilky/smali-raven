@@ -3,15 +3,11 @@
 .source "R.java"
 
 
-# static fields
-.field public static final motion_base:I = 0x7f0b03e8
-
-
 # direct methods
 .method public constructor <init>()V
     .locals 0
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const/4 p0, 0x0
 
-    return-void
+    throw p0
 .end method

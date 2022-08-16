@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">Fa %d dies</item>
-        <item quantity="one">Fa %d dia</item>
+        <item quantity="other">Fa %d dies</item>
+        <item quantity="one">Fa %d dia</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">Fa %d min</item>
-        <item quantity="one">Fa %d min</item>
+        <item quantity="other">Fa %d min</item>
+        <item quantity="one">Fa %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
-        <item quantity="other">Fa %d anys</item>
-        <item quantity="one">Fa %d any</item>
+        <item quantity="other">Fa %d anys</item>
+        <item quantity="one">Fa %d any</item>
     </plurals>
     <plurals name="controls_number_of_favorites">
         <item quantity="other">"S'han afegit %s controls."</item>
         <item quantity="one">"S'ha afegit %s control."</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s aplicacions estan actives</item>
+        <item quantity="one">%s aplicació està activa</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Introdueix el PIN de la SIM. Et queden %d intents.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">El codi PUK de la SIM no és correcte. Et queden %d intents; si els esgotes tots, la SIM no es podrà tornar a fer servir.</item>
         <item quantity="one">"El codi PUK de la SIM no és correcte. Et queda %d intent; si no l'encertes, la SIM no es podrà tornar a fer servir."</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">"Torna-ho a provar d'aquí a %d segons."</item>
-        <item quantity="one">"Torna-ho a provar d'aquí a 1 segon."</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d notificacions noves</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Pots afegir fins a %d usuaris.</item>
         <item quantity="one">Només es pot crear un usuari.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d dispositius connectats</item>
-        <item quantity="one">%1$d dispositiu connectat</item>
     </plurals>
 </resources>

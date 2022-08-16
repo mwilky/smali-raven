@@ -18,9 +18,15 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/systemui/qs/QSDndEvent;
+.field public static final synthetic $VALUES:[Lcom/android/systemui/qs/QSDndEvent;
 
 .field public static final enum QS_DND_CONDITION_SELECT:Lcom/android/systemui/qs/QSDndEvent;
+
+.field public static final enum QS_DND_DIALOG_ENABLE_FOREVER:Lcom/android/systemui/qs/QSDndEvent;
+
+.field public static final enum QS_DND_DIALOG_ENABLE_UNTIL_ALARM:Lcom/android/systemui/qs/QSDndEvent;
+
+.field public static final enum QS_DND_DIALOG_ENABLE_UNTIL_COUNTDOWN:Lcom/android/systemui/qs/QSDndEvent;
 
 .field public static final enum QS_DND_TIME_DOWN:Lcom/android/systemui/qs/QSDndEvent;
 
@@ -32,8 +38,8 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 8
+.method public static constructor <clinit>()V
+    .locals 14
 
     new-instance v0, Lcom/android/systemui/qs/QSDndEvent;
 
@@ -71,22 +77,64 @@
 
     sput-object v3, Lcom/android/systemui/qs/QSDndEvent;->QS_DND_TIME_DOWN:Lcom/android/systemui/qs/QSDndEvent;
 
-    const/4 v5, 0x3
+    new-instance v5, Lcom/android/systemui/qs/QSDndEvent;
 
-    new-array v5, v5, [Lcom/android/systemui/qs/QSDndEvent;
+    const-string v7, "QS_DND_DIALOG_ENABLE_FOREVER"
 
-    aput-object v0, v5, v2
+    const/4 v8, 0x3
 
-    aput-object v1, v5, v4
+    const/16 v9, 0x3b2
 
-    aput-object v3, v5, v6
+    invoke-direct {v5, v7, v8, v9}, Lcom/android/systemui/qs/QSDndEvent;-><init>(Ljava/lang/String;II)V
 
-    sput-object v5, Lcom/android/systemui/qs/QSDndEvent;->$VALUES:[Lcom/android/systemui/qs/QSDndEvent;
+    sput-object v5, Lcom/android/systemui/qs/QSDndEvent;->QS_DND_DIALOG_ENABLE_FOREVER:Lcom/android/systemui/qs/QSDndEvent;
+
+    new-instance v7, Lcom/android/systemui/qs/QSDndEvent;
+
+    const-string v9, "QS_DND_DIALOG_ENABLE_UNTIL_ALARM"
+
+    const/4 v10, 0x4
+
+    const/16 v11, 0x3b3
+
+    invoke-direct {v7, v9, v10, v11}, Lcom/android/systemui/qs/QSDndEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v7, Lcom/android/systemui/qs/QSDndEvent;->QS_DND_DIALOG_ENABLE_UNTIL_ALARM:Lcom/android/systemui/qs/QSDndEvent;
+
+    new-instance v9, Lcom/android/systemui/qs/QSDndEvent;
+
+    const-string v11, "QS_DND_DIALOG_ENABLE_UNTIL_COUNTDOWN"
+
+    const/4 v12, 0x5
+
+    const/16 v13, 0x3b4
+
+    invoke-direct {v9, v11, v12, v13}, Lcom/android/systemui/qs/QSDndEvent;-><init>(Ljava/lang/String;II)V
+
+    sput-object v9, Lcom/android/systemui/qs/QSDndEvent;->QS_DND_DIALOG_ENABLE_UNTIL_COUNTDOWN:Lcom/android/systemui/qs/QSDndEvent;
+
+    const/4 v11, 0x6
+
+    new-array v11, v11, [Lcom/android/systemui/qs/QSDndEvent;
+
+    aput-object v0, v11, v2
+
+    aput-object v1, v11, v4
+
+    aput-object v3, v11, v6
+
+    aput-object v5, v11, v8
+
+    aput-object v7, v11, v10
+
+    aput-object v9, v11, v12
+
+    sput-object v11, Lcom/android/systemui/qs/QSDndEvent;->$VALUES:[Lcom/android/systemui/qs/QSDndEvent;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;II)V
+.method public constructor <init>(Ljava/lang/String;II)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -104,10 +152,6 @@
 .method public static valueOf(Ljava/lang/String;)Lcom/android/systemui/qs/QSDndEvent;
     .locals 1
 
-    const-string/jumbo v0, "value"
-
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
     const-class v0, Lcom/android/systemui/qs/QSDndEvent;
 
     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
@@ -120,26 +164,22 @@
 .end method
 
 .method public static values()[Lcom/android/systemui/qs/QSDndEvent;
-    .locals 4
+    .locals 1
 
     sget-object v0, Lcom/android/systemui/qs/QSDndEvent;->$VALUES:[Lcom/android/systemui/qs/QSDndEvent;
 
-    array-length v1, v0
+    invoke-virtual {v0}, [Ljava/lang/Object;->clone()Ljava/lang/Object;
 
-    new-array v1, v1, [Lcom/android/systemui/qs/QSDndEvent;
+    move-result-object v0
 
-    array-length v2, v0
+    check-cast v0, [Lcom/android/systemui/qs/QSDndEvent;
 
-    const/4 v3, 0x0
-
-    invoke-static {v0, v3, v1, v3, v2}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
-
-    return-object v1
+    return-object v0
 .end method
 
 
 # virtual methods
-.method public getId()I
+.method public final getId()I
     .locals 0
 
     iget p0, p0, Lcom/android/systemui/qs/QSDndEvent;->_id:I

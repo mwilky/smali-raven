@@ -4,24 +4,16 @@
 
 
 # instance fields
-.field private mChildScale:F
+.field public mChildScale:F
 
-.field private mLayoutScaleX:F
+.field public mLayoutScaleX:F
 
-.field private mLayoutScaleY:F
+.field public mLayoutScaleY:F
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "context"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -32,16 +24,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -52,18 +34,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs",
-            "defStyle"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/FrameLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -78,70 +48,10 @@
     return-void
 .end method
 
-.method private static getScaledMeasureSpec(IF)I
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "measureSpec",
-            "scale"
-        }
-    .end annotation
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    cmpl-float v0, p1, v0
-
-    if-nez v0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-static {p0}, Landroid/view/View$MeasureSpec;->getSize(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    div-float/2addr v0, p1
-
-    const/high16 p1, 0x3f000000    # 0.5f
-
-    add-float/2addr v0, p1
-
-    float-to-int p1, v0
-
-    invoke-static {p0}, Landroid/view/View$MeasureSpec;->getMode(I)I
-
-    move-result p0
-
-    invoke-static {p1, p0}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
-
-    move-result p0
-
-    :goto_0
-    return p0
-.end method
-
 
 # virtual methods
-.method public addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
+.method public final addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "index",
-            "params"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3}, Landroid/widget/FrameLayout;->addView(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;)V
 
@@ -156,22 +66,8 @@
     return-void
 .end method
 
-.method protected addViewInLayout(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)Z
+.method public final addViewInLayout(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "child",
-            "index",
-            "params",
-            "preventRequestLayout"
-        }
-    .end annotation
 
     invoke-super {p0, p1, p2, p3, p4}, Landroid/widget/FrameLayout;->addViewInLayout(Landroid/view/View;ILandroid/view/ViewGroup$LayoutParams;Z)Z
 
@@ -191,24 +87,8 @@
     return p2
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 16
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "changed",
-            "left",
-            "top",
-            "right",
-            "bottom"
-        }
-    .end annotation
 
     move-object/from16 v0, p0
 
@@ -533,18 +413,8 @@
     return-void
 .end method
 
-.method protected onMeasure(II)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "widthMeasureSpec",
-            "heightMeasureSpec"
-        }
-    .end annotation
+.method public final onMeasure(II)V
+    .locals 4
 
     iget v0, p0, Landroidx/leanback/widget/ScaleFrameLayout;->mLayoutScaleX:F
 
@@ -554,31 +424,79 @@
 
     if-nez v2, :cond_1
 
-    iget v2, p0, Landroidx/leanback/widget/ScaleFrameLayout;->mLayoutScaleY:F
+    iget v3, p0, Landroidx/leanback/widget/ScaleFrameLayout;->mLayoutScaleY:F
 
-    cmpl-float v1, v2, v1
+    cmpl-float v3, v3, v1
 
-    if-eqz v1, :cond_0
+    if-eqz v3, :cond_0
 
     goto :goto_0
 
     :cond_0
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
-    goto :goto_1
+    goto :goto_3
 
     :cond_1
     :goto_0
-    invoke-static {p1, v0}, Landroidx/leanback/widget/ScaleFrameLayout;->getScaledMeasureSpec(IF)I
+    const/high16 v3, 0x3f000000    # 0.5f
+
+    if-nez v2, :cond_2
+
+    goto :goto_1
+
+    :cond_2
+    invoke-static {p1}, Landroid/view/View$MeasureSpec;->getSize(I)I
+
+    move-result v2
+
+    int-to-float v2, v2
+
+    div-float/2addr v2, v0
+
+    add-float/2addr v2, v3
+
+    float-to-int v0, v2
+
+    invoke-static {p1}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result p1
 
+    invoke-static {v0, p1}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result p1
+
+    :goto_1
     iget v0, p0, Landroidx/leanback/widget/ScaleFrameLayout;->mLayoutScaleY:F
 
-    invoke-static {p2, v0}, Landroidx/leanback/widget/ScaleFrameLayout;->getScaledMeasureSpec(IF)I
+    cmpl-float v1, v0, v1
+
+    if-nez v1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    div-float/2addr v1, v0
+
+    add-float/2addr v1, v3
+
+    float-to-int v0, v1
+
+    invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result p2
 
+    invoke-static {v0, p2}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+
+    move-result p2
+
+    :goto_2
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getMeasuredWidth()I
@@ -591,42 +509,32 @@
 
     mul-float/2addr p1, p2
 
-    const/high16 p2, 0x3f000000    # 0.5f
-
-    add-float/2addr p1, p2
+    add-float/2addr p1, v3
 
     float-to-int p1, p1
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getMeasuredHeight()I
 
-    move-result v0
+    move-result p2
 
-    int-to-float v0, v0
+    int-to-float p2, p2
 
-    iget v1, p0, Landroidx/leanback/widget/ScaleFrameLayout;->mLayoutScaleY:F
+    iget v0, p0, Landroidx/leanback/widget/ScaleFrameLayout;->mLayoutScaleY:F
 
-    mul-float/2addr v0, v1
+    mul-float/2addr p2, v0
 
-    add-float/2addr v0, p2
+    add-float/2addr p2, v3
 
-    float-to-int p2, v0
+    float-to-int p2, p2
 
     invoke-virtual {p0, p1, p2}, Landroid/widget/FrameLayout;->setMeasuredDimension(II)V
 
-    :goto_1
+    :goto_3
     return-void
 .end method
 
-.method public setForeground(Landroid/graphics/drawable/Drawable;)V
+.method public final setForeground(Landroid/graphics/drawable/Drawable;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "d"
-        }
-    .end annotation
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
 

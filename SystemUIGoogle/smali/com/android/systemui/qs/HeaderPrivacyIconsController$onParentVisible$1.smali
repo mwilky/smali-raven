@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/HeaderPrivacyIconsController$onParentVisible$1;
+.class public final Lcom/android/systemui/qs/HeaderPrivacyIconsController$onParentVisible$1;
 .super Ljava/lang/Object;
 .source "HeaderPrivacyIconsController.kt"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
+.field public final synthetic this$0:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
+.method public constructor <init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController$onParentVisible$1;->this$0:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
@@ -35,39 +35,59 @@
 
 # virtual methods
 .method public final onClick(Landroid/view/View;)V
-    .locals 1
+    .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController$onParentVisible$1;->this$0:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->access$getUiEventLogger$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Lcom/android/internal/logging/UiEventLogger;
-
-    move-result-object p1
+    iget-object p1, p1, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->uiEventLogger:Lcom/android/internal/logging/UiEventLogger;
 
     sget-object v0, Lcom/android/systemui/privacy/PrivacyChipEvent;->ONGOING_INDICATORS_CHIP_CLICK:Lcom/android/systemui/privacy/PrivacyChipEvent;
 
     invoke-interface {p1, v0}, Lcom/android/internal/logging/UiEventLogger;->log(Lcom/android/internal/logging/UiEventLogger$UiEventEnum;)V
 
-    iget-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController$onParentVisible$1;->this$0:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
-
-    invoke-static {p1}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->access$getPrivacyDialogController$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Lcom/android/systemui/privacy/PrivacyDialogController;
-
-    move-result-object p1
-
     iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController$onParentVisible$1;->this$0:Lcom/android/systemui/qs/HeaderPrivacyIconsController;
 
-    invoke-static {p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->access$getPrivacyChip$p(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)Lcom/android/systemui/privacy/OngoingPrivacyChip;
+    iget-boolean p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->safetyCenterEnabled:Z
 
-    move-result-object p0
+    if-eqz p1, :cond_0
+
+    iget-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->backgroundExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v0, Lcom/android/systemui/qs/HeaderPrivacyIconsController$showSafetyCenter$1;
+
+    invoke-direct {v0, p0}, Lcom/android/systemui/qs/HeaderPrivacyIconsController$showSafetyCenter$1;-><init>(Lcom/android/systemui/qs/HeaderPrivacyIconsController;)V
+
+    invoke-interface {p1, v0}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    goto :goto_1
+
+    :cond_0
+    iget-object p1, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyDialogController:Lcom/android/systemui/privacy/PrivacyDialogController;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/HeaderPrivacyIconsController;->privacyChip:Lcom/android/systemui/privacy/OngoingPrivacyChip;
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getContext()Landroid/content/Context;
 
     move-result-object p0
 
-    const-string v0, "privacyChip.context"
+    iget-object v0, p1, Lcom/android/systemui/privacy/PrivacyDialogController;->dialog:Landroid/app/Dialog;
 
-    invoke-static {p0, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+    if-nez v0, :cond_1
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/privacy/PrivacyDialogController;->showDialog(Landroid/content/Context;)V
+    goto :goto_0
 
+    :cond_1
+    invoke-virtual {v0}, Landroid/app/Dialog;->dismiss()V
+
+    :goto_0
+    iget-object v0, p1, Lcom/android/systemui/privacy/PrivacyDialogController;->backgroundExecutor:Ljava/util/concurrent/Executor;
+
+    new-instance v1, Lcom/android/systemui/privacy/PrivacyDialogController$showDialog$1;
+
+    invoke-direct {v1, p1, p0}, Lcom/android/systemui/privacy/PrivacyDialogController$showDialog$1;-><init>(Lcom/android/systemui/privacy/PrivacyDialogController;Landroid/content/Context;)V
+
+    invoke-interface {v0, v1}, Ljava/util/concurrent/Executor;->execute(Ljava/lang/Runnable;)V
+
+    :goto_1
     return-void
 .end method

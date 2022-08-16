@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/row/FooterView$FooterViewState;
+.class public final Lcom/android/systemui/statusbar/notification/row/FooterView$FooterViewState;
 .super Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
 .source "FooterView.java"
 
@@ -17,14 +17,10 @@
 # instance fields
 .field public hideContent:Z
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/FooterView;
-
 
 # direct methods
-.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/FooterView;)V
+.method public constructor <init>()V
     .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/FooterView$FooterViewState;->this$0:Lcom/android/systemui/statusbar/notification/row/FooterView;
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;-><init>()V
 
@@ -33,7 +29,7 @@
 
 
 # virtual methods
-.method public applyToView(Landroid/view/View;)V
+.method public final applyToView(Landroid/view/View;)V
     .locals 1
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->applyToView(Landroid/view/View;)V
@@ -54,10 +50,10 @@
     return-void
 .end method
 
-.method public copyFrom(Lcom/android/systemui/statusbar/notification/stack/ViewState;)V
+.method public final copyFrom(Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;)V
     .locals 1
 
-    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->copyFrom(Lcom/android/systemui/statusbar/notification/stack/ViewState;)V
+    invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->copyFrom(Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;)V
 
     instance-of v0, p1, Lcom/android/systemui/statusbar/notification/row/FooterView$FooterViewState;
 

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;
 .super Ljava/lang/Object;
 .source "NotificationMenuRow.java"
 
@@ -18,11 +18,11 @@
 
 
 # instance fields
-.field mContentDescription:Ljava/lang/String;
+.field public mContentDescription:Ljava/lang/String;
 
-.field mGutsContent:Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;
+.field public mGutsContent:Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;
 
-.field mMenuView:Landroid/view/View;
+.field public mMenuView:Lcom/android/systemui/statusbar/AlphaOptimizedImageView;
 
 
 # direct methods
@@ -35,13 +35,13 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/systemui/R$dimen;->notification_menu_icon_padding:I
+    const v1, 0x7f0705d4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    sget v2, Lcom/android/systemui/R$color;->notification_gear_color:I
+    const v2, 0x7f060338
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -71,7 +71,7 @@
 
     invoke-virtual {v2, p1}, Landroid/widget/ImageView;->setAlpha(F)V
 
-    iput-object v2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;->mMenuView:Landroid/view/View;
+    iput-object v2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;->mMenuView:Lcom/android/systemui/statusbar/AlphaOptimizedImageView;
 
     :cond_0
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;->mContentDescription:Ljava/lang/String;
@@ -83,7 +83,7 @@
 
 
 # virtual methods
-.method public getContentDescription()Ljava/lang/String;
+.method public final getContentDescription()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;->mContentDescription:Ljava/lang/String;
@@ -91,7 +91,7 @@
     return-object p0
 .end method
 
-.method public getGutsView()Landroid/view/View;
+.method public final getGutsView()Landroid/view/View;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;->mGutsContent:Lcom/android/systemui/statusbar/notification/row/NotificationGuts$GutsContent;
@@ -103,10 +103,10 @@
     return-object p0
 .end method
 
-.method public getMenuView()Landroid/view/View;
+.method public final getMenuView()Landroid/view/View;
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;->mMenuView:Landroid/view/View;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationMenuRow$NotificationMenuItem;->mMenuView:Lcom/android/systemui/statusbar/AlphaOptimizedImageView;
 
     return-object p0
 .end method

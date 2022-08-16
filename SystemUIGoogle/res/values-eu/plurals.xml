@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="abc_slice_duration_days">
-        <item quantity="other">Duela %d egun</item>
-        <item quantity="one">Duela %d egun</item>
+        <item quantity="other">Duela %d egun</item>
+        <item quantity="one">Duela %d egun</item>
     </plurals>
     <plurals name="abc_slice_duration_min">
-        <item quantity="other">Duela %d min</item>
-        <item quantity="one">Duela %d min</item>
+        <item quantity="other">Duela %d min</item>
+        <item quantity="one">Duela %d min</item>
     </plurals>
     <plurals name="abc_slice_duration_years">
         <item quantity="other">Duela %d urte</item>
@@ -15,6 +15,10 @@
     <plurals name="controls_number_of_favorites">
         <item quantity="other">%s kontrol-aukera gehitu dira.</item>
         <item quantity="one">%s kontrol-aukera gehitu da.</item>
+    </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s aplikazio aktibo daude</item>
+        <item quantity="one">%s aplikazio aktibo dago</item>
     </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">Idatzi SIMaren PINa. %d saiakera geratzen zaizkizu.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">Ez da zuzena SIM txartelaren PUK kodea. %d saiakera geratzen zaizkizu SIM txartela betiko erabilgaitz geratu aurretik.</item>
         <item quantity="one">Ez da zuzena SIM txartelaren PUK kodea. %d saiakera geratzen zaizu SIM txartela betiko erabilgaitz geratu aurretik.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">Saiatu berriro %d segundo igarotakoan.</item>
-        <item quantity="one">Saiatu berriro segundo bat igarotakoan.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d jakinarazpen berri</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Gehienez, %d erabiltzaile gehi ditzakezu.</item>
         <item quantity="one">Erabiltzaile bakarra sor daiteke.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d gailu daude konektatuta</item>
-        <item quantity="one">%1$d gailu dago konektatuta</item>
     </plurals>
 </resources>

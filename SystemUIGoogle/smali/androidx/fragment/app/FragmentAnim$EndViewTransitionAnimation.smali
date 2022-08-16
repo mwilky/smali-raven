@@ -1,4 +1,4 @@
-.class Landroidx/fragment/app/FragmentAnim$EndViewTransitionAnimation;
+.class public final Landroidx/fragment/app/FragmentAnim$EndViewTransitionAnimation;
 .super Landroid/view/animation/AnimationSet;
 .source "FragmentAnim.java"
 
@@ -12,25 +12,25 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "EndViewTransitionAnimation"
 .end annotation
 
 
 # instance fields
-.field private mAnimating:Z
+.field public mAnimating:Z
 
-.field private final mChild:Landroid/view/View;
+.field public final mChild:Landroid/view/View;
 
-.field private mEnded:Z
+.field public mEnded:Z
 
-.field private final mParent:Landroid/view/ViewGroup;
+.field public final mParent:Landroid/view/ViewGroup;
 
-.field private mTransitionEnded:Z
+.field public mTransitionEnded:Z
 
 
 # direct methods
-.method constructor <init>(Landroid/view/animation/Animation;Landroid/view/ViewGroup;Landroid/view/View;)V
+.method public constructor <init>(Landroid/view/animation/Animation;Landroid/view/ViewGroup;Landroid/view/View;)V
     .locals 1
 
     const/4 v0, 0x0
@@ -54,7 +54,7 @@
 
 
 # virtual methods
-.method public getTransformation(JLandroid/view/animation/Transformation;)Z
+.method public final getTransformation(JLandroid/view/animation/Transformation;)Z
     .locals 2
 
     const/4 v0, 0x1
@@ -82,13 +82,13 @@
 
     iget-object p1, p0, Landroidx/fragment/app/FragmentAnim$EndViewTransitionAnimation;->mParent:Landroid/view/ViewGroup;
 
-    invoke-static {p1, p0}, Landroidx/core/view/OneShotPreDrawListener;->add(Landroid/view/View;Ljava/lang/Runnable;)Landroidx/core/view/OneShotPreDrawListener;
+    invoke-static {p1, p0}, Landroidx/core/view/OneShotPreDrawListener;->add(Landroid/view/View;Ljava/lang/Runnable;)V
 
     :cond_1
     return v0
 .end method
 
-.method public getTransformation(JLandroid/view/animation/Transformation;F)Z
+.method public final getTransformation(JLandroid/view/animation/Transformation;F)Z
     .locals 2
 
     const/4 v0, 0x1
@@ -116,13 +116,13 @@
 
     iget-object p1, p0, Landroidx/fragment/app/FragmentAnim$EndViewTransitionAnimation;->mParent:Landroid/view/ViewGroup;
 
-    invoke-static {p1, p0}, Landroidx/core/view/OneShotPreDrawListener;->add(Landroid/view/View;Ljava/lang/Runnable;)Landroidx/core/view/OneShotPreDrawListener;
+    invoke-static {p1, p0}, Landroidx/core/view/OneShotPreDrawListener;->add(Landroid/view/View;Ljava/lang/Runnable;)V
 
     :cond_1
     return v0
 .end method
 
-.method public run()V
+.method public final run()V
     .locals 2
 
     iget-boolean v0, p0, Landroidx/fragment/app/FragmentAnim$EndViewTransitionAnimation;->mEnded:Z

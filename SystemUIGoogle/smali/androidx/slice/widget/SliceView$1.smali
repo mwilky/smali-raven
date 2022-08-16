@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/SliceView$1;
+.class public final Landroidx/slice/widget/SliceView$1;
 .super Ljava/lang/Object;
 .source "SliceView.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/slice/widget/SliceView;
+.field public final synthetic this$0:Landroidx/slice/widget/SliceView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/SliceView;)V
+.method public constructor <init>(Landroidx/slice/widget/SliceView;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/SliceView$1;->this$0:Landroidx/slice/widget/SliceView;
 
@@ -42,7 +34,7 @@
 
 
 # virtual methods
-.method public run()V
+.method public final run()V
     .locals 3
 
     iget-object v0, p0, Landroidx/slice/widget/SliceView$1;->this$0:Landroidx/slice/widget/SliceView;

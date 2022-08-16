@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/media/MediaCarouselScrollHandler$onTouch$1;
+.class public final Lcom/android/systemui/media/MediaCarouselScrollHandler$onTouch$1;
 .super Ljava/lang/Object;
 .source "MediaCarouselScrollHandler.kt"
 
@@ -6,25 +6,14 @@
 .implements Ljava/lang/Runnable;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/media/MediaCarouselScrollHandler;->onTouch(Landroid/view/MotionEvent;)Z
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic $newScrollX:I
+.field public final synthetic $newScrollX:I
 
-.field final synthetic this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
+.field public final synthetic this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/media/MediaCarouselScrollHandler;I)V
+.method public constructor <init>(Lcom/android/systemui/media/MediaCarouselScrollHandler;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onTouch$1;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
@@ -43,23 +32,15 @@
 
     iget-object v0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onTouch$1;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
 
-    invoke-static {v0}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->access$getScrollView$p(Lcom/android/systemui/media/MediaCarouselScrollHandler;)Lcom/android/systemui/media/MediaScrollView;
+    iget-object v0, v0, Lcom/android/systemui/media/MediaCarouselScrollHandler;->scrollView:Lcom/android/systemui/media/MediaScrollView;
 
-    move-result-object v0
+    iget p0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onTouch$1;->$newScrollX:I
 
-    iget v1, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onTouch$1;->$newScrollX:I
+    invoke-virtual {v0}, Landroid/widget/HorizontalScrollView;->getScrollY()I
 
-    iget-object p0, p0, Lcom/android/systemui/media/MediaCarouselScrollHandler$onTouch$1;->this$0:Lcom/android/systemui/media/MediaCarouselScrollHandler;
+    move-result v1
 
-    invoke-static {p0}, Lcom/android/systemui/media/MediaCarouselScrollHandler;->access$getScrollView$p(Lcom/android/systemui/media/MediaCarouselScrollHandler;)Lcom/android/systemui/media/MediaScrollView;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Landroid/widget/HorizontalScrollView;->getScrollY()I
-
-    move-result p0
-
-    invoke-virtual {v0, v1, p0}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
+    invoke-virtual {v0, p0, v1}, Landroid/widget/HorizontalScrollView;->smoothScrollTo(II)V
 
     return-void
 .end method

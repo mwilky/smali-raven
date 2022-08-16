@@ -4,25 +4,9 @@
 
 
 # instance fields
-.field private final listeners:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Landroid/animation/Animator$AnimatorListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-.field private final updateListeners:Ljava/util/Set;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Set<",
-            "Landroid/animation/ValueAnimator$AnimatorUpdateListener;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final updateListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
 
 # direct methods
@@ -35,40 +19,40 @@
 
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/Set;
+    iput-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     new-instance v0, Ljava/util/concurrent/CopyOnWriteArraySet;
 
     invoke-direct {v0}, Ljava/util/concurrent/CopyOnWriteArraySet;-><init>()V
 
-    iput-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
+    iput-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public addListener(Landroid/animation/Animator$AnimatorListener;)V
+.method public final addListener(Landroid/animation/Animator$AnimatorListener;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+.method public final addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-interface {p0, p1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->add(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public getStartDelay()J
+.method public final getStartDelay()J
     .locals 1
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -80,229 +64,57 @@
     throw p0
 .end method
 
-.method notifyCancel()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/animation/Animator$AnimatorListener;
-
-    invoke-interface {v1, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationCancel(Landroid/animation/Animator;)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method notifyEnd(Z)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/animation/Animator$AnimatorListener;
-
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x1a
-
-    if-lt v2, v3, :cond_0
-
-    invoke-interface {v1, p0, p1}, Landroid/animation/Animator$AnimatorListener;->onAnimationEnd(Landroid/animation/Animator;Z)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {v1, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationEnd(Landroid/animation/Animator;)V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method notifyRepeat()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/animation/Animator$AnimatorListener;
-
-    invoke-interface {v1, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationRepeat(Landroid/animation/Animator;)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method notifyStart(Z)V
-    .locals 4
-
-    iget-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/animation/Animator$AnimatorListener;
-
-    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v3, 0x1a
-
-    if-lt v2, v3, :cond_0
-
-    invoke-interface {v1, p0, p1}, Landroid/animation/Animator$AnimatorListener;->onAnimationStart(Landroid/animation/Animator;Z)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-interface {v1, p0}, Landroid/animation/Animator$AnimatorListener;->onAnimationStart(Landroid/animation/Animator;)V
-
-    goto :goto_0
-
-    :cond_1
-    return-void
-.end method
-
-.method notifyUpdate()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/Set;
-
-    invoke-interface {v0}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/animation/ValueAnimator$AnimatorUpdateListener;
-
-    invoke-interface {v1, p0}, Landroid/animation/ValueAnimator$AnimatorUpdateListener;->onAnimationUpdate(Landroid/animation/ValueAnimator;)V
-
-    goto :goto_0
-
-    :cond_0
-    return-void
-.end method
-
-.method public removeAllListeners()V
+.method public final removeAllListeners()V
     .locals 0
 
-    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-interface {p0}, Ljava/util/Set;->clear()V
+    invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArraySet;->clear()V
 
     return-void
 .end method
 
-.method public removeAllUpdateListeners()V
+.method public final removeAllUpdateListeners()V
     .locals 0
 
-    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-interface {p0}, Ljava/util/Set;->clear()V
+    invoke-virtual {p0}, Ljava/util/concurrent/CopyOnWriteArraySet;->clear()V
 
     return-void
 .end method
 
-.method public removeListener(Landroid/animation/Animator$AnimatorListener;)V
+.method public final removeListener(Landroid/animation/Animator$AnimatorListener;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->listeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-interface {p0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public removeUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+.method public final removeUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/Set;
+    iget-object p0, p0, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->updateListeners:Ljava/util/concurrent/CopyOnWriteArraySet;
 
-    invoke-interface {p0, p1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
+    invoke-virtual {p0, p1}, Ljava/util/concurrent/CopyOnWriteArraySet;->remove(Ljava/lang/Object;)Z
 
     return-void
 .end method
 
-.method public bridge synthetic setDuration(J)Landroid/animation/Animator;
+.method public final bridge synthetic setDuration(J)Landroid/animation/Animator;
     .locals 0
 
     invoke-virtual {p0, p1, p2}, Lcom/airbnb/lottie/utils/BaseLottieAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    move-result-object p0
+    const/4 p0, 0x0
 
-    return-object p0
+    throw p0
 .end method
 
-.method public setDuration(J)Landroid/animation/ValueAnimator;
+.method public final setDuration(J)Landroid/animation/ValueAnimator;
     .locals 0
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -314,7 +126,7 @@
     throw p0
 .end method
 
-.method public setInterpolator(Landroid/animation/TimeInterpolator;)V
+.method public final setInterpolator(Landroid/animation/TimeInterpolator;)V
     .locals 0
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;
@@ -326,7 +138,7 @@
     throw p0
 .end method
 
-.method public setStartDelay(J)V
+.method public final setStartDelay(J)V
     .locals 0
 
     new-instance p0, Ljava/lang/UnsupportedOperationException;

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/statusbar/EmptyShadeView$EmptyShadeViewState;
+.class public final Lcom/android/systemui/statusbar/EmptyShadeView$EmptyShadeViewState;
 .super Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
 .source "EmptyShadeView.java"
 
@@ -15,7 +15,7 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/statusbar/EmptyShadeView;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/EmptyShadeView;
 
 
 # direct methods
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public applyToView(Landroid/view/View;)V
+.method public final applyToView(Landroid/view/View;)V
     .locals 2
 
     invoke-super {p0, p1}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->applyToView(Landroid/view/View;)V
@@ -48,9 +48,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/EmptyShadeView$EmptyShadeViewState;->this$0:Lcom/android/systemui/statusbar/EmptyShadeView;
 
-    invoke-static {p0}, Lcom/android/systemui/statusbar/EmptyShadeView;->access$000(Lcom/android/systemui/statusbar/EmptyShadeView;)Landroid/widget/TextView;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/EmptyShadeView;->mEmptyText:Landroid/widget/TextView;
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getPaddingTop()I
 
@@ -80,9 +78,7 @@
     :goto_0
     if-eqz p0, :cond_1
 
-    invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->isVisible()Z
-
-    move-result p0
+    iget-boolean p0, p1, Lcom/android/systemui/statusbar/notification/row/StackScrollerDecorView;->mIsVisible:Z
 
     if-eqz p0, :cond_1
 

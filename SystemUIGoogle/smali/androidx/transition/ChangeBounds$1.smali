@@ -1,4 +1,4 @@
-.class Landroidx/transition/ChangeBounds$1;
+.class public final Landroidx/transition/ChangeBounds$1;
 .super Landroid/util/Property;
 .source "ChangeBounds.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
@@ -24,14 +24,16 @@
 
 
 # instance fields
-.field private mBounds:Landroid/graphics/Rect;
+.field public mBounds:Landroid/graphics/Rect;
 
 
 # direct methods
-.method constructor <init>(Ljava/lang/Class;Ljava/lang/String;)V
-    .locals 0
+.method public constructor <init>(Ljava/lang/Class;)V
+    .locals 1
 
-    invoke-direct {p0, p1, p2}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
+    const-string v0, "boundsOrigin"
+
+    invoke-direct {p0, p1, v0}, Landroid/util/Property;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
     new-instance p1, Landroid/graphics/Rect;
 
@@ -44,8 +46,10 @@
 
 
 # virtual methods
-.method public get(Landroid/graphics/drawable/Drawable;)Landroid/graphics/PointF;
+.method public final get(Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
+
+    check-cast p1, Landroid/graphics/drawable/Drawable;
 
     iget-object v0, p0, Landroidx/transition/ChangeBounds$1;->mBounds:Landroid/graphics/Rect;
 
@@ -68,20 +72,12 @@
     return-object p1
 .end method
 
-.method public bridge synthetic get(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
+.method public final set(Ljava/lang/Object;Ljava/lang/Object;)V
+    .locals 2
 
     check-cast p1, Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {p0, p1}, Landroidx/transition/ChangeBounds$1;->get(Landroid/graphics/drawable/Drawable;)Landroid/graphics/PointF;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public set(Landroid/graphics/drawable/Drawable;Landroid/graphics/PointF;)V
-    .locals 2
+    check-cast p2, Landroid/graphics/PointF;
 
     iget-object v0, p0, Landroidx/transition/ChangeBounds$1;->mBounds:Landroid/graphics/Rect;
 
@@ -106,18 +102,6 @@
     iget-object p0, p0, Landroidx/transition/ChangeBounds$1;->mBounds:Landroid/graphics/Rect;
 
     invoke-virtual {p1, p0}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
-
-    return-void
-.end method
-
-.method public bridge synthetic set(Ljava/lang/Object;Ljava/lang/Object;)V
-    .locals 0
-
-    check-cast p1, Landroid/graphics/drawable/Drawable;
-
-    check-cast p2, Landroid/graphics/PointF;
-
-    invoke-virtual {p0, p1, p2}, Landroidx/transition/ChangeBounds$1;->set(Landroid/graphics/drawable/Drawable;Landroid/graphics/PointF;)V
 
     return-void
 .end method

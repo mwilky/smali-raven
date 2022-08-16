@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;
+.class public final Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;
 .super Ljava/lang/Object;
 .source "ImageWallpaperRenderer.java"
 
@@ -11,12 +11,8 @@
 .end annotation
 
 
-# static fields
-.field private static final TAG:Ljava/lang/String; = "ImageWallpaperRenderer"
-
-
 # instance fields
-.field private mOnBitmapUpdated:Ljava/util/function/Consumer;
+.field public mOnBitmapUpdated:Ljava/util/function/Consumer;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/function/Consumer<",
@@ -26,30 +22,16 @@
     .end annotation
 .end field
 
-.field private final mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
+.field public final mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
 
-.field private final mSurfaceSize:Landroid/graphics/Rect;
+.field public final mSurfaceSize:Landroid/graphics/Rect;
 
-.field private final mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
+.field public final mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
 
-.field private final mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
+.field public final mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$EyZ4gELnMt-qXIwebKkGU3N7Mto(Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;Landroid/graphics/Bitmap;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->lambda$onSurfaceCreated$0(Landroid/graphics/Bitmap;)V
-
-    return-void
-.end method
-
-.method static constructor <clinit>()V
-    .locals 0
-
-    return-void
-.end method
-
 .method public constructor <init>(Landroid/content/Context;)V
     .locals 3
 
@@ -71,7 +53,7 @@
 
     if-nez v0, :cond_0
 
-    sget-object v1, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->TAG:Ljava/lang/String;
+    const-string v1, "ImageWallpaperRenderer"
 
     const-string v2, "WallpaperManager not available"
 
@@ -80,9 +62,7 @@
     :cond_0
     new-instance v1, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
 
-    const/4 v2, 0x0
-
-    invoke-direct {v1, v0, v2}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;-><init>(Landroid/app/WallpaperManager;Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$1;)V
+    invoke-direct {v1, v0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;-><init>(Landroid/app/WallpaperManager;)V
 
     iput-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
 
@@ -101,141 +81,10 @@
     return-void
 .end method
 
-.method static synthetic access$300()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->TAG:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method private synthetic lambda$onSurfaceCreated$0(Landroid/graphics/Bitmap;)V
-    .locals 2
-
-    if-nez p1, :cond_0
-
-    sget-object v0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->TAG:Ljava/lang/String;
-
-    const-string v1, "reload texture failed!"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mOnBitmapUpdated:Ljava/util/function/Consumer;
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v0, p1}, Ljava/util/function/Consumer;->accept(Ljava/lang/Object;)V
-
-    :cond_1
-    :goto_0
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->setup(Landroid/graphics/Bitmap;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
-
-    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v0, "mSurfaceSize="
-
-    invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mSurfaceSize:Landroid/graphics/Rect;
-
-    invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/Object;)V
-
-    invoke-virtual {p3, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    const-string v0, "mWcgContent="
-
-    invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->isWcgContent()Z
-
-    move-result v0
-
-    invoke-virtual {p3, v0}, Ljava/io/PrintWriter;->print(Z)V
-
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
-
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->dump(Ljava/lang/String;Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public finish()V
-    .locals 0
-
-    return-void
-.end method
-
-.method public isWcgContent()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
-
-    invoke-static {p0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->access$100(Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public onDrawFrame()V
-    .locals 3
-
-    const/16 v0, 0x4000
-
-    invoke-static {v0}, Landroid/opengl/GLES20;->glClear(I)V
-
-    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mSurfaceSize:Landroid/graphics/Rect;
-
-    invoke-virtual {v0}, Landroid/graphics/Rect;->width()I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mSurfaceSize:Landroid/graphics/Rect;
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
-
-    move-result v1
-
-    const/4 v2, 0x0
-
-    invoke-static {v2, v2, v0, v1}, Landroid/opengl/GLES20;->glViewport(IIII)V
-
-    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
-
-    invoke-virtual {v0}, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->useTexture()V
-
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
-
-    invoke-virtual {p0}, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->draw()V
-
-    return-void
-.end method
-
-.method public onSurfaceChanged(II)V
-    .locals 0
-
-    const/4 p0, 0x0
-
-    invoke-static {p0, p0, p1, p2}, Landroid/opengl/GLES20;->glViewport(IIII)V
-
-    return-void
-.end method
-
-.method public onSurfaceCreated()V
-    .locals 3
+.method public final onSurfaceCreated()V
+    .locals 4
 
     const/4 v0, 0x0
 
@@ -245,85 +94,67 @@
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
 
-    sget v1, Lcom/android/systemui/R$raw;->image_wallpaper_vertex_shader:I
+    const v1, 0x7f120002
 
-    sget v2, Lcom/android/systemui/R$raw;->image_wallpaper_fragment_shader:I
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->useGLProgram(II)Z
-
-    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
-
-    new-instance v1, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$$ExternalSyntheticLambda0;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;)V
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->use(Ljava/util/function/Consumer;)V
-
-    return-void
-.end method
-
-.method public reportSurfaceSize()Landroid/util/Size;
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mSurfaceSize:Landroid/graphics/Rect;
-
-    iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
-
-    invoke-static {v1}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->access$200(Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;)Landroid/graphics/Rect;
+    invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getShaderResource(I)Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    const v2, 0x7f120001
 
-    new-instance v0, Landroid/util/Size;
+    invoke-virtual {v0, v2}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getShaderResource(I)Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mSurfaceSize:Landroid/graphics/Rect;
+    move-result-object v2
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
+    const v3, 0x8b31
+
+    invoke-static {v3, v1}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getShaderHandle(ILjava/lang/String;)I
 
     move-result v1
 
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mSurfaceSize:Landroid/graphics/Rect;
+    const v3, 0x8b30
 
-    invoke-virtual {p0}, Landroid/graphics/Rect;->height()I
+    invoke-static {v3, v2}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getShaderHandle(ILjava/lang/String;)I
 
-    move-result p0
+    move-result v2
 
-    invoke-direct {v0, v1, p0}, Landroid/util/Size;-><init>(II)V
+    invoke-static {}, Landroid/opengl/GLES20;->glCreateProgram()I
 
-    return-object v0
-.end method
+    move-result v3
 
-.method public setOnBitmapChanged(Ljava/util/function/Consumer;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Landroid/graphics/Bitmap;",
-            ">;)V"
-        }
-    .end annotation
+    if-nez v3, :cond_0
 
-    iput-object p1, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mOnBitmapUpdated:Ljava/util/function/Consumer;
+    const-string v1, "ImageGLProgram"
 
-    return-void
-.end method
+    const-string v2, "Can not create OpenGL ES program"
 
-.method public use(Ljava/util/function/Consumer;)V
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/function/Consumer<",
-            "Landroid/graphics/Bitmap;",
-            ">;)V"
-        }
-    .end annotation
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object p0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
+    const/4 v3, 0x0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->use(Ljava/util/function/Consumer;)V
+    goto :goto_0
+
+    :cond_0
+    invoke-static {v3, v1}, Landroid/opengl/GLES20;->glAttachShader(II)V
+
+    invoke-static {v3, v2}, Landroid/opengl/GLES20;->glAttachShader(II)V
+
+    invoke-static {v3}, Landroid/opengl/GLES20;->glLinkProgram(I)V
+
+    :goto_0
+    iput v3, v0, Lcom/android/systemui/glwallpaper/ImageGLProgram;->mProgramHandle:I
+
+    invoke-static {v3}, Landroid/opengl/GLES20;->glUseProgram(I)V
+
+    iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mTexture:Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;
+
+    new-instance v1, Lcom/android/systemui/tv/TvBottomSheetActivity$$ExternalSyntheticLambda1;
+
+    const/4 v2, 0x1
+
+    invoke-direct {v1, v2, p0}, Lcom/android/systemui/tv/TvBottomSheetActivity$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer$WallpaperTexture;->use(Ljava/util/function/Consumer;)V
 
     return-void
 .end method

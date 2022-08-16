@@ -23,7 +23,7 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+.field public static final synthetic $VALUES:[Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
 .field public static final enum Invalid:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
@@ -41,111 +41,106 @@
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 15
 
     new-instance v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string v1, "Invalid"
+    const/4 v1, 0x0
 
-    const/4 v2, 0x0
+    const-string v2, "Invalid"
 
-    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(ILjava/lang/String;)V
 
     sput-object v0, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Invalid:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    new-instance v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    new-instance v2, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string v3, "None"
+    const/4 v3, 0x1
 
-    const/4 v4, 0x1
+    const-string v4, "None"
 
-    invoke-direct {v1, v3, v4}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v2, v3, v4}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(ILjava/lang/String;)V
 
-    sput-object v1, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v2, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->None:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    new-instance v3, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    new-instance v4, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string v5, "Pattern"
+    const/4 v5, 0x2
 
-    const/4 v6, 0x2
+    const-string v6, "Pattern"
 
-    invoke-direct {v3, v5, v6}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v4, v5, v6}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(ILjava/lang/String;)V
 
-    sput-object v3, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Pattern:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v4, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Pattern:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    new-instance v5, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    new-instance v6, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string v7, "Password"
+    const/4 v7, 0x3
 
-    const/4 v8, 0x3
+    const-string v8, "Password"
 
-    invoke-direct {v5, v7, v8}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v6, v7, v8}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(ILjava/lang/String;)V
 
-    sput-object v5, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Password:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v6, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->Password:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    new-instance v7, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    new-instance v8, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string v9, "PIN"
+    const/4 v9, 0x4
 
-    const/4 v10, 0x4
+    const-string v10, "PIN"
 
-    invoke-direct {v7, v9, v10}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v8, v9, v10}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(ILjava/lang/String;)V
 
-    sput-object v7, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->PIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v8, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->PIN:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    new-instance v9, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    new-instance v10, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string v11, "SimPin"
+    const/4 v11, 0x5
 
-    const/4 v12, 0x5
+    const-string v12, "SimPin"
 
-    invoke-direct {v9, v11, v12}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v10, v11, v12}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(ILjava/lang/String;)V
 
-    sput-object v9, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SimPin:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v10, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SimPin:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    new-instance v11, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    new-instance v12, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const-string v13, "SimPuk"
+    const/4 v13, 0x6
 
-    const/4 v14, 0x6
+    const-string v14, "SimPuk"
 
-    invoke-direct {v11, v13, v14}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v12, v13, v14}, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;-><init>(ILjava/lang/String;)V
 
-    sput-object v11, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SimPuk:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v12, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->SimPuk:Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    const/4 v13, 0x7
+    const/4 v14, 0x7
 
-    new-array v13, v13, [Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    new-array v14, v14, [Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
-    aput-object v0, v13, v2
+    aput-object v0, v14, v1
 
-    aput-object v1, v13, v4
+    aput-object v2, v14, v3
 
-    aput-object v3, v13, v6
+    aput-object v4, v14, v5
 
-    aput-object v5, v13, v8
+    aput-object v6, v14, v7
 
-    aput-object v7, v13, v10
+    aput-object v8, v14, v9
 
-    aput-object v9, v13, v12
+    aput-object v10, v14, v11
 
-    aput-object v11, v13, v14
+    aput-object v12, v14, v13
 
-    sput-object v13, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->$VALUES:[Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
+    sput-object v14, Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;->$VALUES:[Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;
 
     return-void
 .end method
 
-.method private constructor <init>(Ljava/lang/String;I)V
+.method public constructor <init>(ILjava/lang/String;)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
-    invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+    invoke-direct {p0, p2, p1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
     return-void
 .end method

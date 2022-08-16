@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/qs/tileimpl/QSTileImpl$DrawableIcon;
+.class public final Lcom/android/systemui/qs/tileimpl/QSTileImpl$DrawableIcon;
 .super Lcom/android/systemui/plugins/qs/QSTile$Icon;
 .source "QSTileImpl.java"
 
@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field protected final mDrawable:Landroid/graphics/drawable/Drawable;
+.field public final mDrawable:Landroid/graphics/drawable/Drawable;
 
-.field protected final mInvisibleDrawable:Landroid/graphics/drawable/Drawable;
+.field public final mInvisibleDrawable:Landroid/graphics/drawable/Drawable;
 
 
 # direct methods
@@ -43,7 +43,7 @@
 
 
 # virtual methods
-.method public getDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+.method public final getDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl$DrawableIcon;->mDrawable:Landroid/graphics/drawable/Drawable;
@@ -51,7 +51,7 @@
     return-object p0
 .end method
 
-.method public getInvisibleDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
+.method public final getInvisibleDrawable(Landroid/content/Context;)Landroid/graphics/drawable/Drawable;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl$DrawableIcon;->mInvisibleDrawable:Landroid/graphics/drawable/Drawable;
@@ -59,7 +59,7 @@
     return-object p0
 .end method
 
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 0
 
     const-string p0, "DrawableIcon"

@@ -1,19 +1,22 @@
-.class Landroidx/fragment/app/FragmentViewLifecycleOwner;
+.class public final Landroidx/fragment/app/FragmentViewLifecycleOwner;
 .super Ljava/lang/Object;
 .source "FragmentViewLifecycleOwner.java"
 
 # interfaces
 .implements Landroidx/savedstate/SavedStateRegistryOwner;
+.implements Landroidx/lifecycle/ViewModelStoreOwner;
 
 
 # instance fields
-.field private mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
+.field public mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
-.field private mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
+.field public mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
+
+.field public final mViewModelStore:Landroidx/lifecycle/ViewModelStore;
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>(Landroidx/lifecycle/ViewModelStore;)V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -24,12 +27,14 @@
 
     iput-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
 
+    iput-object p1, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mViewModelStore:Landroidx/lifecycle/ViewModelStore;
+
     return-void
 .end method
 
 
 # virtual methods
-.method public getLifecycle()Landroidx/lifecycle/Lifecycle;
+.method public final getLifecycle()Landroidx/lifecycle/Lifecycle;
     .locals 0
 
     invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewLifecycleOwner;->initialize()V
@@ -39,19 +44,29 @@
     return-object p0
 .end method
 
-.method public getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
+.method public final getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
     .locals 0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewLifecycleOwner;->initialize()V
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
 
-    invoke-virtual {p0}, Landroidx/savedstate/SavedStateRegistryController;->getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
-
-    move-result-object p0
+    iget-object p0, p0, Landroidx/savedstate/SavedStateRegistryController;->mRegistry:Landroidx/savedstate/SavedStateRegistry;
 
     return-object p0
 .end method
 
-.method handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
+.method public final getViewModelStore()Landroidx/lifecycle/ViewModelStore;
+    .locals 0
+
+    invoke-virtual {p0}, Landroidx/fragment/app/FragmentViewLifecycleOwner;->initialize()V
+
+    iget-object p0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mViewModelStore:Landroidx/lifecycle/ViewModelStore;
+
+    return-object p0
+.end method
+
+.method public final handleLifecycleEvent(Landroidx/lifecycle/Lifecycle$Event;)V
     .locals 0
 
     iget-object p0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
@@ -61,8 +76,8 @@
     return-void
 .end method
 
-.method initialize()V
-    .locals 1
+.method public final initialize()V
+    .locals 2
 
     iget-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
@@ -70,64 +85,18 @@
 
     new-instance v0, Landroidx/lifecycle/LifecycleRegistry;
 
-    invoke-direct {v0, p0}, Landroidx/lifecycle/LifecycleRegistry;-><init>(Landroidx/lifecycle/LifecycleOwner;)V
+    const/4 v1, 0x1
+
+    invoke-direct {v0, p0, v1}, Landroidx/lifecycle/LifecycleRegistry;-><init>(Landroidx/lifecycle/LifecycleOwner;Z)V
 
     iput-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
 
-    invoke-static {p0}, Landroidx/savedstate/SavedStateRegistryController;->create(Landroidx/savedstate/SavedStateRegistryOwner;)Landroidx/savedstate/SavedStateRegistryController;
+    new-instance v0, Landroidx/savedstate/SavedStateRegistryController;
 
-    move-result-object v0
+    invoke-direct {v0, p0}, Landroidx/savedstate/SavedStateRegistryController;-><init>(Landroidx/savedstate/SavedStateRegistryOwner;)V
 
     iput-object v0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
 
     :cond_0
-    return-void
-.end method
-
-.method isInitialized()Z
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method performRestore(Landroid/os/Bundle;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
-
-    invoke-virtual {p0, p1}, Landroidx/savedstate/SavedStateRegistryController;->performRestore(Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method performSave(Landroid/os/Bundle;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
-
-    invoke-virtual {p0, p1}, Landroidx/savedstate/SavedStateRegistryController;->performSave(Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method setCurrentState(Landroidx/lifecycle/Lifecycle$State;)V
-    .locals 0
-
-    iget-object p0, p0, Landroidx/fragment/app/FragmentViewLifecycleOwner;->mLifecycleRegistry:Landroidx/lifecycle/LifecycleRegistry;
-
-    invoke-virtual {p0, p1}, Landroidx/lifecycle/LifecycleRegistry;->setCurrentState(Landroidx/lifecycle/Lifecycle$State;)V
-
     return-void
 .end method

@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;
+.class public final Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;
 .super Ljava/lang/Object;
 .source "NotificationConversationInfo.java"
 
@@ -12,34 +12,26 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = "UpdateChannelRunnable"
 .end annotation
 
 
 # instance fields
-.field private final mAction:I
+.field public final mAction:I
 
-.field private final mAppPkg:Ljava/lang/String;
+.field public final mAppPkg:Ljava/lang/String;
 
-.field private final mAppUid:I
+.field public final mAppUid:I
 
-.field private mChannelToUpdate:Landroid/app/NotificationChannel;
+.field public mChannelToUpdate:Landroid/app/NotificationChannel;
 
-.field private final mINotificationManager:Landroid/app/INotificationManager;
+.field public final mINotificationManager:Landroid/app/INotificationManager;
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;
+.field public final synthetic this$0:Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$khyrk6VQwnNbaOsFeFFUkftWotQ(Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->lambda$run$0()V
-
-    return-void
-.end method
-
 .method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;Landroid/app/INotificationManager;Ljava/lang/String;IILandroid/app/NotificationChannel;)V
     .locals 0
 
@@ -60,36 +52,10 @@
     return-void
 .end method
 
-.method private synthetic lambda$run$0()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;->access$100(Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;)Ljava/util/Optional;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/Optional;->get()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/systemui/wmshell/BubblesManager;
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;
-
-    invoke-static {p0}, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;->access$200(Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;)Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object p0
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/wmshell/BubblesManager;->onUserSetImportantConversation(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public run()V
-    .locals 5
+.method public final run()V
+    .locals 6
 
     :try_start_0
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->mAction:I
@@ -100,13 +66,13 @@
 
     if-eqz v0, :cond_6
 
-    const/4 v3, 0x2
+    const/4 v3, 0x4
 
-    if-eq v0, v3, :cond_3
+    const/4 v4, 0x2
 
-    const/4 v4, 0x4
+    if-eq v0, v4, :cond_3
 
-    if-eq v0, v4, :cond_0
+    if-eq v0, v3, :cond_0
 
     goto/16 :goto_0
 
@@ -117,9 +83,9 @@
 
     move-result v0
 
-    const/16 v4, -0x3e8
+    const/16 v3, -0x3e8
 
-    if-eq v0, v4, :cond_1
+    if-eq v0, v3, :cond_1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->mChannelToUpdate:Landroid/app/NotificationChannel;
 
@@ -132,7 +98,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->mChannelToUpdate:Landroid/app/NotificationChannel;
 
-    invoke-virtual {v0, v3}, Landroid/app/NotificationChannel;->setImportance(I)V
+    invoke-virtual {v0, v4}, Landroid/app/NotificationChannel;->setImportance(I)V
 
     :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->mChannelToUpdate:Landroid/app/NotificationChannel;
@@ -174,9 +140,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;->access$000(Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;)I
-
-    move-result v0
+    iget v0, v0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;->mAppBubble:I
 
     if-nez v0, :cond_4
 
@@ -184,16 +148,14 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->mAppPkg:Ljava/lang/String;
 
-    iget v4, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->mAppUid:I
+    iget v5, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->mAppUid:I
 
-    invoke-interface {v0, v2, v4, v3}, Landroid/app/INotificationManager;->setBubblesAllowed(Ljava/lang/String;II)V
+    invoke-interface {v0, v2, v5, v4}, Landroid/app/INotificationManager;->setBubblesAllowed(Ljava/lang/String;II)V
 
     :cond_4
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;
 
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;->access$100(Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;)Ljava/util/Optional;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;->mBubblesManagerOptional:Ljava/util/Optional;
 
     invoke-virtual {v0}, Ljava/util/Optional;->isPresent()Z
 
@@ -203,9 +165,9 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;->this$0:Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;
 
-    new-instance v2, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable$$ExternalSyntheticLambda0;
+    new-instance v2, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda3;
 
-    invoke-direct {v2, p0}, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo$UpdateChannelRunnable;)V
+    invoke-direct {v2, v3, p0}, Lcom/android/keyguard/KeyguardUpdateMonitor$$ExternalSyntheticLambda3;-><init>(ILjava/lang/Object;)V
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/notification/row/NotificationConversationInfo;->post(Ljava/lang/Runnable;)Z
 

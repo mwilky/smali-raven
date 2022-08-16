@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$1;
+.class public final Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$1;
 .super Ljava/lang/Object;
 .source "NavigationBarEdgePanel.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$1;->this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
@@ -34,12 +34,23 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroidx/dynamicanimation/animation/DynamicAnimation;ZFF)V
+.method public final onAnimationEnd(Landroidx/dynamicanimation/animation/DynamicAnimation;ZFF)V
     .locals 0
 
-    invoke-virtual {p1, p0}, Landroidx/dynamicanimation/animation/DynamicAnimation;->removeEndListener(Landroidx/dynamicanimation/animation/DynamicAnimation$OnAnimationEndListener;)V
+    iget-object p1, p1, Landroidx/dynamicanimation/animation/DynamicAnimation;->mEndListeners:Ljava/util/ArrayList;
 
-    if-nez p2, :cond_0
+    invoke-virtual {p1, p0}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+
+    move-result p3
+
+    if-ltz p3, :cond_0
+
+    const/4 p4, 0x0
+
+    invoke-virtual {p1, p3, p4}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
+    if-nez p2, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel$1;->this$0:Lcom/android/systemui/navigationbar/gestural/NavigationBarEdgePanel;
 
@@ -47,6 +58,6 @@
 
     invoke-virtual {p0, p1}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_0
+    :cond_1
     return-void
 .end method

@@ -1,10 +1,10 @@
-.class Landroidx/transition/TransitionValuesMaps;
+.class public final Landroidx/transition/TransitionValuesMaps;
 .super Ljava/lang/Object;
 .source "TransitionValuesMaps.java"
 
 
 # instance fields
-.field final mIdValues:Landroid/util/SparseArray;
+.field public final mIdValues:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray<",
@@ -14,7 +14,7 @@
     .end annotation
 .end field
 
-.field final mItemIdValues:Landroidx/collection/LongSparseArray;
+.field public final mItemIdValues:Landroidx/collection/LongSparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/collection/LongSparseArray<",
@@ -24,7 +24,7 @@
     .end annotation
 .end field
 
-.field final mNameValues:Landroidx/collection/ArrayMap;
+.field public final mNameValues:Landroidx/collection/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/collection/ArrayMap<",
@@ -35,7 +35,7 @@
     .end annotation
 .end field
 
-.field final mViewValues:Landroidx/collection/ArrayMap;
+.field public final mViewValues:Landroidx/collection/ArrayMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroidx/collection/ArrayMap<",
@@ -48,7 +48,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

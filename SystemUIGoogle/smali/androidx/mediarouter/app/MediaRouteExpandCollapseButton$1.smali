@@ -1,4 +1,4 @@
-.class Landroidx/mediarouter/app/MediaRouteExpandCollapseButton$1;
+.class public final Landroidx/mediarouter/app/MediaRouteExpandCollapseButton$1;
 .super Ljava/lang/Object;
 .source "MediaRouteExpandCollapseButton.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x8010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteExpandCollapseButton$1;->this$0:Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;
 
@@ -42,16 +34,8 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
+.method public final onClick(Landroid/view/View;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "view"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/mediarouter/app/MediaRouteExpandCollapseButton$1;->this$0:Landroidx/mediarouter/app/MediaRouteExpandCollapseButton;
 

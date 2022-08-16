@@ -1,4 +1,4 @@
-.class interface abstract Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
+.class public interface abstract Lcom/android/systemui/accessibility/MagnificationGestureDetector$OnGestureListener;
 .super Ljava/lang/Object;
 .source "MagnificationGestureDetector.java"
 
@@ -9,20 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x608
+    accessFlags = 0x609
     name = "OnGestureListener"
 .end annotation
 
 
 # virtual methods
-.method public abstract onDrag(FF)Z
+.method public abstract onDrag(FF)V
 .end method
 
-.method public abstract onFinish(FF)Z
+.method public abstract onFinish()Z
 .end method
 
-.method public abstract onSingleTap()Z
+.method public abstract onSingleTap()V
 .end method
 
-.method public abstract onStart(FF)Z
+.method public abstract onStart()V
 .end method

@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
+.class public final Lcom/android/systemui/biometrics/UdfpsEnrollHelper;
 .super Ljava/lang/Object;
 .source "UdfpsEnrollHelper.java"
 
@@ -12,33 +12,25 @@
 
 
 # instance fields
-.field private final mAccessibilityEnabled:Z
+.field public final mAccessibilityEnabled:Z
 
-.field private mCenterTouchCount:I
+.field public mCenterTouchCount:I
 
-.field private final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
-.field private final mEnrollReason:I
+.field public final mEnrollReason:I
 
-.field private final mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
+.field public final mFingerprintManager:Landroid/hardware/fingerprint/FingerprintManager;
 
-.field private final mGuidedEnrollmentPoints:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Landroid/graphics/PointF;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public final mGuidedEnrollmentPoints:Ljava/util/ArrayList;
 
-.field mListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
+.field public mListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
 
-.field private mLocationsEnrolled:I
+.field public mLocationsEnrolled:I
 
-.field private mRemainingSteps:I
+.field public mRemainingSteps:I
 
-.field private mTotalSteps:I
+.field public mTotalSteps:I
 
 
 # direct methods
@@ -83,7 +75,7 @@
 
     invoke-direct {p2}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mGuidedEnrollmentPoints:Ljava/util/List;
+    iput-object p2, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mGuidedEnrollmentPoints:Ljava/util/ArrayList;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -149,7 +141,7 @@
 
     invoke-direct {p3, v0, v1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -159,7 +151,7 @@
 
     invoke-direct {p3, v0, v1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -171,7 +163,7 @@
 
     invoke-direct {p3, v0, p1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -185,7 +177,7 @@
 
     invoke-direct {p3, v0, v1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -199,7 +191,7 @@
 
     invoke-direct {p3, v1, v2}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -213,7 +205,7 @@
 
     invoke-direct {p3, v2, v3}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -227,7 +219,7 @@
 
     invoke-direct {p3, v3, v4}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -241,7 +233,7 @@
 
     invoke-direct {p3, v4, v5}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -251,7 +243,7 @@
 
     invoke-direct {p3, v4, v5}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -261,7 +253,7 @@
 
     invoke-direct {p3, v3, v4}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -271,7 +263,7 @@
 
     invoke-direct {p3, v2, v3}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -281,7 +273,7 @@
 
     invoke-direct {p3, v1, v2}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -291,7 +283,7 @@
 
     invoke-direct {p3, v0, v1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p3, Landroid/graphics/PointF;
 
@@ -301,7 +293,7 @@
 
     invoke-direct {p3, p0, p1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_0
 
@@ -320,7 +312,7 @@
 
     invoke-direct {p3, v0, p1}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -334,7 +326,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -348,7 +340,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -358,7 +350,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -372,7 +364,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -386,7 +378,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -400,7 +392,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -414,7 +406,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -424,7 +416,7 @@
 
     invoke-direct {p1, p3, p3}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -438,7 +430,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -452,7 +444,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -466,7 +458,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -480,7 +472,7 @@
 
     invoke-direct {p1, p3, v0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance p1, Landroid/graphics/PointF;
 
@@ -494,7 +486,7 @@
 
     invoke-direct {p1, p3, p0}, Landroid/graphics/PointF;-><init>(FF)V
 
-    invoke-interface {p2, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :goto_0
     return-void
@@ -502,37 +494,7 @@
 
 
 # virtual methods
-.method animateIfLastStep()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
-
-    if-nez v0, :cond_0
-
-    const-string p0, "UdfpsEnrollHelper"
-
-    const-string v0, "animateIfLastStep, null listener"
-
-    invoke-static {p0, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-
-    :cond_0
-    iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
-
-    const/4 v1, 0x2
-
-    if-gt p0, v1, :cond_1
-
-    if-ltz p0, :cond_1
-
-    invoke-interface {v0}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;->onLastStepAcquired()V
-
-    :cond_1
-    return-void
-.end method
-
-.method getNextGuidedEnrollmentPoint()Landroid/graphics/PointF;
+.method public final getNextGuidedEnrollmentPoint()Landroid/graphics/PointF;
     .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mAccessibilityEnabled:Z
@@ -580,15 +542,15 @@
 
     sub-int/2addr v0, v2
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mGuidedEnrollmentPoints:Ljava/util/List;
+    iget-object p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mGuidedEnrollmentPoints:Ljava/util/ArrayList;
 
-    invoke-interface {p0}, Ljava/util/List;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     rem-int/2addr v0, v2
 
-    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p0
 
@@ -619,7 +581,7 @@
     return-object p0
 .end method
 
-.method getStageThresholdSteps(II)I
+.method public final getStageThresholdSteps(II)I
     .locals 0
 
     int-to-float p1, p1
@@ -630,16 +592,16 @@
 
     move-result p0
 
-    mul-float/2addr p1, p0
+    mul-float/2addr p0, p1
 
-    invoke-static {p1}, Ljava/lang/Math;->round(F)I
+    invoke-static {p0}, Ljava/lang/Math;->round(F)I
 
     move-result p0
 
     return p0
 .end method
 
-.method isCenterEnrollmentStage()Z
+.method public final isCenterEnrollmentStage()Z
     .locals 4
 
     iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
@@ -677,42 +639,7 @@
     return v1
 .end method
 
-.method isEdgeEnrollmentStage()Z
-    .locals 4
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    const/4 v1, 0x0
-
-    const/4 v2, -0x1
-
-    if-eq v0, v2, :cond_1
-
-    iget v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
-
-    if-ne v3, v2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    sub-int v2, v0, v3
-
-    const/4 v3, 0x2
-
-    invoke-virtual {p0, v0, v3}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->getStageThresholdSteps(II)I
-
-    move-result p0
-
-    if-lt v2, p0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_1
-    :goto_0
-    return v1
-.end method
-
-.method isGuidedEnrollmentStage()Z
+.method public final isGuidedEnrollmentStage()Z
     .locals 4
 
     iget-boolean v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mAccessibilityEnabled:Z
@@ -757,156 +684,4 @@
     :cond_1
     :goto_0
     return v1
-.end method
-
-.method isTipEnrollmentStage()Z
-    .locals 5
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    const/4 v1, 0x0
-
-    const/4 v2, -0x1
-
-    if-eq v0, v2, :cond_1
-
-    iget v3, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
-
-    if-ne v3, v2, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    sub-int v2, v0, v3
-
-    const/4 v3, 0x1
-
-    invoke-virtual {p0, v0, v3}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->getStageThresholdSteps(II)I
-
-    move-result v0
-
-    if-lt v2, v0, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    const/4 v4, 0x2
-
-    invoke-virtual {p0, v0, v4}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->getStageThresholdSteps(II)I
-
-    move-result p0
-
-    if-ge v2, p0, :cond_1
-
-    move v1, v3
-
-    :cond_1
-    :goto_0
-    return v1
-.end method
-
-.method onEnrollmentHelp()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
-
-    if-eqz v0, :cond_0
-
-    iget v1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
-
-    iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    invoke-interface {v0, v1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;->onEnrollmentHelp(II)V
-
-    :cond_0
-    return-void
-.end method
-
-.method onEnrollmentProgress(I)V
-    .locals 2
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    const/4 v1, -0x1
-
-    if-ne v0, v1, :cond_0
-
-    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    :cond_0
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
-
-    if-eq p1, v0, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mLocationsEnrolled:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mLocationsEnrolled:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->isCenterEnrollmentStage()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mCenterTouchCount:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    iput v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mCenterTouchCount:I
-
-    :cond_1
-    iput p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
-
-    if-eqz v0, :cond_2
-
-    iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    invoke-interface {v0, p1, p0}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;->onEnrollmentProgress(II)V
-
-    :cond_2
-    return-void
-.end method
-
-.method setListener(Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;)V
-    .locals 2
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mListener:Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;
-
-    if-eqz p1, :cond_0
-
-    iget v0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mTotalSteps:I
-
-    const/4 v1, -0x1
-
-    if-eq v0, v1, :cond_0
-
-    iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mRemainingSteps:I
-
-    invoke-interface {p1, p0, v0}, Lcom/android/systemui/biometrics/UdfpsEnrollHelper$Listener;->onEnrollmentProgress(II)V
-
-    :cond_0
-    return-void
-.end method
-
-.method shouldShowProgressBar()Z
-    .locals 1
-
-    iget p0, p0, Lcom/android/systemui/biometrics/UdfpsEnrollHelper;->mEnrollReason:I
-
-    const/4 v0, 0x2
-
-    if-ne p0, v0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
 .end method

@@ -4,7 +4,7 @@
 
 
 # instance fields
-.field private final mDumpHandler:Lcom/android/systemui/dump/DumpHandler;
+.field public final mDumpHandler:Lcom/android/systemui/dump/DumpHandler;
 
 
 # direct methods
@@ -20,25 +20,25 @@
 
 
 # virtual methods
-.method protected dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-    .locals 1
+.method public final dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/dump/SystemUIAuxiliaryDumpService;->mDumpHandler:Lcom/android/systemui/dump/DumpHandler;
 
-    const-string p3, "--dump-priority"
+    const-string p1, "--dump-priority"
 
-    const-string v0, "NORMAL"
+    const-string p3, "NORMAL"
 
-    filled-new-array {p3, v0}, [Ljava/lang/String;
+    filled-new-array {p1, p3}, [Ljava/lang/String;
 
-    move-result-object p3
+    move-result-object p1
 
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/systemui/dump/DumpHandler;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+    invoke-virtual {p0, p2, p1}, Lcom/android/systemui/dump/DumpHandler;->dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
 
     return-void
 .end method
 
-.method public onBind(Landroid/content/Intent;)Landroid/os/IBinder;
+.method public final onBind(Landroid/content/Intent;)Landroid/os/IBinder;
     .locals 0
 
     const/4 p0, 0x0

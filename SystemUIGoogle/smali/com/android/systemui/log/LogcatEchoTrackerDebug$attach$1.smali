@@ -3,23 +3,12 @@
 .source "LogcatEchoTrackerDebug.kt"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/log/LogcatEchoTrackerDebug;->attach(Landroid/os/Looper;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x19
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/log/LogcatEchoTrackerDebug;
+.field public final synthetic this$0:Lcom/android/systemui/log/LogcatEchoTrackerDebug;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/log/LogcatEchoTrackerDebug;Landroid/os/Handler;)V
+.method public constructor <init>(Lcom/android/systemui/log/LogcatEchoTrackerDebug;Landroid/os/Handler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$1;->this$0:Lcom/android/systemui/log/LogcatEchoTrackerDebug;
@@ -31,22 +20,16 @@
 
 
 # virtual methods
-.method public onChange(ZLandroid/net/Uri;)V
-    .locals 1
-
-    const-string/jumbo v0, "uri"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final onChange(ZLandroid/net/Uri;)V
+    .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/database/ContentObserver;->onChange(ZLandroid/net/Uri;)V
 
     iget-object p0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug$attach$1;->this$0:Lcom/android/systemui/log/LogcatEchoTrackerDebug;
 
-    invoke-static {p0}, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->access$getCachedBufferLevels$p(Lcom/android/systemui/log/LogcatEchoTrackerDebug;)Ljava/util/Map;
+    iget-object p0, p0, Lcom/android/systemui/log/LogcatEchoTrackerDebug;->cachedBufferLevels:Ljava/util/LinkedHashMap;
 
-    move-result-object p0
-
-    invoke-interface {p0}, Ljava/util/Map;->clear()V
+    invoke-virtual {p0}, Ljava/util/LinkedHashMap;->clear()V
 
     return-void
 .end method

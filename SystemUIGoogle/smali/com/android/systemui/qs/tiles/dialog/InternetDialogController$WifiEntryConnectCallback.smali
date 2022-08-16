@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$WifiEntryConnectCallback;
+.class public final Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$WifiEntryConnectCallback;
 .super Ljava/lang/Object;
 .source "InternetDialogController.java"
 
@@ -12,21 +12,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x9
     name = "WifiEntryConnectCallback"
 .end annotation
 
 
 # instance fields
-.field final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
+.field public final mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-.field final mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
+.field public final mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-.field final mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
+.field public final mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
+.method public constructor <init>(Lcom/android/systemui/plugins/ActivityStarter;Lcom/android/wifitrackerlib/WifiEntry;Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -42,103 +42,75 @@
 
 
 # virtual methods
-.method public onConnectResult(I)V
+.method public final onConnectResult(I)V
     .locals 3
 
-    invoke-static {}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$300()Z
-
-    move-result v0
+    sget-boolean v0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->DEBUG:Z
 
     const-string v1, "InternetDialogController"
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "onConnectResult "
 
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, p1, v1}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline1;->m(Ljava/lang/String;ILjava/lang/String;)V
 
     :cond_0
-    const/4 v0, 0x1
+    const/4 v2, 0x1
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v2, :cond_1
 
-    new-instance p1, Landroid/content/Intent;
+    iget-object p1, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$WifiEntryConnectCallback;->mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
 
-    const-string v0, "com.android.settings.WIFI_DIALOG"
-
-    invoke-direct {p1, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$WifiEntryConnectCallback;->mWifiEntry:Lcom/android/wifitrackerlib/WifiEntry;
-
-    invoke-virtual {v0}, Lcom/android/wifitrackerlib/WifiEntry;->getKey()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "key_chosen_wifientry_key"
-
-    invoke-virtual {p1, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {p1}, Lcom/android/wifitrackerlib/WifiEntry;->getKey()Ljava/lang/String;
 
     move-result-object p1
 
-    const/high16 v0, 0x10000000
+    new-instance v0, Landroid/content/Intent;
 
-    invoke-virtual {p1, v0}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
+    const-string v1, "com.android.settings.WIFI_DIALOG"
+
+    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string v1, "key_chosen_wifientry_key"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string p1, "connect_for_caller"
+
+    invoke-virtual {v0, p1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    const/high16 p1, 0x10000000
+
+    invoke-virtual {v0, p1}, Landroid/content/Intent;->addFlags(I)Landroid/content/Intent;
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$WifiEntryConnectCallback;->mActivityStarter:Lcom/android/systemui/plugins/ActivityStarter;
 
-    const/4 v0, 0x0
+    const/4 p1, 0x0
 
-    invoke-interface {p0, p1, v0}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
+    invoke-interface {p0, v0, p1}, Lcom/android/systemui/plugins/ActivityStarter;->startActivity(Landroid/content/Intent;Z)V
 
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x2
+    const/4 v2, 0x2
 
-    if-ne p1, v0, :cond_2
+    if-ne p1, v2, :cond_2
 
     iget-object p0, p0, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController$WifiEntryConnectCallback;->mInternetDialogController:Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;
 
-    sget p1, Lcom/android/systemui/R$string;->wifi_failed_connect_message:I
+    const p1, 0x7f1307b4
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->makeOverlayToast(I)V
 
     goto :goto_0
 
     :cond_2
-    invoke-static {}, Lcom/android/systemui/qs/tiles/dialog/InternetDialogController;->access$300()Z
+    if-eqz v0, :cond_3
 
-    move-result p0
+    const-string p0, "connect failure reason="
 
-    if-eqz p0, :cond_3
-
-    new-instance p0, Ljava/lang/StringBuilder;
-
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v0, "connect failure reason="
-
-    invoke-virtual {p0, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {p0, p1, v1}, Landroidx/exifinterface/media/ExifInterface$$ExternalSyntheticOutline1;->m(Ljava/lang/String;ILjava/lang/String;)V
 
     :cond_3
     :goto_0

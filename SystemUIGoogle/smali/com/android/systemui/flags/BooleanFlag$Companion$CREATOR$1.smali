@@ -7,8 +7,8 @@
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/flags/BooleanFlag;-><clinit>()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/systemui/flags/BooleanFlag;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -37,46 +37,30 @@
 
 
 # virtual methods
-.method public createFromParcel(Landroid/os/Parcel;)Lcom/android/systemui/flags/BooleanFlag;
-    .locals 1
-
-    const-string p0, "parcel"
-
-    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+.method public final createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+    .locals 2
 
     new-instance p0, Lcom/android/systemui/flags/BooleanFlag;
 
-    const/4 v0, 0x0
+    invoke-virtual {p1}, Landroid/os/Parcel;->readInt()I
 
-    invoke-direct {p0, p1, v0}, Lcom/android/systemui/flags/BooleanFlag;-><init>(Landroid/os/Parcel;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+    move-result v0
 
-    return-object p0
-.end method
+    invoke-virtual {p1}, Landroid/os/Parcel;->readBoolean()Z
 
-.method public bridge synthetic createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
-    .locals 0
+    move-result p1
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/flags/BooleanFlag$Companion$CREATOR$1;->createFromParcel(Landroid/os/Parcel;)Lcom/android/systemui/flags/BooleanFlag;
+    const/4 v1, 0x0
 
-    move-result-object p0
+    invoke-direct {p0, v0, p1, v1}, Lcom/android/systemui/flags/BooleanFlag;-><init>(IZI)V
 
     return-object p0
 .end method
 
-.method public newArray(I)[Lcom/android/systemui/flags/BooleanFlag;
+.method public final newArray(I)[Ljava/lang/Object;
     .locals 0
 
     new-array p0, p1, [Lcom/android/systemui/flags/BooleanFlag;
-
-    return-object p0
-.end method
-
-.method public bridge synthetic newArray(I)[Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/flags/BooleanFlag$Companion$CREATOR$1;->newArray(I)[Lcom/android/systemui/flags/BooleanFlag;
-
-    move-result-object p0
 
     return-object p0
 .end method

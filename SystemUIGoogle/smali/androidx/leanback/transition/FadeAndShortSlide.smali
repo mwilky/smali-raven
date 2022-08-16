@@ -12,68 +12,68 @@
 
 
 # static fields
-.field static final sCalculateBottom:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+.field public static final sCalculateBottom:Landroidx/leanback/transition/FadeAndShortSlide$4;
 
-.field static final sCalculateEnd:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+.field public static final sCalculateEnd:Landroidx/leanback/transition/FadeAndShortSlide$2;
 
-.field static final sCalculateStart:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+.field public static final sCalculateStart:Landroidx/leanback/transition/FadeAndShortSlide$1;
 
-.field static final sCalculateStartEnd:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+.field public static final sCalculateStartEnd:Landroidx/leanback/transition/FadeAndShortSlide$3;
 
-.field static final sCalculateTop:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+.field public static final sCalculateTop:Landroidx/leanback/transition/FadeAndShortSlide$5;
 
-.field private static final sDecelerate:Landroid/animation/TimeInterpolator;
+.field public static final sDecelerate:Landroid/view/animation/DecelerateInterpolator;
 
 
 # instance fields
-.field private mDistance:F
+.field public mDistance:F
 
-.field private mFade:Landroid/transition/Visibility;
+.field public mFade:Landroid/transition/Visibility;
 
-.field private mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+.field public mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 
-.field final sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+.field public final sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$6;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     new-instance v0, Landroid/view/animation/DecelerateInterpolator;
 
     invoke-direct {v0}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sDecelerate:Landroid/animation/TimeInterpolator;
+    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sDecelerate:Landroid/view/animation/DecelerateInterpolator;
 
     new-instance v0, Landroidx/leanback/transition/FadeAndShortSlide$1;
 
     invoke-direct {v0}, Landroidx/leanback/transition/FadeAndShortSlide$1;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStart:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStart:Landroidx/leanback/transition/FadeAndShortSlide$1;
 
     new-instance v0, Landroidx/leanback/transition/FadeAndShortSlide$2;
 
     invoke-direct {v0}, Landroidx/leanback/transition/FadeAndShortSlide$2;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateEnd:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateEnd:Landroidx/leanback/transition/FadeAndShortSlide$2;
 
     new-instance v0, Landroidx/leanback/transition/FadeAndShortSlide$3;
 
     invoke-direct {v0}, Landroidx/leanback/transition/FadeAndShortSlide$3;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStartEnd:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStartEnd:Landroidx/leanback/transition/FadeAndShortSlide$3;
 
     new-instance v0, Landroidx/leanback/transition/FadeAndShortSlide$4;
 
     invoke-direct {v0}, Landroidx/leanback/transition/FadeAndShortSlide$4;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateBottom:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateBottom:Landroidx/leanback/transition/FadeAndShortSlide$4;
 
     new-instance v0, Landroidx/leanback/transition/FadeAndShortSlide$5;
 
     invoke-direct {v0}, Landroidx/leanback/transition/FadeAndShortSlide$5;-><init>()V
 
-    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTop:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sput-object v0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTop:Landroidx/leanback/transition/FadeAndShortSlide$5;
 
     return-void
 .end method
@@ -90,14 +90,6 @@
 
 .method public constructor <init>(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slideEdge"
-        }
-    .end annotation
 
     invoke-direct {p0}, Landroid/transition/Visibility;-><init>()V
 
@@ -115,7 +107,7 @@
 
     invoke-direct {v0, p0}, Landroidx/leanback/transition/FadeAndShortSlide$6;-><init>(Landroidx/leanback/transition/FadeAndShortSlide;)V
 
-    iput-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    iput-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$6;
 
     invoke-virtual {p0, p1}, Landroidx/leanback/transition/FadeAndShortSlide;->setSlideEdge(I)V
 
@@ -124,16 +116,6 @@
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "context",
-            "attrs"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Landroid/transition/Visibility;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -151,7 +133,7 @@
 
     invoke-direct {v0, p0}, Landroidx/leanback/transition/FadeAndShortSlide$6;-><init>(Landroidx/leanback/transition/FadeAndShortSlide;)V
 
-    iput-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    iput-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$6;
 
     sget-object v0, Landroidx/leanback/R$styleable;->lbSlide:[I
 
@@ -159,7 +141,7 @@
 
     move-result-object p1
 
-    sget p2, Landroidx/leanback/R$styleable;->lbSlide_lb_slideEdge:I
+    const/4 p2, 0x3
 
     const v0, 0x800003
 
@@ -174,16 +156,30 @@
     return-void
 .end method
 
-.method private captureValues(Landroid/transition/TransitionValues;)V
+
+# virtual methods
+.method public final addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transitionValues"
-        }
-    .end annotation
+
+    iget-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
+
+    invoke-virtual {v0, p1}, Landroid/transition/Visibility;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
+    invoke-super {p0, p1}, Landroid/transition/Visibility;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+
+    move-result-object p0
+
+    return-object p0
+.end method
+
+.method public final captureEndValues(Landroid/transition/TransitionValues;)V
+    .locals 1
+
+    iget-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
+
+    invoke-virtual {v0, p1}, Landroid/transition/Visibility;->captureEndValues(Landroid/transition/TransitionValues;)V
+
+    invoke-super {p0, p1}, Landroid/transition/Visibility;->captureEndValues(Landroid/transition/TransitionValues;)V
 
     iget-object p0, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
 
@@ -202,62 +198,8 @@
     return-void
 .end method
 
-
-# virtual methods
-.method public addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+.method public final captureStartValues(Landroid/transition/TransitionValues;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
-
-    invoke-virtual {v0, p1}, Landroid/transition/Visibility;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
-
-    invoke-super {p0, p1}, Landroid/transition/Visibility;->addListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public captureEndValues(Landroid/transition/TransitionValues;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transitionValues"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
-
-    invoke-virtual {v0, p1}, Landroid/transition/Visibility;->captureEndValues(Landroid/transition/TransitionValues;)V
-
-    invoke-super {p0, p1}, Landroid/transition/Visibility;->captureEndValues(Landroid/transition/TransitionValues;)V
-
-    invoke-direct {p0, p1}, Landroidx/leanback/transition/FadeAndShortSlide;->captureValues(Landroid/transition/TransitionValues;)V
-
-    return-void
-.end method
-
-.method public captureStartValues(Landroid/transition/TransitionValues;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "transitionValues"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
 
@@ -265,12 +207,24 @@
 
     invoke-super {p0, p1}, Landroid/transition/Visibility;->captureStartValues(Landroid/transition/TransitionValues;)V
 
-    invoke-direct {p0, p1}, Landroidx/leanback/transition/FadeAndShortSlide;->captureValues(Landroid/transition/TransitionValues;)V
+    iget-object p0, p1, Landroid/transition/TransitionValues;->view:Landroid/view/View;
+
+    const/4 v0, 0x2
+
+    new-array v0, v0, [I
+
+    invoke-virtual {p0, v0}, Landroid/view/View;->getLocationOnScreen([I)V
+
+    iget-object p0, p1, Landroid/transition/TransitionValues;->values:Ljava/util/Map;
+
+    const-string p1, "android:fadeAndShortSlideTransition:screenPosition"
+
+    invoke-interface {p0, p1, v0}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
 
-.method public clone()Landroid/transition/Transition;
+.method public final clone()Landroid/transition/Transition;
     .locals 1
 
     invoke-super {p0}, Landroid/transition/Visibility;->clone()Landroid/transition/Transition;
@@ -292,7 +246,7 @@
     return-object v0
 .end method
 
-.method public bridge synthetic clone()Ljava/lang/Object;
+.method public final bridge synthetic clone()Ljava/lang/Object;
     .locals 0
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -307,16 +261,8 @@
     return-object p0
 .end method
 
-.method getHorizontalDistance(Landroid/view/ViewGroup;)F
+.method public final getHorizontalDistance(Landroid/view/ViewGroup;)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sceneRoot"
-        }
-    .end annotation
 
     iget p0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mDistance:F
 
@@ -341,16 +287,8 @@
     return p0
 .end method
 
-.method getVerticalDistance(Landroid/view/ViewGroup;)F
+.method public final getVerticalDistance(Landroid/view/ViewGroup;)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "sceneRoot"
-        }
-    .end annotation
 
     iget p0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mDistance:F
 
@@ -375,22 +313,8 @@
     return p0
 .end method
 
-.method public onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
+.method public final onAppear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 14
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sceneRoot",
-            "view",
-            "startValues",
-            "endValues"
-        }
-    .end annotation
 
     move-object v10, p0
 
@@ -450,7 +374,7 @@
 
     move-result v5
 
-    sget-object v8, Landroidx/leanback/transition/FadeAndShortSlide;->sDecelerate:Landroid/animation/TimeInterpolator;
+    sget-object v8, Landroidx/leanback/transition/FadeAndShortSlide;->sDecelerate:Landroid/view/animation/DecelerateInterpolator;
 
     move-object/from16 v0, p2
 
@@ -458,7 +382,7 @@
 
     move-object v9, p0
 
-    invoke-static/range {v0 .. v9}, Landroidx/leanback/transition/TranslationAnimationCreator;->createAnimation(Landroid/view/View;Landroid/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroid/transition/Transition;)Landroid/animation/Animator;
+    invoke-static/range {v0 .. v9}, Landroidx/leanback/transition/TranslationAnimationCreator;->createAnimation(Landroid/view/View;Landroid/transition/TransitionValues;IIFFFFLandroid/view/animation/DecelerateInterpolator;Landroid/transition/Transition;)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
 
@@ -493,22 +417,8 @@
     return-object v2
 .end method
 
-.method public onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
+.method public final onDisappear(Landroid/view/ViewGroup;Landroid/view/View;Landroid/transition/TransitionValues;Landroid/transition/TransitionValues;)Landroid/animation/Animator;
     .locals 14
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "sceneRoot",
-            "view",
-            "startValues",
-            "endValues"
-        }
-    .end annotation
 
     move-object v10, p0
 
@@ -568,7 +478,7 @@
 
     move-result v7
 
-    sget-object v8, Landroidx/leanback/transition/FadeAndShortSlide;->sDecelerate:Landroid/animation/TimeInterpolator;
+    sget-object v8, Landroidx/leanback/transition/FadeAndShortSlide;->sDecelerate:Landroid/view/animation/DecelerateInterpolator;
 
     move-object/from16 v0, p2
 
@@ -576,7 +486,7 @@
 
     move-object v9, p0
 
-    invoke-static/range {v0 .. v9}, Landroidx/leanback/transition/TranslationAnimationCreator;->createAnimation(Landroid/view/View;Landroid/transition/TransitionValues;IIFFFFLandroid/animation/TimeInterpolator;Landroid/transition/Transition;)Landroid/animation/Animator;
+    invoke-static/range {v0 .. v9}, Landroidx/leanback/transition/TranslationAnimationCreator;->createAnimation(Landroid/view/View;Landroid/transition/TransitionValues;IIFFFFLandroid/view/animation/DecelerateInterpolator;Landroid/transition/Transition;)Landroid/animation/ObjectAnimator;
 
     move-result-object v0
 
@@ -611,16 +521,8 @@
     return-object v2
 .end method
 
-.method public removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
+.method public final removeListener(Landroid/transition/Transition$TransitionListener;)Landroid/transition/Transition;
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "listener"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
 
@@ -633,16 +535,8 @@
     return-object p0
 .end method
 
-.method public setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
+.method public final setEpicenterCallback(Landroid/transition/Transition$EpicenterCallback;)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "epicenterCallback"
-        }
-    .end annotation
 
     iget-object v0, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mFade:Landroid/transition/Visibility;
 
@@ -653,16 +547,8 @@
     return-void
 .end method
 
-.method public setSlideEdge(I)V
+.method public final setSlideEdge(I)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "slideEdge"
-        }
-    .end annotation
 
     const/16 v0, 0x30
 
@@ -688,7 +574,7 @@
 
     if-ne p1, v0, :cond_0
 
-    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStartEnd:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStartEnd:Landroidx/leanback/transition/FadeAndShortSlide$3;
 
     iput-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 
@@ -704,35 +590,35 @@
     throw p0
 
     :cond_1
-    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateEnd:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateEnd:Landroidx/leanback/transition/FadeAndShortSlide$2;
 
     iput-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 
     goto :goto_0
 
     :cond_2
-    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStart:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateStart:Landroidx/leanback/transition/FadeAndShortSlide$1;
 
     iput-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 
     goto :goto_0
 
     :cond_3
-    iget-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    iget-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTopBottom:Landroidx/leanback/transition/FadeAndShortSlide$6;
 
     iput-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 
     goto :goto_0
 
     :cond_4
-    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateBottom:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateBottom:Landroidx/leanback/transition/FadeAndShortSlide$4;
 
     iput-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 
     goto :goto_0
 
     :cond_5
-    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTop:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
+    sget-object p1, Landroidx/leanback/transition/FadeAndShortSlide;->sCalculateTop:Landroidx/leanback/transition/FadeAndShortSlide$5;
 
     iput-object p1, p0, Landroidx/leanback/transition/FadeAndShortSlide;->mSlideCalculator:Landroidx/leanback/transition/FadeAndShortSlide$CalculateSlide;
 

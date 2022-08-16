@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/appops/AppOpsControllerImpl$1;
+.class public final Lcom/android/systemui/appops/AppOpsControllerImpl$1;
 .super Landroid/media/AudioManager$AudioRecordingCallback;
 .source "AppOpsControllerImpl.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
+.field public final synthetic this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/appops/AppOpsControllerImpl;)V
+.method public constructor <init>(Lcom/android/systemui/appops/AppOpsControllerImpl;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/appops/AppOpsControllerImpl$1;->this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onRecordingConfigChanged(Ljava/util/List;)V
+.method public final onRecordingConfigChanged(Ljava/util/List;)V
     .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -44,18 +44,14 @@
 
     iget-object v0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl$1;->this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
 
-    invoke-static {v0}, Lcom/android/systemui/appops/AppOpsControllerImpl;->access$000(Lcom/android/systemui/appops/AppOpsControllerImpl;)Ljava/util/List;
-
-    move-result-object v0
+    iget-object v0, v0, Lcom/android/systemui/appops/AppOpsControllerImpl;->mActiveItems:Ljava/util/ArrayList;
 
     monitor-enter v0
 
     :try_start_0
     iget-object v1, p0, Lcom/android/systemui/appops/AppOpsControllerImpl$1;->this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
 
-    invoke-static {v1}, Lcom/android/systemui/appops/AppOpsControllerImpl;->access$100(Lcom/android/systemui/appops/AppOpsControllerImpl;)Landroid/util/SparseArray;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/appops/AppOpsControllerImpl;->mRecordingsByUid:Landroid/util/SparseArray;
 
     invoke-virtual {v1}, Landroid/util/SparseArray;->clear()V
 
@@ -76,9 +72,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/appops/AppOpsControllerImpl$1;->this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
 
-    invoke-static {v4}, Lcom/android/systemui/appops/AppOpsControllerImpl;->access$100(Lcom/android/systemui/appops/AppOpsControllerImpl;)Landroid/util/SparseArray;
-
-    move-result-object v4
+    iget-object v4, v4, Lcom/android/systemui/appops/AppOpsControllerImpl;->mRecordingsByUid:Landroid/util/SparseArray;
 
     invoke-virtual {v3}, Landroid/media/AudioRecordingConfiguration;->getClientUid()I
 
@@ -98,9 +92,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/appops/AppOpsControllerImpl$1;->this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
 
-    invoke-static {v5}, Lcom/android/systemui/appops/AppOpsControllerImpl;->access$100(Lcom/android/systemui/appops/AppOpsControllerImpl;)Landroid/util/SparseArray;
-
-    move-result-object v5
+    iget-object v5, v5, Lcom/android/systemui/appops/AppOpsControllerImpl;->mRecordingsByUid:Landroid/util/SparseArray;
 
     invoke-virtual {v3}, Landroid/media/AudioRecordingConfiguration;->getClientUid()I
 
@@ -122,7 +114,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/appops/AppOpsControllerImpl$1;->this$0:Lcom/android/systemui/appops/AppOpsControllerImpl;
 
-    invoke-static {p0}, Lcom/android/systemui/appops/AppOpsControllerImpl;->access$200(Lcom/android/systemui/appops/AppOpsControllerImpl;)V
+    invoke-virtual {p0}, Lcom/android/systemui/appops/AppOpsControllerImpl;->updateSensorDisabledStatus()V
 
     return-void
 

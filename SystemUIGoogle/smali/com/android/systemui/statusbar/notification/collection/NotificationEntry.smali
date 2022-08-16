@@ -16,105 +16,65 @@
 # instance fields
 .field public editedSuggestionInfo:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$EditedSuggestionInfo;
 
-.field private hasSentReply:Z
+.field public hasSentReply:Z
 
 .field public headsUpStatusBarText:Ljava/lang/CharSequence;
 
 .field public headsUpStatusBarTextPublic:Ljava/lang/CharSequence;
 
-.field private initializationTime:J
+.field public initializationTime:J
 
-.field private interruption:Z
+.field public interruption:Z
 
-.field private lastFullScreenIntentLaunchTime:J
+.field public lastFullScreenIntentLaunchTime:J
 
 .field public lastRemoteInputSent:J
 
-.field public final mActiveAppOps:Landroid/util/ArraySet;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Landroid/util/ArraySet<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mBubbleMetadata:Landroid/app/Notification$BubbleMetadata;
 
-.field private mAllowFgsDismissal:Z
+.field public mBucket:I
 
-.field private mAutoHeadsUp:Z
+.field public mCachedContrastColor:I
 
-.field private mBubbleMetadata:Landroid/app/Notification$BubbleMetadata;
+.field public mCachedContrastColorIsFor:I
 
-.field private mBucket:I
+.field public mCancellationReason:I
 
-.field private mCachedContrastColor:I
+.field public mDebugThrowable:Ljava/lang/Throwable;
 
-.field private mCachedContrastColorIsFor:I
+.field public final mDismissInterceptors:Ljava/util/ArrayList;
 
-.field mCancellationReason:I
+.field public mDismissState:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-.field private mDebugThrowable:Ljava/lang/Throwable;
+.field public mExpandAnimationRunning:Z
 
-.field final mDismissInterceptors:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifDismissInterceptor;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field public mIcons:Lcom/android/systemui/statusbar/notification/icon/IconPack;
 
-.field private mDismissState:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+.field public mIsAlerting:Z
 
-.field private mExpandAnimationRunning:Z
+.field public mIsMarkedForUserTriggeredMovement:Z
 
-.field private mIcons:Lcom/android/systemui/statusbar/notification/icon/IconPack;
+.field public final mKey:Ljava/lang/String;
 
-.field private mIsAlerting:Z
+.field public final mLifetimeExtenders:Ljava/util/ArrayList;
 
-.field private mIsMarkedForUserTriggeredMovement:Z
+.field public mOnSensitivityChangedListeners:Ljava/util/ArrayList;
 
-.field public mIsSystemNotification:Ljava/lang/Boolean;
+.field public mPulseSupressed:Z
 
-.field private final mKey:Ljava/lang/String;
-
-.field final mLifetimeExtenders:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/collection/notifcollection/NotifLifetimeExtender;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private mOnSensitivityChangedListeners:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private mPulseSupressed:Z
-
-.field private mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
+.field public mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
 
 .field public mRemoteEditImeAnimatingAway:Z
 
 .field public mRemoteEditImeVisible:Z
 
-.field private mRowController:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
+.field public mRowController:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
 
-.field private mRunningTask:Lcom/android/systemui/statusbar/InflationTask;
+.field public mRunningTask:Lcom/android/systemui/statusbar/InflationTask;
 
-.field private mSbn:Landroid/service/notification/StatusBarNotification;
+.field public mSbn:Landroid/service/notification/StatusBarNotification;
 
-.field private mSensitive:Z
+.field public mSensitive:Z
 
 .field public remoteInputAttachment:Landroid/view/ContentInfo;
 
@@ -122,329 +82,125 @@
 
 .field public remoteInputText:Ljava/lang/CharSequence;
 
-.field public remoteInputTextWhenReset:Ljava/lang/CharSequence;
+.field public remoteInputTextWhenReset:Landroid/text/SpannedString;
 
 .field public remoteInputUri:Landroid/net/Uri;
 
-.field private row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+.field public row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
 .field public targetSdk:I
 
 
 # direct methods
 .method public constructor <init>(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$Ranking;J)V
-    .locals 6
-
-    const/4 v3, 0x0
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-object v2, p2
-
-    move-wide v4, p3
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;-><init>(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$Ranking;ZJ)V
-
-    return-void
-.end method
-
-.method public constructor <init>(Landroid/service/notification/StatusBarNotification;Landroid/service/notification/NotificationListenerService$Ranking;ZJ)V
-    .locals 2
+    .locals 7
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-object v0, p1
-
-    check-cast v0, Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
     move-result-object v0
 
     invoke-static {v0}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
-    check-cast v0, Ljava/lang/String;
+    invoke-direct {p0, p3, p4, v0}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;-><init>(JLjava/lang/String;)V
 
-    invoke-direct {p0, v0, p4, p5}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;-><init>(Ljava/lang/String;J)V
+    new-instance p3, Ljava/util/ArrayList;
 
-    new-instance p4, Ljava/util/ArrayList;
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {p4}, Ljava/util/ArrayList;-><init>()V
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mLifetimeExtenders:Ljava/util/ArrayList;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mLifetimeExtenders:Ljava/util/List;
+    new-instance p3, Ljava/util/ArrayList;
 
-    new-instance p4, Ljava/util/ArrayList;
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {p4}, Ljava/util/ArrayList;-><init>()V
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDismissInterceptors:Ljava/util/ArrayList;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDismissInterceptors:Ljava/util/List;
+    const/4 p3, -0x1
 
-    const/4 p4, -0x1
+    iput p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCancellationReason:I
 
-    iput p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCancellationReason:I
+    sget-object p3, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->NOT_DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    sget-object p4, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;->NOT_DISMISSED:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDismissState:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDismissState:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
+    new-instance p3, Lcom/android/systemui/statusbar/notification/icon/IconPack;
 
-    const/4 p4, 0x0
+    const/4 v1, 0x0
 
-    invoke-static {p4}, Lcom/android/systemui/statusbar/notification/icon/IconPack;->buildEmptyPack(Lcom/android/systemui/statusbar/notification/icon/IconPack;)Lcom/android/systemui/statusbar/notification/icon/IconPack;
+    const/4 v2, 0x0
 
-    move-result-object p5
+    const/4 v3, 0x0
 
-    iput-object p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIcons:Lcom/android/systemui/statusbar/notification/icon/IconPack;
+    const/4 v4, 0x0
 
-    const-wide/16 v0, -0x7d0
+    const/4 v5, 0x0
 
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastFullScreenIntentLaunchTime:J
+    const/4 v6, 0x0
 
-    const/4 p5, 0x1
+    move-object v0, p3
 
-    iput p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColor:I
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/statusbar/notification/icon/IconPack;-><init>(ZLcom/android/systemui/statusbar/StatusBarIconView;Lcom/android/systemui/statusbar/StatusBarIconView;Lcom/android/systemui/statusbar/StatusBarIconView;Lcom/android/systemui/statusbar/StatusBarIconView;Lcom/android/systemui/statusbar/notification/icon/IconPack;)V
 
-    iput p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColorIsFor:I
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIcons:Lcom/android/systemui/statusbar/notification/icon/IconPack;
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRunningTask:Lcom/android/systemui/statusbar/InflationTask;
+    const-wide/16 p3, -0x7d0
 
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastRemoteInputSent:J
+    iput-wide p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastFullScreenIntentLaunchTime:J
 
-    new-instance p4, Landroid/util/ArraySet;
+    const/4 v0, 0x1
 
-    const/4 v0, 0x3
+    iput v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColor:I
 
-    invoke-direct {p4, v0}, Landroid/util/ArraySet;-><init>(I)V
+    iput v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColorIsFor:I
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mActiveAppOps:Landroid/util/ArraySet;
+    const/4 v1, 0x0
 
-    const-wide/16 v0, -0x1
+    iput-object v1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRunningTask:Lcom/android/systemui/statusbar/InflationTask;
 
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->initializationTime:J
+    iput-wide p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastRemoteInputSent:J
 
-    iput-boolean p5, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSensitive:Z
+    new-instance p3, Landroid/util/ArraySet;
 
-    new-instance p4, Ljava/util/ArrayList;
+    const/4 p4, 0x3
 
-    invoke-direct {p4}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p3, p4}, Landroid/util/ArraySet;-><init>(I)V
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/List;
+    const-wide/16 p3, -0x1
 
-    const/4 p4, 0x5
+    iput-wide p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->initializationTime:J
 
-    iput p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSensitive:Z
+
+    new-instance p3, Ljava/util/ArrayList;
+
+    invoke-direct {p3}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/ArrayList;
+
+    const/4 p3, 0x5
+
+    iput p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
 
     invoke-static {p2}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
-    move-result-object p4
+    move-result-object p3
 
-    iput-object p4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setSbn(Landroid/service/notification/StatusBarNotification;)V
 
     invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setRanking(Landroid/service/notification/NotificationListenerService$Ranking;)V
 
-    iput-boolean p3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mAllowFgsDismissal:Z
-
     return-void
-.end method
-
-.method private static isCategory(Ljava/lang/String;Landroid/app/Notification;)Z
-    .locals 0
-
-    iget-object p1, p1, Landroid/app/Notification;->category:Ljava/lang/String;
-
-    invoke-static {p1, p0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private isDismissable()Z
-    .locals 6
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/app/Notification;->flags:I
-
-    and-int/lit8 v0, v0, 0x2
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-eqz v0, :cond_0
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v2
-
-    :goto_0
-    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v3}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object v3
-
-    iget v3, v3, Landroid/app/Notification;->flags:I
-
-    and-int/lit8 v3, v3, 0x20
-
-    if-eqz v3, :cond_1
-
-    move v3, v1
-
-    goto :goto_1
-
-    :cond_1
-    move v3, v2
-
-    :goto_1
-    iget-object v4, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {v4}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object v4
-
-    iget v4, v4, Landroid/app/Notification;->flags:I
-
-    and-int/lit8 v4, v4, 0x40
-
-    if-eqz v4, :cond_2
-
-    move v4, v1
-
-    goto :goto_2
-
-    :cond_2
-    move v4, v2
-
-    :goto_2
-    iget-boolean v5, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mAllowFgsDismissal:Z
-
-    if-eqz v5, :cond_4
-
-    if-eqz v3, :cond_3
-
-    if-nez v0, :cond_3
-
-    if-nez v4, :cond_3
-
-    return v2
-
-    :cond_3
-    return v1
-
-    :cond_4
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->isClearable()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method private static isNotificationBlockedByPolicy(Landroid/app/Notification;)Z
-    .locals 1
-
-    const-string v0, "call"
-
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isCategory(Ljava/lang/String;Landroid/app/Notification;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string v0, "msg"
-
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isCategory(Ljava/lang/String;Landroid/app/Notification;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string v0, "alarm"
-
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isCategory(Ljava/lang/String;Landroid/app/Notification;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string v0, "event"
-
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isCategory(Ljava/lang/String;Landroid/app/Notification;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    const-string v0, "reminder"
-
-    invoke-static {v0, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isCategory(Ljava/lang/String;Landroid/app/Notification;)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method private shouldSuppressVisualEffect(I)Z
-    .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isExemptFromDndVisualSuppression()Z
-
-    move-result v0
-
-    const/4 v1, 0x0
-
-    if-eqz v0, :cond_0
-
-    return v1
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getSuppressedVisualEffects()I
-
-    move-result p0
-
-    and-int/2addr p0, p1
-
-    if-eqz p0, :cond_1
-
-    const/4 v1, 0x1
-
-    :cond_1
-    return v1
 .end method
 
 
 # virtual methods
-.method public abortTask()V
+.method public final abortTask()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRunningTask:Lcom/android/systemui/statusbar/InflationTask;
@@ -461,111 +217,8 @@
     return-void
 .end method
 
-.method public addOnSensitivityChangedListener(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public areChildrenExpanded()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->areChildrenExpanded()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public areGutsExposed()Z
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz v0, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getGuts()Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getGuts()Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/NotificationGuts;->isExposed()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public canBubble()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->canBubble()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public closeRemoteInput()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->closeRemoteInput()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public getAttachedNotifChildren()Ljava/util/List;
+.method public final getAttachedNotifChildren()Ljava/util/ArrayList;
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;",
-            ">;"
-        }
-    .end annotation
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
@@ -606,9 +259,7 @@
 
     check-cast v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-
-    move-result-object v1
+    iget-object v1, v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mEntry:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -618,23 +269,7 @@
     return-object v0
 .end method
 
-.method public getBubbleMetadata()Landroid/app/Notification$BubbleMetadata;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBubbleMetadata:Landroid/app/Notification$BubbleMetadata;
-
-    return-object p0
-.end method
-
-.method public getBucket()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
-
-    return p0
-.end method
-
-.method public getChannel()Landroid/app/NotificationChannel;
+.method public final getChannel()Landroid/app/NotificationChannel;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
@@ -646,115 +281,7 @@
     return-object p0
 .end method
 
-.method public getContrastedColor(Landroid/content/Context;ZI)I
-    .locals 2
-
-    if-eqz p2, :cond_0
-
-    const/4 p2, 0x0
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
-
-    invoke-virtual {p2}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object p2
-
-    iget p2, p2, Landroid/app/Notification;->color:I
-
-    :goto_0
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColorIsFor:I
-
-    if-ne v0, p2, :cond_1
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColor:I
-
-    const/4 v1, 0x1
-
-    if-eq v0, v1, :cond_1
-
-    return v0
-
-    :cond_1
-    invoke-static {p1, p2, p3}, Lcom/android/internal/util/ContrastColorUtil;->resolveContrastColor(Landroid/content/Context;II)I
-
-    move-result p1
-
-    iput p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColorIsFor:I
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mCachedContrastColor:I
-
-    return p1
-.end method
-
-.method public getDebugThrowable()Ljava/lang/Throwable;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDebugThrowable:Ljava/lang/Throwable;
-
-    return-object p0
-.end method
-
-.method public getDismissState()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDismissState:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
-
-    return-object p0
-.end method
-
-.method public getExcludingFilter()Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifFilter;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getAttachState()Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->getExcludingFilter()Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifFilter;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getGuts()Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getGuts()Lcom/android/systemui/statusbar/notification/row/NotificationGuts;
-
-    move-result-object p0
-
-    return-object p0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    return-object p0
-.end method
-
-.method public getHeadsUpAnimationView()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    return-object p0
-.end method
-
-.method public getIcons()Lcom/android/systemui/statusbar/notification/icon/IconPack;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIcons:Lcom/android/systemui/statusbar/notification/icon/IconPack;
-
-    return-object p0
-.end method
-
-.method public getImportance()I
+.method public final getImportance()I
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
@@ -766,7 +293,7 @@
     return p0
 .end method
 
-.method public getKey()Ljava/lang/String;
+.method public final getKey()Ljava/lang/String;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mKey:Ljava/lang/String;
@@ -774,58 +301,8 @@
     return-object p0
 .end method
 
-.method public getLastAudiblyAlertedMs()J
-    .locals 2
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->getLastAudiblyAlertedMillis()J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
-.method public getNotifPromoter()Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifPromoter;
+.method public final getRepresentativeEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
     .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/ListEntry;->getAttachState()Lcom/android/systemui/statusbar/notification/collection/ListAttachState;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/ListAttachState;->getPromoter()Lcom/android/systemui/statusbar/notification/collection/listbuilder/pluggable/NotifPromoter;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getRanking()Landroid/service/notification/NotificationListenerService$Ranking;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    return-object p0
-.end method
-
-.method public getRepresentativeEntry()Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
-    .locals 0
-
-    return-object p0
-.end method
-
-.method public getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    return-object p0
-.end method
-
-.method public getRowController()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRowController:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
 
     return-object p0
 .end method
@@ -840,87 +317,7 @@
     return-object p0
 .end method
 
-.method public getSbn()Landroid/service/notification/StatusBarNotification;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
-
-    return-object p0
-.end method
-
-.method public getSmartActions()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Landroid/app/Notification$Action;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->getSmartActions()Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getSmartReplies()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Ljava/lang/CharSequence;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->getSmartReplies()Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getSnoozeCriteria()Ljava/util/List;
-    .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/List<",
-            "Landroid/service/notification/SnoozeCriterion;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->getSnoozeCriteria()Ljava/util/List;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public getSuppressedVisualEffects()I
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
-
-    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->getSuppressedVisualEffects()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public hasFinishedInitialization()Z
+.method public final hasFinishedInitialization()Z
     .locals 6
 
     iget-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->initializationTime:J
@@ -956,79 +353,7 @@
     return p0
 .end method
 
-.method public hasInterrupted()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->interruption:Z
-
-    return p0
-.end method
-
-.method public hasJustLaunchedFullScreenIntent()Z
-    .locals 6
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v0
-
-    iget-wide v2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastFullScreenIntentLaunchTime:J
-
-    const-wide/16 v4, 0x7d0
-
-    add-long/2addr v2, v4
-
-    cmp-long p0, v0, v2
-
-    if-gez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public hasJustSentRemoteInput()Z
-    .locals 6
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v0
-
-    iget-wide v2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastRemoteInputSent:J
-
-    const-wide/16 v4, 0x1f4
-
-    add-long/2addr v2, v4
-
-    cmp-long p0, v0, v2
-
-    if-gez p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isAlerting()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIsAlerting:Z
-
-    return p0
-.end method
-
-.method public isAmbient()Z
+.method public final isAmbient()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
@@ -1040,15 +365,49 @@
     return p0
 .end method
 
-.method public isAutoHeadsUp()Z
-    .locals 0
+.method public final isBlockable()Z
+    .locals 2
 
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mAutoHeadsUp:Z
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getChannel()Landroid/app/NotificationChannel;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_0
+
+    return v1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getChannel()Landroid/app/NotificationChannel;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/NotificationChannel;->isImportanceLockedByCriticalDeviceFunction()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getChannel()Landroid/app/NotificationChannel;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/app/NotificationChannel;->isBlockable()Z
+
+    move-result p0
+
+    if-nez p0, :cond_1
+
+    return v1
+
+    :cond_1
+    const/4 p0, 0x1
 
     return p0
 .end method
 
-.method public isBubble()Z
+.method public final isBubble()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
@@ -1074,34 +433,12 @@
     return p0
 .end method
 
-.method public isChildInGroup()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isChildInGroup()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isClearable()Z
+.method public final isClearable()Z
     .locals 3
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isDismissable()Z
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->isClearable()Z
 
     move-result v0
 
@@ -1112,13 +449,13 @@
     return v1
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getAttachedNotifChildren()Ljava/util/List;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getAttachedNotifChildren()Ljava/util/ArrayList;
 
     move-result-object p0
 
     if-eqz p0, :cond_2
 
-    invoke-interface {p0}, Ljava/util/List;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
@@ -1127,19 +464,21 @@
     move v0, v1
 
     :goto_0
-    invoke-interface {p0}, Ljava/util/List;->size()I
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
     if-ge v0, v2, :cond_2
 
-    invoke-interface {p0, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
 
-    invoke-direct {v2}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isDismissable()Z
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v2}, Landroid/service/notification/StatusBarNotification;->isClearable()Z
 
     move-result v2
 
@@ -1158,18 +497,12 @@
     return p0
 .end method
 
-.method isExemptFromDndVisualSuppression()Z
+.method public final isDismissable()Z
     .locals 3
-    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
-    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
-    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isNotificationBlockedByPolicy(Landroid/app/Notification;)Z
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->isOngoing()Z
 
     move-result v0
 
@@ -1180,6 +513,136 @@
     return v1
 
     :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getAttachedNotifChildren()Ljava/util/ArrayList;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_2
+
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_2
+
+    move v0, v1
+
+    :goto_0
+    invoke-virtual {p0}, Ljava/util/ArrayList;->size()I
+
+    move-result v2
+
+    if-ge v0, v2, :cond_2
+
+    invoke-virtual {p0, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    iget-object v2, v2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v2}, Landroid/service/notification/StatusBarNotification;->isOngoing()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    return v1
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 p0, 0x1
+
+    return p0
+.end method
+
+.method public isExemptFromDndVisualSuppression()Z
+    .locals 5
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v0
+
+    iget-object v1, v0, Landroid/app/Notification;->category:Ljava/lang/String;
+
+    const-string v2, "call"
+
+    invoke-static {v1, v2}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, v0, Landroid/app/Notification;->category:Ljava/lang/String;
+
+    const-string v4, "msg"
+
+    invoke-static {v1, v4}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, v0, Landroid/app/Notification;->category:Ljava/lang/String;
+
+    const-string v4, "alarm"
+
+    invoke-static {v1, v4}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, v0, Landroid/app/Notification;->category:Ljava/lang/String;
+
+    const-string v4, "event"
+
+    invoke-static {v1, v4}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v0, v0, Landroid/app/Notification;->category:Ljava/lang/String;
+
+    const-string/jumbo v1, "reminder"
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    move v0, v3
+
+    :goto_1
+    if-eqz v0, :cond_2
+
+    return v2
+
+    :cond_2
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
@@ -1190,13 +653,11 @@
 
     and-int/lit8 v0, v0, 0x40
 
-    const/4 v2, 0x1
+    if-eqz v0, :cond_3
 
-    if-eqz v0, :cond_1
+    return v3
 
-    return v2
-
-    :cond_1
+    :cond_3
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
 
     invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
@@ -1207,753 +668,259 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
-    return v2
+    return v3
 
-    :cond_2
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIsSystemNotification:Ljava/lang/Boolean;
-
-    if-eqz p0, :cond_3
-
-    invoke-virtual {p0}, Ljava/lang/Boolean;->booleanValue()Z
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isBlockable()Z
 
     move-result p0
 
-    if-eqz p0, :cond_3
+    if-nez p0, :cond_5
 
+    return v3
+
+    :cond_5
     return v2
-
-    :cond_3
-    return v1
 .end method
 
-.method public isExpandAnimationRunning()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mExpandAnimationRunning:Z
-
-    return p0
-.end method
-
-.method public isGroupNotFullyVisible()Z
+.method public final isRowDismissed()Z
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    if-eqz p0, :cond_1
+    if-eqz p0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isGroupNotFullyVisible()Z
-
-    move-result p0
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->mDismissed:Z
 
     if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
 
     goto :goto_0
 
     :cond_0
     const/4 p0, 0x0
 
-    goto :goto_1
-
-    :cond_1
     :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
     return p0
 .end method
 
-.method public isLastMessageFromReply()Z
-    .locals 4
+.method public final isRowPinned()Z
+    .locals 0
 
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->hasSentReply:Z
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    const/4 v1, 0x0
+    if-eqz p0, :cond_0
 
-    if-nez v0, :cond_0
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mIsPinned:Z
 
-    return v1
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
 
     :cond_0
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSbn:Landroid/service/notification/StatusBarNotification;
+    const/4 p0, 0x0
 
-    invoke-virtual {p0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+    :goto_0
+    return p0
+.end method
 
-    move-result-object p0
+.method public final isRowRemoved()Z
+    .locals 0
 
-    iget-object p0, p0, Landroid/app/Notification;->extras:Landroid/os/Bundle;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    const-string v0, "android.remoteInputHistoryItems"
+    if-eqz p0, :cond_0
 
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mRemoved:Z
 
-    move-result-object v0
+    if-eqz p0, :cond_0
 
-    invoke-static {v0}, Lcom/android/internal/util/ArrayUtils;->isEmpty([Ljava/lang/Object;)Z
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public final removeRow()V
+    .locals 5
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz p0, :cond_3
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mRemoved:Z
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getTranslationY()F
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mTranslationWhenRemoved:F
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isChildInGroup()Z
+
+    move-result v1
+
+    iput-boolean v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mWasChildInGroupWhenRemoved:Z
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isChildInGroup()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mTranslationWhenRemoved:F
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mNotificationParent:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    invoke-virtual {v2}, Landroid/widget/FrameLayout;->getTranslationY()F
+
+    move-result v2
+
+    add-float/2addr v2, v1
+
+    iput v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mTranslationWhenRemoved:F
+
+    :cond_0
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mLayouts:[Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
+
+    array-length v1, p0
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v1, :cond_3
+
+    aget-object v3, p0, v2
+
+    iget-object v4, v3, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mExpandedRemoteInput:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    if-eqz v4, :cond_1
+
+    iput-boolean v0, v4, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRemoved:Z
+
+    :cond_1
+    iget-object v3, v3, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mHeadsUpRemoteInput:Lcom/android/systemui/statusbar/policy/RemoteInputView;
+
+    if-eqz v3, :cond_2
+
+    iput-boolean v0, v3, Lcom/android/systemui/statusbar/policy/RemoteInputView;->mRemoved:Z
+
+    :cond_2
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    return-void
+.end method
+
+.method public final rowExists()Z
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
+.method public final setHeadsUp(Z)V
+    .locals 6
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+
+    if-eqz p0, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isAboveShelf()Z
 
     move-result v0
 
-    const/4 v2, 0x1
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getIntrinsicHeight()I
 
-    if-nez v0, :cond_1
+    move-result v1
 
-    return v2
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mIsHeadsUp:Z
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mPrivateLayout:Lcom/android/systemui/statusbar/notification/row/NotificationContentView;
+
+    iput-boolean p1, v2, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mIsHeadsUp:Z
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->selectLayout(ZZ)V
+
+    iget-boolean v5, v2, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->mExpandable:Z
+
+    invoke-virtual {v2, v5, v3}, Lcom/android/systemui/statusbar/notification/row/NotificationContentView;->updateExpandButtonsDuringLayout(ZZ)V
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mIsSummaryWithChildren:Z
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mChildrenContainer:Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;
+
+    invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/stack/NotificationChildrenContainer;->updateGroupOverflow()V
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getIntrinsicHeight()I
+
+    move-result v2
+
+    if-eq v1, v2, :cond_1
+
+    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->notifyHeightChanged(Z)V
 
     :cond_1
-    const-string v0, "android.messages"
+    if-eqz p1, :cond_2
 
-    invoke-virtual {p0, v0}, Landroid/os/Bundle;->getParcelableArray(Ljava/lang/String;)[Landroid/os/Parcelable;
+    iput-boolean v4, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mMustStayOnScreen:Z
 
-    move-result-object v0
+    invoke-virtual {p0, v4}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setAboveShelf(Z)V
 
-    invoke-static {v0}, Landroid/app/Notification$MessagingStyle$Message;->getMessagesFromBundleArray([Landroid/os/Parcelable;)Ljava/util/List;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_3
-
-    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
-
-    move-result v3
-
-    if-nez v3, :cond_3
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    sub-int/2addr v3, v2
-
-    invoke-interface {v0, v3}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/app/Notification$MessagingStyle$Message;
-
-    if-eqz v0, :cond_3
-
-    invoke-virtual {v0}, Landroid/app/Notification$MessagingStyle$Message;->getSenderPerson()Landroid/app/Person;
-
-    move-result-object v0
-
-    if-nez v0, :cond_2
-
-    return v2
+    goto :goto_0
 
     :cond_2
-    const-string v1, "android.messagingUser"
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isAboveShelf()Z
 
-    invoke-virtual {p0, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
+    move-result p1
 
-    move-result-object p0
+    if-eq p1, v0, :cond_3
 
-    check-cast p0, Landroid/app/Person;
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mAboveShelfChangedListener:Lcom/android/systemui/statusbar/notification/AboveShelfChangedListener;
 
-    invoke-static {p0, v0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    xor-int/lit8 p1, v0, 0x1
 
-    move-result p0
-
-    return p0
+    invoke-interface {p0, p1}, Lcom/android/systemui/statusbar/notification/AboveShelfChangedListener;->onAboveShelfStateChanged(Z)V
 
     :cond_3
-    return v1
-.end method
-
-.method public isMarkedForUserTriggeredMovement()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIsMarkedForUserTriggeredMovement:Z
-
-    return p0
-.end method
-
-.method public isMediaNotification()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-nez p0, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isMediaRow()Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public isPinnedAndExpanded()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isPinnedAndExpanded()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
     :goto_0
-    return p0
-.end method
-
-.method public isPulseSuppressed()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mPulseSupressed:Z
-
-    return p0
-.end method
-
-.method public isRemoved()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isRemoved()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    goto :goto_1
-
-    :cond_1
-    :goto_0
-    const/4 p0, 0x1
-
-    :goto_1
-    return p0
-.end method
-
-.method public isRowDismissed()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ActivatableNotificationView;->isDismissed()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isRowHeadsUp()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isHeadsUp()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isRowPinned()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isPinned()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isRowRemoved()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isRemoved()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isSensitive()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mSensitive:Z
-
-    return p0
-.end method
-
-.method public isSummaryWithChildren()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isSummaryWithChildren()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public isTopLevelChild()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isTopLevelChild()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public markForUserTriggeredMovement(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIsMarkedForUserTriggeredMovement:Z
-
     return-void
 .end method
 
-.method public mustStayOnScreen()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mustStayOnScreen()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public notifyFullScreenIntentLaunched()V
+.method public final setRanking(Landroid/service/notification/NotificationListenerService$Ranking;)V
     .locals 2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->setInterruption()V
-
-    invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
-
-    move-result-wide v0
-
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastFullScreenIntentLaunchTime:J
-
-    return-void
-.end method
-
-.method public notifyHeightChanged(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->notifyHeightChanged(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onDensityOrFontScaleChanged()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->onDensityOrFontScaleChanged()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public onInflationTaskFinished()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRunningTask:Lcom/android/systemui/statusbar/InflationTask;
-
-    return-void
-.end method
-
-.method public onRemoteInputInserted()V
-    .locals 2
-
-    const-wide/16 v0, -0x7d0
-
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->lastRemoteInputSent:J
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->remoteInputTextWhenReset:Ljava/lang/CharSequence;
-
-    return-void
-.end method
-
-.method public removeOnSensitivityChangedListener(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$OnSensitivityChangedListener;)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/List;
-
-    invoke-interface {p0, p1}, Ljava/util/List;->remove(Ljava/lang/Object;)Z
-
-    return-void
-.end method
-
-.method public removeRow()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setRemoved()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public resetInitializationTime()V
-    .locals 2
-
-    const-wide/16 v0, -0x1
-
-    iput-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->initializationTime:J
-
-    return-void
-.end method
-
-.method public resetUserExpansion()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->resetUserExpansion()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public rowExists()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
-.end method
-
-.method public sendAccessibilityEvent(I)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->sendAccessibilityEvent(I)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setAutoHeadsUp(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mAutoHeadsUp:Z
-
-    return-void
-.end method
-
-.method public setBucket(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mBucket:I
-
-    return-void
-.end method
-
-.method public setDebugThrowable(Ljava/lang/Throwable;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDebugThrowable:Ljava/lang/Throwable;
-
-    return-void
-.end method
-
-.method setDismissState(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;)V
-    .locals 0
-
-    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
-
-    check-cast p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mDismissState:Lcom/android/systemui/statusbar/notification/collection/NotificationEntry$DismissState;
-
-    return-void
-.end method
-
-.method public setExpandAnimationRunning(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mExpandAnimationRunning:Z
-
-    return-void
-.end method
-
-.method public setGroupExpansionChanging(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setGroupExpansionChanging(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setHasSentReply()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->hasSentReply:Z
-
-    return-void
-.end method
-
-.method public setHeadsUp(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setHeadsUp(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setHeadsUpAnimatingAway(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setHeadsUpAnimatingAway(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setHeadsUpIsVisible()V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setHeadsUpIsVisible()V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setIcons(Lcom/android/systemui/statusbar/notification/icon/IconPack;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIcons:Lcom/android/systemui/statusbar/notification/icon/IconPack;
-
-    return-void
-.end method
-
-.method public setInflationTask(Lcom/android/systemui/statusbar/InflationTask;)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->abortTask()V
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRunningTask:Lcom/android/systemui/statusbar/InflationTask;
-
-    return-void
-.end method
-
-.method public setInitializationTime(J)V
-    .locals 4
-
-    iget-wide v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->initializationTime:J
-
-    const-wide/16 v2, -0x1
-
-    cmp-long v0, v0, v2
-
-    if-nez v0, :cond_0
-
-    iput-wide p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->initializationTime:J
-
-    :cond_0
-    return-void
-.end method
-
-.method public setInterruption()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->interruption:Z
-
-    return-void
-.end method
-
-.method public setIsAlerting(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mIsAlerting:Z
-
-    return-void
-.end method
-
-.method public setKeepInParent(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setKeepInParent(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setPulseSuppressed(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mPulseSupressed:Z
-
-    return-void
-.end method
-
-.method public setRanking(Landroid/service/notification/NotificationListenerService$Ranking;)V
-    .locals 3
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1988,13 +955,11 @@
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "New key "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "New key "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {p1}, Landroid/service/notification/NotificationListenerService$Ranking;->getKey()Ljava/lang/String;
 
@@ -2019,37 +984,8 @@
     throw v0
 .end method
 
-.method public setRow(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    return-void
-.end method
-
-.method public setRowController(Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRowController:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRowController;
-
-    return-void
-.end method
-
-.method public setRowPinned(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setPinned(Z)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setSbn(Landroid/service/notification/StatusBarNotification;)V
-    .locals 3
+.method public final setSbn(Landroid/service/notification/StatusBarNotification;)V
+    .locals 2
 
     invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -2088,13 +1024,11 @@
     :cond_0
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "New key "
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v1}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v2, "New key "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v1
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getKey()Ljava/lang/String;
 
@@ -2119,12 +1053,10 @@
     throw v0
 .end method
 
-.method public setSensitive(ZZ)V
+.method public final setSensitive(ZZ)V
     .locals 1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->getRow()Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setSensitive(ZZ)V
 
@@ -2137,17 +1069,17 @@
     const/4 p1, 0x0
 
     :goto_0
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/List;
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/ArrayList;
 
-    invoke-interface {p2}, Ljava/util/List;->size()I
+    invoke-virtual {p2}, Ljava/util/ArrayList;->size()I
 
     move-result p2
 
     if-ge p1, p2, :cond_0
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/List;
+    iget-object p2, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mOnSensitivityChangedListeners:Ljava/util/ArrayList;
 
-    invoke-interface {p2, p1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-virtual {p2, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object p2
 
@@ -2163,124 +1095,32 @@
     return-void
 .end method
 
-.method public setUserExpanded(ZZ)V
-    .locals 0
+.method public final shouldSuppressVisualEffect(I)Z
+    .locals 2
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isExemptFromDndVisualSuppression()Z
 
-    if-eqz p0, :cond_0
+    move-result v0
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserExpanded(ZZ)V
+    const/4 v1, 0x0
 
-    :cond_0
-    return-void
-.end method
+    if-eqz v0, :cond_0
 
-.method public setUserLocked(Z)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setUserLocked(Z)V
+    return v1
 
     :cond_0
-    return-void
-.end method
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->mRanking:Landroid/service/notification/NotificationListenerService$Ranking;
 
-.method public shouldSuppressAmbient()Z
-    .locals 1
-
-    const/16 v0, 0x80
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->shouldSuppressVisualEffect(I)Z
+    invoke-virtual {p0}, Landroid/service/notification/NotificationListenerService$Ranking;->getSuppressedVisualEffects()I
 
     move-result p0
 
-    return p0
-.end method
+    and-int/2addr p0, p1
 
-.method public shouldSuppressFullScreenIntent()Z
-    .locals 1
+    if-eqz p0, :cond_1
 
-    const/4 v0, 0x4
+    const/4 v1, 0x1
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->shouldSuppressVisualEffect(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public shouldSuppressNotificationDot()Z
-    .locals 1
-
-    const/16 v0, 0x40
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->shouldSuppressVisualEffect(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public shouldSuppressNotificationList()Z
-    .locals 1
-
-    const/16 v0, 0x100
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->shouldSuppressVisualEffect(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public shouldSuppressPeek()Z
-    .locals 1
-
-    const/16 v0, 0x10
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->shouldSuppressVisualEffect(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public shouldSuppressStatusBar()Z
-    .locals 1
-
-    const/16 v0, 0x20
-
-    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->shouldSuppressVisualEffect(I)Z
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public showingPulsing()Z
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->row:Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    if-eqz p0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->showingPulsing()Z
-
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
-
-    :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
+    :cond_1
+    return v1
 .end method

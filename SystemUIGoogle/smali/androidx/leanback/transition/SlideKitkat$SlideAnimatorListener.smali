@@ -1,4 +1,4 @@
-.class Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;
+.class public final Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "SlideKitkat.java"
 
@@ -9,21 +9,21 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "SlideAnimatorListener"
 .end annotation
 
 
 # instance fields
-.field private mCanceled:Z
+.field public mCanceled:Z
 
-.field private final mEndValue:F
+.field public final mEndValue:F
 
-.field private final mFinalVisibility:I
+.field public final mFinalVisibility:I
 
-.field private mPausedValue:F
+.field public mPausedValue:F
 
-.field private final mProp:Landroid/util/Property;
+.field public final mProp:Landroid/util/Property;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Property<",
@@ -34,31 +34,14 @@
     .end annotation
 .end field
 
-.field private final mTerminalValue:F
+.field public final mTerminalValue:F
 
-.field private final mView:Landroid/view/View;
+.field public final mView:Landroid/view/View;
 
 
 # direct methods
 .method public constructor <init>(Landroid/view/View;Landroid/util/Property;FFI)V
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "view",
-            "prop",
-            "terminalValue",
-            "endValue",
-            "finalVisibility"
-        }
-    .end annotation
-
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -93,16 +76,8 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
 
     const/4 p1, 0x2
 
@@ -130,7 +105,7 @@
 
     iget-object v0, p0, Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;->mView:Landroid/view/View;
 
-    sget v2, Landroidx/leanback/R$id;->lb_slide_transition_value:I
+    const v2, 0x7f0b0388
 
     invoke-virtual {v0, v2, p1}, Landroid/view/View;->setTag(ILjava/lang/Object;)V
 
@@ -151,16 +126,8 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
 
     iget-boolean p1, p0, Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;->mCanceled:Z
 
@@ -188,16 +155,8 @@
     return-void
 .end method
 
-.method public onAnimationPause(Landroid/animation/Animator;)V
+.method public final onAnimationPause(Landroid/animation/Animator;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;->mProp:Landroid/util/Property;
 
@@ -236,16 +195,8 @@
     return-void
 .end method
 
-.method public onAnimationResume(Landroid/animation/Animator;)V
+.method public final onAnimationResume(Landroid/animation/Animator;)V
     .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "animator"
-        }
-    .end annotation
 
     iget-object p1, p0, Landroidx/leanback/transition/SlideKitkat$SlideAnimatorListener;->mProp:Landroid/util/Property;
 

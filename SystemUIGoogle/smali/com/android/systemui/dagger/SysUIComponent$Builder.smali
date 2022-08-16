@@ -23,7 +23,19 @@
         value = {
             "(",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/apppairs/AppPairs;",
+            "Ljava/lang/Object;",
+            ">;)",
+            "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
+        }
+    .end annotation
+.end method
+
+.method public abstract setBackAnimation(Ljava/util/Optional;)Lcom/android/systemui/dagger/SysUIComponent$Builder;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/Optional<",
+            "Lcom/android/wm/shell/back/BackAnimation;",
             ">;)",
             "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
         }
@@ -95,7 +107,7 @@
         value = {
             "(",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/legacysplitscreen/LegacySplitScreen;",
+            "Ljava/lang/Object;",
             ">;)",
             "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
         }
@@ -179,7 +191,7 @@
         value = {
             "(",
             "Ljava/util/Optional<",
-            "Lcom/android/wm/shell/tasksurfacehelper/TaskSurfaceHelper;",
+            "Ljava/lang/Object;",
             ">;)",
             "Lcom/android/systemui/dagger/SysUIComponent$Builder;"
         }

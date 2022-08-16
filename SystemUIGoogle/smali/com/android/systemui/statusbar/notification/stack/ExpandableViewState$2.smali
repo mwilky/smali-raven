@@ -1,34 +1,19 @@
-.class Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;
+.class public final Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;
 .super Landroid/animation/AnimatorListenerAdapter;
 .source "ExpandableViewState.java"
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->startHeightAnimation(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;)V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field mWasCancelled:Z
+.field public mWasCancelled:Z
 
-.field final synthetic this$0:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-
-.field final synthetic val$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+.field public final synthetic val$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
+.method public constructor <init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;->this$0:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-
-    iput-object p2, p0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;->val$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;->val$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -37,7 +22,7 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public final onAnimationCancel(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x1
@@ -47,14 +32,14 @@
     return-void
 .end method
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public final onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;->val$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->access$000()I
+    sget v0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->$r8$clinit:I
 
-    move-result v0
+    const v0, 0x7f0b02f3
 
     const/4 v1, 0x0
 
@@ -62,17 +47,13 @@
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;->val$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->access$100()I
-
-    move-result v0
+    const v0, 0x7f0b02f2
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/FrameLayout;->setTag(ILjava/lang/Object;)V
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState$2;->val$child:Lcom/android/systemui/statusbar/notification/row/ExpandableView;
 
-    invoke-static {}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->access$200()I
-
-    move-result v0
+    const v0, 0x7f0b02f1
 
     invoke-virtual {p1, v0, v1}, Landroid/widget/FrameLayout;->setTag(ILjava/lang/Object;)V
 
@@ -94,13 +75,13 @@
 
     check-cast p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->setGroupExpansionChanging(Z)V
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mGroupExpansionChanging:Z
 
     :cond_0
     return-void
 .end method
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public final onAnimationStart(Landroid/animation/Animator;)V
     .locals 0
 
     const/4 p1, 0x0

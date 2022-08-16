@@ -1,5 +1,5 @@
-.class Lcom/android/systemui/biometrics/AuthController$2;
-.super Landroid/hardware/fingerprint/FingerprintStateListener;
+.class public final Lcom/android/systemui/biometrics/AuthController$2;
+.super Landroid/hardware/fingerprint/IFingerprintAuthenticatorsRegisteredCallback$Stub;
 .source "AuthController.java"
 
 
@@ -9,58 +9,48 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/biometrics/AuthController;
+.field public final synthetic this$0:Lcom/android/systemui/biometrics/AuthController;
 
 
 # direct methods
-.method public static synthetic $r8$lambda$zq_aqGiEHmbsIbSDvHiNWCT68Zg(Lcom/android/systemui/biometrics/AuthController$2;IIZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthController$2;->lambda$onEnrollmentsChanged$0(IIZ)V
-
-    return-void
-.end method
-
-.method constructor <init>(Lcom/android/systemui/biometrics/AuthController;)V
+.method public constructor <init>(Lcom/android/systemui/biometrics/AuthController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/AuthController$2;->this$0:Lcom/android/systemui/biometrics/AuthController;
 
-    invoke-direct {p0}, Landroid/hardware/fingerprint/FingerprintStateListener;-><init>()V
-
-    return-void
-.end method
-
-.method private synthetic lambda$onEnrollmentsChanged$0(IIZ)V
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/AuthController$2;->this$0:Lcom/android/systemui/biometrics/AuthController;
-
-    invoke-static {p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthController;->access$300(Lcom/android/systemui/biometrics/AuthController;IIZ)V
+    invoke-direct {p0}, Landroid/hardware/fingerprint/IFingerprintAuthenticatorsRegisteredCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onEnrollmentsChanged(IIZ)V
-    .locals 2
+.method public final onAllAuthenticatorsRegistered(Ljava/util/List;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;",
+            ">;)V"
+        }
+    .end annotation
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/AuthController$2;->this$0:Lcom/android/systemui/biometrics/AuthController;
 
-    invoke-static {v0}, Lcom/android/systemui/biometrics/AuthController;->access$000(Lcom/android/systemui/biometrics/AuthController;)Landroid/os/Handler;
+    iget-object v0, v0, Lcom/android/systemui/biometrics/AuthController;->mHandler:Landroid/os/Handler;
 
-    move-result-object v0
+    new-instance v1, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda1;
 
-    new-instance v1, Lcom/android/systemui/biometrics/AuthController$2$$ExternalSyntheticLambda0;
+    const/4 v2, 0x1
 
-    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/systemui/biometrics/AuthController$2$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/biometrics/AuthController$2;IIZ)V
+    invoke-direct {v1, v2, p0, p1}, Lcom/android/systemui/util/condition/Monitor$$ExternalSyntheticLambda1;-><init>(ILjava/lang/Object;Ljava/lang/Object;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final activityTaskManagerProvider:Ljavax/inject/Provider;
+.field public final activityTaskManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final contextProvider:Ljavax/inject/Provider;
+.field public final contextProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final displayManagerProvider:Ljavax/inject/Provider;
+.field public final displayManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final fingerprintManagerProvider:Ljavax/inject/Provider;
+.field public final fingerprintManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final handlerProvider:Ljavax/inject/Provider;
+.field public final handlerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final layoutInflaterProvider:Ljavax/inject/Provider;
+.field public final layoutInflaterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final mainExecutorProvider:Ljavax/inject/Provider;
+.field public final mainExecutorProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final overviewProxyServiceProvider:Ljavax/inject/Provider;
+.field public final overviewProxyServiceProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final windowManagerProvider:Ljavax/inject/Provider;
+.field public final windowManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -231,40 +231,10 @@
     return-object v10
 .end method
 
-.method public static newInstance(Landroid/content/Context;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/recents/OverviewProxyService;Landroid/hardware/display/DisplayManager;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Handler;)Lcom/android/systemui/biometrics/SidefpsController;
-    .locals 11
-
-    new-instance v10, Lcom/android/systemui/biometrics/SidefpsController;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/biometrics/SidefpsController;-><init>(Landroid/content/Context;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/recents/OverviewProxyService;Landroid/hardware/display/DisplayManager;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Handler;)V
-
-    return-object v10
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/biometrics/SidefpsController;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->contextProvider:Ljavax/inject/Provider;
 
@@ -272,9 +242,9 @@
 
     move-result-object v0
 
-    move-object v1, v0
+    move-object v2, v0
 
-    check-cast v1, Landroid/content/Context;
+    check-cast v2, Landroid/content/Context;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->layoutInflaterProvider:Ljavax/inject/Provider;
 
@@ -282,9 +252,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Landroid/view/LayoutInflater;
+    check-cast v3, Landroid/view/LayoutInflater;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->fingerprintManagerProvider:Ljavax/inject/Provider;
 
@@ -292,9 +262,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Landroid/hardware/fingerprint/FingerprintManager;
+    check-cast v4, Landroid/hardware/fingerprint/FingerprintManager;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->windowManagerProvider:Ljavax/inject/Provider;
 
@@ -302,9 +272,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Landroid/view/WindowManager;
+    check-cast v5, Landroid/view/WindowManager;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->activityTaskManagerProvider:Ljavax/inject/Provider;
 
@@ -312,9 +282,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Landroid/app/ActivityTaskManager;
+    check-cast v6, Landroid/app/ActivityTaskManager;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->overviewProxyServiceProvider:Ljavax/inject/Provider;
 
@@ -322,9 +292,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/recents/OverviewProxyService;
+    check-cast v7, Lcom/android/systemui/recents/OverviewProxyService;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->displayManagerProvider:Ljavax/inject/Provider;
 
@@ -332,9 +302,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Landroid/hardware/display/DisplayManager;
+    check-cast v8, Landroid/hardware/display/DisplayManager;
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->mainExecutorProvider:Ljavax/inject/Provider;
 
@@ -342,9 +312,9 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Lcom/android/systemui/util/concurrency/DelayableExecutor;
+    check-cast v9, Lcom/android/systemui/util/concurrency/DelayableExecutor;
 
     iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController_Factory;->handlerProvider:Ljavax/inject/Provider;
 
@@ -352,23 +322,15 @@
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Landroid/os/Handler;
+    check-cast v10, Landroid/os/Handler;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/biometrics/SidefpsController_Factory;->newInstance(Landroid/content/Context;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/recents/OverviewProxyService;Landroid/hardware/display/DisplayManager;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Handler;)Lcom/android/systemui/biometrics/SidefpsController;
+    new-instance p0, Lcom/android/systemui/biometrics/SidefpsController;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/SidefpsController_Factory;->get()Lcom/android/systemui/biometrics/SidefpsController;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/biometrics/SidefpsController;-><init>(Landroid/content/Context;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/recents/OverviewProxyService;Landroid/hardware/display/DisplayManager;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Handler;)V
 
     return-object p0
 .end method

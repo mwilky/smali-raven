@@ -12,11 +12,9 @@
 
 
 # instance fields
-.field protected mEcaView:Landroid/view/View;
+.field public mEcaView:Landroid/view/View;
 
-.field protected mEnableHaptics:Z
-
-.field private mKeyDownListener:Lcom/android/keyguard/KeyguardAbsKeyInputView$KeyDownListener;
+.field public mKeyDownListener:Lcom/android/keyguard/KeyguardAbsKeyInputView$KeyDownListener;
 
 
 # direct methods
@@ -40,44 +38,27 @@
 
 
 # virtual methods
-.method public doHapticKeyClick()V
-    .locals 2
-
-    iget-boolean v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mEnableHaptics:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x1
-
-    const/4 v1, 0x3
-
-    invoke-virtual {p0, v0, v1}, Landroid/widget/LinearLayout;->performHapticFeedback(II)Z
-
-    :cond_0
-    return-void
+.method public abstract getEnteredCredential()Lcom/android/internal/widget/LockscreenCredential;
 .end method
 
-.method protected abstract getEnteredCredential()Lcom/android/internal/widget/LockscreenCredential;
+.method public abstract getPasswordTextViewId()I
 .end method
 
-.method protected abstract getPasswordTextViewId()I
+.method public abstract getPromptReasonStringRes(I)I
 .end method
 
-.method protected abstract getPromptReasonStringRes(I)I
-.end method
-
-.method protected getWrongPasswordStringId()I
+.method public getWrongPasswordStringId()I
     .locals 0
 
-    sget p0, Lcom/android/systemui/R$string;->kg_wrong_password:I
+    const p0, 0x7f1303df
 
     return p0
 .end method
 
-.method protected onFinishInflate()V
+.method public onFinishInflate()V
     .locals 1
 
-    sget v0, Lcom/android/systemui/R$id;->keyguard_selector_fade_container:I
+    const v0, 0x7f0b0353
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -95,44 +76,21 @@
 
     if-eqz p0, :cond_0
 
-    invoke-interface {p0, p1, p2}, Lcom/android/keyguard/KeyguardAbsKeyInputView$KeyDownListener;->onKeyDown(ILandroid/view/KeyEvent;)Z
+    check-cast p0, Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;
 
-    move-result p0
-
-    if-eqz p0, :cond_0
-
-    const/4 p0, 0x1
-
-    goto :goto_0
+    invoke-virtual {p0, p1}, Lcom/android/systemui/user/CreateUserActivity$$ExternalSyntheticLambda0;->onKeyDown(I)V
 
     :cond_0
     const/4 p0, 0x0
 
-    :goto_0
     return p0
 .end method
 
-.method protected abstract resetPasswordText(ZZ)V
+.method public abstract resetPasswordText(ZZ)V
 .end method
 
-.method setEnableHaptics(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mEnableHaptics:Z
-
-    return-void
+.method public abstract setPasswordEntryEnabled(Z)V
 .end method
 
-.method public setKeyDownListener(Lcom/android/keyguard/KeyguardAbsKeyInputView$KeyDownListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mKeyDownListener:Lcom/android/keyguard/KeyguardAbsKeyInputView$KeyDownListener;
-
-    return-void
-.end method
-
-.method protected abstract setPasswordEntryEnabled(Z)V
-.end method
-
-.method protected abstract setPasswordEntryInputEnabled(Z)V
+.method public abstract setPasswordEntryInputEnabled(Z)V
 .end method

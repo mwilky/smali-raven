@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/people/widget/PeopleBackupHelper$$ExternalSyntheticLambda1;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Predicate;
@@ -29,7 +30,7 @@
 
     check-cast p1, Ljava/lang/String;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/people/widget/PeopleBackupHelper;->$r8$lambda$PHVfTszxRSMkrpjotrAsvzGI8C8(Ljava/util/List;Ljava/lang/String;)Z
+    invoke-interface {p0, p1}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
     move-result p0
 

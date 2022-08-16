@@ -18,7 +18,7 @@
 
 
 # instance fields
-.field private final groupManagerProvider:Ljavax/inject/Provider;
+.field public final groupManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -28,7 +28,7 @@
     .end annotation
 .end field
 
-.field private final headsUpManagerProvider:Ljavax/inject/Provider;
+.field public final headsUpManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -38,7 +38,7 @@
     .end annotation
 .end field
 
-.field private final highPriorityProvider:Ljavax/inject/Provider;
+.field public final highPriorityProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -48,7 +48,7 @@
     .end annotation
 .end field
 
-.field private final keyguardEnvironmentProvider:Ljavax/inject/Provider;
+.field public final keyguardEnvironmentProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -58,7 +58,7 @@
     .end annotation
 .end field
 
-.field private final loggerProvider:Ljavax/inject/Provider;
+.field public final loggerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -68,7 +68,7 @@
     .end annotation
 .end field
 
-.field private final mediaManagerLazyProvider:Ljavax/inject/Provider;
+.field public final mediaManagerLazyProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -78,7 +78,7 @@
     .end annotation
 .end field
 
-.field private final notifFilterProvider:Ljavax/inject/Provider;
+.field public final notifFilterProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -88,7 +88,7 @@
     .end annotation
 .end field
 
-.field private final peopleNotificationIdentifierProvider:Ljavax/inject/Provider;
+.field public final peopleNotificationIdentifierProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -98,7 +98,7 @@
     .end annotation
 .end field
 
-.field private final sectionsFeatureManagerProvider:Ljavax/inject/Provider;
+.field public final sectionsFeatureManagerProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljavax/inject/Provider<",
@@ -231,64 +231,16 @@
     return-object v10
 .end method
 
-.method public static newInstance(Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;)Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
-    .locals 11
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ldagger/Lazy<",
-            "Lcom/android/systemui/statusbar/NotificationMediaManager;",
-            ">;",
-            "Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;",
-            "Lcom/android/systemui/statusbar/policy/HeadsUpManager;",
-            "Lcom/android/systemui/statusbar/notification/NotificationFilter;",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;",
-            "Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;",
-            "Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;",
-            "Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;",
-            "Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;",
-            ")",
-            "Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;"
-        }
-    .end annotation
-
-    new-instance v10, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
-
-    move-object v0, v10
-
-    move-object v1, p0
-
-    move-object v2, p1
-
-    move-object v3, p2
-
-    move-object v4, p3
-
-    move-object v5, p4
-
-    move-object/from16 v6, p5
-
-    move-object/from16 v7, p6
-
-    move-object/from16 v8, p7
-
-    move-object/from16 v9, p8
-
-    invoke-direct/range {v0 .. v9}, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;-><init>(Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;)V
-
-    return-object v10
-.end method
-
 
 # virtual methods
-.method public get()Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
-    .locals 10
+.method public final get()Ljava/lang/Object;
+    .locals 11
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->mediaManagerLazyProvider:Ljavax/inject/Provider;
 
     invoke-static {v0}, Ldagger/internal/DoubleCheck;->lazy(Ljavax/inject/Provider;)Ldagger/Lazy;
 
-    move-result-object v1
+    move-result-object v2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->groupManagerProvider:Ljavax/inject/Provider;
 
@@ -296,9 +248,9 @@
 
     move-result-object v0
 
-    move-object v2, v0
+    move-object v3, v0
 
-    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
+    check-cast v3, Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->headsUpManagerProvider:Ljavax/inject/Provider;
 
@@ -306,9 +258,9 @@
 
     move-result-object v0
 
-    move-object v3, v0
+    move-object v4, v0
 
-    check-cast v3, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
+    check-cast v4, Lcom/android/systemui/statusbar/policy/HeadsUpManager;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->notifFilterProvider:Ljavax/inject/Provider;
 
@@ -316,9 +268,9 @@
 
     move-result-object v0
 
-    move-object v4, v0
+    move-object v5, v0
 
-    check-cast v4, Lcom/android/systemui/statusbar/notification/NotificationFilter;
+    check-cast v5, Lcom/android/systemui/statusbar/notification/NotificationFilter;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->loggerProvider:Ljavax/inject/Provider;
 
@@ -326,9 +278,9 @@
 
     move-result-object v0
 
-    move-object v5, v0
+    move-object v6, v0
 
-    check-cast v5, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;
+    check-cast v6, Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->sectionsFeatureManagerProvider:Ljavax/inject/Provider;
 
@@ -336,9 +288,9 @@
 
     move-result-object v0
 
-    move-object v6, v0
+    move-object v7, v0
 
-    check-cast v6, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
+    check-cast v7, Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->peopleNotificationIdentifierProvider:Ljavax/inject/Provider;
 
@@ -346,9 +298,9 @@
 
     move-result-object v0
 
-    move-object v7, v0
+    move-object v8, v0
 
-    check-cast v7, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;
+    check-cast v8, Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->highPriorityProvider:Ljavax/inject/Provider;
 
@@ -356,9 +308,9 @@
 
     move-result-object v0
 
-    move-object v8, v0
+    move-object v9, v0
 
-    check-cast v8, Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;
+    check-cast v9, Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->keyguardEnvironmentProvider:Ljavax/inject/Provider;
 
@@ -366,23 +318,15 @@
 
     move-result-object p0
 
-    move-object v9, p0
+    move-object v10, p0
 
-    check-cast v9, Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;
+    check-cast v10, Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;
 
-    invoke-static/range {v1 .. v9}, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->newInstance(Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;)Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
+    new-instance p0, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
 
-    move-result-object p0
+    move-object v1, p0
 
-    return-object p0
-.end method
-
-.method public bridge synthetic get()Ljava/lang/Object;
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager_Factory;->get()Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;
-
-    move-result-object p0
+    invoke-direct/range {v1 .. v10}, Lcom/android/systemui/statusbar/notification/collection/NotificationRankingManager;-><init>(Ldagger/Lazy;Lcom/android/systemui/statusbar/notification/collection/legacy/NotificationGroupManagerLegacy;Lcom/android/systemui/statusbar/policy/HeadsUpManager;Lcom/android/systemui/statusbar/notification/NotificationFilter;Lcom/android/systemui/statusbar/notification/NotificationEntryManagerLogger;Lcom/android/systemui/statusbar/notification/NotificationSectionsFeatureManager;Lcom/android/systemui/statusbar/notification/people/PeopleNotificationIdentifier;Lcom/android/systemui/statusbar/notification/collection/provider/HighPriorityProvider;Lcom/android/systemui/statusbar/notification/NotificationEntryManager$KeyguardEnvironment;)V
 
     return-object p0
 .end method

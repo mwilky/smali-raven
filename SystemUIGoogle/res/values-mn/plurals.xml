@@ -16,6 +16,10 @@
         <item quantity="other">%s хяналтыг нэмлээ.</item>
         <item quantity="one">%s хяналтыг нэмлээ.</item>
     </plurals>
+    <plurals name="fgs_manager_footer_label">
+        <item quantity="other">%s апп идэвхтэй байна</item>
+        <item quantity="one">%s апп идэвхтэй байна</item>
+    </plurals>
     <plurals name="kg_password_default_pin_message">
         <item quantity="other">SIM-н ПИН кодыг оруулна уу. Танд %d оролдлого үлдлээ.</item>
         <item quantity="one">SIM-н ПИН кодыг оруулна уу. Танд оператор компанитайгаа холбогдохгүйгээр төхөөрөмжийн түгжээг тайлах %d оролдлого үлдлээ.</item>
@@ -31,10 +35,6 @@
     <plurals name="kg_password_wrong_puk_code">
         <item quantity="other">SIM-н PUK код буруу байна. Таны SIM бүрмөсөн хаагдах хүртэл танд %d оролдлого үлдлээ.</item>
         <item quantity="one">SIM-н PUK код буруу байна. Таны SIM бүрмөсөн хаагдах хүртэл танд %d оролдлого үлдлээ.</item>
-    </plurals>
-    <plurals name="kg_too_many_failed_attempts_countdown">
-        <item quantity="other">%d секундын дараа дахин оролдоно уу.</item>
-        <item quantity="one">1 секундын дараа дахин оролдоно уу.</item>
     </plurals>
     <plurals name="mtrl_badge_content_description">
         <item quantity="other">%d шинэ мэдэгдэл</item>
@@ -67,9 +67,5 @@
     <plurals name="user_limit_reached_message">
         <item quantity="other">Та %d хүртэлх хэрэглэгч нэмэх боломжтой.</item>
         <item quantity="one">Зөвхөн нэг хэрэглэгч үүсгэх боломжтой.</item>
-    </plurals>
-    <plurals name="wifi_tether_connected_summary">
-        <item quantity="other">%1$d төхөөрөмж холбосон</item>
-        <item quantity="one">%1$d төхөөрөмж холбосон</item>
     </plurals>
 </resources>

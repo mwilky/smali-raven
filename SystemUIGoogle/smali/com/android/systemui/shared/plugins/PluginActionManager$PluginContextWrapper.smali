@@ -1,4 +1,4 @@
-.class public Lcom/android/systemui/shared/plugins/PluginActionManager$PluginContextWrapper;
+.class public final Lcom/android/systemui/shared/plugins/PluginActionManager$PluginContextWrapper;
 .super Landroid/content/ContextWrapper;
 .source "PluginActionManager.java"
 
@@ -15,9 +15,9 @@
 
 
 # instance fields
-.field private final mClassLoader:Ljava/lang/ClassLoader;
+.field public final mClassLoader:Ljava/lang/ClassLoader;
 
-.field private mInflater:Landroid/view/LayoutInflater;
+.field public mInflater:Landroid/view/LayoutInflater;
 
 
 # direct methods
@@ -33,7 +33,7 @@
 
 
 # virtual methods
-.method public getClassLoader()Ljava/lang/ClassLoader;
+.method public final getClassLoader()Ljava/lang/ClassLoader;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/shared/plugins/PluginActionManager$PluginContextWrapper;->mClassLoader:Ljava/lang/ClassLoader;
@@ -41,7 +41,7 @@
     return-object p0
 .end method
 
-.method public getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+.method public final getSystemService(Ljava/lang/String;)Ljava/lang/Object;
     .locals 1
 
     const-string v0, "layout_inflater"

@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Ljava/util/function/Consumer;
@@ -8,46 +9,22 @@
 # instance fields
 .field public final synthetic f$0:Lcom/android/systemui/doze/DozeTriggers;
 
-.field public final synthetic f$1:I
+.field public final synthetic f$1:Lcom/android/systemui/doze/DozeMachine$State;
 
-.field public final synthetic f$2:Z
-
-.field public final synthetic f$3:Z
-
-.field public final synthetic f$4:F
-
-.field public final synthetic f$5:F
-
-.field public final synthetic f$6:Z
-
-.field public final synthetic f$7:Z
-
-.field public final synthetic f$8:[F
+.field public final synthetic f$2:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/doze/DozeTriggers;IZZFFZZ[F)V
+.method public synthetic constructor <init>(Lcom/android/systemui/doze/DozeTriggers;Lcom/android/systemui/doze/DozeMachine$State;I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     iput-object p1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$0:Lcom/android/systemui/doze/DozeTriggers;
 
-    iput p2, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$1:I
+    iput-object p2, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$1:Lcom/android/systemui/doze/DozeMachine$State;
 
-    iput-boolean p3, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$2:Z
-
-    iput-boolean p4, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$3:Z
-
-    iput p5, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$4:F
-
-    iput p6, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$5:F
-
-    iput-boolean p7, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$6:Z
-
-    iput-boolean p8, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$7:Z
-
-    iput-object p9, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$8:[F
+    iput p3, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$2:I
 
     return-void
 .end method
@@ -55,31 +32,60 @@
 
 # virtual methods
 .method public final accept(Ljava/lang/Object;)V
-    .locals 10
+    .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$0:Lcom/android/systemui/doze/DozeTriggers;
 
-    iget v1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$1:I
+    iget-object v1, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$1:Lcom/android/systemui/doze/DozeMachine$State;
 
-    iget-boolean v2, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$2:Z
+    iget p0, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$2:I
 
-    iget-boolean v3, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$3:Z
+    check-cast p1, Ljava/lang/Boolean;
 
-    iget v4, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$4:F
+    invoke-virtual {v0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    iget v5, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$5:F
+    if-eqz p1, :cond_0
 
-    iget-boolean v6, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$6:Z
+    invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    iget-boolean v7, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$7:Z
+    move-result p1
 
-    iget-object v8, p0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda5;->f$8:[F
+    if-eqz p1, :cond_0
 
-    move-object v9, p1
+    goto :goto_0
 
-    check-cast v9, Ljava/lang/Boolean;
+    :cond_0
+    sget-object p1, Lcom/android/systemui/doze/DozeMachine$State;->DOZE:Lcom/android/systemui/doze/DozeMachine$State;
 
-    invoke-static/range {v0 .. v9}, Lcom/android/systemui/doze/DozeTriggers;->$r8$lambda$NCNlQ21fqOXOL-C28nbusXOLzcI(Lcom/android/systemui/doze/DozeTriggers;IZZFFZZ[FLjava/lang/Boolean;)V
+    if-ne v1, p1, :cond_1
 
+    iget-object p1, v0, Lcom/android/systemui/doze/DozeTriggers;->mMachine:Lcom/android/systemui/doze/DozeMachine;
+
+    sget-object v1, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_AOD:Lcom/android/systemui/doze/DozeMachine$State;
+
+    invoke-virtual {p1, v1}, Lcom/android/systemui/doze/DozeMachine;->requestState(Lcom/android/systemui/doze/DozeMachine$State;)V
+
+    invoke-static {p0}, Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;->fromReason(I)Lcom/android/systemui/doze/DozeTriggers$DozingUpdateUiEvent;
+
+    move-result-object p0
+
+    invoke-static {p0}, Ljava/util/Optional;->ofNullable(Ljava/lang/Object;)Ljava/util/Optional;
+
+    move-result-object p0
+
+    iget-object p1, v0, Lcom/android/systemui/doze/DozeTriggers;->mUiEventLogger:Lcom/android/internal/logging/UiEventLogger;
+
+    invoke-static {p1}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;)Ljava/lang/Object;
+
+    new-instance v0, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda8;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1, p1}, Lcom/android/systemui/doze/DozeTriggers$$ExternalSyntheticLambda8;-><init>(ILjava/lang/Object;)V
+
+    invoke-virtual {p0, v0}, Ljava/util/Optional;->ifPresent(Ljava/util/function/Consumer;)V
+
+    :cond_1
+    :goto_0
     return-void
 .end method

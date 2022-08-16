@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
+.class public final Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;
 .super Ljava/lang/Object;
 .source "InternetTile.java"
 
@@ -9,41 +9,49 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "CellularCallbackInfo"
 .end annotation
 
 
 # instance fields
-.field mActivityIn:Z
+.field public mActivityIn:Z
 
-.field mActivityOut:Z
+.field public mActivityOut:Z
 
-.field mAirplaneModeEnabled:Z
+.field public mAirplaneModeEnabled:Z
 
-.field mDataContentDescription:Ljava/lang/CharSequence;
+.field public mDataContentDescription:Ljava/lang/CharSequence;
 
-.field mDataSubscriptionName:Ljava/lang/CharSequence;
+.field public mDataSubscriptionName:Ljava/lang/CharSequence;
 
-.field mMobileSignalIconId:I
+.field public mMobileSignalIconId:I
 
-.field mMultipleSubs:Z
+.field public mMultipleSubs:Z
 
-.field mNoDefaultNetwork:Z
+.field public mNoDefaultNetwork:Z
 
-.field mNoNetworksAvailable:Z
+.field public mNoNetworksAvailable:Z
 
-.field mNoSim:Z
+.field public mNoSim:Z
 
-.field mNoValidatedNetwork:Z
+.field public mNoValidatedNetwork:Z
 
-.field mQsTypeIcon:I
+.field public mQsTypeIcon:I
 
-.field mRoaming:Z
+.field public mRoaming:Z
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,17 +59,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/InternetTile$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -172,13 +172,9 @@
 
     iget-boolean p0, p0, Lcom/android/systemui/qs/tiles/InternetTile$CellularCallbackInfo;->mNoNetworksAvailable:Z
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const/16 v1, 0x5d
 
-    const/16 p0, 0x5d
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v0, p0, v1}, Landroidx/recyclerview/widget/LinearLayoutManager$AnchorInfo$$ExternalSyntheticOutline0;->m(Ljava/lang/StringBuilder;ZC)Ljava/lang/String;
 
     move-result-object p0
 

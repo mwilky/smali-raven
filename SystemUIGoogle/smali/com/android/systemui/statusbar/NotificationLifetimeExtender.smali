@@ -12,19 +12,11 @@
 
 
 # virtual methods
-.method public abstract setCallback(Lcom/android/systemui/statusbar/NotificationLifetimeExtender$NotificationSafeToRemoveCallback;)V
+.method public abstract setCallback(Lcom/android/wm/shell/dagger/TvPipModule$$ExternalSyntheticLambda1;)V
 .end method
 
 .method public abstract setShouldManageLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Z)V
 .end method
 
 .method public abstract shouldExtendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-.end method
-
-.method public shouldExtendLifetimeForPendingNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
 .end method

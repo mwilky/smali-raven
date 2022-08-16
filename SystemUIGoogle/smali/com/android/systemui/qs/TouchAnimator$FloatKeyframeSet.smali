@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;
+.class public final Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;
 .super Lcom/android/systemui/qs/TouchAnimator$KeyframeSet;
 .source "TouchAnimator.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "FloatKeyframeSet"
 .end annotation
 
@@ -24,7 +24,7 @@
 
 
 # instance fields
-.field private final mProperty:Landroid/util/Property;
+.field public final mProperty:Landroid/util/Property;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/Property<",
@@ -35,7 +35,7 @@
     .end annotation
 .end field
 
-.field private final mValues:[F
+.field public final mValues:[F
 
 
 # direct methods
@@ -64,7 +64,7 @@
 
 
 # virtual methods
-.method protected interpolate(IFLjava/lang/Object;)V
+.method public final interpolate(IFLjava/lang/Object;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/qs/TouchAnimator$FloatKeyframeSet;->mValues:[F
@@ -81,9 +81,9 @@
 
     mul-float/2addr p1, p2
 
-    add-float/2addr v1, p1
+    add-float/2addr p1, v1
 
-    invoke-static {v1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+    invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
     move-result-object p1
 

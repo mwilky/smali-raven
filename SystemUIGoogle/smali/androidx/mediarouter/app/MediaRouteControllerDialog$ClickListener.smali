@@ -1,4 +1,4 @@
-.class final Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;
+.class public final Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;
 .super Ljava/lang/Object;
 .source "MediaRouteControllerDialog.java"
 
@@ -12,26 +12,18 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x12
+    accessFlags = 0x11
     name = "ClickListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+.field public final synthetic this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
 
 # direct methods
-.method constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
+.method public constructor <init>(Landroidx/mediarouter/app/MediaRouteControllerDialog;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
@@ -42,16 +34,8 @@
 
 
 # virtual methods
-.method public onClick(Landroid/view/View;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "v"
-        }
-    .end annotation
+.method public final onClick(Landroid/view/View;)V
+    .locals 11
 
     invoke-virtual {p1}, Landroid/view/View;->getId()I
 
@@ -61,132 +45,168 @@
 
     const v1, 0x1020019
 
-    if-eq p1, v1, :cond_6
+    if-eq p1, v1, :cond_9
 
     const v2, 0x102001a
 
     if-ne p1, v2, :cond_0
 
-    goto/16 :goto_2
+    goto/16 :goto_5
 
     :cond_0
-    sget v1, Landroidx/mediarouter/R$id;->mr_control_playback_ctrl:I
+    const v1, 0x7f0b0446
 
-    if-ne p1, v1, :cond_5
+    if-ne p1, v1, :cond_8
 
     iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     iget-object v1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_c
 
     iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mState:Landroid/support/v4/media/session/PlaybackStateCompat;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_c
 
-    invoke-virtual {p1}, Landroid/support/v4/media/session/PlaybackStateCompat;->getState()I
+    iget v2, p1, Landroid/support/v4/media/session/PlaybackStateCompat;->mState:I
 
-    move-result p1
+    const/4 v3, 0x3
 
-    const/4 v1, 0x3
+    const/4 v4, 0x0
 
-    const/4 v2, 0x0
+    if-ne v2, v3, :cond_1
 
-    if-ne p1, v1, :cond_1
+    move v2, v0
 
     goto :goto_0
 
     :cond_1
-    move v0, v2
+    move v2, v4
 
     :goto_0
-    if-eqz v0, :cond_2
+    const-wide/16 v5, 0x0
 
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    if-eqz v2, :cond_3
 
-    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isPauseActionSupported()Z
+    iget-wide v7, p1, Landroid/support/v4/media/session/PlaybackStateCompat;->mActions:J
 
-    move-result p1
+    const-wide/16 v9, 0x202
 
-    if-eqz p1, :cond_2
+    and-long/2addr v7, v9
 
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    cmp-long v3, v7, v5
 
-    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
+    if-eqz v3, :cond_2
 
-    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat;->getTransportControls()Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;
-
-    move-result-object p1
-
-    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;->pause()V
-
-    sget v2, Landroidx/mediarouter/R$string;->mr_controller_pause:I
+    move v3, v0
 
     goto :goto_1
 
     :cond_2
-    if-eqz v0, :cond_3
+    move v3, v4
 
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    :goto_1
+    if-eqz v3, :cond_3
 
-    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isStopActionSupported()Z
+    iget-object p1, v1, Landroid/support/v4/media/session/MediaControllerCompat;->mImpl:Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;
 
-    move-result p1
+    iget-object p1, p1, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->mControllerFwk:Landroid/media/session/MediaController;
 
-    if-eqz p1, :cond_3
-
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
-
-    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
-
-    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat;->getTransportControls()Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;
+    invoke-virtual {p1}, Landroid/media/session/MediaController;->getTransportControls()Landroid/media/session/MediaController$TransportControls;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;->stop()V
+    invoke-virtual {p1}, Landroid/media/session/MediaController$TransportControls;->pause()V
 
-    sget v2, Landroidx/mediarouter/R$string;->mr_controller_stop:I
+    const v4, 0x7f1304b7
 
-    goto :goto_1
+    goto :goto_4
 
     :cond_3
-    if-nez v0, :cond_4
+    if-eqz v2, :cond_5
 
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    iget-wide v7, p1, Landroid/support/v4/media/session/PlaybackStateCompat;->mActions:J
 
-    invoke-virtual {p1}, Landroidx/mediarouter/app/MediaRouteControllerDialog;->isPlayActionSupported()Z
+    const-wide/16 v9, 0x1
 
-    move-result p1
+    and-long/2addr v7, v9
 
-    if-eqz p1, :cond_4
+    cmp-long v3, v7, v5
 
-    iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
+    if-eqz v3, :cond_4
 
-    iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mMediaController:Landroid/support/v4/media/session/MediaControllerCompat;
+    move v3, v0
 
-    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat;->getTransportControls()Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;
+    goto :goto_2
+
+    :cond_4
+    move v3, v4
+
+    :goto_2
+    if-eqz v3, :cond_5
+
+    iget-object p1, v1, Landroid/support/v4/media/session/MediaControllerCompat;->mImpl:Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;
+
+    iget-object p1, p1, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->mControllerFwk:Landroid/media/session/MediaController;
+
+    invoke-virtual {p1}, Landroid/media/session/MediaController;->getTransportControls()Landroid/media/session/MediaController$TransportControls;
 
     move-result-object p1
 
-    invoke-virtual {p1}, Landroid/support/v4/media/session/MediaControllerCompat$TransportControls;->play()V
+    invoke-virtual {p1}, Landroid/media/session/MediaController$TransportControls;->stop()V
 
-    sget v2, Landroidx/mediarouter/R$string;->mr_controller_play:I
+    const v4, 0x7f1304b9
 
-    :cond_4
-    :goto_1
+    goto :goto_4
+
+    :cond_5
+    if-nez v2, :cond_7
+
+    iget-wide v2, p1, Landroid/support/v4/media/session/PlaybackStateCompat;->mActions:J
+
+    const-wide/16 v7, 0x204
+
+    and-long/2addr v2, v7
+
+    cmp-long p1, v2, v5
+
+    if-eqz p1, :cond_6
+
+    goto :goto_3
+
+    :cond_6
+    move v0, v4
+
+    :goto_3
+    if-eqz v0, :cond_7
+
+    iget-object p1, v1, Landroid/support/v4/media/session/MediaControllerCompat;->mImpl:Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;
+
+    iget-object p1, p1, Landroid/support/v4/media/session/MediaControllerCompat$MediaControllerImplApi21;->mControllerFwk:Landroid/media/session/MediaController;
+
+    invoke-virtual {p1}, Landroid/media/session/MediaController;->getTransportControls()Landroid/media/session/MediaController$TransportControls;
+
+    move-result-object p1
+
+    invoke-virtual {p1}, Landroid/media/session/MediaController$TransportControls;->play()V
+
+    const v4, 0x7f1304b8
+
+    :cond_7
+    :goto_4
     iget-object p1, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     iget-object p1, p1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_c
 
     invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
 
     move-result p1
 
-    if-eqz p1, :cond_9
+    if-eqz p1, :cond_c
 
-    if-eqz v2, :cond_9
+    if-eqz v4, :cond_c
 
     const/16 p1, 0x4000
 
@@ -220,7 +240,7 @@
 
     iget-object v1, v1, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -232,21 +252,21 @@
 
     invoke-virtual {p0, p1}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
 
-    goto :goto_3
+    goto :goto_6
 
-    :cond_5
-    sget v0, Landroidx/mediarouter/R$id;->mr_close:I
+    :cond_8
+    const v0, 0x7f0b0444
 
-    if-ne p1, v0, :cond_9
+    if-ne p1, v0, :cond_c
 
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->dismiss()V
 
-    goto :goto_3
+    goto :goto_6
 
-    :cond_6
-    :goto_2
+    :cond_9
+    :goto_5
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     iget-object v2, v2, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRoute:Landroidx/mediarouter/media/MediaRouter$RouteInfo;
@@ -255,25 +275,27 @@
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_b
 
     iget-object v2, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     iget-object v2, v2, Landroidx/mediarouter/app/MediaRouteControllerDialog;->mRouter:Landroidx/mediarouter/media/MediaRouter;
 
-    if-ne p1, v1, :cond_7
+    if-ne p1, v1, :cond_a
 
     const/4 v0, 0x2
 
-    :cond_7
-    invoke-virtual {v2, v0}, Landroidx/mediarouter/media/MediaRouter;->unselect(I)V
+    :cond_a
+    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-    :cond_8
+    invoke-static {v0}, Landroidx/mediarouter/media/MediaRouter;->unselect(I)V
+
+    :cond_b
     iget-object p0, p0, Landroidx/mediarouter/app/MediaRouteControllerDialog$ClickListener;->this$0:Landroidx/mediarouter/app/MediaRouteControllerDialog;
 
     invoke-virtual {p0}, Landroidx/appcompat/app/AppCompatDialog;->dismiss()V
 
-    :cond_9
-    :goto_3
+    :cond_c
+    :goto_6
     return-void
 .end method

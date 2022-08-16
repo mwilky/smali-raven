@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/controls/controller/StatefulControlSubscriber$run$1;
+.class public final Lcom/android/systemui/controls/controller/StatefulControlSubscriber$run$1;
 .super Ljava/lang/Object;
 .source "StatefulControlSubscriber.kt"
 
@@ -12,13 +12,13 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $f:Lkotlin/jvm/functions/Function0;
+.field public final synthetic $f:Lkotlin/jvm/functions/Function0;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Lkotlin/jvm/functions/Function0<",
@@ -30,7 +30,7 @@
 
 
 # direct methods
-.method constructor <init>(Lkotlin/jvm/functions/Function0;)V
+.method public constructor <init>(Lkotlin/jvm/functions/Function0;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {

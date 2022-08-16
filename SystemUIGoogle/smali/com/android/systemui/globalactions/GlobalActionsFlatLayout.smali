@@ -12,26 +12,16 @@
     return-void
 .end method
 
-.method private getOverflowButton()Landroid/view/View;
-    .locals 1
-
-    sget v0, Lcom/android/systemui/R$id;->global_actions_overflow_button:I
-
-    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
 
 # virtual methods
-.method protected addToListView(Landroid/view/View;Z)V
+.method public final addToListView(Landroid/view/View;Z)V
     .locals 1
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/globalactions/GlobalActionsLayout;->addToListView(Landroid/view/View;Z)V
 
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsFlatLayout;->getOverflowButton()Landroid/view/View;
+    const p1, 0x7f0b02b5
+
+    invoke-virtual {p0, p1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object p1
 
@@ -49,7 +39,7 @@
     return-void
 .end method
 
-.method protected getAnimationDistance()F
+.method public getAnimationDistance()F
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -65,7 +55,7 @@
     return p0
 .end method
 
-.method protected getBackgroundDrawable(I)Lcom/android/systemui/HardwareBgDrawable;
+.method public final getBackgroundDrawable(I)Lcom/android/systemui/HardwareBgDrawable;
     .locals 0
 
     const/4 p0, 0x0
@@ -73,7 +63,7 @@
     return-object p0
 .end method
 
-.method protected getGridItemSize()F
+.method public getGridItemSize()F
     .locals 1
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -86,7 +76,7 @@
 
     move-result-object p0
 
-    sget v0, Lcom/android/systemui/R$dimen;->global_actions_grid_item_height:I
+    const v0, 0x7f070257
 
     invoke-virtual {p0, v0}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -95,7 +85,7 @@
     return p0
 .end method
 
-.method protected onLayout(ZIIII)V
+.method public final onLayout(ZIIII)V
     .locals 1
 
     invoke-super/range {p0 .. p5}, Landroid/widget/LinearLayout;->onLayout(ZIIII)V
@@ -174,7 +164,19 @@
 
     check-cast p2, Lcom/android/systemui/globalactions/GlobalActionsItem;
 
-    invoke-virtual {p2, p5}, Lcom/android/systemui/globalactions/GlobalActionsItem;->setMarquee(Z)V
+    const p3, 0x102000b
+
+    invoke-virtual {p2, p3}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object p2
+
+    check-cast p2, Landroid/widget/TextView;
+
+    invoke-virtual {p2, p5}, Landroid/widget/TextView;->setSingleLine(Z)V
+
+    sget-object p3, Landroid/text/TextUtils$TruncateAt;->MARQUEE:Landroid/text/TextUtils$TruncateAt;
+
+    invoke-virtual {p2, p3}, Landroid/widget/TextView;->setEllipsize(Landroid/text/TextUtils$TruncateAt;)V
 
     :cond_4
     add-int/lit8 p1, p1, 0x1
@@ -185,10 +187,12 @@
     return-void
 .end method
 
-.method protected removeAllListViews()V
+.method public final removeAllListViews()V
     .locals 2
 
-    invoke-direct {p0}, Lcom/android/systemui/globalactions/GlobalActionsFlatLayout;->getOverflowButton()Landroid/view/View;
+    const v0, 0x7f0b02b5
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -204,7 +208,7 @@
     return-void
 .end method
 
-.method protected shouldReverseListItems()Z
+.method public shouldReverseListItems()Z
     .locals 3
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation

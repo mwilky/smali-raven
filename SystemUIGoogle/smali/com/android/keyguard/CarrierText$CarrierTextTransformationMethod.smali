@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/CarrierText$CarrierTextTransformationMethod;
+.class public final Lcom/android/keyguard/CarrierText$CarrierTextTransformationMethod;
 .super Landroid/text/method/SingleLineTransformationMethod;
 .source "CarrierText.java"
 
@@ -9,15 +9,15 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "CarrierTextTransformationMethod"
 .end annotation
 
 
 # instance fields
-.field private final mAllCaps:Z
+.field public final mAllCaps:Z
 
-.field private final mLocale:Ljava/util/Locale;
+.field public final mLocale:Ljava/util/Locale;
 
 
 # direct methods
@@ -45,7 +45,7 @@
 
 
 # virtual methods
-.method public getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
+.method public final getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;
     .locals 0
 
     invoke-super {p0, p1, p2}, Landroid/text/method/SingleLineTransformationMethod;->getTransformation(Ljava/lang/CharSequence;Landroid/view/View;)Ljava/lang/CharSequence;

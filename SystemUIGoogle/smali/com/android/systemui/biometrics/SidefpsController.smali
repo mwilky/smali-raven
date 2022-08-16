@@ -5,71 +5,41 @@
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nSidefpsController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SidefpsController.kt\ncom/android/systemui/biometrics/SidefpsController\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,283:1\n256#2,2:284\n*E\n*S KotlinDebug\n*F\n+ 1 SidefpsController.kt\ncom/android/systemui/biometrics/SidefpsController\n*L\n75#1,2:284\n*E\n"
+    value = "SMAP\nSidefpsController.kt\nKotlin\n*S Kotlin\n*F\n+ 1 SidefpsController.kt\ncom/android/systemui/biometrics/SidefpsController\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,322:1\n286#2,2:323\n*S KotlinDebug\n*F\n+ 1 SidefpsController.kt\ncom/android/systemui/biometrics/SidefpsController\n*L\n79#1:323,2\n*E\n"
 .end annotation
 
 
 # instance fields
-.field private final activityTaskManager:Landroid/app/ActivityTaskManager;
+.field public final activityTaskManager:Landroid/app/ActivityTaskManager;
 
-.field private final animationDuration:J
+.field public final animationDuration:J
 
-.field private final context:Landroid/content/Context;
+.field public final context:Landroid/content/Context;
 
-.field private final handler:Landroid/os/Handler;
+.field public final handler:Landroid/os/Handler;
 
-.field private final layoutInflater:Landroid/view/LayoutInflater;
+.field public final layoutInflater:Landroid/view/LayoutInflater;
 
-.field private final orientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
+.field public final orientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-.field private overlayHideAnimator:Landroid/view/ViewPropertyAnimator;
+.field public overlayHideAnimator:Landroid/view/ViewPropertyAnimator;
 
-.field private overlayView:Landroid/view/View;
+.field public overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
 
-.field private final overlayViewParams:Landroid/view/WindowManager$LayoutParams;
+.field public overlayView:Landroid/view/View;
 
-.field private final overviewProxyListener:Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
+.field public final overlayViewParams:Landroid/view/WindowManager$LayoutParams;
 
-.field private final sensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+.field public final overviewProxyListener:Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1;
 
-.field private final windowManager:Landroid/view/WindowManager;
+.field public final sensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+.field public final windowManager:Landroid/view/WindowManager;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/LayoutInflater;Landroid/hardware/fingerprint/FingerprintManager;Landroid/view/WindowManager;Landroid/app/ActivityTaskManager;Lcom/android/systemui/recents/OverviewProxyService;Landroid/hardware/display/DisplayManager;Lcom/android/systemui/util/concurrency/DelayableExecutor;Landroid/os/Handler;)V
     .locals 6
-
-    const-string v0, "context"
-
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "layoutInflater"
-
-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string/jumbo v0, "windowManager"
-
-    invoke-static {p4, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "activityTaskManager"
-
-    invoke-static {p5, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "overviewProxyService"
-
-    invoke-static {p6, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "displayManager"
-
-    invoke-static {p7, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "mainExecutor"
-
-    invoke-static {p8, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
-
-    const-string v0, "handler"
-
-    invoke-static {p9, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -136,7 +106,7 @@
 
     new-instance p2, Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/SidefpsController;->context:Landroid/content/Context;
+    iget-object p4, p0, Lcom/android/systemui/biometrics/SidefpsController;->context:Landroid/content/Context;
 
     iget-object v3, p0, Lcom/android/systemui/biometrics/SidefpsController;->handler:Landroid/os/Handler;
 
@@ -150,6 +120,8 @@
 
     move-object v0, p2
 
+    move-object v1, p4
+
     move-object v2, p7
 
     invoke-direct/range {v0 .. v5}, Lcom/android/systemui/biometrics/BiometricDisplayListener;-><init>(Landroid/content/Context;Landroid/hardware/display/DisplayManager;Landroid/os/Handler;Lcom/android/systemui/biometrics/BiometricDisplayListener$SensorType;Lkotlin/jvm/functions/Function0;)V
@@ -160,11 +132,9 @@
 
     invoke-direct {p1, p0}, Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1;-><init>(Lcom/android/systemui/biometrics/SidefpsController;)V
 
-    iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overviewProxyListener:Lcom/android/systemui/recents/OverviewProxyService$OverviewProxyListener;
+    iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overviewProxyListener:Lcom/android/systemui/biometrics/SidefpsController$overviewProxyListener$1;
 
-    iget-object p2, p0, Lcom/android/systemui/biometrics/SidefpsController;->context:Landroid/content/Context;
-
-    invoke-virtual {p2}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {p4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object p2
 
@@ -177,6 +147,10 @@
     int-to-long p4, p2
 
     iput-wide p4, p0, Lcom/android/systemui/biometrics/SidefpsController;->animationDuration:J
+
+    sget-object p2, Landroid/hardware/biometrics/SensorLocationInternal;->DEFAULT:Landroid/hardware/biometrics/SensorLocationInternal;
+
+    iput-object p2, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
 
     new-instance p2, Landroid/view/WindowManager$LayoutParams;
 
@@ -214,8 +188,6 @@
 
     iput p4, p2, Landroid/view/WindowManager$LayoutParams;->privateFlags:I
 
-    sget-object p4, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
-
     iput-object p2, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayViewParams:Landroid/view/WindowManager$LayoutParams;
 
     if-nez p3, :cond_4
@@ -244,184 +216,15 @@
     throw p0
 .end method
 
-.method public static final synthetic access$createOverlayForDisplay(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/view/View;
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/SidefpsController;->createOverlayForDisplay()Landroid/view/View;
-
-    move-result-object p0
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getActivityTaskManager$p(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/app/ActivityTaskManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->activityTaskManager:Landroid/app/ActivityTaskManager;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getHandler$p(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/os/Handler;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->handler:Landroid/os/Handler;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getOverlayView$p(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/view/View;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayView:Landroid/view/View;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getOverlayViewParams$p(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/view/WindowManager$LayoutParams;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayViewParams:Landroid/view/WindowManager$LayoutParams;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$getWindowManager$p(Lcom/android/systemui/biometrics/SidefpsController;)Landroid/view/WindowManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->windowManager:Landroid/view/WindowManager;
-
-    return-object p0
-.end method
-
-.method public static final synthetic access$onOrientationChanged(Lcom/android/systemui/biometrics/SidefpsController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/SidefpsController;->onOrientationChanged()V
-
-    return-void
-.end method
-
-.method public static final synthetic access$setOverlayHideAnimator$p(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/ViewPropertyAnimator;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayHideAnimator:Landroid/view/ViewPropertyAnimator;
-
-    return-void
-.end method
-
-.method public static final synthetic access$setOverlayView(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/SidefpsController;->setOverlayView(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method public static final synthetic access$updateOverlayParams(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/Display;Landroid/graphics/Rect;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/biometrics/SidefpsController;->updateOverlayParams(Landroid/view/Display;Landroid/graphics/Rect;)V
-
-    return-void
-.end method
-
-.method public static final synthetic access$updateOverlayVisibility(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/View;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/SidefpsController;->updateOverlayVisibility(Landroid/view/View;)V
-
-    return-void
-.end method
-
-.method private final createOverlayForDisplay()Landroid/view/View;
-    .locals 5
-
-    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->layoutInflater:Landroid/view/LayoutInflater;
-
-    sget v1, Lcom/android/systemui/R$layout;->sidefps_view:I
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/systemui/biometrics/SidefpsController;->context:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
-
-    sget v3, Lcom/android/systemui/R$id;->sidefps_animation:I
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    const-string v4, "null cannot be cast to non-null type com.airbnb.lottie.LottieAnimationView"
-
-    invoke-static {v3, v4}, Ljava/util/Objects;->requireNonNull(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/Object;
-
-    check-cast v3, Lcom/airbnb/lottie/LottieAnimationView;
-
-    invoke-static {v1}, Lcom/android/systemui/biometrics/SidefpsControllerKt;->access$asSideFpsAnimation(Landroid/view/Display;)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
-
-    invoke-static {v1}, Lcom/android/systemui/biometrics/SidefpsControllerKt;->access$asSideFpsAnimationRotation(Landroid/view/Display;)F
-
-    move-result v4
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->setRotation(F)V
-
-    invoke-virtual {v3}, Lcom/airbnb/lottie/LottieAnimationView;->getComposition()Lcom/airbnb/lottie/LottieComposition;
-
-    move-result-object v4
-
-    if-nez v4, :cond_0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v4}, Lcom/airbnb/lottie/LottieComposition;->getBounds()Landroid/graphics/Rect;
-
-    move-result-object v2
-
-    :goto_0
-    if-nez v2, :cond_1
-
-    new-instance v2, Landroid/graphics/Rect;
-
-    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
-
-    :cond_1
-    invoke-direct {p0, v1, v2}, Lcom/android/systemui/biometrics/SidefpsController;->updateOverlayParams(Landroid/view/Display;Landroid/graphics/Rect;)V
-
-    new-instance v2, Lcom/android/systemui/biometrics/SidefpsController$createOverlayForDisplay$1;
-
-    invoke-direct {v2, p0, v0, v1}, Lcom/android/systemui/biometrics/SidefpsController$createOverlayForDisplay$1;-><init>(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/View;Landroid/view/Display;)V
-
-    invoke-virtual {v3, v2}, Lcom/airbnb/lottie/LottieAnimationView;->addLottieOnCompositionLoadedListener(Lcom/airbnb/lottie/LottieOnCompositionLoadedListener;)Z
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->context:Landroid/content/Context;
-
-    invoke-static {v3, p0}, Lcom/android/systemui/biometrics/SidefpsControllerKt;->access$addOverlayDynamicColor(Lcom/airbnb/lottie/LottieAnimationView;Landroid/content/Context;)V
-
-    const-string/jumbo p0, "view"
-
-    invoke-static {v0, p0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    return-object v0
-.end method
-
 .method public static synthetic getOrientationListener$annotations()V
+    .locals 0
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
+
+    return-void
+.end method
+
+.method public static synthetic getOverlayOffsets$frameworks__base__packages__SystemUI__android_common__SystemUI_core$annotations()V
     .locals 0
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
     .end annotation
@@ -445,24 +248,219 @@
     return-void
 .end method
 
-.method private final onOrientationChanged()V
-    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayView:Landroid/view/View;
+# virtual methods
+.method public final createOverlayForDisplay()V
+    .locals 12
 
-    if-eqz v0, :cond_0
+    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->layoutInflater:Landroid/view/LayoutInflater;
 
-    invoke-direct {p0}, Lcom/android/systemui/biometrics/SidefpsController;->createOverlayForDisplay()Landroid/view/View;
+    const v1, 0x7f0e021f
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/systemui/biometrics/SidefpsController;->setOverlayView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/android/systemui/biometrics/SidefpsController;->setOverlayView(Landroid/view/View;)V
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/SidefpsController;->context:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getDisplay()Landroid/view/Display;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNull(Ljava/lang/Object;)V
+
+    iget-object v2, p0, Lcom/android/systemui/biometrics/SidefpsController;->sensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    invoke-virtual {v1}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v4}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation(Ljava/lang/String;)Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "No location specified for display: "
+
+    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "SidefpsController"
+
+    invoke-static {v5, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/systemui/biometrics/SidefpsController;->sensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+
+    invoke-virtual {v2}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
+
+    move-result-object v2
+
+    :cond_1
+    iput-object v2, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
+
+    const v4, 0x7f0b05f8
+
+    invoke-virtual {v0, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_d
+
+    check-cast v4, Lcom/airbnb/lottie/LottieAnimationView;
+
+    iget v5, v2, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
+
+    const/4 v6, 0x1
+
+    if-eqz v5, :cond_2
+
+    move v5, v6
+
+    goto :goto_0
+
+    :cond_2
+    move v5, v3
+
+    :goto_0
+    invoke-virtual {v1}, Landroid/view/Display;->getRotation()I
+
+    move-result v7
+
+    const/4 v8, 0x0
+
+    const/high16 v9, 0x43340000    # 180.0f
+
+    const/4 v10, 0x2
+
+    if-eq v7, v6, :cond_4
+
+    if-eq v7, v10, :cond_5
+
+    const/4 v11, 0x3
+
+    if-eq v7, v11, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    if-eqz v5, :cond_6
+
+    goto :goto_1
+
+    :cond_4
+    if-eqz v5, :cond_5
+
+    goto :goto_2
+
+    :cond_5
+    :goto_1
+    move v8, v9
+
+    :cond_6
+    :goto_2
+    invoke-virtual {v0, v8}, Landroid/view/View;->setRotation(F)V
+
+    iget v2, v2, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
+
+    if-eqz v2, :cond_7
+
+    move v3, v6
+
+    :cond_7
+    invoke-virtual {v1}, Landroid/view/Display;->getRotation()I
+
+    move-result v2
+
+    const v5, 0x7f120007
+
+    const v6, 0x7f120008
+
+    if-eqz v2, :cond_9
+
+    if-eq v2, v10, :cond_8
+
+    if-eqz v3, :cond_b
+
+    goto :goto_3
+
+    :cond_8
+    if-eqz v3, :cond_a
+
+    goto :goto_4
+
+    :cond_9
+    if-eqz v3, :cond_a
+
+    goto :goto_4
+
+    :cond_a
+    :goto_3
+    move v5, v6
+
+    :cond_b
+    :goto_4
+    invoke-virtual {v4, v5}, Lcom/airbnb/lottie/LottieAnimationView;->setAnimation(I)V
+
+    new-instance v2, Lcom/android/systemui/biometrics/SidefpsController$createOverlayForDisplay$1;
+
+    invoke-direct {v2, p0, v0, v1}, Lcom/android/systemui/biometrics/SidefpsController$createOverlayForDisplay$1;-><init>(Lcom/android/systemui/biometrics/SidefpsController;Landroid/view/View;Landroid/view/Display;)V
+
+    invoke-virtual {v4, v2}, Lcom/airbnb/lottie/LottieAnimationView;->addLottieOnCompositionLoadedListener(Lcom/airbnb/lottie/LottieOnCompositionLoadedListener;)Z
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->context:Landroid/content/Context;
+
+    invoke-virtual {v4}, Lcom/airbnb/lottie/LottieAnimationView;->getComposition()Lcom/airbnb/lottie/LottieComposition;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_c
+
+    invoke-static {p0, v4}, Lcom/android/systemui/biometrics/SidefpsControllerKt;->addOverlayDynamicColor$update(Landroid/content/Context;Lcom/airbnb/lottie/LottieAnimationView;)V
+
+    goto :goto_5
+
+    :cond_c
+    new-instance v1, Lcom/android/systemui/biometrics/SidefpsControllerKt$addOverlayDynamicColor$1;
+
+    invoke-direct {v1, p0, v4}, Lcom/android/systemui/biometrics/SidefpsControllerKt$addOverlayDynamicColor$1;-><init>(Landroid/content/Context;Lcom/airbnb/lottie/LottieAnimationView;)V
+
+    invoke-virtual {v4, v1}, Lcom/airbnb/lottie/LottieAnimationView;->addLottieOnCompositionLoadedListener(Lcom/airbnb/lottie/LottieOnCompositionLoadedListener;)Z
+
+    :goto_5
+    new-instance p0, Lcom/android/systemui/biometrics/SidefpsController$createOverlayForDisplay$2;
+
+    invoke-direct {p0}, Lcom/android/systemui/biometrics/SidefpsController$createOverlayForDisplay$2;-><init>()V
+
+    invoke-virtual {v0, p0}, Landroid/view/View;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
+
     return-void
+
+    :cond_d
+    new-instance p0, Ljava/lang/NullPointerException;
+
+    const-string v0, "null cannot be cast to non-null type com.airbnb.lottie.LottieAnimationView"
+
+    invoke-direct {p0, v0}, Ljava/lang/NullPointerException;-><init>(Ljava/lang/String;)V
+
+    throw p0
 .end method
 
-.method private final setOverlayView(Landroid/view/View;)V
+.method public final setOverlayView(Landroid/view/View;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayView:Landroid/view/View;
@@ -476,9 +474,7 @@
 
     invoke-interface {v1, v0}, Landroid/view/WindowManager;->removeView(Landroid/view/View;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/SidefpsController;->getOrientationListener()Lcom/android/systemui/biometrics/BiometricDisplayListener;
-
-    move-result-object v0
+    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->orientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
     invoke-virtual {v0}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->disable()V
 
@@ -510,11 +506,9 @@
 
     invoke-interface {v0, p1, v1}, Landroid/view/WindowManager;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/biometrics/SidefpsController;->updateOverlayVisibility(Landroid/view/View;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/biometrics/SidefpsController;->updateOverlayVisibility(Landroid/view/View;)V
 
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/SidefpsController;->getOrientationListener()Lcom/android/systemui/biometrics/BiometricDisplayListener;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->orientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
 
     invoke-virtual {p0}, Lcom/android/systemui/biometrics/BiometricDisplayListener;->enable()V
 
@@ -522,220 +516,178 @@
     return-void
 .end method
 
-.method private final updateOverlayParams(Landroid/view/Display;Landroid/graphics/Rect;)V
-    .locals 5
+.method public final updateOverlayParams$frameworks__base__packages__SystemUI__android_common__SystemUI_core(Landroid/view/Display;Landroid/graphics/Rect;)V
+    .locals 6
+    .annotation build Lcom/android/internal/annotations/VisibleForTesting;
+    .end annotation
 
-    invoke-static {p1}, Lcom/android/systemui/biometrics/SidefpsControllerKt;->access$isPortrait(Landroid/view/Display;)Z
+    invoke-virtual {p1}, Landroid/view/Display;->getRotation()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/systemui/biometrics/SidefpsController;->windowManager:Landroid/view/WindowManager;
+    const/4 v1, 0x1
 
-    invoke-interface {v1}, Landroid/view/WindowManager;->getMaximumWindowMetrics()Landroid/view/WindowMetrics;
+    const/4 v2, 0x0
 
-    move-result-object v1
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v1}, Landroid/view/WindowMetrics;->getBounds()Landroid/graphics/Rect;
+    invoke-virtual {p1}, Landroid/view/Display;->getRotation()I
 
-    move-result-object v1
+    move-result v0
 
-    if-eqz v0, :cond_0
+    const/4 v3, 0x2
 
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
-
-    move-result v2
+    if-ne v0, v3, :cond_0
 
     goto :goto_0
 
     :cond_0
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
-
-    move-result v2
-
-    :goto_0
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v1}, Landroid/graphics/Rect;->height()I
-
-    move-result v0
+    move v0, v2
 
     goto :goto_1
 
     :cond_1
-    invoke-virtual {v1}, Landroid/graphics/Rect;->width()I
-
-    move-result v0
+    :goto_0
+    move v0, v1
 
     :goto_1
-    iget-object v1, p0, Lcom/android/systemui/biometrics/SidefpsController;->sensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
+    iget-object v3, p0, Lcom/android/systemui/biometrics/SidefpsController;->windowManager:Landroid/view/WindowManager;
 
-    invoke-virtual {p1}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v3}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation(Ljava/lang/String;)Landroid/hardware/biometrics/SensorLocationInternal;
-
-    move-result-object v1
-
-    if-nez v1, :cond_2
-
-    invoke-virtual {p1}, Landroid/view/Display;->getUniqueId()Ljava/lang/String;
+    invoke-interface {v3}, Landroid/view/WindowManager;->getMaximumWindowMetrics()Landroid/view/WindowMetrics;
 
     move-result-object v3
 
-    const-string v4, "No location specified for display: "
-
-    invoke-static {v4, v3}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v3}, Landroid/view/WindowMetrics;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v3
 
-    const-string v4, "SidefpsController"
+    if-eqz v0, :cond_2
 
-    invoke-static {v4, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
 
-    :cond_2
-    if-nez v1, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/systemui/biometrics/SidefpsController;->getSensorProps()Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;->getLocation()Landroid/hardware/biometrics/SensorLocationInternal;
-
-    move-result-object v1
-
-    :cond_3
-    invoke-virtual {p1}, Landroid/view/Display;->getRotation()I
-
-    move-result p1
-
-    const/4 v3, 0x1
-
-    const/4 v4, 0x0
-
-    if-eq p1, v3, :cond_6
-
-    const/4 v3, 0x2
-
-    if-eq p1, v3, :cond_5
-
-    const/4 v3, 0x3
-
-    if-eq p1, v3, :cond_4
-
-    new-instance p1, Lkotlin/Pair;
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    iget v0, v1, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-direct {p1, p2, v0}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    move-result v4
 
     goto :goto_2
 
-    :cond_4
-    new-instance p1, Lkotlin/Pair;
+    :cond_2
+    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
 
-    iget v1, v1, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
+    move-result v4
 
-    sub-int/2addr v0, v1
+    :goto_2
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v3}, Landroid/graphics/Rect;->height()I
+
+    move-result v3
+
+    goto :goto_3
+
+    :cond_3
+    invoke-virtual {v3}, Landroid/graphics/Rect;->width()I
+
+    move-result v3
+
+    :goto_3
+    if-eqz v0, :cond_4
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
-    move-result p2
+    move-result v5
 
-    sub-int/2addr v0, p2
+    goto :goto_4
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    :cond_4
+    invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
-    move-result-object p2
+    move-result v5
 
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-direct {p1, p2, v0}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    goto :goto_2
-
-    :cond_5
-    new-instance p1, Lkotlin/Pair;
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    iget v1, v1, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
-
-    sub-int/2addr v0, v1
+    :goto_4
+    if-eqz v0, :cond_5
 
     invoke-virtual {p2}, Landroid/graphics/Rect;->height()I
 
     move-result p2
 
-    sub-int/2addr v0, p2
+    goto :goto_5
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    invoke-direct {p1, v2, p2}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    goto :goto_2
-
-    :cond_6
-    new-instance p1, Lkotlin/Pair;
-
-    iget p2, v1, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
-
-    invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object p2
-
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v0
-
-    invoke-direct {p1, p2, v0}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    :goto_2
-    invoke-virtual {p1}, Lkotlin/Pair;->component1()Ljava/lang/Object;
-
-    move-result-object p2
-
-    check-cast p2, Ljava/lang/Number;
-
-    invoke-virtual {p2}, Ljava/lang/Number;->intValue()I
+    :cond_5
+    invoke-virtual {p2}, Landroid/graphics/Rect;->width()I
 
     move-result p2
 
-    invoke-virtual {p1}, Lkotlin/Pair;->component2()Ljava/lang/Object;
+    :goto_5
+    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
 
-    move-result-object p1
+    iget v0, v0, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
 
-    check-cast p1, Ljava/lang/Number;
+    if-eqz v0, :cond_6
 
-    invoke-virtual {p1}, Ljava/lang/Number;->intValue()I
+    goto :goto_6
+
+    :cond_6
+    move v1, v2
+
+    :goto_6
+    if-eqz v1, :cond_7
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    sub-int v1, v4, v5
+
+    iget-object v5, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
+
+    iget v5, v5, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
+
+    add-int/2addr p2, v5
+
+    invoke-direct {v0, v1, v5, v4, p2}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    goto :goto_7
+
+    :cond_7
+    new-instance v0, Landroid/graphics/Rect;
+
+    iget-object v1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
+
+    iget v1, v1, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationX:I
+
+    add-int/2addr v5, v1
+
+    invoke-direct {v0, v1, v2, v5, p2}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    :goto_7
+    new-instance p2, Landroid/graphics/Rect;
+
+    invoke-direct {p2, v2, v2, v4, v3}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    invoke-virtual {p1}, Landroid/view/Display;->getRotation()I
 
     move-result p1
 
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayViewParams:Landroid/view/WindowManager$LayoutParams;
+    invoke-static {v0, p2, p1}, Landroid/util/RotationUtils;->rotateBounds(Landroid/graphics/Rect;Landroid/graphics/Rect;I)V
 
-    iput p2, p0, Landroid/view/WindowManager$LayoutParams;->x:I
+    iget-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayViewParams:Landroid/view/WindowManager$LayoutParams;
 
-    iput p1, p0, Landroid/view/WindowManager$LayoutParams;->y:I
+    iget p2, v0, Landroid/graphics/Rect;->left:I
+
+    iput p2, p1, Landroid/view/WindowManager$LayoutParams;->x:I
+
+    iget p2, v0, Landroid/graphics/Rect;->top:I
+
+    iput p2, p1, Landroid/view/WindowManager$LayoutParams;->y:I
+
+    iget-object p2, p0, Lcom/android/systemui/biometrics/SidefpsController;->windowManager:Landroid/view/WindowManager;
+
+    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayView:Landroid/view/View;
+
+    invoke-interface {p2, p0, p1}, Landroid/view/WindowManager;->updateViewLayout(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 .end method
 
-.method private final updateOverlayVisibility(Landroid/view/View;)V
-    .locals 3
+.method public final updateOverlayVisibility(Landroid/view/View;)V
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayView:Landroid/view/View;
 
@@ -772,39 +724,103 @@
     move-result-object v0
 
     :goto_0
-    const/4 v2, 0x3
+    iget-object v2, p0, Lcom/android/systemui/biometrics/SidefpsController;->windowManager:Landroid/view/WindowManager;
 
-    if-nez v0, :cond_2
+    invoke-interface {v2}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+
+    move-result-object v2
+
+    invoke-static {}, Landroid/view/WindowInsets$Type;->navigationBars()I
+
+    move-result v3
+
+    invoke-virtual {v2, v3}, Landroid/view/WindowInsets;->getInsets(I)Landroid/graphics/Insets;
+
+    move-result-object v2
+
+    iget v2, v2, Landroid/graphics/Insets;->bottom:I
+
+    const/16 v3, 0x46
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x0
+
+    if-lt v2, v3, :cond_2
+
+    move v2, v4
 
     goto :goto_1
 
     :cond_2
+    move v2, v5
+
+    :goto_1
+    if-eqz v2, :cond_9
+
+    const/4 v2, 0x3
+
+    if-nez v0, :cond_3
+
+    goto :goto_3
+
+    :cond_3
+    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    if-ne v3, v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
+
+    iget v2, v2, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
+
+    if-eqz v2, :cond_4
+
+    move v2, v4
+
+    goto :goto_2
+
+    :cond_4
+    move v2, v5
+
+    :goto_2
+    if-nez v2, :cond_8
+
+    :cond_5
+    :goto_3
+    const/4 v2, 0x2
+
+    if-nez v0, :cond_6
+
+    goto :goto_5
+
+    :cond_6
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    if-ne v0, v2, :cond_3
+    if-ne v0, v2, :cond_9
 
-    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->windowManager:Landroid/view/WindowManager;
+    iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayOffsets:Landroid/hardware/biometrics/SensorLocationInternal;
 
-    invoke-interface {v0}, Landroid/view/WindowManager;->getCurrentWindowMetrics()Landroid/view/WindowMetrics;
+    iget v0, v0, Landroid/hardware/biometrics/SensorLocationInternal;->sensorLocationY:I
 
-    move-result-object v0
+    if-eqz v0, :cond_7
 
-    invoke-virtual {v0}, Landroid/view/WindowMetrics;->getWindowInsets()Landroid/view/WindowInsets;
+    goto :goto_4
 
-    move-result-object v0
+    :cond_7
+    move v4, v5
 
-    const-string/jumbo v2, "windowManager.currentWindowMetrics.windowInsets"
+    :goto_4
+    if-nez v4, :cond_9
 
-    invoke-static {v0, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-    invoke-static {v0}, Lcom/android/systemui/biometrics/SidefpsControllerKt;->access$hasBigNavigationBar(Landroid/view/WindowInsets;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
+    :cond_8
     invoke-virtual {p1}, Landroid/view/View;->animate()Landroid/view/ViewPropertyAnimator;
 
     move-result-object v0
@@ -837,48 +853,28 @@
 
     iput-object p1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayHideAnimator:Landroid/view/ViewPropertyAnimator;
 
-    goto :goto_3
+    goto :goto_7
 
-    :cond_3
-    :goto_1
+    :cond_9
+    :goto_5
     iget-object v0, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayHideAnimator:Landroid/view/ViewPropertyAnimator;
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_a
 
-    goto :goto_2
+    goto :goto_6
 
-    :cond_4
+    :cond_a
     invoke-virtual {v0}, Landroid/view/ViewPropertyAnimator;->cancel()V
 
-    :goto_2
+    :goto_6
     iput-object v1, p0, Lcom/android/systemui/biometrics/SidefpsController;->overlayHideAnimator:Landroid/view/ViewPropertyAnimator;
 
     const/high16 p0, 0x3f800000    # 1.0f
 
     invoke-virtual {p1, p0}, Landroid/view/View;->setAlpha(F)V
 
-    const/4 p0, 0x0
+    invoke-virtual {p1, v5}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {p1, p0}, Landroid/view/View;->setVisibility(I)V
-
-    :goto_3
+    :goto_7
     return-void
-.end method
-
-
-# virtual methods
-.method public final getOrientationListener()Lcom/android/systemui/biometrics/BiometricDisplayListener;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->orientationListener:Lcom/android/systemui/biometrics/BiometricDisplayListener;
-
-    return-object p0
-.end method
-
-.method public final getSensorProps()Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/biometrics/SidefpsController;->sensorProps:Landroid/hardware/fingerprint/FingerprintSensorPropertiesInternal;
-
-    return-object p0
 .end method

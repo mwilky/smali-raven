@@ -12,7 +12,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
@@ -30,13 +30,13 @@
 
 
 # instance fields
-.field final synthetic $progress:F
+.field public final synthetic $progress:F
 
-.field final synthetic this$0:Lcom/android/keyguard/FontInterpolator;
+.field public final synthetic this$0:Lcom/android/keyguard/FontInterpolator;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/FontInterpolator;F)V
+.method public constructor <init>(Lcom/android/keyguard/FontInterpolator;F)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/FontInterpolator$lerp$newAxes$1;->this$0:Lcom/android/keyguard/FontInterpolator;
@@ -52,12 +52,14 @@
 
 
 # virtual methods
-.method public final invoke(Ljava/lang/String;Ljava/lang/Float;Ljava/lang/Float;)F
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     .locals 1
 
-    const-string v0, "tag"
+    check-cast p1, Ljava/lang/String;
 
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+    check-cast p2, Ljava/lang/Float;
+
+    check-cast p3, Ljava/lang/Float;
 
     const-string/jumbo v0, "wght"
 
@@ -99,7 +101,13 @@
 
     move-result p0
 
-    invoke-static {p1, p0}, Lcom/android/keyguard/FontInterpolator;->access$adjustWeight(Lcom/android/keyguard/FontInterpolator;F)F
+    const/high16 p2, 0x447a0000    # 1000.0f
+
+    const/high16 p3, 0x41200000    # 10.0f
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {p0, p2, p3}, Lcom/android/keyguard/FontInterpolator;->coerceInWithStep(FFF)F
 
     move-result p0
 
@@ -146,7 +154,13 @@
 
     move-result p0
 
-    invoke-static {p1, p0}, Lcom/android/keyguard/FontInterpolator;->access$adjustItalic(Lcom/android/keyguard/FontInterpolator;F)F
+    const/high16 p2, 0x3f800000    # 1.0f
+
+    const p3, 0x3dcccccd    # 0.1f
+
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    invoke-static {p0, p2, p3}, Lcom/android/keyguard/FontInterpolator;->coerceInWithStep(FFF)F
 
     move-result p0
 
@@ -182,12 +196,16 @@
     move-result p0
 
     :goto_5
-    return p0
+    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
+
+    move-result-object p0
+
+    return-object p0
 
     :cond_7
     const-string p0, "Unable to interpolate due to unknown default axes value : "
 
-    invoke-static {p0, p1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {p1, p0}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object p0
 
@@ -200,24 +218,4 @@
     invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw p1
-.end method
-
-.method public bridge synthetic invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 0
-
-    check-cast p1, Ljava/lang/String;
-
-    check-cast p2, Ljava/lang/Float;
-
-    check-cast p3, Ljava/lang/Float;
-
-    invoke-virtual {p0, p1, p2, p3}, Lcom/android/keyguard/FontInterpolator$lerp$newAxes$1;->invoke(Ljava/lang/String;Ljava/lang/Float;Ljava/lang/Float;)F
-
-    move-result p0
-
-    invoke-static {p0}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
-
-    move-result-object p0
-
-    return-object p0
 .end method

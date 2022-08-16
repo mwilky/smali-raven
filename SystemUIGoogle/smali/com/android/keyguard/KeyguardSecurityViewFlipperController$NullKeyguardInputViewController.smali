@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardSecurityViewFlipperController$NullKeyguardInputViewController;
+.class public final Lcom/android/keyguard/KeyguardSecurityViewFlipperController$NullKeyguardInputViewController;
 .super Lcom/android/keyguard/KeyguardInputViewController;
 .source "KeyguardSecurityViewFlipperController.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "NullKeyguardInputViewController"
 .end annotation
 
@@ -23,7 +23,7 @@
 
 
 # direct methods
-.method protected constructor <init>(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/EmergencyButtonController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardSecurityModel$SecurityMode;Lcom/android/keyguard/KeyguardSecurityCallback;Lcom/android/keyguard/EmergencyButtonController;)V
     .locals 1
 
     const/4 v0, 0x0
@@ -35,7 +35,7 @@
 
 
 # virtual methods
-.method public needsInput()Z
+.method public final needsInput()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -43,7 +43,7 @@
     return p0
 .end method
 
-.method public onStartingToHide()V
+.method public final onStartingToHide()V
     .locals 0
 
     return-void

@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tileimpl/QSTileViewImpl$onStateChanged$1;
+.class public final Lcom/android/systemui/qs/tileimpl/QSTileViewImpl$onStateChanged$1;
 .super Ljava/lang/Object;
 .source "QSTileViewImpl.kt"
 
@@ -12,19 +12,19 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x18
+    accessFlags = 0x19
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic $state:Lcom/android/systemui/plugins/qs/QSTile$State;
+.field public final synthetic $state:Lcom/android/systemui/plugins/qs/QSTile$State;
 
-.field final synthetic this$0:Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;
+.field public final synthetic this$0:Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;Lcom/android/systemui/plugins/qs/QSTile$State;)V
+.method public constructor <init>(Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;Lcom/android/systemui/plugins/qs/QSTile$State;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileViewImpl$onStateChanged$1;->this$0:Lcom/android/systemui/qs/tileimpl/QSTileViewImpl;

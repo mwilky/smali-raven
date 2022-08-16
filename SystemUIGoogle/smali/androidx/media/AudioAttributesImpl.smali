@@ -4,11 +4,3 @@
 
 # interfaces
 .implements Landroidx/versionedparcelable/VersionedParcelable;
-
-
-# annotations
-.annotation system Ldalvik/annotation/MemberClasses;
-    value = {
-        Landroidx/media/AudioAttributesImpl$Builder;
-    }
-.end annotation

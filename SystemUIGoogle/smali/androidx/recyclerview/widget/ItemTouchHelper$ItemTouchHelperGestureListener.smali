@@ -1,4 +1,4 @@
-.class Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;
+.class public final Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "ItemTouchHelper.java"
 
@@ -9,28 +9,20 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "ItemTouchHelperGestureListener"
 .end annotation
 
 
 # instance fields
-.field private mShouldReactToLongPress:Z
+.field public mShouldReactToLongPress:Z
 
-.field final synthetic this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
+.field public final synthetic this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
 
 # direct methods
-.method constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;)V
+.method public constructor <init>(Landroidx/recyclerview/widget/ItemTouchHelper;)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010
-        }
-        names = {
-            "this$0"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
@@ -45,42 +37,16 @@
 
 
 # virtual methods
-.method doNotReactToLongPress()V
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->mShouldReactToLongPress:Z
-
-    return-void
-.end method
-
-.method public onDown(Landroid/view/MotionEvent;)Z
+.method public final onDown(Landroid/view/MotionEvent;)Z
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "e"
-        }
-    .end annotation
 
     const/4 p0, 0x1
 
     return p0
 .end method
 
-.method public onLongPress(Landroid/view/MotionEvent;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "e"
-        }
-    .end annotation
+.method public final onLongPress(Landroid/view/MotionEvent;)V
+    .locals 8
 
     iget-boolean v0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->mShouldReactToLongPress:Z
 
@@ -95,7 +61,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5
 
     iget-object v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
@@ -105,7 +71,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_5
 
     iget-object v1, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
@@ -113,18 +79,76 @@
 
     iget-object v1, v1, Landroidx/recyclerview/widget/ItemTouchHelper;->mRecyclerView:Landroidx/recyclerview/widget/RecyclerView;
 
-    invoke-virtual {v2, v1, v0}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->hasDragFlag(Landroidx/recyclerview/widget/RecyclerView;Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)Z
+    invoke-virtual {v2, v0}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->getMovementFlags(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;)I
+
+    move-result v2
+
+    sget-object v3, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {v1}, Landroidx/core/view/ViewCompat$Api17Impl;->getLayoutDirection(Landroid/view/View;)I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    const v3, 0x303030
+
+    and-int v4, v2, v3
+
+    const/4 v5, 0x1
+
+    const/4 v6, 0x2
+
+    if-nez v4, :cond_1
+
+    goto :goto_1
+
+    :cond_1
+    not-int v7, v4
+
+    and-int/2addr v2, v7
+
+    if-nez v1, :cond_2
+
+    shr-int/lit8 v1, v4, 0x2
+
+    goto :goto_0
+
+    :cond_2
+    shr-int/lit8 v1, v4, 0x1
+
+    const v4, -0x303031
+
+    and-int/2addr v4, v1
+
+    or-int/2addr v2, v4
+
+    and-int/2addr v1, v3
+
+    shr-int/2addr v1, v6
+
+    :goto_0
+    or-int/2addr v2, v1
+
+    :goto_1
+    const/high16 v1, 0xff0000
+
+    and-int/2addr v1, v2
+
+    const/4 v2, 0x0
+
+    if-eqz v1, :cond_3
+
+    goto :goto_2
+
+    :cond_3
+    move v5, v2
+
+    :goto_2
+    if-nez v5, :cond_4
 
     return-void
 
-    :cond_1
-    const/4 v1, 0x0
-
-    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
+    :cond_4
+    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getPointerId(I)I
 
     move-result v1
 
@@ -132,7 +156,7 @@
 
     iget v2, v2, Landroidx/recyclerview/widget/ItemTouchHelper;->mActivePointerId:I
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_5
 
     invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
@@ -160,18 +184,12 @@
 
     iget-object p1, v1, Landroidx/recyclerview/widget/ItemTouchHelper;->mCallback:Landroidx/recyclerview/widget/ItemTouchHelper$Callback;
 
-    invoke-virtual {p1}, Landroidx/recyclerview/widget/ItemTouchHelper$Callback;->isLongPressDragEnabled()Z
-
-    move-result p1
-
-    if-eqz p1, :cond_2
+    invoke-virtual {p1}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
     iget-object p0, p0, Landroidx/recyclerview/widget/ItemTouchHelper$ItemTouchHelperGestureListener;->this$0:Landroidx/recyclerview/widget/ItemTouchHelper;
 
-    const/4 p1, 0x2
+    invoke-virtual {p0, v0, v6}, Landroidx/recyclerview/widget/ItemTouchHelper;->select(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
 
-    invoke-virtual {p0, v0, p1}, Landroidx/recyclerview/widget/ItemTouchHelper;->select(Landroidx/recyclerview/widget/RecyclerView$ViewHolder;I)V
-
-    :cond_2
+    :cond_5
     return-void
 .end method

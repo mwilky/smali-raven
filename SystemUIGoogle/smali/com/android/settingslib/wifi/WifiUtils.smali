@@ -1,4 +1,4 @@
-.class public Lcom/android/settingslib/wifi/WifiUtils;
+.class public final Lcom/android/settingslib/wifi/WifiUtils;
 .super Ljava/lang/Object;
 .source "WifiUtils.java"
 
@@ -12,14 +12,20 @@
 
 
 # static fields
-.field static final NO_INTERNET_WIFI_PIE:[I
+.field public static final ACTION_WIFI_DIALOG:Ljava/lang/String; = "com.android.settings.WIFI_DIALOG"
 
-.field static final WIFI_PIE:[I
+.field public static final EXTRA_CHOSEN_WIFI_ENTRY_KEY:Ljava/lang/String; = "key_chosen_wifientry_key"
+
+.field public static final EXTRA_CONNECT_FOR_CALLER:Ljava/lang/String; = "connect_for_caller"
+
+.field public static final NO_INTERNET_WIFI_PIE:[I
+
+.field public static final WIFI_PIE:[I
 
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 3
+.method public static constructor <clinit>()V
+    .locals 2
 
     const/4 v0, 0x5
 
@@ -31,35 +37,7 @@
 
     new-array v0, v0, [I
 
-    sget v1, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_0:I
-
-    const/4 v2, 0x0
-
-    aput v1, v0, v2
-
-    sget v1, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_1:I
-
-    const/4 v2, 0x1
-
-    aput v1, v0, v2
-
-    sget v1, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_2:I
-
-    const/4 v2, 0x2
-
-    aput v1, v0, v2
-
-    sget v1, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_3:I
-
-    const/4 v2, 0x3
-
-    aput v1, v0, v2
-
-    sget v1, Lcom/android/settingslib/R$drawable;->ic_no_internet_wifi_signal_4:I
-
-    const/4 v2, 0x4
-
-    aput v1, v0, v2
+    fill-array-data v0, :array_1
 
     sput-object v0, Lcom/android/settingslib/wifi/WifiUtils;->NO_INTERNET_WIFI_PIE:[I
 
@@ -67,110 +45,29 @@
 
     :array_0
     .array-data 4
-        0x1080565
-        0x1080566
-        0x1080567
-        0x1080568
-        0x1080569
+        0x1080571
+        0x1080572
+        0x1080573
+        0x1080574
+        0x1080575
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x7f080627
+        0x7f080628
+        0x7f080629
+        0x7f08062a
+        0x7f08062b
     .end array-data
 .end method
 
-.method public static getInternetIconResource(IZ)I
-    .locals 2
-
-    if-ltz p0, :cond_1
-
-    sget-object v0, Lcom/android/settingslib/wifi/WifiUtils;->WIFI_PIE:[I
-
-    array-length v1, v0
-
-    if-ge p0, v1, :cond_1
-
-    if-eqz p1, :cond_0
-
-    sget-object p1, Lcom/android/settingslib/wifi/WifiUtils;->NO_INTERNET_WIFI_PIE:[I
-
-    aget p0, p1, p0
-
-    goto :goto_0
-
-    :cond_0
-    aget p0, v0, p0
-
-    :goto_0
-    return p0
-
-    :cond_1
-    new-instance p1, Ljava/lang/IllegalArgumentException;
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "No Wifi icon found for level: "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object p0
-
-    invoke-direct {p1, p0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw p1
-.end method
-
-.method private static getSpecificApSpeed(Landroid/net/wifi/ScanResult;Ljava/util/Map;)I
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/net/wifi/ScanResult;",
-            "Ljava/util/Map<",
-            "Ljava/lang/String;",
-            "Lcom/android/settingslib/wifi/TimestampedScoredNetwork;",
-            ">;)I"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
-
-    invoke-interface {p1, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;
-
-    if-nez p1, :cond_0
-
-    const/4 p0, 0x0
-
-    return p0
-
-    :cond_0
-    invoke-virtual {p1}, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;->getScore()Landroid/net/ScoredNetwork;
-
-    move-result-object p1
-
-    iget p0, p0, Landroid/net/wifi/ScanResult;->level:I
-
-    invoke-virtual {p1, p0}, Landroid/net/ScoredNetwork;->calculateBadge(I)I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method static getVisibilityStatus(Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/String;
+.method public static getVisibilityStatus(Lcom/android/settingslib/wifi/AccessPoint;)Ljava/lang/String;
     .locals 18
 
     move-object/from16 v0, p0
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settingslib/wifi/AccessPoint;->getInfo()Landroid/net/wifi/WifiInfo;
-
-    move-result-object v1
+    iget-object v1, v0, Lcom/android/settingslib/wifi/AccessPoint;->mInfo:Landroid/net/wifi/WifiInfo;
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -202,34 +99,36 @@
 
     move-result-object v6
 
-    const-string v8, " "
-
     if-eqz v6, :cond_0
+
+    const-string v8, " "
 
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_0
-    const-string v9, " standard = "
+    const-string v8, " standard = "
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getWifiStandard()I
 
-    move-result v9
+    move-result v8
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string v9, " rssi="
+    const-string v8, " rssi="
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getRssi()I
 
-    move-result v9
+    move-result v8
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v8, " "
 
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -243,9 +142,7 @@
 
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settingslib/wifi/AccessPoint;->getSpeed()I
-
-    move-result v8
+    iget v8, v0, Lcom/android/settingslib/wifi/AccessPoint;->mSpeed:I
 
     if-eqz v8, :cond_1
 
@@ -253,90 +150,94 @@
 
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settingslib/wifi/AccessPoint;->getSpeedLabel()Ljava/lang/String;
+    iget v8, v0, Lcom/android/settingslib/wifi/AccessPoint;->mSpeed:I
+
+    iget-object v9, v0, Lcom/android/settingslib/wifi/AccessPoint;->mContext:Landroid/content/Context;
+
+    invoke-static {v9, v8}, Lcom/android/settingslib/wifi/AccessPoint;->getSpeedLabel(Landroid/content/Context;I)Ljava/lang/String;
 
     move-result-object v8
 
     invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_1
-    const/4 v8, 0x1
+    const-string v8, " tx=%.1f,"
 
-    new-array v9, v8, [Ljava/lang/Object;
+    const/4 v9, 0x1
+
+    new-array v10, v9, [Ljava/lang/Object;
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getSuccessfulTxPacketsPerSecond()D
 
-    move-result-wide v10
+    move-result-wide v11
 
-    invoke-static {v10, v11}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static {v11, v12}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v10
+    move-result-object v11
 
-    aput-object v10, v9, v7
+    aput-object v11, v10, v7
 
-    const-string v10, " tx=%.1f,"
+    invoke-static {v8, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v10, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v9
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v8, "%.1f,"
 
-    new-array v9, v8, [Ljava/lang/Object;
+    new-array v10, v9, [Ljava/lang/Object;
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getRetriedTxPacketsPerSecond()D
 
-    move-result-wide v10
+    move-result-wide v11
 
-    invoke-static {v10, v11}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+    invoke-static {v11, v12}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v10
+    move-result-object v11
 
-    aput-object v10, v9, v7
+    aput-object v11, v10, v7
 
-    const-string v10, "%.1f,"
+    invoke-static {v8, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-static {v10, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    move-result-object v8
 
-    move-result-object v9
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v8, "%.1f "
 
-    new-array v9, v8, [Ljava/lang/Object;
+    new-array v10, v9, [Ljava/lang/Object;
 
     invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getLostTxPacketsPerSecond()D
 
+    move-result-wide v11
+
+    invoke-static {v11, v12}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
+
+    move-result-object v11
+
+    aput-object v11, v10, v7
+
+    invoke-static {v8, v10}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string/jumbo v8, "rx=%.1f"
+
+    new-array v9, v9, [Ljava/lang/Object;
+
+    invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getSuccessfulRxPacketsPerSecond()D
+
     move-result-wide v10
 
     invoke-static {v10, v11}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
 
-    move-result-object v10
-
-    aput-object v10, v9, v7
-
-    const-string v10, "%.1f "
-
-    invoke-static {v10, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v9
-
-    invoke-virtual {v2, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    new-array v8, v8, [Ljava/lang/Object;
-
-    invoke-virtual {v1}, Landroid/net/wifi/WifiInfo;->getSuccessfulRxPacketsPerSecond()D
-
-    move-result-wide v9
-
-    invoke-static {v9, v10}, Ljava/lang/Double;->valueOf(D)Ljava/lang/Double;
-
     move-result-object v1
 
-    aput-object v1, v8, v7
+    aput-object v1, v9, v7
 
-    const-string v1, "rx=%.1f"
-
-    invoke-static {v1, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -352,11 +253,28 @@
 
     move-result-wide v8
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/settingslib/wifi/AccessPoint;->getScanResults()Ljava/util/Set;
+    new-instance v1, Landroid/util/ArraySet;
 
-    move-result-object v1
+    invoke-direct {v1}, Landroid/util/ArraySet;-><init>()V
 
-    invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+    iget-object v10, v0, Lcom/android/settingslib/wifi/AccessPoint;->mLock:Ljava/lang/Object;
+
+    monitor-enter v10
+
+    :try_start_0
+    iget-object v11, v0, Lcom/android/settingslib/wifi/AccessPoint;->mScanResults:Landroid/util/ArraySet;
+
+    invoke-virtual {v1, v11}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
+
+    iget-object v11, v0, Lcom/android/settingslib/wifi/AccessPoint;->mExtraScanResults:Landroid/util/ArraySet;
+
+    invoke-virtual {v1, v11}, Landroid/util/ArraySet;->addAll(Ljava/util/Collection;)Z
+
+    monitor-exit v10
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1}, Landroid/util/ArraySet;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -500,87 +418,105 @@
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v0, ","
-
-    const-string v2, "max="
-
-    const-string v6, ")"
-
-    const-string v8, "("
-
     if-lez v7, :cond_c
 
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "("
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ")"
 
-    const/4 v9, 0x4
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-le v7, v9, :cond_b
+    const/4 v0, 0x4
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-le v7, v0, :cond_b
+
+    const-string v0, "max="
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v12}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, ","
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_b
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_c
-    const-string v3, ";"
+    const-string v0, ";"
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     if-lez v10, :cond_e
 
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "("
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v10}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ")"
 
-    const/4 v7, 0x4
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-le v10, v7, :cond_d
+    const/4 v0, 0x4
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-le v10, v0, :cond_d
+
+    const-string v0, "max="
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, ","
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_d
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_e
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ";"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     if-lez v11, :cond_10
 
-    invoke-virtual {v1, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, "("
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v0, ")"
 
-    const/4 v3, 0x4
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-le v11, v3, :cond_f
+    const/4 v0, 0x4
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-le v11, v0, :cond_f
+
+    const-string v0, "max="
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string v0, ","
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -601,42 +537,26 @@
     move-result-object v0
 
     return-object v0
+
+    :catchall_0
+    move-exception v0
+
+    :try_start_1
+    monitor-exit v10
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v0
 .end method
 
-.method public static getWifiDetailsSettingsIntent(Ljava/lang/String;)Landroid/content/Intent;
+.method public static verboseScanResultSummary(Lcom/android/settingslib/wifi/AccessPoint;Landroid/net/wifi/ScanResult;Ljava/lang/String;J)Ljava/lang/String;
     .locals 3
 
-    new-instance v0, Landroid/content/Intent;
+    const-string v0, " \n{"
 
-    const-string v1, "android.settings.WIFI_DETAILS_SETTINGS"
+    invoke-static {v0}, Landroid/frameworks/stats/VendorAtomValue$$ExternalSyntheticOutline0;->m(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
-
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    const-string v2, "key_chosen_wifientry_key"
-
-    invoke-virtual {v1, v2, p0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string p0, ":settings:show_fragment_args"
-
-    invoke-virtual {v0, p0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Bundle;)Landroid/content/Intent;
-
-    return-object v0
-.end method
-
-.method static verboseScanResultSummary(Lcom/android/settingslib/wifi/AccessPoint;Landroid/net/wifi/ScanResult;Ljava/lang/String;J)Ljava/lang/String;
-    .locals 3
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, " \n{"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v0
 
     iget-object v1, p1, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
 
@@ -671,25 +591,45 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0}, Lcom/android/settingslib/wifi/AccessPoint;->getScoredNetworkCache()Ljava/util/Map;
+    iget-object v1, p0, Lcom/android/settingslib/wifi/AccessPoint;->mScoredNetworkCache:Ljava/util/HashMap;
+
+    iget-object v2, p1, Landroid/net/wifi/ScanResult;->BSSID:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
-    invoke-static {p1, v1}, Lcom/android/settingslib/wifi/WifiUtils;->getSpecificApSpeed(Landroid/net/wifi/ScanResult;Ljava/util/Map;)I
+    check-cast v1, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;
+
+    if-nez v1, :cond_1
+
+    const/4 v1, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v1, v1, Lcom/android/settingslib/wifi/TimestampedScoredNetwork;->mScore:Landroid/net/ScoredNetwork;
+
+    iget v2, p1, Landroid/net/wifi/ScanResult;->level:I
+
+    invoke-virtual {v1, v2}, Landroid/net/ScoredNetwork;->calculateBadge(I)I
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    :goto_0
+    if-eqz v1, :cond_2
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {p0, v1}, Lcom/android/settingslib/wifi/AccessPoint;->getSpeedLabel(I)Ljava/lang/String;
+    iget-object p0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mContext:Landroid/content/Context;
+
+    invoke-static {p0, v1}, Lcom/android/settingslib/wifi/AccessPoint;->getSpeedLabel(Landroid/content/Context;I)Ljava/lang/String;
 
     move-result-object p0
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1
+    :cond_2
     iget-wide p0, p1, Landroid/net/wifi/ScanResult;->timestamp:J
 
     const-wide/16 v1, 0x3e8
@@ -706,7 +646,7 @@
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    const-string p0, "s"
+    const-string/jumbo p0, "s"
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

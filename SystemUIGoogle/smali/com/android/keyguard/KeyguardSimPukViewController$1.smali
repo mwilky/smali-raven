@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardSimPukViewController$1;
+.class public final Lcom/android/keyguard/KeyguardSimPukViewController$1;
 .super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 .source "KeyguardSimPukViewController.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
+.field public final synthetic this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/keyguard/KeyguardSimPukViewController;)V
+.method public constructor <init>(Lcom/android/keyguard/KeyguardSimPukViewController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
@@ -31,12 +31,10 @@
 
 
 # virtual methods
-.method public onSimStateChanged(III)V
+.method public final onSimStateChanged(III)V
     .locals 1
 
-    invoke-static {}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$100()Z
-
-    move-result p2
+    sget-boolean p2, Lcom/android/keyguard/KeyguardSimPukViewController;->DEBUG:Z
 
     if-eqz p2, :cond_0
 
@@ -44,7 +42,7 @@
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "onSimStateChanged(subId="
+    const-string/jumbo v0, "onSimStateChanged(subId="
 
     invoke-virtual {p2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -73,19 +71,15 @@
 
     if-ne p3, p1, :cond_1
 
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
-
-    const/4 p2, -0x1
-
-    invoke-static {p1, p2}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$202(Lcom/android/keyguard/KeyguardSimPukViewController;I)I
-
-    iget-object p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
-
-    const/4 p2, 0x1
-
-    invoke-static {p1, p2}, Lcom/android/keyguard/KeyguardSimPukViewController;->access$302(Lcom/android/keyguard/KeyguardSimPukViewController;Z)Z
-
     iget-object p0, p0, Lcom/android/keyguard/KeyguardSimPukViewController$1;->this$0:Lcom/android/keyguard/KeyguardSimPukViewController;
+
+    const/4 p1, -0x1
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mRemainingAttempts:I
+
+    const/4 p1, 0x1
+
+    iput-boolean p1, p0, Lcom/android/keyguard/KeyguardSimPukViewController;->mShowDefaultMessage:Z
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardInputViewController;->getKeyguardSecurityCallback()Lcom/android/keyguard/KeyguardSecurityCallback;
 
@@ -95,7 +89,7 @@
 
     move-result p1
 
-    invoke-interface {p0, p2, p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(ZI)V
+    invoke-interface {p0, p1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(I)V
 
     goto :goto_0
 

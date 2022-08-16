@@ -16,47 +16,45 @@
 
 
 # static fields
-.field private static final DEFAULT_ACTIVATION_DELAY:I
+.field public static final DEFAULT_ACTIVATION_DELAY:I
 
 
 # instance fields
-.field private mActivationDelay:I
+.field public mActivationDelay:I
 
-.field private mAlreadyDelayed:Z
+.field public mAlreadyDelayed:Z
 
-.field mAnimating:Z
+.field public mAnimating:Z
 
-.field private final mEdgeInterpolator:Landroid/view/animation/Interpolator;
+.field public final mEdgeInterpolator:Landroid/view/animation/AccelerateInterpolator;
 
-.field private mEdgeType:I
+.field public mEdgeType:I
 
-.field private mEnabled:Z
+.field public mEnabled:Z
 
-.field private mExclusive:Z
+.field public mMaximumEdges:[F
 
-.field private mMaximumEdges:[F
+.field public mMaximumVelocity:[F
 
-.field private mMaximumVelocity:[F
+.field public mMinimumVelocity:[F
 
-.field private mMinimumVelocity:[F
+.field public mNeedsCancel:Z
 
-.field mNeedsCancel:Z
+.field public mNeedsReset:Z
 
-.field mNeedsReset:Z
+.field public mRelativeEdges:[F
 
-.field private mRelativeEdges:[F
+.field public mRelativeVelocity:[F
 
-.field private mRelativeVelocity:[F
+.field public mRunnable:Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;
 
-.field private mRunnable:Ljava/lang/Runnable;
+.field public final mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
 
-.field final mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
-
-.field final mTarget:Landroid/view/View;
+.field public final mTarget:Landroid/view/View;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method public static constructor <clinit>()V
     .locals 1
 
     invoke-static {}, Landroid/view/ViewConfiguration;->getTapTimeout()I
@@ -69,15 +67,7 @@
 .end method
 
 .method public constructor <init>(Landroid/view/View;)V
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "target"
-        }
-    .end annotation
+    .locals 6
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -87,43 +77,43 @@
 
     iput-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
 
-    new-instance v0, Landroid/view/animation/AccelerateInterpolator;
+    new-instance v1, Landroid/view/animation/AccelerateInterpolator;
 
-    invoke-direct {v0}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
+    invoke-direct {v1}, Landroid/view/animation/AccelerateInterpolator;-><init>()V
 
-    iput-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeInterpolator:Landroid/view/animation/Interpolator;
+    iput-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeInterpolator:Landroid/view/animation/AccelerateInterpolator;
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    new-array v1, v0, [F
+    new-array v2, v1, [F
 
-    fill-array-data v1, :array_0
+    fill-array-data v2, :array_0
 
-    iput-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
+    iput-object v2, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
 
-    new-array v1, v0, [F
+    new-array v2, v1, [F
 
-    fill-array-data v1, :array_1
+    fill-array-data v2, :array_1
 
-    iput-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumEdges:[F
+    iput-object v2, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumEdges:[F
 
-    new-array v1, v0, [F
+    new-array v2, v1, [F
 
-    fill-array-data v1, :array_2
+    fill-array-data v2, :array_2
 
-    iput-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeVelocity:[F
+    iput-object v2, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeVelocity:[F
 
-    new-array v1, v0, [F
+    new-array v2, v1, [F
 
-    fill-array-data v1, :array_3
+    fill-array-data v2, :array_3
 
-    iput-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMinimumVelocity:[F
+    iput-object v2, p0, Landroidx/core/widget/AutoScrollHelper;->mMinimumVelocity:[F
 
-    new-array v0, v0, [F
+    new-array v1, v1, [F
 
-    fill-array-data v0, :array_4
+    fill-array-data v1, :array_4
 
-    iput-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumVelocity:[F
+    iput-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumVelocity:[F
 
     iput-object p1, p0, Landroidx/core/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
 
@@ -137,59 +127,89 @@
 
     iget p1, p1, Landroid/util/DisplayMetrics;->density:F
 
-    const v0, 0x44c4e000    # 1575.0f
+    const v1, 0x44c4e000    # 1575.0f
 
-    mul-float/2addr v0, p1
+    mul-float/2addr v1, p1
 
-    const/high16 v1, 0x3f000000    # 0.5f
+    const/high16 v2, 0x3f000000    # 0.5f
 
-    add-float/2addr v0, v1
+    add-float/2addr v1, v2
 
-    float-to-int v0, v0
+    float-to-int v1, v1
 
-    const v2, 0x439d8000    # 315.0f
+    const v3, 0x439d8000    # 315.0f
 
-    mul-float/2addr p1, v2
+    mul-float/2addr p1, v3
 
-    add-float/2addr p1, v1
+    add-float/2addr p1, v2
 
     float-to-int p1, p1
 
-    int-to-float v0, v0
+    int-to-float v1, v1
 
-    invoke-virtual {p0, v0, v0}, Landroidx/core/widget/AutoScrollHelper;->setMaximumVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
+    iget-object v2, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumVelocity:[F
+
+    const/high16 v3, 0x447a0000    # 1000.0f
+
+    div-float/2addr v1, v3
+
+    const/4 v4, 0x0
+
+    aput v1, v2, v4
+
+    const/4 v5, 0x1
+
+    aput v1, v2, v5
 
     int-to-float p1, p1
 
-    invoke-virtual {p0, p1, p1}, Landroidx/core/widget/AutoScrollHelper;->setMinimumVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
+    iget-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMinimumVelocity:[F
 
-    const/4 p1, 0x1
+    div-float/2addr p1, v3
 
-    invoke-virtual {p0, p1}, Landroidx/core/widget/AutoScrollHelper;->setEdgeType(I)Landroidx/core/widget/AutoScrollHelper;
+    aput p1, v1, v4
 
-    const p1, 0x7f7fffff    # Float.MAX_VALUE
+    aput p1, v1, v5
 
-    invoke-virtual {p0, p1, p1}, Landroidx/core/widget/AutoScrollHelper;->setMaximumEdges(FF)Landroidx/core/widget/AutoScrollHelper;
+    iput v5, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeType:I
 
-    const p1, 0x3e4ccccd    # 0.2f
+    iget-object p1, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumEdges:[F
 
-    invoke-virtual {p0, p1, p1}, Landroidx/core/widget/AutoScrollHelper;->setRelativeEdges(FF)Landroidx/core/widget/AutoScrollHelper;
+    const v1, 0x7f7fffff    # Float.MAX_VALUE
 
-    const/high16 p1, 0x3f800000    # 1.0f
+    aput v1, p1, v4
 
-    invoke-virtual {p0, p1, p1}, Landroidx/core/widget/AutoScrollHelper;->setRelativeVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
+    aput v1, p1, v5
+
+    iget-object p1, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
+
+    const v1, 0x3e4ccccd    # 0.2f
+
+    aput v1, p1, v4
+
+    aput v1, p1, v5
+
+    iget-object p1, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeVelocity:[F
+
+    const v1, 0x3a83126f    # 0.001f
+
+    aput v1, p1, v4
+
+    aput v1, p1, v5
 
     sget p1, Landroidx/core/widget/AutoScrollHelper;->DEFAULT_ACTIVATION_DELAY:I
 
-    invoke-virtual {p0, p1}, Landroidx/core/widget/AutoScrollHelper;->setActivationDelay(I)Landroidx/core/widget/AutoScrollHelper;
+    iput p1, p0, Landroidx/core/widget/AutoScrollHelper;->mActivationDelay:I
 
-    const/16 p1, 0x1f4
+    const/16 p0, 0x1f4
 
-    invoke-virtual {p0, p1}, Landroidx/core/widget/AutoScrollHelper;->setRampUpDuration(I)Landroidx/core/widget/AutoScrollHelper;
+    iput p0, v0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mRampUpDuration:I
 
-    invoke-virtual {p0, p1}, Landroidx/core/widget/AutoScrollHelper;->setRampDownDuration(I)Landroidx/core/widget/AutoScrollHelper;
+    iput p0, v0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mRampDownDuration:I
 
     return-void
+
+    nop
 
     :array_0
     .array-data 4
@@ -222,96 +242,8 @@
     .end array-data
 .end method
 
-.method private computeTargetVelocity(IFFF)F
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "direction",
-            "coordinate",
-            "srcSize",
-            "dstSize"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
-
-    aget v0, v0, p1
-
-    iget-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumEdges:[F
-
-    aget v1, v1, p1
-
-    invoke-direct {p0, v0, p3, v1, p2}, Landroidx/core/widget/AutoScrollHelper;->getEdgeValue(FFFF)F
-
-    move-result p2
-
-    const/4 p3, 0x0
-
-    cmpl-float v0, p2, p3
-
-    if-nez v0, :cond_0
-
-    return p3
-
-    :cond_0
-    iget-object p3, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeVelocity:[F
-
-    aget p3, p3, p1
-
-    iget-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMinimumVelocity:[F
-
-    aget v1, v1, p1
-
-    iget-object p0, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumVelocity:[F
-
-    aget p0, p0, p1
-
-    mul-float/2addr p3, p4
-
-    if-lez v0, :cond_1
-
-    mul-float/2addr p2, p3
-
-    invoke-static {p2, v1, p0}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    neg-float p1, p2
-
-    mul-float/2addr p1, p3
-
-    invoke-static {p1, v1, p0}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
-
-    move-result p0
-
-    neg-float p0, p0
-
-    return p0
-.end method
-
-.method static constrain(FFF)F
+.method public static constrain(FFF)F
     .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "min",
-            "max"
-        }
-    .end annotation
 
     cmpl-float v0, p0, p2
 
@@ -330,46 +262,128 @@
     return p0
 .end method
 
-.method static constrain(III)I
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "value",
-            "min",
-            "max"
-        }
-    .end annotation
 
-    if-le p0, p2, :cond_0
+# virtual methods
+.method public final computeTargetVelocity(FFFI)F
+    .locals 3
 
-    return p2
+    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
+
+    aget v0, v0, p4
+
+    iget-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumEdges:[F
+
+    aget v1, v1, p4
+
+    mul-float/2addr v0, p2
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v2, v1}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
+
+    move-result v0
+
+    invoke-virtual {p0, p1, v0}, Landroidx/core/widget/AutoScrollHelper;->constrainEdgeValue(FF)F
+
+    move-result v1
+
+    sub-float/2addr p2, p1
+
+    invoke-virtual {p0, p2, v0}, Landroidx/core/widget/AutoScrollHelper;->constrainEdgeValue(FF)F
+
+    move-result p1
+
+    sub-float/2addr p1, v1
+
+    cmpg-float p2, p1, v2
+
+    if-gez p2, :cond_0
+
+    iget-object p2, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeInterpolator:Landroid/view/animation/AccelerateInterpolator;
+
+    neg-float p1, p1
+
+    invoke-virtual {p2, p1}, Landroid/view/animation/AccelerateInterpolator;->getInterpolation(F)F
+
+    move-result p1
+
+    neg-float p1, p1
+
+    goto :goto_0
 
     :cond_0
-    if-ge p0, p1, :cond_1
+    cmpl-float p2, p1, v2
 
-    return p1
+    if-lez p2, :cond_1
+
+    iget-object p2, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeInterpolator:Landroid/view/animation/AccelerateInterpolator;
+
+    invoke-virtual {p2, p1}, Landroid/view/animation/AccelerateInterpolator;->getInterpolation(F)F
+
+    move-result p1
+
+    :goto_0
+    const/high16 p2, -0x40800000    # -1.0f
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-static {p1, p2, v0}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
+
+    move-result p1
+
+    goto :goto_1
 
     :cond_1
+    move p1, v2
+
+    :goto_1
+    cmpl-float p2, p1, v2
+
+    if-nez p2, :cond_2
+
+    return v2
+
+    :cond_2
+    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeVelocity:[F
+
+    aget v0, v0, p4
+
+    iget-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mMinimumVelocity:[F
+
+    aget v1, v1, p4
+
+    iget-object p0, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumVelocity:[F
+
+    aget p0, p0, p4
+
+    mul-float/2addr v0, p3
+
+    if-lez p2, :cond_3
+
+    mul-float/2addr p1, v0
+
+    invoke-static {p1, v1, p0}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
+
+    move-result p0
+
+    return p0
+
+    :cond_3
+    neg-float p1, p1
+
+    mul-float/2addr p1, v0
+
+    invoke-static {p1, v1, p0}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
+
+    move-result p0
+
+    neg-float p0, p0
+
     return p0
 .end method
 
-.method private constrainEdgeValue(FF)F
+.method public final constrainEdgeValue(FF)F
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "current",
-            "leading"
-        }
-    .end annotation
 
     const/4 v0, 0x0
 
@@ -436,222 +450,8 @@
     return v0
 .end method
 
-.method private getEdgeValue(FFFF)F
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "relativeValue",
-            "size",
-            "maxValue",
-            "current"
-        }
-    .end annotation
-
-    mul-float/2addr p1, p2
-
-    const/4 v0, 0x0
-
-    invoke-static {p1, v0, p3}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
-
-    move-result p1
-
-    invoke-direct {p0, p4, p1}, Landroidx/core/widget/AutoScrollHelper;->constrainEdgeValue(FF)F
-
-    move-result p3
-
-    sub-float/2addr p2, p4
-
-    invoke-direct {p0, p2, p1}, Landroidx/core/widget/AutoScrollHelper;->constrainEdgeValue(FF)F
-
-    move-result p1
-
-    sub-float/2addr p1, p3
-
-    cmpg-float p2, p1, v0
-
-    if-gez p2, :cond_0
-
-    iget-object p0, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeInterpolator:Landroid/view/animation/Interpolator;
-
-    neg-float p1, p1
-
-    invoke-interface {p0, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result p0
-
-    neg-float p0, p0
-
-    goto :goto_0
-
-    :cond_0
-    cmpl-float p2, p1, v0
-
-    if-lez p2, :cond_1
-
-    iget-object p0, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeInterpolator:Landroid/view/animation/Interpolator;
-
-    invoke-interface {p0, p1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result p0
-
-    :goto_0
-    const/high16 p1, -0x40800000    # -1.0f
-
-    const/high16 p2, 0x3f800000    # 1.0f
-
-    invoke-static {p0, p1, p2}, Landroidx/core/widget/AutoScrollHelper;->constrain(FFF)F
-
-    move-result p0
-
-    return p0
-
-    :cond_1
-    return v0
-.end method
-
-.method private requestStop()V
-    .locals 1
-
-    iget-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mNeedsReset:Z
-
-    if-eqz v0, :cond_0
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mAnimating:Z
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
-
-    invoke-virtual {p0}, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->requestStop()V
-
-    :goto_0
-    return-void
-.end method
-
-.method private startAnimating()V
-    .locals 6
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Ljava/lang/Runnable;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;
-
-    invoke-direct {v0, p0}, Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;-><init>(Landroidx/core/widget/AutoScrollHelper;)V
-
-    iput-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Ljava/lang/Runnable;
-
-    :cond_0
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mAnimating:Z
-
-    iput-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mNeedsReset:Z
-
-    iget-boolean v1, p0, Landroidx/core/widget/AutoScrollHelper;->mAlreadyDelayed:Z
-
-    if-nez v1, :cond_1
-
-    iget v1, p0, Landroidx/core/widget/AutoScrollHelper;->mActivationDelay:I
-
-    if-lez v1, :cond_1
-
-    iget-object v2, p0, Landroidx/core/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
-
-    iget-object v3, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Ljava/lang/Runnable;
-
-    int-to-long v4, v1
-
-    invoke-static {v2, v3, v4, v5}, Landroidx/core/view/ViewCompat;->postOnAnimationDelayed(Landroid/view/View;Ljava/lang/Runnable;J)V
-
-    goto :goto_0
-
-    :cond_1
-    iget-object v1, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Ljava/lang/Runnable;
-
-    invoke-interface {v1}, Ljava/lang/Runnable;->run()V
-
-    :goto_0
-    iput-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mAlreadyDelayed:Z
-
-    return-void
-.end method
-
-
-# virtual methods
-.method public abstract canTargetScrollHorizontally(I)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
-.end method
-
-.method public abstract canTargetScrollVertically(I)Z
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "direction"
-        }
-    .end annotation
-.end method
-
-.method cancelTargetTouch()V
-    .locals 8
-
-    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
-
-    move-result-wide v2
-
-    const/4 v4, 0x3
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    move-wide v0, v2
-
-    invoke-static/range {v0 .. v7}, Landroid/view/MotionEvent;->obtain(JJIFFI)Landroid/view/MotionEvent;
-
-    move-result-object v0
-
-    iget-object p0, p0, Landroidx/core/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
-
-    invoke-virtual {p0, v0}, Landroid/view/View;->onTouchEvent(Landroid/view/MotionEvent;)Z
-
-    invoke-virtual {v0}, Landroid/view/MotionEvent;->recycle()V
-
-    return-void
-.end method
-
-.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
+.method public final onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 5
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "v",
-            "event"
-        }
-    .end annotation
 
     iget-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mEnabled:Z
 
@@ -680,12 +480,12 @@
 
     if-eq v0, p1, :cond_1
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_1
-    invoke-direct {p0}, Landroidx/core/widget/AutoScrollHelper;->requestStop()V
+    invoke-virtual {p0}, Landroidx/core/widget/AutoScrollHelper;->requestStop()V
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_2
     iput-boolean v2, p0, Landroidx/core/widget/AutoScrollHelper;->mNeedsCancel:Z
@@ -711,7 +511,7 @@
 
     int-to-float v4, v4
 
-    invoke-direct {p0, v1, v0, v3, v4}, Landroidx/core/widget/AutoScrollHelper;->computeTargetVelocity(IFFF)F
+    invoke-virtual {p0, v0, v3, v4, v1}, Landroidx/core/widget/AutoScrollHelper;->computeTargetVelocity(FFFI)F
 
     move-result v0
 
@@ -733,334 +533,239 @@
 
     int-to-float v3, v3
 
-    invoke-direct {p0, v2, p2, p1, v3}, Landroidx/core/widget/AutoScrollHelper;->computeTargetVelocity(IFFF)F
+    invoke-virtual {p0, p2, p1, v3, v2}, Landroidx/core/widget/AutoScrollHelper;->computeTargetVelocity(FFFI)F
 
     move-result p1
 
     iget-object p2, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
 
-    invoke-virtual {p2, v0, p1}, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->setTargetVelocity(FF)V
+    iput v0, p2, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityX:F
+
+    iput p1, p2, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityY:F
 
     iget-boolean p1, p0, Landroidx/core/widget/AutoScrollHelper;->mAnimating:Z
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_6
 
     invoke-virtual {p0}, Landroidx/core/widget/AutoScrollHelper;->shouldAnimate()Z
 
     move-result p1
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
-    invoke-direct {p0}, Landroidx/core/widget/AutoScrollHelper;->startAnimating()V
+    iget-object p1, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;
+
+    if-nez p1, :cond_4
+
+    new-instance p1, Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;
+
+    invoke-direct {p1, p0}, Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;-><init>(Landroidx/core/widget/AutoScrollHelper;)V
+
+    iput-object p1, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;
 
     :cond_4
-    :goto_0
-    iget-boolean p1, p0, Landroidx/core/widget/AutoScrollHelper;->mExclusive:Z
+    iput-boolean v2, p0, Landroidx/core/widget/AutoScrollHelper;->mAnimating:Z
 
-    if-eqz p1, :cond_5
+    iput-boolean v2, p0, Landroidx/core/widget/AutoScrollHelper;->mNeedsReset:Z
 
-    iget-boolean p0, p0, Landroidx/core/widget/AutoScrollHelper;->mAnimating:Z
+    iget-boolean p1, p0, Landroidx/core/widget/AutoScrollHelper;->mAlreadyDelayed:Z
 
-    if-eqz p0, :cond_5
+    if-nez p1, :cond_5
 
-    move v1, v2
+    iget p1, p0, Landroidx/core/widget/AutoScrollHelper;->mActivationDelay:I
+
+    if-lez p1, :cond_5
+
+    iget-object p2, p0, Landroidx/core/widget/AutoScrollHelper;->mTarget:Landroid/view/View;
+
+    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;
+
+    int-to-long v3, p1
+
+    sget-object p1, Landroidx/core/view/ViewCompat;->sViewPropertyAnimatorMap:Ljava/util/WeakHashMap;
+
+    invoke-static {p2, v0, v3, v4}, Landroidx/core/view/ViewCompat$Api16Impl;->postOnAnimationDelayed(Landroid/view/View;Ljava/lang/Runnable;J)V
+
+    goto :goto_0
 
     :cond_5
+    iget-object p1, p0, Landroidx/core/widget/AutoScrollHelper;->mRunnable:Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;
+
+    invoke-virtual {p1}, Landroidx/core/widget/AutoScrollHelper$ScrollAnimationRunnable;->run()V
+
+    :goto_0
+    iput-boolean v2, p0, Landroidx/core/widget/AutoScrollHelper;->mAlreadyDelayed:Z
+
+    :cond_6
+    :goto_1
     return v1
 .end method
 
-.method public abstract scrollTargetBy(II)V
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "deltaX",
-            "deltaY"
-        }
-    .end annotation
-.end method
+.method public final requestStop()V
+    .locals 6
 
-.method public setActivationDelay(I)Landroidx/core/widget/AutoScrollHelper;
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "delayMillis"
-        }
-    .end annotation
+    iget-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mNeedsReset:Z
 
-    iput p1, p0, Landroidx/core/widget/AutoScrollHelper;->mActivationDelay:I
-
-    return-object p0
-.end method
-
-.method public setEdgeType(I)Landroidx/core/widget/AutoScrollHelper;
-    .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "type"
-        }
-    .end annotation
-
-    iput p1, p0, Landroidx/core/widget/AutoScrollHelper;->mEdgeType:I
-
-    return-object p0
-.end method
-
-.method public setEnabled(Z)Landroidx/core/widget/AutoScrollHelper;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "enabled"
-        }
-    .end annotation
-
-    iget-boolean v0, p0, Landroidx/core/widget/AutoScrollHelper;->mEnabled:Z
+    const/4 v1, 0x0
 
     if-eqz v0, :cond_0
 
-    if-nez p1, :cond_0
+    iput-boolean v1, p0, Landroidx/core/widget/AutoScrollHelper;->mAnimating:Z
 
-    invoke-direct {p0}, Landroidx/core/widget/AutoScrollHelper;->requestStop()V
+    goto :goto_1
 
     :cond_0
-    iput-boolean p1, p0, Landroidx/core/widget/AutoScrollHelper;->mEnabled:Z
+    iget-object p0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
 
-    return-object p0
-.end method
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
-.method public setMaximumEdges(FF)Landroidx/core/widget/AutoScrollHelper;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontalMax",
-            "verticalMax"
-        }
-    .end annotation
+    invoke-static {}, Landroid/view/animation/AnimationUtils;->currentAnimationTimeMillis()J
 
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumEdges:[F
+    move-result-wide v2
 
-    const/4 v1, 0x0
+    iget-wide v4, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStartTime:J
 
-    aput p1, v0, v1
+    sub-long v4, v2, v4
 
-    const/4 p1, 0x1
+    long-to-int v0, v4
 
-    aput p2, v0, p1
+    iget v4, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mRampDownDuration:I
 
-    return-object p0
-.end method
+    if-le v0, v4, :cond_1
 
-.method public setMaximumVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontalMax",
-            "verticalMax"
-        }
-    .end annotation
+    move v1, v4
 
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mMaximumVelocity:[F
-
-    const/high16 v1, 0x447a0000    # 1000.0f
-
-    div-float/2addr p1, v1
-
-    const/4 v2, 0x0
-
-    aput p1, v0, v2
-
-    div-float/2addr p2, v1
-
-    const/4 p1, 0x1
-
-    aput p2, v0, p1
-
-    return-object p0
-.end method
-
-.method public setMinimumVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontalMin",
-            "verticalMin"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mMinimumVelocity:[F
-
-    const/high16 v1, 0x447a0000    # 1000.0f
-
-    div-float/2addr p1, v1
-
-    const/4 v2, 0x0
-
-    aput p1, v0, v2
-
-    div-float/2addr p2, v1
-
-    const/4 p1, 0x1
-
-    aput p2, v0, p1
-
-    return-object p0
-.end method
-
-.method public setRampDownDuration(I)Landroidx/core/widget/AutoScrollHelper;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "durationMillis"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
-
-    invoke-virtual {v0, p1}, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->setRampDownDuration(I)V
-
-    return-object p0
-.end method
-
-.method public setRampUpDuration(I)Landroidx/core/widget/AutoScrollHelper;
-    .locals 1
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0
-        }
-        names = {
-            "durationMillis"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
-
-    invoke-virtual {v0, p1}, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->setRampUpDuration(I)V
-
-    return-object p0
-.end method
-
-.method public setRelativeEdges(FF)Landroidx/core/widget/AutoScrollHelper;
-    .locals 2
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontal",
-            "vertical"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeEdges:[F
-
-    const/4 v1, 0x0
-
-    aput p1, v0, v1
-
-    const/4 p1, 0x1
-
-    aput p2, v0, p1
-
-    return-object p0
-.end method
-
-.method public setRelativeVelocity(FF)Landroidx/core/widget/AutoScrollHelper;
-    .locals 3
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0
-        }
-        names = {
-            "horizontal",
-            "vertical"
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mRelativeVelocity:[F
-
-    const/high16 v1, 0x447a0000    # 1000.0f
-
-    div-float/2addr p1, v1
-
-    const/4 v2, 0x0
-
-    aput p1, v0, v2
-
-    div-float/2addr p2, v1
-
-    const/4 p1, 0x1
-
-    aput p2, v0, p1
-
-    return-object p0
-.end method
-
-.method shouldAnimate()Z
-    .locals 2
-
-    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
-
-    invoke-virtual {v0}, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->getVerticalDirection()I
-
-    move-result v1
-
-    invoke-virtual {v0}, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->getHorizontalDirection()I
-
-    move-result v0
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {p0, v1}, Landroidx/core/widget/AutoScrollHelper;->canTargetScrollVertically(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    :cond_0
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0, v0}, Landroidx/core/widget/AutoScrollHelper;->canTargetScrollHorizontally(I)Z
-
-    move-result p0
-
-    if-eqz p0, :cond_2
+    goto :goto_0
 
     :cond_1
-    const/4 p0, 0x1
+    if-gez v0, :cond_2
 
     goto :goto_0
 
     :cond_2
-    const/4 p0, 0x0
+    move v1, v0
 
     :goto_0
-    return p0
+    iput v1, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mEffectiveRampDown:I
+
+    invoke-virtual {p0, v2, v3}, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->getValueAt(J)F
+
+    move-result v0
+
+    iput v0, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStopValue:F
+
+    iput-wide v2, p0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mStopTime:J
+
+    :goto_1
+    return-void
+.end method
+
+.method public final shouldAnimate()Z
+    .locals 8
+
+    iget-object v0, p0, Landroidx/core/widget/AutoScrollHelper;->mScroller:Landroidx/core/widget/AutoScrollHelper$ClampedScroller;
+
+    iget v1, v0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityY:F
+
+    invoke-static {v1}, Ljava/lang/Math;->abs(F)F
+
+    move-result v2
+
+    div-float/2addr v1, v2
+
+    float-to-int v1, v1
+
+    iget v0, v0, Landroidx/core/widget/AutoScrollHelper$ClampedScroller;->mTargetVelocityX:F
+
+    invoke-static {v0}, Ljava/lang/Math;->abs(F)F
+
+    move-result v2
+
+    div-float/2addr v0, v2
+
+    float-to-int v0, v0
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    if-eqz v1, :cond_4
+
+    check-cast p0, Landroidx/core/widget/ListViewAutoScrollHelper;
+
+    iget-object p0, p0, Landroidx/core/widget/ListViewAutoScrollHelper;->mTarget:Landroid/widget/ListView;
+
+    invoke-virtual {p0}, Landroid/widget/ListView;->getCount()I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    :cond_0
+    :goto_0
+    move p0, v3
+
+    goto :goto_1
+
+    :cond_1
+    invoke-virtual {p0}, Landroid/widget/ListView;->getChildCount()I
+
+    move-result v5
+
+    invoke-virtual {p0}, Landroid/widget/ListView;->getFirstVisiblePosition()I
+
+    move-result v6
+
+    add-int v7, v6, v5
+
+    if-lez v1, :cond_2
+
+    if-lt v7, v4, :cond_3
+
+    sub-int/2addr v5, v2
+
+    invoke-virtual {p0, v5}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/View;->getBottom()I
+
+    move-result v1
+
+    invoke-virtual {p0}, Landroid/widget/ListView;->getHeight()I
+
+    move-result p0
+
+    if-gt v1, p0, :cond_3
+
+    goto :goto_0
+
+    :cond_2
+    if-gez v1, :cond_0
+
+    if-gtz v6, :cond_3
+
+    invoke-virtual {p0, v3}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
+
+    move-result-object p0
+
+    invoke-virtual {p0}, Landroid/view/View;->getTop()I
+
+    move-result p0
+
+    if-ltz p0, :cond_3
+
+    goto :goto_0
+
+    :cond_3
+    move p0, v2
+
+    :goto_1
+    if-nez p0, :cond_5
+
+    :cond_4
+    move v2, v3
+
+    :cond_5
+    return v2
 .end method

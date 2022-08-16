@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/RegionInterceptingFrameLayout$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/view/ViewTreeObserver$OnComputeInternalInsetsListener;

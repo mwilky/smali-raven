@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/widget/ActivityChooserView$1;
+.class public final Landroidx/appcompat/widget/ActivityChooserView$1;
 .super Landroid/database/DataSetObserver;
 .source "ActivityChooserView.java"
 
@@ -9,17 +9,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
+.field public final synthetic this$0:Landroidx/appcompat/widget/ActivityChooserView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
+.method public constructor <init>(Landroidx/appcompat/widget/ActivityChooserView;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/widget/ActivityChooserView$1;->this$0:Landroidx/appcompat/widget/ActivityChooserView;
@@ -31,7 +31,7 @@
 
 
 # virtual methods
-.method public onChanged()V
+.method public final onChanged()V
     .locals 0
 
     invoke-super {p0}, Landroid/database/DataSetObserver;->onChanged()V
@@ -45,7 +45,7 @@
     return-void
 .end method
 
-.method public onInvalidated()V
+.method public final onInvalidated()V
     .locals 0
 
     invoke-super {p0}, Landroid/database/DataSetObserver;->onInvalidated()V

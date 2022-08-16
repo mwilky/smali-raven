@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x10
+    accessFlags = 0x11
     name = "UsbThermalEventListener"
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/power/PowerUI;
+.field public final synthetic this$0:Lcom/android/systemui/power/PowerUI;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/power/PowerUI;)V
+.method public constructor <init>(Lcom/android/systemui/power/PowerUI;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/power/PowerUI$UsbThermalEventListener;->this$0:Lcom/android/systemui/power/PowerUI;
@@ -34,7 +34,7 @@
 
 
 # virtual methods
-.method public notifyThrottling(Landroid/os/Temperature;)V
+.method public final notifyThrottling(Landroid/os/Temperature;)V
     .locals 2
 
     invoke-virtual {p1}, Landroid/os/Temperature;->getStatus()I
@@ -47,9 +47,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/power/PowerUI$UsbThermalEventListener;->this$0:Lcom/android/systemui/power/PowerUI;
 
-    invoke-static {p0}, Lcom/android/systemui/power/PowerUI;->access$1000(Lcom/android/systemui/power/PowerUI;)Lcom/android/systemui/power/PowerUI$WarningsUI;
-
-    move-result-object p0
+    iget-object p0, p0, Lcom/android/systemui/power/PowerUI;->mWarnings:Lcom/android/systemui/power/PowerUI$WarningsUI;
 
     invoke-interface {p0}, Lcom/android/systemui/power/PowerUI$WarningsUI;->showUsbHighTemperatureAlarm()V
 

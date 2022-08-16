@@ -1,4 +1,4 @@
-.class final Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
+.class public final Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;
 .super Ljava/lang/Object;
 .source "InternetTile.java"
 
@@ -9,21 +9,29 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x19
     name = "EthernetCallbackInfo"
 .end annotation
 
 
 # instance fields
-.field mConnected:Z
+.field public mConnected:Z
 
-.field mEthernetContentDescription:Ljava/lang/String;
+.field public mEthernetContentDescription:Ljava/lang/String;
 
-.field mEthernetSignalIconId:I
+.field public mEthernetSignalIconId:I
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
+    .locals 0
+
+    const/4 p0, 0x0
+
+    throw p0
+.end method
+
+.method public constructor <init>(I)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -31,17 +39,9 @@
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/systemui/qs/tiles/InternetTile$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/qs/tiles/InternetTile$EthernetCallbackInfo;-><init>()V
-
-    return-void
-.end method
-
 
 # virtual methods
-.method public toString()Ljava/lang/String;
+.method public final toString()Ljava/lang/String;
     .locals 2
 
     new-instance v0, Ljava/lang/StringBuilder;

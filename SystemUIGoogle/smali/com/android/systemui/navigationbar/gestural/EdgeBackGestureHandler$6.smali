@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$6;
+.class public final Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$6;
 .super Ljava/lang/Object;
 .source "EdgeBackGestureHandler.java"
 
@@ -12,17 +12,17 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
+    accessFlags = 0x1
     name = null
 .end annotation
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
+.field public final synthetic this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
+.method public constructor <init>(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$6;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
@@ -34,12 +34,12 @@
 
 
 # virtual methods
-.method public onSystemUiStateChanged(I)V
+.method public final onSystemUiStateChanged(I)V
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler$6;->this$0:Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;
 
-    invoke-static {p0, p1}, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->access$1902(Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;I)I
+    iput p1, p0, Lcom/android/systemui/navigationbar/gestural/EdgeBackGestureHandler;->mSysUiFlags:I
 
     return-void
 .end method

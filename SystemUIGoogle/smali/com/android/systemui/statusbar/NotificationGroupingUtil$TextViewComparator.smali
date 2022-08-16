@@ -1,4 +1,4 @@
-.class Lcom/android/systemui/statusbar/NotificationGroupingUtil$TextViewComparator;
+.class public Lcom/android/systemui/statusbar/NotificationGroupingUtil$TextViewComparator;
 .super Ljava/lang/Object;
 .source "NotificationGroupingUtil.java"
 
@@ -12,24 +12,16 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "TextViewComparator"
 .end annotation
 
 
 # direct methods
-.method private constructor <init>()V
+.method public constructor <init>()V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    return-void
-.end method
-
-.method synthetic constructor <init>(Lcom/android/systemui/statusbar/NotificationGroupingUtil$1;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/NotificationGroupingUtil$TextViewComparator;-><init>()V
 
     return-void
 .end method
@@ -41,40 +33,32 @@
 
     check-cast p1, Landroid/widget/TextView;
 
-    const-string p0, ""
-
     if-nez p1, :cond_0
 
-    move-object p1, p0
+    const-string p0, ""
 
     goto :goto_0
 
     :cond_0
     invoke-virtual {p1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object p1
+    move-result-object p0
 
     :goto_0
     check-cast p2, Landroid/widget/TextView;
 
-    if-nez p2, :cond_1
-
-    goto :goto_1
-
-    :cond_1
     invoke-virtual {p2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object p0
+    move-result-object p1
 
-    :goto_1
-    invoke-static {p1, p0}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+    invoke-static {p0, p1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
 
     move-result p0
 
     return p0
 .end method
 
-.method public isEmpty(Landroid/view/View;)Z
+.method public final isEmpty(Landroid/view/View;)Z
     .locals 0
 
     if-eqz p1, :cond_1

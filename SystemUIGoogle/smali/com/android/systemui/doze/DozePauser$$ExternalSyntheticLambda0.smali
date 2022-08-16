@@ -1,5 +1,6 @@
 .class public final synthetic Lcom/android/systemui/doze/DozePauser$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
 .implements Landroid/app/AlarmManager$OnAlarmListener;
@@ -23,11 +24,15 @@
 
 # virtual methods
 .method public final onAlarm()V
-    .locals 0
+    .locals 1
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozePauser$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/doze/DozePauser;
 
-    invoke-static {p0}, Lcom/android/systemui/doze/DozePauser;->$r8$lambda$FVkmNuZ6KH2bD4WjyZqi1lKUmUE(Lcom/android/systemui/doze/DozePauser;)V
+    iget-object p0, p0, Lcom/android/systemui/doze/DozePauser;->mMachine:Lcom/android/systemui/doze/DozeMachine;
+
+    sget-object v0, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_AOD_PAUSED:Lcom/android/systemui/doze/DozeMachine$State;
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/doze/DozeMachine;->requestState(Lcom/android/systemui/doze/DozeMachine$State;)V
 
     return-void
 .end method

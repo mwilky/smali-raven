@@ -1,45 +1,67 @@
 .class public final synthetic Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;
 .super Ljava/lang/Object;
+.source "R8$$SyntheticClass"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/function/Predicate;
 
 
 # instance fields
-.field public final synthetic f$0:Lcom/android/systemui/qs/QSTileHost;
-
-.field public final synthetic f$1:Lcom/android/systemui/tuner/TunerService;
-
-.field public final synthetic f$2:Ljavax/inject/Provider;
+.field public final synthetic $r8$classId:I
 
 
 # direct methods
-.method public synthetic constructor <init>(Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;)V
+.method public synthetic constructor <init>(I)V
     .locals 0
 
+    iput p1, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->$r8$classId:I
+
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    iput-object p1, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/QSTileHost;
-
-    iput-object p2, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->f$1:Lcom/android/systemui/tuner/TunerService;
-
-    iput-object p3, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->f$2:Ljavax/inject/Provider;
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final run()V
-    .locals 2
+.method public final test(Ljava/lang/Object;)Z
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->f$0:Lcom/android/systemui/qs/QSTileHost;
+    iget p0, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->$r8$classId:I
 
-    iget-object v1, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->f$1:Lcom/android/systemui/tuner/TunerService;
+    packed-switch p0, :pswitch_data_0
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSTileHost$$ExternalSyntheticLambda0;->f$2:Ljavax/inject/Provider;
+    goto :goto_0
 
-    invoke-static {v0, v1, p0}, Lcom/android/systemui/qs/QSTileHost;->$r8$lambda$XnnK_0WQ5wdF75eDMbUERBqrjpk(Lcom/android/systemui/qs/QSTileHost;Lcom/android/systemui/tuner/TunerService;Ljavax/inject/Provider;)V
+    :pswitch_0
+    check-cast p1, Landroid/content/pm/ShortcutInfo;
 
-    return-void
+    invoke-static {p1}, Ljava/util/Objects;->nonNull(Ljava/lang/Object;)Z
+
+    move-result p0
+
+    return p0
+
+    :pswitch_1
+    check-cast p1, Lcom/android/systemui/plugins/qs/QSTile;
+
+    instance-of p0, p1, Lcom/android/systemui/Dumpable;
+
+    return p0
+
+    :goto_0
+    check-cast p1, Landroid/net/wifi/WifiConfiguration;
+
+    iget-boolean p0, p1, Landroid/net/wifi/WifiConfiguration;->carrierMerged:Z
+
+    xor-int/lit8 p0, p0, 0x1
+
+    return p0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
 .end method

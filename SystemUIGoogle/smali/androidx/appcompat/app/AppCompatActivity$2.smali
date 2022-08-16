@@ -1,4 +1,4 @@
-.class Landroidx/appcompat/app/AppCompatActivity$2;
+.class public final Landroidx/appcompat/app/AppCompatActivity$2;
 .super Ljava/lang/Object;
 .source "AppCompatActivity.java"
 
@@ -6,23 +6,12 @@
 .implements Landroidx/activity/contextaware/OnContextAvailableListener;
 
 
-# annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Landroidx/appcompat/app/AppCompatActivity;->initDelegate()V
-.end annotation
-
-.annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x0
-    name = null
-.end annotation
-
-
 # instance fields
-.field final synthetic this$0:Landroidx/appcompat/app/AppCompatActivity;
+.field public final synthetic this$0:Landroidx/appcompat/app/AppCompatActivity;
 
 
 # direct methods
-.method constructor <init>(Landroidx/appcompat/app/AppCompatActivity;)V
+.method public constructor <init>(Landroidx/appcompat/app/AppCompatActivity;)V
     .locals 0
 
     iput-object p1, p0, Landroidx/appcompat/app/AppCompatActivity$2;->this$0:Landroidx/appcompat/app/AppCompatActivity;
@@ -34,30 +23,28 @@
 
 
 # virtual methods
-.method public onContextAvailable(Landroid/content/Context;)V
-    .locals 1
+.method public final onContextAvailable()V
+    .locals 2
 
-    iget-object p1, p0, Landroidx/appcompat/app/AppCompatActivity$2;->this$0:Landroidx/appcompat/app/AppCompatActivity;
+    iget-object v0, p0, Landroidx/appcompat/app/AppCompatActivity$2;->this$0:Landroidx/appcompat/app/AppCompatActivity;
 
-    invoke-virtual {p1}, Landroidx/appcompat/app/AppCompatActivity;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
+    invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatActivity;->getDelegate()Landroidx/appcompat/app/AppCompatDelegate;
 
-    move-result-object p1
+    move-result-object v0
 
-    invoke-virtual {p1}, Landroidx/appcompat/app/AppCompatDelegate;->installViewFactory()V
+    invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDelegate;->installViewFactory()V
 
     iget-object p0, p0, Landroidx/appcompat/app/AppCompatActivity$2;->this$0:Landroidx/appcompat/app/AppCompatActivity;
 
-    invoke-virtual {p0}, Landroidx/activity/ComponentActivity;->getSavedStateRegistry()Landroidx/savedstate/SavedStateRegistry;
+    iget-object p0, p0, Landroidx/activity/ComponentActivity;->mSavedStateRegistryController:Landroidx/savedstate/SavedStateRegistryController;
 
-    move-result-object p0
+    iget-object p0, p0, Landroidx/savedstate/SavedStateRegistryController;->mRegistry:Landroidx/savedstate/SavedStateRegistry;
 
-    const-string v0, "androidx:appcompat"
+    const-string v1, "androidx:appcompat"
 
-    invoke-virtual {p0, v0}, Landroidx/savedstate/SavedStateRegistry;->consumeRestoredStateForKey(Ljava/lang/String;)Landroid/os/Bundle;
+    invoke-virtual {p0, v1}, Landroidx/savedstate/SavedStateRegistry;->consumeRestoredStateForKey(Ljava/lang/String;)Landroid/os/Bundle;
 
-    move-result-object p0
-
-    invoke-virtual {p1, p0}, Landroidx/appcompat/app/AppCompatDelegate;->onCreate(Landroid/os/Bundle;)V
+    invoke-virtual {v0}, Landroidx/appcompat/app/AppCompatDelegate;->onCreate()V
 
     return-void
 .end method

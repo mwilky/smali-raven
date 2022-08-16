@@ -1,4 +1,4 @@
-.class Landroidx/slice/widget/GridRowView$TimeSetListener;
+.class public final Landroidx/slice/widget/GridRowView$TimeSetListener;
 .super Ljava/lang/Object;
 .source "GridRowView.java"
 
@@ -12,34 +12,22 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x2
+    accessFlags = 0x1
     name = "TimeSetListener"
 .end annotation
 
 
 # instance fields
-.field private final mActionItem:Landroidx/slice/SliceItem;
+.field public final mActionItem:Landroidx/slice/SliceItem;
 
-.field private final mRowIndex:I
+.field public final mRowIndex:I
 
-.field final synthetic this$0:Landroidx/slice/widget/GridRowView;
+.field public final synthetic this$0:Landroidx/slice/widget/GridRowView;
 
 
 # direct methods
-.method constructor <init>(Landroidx/slice/widget/GridRowView;Landroidx/slice/SliceItem;I)V
+.method public constructor <init>(Landroidx/slice/widget/GridRowView;Landroidx/slice/SliceItem;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x1010,
-            0x0,
-            0x0
-        }
-        names = {
-            "this$0",
-            "timePickerItem",
-            "mRowIndex"
-        }
-    .end annotation
 
     iput-object p1, p0, Landroidx/slice/widget/GridRowView$TimeSetListener;->this$0:Landroidx/slice/widget/GridRowView;
 
@@ -54,20 +42,8 @@
 
 
 # virtual methods
-.method public onTimeSet(Landroid/widget/TimePicker;II)V
+.method public final onTimeSet(Landroid/widget/TimePicker;II)V
     .locals 4
-    .annotation system Ldalvik/annotation/MethodParameters;
-        accessFlags = {
-            0x0,
-            0x0,
-            0x0
-        }
-        names = {
-            "timePicker",
-            "hour",
-            "minute"
-        }
-    .end annotation
 
     invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
@@ -112,35 +88,11 @@
 
     move-result-object p1
 
-    invoke-virtual {p2, p3, p1}, Landroidx/slice/SliceItem;->fireAction(Landroid/content/Context;Landroid/content/Intent;)V
+    invoke-virtual {p2, p3, p1}, Landroidx/slice/SliceItem;->fireActionInternal(Landroid/content/Context;Landroid/content/Intent;)Z
 
-    iget-object p1, p0, Landroidx/slice/widget/GridRowView$TimeSetListener;->this$0:Landroidx/slice/widget/GridRowView;
+    iget-object p0, p0, Landroidx/slice/widget/GridRowView$TimeSetListener;->this$0:Landroidx/slice/widget/GridRowView;
 
-    iget-object p2, p1, Landroidx/slice/widget/SliceChildView;->mObserver:Landroidx/slice/widget/SliceView$OnSliceActionListener;
-
-    if-eqz p2, :cond_0
-
-    new-instance p2, Landroidx/slice/widget/EventInfo;
-
-    invoke-virtual {p1}, Landroidx/slice/widget/SliceChildView;->getMode()I
-
-    move-result p1
-
-    const/4 p3, 0x7
-
-    const/16 v0, 0x8
-
-    iget v1, p0, Landroidx/slice/widget/GridRowView$TimeSetListener;->mRowIndex:I
-
-    invoke-direct {p2, p1, p3, v0, v1}, Landroidx/slice/widget/EventInfo;-><init>(IIII)V
-
-    iget-object p1, p0, Landroidx/slice/widget/GridRowView$TimeSetListener;->this$0:Landroidx/slice/widget/GridRowView;
-
-    iget-object p1, p1, Landroidx/slice/widget/SliceChildView;->mObserver:Landroidx/slice/widget/SliceView$OnSliceActionListener;
-
-    iget-object p0, p0, Landroidx/slice/widget/GridRowView$TimeSetListener;->mActionItem:Landroidx/slice/SliceItem;
-
-    invoke-interface {p1, p2, p0}, Landroidx/slice/widget/SliceView$OnSliceActionListener;->onSliceAction(Landroidx/slice/widget/EventInfo;Landroidx/slice/SliceItem;)V
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
     :try_end_0
     .catch Landroid/app/PendingIntent$CanceledException; {:try_start_0 .. :try_end_0} :catch_0
 

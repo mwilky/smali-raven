@@ -15,37 +15,37 @@
 
 
 # static fields
-.field private static mClipRect:Landroid/graphics/Rect;
+.field public static mClipRect:Landroid/graphics/Rect;
 
 
 # instance fields
-.field private mActualHeight:I
+.field public mActualHeight:I
 
-.field private mChangingPosition:Z
+.field public mChangingPosition:Z
 
-.field protected mClipBottomAmount:I
+.field public mClipBottomAmount:I
 
-.field private mClipToActualHeight:Z
+.field public mClipToActualHeight:Z
 
-.field protected mClipTopAmount:I
+.field public mClipTopAmount:I
 
-.field protected mContentShift:I
+.field public mContentShift:I
 
-.field protected mContentTransformationAmount:F
+.field public mContentTransformationAmount:F
 
-.field private mContentTranslation:F
+.field public mContentTranslation:F
 
-.field protected mExtraWidthForClipping:F
+.field public mExtraWidthForClipping:F
 
-.field protected mFirstInSection:Z
+.field public mFirstInSection:Z
 
-.field private mInShelf:Z
+.field public mInShelf:Z
 
-.field protected mIsLastChild:Z
+.field public mIsLastChild:Z
 
-.field protected mLastInSection:Z
+.field public mLastInSection:Z
 
-.field private mMatchParentViews:Ljava/util/ArrayList;
+.field public mMatchParentViews:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/ArrayList<",
@@ -55,30 +55,20 @@
     .end annotation
 .end field
 
-.field private mMinClipTopAmount:I
+.field public mMinimumHeightForClipping:I
 
-.field protected mMinimumHeightForClipping:I
+.field public mOnHeightChangedListener:Lcom/android/systemui/statusbar/notification/row/ExpandableView$OnHeightChangedListener;
 
-.field protected mOnHeightChangedListener:Lcom/android/systemui/statusbar/notification/row/ExpandableView$OnHeightChangedListener;
+.field public mTransformingInShelf:Z
 
-.field private mTransformingInShelf:Z
+.field public mTransientContainer:Landroid/view/ViewGroup;
 
-.field private mTransientContainer:Landroid/view/ViewGroup;
+.field public final mViewState:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
 
-.field private final mViewState:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-
-.field private mWillBeGone:Z
+.field public mWillBeGone:Z
 
 
 # direct methods
-.method public static synthetic $r8$lambda$8lP5DDf0j4bA8CP9zwcMiMXJ3f0(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/util/IndentingPrintWriter;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->lambda$dump$0(Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/util/IndentingPrintWriter;)V
-
-    return-void
-.end method
-
 .method static constructor <clinit>()V
     .locals 1
 
@@ -110,8 +100,6 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMatchParentViews:Ljava/util/ArrayList;
 
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMinClipTopAmount:I
-
     const/4 p2, 0x1
 
     iput-boolean p2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipToActualHeight:Z
@@ -124,76 +112,23 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mViewState:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->initDimens()V
-
-    return-void
-.end method
-
-.method private initDimens()V
-    .locals 2
-
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v0
+    move-result-object p1
 
-    sget v1, Lcom/android/systemui/R$dimen;->shelf_transform_content_shift:I
+    const p2, 0x7f070747
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {p1, p2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v0
+    move-result p1
 
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentShift:I
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentShift:I
 
-    return-void
-.end method
-
-.method private synthetic lambda$dump$0(Ljava/io/FileDescriptor;[Ljava/lang/String;Landroid/util/IndentingPrintWriter;)V
-    .locals 0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-
-    move-result-object p0
-
-    if-nez p0, :cond_0
-
-    const-string p0, "no viewState!!!"
-
-    invoke-virtual {p3, p0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p0, p1, p3, p2}, Lcom/android/systemui/statusbar/notification/stack/ViewState;->dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
-
-    invoke-virtual {p3}, Landroid/util/IndentingPrintWriter;->println()V
-
-    :goto_0
     return-void
 .end method
 
 
 # virtual methods
-.method protected applyContentTransformation(FF)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public applyViewState()V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mViewState:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-
-    iget-boolean v1, v0, Lcom/android/systemui/statusbar/notification/stack/ViewState;->gone:Z
-
-    if-nez v1, :cond_0
-
-    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;->applyToView(Landroid/view/View;)V
-
-    :cond_0
-    return-void
-.end method
-
 .method public areChildrenExpanded()Z
     .locals 0
 
@@ -202,7 +137,7 @@
     return p0
 .end method
 
-.method protected createExpandableViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
+.method public createExpandableViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
     .locals 0
 
     new-instance p0, Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
@@ -212,8 +147,12 @@
     return-object p0
 .end method
 
-.method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
+.method public dump(Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 1
+
+    invoke-static {p1}, Landroidx/core/R$styleable;->asIndenting(Ljava/io/PrintWriter;)Landroid/util/IndentingPrintWriter;
+
+    move-result-object p1
 
     invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
 
@@ -223,26 +162,18 @@
 
     move-result-object v0
 
-    invoke-virtual {p2, v0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+    invoke-virtual {p1, v0}, Landroid/util/IndentingPrintWriter;->println(Ljava/lang/String;)V
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/row/ExpandableView$$ExternalSyntheticLambda0;
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/android/systemui/statusbar/notification/row/ExpandableView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Ljava/io/FileDescriptor;[Ljava/lang/String;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/statusbar/notification/row/ExpandableView$$ExternalSyntheticLambda0;-><init>(Lcom/android/systemui/statusbar/notification/row/ExpandableView;Landroid/util/IndentingPrintWriter;[Ljava/lang/String;)V
 
-    invoke-static {p2, v0}, Lcom/android/systemui/util/DumpUtilsKt;->withIndenting(Ljava/io/PrintWriter;Ljava/util/function/Consumer;)V
+    invoke-static {p1, v0}, Landroidx/core/R$styleable;->withIncreasedIndent(Landroid/util/IndentingPrintWriter;Ljava/lang/Runnable;)V
 
     return-void
 .end method
 
-.method public getActualHeight()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
-
-    return p0
-.end method
-
-.method public getBoundsOnScreen(Landroid/graphics/Rect;Z)V
+.method public final getBoundsOnScreen(Landroid/graphics/Rect;Z)V
     .locals 2
 
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->getBoundsOnScreen(Landroid/graphics/Rect;Z)V
@@ -257,11 +188,11 @@
 
     move-result v0
 
-    add-float/2addr p2, v0
+    add-float/2addr v0, p2
 
-    const/4 v0, 0x0
+    const/4 p2, 0x0
 
-    cmpg-float p2, p2, v0
+    cmpg-float p2, v0, p2
 
     if-gez p2, :cond_0
 
@@ -279,52 +210,36 @@
 
     move-result v1
 
-    add-float/2addr v0, v1
+    add-float/2addr v1, v0
 
-    add-float/2addr p2, v0
+    add-float/2addr v1, p2
 
-    float-to-int p2, p2
+    float-to-int p2, v1
 
     iput p2, p1, Landroid/graphics/Rect;->top:I
 
     :cond_0
     iget p2, p1, Landroid/graphics/Rect;->top:I
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
-    move-result v0
+    add-int/2addr v0, p2
 
-    add-int/2addr p2, v0
+    iput v0, p1, Landroid/graphics/Rect;->bottom:I
 
-    iput p2, p1, Landroid/graphics/Rect;->bottom:I
-
-    iget p2, p1, Landroid/graphics/Rect;->top:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getClipTopAmount()I
-
-    move-result p0
-
-    add-int/2addr p2, p0
-
-    iput p2, p1, Landroid/graphics/Rect;->top:I
-
-    return-void
-.end method
-
-.method public getClipBottomAmount()I
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipBottomAmount:I
-
-    return p0
-.end method
-
-.method public getClipTopAmount()I
-    .locals 0
+    const/4 v0, 0x0
 
     iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipTopAmount:I
 
-    return p0
+    invoke-static {v0, p0}, Ljava/lang/Math;->max(II)I
+
+    move-result p0
+
+    add-int/2addr p0, p2
+
+    iput p0, p1, Landroid/graphics/Rect;->top:I
+
+    return-void
 .end method
 
 .method public getCollapsedHeight()I
@@ -337,25 +252,7 @@
     return p0
 .end method
 
-.method protected getContentTransformationShift()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentShift:I
-
-    int-to-float p0, p0
-
-    return p0
-.end method
-
-.method public getContentTranslation()F
-    .locals 0
-
-    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentTranslation:F
-
-    return p0
-.end method
-
-.method public getDrawingRect(Landroid/graphics/Rect;)V
+.method public final getDrawingRect(Landroid/graphics/Rect;)V
     .locals 2
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->getDrawingRect(Landroid/graphics/Rect;)V
@@ -368,9 +265,9 @@
 
     move-result v1
 
-    add-float/2addr v0, v1
+    add-float/2addr v1, v0
 
-    float-to-int v0, v0
+    float-to-int v0, v1
 
     iput v0, p1, Landroid/graphics/Rect;->left:I
 
@@ -382,9 +279,9 @@
 
     move-result v1
 
-    add-float/2addr v0, v1
+    add-float/2addr v1, v0
 
-    float-to-int v0, v0
+    float-to-int v0, v1
 
     iput v0, p1, Landroid/graphics/Rect;->right:I
 
@@ -396,17 +293,15 @@
 
     move-result v1
 
-    add-float/2addr v0, v1
+    add-float/2addr v1, v0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
-    move-result v1
+    int-to-float v0, v0
 
-    int-to-float v1, v1
+    add-float/2addr v1, v0
 
-    add-float/2addr v0, v1
-
-    float-to-int v0, v0
+    float-to-int v0, v1
 
     iput v0, p1, Landroid/graphics/Rect;->bottom:I
 
@@ -418,29 +313,25 @@
 
     move-result v1
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getClipTopAmount()I
-
-    move-result p0
+    iget p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipTopAmount:I
 
     int-to-float p0, p0
 
     add-float/2addr v1, p0
 
-    add-float/2addr v0, v1
+    add-float/2addr v1, v0
 
-    float-to-int p0, v0
+    float-to-int p0, v1
 
     iput p0, p1, Landroid/graphics/Rect;->top:I
 
     return-void
 .end method
 
-.method public getExtraBottomPadding()I
+.method public getExtraBottomPadding()V
     .locals 0
 
-    const/4 p0, 0x0
-
-    return p0
+    return-void
 .end method
 
 .method public getHeaderVisibleAmount()F
@@ -475,18 +366,6 @@
     .locals 0
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
-
-    move-result p0
-
-    return p0
-.end method
-
-.method public getMinHeight()I
-    .locals 1
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getMinHeight(Z)I
 
     move-result p0
 
@@ -529,7 +408,7 @@
     return p0
 .end method
 
-.method public getRelativeTopPadding(Landroid/view/View;)I
+.method public final getRelativeTopPadding(Landroid/view/View;)I
     .locals 2
 
     const/4 v0, 0x0
@@ -577,14 +456,6 @@
     return-object p0
 .end method
 
-.method public getTransientContainer()Landroid/view/ViewGroup;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransientContainer:Landroid/view/ViewGroup;
-
-    return-object p0
-.end method
-
 .method public getTranslation()F
     .locals 0
 
@@ -595,23 +466,7 @@
     return p0
 .end method
 
-.method public getViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mViewState:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-
-    return-object p0
-.end method
-
 .method public hasExpandingChild()Z
-    .locals 0
-
-    const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public hasNoContentHeight()Z
     .locals 0
 
     const/4 p0, 0x0
@@ -628,9 +483,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
-
-    move-result v0
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
     invoke-virtual {p0}, Landroid/widget/FrameLayout;->getHeight()I
 
@@ -653,14 +506,6 @@
     .locals 0
 
     const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public isChangingPosition()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mChangingPosition:Z
 
     return p0
 .end method
@@ -689,14 +534,6 @@
     return p0
 .end method
 
-.method public isFirstInSection()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mFirstInSection:Z
-
-    return p0
-.end method
-
 .method public isGroupExpanded()Z
     .locals 0
 
@@ -717,22 +554,6 @@
     .locals 0
 
     const/4 p0, 0x0
-
-    return p0
-.end method
-
-.method public isInShelf()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mInShelf:Z
-
-    return p0
-.end method
-
-.method public isLastInSection()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mLastInSection:Z
 
     return p0
 .end method
@@ -761,14 +582,6 @@
     return p0
 .end method
 
-.method public isTransformingIntoShelf()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransformingInShelf:Z
-
-    return p0
-.end method
-
 .method public isTransparent()Z
     .locals 0
 
@@ -788,7 +601,9 @@
 .method public needsClippingToShelf()Z
     .locals 0
 
-    const/4 p0, 0x1
+    instance-of p0, p0, Lcom/android/systemui/statusbar/NotificationShelf;
+
+    xor-int/lit8 p0, p0, 0x1
 
     return p0
 .end method
@@ -806,30 +621,27 @@
     return-void
 .end method
 
-.method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 0
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 1
 
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->initDimens()V
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object p1
+
+    const v0, 0x7f070747
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result p1
+
+    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentShift:I
 
     return-void
 .end method
 
-.method public onHeightReset()V
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mOnHeightChangedListener:Lcom/android/systemui/statusbar/notification/row/ExpandableView$OnHeightChangedListener;
-
-    if-eqz v0, :cond_0
-
-    invoke-interface {v0, p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView$OnHeightChangedListener;->onReset(Lcom/android/systemui/statusbar/notification/row/ExpandableView;)V
-
-    :cond_0
-    return-void
-.end method
-
-.method protected onLayout(ZIIII)V
+.method public onLayout(ZIIII)V
     .locals 0
 
     invoke-super/range {p0 .. p5}, Landroid/widget/FrameLayout;->onLayout(ZIIII)V
@@ -839,7 +651,7 @@
     return-void
 .end method
 
-.method protected onMeasure(II)V
+.method public onMeasure(II)V
     .locals 12
 
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getSize(I)I
@@ -854,26 +666,26 @@
 
     move-result v2
 
-    add-int/2addr v1, v2
+    add-int/2addr v2, v1
 
     invoke-static {p2}, Landroid/view/View$MeasureSpec;->getMode(I)I
 
     move-result p2
 
-    const v2, 0x7fffffff
+    const v1, 0x7fffffff
 
     if-eqz p2, :cond_0
 
     if-eqz v0, :cond_0
 
-    invoke-static {v0, v2}, Ljava/lang/Math;->min(II)I
+    invoke-static {v0, v1}, Ljava/lang/Math;->min(II)I
 
-    move-result v2
+    move-result v1
 
     :cond_0
     const/high16 v3, -0x80000000
 
-    invoke-static {v2, v3}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
+    invoke-static {v1, v3}, Landroid/view/View$MeasureSpec;->makeMeasureSpec(II)I
 
     move-result v3
 
@@ -917,7 +729,7 @@
 
     if-ltz v10, :cond_2
 
-    invoke-static {v10, v2}, Ljava/lang/Math;->min(II)I
+    invoke-static {v10, v1}, Ljava/lang/Math;->min(II)I
 
     move-result v10
 
@@ -933,7 +745,7 @@
     :goto_1
     iget v9, v9, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    invoke-static {p1, v1, v9}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
+    invoke-static {p1, v2, v9}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
 
     move-result v9
 
@@ -965,7 +777,7 @@
     goto :goto_3
 
     :cond_5
-    invoke-static {v2, v6}, Ljava/lang/Math;->min(II)I
+    invoke-static {v1, v6}, Ljava/lang/Math;->min(II)I
 
     move-result v0
 
@@ -974,20 +786,20 @@
 
     move-result p2
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMatchParentViews:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMatchParentViews:Ljava/util/ArrayList;
 
-    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v1
 
     :goto_4
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
     if-eqz v3, :cond_6
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -999,7 +811,7 @@
 
     iget v4, v4, Landroid/view/ViewGroup$LayoutParams;->width:I
 
-    invoke-static {p1, v1, v4}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
+    invoke-static {p1, v2, v4}, Landroid/widget/FrameLayout;->getChildMeasureSpec(III)I
 
     move-result v4
 
@@ -1021,6 +833,22 @@
     return-void
 .end method
 
+.method public performAddAnimation(JJ)V
+    .locals 6
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    move-wide v1, p1
+
+    move-wide v3, p3
+
+    invoke-virtual/range {v0 .. v5}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->performAddAnimation(JJZ)V
+
+    return-void
+.end method
+
 .method public abstract performAddAnimation(JJZ)V
 .end method
 
@@ -1028,21 +856,27 @@
 .end method
 
 .method public pointInView(FFF)Z
-    .locals 3
+    .locals 4
 
     iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipTopAmount:I
 
+    const/4 v1, 0x0
+
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+
+    move-result v0
+
     int-to-float v0, v0
 
-    iget v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
+    iget v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
-    int-to-float v1, v1
+    int-to-float v2, v2
 
-    neg-float v2, p3
+    neg-float v3, p3
 
-    cmpl-float v2, p1, v2
+    cmpl-float v3, p1, v3
 
-    if-ltz v2, :cond_0
+    if-ltz v3, :cond_0
 
     sub-float/2addr v0, p3
 
@@ -1064,24 +898,214 @@
 
     if-gez p0, :cond_0
 
-    add-float/2addr v1, p3
+    add-float/2addr v2, p3
 
-    cmpg-float p0, p2, v1
+    cmpg-float p0, p2, v2
 
     if-gez p0, :cond_0
 
-    const/4 p0, 0x1
-
-    goto :goto_0
+    const/4 v1, 0x1
 
     :cond_0
-    const/4 p0, 0x0
-
-    :goto_0
-    return p0
+    return v1
 .end method
 
-.method public resetViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
+.method public final removeFromTransientContainer()V
+    .locals 5
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransientContainer:Landroid/view/ViewGroup;
+
+    if-nez v0, :cond_0
+
+    return-void
+
+    :cond_0
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    if-eq v1, v0, :cond_1
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Expandable view "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v4, " has transient container "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v0, " but different parent "
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "ExpandableView"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransientContainer:Landroid/view/ViewGroup;
+
+    return-void
+
+    :cond_1
+    invoke-virtual {v0, p0}, Landroid/view/ViewGroup;->removeTransientView(Landroid/view/View;)V
+
+    iput-object v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransientContainer:Landroid/view/ViewGroup;
+
+    return-void
+.end method
+
+.method public final removeFromTransientContainerForAdditionTo(Landroid/view/ViewGroup;)V
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/widget/FrameLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransientContainer:Landroid/view/ViewGroup;
+
+    if-eqz v0, :cond_3
+
+    if-ne v0, p1, :cond_0
+
+    goto/16 :goto_0
+
+    :cond_0
+    if-eqz v1, :cond_2
+
+    if-ne v1, v0, :cond_1
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Removing view "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v2, " from transient container "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v2, " in preparation for moving to parent "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p1
+
+    const-string v0, "ExpandableView"
+
+    invoke-static {v0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v1, p0}, Landroid/view/ViewGroup;->removeTransientView(Landroid/view/View;)V
+
+    const/4 p1, 0x0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransientContainer:Landroid/view/ViewGroup;
+
+    return-void
+
+    :cond_1
+    new-instance p1, Ljava/lang/IllegalStateException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Expandable view "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p0, " has transient container "
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p0, " but different parent "
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {p1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw p1
+
+    :cond_2
+    new-instance v1, Ljava/lang/IllegalStateException;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "Can\'t add view "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p0, " to container "
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p0, "; current parent "
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string p0, " is not a transient container"
+
+    invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p0
+
+    invoke-direct {v1, p0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_3
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->removeFromTransientContainer()V
+
+    return-void
+.end method
+
+.method public final resetViewState()V
     .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mViewState:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
@@ -1158,56 +1182,40 @@
 
     if-eqz v0, :cond_1
 
-    move-object v0, p0
+    check-cast p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    check-cast v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getAttachedChildren()Ljava/util/List;
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->getAttachedChildren()Ljava/util/List;
+    move-result-object v0
 
-    move-result-object v1
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->mIsSummaryWithChildren:Z
 
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;->isSummaryWithChildren()Z
+    if-eqz p0, :cond_1
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p0
+
+    :goto_1
+    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_1
 
-    if-eqz v1, :cond_1
-
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    check-cast v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
 
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow;
-
-    invoke-virtual {v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->resetViewState()Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->resetViewState()V
 
     goto :goto_1
 
     :cond_1
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mViewState:Lcom/android/systemui/statusbar/notification/stack/ExpandableViewState;
-
-    return-object p0
-.end method
-
-.method public setActualHeight(I)V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, p1, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->setActualHeight(IZ)V
-
     return-void
 .end method
 
@@ -1248,28 +1256,10 @@
     return p0
 .end method
 
-.method public setChangingPosition(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mChangingPosition:Z
-
-    return-void
-.end method
-
 .method public setClipBottomAmount(I)V
     .locals 0
 
     iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipBottomAmount:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->updateClipping()V
-
-    return-void
-.end method
-
-.method public setClipToActualHeight(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipToActualHeight:Z
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->updateClipping()V
 
@@ -1286,77 +1276,8 @@
     return-void
 .end method
 
-.method public setContentTransformationAmount(FZ)V
-    .locals 4
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mIsLastChild:Z
-
-    const/4 v1, 0x1
-
-    const/4 v2, 0x0
-
-    if-eq p2, v0, :cond_0
-
-    move v0, v1
-
-    goto :goto_0
-
-    :cond_0
-    move v0, v2
-
-    :goto_0
-    iget v3, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentTransformationAmount:F
-
-    cmpl-float v3, v3, p1
-
-    if-eqz v3, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    move v1, v2
-
-    :goto_1
-    or-int/2addr v0, v1
-
-    iput-boolean p2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mIsLastChild:Z
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentTransformationAmount:F
-
-    if-eqz v0, :cond_2
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->updateContentTransformation()V
-
-    :cond_2
-    return-void
-.end method
-
-.method public setDimmed(ZZ)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public setExtraWidthForClipping(F)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mExtraWidthForClipping:F
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->updateClipping()V
-
-    return-void
-.end method
-
 .method public setFakeShadowIntensity(FFII)V
     .locals 0
-
-    return-void
-.end method
-
-.method public setFirstInSection(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mFirstInSection:Z
 
     return-void
 .end method
@@ -1379,23 +1300,7 @@
     return-void
 .end method
 
-.method public setInShelf(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mInShelf:Z
-
-    return-void
-.end method
-
-.method public setLastInSection(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mLastInSection:Z
-
-    return-void
-.end method
-
-.method public setLayerType(ILandroid/graphics/Paint;)V
+.method public final setLayerType(ILandroid/graphics/Paint;)V
     .locals 1
 
     if-eqz p1, :cond_0
@@ -1413,32 +1318,6 @@
     return-void
 .end method
 
-.method public setMinClipTopAmount(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMinClipTopAmount:I
-
-    return-void
-.end method
-
-.method public setMinimumHeightForClipping(I)V
-    .locals 0
-
-    iput p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mMinimumHeightForClipping:I
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->updateClipping()V
-
-    return-void
-.end method
-
-.method public setOnHeightChangedListener(Lcom/android/systemui/statusbar/notification/row/ExpandableView$OnHeightChangedListener;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mOnHeightChangedListener:Lcom/android/systemui/statusbar/notification/row/ExpandableView$OnHeightChangedListener;
-
-    return-void
-.end method
-
 .method public setTopRoundness(FZ)Z
     .locals 0
 
@@ -1447,39 +1326,7 @@
     return p0
 .end method
 
-.method public setTransformingInShelf(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransformingInShelf:Z
-
-    return-void
-.end method
-
-.method public setTransientContainer(Landroid/view/ViewGroup;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mTransientContainer:Landroid/view/ViewGroup;
-
-    return-void
-.end method
-
-.method public setTranslation(F)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Landroid/widget/FrameLayout;->setTranslationX(F)V
-
-    return-void
-.end method
-
-.method public setWillBeGone(Z)V
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mWillBeGone:Z
-
-    return-void
-.end method
-
-.method protected shouldClipToActualHeight()Z
+.method public shouldClipToActualHeight()Z
     .locals 0
 
     const/4 p0, 0x1
@@ -1495,7 +1342,7 @@
     return p0
 .end method
 
-.method protected updateClipping()V
+.method public updateClipping()V
     .locals 6
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipToActualHeight:Z
@@ -1508,25 +1355,21 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getClipTopAmount()I
+    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipTopAmount:I
 
-    move-result v0
+    iget v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mActualHeight:I
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getActualHeight()I
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getExtraBottomPadding()V
 
-    move-result v1
+    const/4 v2, 0x0
 
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getExtraBottomPadding()I
+    add-int/2addr v2, v1
 
-    move-result v2
+    iget v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipBottomAmount:I
 
-    add-int/2addr v1, v2
+    sub-int/2addr v2, v1
 
-    iget v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mClipBottomAmount:I
-
-    sub-int/2addr v1, v2
-
-    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+    invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v1
 
@@ -1569,61 +1412,4 @@
 
     :goto_0
     return-void
-.end method
-
-.method protected updateContentTransformation()V
-    .locals 4
-
-    iget v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentTransformationAmount:F
-
-    neg-float v0, v0
-
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->getContentTransformationShift()F
-
-    move-result v1
-
-    mul-float/2addr v0, v1
-
-    iget v1, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentTransformationAmount:F
-
-    const/high16 v2, 0x3f800000    # 1.0f
-
-    sub-float v1, v2, v1
-
-    const/high16 v3, 0x3f000000    # 0.5f
-
-    div-float/2addr v1, v3
-
-    invoke-static {v1, v2}, Ljava/lang/Math;->min(FF)F
-
-    move-result v1
-
-    sget-object v2, Lcom/android/systemui/animation/Interpolators;->ALPHA_OUT:Landroid/view/animation/Interpolator;
-
-    invoke-interface {v2, v1}, Landroid/view/animation/Interpolator;->getInterpolation(F)F
-
-    move-result v1
-
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mIsLastChild:Z
-
-    if-eqz v2, :cond_0
-
-    const v2, 0x3ecccccd    # 0.4f
-
-    mul-float/2addr v0, v2
-
-    :cond_0
-    iput v0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mContentTranslation:F
-
-    invoke-virtual {p0, v1, v0}, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->applyContentTransformation(FF)V
-
-    return-void
-.end method
-
-.method public willBeGone()Z
-    .locals 0
-
-    iget-boolean p0, p0, Lcom/android/systemui/statusbar/notification/row/ExpandableView;->mWillBeGone:Z
-
-    return p0
 .end method
